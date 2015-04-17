@@ -1,0 +1,10 @@
+# Files
+.classpath
+.project
+.settings
+.DS_Store
+nb-configuration.xml
+jboss.xml
+
+#dirs
+target

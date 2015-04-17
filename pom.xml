@@ -1,0 +1,1069 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ JBoss, Home of Professional Open Source.
+  ~ Copyright 2010, Red Hat, Inc., and individual contributors
+  ~ as indicated by the @author tags. See the copyright.txt file in the
+  ~ distribution for a full listing of individual contributors.
+  ~
+  ~ This is free software; you can redistribute it and/or modify it
+  ~ under the terms of the GNU Lesser General Public License as
+  ~ published by the Free Software Foundation; either version 2.1 of
+  ~ the License, or (at your option) any later version.
+  ~
+  ~ This software is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  ~ Lesser General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Lesser General Public
+  ~ License along with this software; if not, write to the Free
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+  -->
+
+
+<!--
+    1. The testsuite module has a small number of submodules:
+
+    integration - holds all integration tests for AS7.
+    compat      - holds all compatibility management tests for AS7.
+    domain      - holds all domain management tests for AS7.
+    benchmark   - holds all benchmark tests for AS7.
+    stress      - holds all stress tests for AS7.
+
+    All tests should fit into one of these four categories.
+
+    2. This pom is inherited by all submodules and should be used to do the following:
+       - Set defaults for common testsuite system properties (which can then be overridden on the command line).
+       - Define dependencies common to all tests (Arquillian, junit or testng, and container type).
+       - Provide a workaround for @Resource(lookup=...) which requires libraries in jbossas/endorsed.
+       - Define a default server configuration installed into target/jboasas in each submodule, which
+         represents an unmodified copy of the AS server. Custom server configurations are defined in the submodules.
+       - Define profiles to allow selection of which test modules will be executed.
+
+    3. This pom should not be used to do the following:
+       - Define module-specific server configuration build steps.
+       - Define module-specific surefire executions.
+       These elements should be defined in logical profiles associated with each logical grouping of tests,
+       in the pom for the module which contains the tests. See the submodule poms for more details.
+
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jboss.as</groupId>
+        <artifactId>jboss-as-parent</artifactId>
+        <version>7.5.0.Final-redhat-SNAPSHOT</version>
+    </parent>
+
+    <groupId>org.jboss.as</groupId>
+    <artifactId>jboss-as-testsuite</artifactId>
+    <version>7.5.0.Final-redhat-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>JBoss Application Server Test Suite: Aggregator</name>
+
+    <modules>
+        <module>integration</module>
+    </modules>
+
+
+    <!-- Global testsuite system properties defaults. -->
+
+    <properties>
+        <jboss.project.basedir>/home/panos/NetBeansProjects/gitOfficial/jboss-eap6.xL</jboss.project.basedir>
+        <!-- Current module's directory. Will automatically pick up sub-module's basedir. -->
+        <jbossas.ts.submodule.dir>${basedir}</jbossas.ts.submodule.dir>
+        <!-- Integration module's directory. To be overriden in sub-modules. -->
+        <jbossas.ts.integ.dir>${basedir}/integration</jbossas.ts.integ.dir>
+        <!-- This project's testsuite dir. To be changed for every submodule (until we figure out how to do it automatically). -->
+        <jbossas.ts.dir>${basedir}</jbossas.ts.dir>
+        <!-- This project's root dir. -->
+        <jbossas.project.dir>${jboss.project.basedir}</jbossas.project.dir>
+
+
+        <!-- Used to provide an absolute location for the distribution under test. -->
+        <!-- This value is overridden in modules with the correct relative pathname. -->
+        <jboss.dist>${jboss.project.basedir}/build/target/jboss-as-${jboss.as.release.version}</jboss.dist>
+        <jboss.home>${jboss.dist}</jboss.home>
+
+        <!-- Used to provide an absolute location for the XSLT scripts. -->
+        <!-- This value is overridden in modules with the correct relative pathname. -->
+        <xslt.scripts.dir>${jbossas.ts.integ.dir}/src/test/xslt</xslt.scripts.dir>
+
+        <!-- IP address defaults. -->
+        <node0>127.0.0.1</node0>
+        <node1>127.0.0.1</node1>
+        <mcast>230.0.0.4</mcast> <!-- Default multicast address. -->
+
+        <!-- IP stack configs. -->
+        <jvm.args.ip>-Djava.net.preferIPv4Stack=true -Djava.net.preferIPv6Addresses=false</jvm.args.ip>
+        <jvm.args.ip.server>${jvm.args.ip}</jvm.args.ip.server>
+        <jvm.args.ip.client>${jvm.args.ip}</jvm.args.ip.client>
+
+        <!-- Security. -->
+        <jvm.args.securityManager></jvm.args.securityManager>
+        <jvm.args.securityPolicy></jvm.args.securityPolicy>
+        <jvm.args.securityManagerOther></jvm.args.securityManagerOther>
+        <jvm.args.security>${jvm.args.securityManager} ${jvm.args.securityPolicy} ${jvm.args.securityManagerOther}</jvm.args.security>
+
+        <!-- Additional JVM args, like those for EC2. -->
+        <jvm.args.other></jvm.args.other>
+
+
+        <!-- JaCoCo - Code coverage (-Dcoverage). -->
+        <jvm.args.jacoco></jvm.args.jacoco>
+
+        <!-- Logging config -->
+        <testLogToFile>true</testLogToFile>
+
+        <!-- Timeout ratios. 100 will leave the timeout as it was coded. -->
+        <timeout.factor>100</timeout.factor>
+        <jvm.args.timeouts>-Dts.timeout.factor=${timeout.factor}</jvm.args.timeouts>
+
+        <!-- Database properties. -->
+        <ds.db></ds.db>
+        <ds.jdbc.driver></ds.jdbc.driver>
+        <ds.jdbc.driver-xa></ds.jdbc.driver-xa>
+        <ds.jdbc.driver.version></ds.jdbc.driver.version>
+        <ds.jdbc.url></ds.jdbc.url>
+        <ds.jdbc.user>test</ds.jdbc.user>
+        <ds.jdbc.pass>test</ds.jdbc.pass>
+        <ds.jdbc.driver.jar>${ds.db}-jdbc-driver.jar</ds.jdbc.driver.jar>
+        <ds.module.path></ds.module.path>
+        <ds.isModule>false</ds.isModule>
+        <ds.jdbc.driver.target.path>${basedir}/target/jbossas/standalone/deployments</ds.jdbc.driver.target.path>
+
+        <!-- Common surefire properties. -->
+        <surefire.memory.args>-Xmx512m -XX:MaxPermSize=256m</surefire.memory.args>
+        <surefire.jpda.args></surefire.jpda.args>
+        <as.debug.port>8787</as.debug.port>
+        <surefire.system.args>${surefire.memory.args} ${surefire.jpda.args} -Djboss.dist=${jboss.dist}</surefire.system.args>
+        <surefire.forked.process.timeout>1500</surefire.forked.process.timeout>
+
+        <!-- Arquillian dependency versions -->
+        <version.arquillian_core>${version.org.jboss.arquillian.core}</version.arquillian_core>
+        <version.arquillian_as7>${project.parent.version}</version.arquillian_as7>
+        <version.saxon>8.7</version.saxon>
+
+        <!-- Don't try to deploy the testsuite modules because they don't build jars -->
+        <maven.deploy.skip>true</maven.deploy.skip>
+
+        <!-- used to enable trace logging for test suite runs -->
+        <trace>none</trace>
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Arquillian bill of materials, used to configure Arquillian versions -->
+            <dependency>
+                <groupId>org.jboss.arquillian</groupId>
+                <artifactId>arquillian-bom</artifactId>
+                <version>${version.arquillian_core}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.as</groupId>
+            <artifactId>jboss-as-testsuite-shared</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.as</groupId>
+            <artifactId>jboss-as-build</artifactId>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>org.projectodd.stilts</groupId>
+            <artifactId>stilts-stomp-client</artifactId>
+               <exclusions>
+                  <!-- use io.netty:netty instead -->
+                   <exclusion>
+                       <groupId>org.jboss.netty</groupId>
+                       <artifactId>netty</artifactId>
+                   </exclusion>
+               </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.projectodd.stilts</groupId>
+            <artifactId>stilts-stomplet-server-core</artifactId>
+               <exclusions>
+                  <!-- use io.netty:netty instead -->
+                   <exclusion>
+                       <groupId>org.jboss.netty</groupId>
+                       <artifactId>netty</artifactId>
+                   </exclusion>
+               </exclusions>
+        </dependency>
+        <!-- Needed for @Resource(lookup=). -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.annotation</groupId>
+            <artifactId>jboss-annotations-api_1.1_spec</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.junit</groupId>
+            <artifactId>arquillian-junit-container</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.testenricher</groupId>
+            <artifactId>arquillian-testenricher-initialcontext</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.as</groupId>
+            <artifactId>jboss-as-arquillian-container-managed</artifactId>
+            <version>${version.arquillian_as7}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+            <testResource>
+                <directory>src/test/java</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </testResource>
+        </testResources>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <version>1.0-alpha-2</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals><goal>write-project-properties</goal></goals>
+                        <configuration><outputFile>target/help.properties.txt</outputFile></configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--
+                Provide jboss-annotations-api_1.1_spec to compiler as endorsed.
+                Big complex hack just to get @Resource(lookup="foo").  AS7-3123
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <inherited>true</inherited>  <!-- Needed for compilation of all submodules. -->
+                <executions combine.children="append">
+                    <execution>
+                        <id>copy-annotations-endorsed</id>
+                        <goals><goal>copy</goal></goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.jboss.spec.javax.annotation</groupId>
+                                    <artifactId>jboss-annotations-api_1.1_spec</artifactId>
+                                </artifactItem>
+                            </artifactItems>
+                            <outputDirectory>${project.build.directory}/endorsed</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <compilerArgument>-Djava.endorsed.dirs=${project.build.directory}/endorsed</compilerArgument>
+                </configuration>
+                <!-- Don't compile src/main/java - nothing to do. -->
+                <executions><execution><id>default-compile</id><phase>none</phase></execution></executions>
+            </plugin>
+
+            <!--
+                A build of target/jbossas which is shared by all modules.
+                Modules and bundles are not copied as they are read-only (see surefire props).
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions combine.children="append">
+                    <!-- Copy the AS into current_submodule/target/jbossas . This is executed recursively in submodules. -->
+                    <execution>
+                        <id>ts.copy-jbossas.groups</id>
+                        <inherited>true</inherited>
+                        <phase>generate-test-resources</phase>
+                        <goals><goal>copy-resources</goal></goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/jbossas</outputDirectory>
+                            <overwrite>true</overwrite>
+                            <resources>
+                                <resource>
+                                    <directory>${jboss.home}</directory>
+                                    <excludes>
+                                        <exclude>modules/</exclude>
+                                        <exclude>bundles/</exclude>
+                                        <exclude>standalone/data</exclude>
+                                        <exclude>standalone/log</exclude>
+                                        <exclude>standalone/tmp</exclude>
+                                    </excludes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--
+                Adjust IP addresses used in server config files.
+             -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>xml-maven-plugin</artifactId>
+                <executions combine.children="append">
+                    <execution>
+                        <id>ts.config-as.ip</id>
+                        <phase>process-test-resources</phase>
+                        <goals><goal>transform</goal></goals>
+                        <inherited>true</inherited>
+                        <configuration>
+                            <transformationSets>
+                                <!-- IPs. -->
+                                <transformationSet>
+                                    <dir>${basedir}/target/jbossas/standalone/configuration</dir>
+                                    <outputDir>${basedir}/target/jbossas/standalone/configuration</outputDir>
+                                    <stylesheet>${xslt.scripts.dir}/changeIPAddresses.xsl</stylesheet>
+                                    <includes>
+                                        <include>standalone*.xml</include>
+                                    </includes>
+                                    <parameters>
+                                        <parameter><name>managementIPAddress</name>    <value>${node0}</value></parameter>
+                                        <parameter><name>publicIPAddress</name>        <value>${node0}</value></parameter>
+
+                                        <parameter><name>udpMcastAddress</name>        <value>${mcast}</value></parameter>
+                                        <parameter><name>mpingMcastAddress</name>      <value>${mcast}</value></parameter>
+                                        <parameter><name>modclusterMcastAddress</name> <value>${mcast}</value></parameter>
+                                    </parameters>
+                                </transformationSet>
+                            </transformationSets>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>ts.config-as.trace-logging</id>
+                        <phase>process-test-resources</phase>
+                        <goals><goal>transform</goal></goals>
+                        <inherited>true</inherited>
+                        <configuration>
+                            <transformationSets>
+                                <!-- IPs. -->
+                                <transformationSet>
+                                    <dir>${basedir}/target/jbossas/standalone/configuration</dir>
+                                    <outputDir>${basedir}/target/jbossas/standalone/configuration</outputDir>
+                                    <stylesheet>${xslt.scripts.dir}/enableTrace.xsl</stylesheet>
+                                    <includes>
+                                        <include>standalone*.xml</include>
+                                    </includes>
+                                    <parameters>
+                                        <parameter><name>trace</name>    <value>${trace}</value></parameter>
+                                    </parameters>
+                                </transformationSet>
+                            </transformationSets>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>xalan</groupId>
+                        <artifactId>xalan</artifactId>
+                        <version>2.7.1</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <!--
+                Sets general surefire system properties.
+                These can be overridden by inheriting plugin configurations.
+             -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <failIfNoTests>false</failIfNoTests>
+                    <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
+                    <systemPropertyVariables>
+                        <jboss.options>${surefire.system.args} ${jvm.args.jacoco}</jboss.options>
+                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+                        <jboss.dist>${jboss.dist}</jboss.dist>
+                        <jboss.home>${basedir}/target/jbossas</jboss.home>
+                        <module.path>${jboss.dist}/modules${path.separator}${basedir}/target/modules</module.path>
+                        <bundle.path>${jboss.dist}/bundles</bundle.path>
+                    </systemPropertyVariables>
+                    <!-- Arquillian's config files. -->
+                    <additionalClasspathElements combine.children="append">
+                        <additionalClasspathElement>${basedir}/src/test/config/arq</additionalClasspathElement>
+                    </additionalClasspathElements>
+                </configuration>
+            </plugin>
+
+            <!-- Disable default site run. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.0</version>
+                <executions><execution><id>default-site</id><phase>none</phase></execution></executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions combine.self="override">
+
+                    <!-- Run the reporting tool. -->
+                    <execution>
+                        <id>reporting</id>
+                        <phase>site</phase>
+                        <goals><goal>run</goal></goals>
+                        <inherited>false</inherited>
+                        <configuration>
+                            <target>
+                                <ant dir="${basedir}" antfile="${basedir}/tools/reporting/buildReports.xml">
+                                    <!-- Defaults.
+                                    <property name="reporting.dir" value="${basedir}/tools/reporting"/>
+                                    <property name="reports.dest.dir" value="${basedir}/target/reports"/>
+                                    <property name="reports.src.mask" value="**/target/surefire-reports/TEST-*.xml"/>
+                                    -->
+                                    <target name="reports"/>
+                                </ant>
+                            </target>
+                        </configuration>
+                    </execution>
+
+                    <!-- Help banner. -->
+                    <execution>
+                        <id>banner</id>
+                        <phase>initialize</phase>
+                        <goals><goal>run</goal></goals>
+                        <inherited>false</inherited>
+                        <configuration>
+                            <target>
+                                <loadfile property="help.banner" srcFile="${basedir}/tools/help-banner.txt"/>
+                                <echo>${help.banner}</echo>
+                            </target>
+                        </configuration>
+                    </execution>
+
+                </executions>
+                <dependencies>
+                    <!-- Todo: Move to <pluginManagement>. -->
+                    <dependency>
+                        <groupId>ant</groupId>
+                        <artifactId>ant-junit</artifactId>
+                        <version>1.6.5</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>xalan</groupId>
+                        <artifactId>xalan</artifactId>
+                        <version>2.7.1</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <!-- Don't create jars - nothing to do. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions><execution><id>default-jar</id><phase>none</phase></execution></executions>
+            </plugin>
+
+            <!-- Don't create source jars - nothing to do. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions><execution><id>attach-sources</id><phase>none</phase></execution></executions>
+            </plugin>
+
+            <!-- Don't run checkstyle - nothing in src/java. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <executions><execution><id>check-style</id><phase>none</phase></execution></executions>
+            </plugin>
+
+            <!-- Don't install - nothing to do. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <executions><execution><id>default-install</id><phase>none</phase></execution></executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+
+        <!--
+           Module profiles
+           - used to activate modules alone or in combination
+           - naming convention: X.module.profile activated by -DX.module
+           - this requires that a default profile be set for each module
+        -->
+        <profile>
+            <id>all-modules.module.profile</id>
+            <activation><property><name>allTests</name></property></activation>
+            <modules>
+                <module>integration</module>
+            </modules>
+        </profile>
+
+        <!--
+          Debugging profiles.
+        -->
+        <profile>
+            <id>debug.profile</id>
+            <activation><property><name>debug</name></property></activation>
+            <properties>
+                <surefire.jpda.args>-agentlib:jdwp=transport=dt_socket,address=${as.debug.port},server=y,suspend=y</surefire.jpda.args>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>xml-maven-plugin</artifactId>
+                        <executions combine.children="append">
+                            <execution>
+                                <id>ts.config-as.saml-debug</id>
+                                <phase>process-test-resources</phase>
+                                <goals><goal>transform</goal></goals>
+                                <inherited>true</inherited>
+                                <configuration>
+                                    <transformationSets>
+                                        <transformationSet>
+                                            <dir>${basedir}/target/jbossas/standalone/configuration</dir>
+                                            <outputDir>${basedir}/target/jbossas/standalone/configuration</outputDir>
+                                            <stylesheet>${xslt.scripts.dir}/addSAMLTokenTimeout.xsl</stylesheet>
+                                            <includes>
+                                                <include>standalone*.xml</include>
+                                            </includes>
+                                            <parameters>
+                                                <parameter><name>samlTokenTomeout</name><value>3600000</value></parameter>
+                                                <parameter><name>samlClockSkew</name><value>1000</value></parameter>
+                                            </parameters>
+                                        </transformationSet>
+                                    </transformationSets>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!--
+          Database config profiles.
+          Changing the default database involves:
+            * Adding a dependency for the database driver.
+            * Changing the server configuration file.
+            * Deploying the driver via the server's deployments directory.
+
+          DEFAULT DATASOURCE implementation note:
+            There are two ways:
+            *  Leaving the default DS as distributed in AS, or
+            *  Having a default set of properties and executing DS config even without -Dds=... specified.
+            Currently it's the 2nd.
+            Changing to 1st would need moving DS transformation from ts.config-as.ip-and-ds to this profile.
+
+          Usage:
+             mvn clean install -rf testsuite -Dds=mysql51
+
+          See: https://community.jboss.org/wiki/DataSourceConfigurationInAS7
+        -->
+
+        <profile>
+            <id>ds.createModule.profile</id>
+            <activation><property><name>ds.createModule</name></property></activation>
+            <properties>
+                <ds.jdbc.driver.target.path>${basedir}/target/modules/${ds.module.path}/main</ds.jdbc.driver.target.path>
+                <ds.isModule>true</ds.isModule>
+            </properties>
+            <build>
+                <plugins>
+                     <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>xml-maven-plugin</artifactId>
+                        <executions combine.children="append">
+                            <!-- Edit template module.xml -->
+                            <execution>
+                                <id>ts.config-as.db.change-datasource-module</id>
+                                <phase>process-test-sources</phase>
+                                <goals><goal>transform</goal></goals>
+                                <inherited>true</inherited>
+                                <configuration>
+                                    <transformationSets>
+                                        <transformationSet>
+                                            <dir      >${basedir}/target/jdbcDrivers</dir>
+                                            <outputDir>${basedir}/target/jdbcDrivers</outputDir>
+                                            <stylesheet>${xslt.scripts.dir}/changeModule.xsl</stylesheet>
+                                            <includes>
+                                                <include>module.xml</include>
+                                            </includes>
+                                            <parameters>
+                                                <parameter><name>ds.jdbc.driver.resource</name><value>${ds.jdbc.driver.jar}</value></parameter>
+                                                <parameter><name>ds.jdbc.driver.module.path</name><value>${ds.module.path}</value></parameter>
+                                            </parameters>
+                                        </transformationSet>
+                                    </transformationSets>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-resources-plugin</artifactId>
+                         <executions combine.children="append">
+                            <!-- Copy template module.xml to working directory -->
+                            <execution>
+                               <id>ts.config-as.db.copy-jdbc-module-template</id>
+                               <phase>generate-test-sources</phase>
+                               <goals><goal>copy-resources</goal></goals>
+                               <inherited>true</inherited>
+                               <configuration>
+                                  <outputDirectory>${basedir}/target/jdbcDrivers</outputDirectory>
+                                     <resources>
+                                        <resource>
+                                           <directory>${xslt.scripts.dir}</directory>
+                                           <filtering>true</filtering>
+                                           <includes>
+                                              <include>module.xml</include>
+                                           </includes>
+                                        </resource>
+                                     </resources>
+                               </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+	    </build>
+        </profile>
+
+
+        <profile>
+            <!--
+                Profile used to perform database related changes.
+            -->
+            <id>ds.profile</id>
+            <activation><property><name>ds</name></property></activation>
+            <dependencies>
+                <dependency>
+                    <groupId>jdbcdrivers</groupId>
+                    <artifactId>${ds.db}</artifactId>
+                    <version>${ds.jdbc.driver.version}</version>
+                </dependency>
+            </dependencies>
+            <repositories>
+                <repository>
+                    <id>JBoss QA repository</id>
+                    <url>http://nexus.qa.jboss.com:8081/nexus/content/repositories/thirdparty</url>
+                </repository>
+            </repositories>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <executions combine.children="append">
+                          <!-- Copy the JDBC driver to target/jdbcDrivers. -->
+                            <execution>
+                                <id>ts.config-as.db.copy-jdbc-jars</id>
+                                <goals><goal>copy</goal></goals>
+                                <phase>generate-test-resources</phase>
+                                <inherited>true</inherited>
+                                <configuration>
+                                    <artifactItems>
+                                        <artifactItem>
+                                            <groupId>jdbcdrivers</groupId>
+                                            <artifactId>${ds.db}</artifactId>
+                                            <version>${ds.jdbc.driver.version}</version>
+                                            <destFileName>${ds.jdbc.driver.jar}</destFileName>
+                                        </artifactItem>
+                                    </artifactItems>
+                                    <outputDirectory>${basedir}/target/jdbcDrivers</outputDirectory>
+                                    <stripVersion>true</stripVersion>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>xml-maven-plugin</artifactId>
+                        <executions combine.children="append">
+                            <!-- Replace ExampleDS datasource in server configurations (target/jbossas). -->
+                            <execution>
+                                <id>ts.config-as.db.change-datasource</id>
+                                <phase>process-test-resources</phase>
+                                <goals><goal>transform</goal></goals>
+                                <inherited>true</inherited>
+                                <configuration>
+                                    <transformationSets>
+                                        <transformationSet>
+                                            <dir      >${basedir}/target/jbossas/standalone/configuration</dir>
+                                            <outputDir>${basedir}/target/jbossas/standalone/configuration</outputDir>
+                                            <stylesheet>${xslt.scripts.dir}/changeDatabase.xsl</stylesheet>
+                                            <includes>
+                                                <include>standalone*.xml</include>
+                                            </includes>
+                                            <parameters>
+                                                <parameter><name>ds.jdbc.url</name><value>${ds.jdbc.url}</value></parameter>
+                                                <parameter><name>ds.jdbc.user</name><value>${ds.jdbc.user}</value></parameter>
+                                                <parameter><name>ds.jdbc.pass</name><value>${ds.jdbc.pass}</value></parameter>
+                                                <parameter><name>ds.jdbc.driver</name><value>${ds.jdbc.driver-xa}</value></parameter>
+                                                <parameter><name>ds.jdbc.driver.jar</name><value>${ds.jdbc.driver.jar}</value></parameter>
+                                                <parameter><name>ds.jdbc.driver.module</name><value>${ds.module.path}</value></parameter>
+                                                <parameter><name>ds.jdbc.isModule</name><value>${ds.isModule}</value></parameter>
+                                            </parameters>
+                                        </transformationSet>
+                                    </transformationSets>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-resources-plugin</artifactId>
+                         <executions combine.children="append">
+                            <!-- Copy JDBC driver and module.xml (if ds.createModule) to deploy folder in targed/jbossas/ (or to module folder target/modules/) -->
+                            <execution>
+                                <id>deploy-database-driver.server</id>
+                                <phase>process-test-resources</phase>
+                                <goals><goal>copy-resources</goal></goals>
+                                <inherited>true</inherited>
+                                <configuration>
+                                    <outputDirectory>${ds.jdbc.driver.target.path}</outputDirectory>
+                                    <overwrite>true</overwrite>
+                                    <resources>
+                                        <resource>
+                                            <directory>${basedir}/target/jdbcDrivers</directory>
+                                            <includes>
+                                                <include>${ds.db}-jdbc-driver.jar</include>
+                                                <include>module.xml</include>
+                                            </includes>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+	    </build>
+        </profile>
+        <!-- Testsuite debugging info. -->
+        <profile>
+            <id>help</id>
+            <build>
+                <plugins>
+                    <!-- Testsuite debugging info. -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-help-plugin</artifactId>
+                        <version>${version.help.plugin}</version>
+                        <inherited>true</inherited>
+                        <executions>
+                            <execution>
+                                <id>help.active-profiles</id>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>active-profiles</goal>
+                                </goals>
+                                <configuration>
+                                    <output>target/help.active-profiles.txt</output>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>help.effective-pom</id>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>effective-pom</goal>
+                                </goals>
+                                <configuration>
+                                    <output>target/help.effective-pom.txt</output>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>help.effective-settings</id>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>effective-settings</goal>
+                                </goals>
+                                <configuration>
+                                    <output>target/help.effective-settings.txt</output>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>help.system</id>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>system</goal>
+                                </goals>
+                                <configuration>
+                                    <output>target/help.system.txt</output>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+
+        <!-- JaCoCo test coverage. Will set ${jvm.args.jacoco} to be used in Arquillian config. -->
+        <profile>
+            <id>ts.jacoco.profile</id>
+            <activation><property><name>coverage</name></property></activation>
+            <properties>
+                <jvm.args.jacoco>-javaagent:${jbossas.ts.dir}/target/jacoco-jars/agent/jacocoagent.jar=destfile=${basedir}/target/jacoco.exec,includes=*,excludes=org.jboss.as.test.*,append=true,output=file</jvm.args.jacoco>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>${version.jacoco.plugin}</version>
+                        <executions>
+                            <execution><id>ts.jacoco-prepare</id>
+                                <phase>process-test-classes</phase>
+                                <goals><goal>prepare-agent</goal></goals>
+                                <configuration>
+                                    <append>true</append>
+                                    <destFile>target/jacoco.exec</destFile>
+                                    <includes>
+                                        <include>*</include>
+                                    </includes>
+                                    <excludes>
+                                        <exclude>org.jboss.as.test.*</exclude>
+                                    </excludes>
+                                    <output>file</output>
+                                    <propertyName>jvm.args.jacoco</propertyName>
+                                </configuration>
+                            </execution>
+                            <!-- Doesn't work currently - waiting for JaCoCo to fix this. Moved to the Ant plugin execution. -->
+                            <execution><id>ts.jacoco.report</id>
+                                <phase>none</phase> <!-- post-integration-test -->
+                                <goals><goal>report</goal></goals>
+                                <configuration>
+                                    <dataFile>target/jacoco.exec</dataFile>
+                                    <outputDirectory>target/coverageReport</outputDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- Copy JaCoCo jars to have them for the Ant plugin. -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <executions>
+                            <!-- Copy the ant tasks jar. Needed for ts.jacoco.report-ant . -->
+                            <execution> <id>ts.jacoco.dep.ant</id> <goals><goal>copy</goal></goals> <phase>process-test-resources</phase> <inherited>false</inherited>
+                                <configuration>
+                                    <artifactItems>
+                                        <artifactItem><groupId>org.jacoco</groupId><artifactId>org.jacoco.ant</artifactId><version>${version.jacoco.plugin}</version></artifactItem>
+                                    </artifactItems>
+                                    <stripVersion>true</stripVersion>
+                                    <outputDirectory>${basedir}/target/jacoco-jars</outputDirectory>
+                                </configuration>
+                            </execution>
+                            <!-- Copy the agent jar. Needed for ${jvm.args.jacoco} to have this jar on known path.
+                                 If the ts.jacoco-prepare worked and really put the value into the property, this might go away. -->
+                            <execution> <id>ts.jacoco.dep.agent</id> <goals><goal>unpack</goal></goals> <phase>process-test-resources</phase> <inherited>false</inherited>
+                                <configuration>
+                                    <artifactItems>
+                                        <artifactItem><groupId>org.jacoco</groupId><artifactId>org.jacoco.agent</artifactId><version>${version.jacoco.plugin}</version></artifactItem>
+                                    </artifactItems>
+                                    <stripVersion>true</stripVersion>
+                                    <outputDirectory>${basedir}/target/jacoco-jars/agent</outputDirectory>
+                                </configuration>
+                            </execution>
+
+                        </executions>
+                    </plugin>
+                    <!-- Ant plugin. -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions>
+                            <!-- DEBUG -->
+                            <execution>
+                                <id>ts.jacoco.debug</id>
+                                <phase>post-integration-test</phase>
+                                <goals><goal>run</goal></goals>
+                                <inherited>false</inherited>
+                                <configuration>
+                                    <target>
+                                        <echo>Jacoco argline: ${jvm.args.jacoco}</echo>
+                                        <echo>Jacoco jar: ${basedir}/target/jacoco-jars/org.jacoco.ant.jar</echo>
+                                    </target>
+                                </configuration>
+                            </execution>
+                            <!-- Must be run using Ant due to https://sourceforge.net/tracker/?func=detail&aid=3474708&group_id=177969&atid=883354 -->
+                            <execution>
+                                <id>ts.jacoco.report-ant</id>
+                                <phase>site</phase> <!-- post-integration-test -->
+                                <goals><goal>run</goal></goals>
+                                <inherited>false</inherited>
+                                <configuration>
+                                    <target>
+                                        <taskdef name="report" classname="org.jacoco.ant.ReportTask">
+                                            <classpath path="${basedir}/target/jacoco-jars/org.jacoco.ant.jar"/>
+                                        </taskdef>
+                                        <!--
+                                        <taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml" classpathref="maven.plugin.classpath">
+                                            <classpath path="${basedir}/target/jacoco-jars/org.jacoco.ant.jar"/>
+                                        </taskdef>
+                                        -->
+                                        <echo>Creating JaCoCo test coverage reports...</echo>
+                                        <mkdir dir="${basedir}/target/coverage-report"/>
+                                        <report>
+                                            <executiondata>
+                                                <fileset dir="${basedir}">
+                                                    <include name="**/target/jacoco.exec"/>
+                                                </fileset>
+                                            </executiondata>
+                                            <structure name="AS 7 project">
+                                                <classfiles>
+                                                    <fileset dir="${jboss.dist}/modules">
+                                                        <include name="**/*.jar"/>
+                                                        <!-- Excludes solve "Can't add different class with same name: ..." -->
+                                                        <!-- We have 2.x in main. -->
+                                                        <exclude name="com/sun/jsf-impl/1.*/**/*"/>
+                                                        <!--  AS7-3383 - com/sun/codemodel vs. /1.0/com/sun/codemodel -->
+                                                        <exclude name="com/sun/xml/**/*"/>
+                                                        <exclude name="javax/faces/api/1.2/**/*"/>
+                                                        <!-- AS7-3390 -->
+                                                        <exclude name="org/apache/commons/beanutils/**/*"/>
+                                                        <!-- AS7-3389 -->
+                                                    </fileset>
+                                                </classfiles>
+                                                <sourcefiles encoding="UTF-8">
+                                                    <!--
+                                                         for i in $(find . -path './*/src/main/java'); do
+                                                             DIR=`echo $i | sed 's|./||'`;
+                                                             echo "<fileset dir=\"../$DIR\"><include name=\"**/*.java\"/></fileset>";
+                                                         done
+                                                    -->
+                                                    <fileset dir="../appclient/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../arquillian/common/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../arquillian/container-embedded/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../arquillian/container-managed/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../arquillian/container-remote/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../arquillian/protocol-jmx/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../arquillian/protocol-servlet/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../arquillian/service/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../arquillian/testenricher-msc/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../cli/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../clustering/api/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../clustering/common/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../clustering/ejb3-infinispan/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../clustering/impl/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../clustering/infinispan/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../clustering/jgroups/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../clustering/registry/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../clustering/service/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../clustering/singleton/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../clustering/web-infinispan/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../clustering/web-spi/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../cmp/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../configadmin/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../config-assembly/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../connector/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../controller-client/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../controller/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../deployment-repository/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../deployment-scanner/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../domain-http/interface/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../domain-management/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../ee/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../ee-deployment/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../ejb3/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../embedded/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../host-controller/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../jacorb/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../jaxr/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../jaxrs/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../jdr/jboss-as-jdr/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../jmx/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../jpa/core/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../jpa/hibernate3/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../jpa/hibernate4/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../jpa/spi/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../jpa/util/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../jsr77/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../logging/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../mail/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../management-client-content/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../messaging/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../modcluster/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../naming/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../network/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../osgi/configadmin/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../osgi/service/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../platform-mbean/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../pojo/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../process-controller/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../protocol/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../remoting/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../sar/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../security/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../server/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../subsystem-test/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../testsuite/shared/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../threads/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../transactions/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../webservices/server-integration/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../webservices/tests-integration/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../web/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../weld/src/main/java"><include name="**/*.java"/></fileset>
+                                                    <fileset dir="../xts/src/main/java"><include name="**/*.java"/></fileset>
+                                                </sourcefiles>
+                                            </structure>
+                                            <html destdir ="${basedir}/target/coverage-report/html"/>
+                                            <xml  destfile="${basedir}/target/coverage-report/coverage-report.xml"/>
+                                            <csv  destfile="${basedir}/target/coverage-report/coverage-report.csv"/>
+                                        </report>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.jacoco</groupId>
+                                <artifactId>org.jacoco.ant</artifactId>
+                                <version>${version.jacoco.plugin}</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+
+
+    </profiles>
+</project>
