@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>org.jboss.as</groupId>
-    <artifactId>jboss-as-ts-integ</artifactId>
+    <artifactId>jboss-as-ts-additional-integ</artifactId>
     <packaging>pom</packaging>
     <version>7.5.0.Final-redhat-SNAPSHOT</version>
 
@@ -166,26 +166,5 @@
 
         </plugins>
     </build>
-
-    <dependencies>
-        <!-- Dependencies specific to the integration tests. -->
-        <dependency>
-            <groupId>org.jboss.as</groupId>
-            <artifactId>jboss-as-webservices-tests-integration</artifactId>
-            <version>${project.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.as</groupId>
-            <artifactId>jboss-as-core-model-test-framework</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.as</groupId>
-            <artifactId>jboss-as-subsystem-test</artifactId>
-            <type>pom</type>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 
 </project>

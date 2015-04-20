@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>org.jboss.as</groupId>
-        <artifactId>jboss-as-ts-integ</artifactId>
+        <artifactId>jboss-as-ts-additional-integ</artifactId>
         <version>7.5.0.Final-redhat-SNAPSHOT</version>
     </parent>
 
