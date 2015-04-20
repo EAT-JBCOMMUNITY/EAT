@@ -15,7 +15,7 @@
     <packaging>pom</packaging>
     <version>7.5.0.Final-redhat-SNAPSHOT</version>
 
-    <name>JBoss Application Server Test Suite: Integration</name>
+    <name>JBoss Application Server Test Suite: Additional Integration</name>
 
     <properties>
         <jvm.args.dirs>
@@ -31,7 +31,7 @@
 
         <!-- Run all tests on -DallTests. -->
         <profile>
-            <id>ts.integ.allGroups</id>
+            <id>ts.additional.integ.allGroups</id>
             <activation><property><name>allTests</name></property></activation>
             <modules>
                 <module>web</module>
@@ -39,7 +39,7 @@
         </profile>
         <!-- -Dts.web -->
         <profile>
-            <id>ts.integ.group.web</id>
+            <id>ts.additional.integ.group.web</id>
             <activation><property><name>ts.web</name></property></activation>
             <modules>
                 <module>web</module>
