@@ -52,7 +52,7 @@ public class MtomTestCase {
     public static WebArchive deployment() {
         WebArchive war = ShrinkWrap.create(WebArchive.class, "war-mtom.war");
         war.addClasses(ImageServer.class, ImageServerImpl.class);
-        war.setWebXML(MtomTestCase.class.getPackage(), "web.xml");
+        war.setWebXML("META-INF/web.xml");
         return war;
     }
 
@@ -82,8 +82,9 @@ public class MtomTestCase {
 
         Image im = imageServer.downloadImage(path + "rss.png");
 
-        if (im == null) 
+        if (im == null) {
             fail();
-            
+        }
+
     }
 }

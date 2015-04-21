@@ -6,65 +6,39 @@
 
     <parent>
         <groupId>org.jboss.as</groupId>
-        <artifactId>jboss-as-ts-additional-integ</artifactId>
-        <version>7.5.0.Final-redhat-SNAPSHOT</version>
+        <artifactId>jboss-as-additional-testsuite</artifactId>
+        <version>1.0.0.Final-redhat-SNAPSHOT</version>
     </parent>
 
     <!-- ************************************************************************ -->
     <!-- *********************************** Web ******************************** -->
     <!-- ************************************************************************ -->
     <groupId>org.jboss.as</groupId>
-    <artifactId>jboss-as-ts-integ-additional-web</artifactId>
-    <version>7.5.0.Final-redhat-SNAPSHOT</version>
+    <artifactId>jboss-as-additional-testsuite-web</artifactId>
+    <version>1.0.0.Final-redhat-SNAPSHOT</version>
 
-    <name>JBoss Application Server Additional Test Suite: Web</name>
-
-    <build>
-        <testResources>
-            <testResource>
-                <directory>${basedir}/src/test/resources/</directory>
-                <includes>
-                    <include>**/*.png</include>
-                </includes>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </testResource>
-            <testResource>
-                <directory>${basedir}/src/test/resources/</directory>
-            </testResource>
-        </testResources>
-    </build>
+    <name>JBoss Application Server Additional TestSuite: Web</name>
 
     <profiles>
 
         <profile>
-            <id>web.additional.integration.tests.profile</id>
+            <id>web.additional.tests.profile</id>
             <activation>
                 <property>
                     <name>!ts.noAdditionalWeb</name>
                 </property>
             </activation>
             <build>
+
                 <!--
                    Surefire test executions
                 -->
-                <plugins>    
+                <plugins>  
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <executions combine.children="append">
+                        <executions>
 
-                            <!-- Disable default-test execution. -->
-                            <execution>
-                                <id>default-test</id>
-                                <goals>
-                                    <goal>test</goal>
-                                </goals>
-                                <phase>none</phase>
-                            </execution>
-
-                            <!-- Multi node clustering tests. -->
                             <execution>
                                 <id>additional-tests-web.surefire</id>
                                 <phase>test</phase>
@@ -85,6 +59,6 @@
             </build>
         </profile>
 
-
     </profiles>
+
 </project>

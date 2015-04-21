@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jboss</groupId>
+        <artifactId>jboss-parent</artifactId>
+        <version>16</version>
+    </parent>
+
+    <groupId>org.jboss.as</groupId>
+    <artifactId>jboss-as-additional-testsuite</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0.Final-redhat-SNAPSHOT</version>
+
+    <name>JBoss Application Server Test Suite: Additional Testsuite</name>
+    
+    <properties>
+        <version.org.apache.commons>1.3.2</version.org.apache.commons>
+
+        <!-- Logging config -->
+        <testLogToFile>true</testLogToFile>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jboss.as</groupId>
+                <artifactId>jboss-as-testsuite</artifactId>
+                <version>7.5.0.Final-redhat-SNAPSHOT</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.arquillian.junit</groupId>
+            <artifactId>arquillian-junit-container</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.as</groupId>
+            <artifactId>jboss-as-arquillian-container-managed</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${version.org.apache.commons}</version>
+        </dependency>
+    </dependencies>
+
+    <modules>
+        <module>web</module>
+    </modules>
+    
+    <profiles>
+        <!-- -Dats.web -->
+        <profile>
+            <id>additional.testsuite.web</id>
+            <activation>
+                <property>
+                    <name>ats.web</name>
+                </property>
+            </activation>
+            <modules>
+                <module>web</module>
+            </modules>
+        </profile>
+
+    </profiles>
+    
+    <build>
+        <plugins>
+
+            <!-- General surefire configuration. Applies to submodules too. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <!-- Prevent test and server output appearing in console. -->
+                    <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
+
+                    <!-- System properties passed to test cases -->
+                    <systemPropertyVariables combine.children="append">
+                        <server.jvm.args>${surefire.system.args}</server.jvm.args>
+                    </systemPropertyVariables>
+
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <inherited>true</inherited>
+                <extensions>true</extensions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
