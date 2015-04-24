@@ -23,19 +23,18 @@ package org.jboss.test.integration.mtom;
 
 import java.awt.Image;
 import java.io.FileInputStream;
-import java.net.URL;
-import javax.xml.namespace.QName;
 import javax.xml.ws.BindingProvider;
-import javax.xml.ws.Service;
 import javax.xml.ws.soap.SOAPBinding;
 import org.apache.commons.io.IOUtils;
+import org.apache.cxf.interceptor.LoggingInInterceptor;
+import org.apache.cxf.interceptor.LoggingOutInterceptor;
+import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.fail;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -44,9 +43,9 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-public class MtomTestCase {
+public class MtomSaopTestCase {
 
-    private final String serverLogPath = "/../surefire-reports/org.jboss.test.integration.mtom.MtomTestCase-output.txt";
+    private final String serverLogPath = "/../surefire-reports/org.jboss.test.integration.mtom.MtomSaopTestCase-output.txt";
 
     @Deployment
     public static WebArchive deployment() {
@@ -58,32 +57,28 @@ public class MtomTestCase {
 
     @Test
     public void mtomTest() throws Exception {
-        URL url = new URL("http://localhost:8080/war-mtom?wsdl");
-        QName qname = new QName("http://mtom.integration.test.jboss.org/", "ImageServerImplService");
-
-        String path = this.getClass().getClassLoader().getResource("").getPath();
-
-        FileInputStream inputStream = new FileInputStream(path + serverLogPath);
-        try {
-            String everything = IOUtils.toString(inputStream);
-            assertFalse("Testing archive has enabled mtom feature", everything.contains("mtomEnabled=true"));
-        } finally {
-            inputStream.close();
-        }
-
-        Service service = Service.create(url, qname);
-        ImageServer imageServer = service.getPort(ImageServer.class);
-
+        JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();  
+  
+        factory.getInInterceptors().add(new LoggingInInterceptor());  
+        factory.getOutInterceptors().add(new LoggingOutInterceptor());  
+        factory.setServiceClass(ImageServer.class);  
+        factory.setAddress("http://localhost:8080/war-mtom");  
+        ImageServer imageServer = (ImageServer) factory.create();  
+        
         //enable MTOM in client
         BindingProvider bp = (BindingProvider) imageServer;
         SOAPBinding binding = (SOAPBinding) bp.getBinding();
         binding.setMTOMEnabled(true);
-
+        
+        String path = this.getClass().getClassLoader().getResource("").getPath();
         Image im = imageServer.downloadImage(path + "rss.png");
 
-        if (im == null) {
-            fail();
+        FileInputStream inputStream = new FileInputStream(path + serverLogPath);
+        try {
+            String everything = IOUtils.toString(inputStream);
+            assertFalse("The soap message uses MTOM (xop)", everything.contains("xop:Include"));
+        } finally {
+            inputStream.close();
         }
-
     }
 }
