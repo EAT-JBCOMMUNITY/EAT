@@ -43,9 +43,9 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-public class MtomSaopTestCase {
+public class MtomSoapTestCase {
 
-    private final String serverLogPath = "/../surefire-reports/org.jboss.test.integration.mtom.MtomSaopTestCase-output.txt";
+    private final String serverLogPath = "/../surefire-reports/org.jboss.test.integration.mtom.MtomSoapTestCase-output.txt";
 
     @Deployment
     public static WebArchive deployment() {
