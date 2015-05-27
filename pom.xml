@@ -24,7 +24,7 @@
         <version.org.apache.commons>1.3.2</version.org.apache.commons>   
         <xnio.version>3.1.0.Final</xnio.version>
         <jboss.dist>${JBOSS_HOME}</jboss.dist>
-        <eap.build.directory>/target/jboss-as-latest.Final-redhat-SNAPSHOT</eap.build.directory>
+        <eap.build.directory>eap/build/target/jboss-as-7.5.1.Final-redhat-SNAPSHOT</eap.build.directory>
         <wildfly.build.directory>wildfly/build/target/wildfly-10.0.0.Alpha2-SNAPSHOT</wildfly.build.directory>
         <!-- Logging config -->
         <testLogToFile>true</testLogToFile>
@@ -97,6 +97,54 @@
                     <version>3.3.4.Final-redhat-1</version>
                 </dependency>
             </dependencies>
+            
+            <build>
+                <plugins>
+
+                    <plugin>
+                        <groupId>com.googlecode.maven-download-plugin</groupId>
+                        <artifactId>maven-download-plugin</artifactId>
+                        <version>1.1.0</version>
+                        <executions>
+                            <execution>
+                                <!-- the wget goal actually binds itself to this phase by default -->
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>wget</goal>
+                                </goals>
+                                <configuration>
+                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-6.4.x-build/lastSuccessfulBuild/artifact/build/target/jboss-as-7.5.1.Final-redhat-SNAPSHOT/*zip*/jboss-as-7.5.1.Final-redhat-SNAPSHOT.zip</url>
+                                    <outputFileName>../eap/build/target/jboss-as-7.5.1.Final-redhat-SNAPSHOT.zip</outputFileName>
+                                    <!-- default target location, just to demonstrate the parameter -->
+                                    <targetDirectory>${project.build.directory}</targetDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+            
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>prepare</id>
+                                <phase>process-test-sources</phase>
+                                <configuration>
+                                    <tasks>
+                                        <unzip src="eap/build/target/jboss-as-latest.Final-redhat-SNAPSHOT.zip" dest="eap/build/target/" />
+                                    </tasks>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+            
+                </plugins>
+            </build>
+            
         </profile>
 
         <profile>
@@ -147,29 +195,8 @@
     </profiles>
     
     <build>
+        
         <plugins>
-
-            <plugin>
-                <groupId>com.googlecode.maven-download-plugin</groupId>
-                <artifactId>maven-download-plugin</artifactId>
-                <version>1.1.0</version>
-                <executions>
-                    <execution>
-                        <!-- the wget goal actually binds itself to this phase by default -->
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>wget</goal>
-                        </goals>
-                        <configuration>
-                            <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-6.4.x-build/lastSuccessfulBuild/artifact/build/target/jboss-as-7.5.1.Final-redhat-SNAPSHOT/*zip*/jboss-as-7.5.1.Final-redhat-SNAPSHOT.zip</url>
-                            <outputFileName>jboss-as-latest.Final-redhat-SNAPSHOT</outputFileName>
-                            <!-- default target location, just to demonstrate the parameter -->
-                            <targetDirectory>${project.build.directory}</targetDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
             <!-- General surefire configuration. Applies to submodules too. -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
