@@ -23,10 +23,9 @@
         <version.junit>4.11</version.junit>
         <version.org.apache.commons>1.3.2</version.org.apache.commons>   
         <xnio.version>3.1.0.Final</xnio.version>
-
+        <jboss.dist>${JBOSS_HOME}</jboss.dist>
         <!-- Logging config -->
         <testLogToFile>true</testLogToFile>
-        <jboss.dist>${JBOSS_HOME}</jboss.dist>
     </properties>
     
     <dependencies>
@@ -62,6 +61,7 @@
 
     <modules>
         <module>remoting</module>
+        <!--module>datasource</module-->
     </modules>
     
     <profiles>
@@ -99,6 +99,11 @@
                     <name>wildfly</name>
                 </property>
             </activation>
+            
+            <properties>
+                <jboss.home>wildfly/build/target/wildfly-10.0.0.Alpha1-SNAPSHOT</jboss.home>
+            </properties>
+            
             <dependencies>
                 <dependency>
                     <groupId>org.wildfly.arquillian</groupId>
@@ -136,6 +141,23 @@
     
     <build>
         <plugins>
+
+            <plugin>
+                <artifactId>exec-maven-plugin</artifactId>
+                <groupId>org.codehaus.mojo</groupId>
+                <executions>
+                    <execution>
+                        <id>download github sources</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>${basedir}/src/test/scripts/script.sh</executable>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
             <!-- General surefire configuration. Applies to submodules too. -->
             <plugin>
