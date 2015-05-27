@@ -94,7 +94,7 @@
                 <dependency>
                     <groupId>org.jboss.remoting3</groupId>
                     <artifactId>jboss-remoting</artifactId>
-                    <version>3.3.4.Final-redhat-1</version>
+                    <version>3.3.4.Final</version>
                 </dependency>
             </dependencies>
             
