@@ -132,7 +132,7 @@
                                 <phase>process-test-sources</phase>
                                 <configuration>
                                     <tasks>
-                                        <unzip src="eap/build/target/jboss-as-latest.Final-redhat-SNAPSHOT.zip" dest="eap/build/target/" />
+                                        <unzip src="eap/build/target/jboss-as-7.5.1.Final-redhat-SNAPSHOT.zip" dest="eap/build/target/" />
                                     </tasks>
                                 </configuration>
                                 <goals>
