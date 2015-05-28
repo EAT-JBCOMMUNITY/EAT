@@ -92,6 +92,11 @@
                     <scope>test</scope>
                 </dependency>
                 <dependency>
+                    <groupId>org.jboss.shrinkwrap</groupId>
+                    <artifactId>shrinkwrap-api</artifactId>
+                    <version>1.2.2</version>
+                </dependency>
+                <dependency>
                     <groupId>org.jboss.remoting3</groupId>
                     <artifactId>jboss-remoting</artifactId>
                     <version>3.3.4.Final</version>
@@ -208,7 +213,9 @@
                         <id>ts.copy-jbossas.groups</id>
                         <inherited>true</inherited>
                         <phase>generate-test-resources</phase>
-                        <goals><goal>copy-resources</goal></goals>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
                         <configuration>
                             <outputDirectory>${basedir}/target/jbossas</outputDirectory>
                             <overwrite>true</overwrite>

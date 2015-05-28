@@ -39,7 +39,7 @@ public final class BasicTest {
 
     @Deployment
     public static Archive<?> getDeployment() {
-        JavaArchive archive = ShrinkWrap.create(JavaArchive.class, "test.jar");
+        JavaArchive archive = ShrinkWrap.create(JavaArchive.class);
         archive.addClass(BasicTest.class);
         return archive;
     }
