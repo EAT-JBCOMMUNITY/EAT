@@ -47,7 +47,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.xnio.FutureResult;
 import org.xnio.IoFuture;
-import org.xnio.IoUtils;
 import org.xnio.OptionMap;
 import org.xnio.Options;
 import org.xnio.Sequence;
@@ -66,7 +65,7 @@ public final class RemoteChannelTest extends ChannelTestBase {
     private static Registration registration;
     private Connection connection;
     private Registration serviceRegistration;
-
+    
     @BeforeClass
     public static void create() throws IOException {
         endpoint = Remoting.createEndpoint("test", OptionMap.EMPTY);

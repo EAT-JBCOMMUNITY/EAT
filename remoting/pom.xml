@@ -21,8 +21,6 @@
         <jbossas.project.dir>${jbossas.ts.dir}/..</jbossas.project.dir>
         <jboss.home.dir>${project.basedir}/target/jbossas</jboss.home.dir>
         <jboss.dist>${basedir}/../${jboss.home}</jboss.dist>
-        <!-- if true, created temporary files will be deleted after each test -->
-        <cleanup.tmp>true</cleanup.tmp>
     </properties>
 
     <profiles>
@@ -53,16 +51,12 @@
                                     <goal>test</goal>
                                 </goals>
                                 <configuration>
-                                     <!-- fork for each each test class -->
-                           	     <forkMode>always</forkMode>
-                                     <systemPropertyVariables>
-		                        <jbossas.version>${project.parent.version}</jbossas.version>
-		                        <jboss.home.dir>${jboss.home.dir}</jboss.home.dir>
-		                        <jbossas.dist>${jboss.home.dir}</jbossas.dist>
-		                        <module.path>${jboss.home.dir}/modules</module.path>
-		                        <cleanup.tmp>${cleanup.tmp}</cleanup.tmp>
-		                        <jboss.server.config.file.name>standalone-remoting-11.xml</jboss.server.config.file.name>
-		                    </systemPropertyVariables>
+                                    <!-- fork for each each test class -->
+                                    <forkMode>always</forkMode>
+                                    <systemPropertyVariables>
+                                        <jbossas.dist>${jboss.home.dir}</jbossas.dist>
+                                        <module.path>${jboss.home.dir}/modules</module.path>
+                                    </systemPropertyVariables>
                                     <!-- Tests to execute. -->
                                     <includes>
                                         <include>org/jboss/as/test/remoting/**/*Test*.java</include>
@@ -73,27 +67,27 @@
                     </plugin>
                     
                     <!-- Build the server configuration -->
-		    <plugin>
-		        <groupId>org.apache.maven.plugins</groupId>
-		        <artifactId>maven-antrun-plugin</artifactId>
-		        <executions combine.children="append">
-		            <execution>
-		                <id>build-remoting-config</id>
-		                <phase>process-test-resources</phase>
-		                <goals>
-		                    <goal>run</goal>
-		                </goals>
-		                <configuration>
-		                    <target>
-		                        <ant antfile="${jbossas.ts.integ.dir}/src/test/scripts/remoting-build.xml">
-		                            <property name="jboss.dist" value="${jboss.dist}" />
-		                            <target name="build-remoting"/>
-		                        </ant>
-		                    </target>
-		                </configuration>
-		            </execution>
-		        </executions>
-		    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions combine.children="append">
+                            <execution>
+                                <id>build-remoting-config</id>
+                                <phase>process-test-resources</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <ant antfile="${jbossas.ts.integ.dir}/src/test/scripts/remoting-build.xml">
+                                            <property name="jboss.dist" value="${jboss.dist}" />
+                                            <target name="build-remoting"/>
+                                        </ant>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
 
                 </plugins>
             </build>
