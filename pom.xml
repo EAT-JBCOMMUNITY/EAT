@@ -211,7 +211,7 @@
                         <goals><goal>copy-resources</goal></goals>
                         <configuration>
                             <outputDirectory>${basedir}/target/jbossas</outputDirectory>
-                            <overwrite>false</overwrite>
+                            <overwrite>true</overwrite>
                             <resources>
                                 <resource>
                                     <directory>${jboss.home.env}</directory>
