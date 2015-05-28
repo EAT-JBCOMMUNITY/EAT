@@ -21,6 +21,8 @@
         <jbossas.project.dir>${jbossas.ts.dir}/..</jbossas.project.dir>
         <jboss.home.dir>${project.basedir}/target/jbossas</jboss.home.dir>
         <jboss.dist>${basedir}/../${jboss.home}</jboss.dist>
+        <!-- if true, created temporary files will be deleted after each test -->
+        <cleanup.tmp>true</cleanup.tmp>
     </properties>
 
     <profiles>
@@ -38,7 +40,7 @@
                    Surefire test executions
                 -->
                 <plugins>  
-
+                    
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
@@ -54,8 +56,11 @@
                                     <!-- fork for each each test class -->
                                     <forkMode>always</forkMode>
                                     <systemPropertyVariables>
-                                        <jbossas.dist>${jboss.home.dir}</jbossas.dist>
+                                        <jboss.home.dir>${jboss.home.dir}</jboss.home.dir>
+                                        <jbossas.dist>${jboss.dist}</jbossas.dist>
                                         <module.path>${jboss.home.dir}/modules</module.path>
+                                        <cleanup.tmp>${cleanup.tmp}</cleanup.tmp>
+                                         <!--jboss.server.config.file.name>standalone-remoting-11.xml</jboss.server.config.file.name-->
                                     </systemPropertyVariables>
                                     <!-- Tests to execute. -->
                                     <includes>
