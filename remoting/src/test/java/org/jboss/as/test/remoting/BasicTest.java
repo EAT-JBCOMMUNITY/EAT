@@ -28,12 +28,9 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import static org.junit.Assert.assertFalse;
 
-/**
- * Test for remote channel communication.
- * 
-* @author <a href="mailto:david.lloyd@redhat.com">David M. Lloyd</a>
- */
+
 @RunWith(Arquillian.class)
 public final class BasicTest {
 
@@ -46,6 +43,6 @@ public final class BasicTest {
     
     @Test
     public void testServerStart() {
-        System.out.println("The server has started ...");
+        assertFalse("Running a basic arquillian test ... ", false);
     }
 }
