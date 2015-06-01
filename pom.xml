@@ -122,6 +122,7 @@
                         <groupId>com.googlecode.maven-download-plugin</groupId>
                         <artifactId>maven-download-plugin</artifactId>
                         <version>1.1.0</version>
+                        <inherited>false</inherited>
                         <executions>
                             <execution>
                                 <!-- the wget goal actually binds itself to this phase by default -->
@@ -144,14 +145,15 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-antrun-plugin</artifactId>
                         <version>1.6</version>
+                        <inherited>false</inherited>
                         <executions>
                             <execution>
                                 <id>prepare</id>
                                 <phase>process-test-sources</phase>
                                 <configuration>
-                                    <tasks>
+                                    <target>
                                         <unzip src="eap/build/target/jboss-as-7.5.1.Final-redhat-SNAPSHOT.zip" dest="eap/build/target/" />
-                                    </tasks>
+                                    </target>
                                 </configuration>
                                 <goals>
                                     <goal>run</goal>
@@ -159,17 +161,6 @@
                             </execution>
                         </executions>
                     </plugin>
-                    
-                    <plugin>
-                        <artifactId>maven-assembly-plugin</artifactId>
-                        <version>2.2</version>
-                        <configuration>
-                            <descriptorRefs>
-                                <descriptorRef>project</descriptorRef>
-                            </descriptorRefs>
-                        </configuration>
-                    </plugin>
-            
                 </plugins>
             </build>
             
@@ -209,19 +200,6 @@
                     <version>4.0.9.Final</version>
                 </dependency>
             </dependencies>
-        </profile>
-
-        <!-- -Dats.web -->
-        <profile>
-            <id>additional.testsuite.web</id>
-            <activation>
-                <property>
-                    <name>ats.web</name>
-                </property>
-            </activation>
-            <modules>
-                <module>web</module>
-            </modules>
         </profile>
 
     </profiles>
