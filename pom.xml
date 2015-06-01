@@ -149,7 +149,7 @@
                         <executions>
                             <execution>
                                 <id>prepare</id>
-                                <phase>process-test-sources</phase>
+                                <phase>generate-test-sources</phase>
                                 <configuration>
                                     <target>
                                         <unzip src="eap/build/target/jboss-as-7.5.1.Final-redhat-SNAPSHOT.zip" dest="eap/build/target/" />
