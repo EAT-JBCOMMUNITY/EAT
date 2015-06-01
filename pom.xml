@@ -38,11 +38,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.jboss.shrinkwrap</groupId>
-            <artifactId>shrinkwrap-api</artifactId>
-            <version>1.2.2</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-io</artifactId>
             <version>${version.org.apache.commons}</version>
@@ -90,6 +85,21 @@
                     <artifactId>jboss-as-arquillian-container-managed</artifactId>
                     <version>${version.org.jboss.arquillian.container.managed}</version>
                 </dependency>
+                <dependency>
+		    <groupId>org.jboss.shrinkwrap</groupId>
+		    <artifactId>shrinkwrap-api</artifactId>
+		    <version>1.1.2.redhat-1</version>
+		</dependency>
+                <dependency>
+			<groupId>org.jboss.shrinkwrap</groupId>
+			<artifactId>shrinkwrap-spi</artifactId>
+			<version>1.1.2.redhat-1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.shrinkwrap</groupId>
+			<artifactId>shrinkwrap-impl-base</artifactId>
+			<version>1.1.2.redhat-1</version>
+		</dependency>
                 <dependency>
                     <groupId>org.jboss.arquillian.junit</groupId>
                     <artifactId>arquillian-junit-container</artifactId>
@@ -181,6 +191,11 @@
                     <artifactId>wildfly-arquillian-container-managed</artifactId>
                     <version>${version.org.wildfly.arquillian}</version>
                 </dependency>
+                <dependency>
+		    <groupId>org.jboss.shrinkwrap</groupId>
+		    <artifactId>shrinkwrap-api</artifactId>
+		    <version>1.1.2</version>
+		</dependency>
                 <dependency>
                     <groupId>org.jboss.arquillian.junit</groupId>
                     <artifactId>arquillian-junit-container</artifactId>
