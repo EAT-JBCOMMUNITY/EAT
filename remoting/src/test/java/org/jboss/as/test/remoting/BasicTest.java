@@ -32,7 +32,7 @@ import static org.junit.Assert.assertFalse;
 
 
 @RunWith(Arquillian.class)
-public final class BasicTest {
+public class BasicTest {
 
     @Deployment
     public static Archive<?> getDeployment() {
