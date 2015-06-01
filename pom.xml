@@ -26,6 +26,8 @@
         <jboss.home.env>${JBOSS_HOME}</jboss.home.env>
         <eap.build.directory>eap/build/target/jboss-as-7.5.1.Final-redhat-SNAPSHOT</eap.build.directory>
         <wildfly.build.directory>wildfly/build/target/wildfly-10.0.0.Alpha3-SNAPSHOT</wildfly.build.directory>
+        <surefire.memory.args>-Xmx512m -XX:MaxPermSize=256m</surefire.memory.args>
+        <surefire.system.args>${surefire.memory.args} -Djboss.dist=${jboss.home.env}</surefire.system.args>
         <!-- Logging config -->
         <testLogToFile>true</testLogToFile>
     </properties>
