@@ -19,7 +19,7 @@
         <jbossas.ts.integ.dir>${basedir}/..</jbossas.ts.integ.dir>
         <jbossas.ts.dir>${jbossas.ts.integ.dir}/..</jbossas.ts.dir>
         <jbossas.project.dir>${jbossas.ts.dir}/..</jbossas.project.dir>
-        <jboss.home.dir>${jboss.home.env}</jboss.home.dir>
+        <jboss.home.dir>${basedir}/target/jbossas}</jboss.home.dir>
         <jboss.dist>${jboss.home.env}</jboss.dist>
         <!-- if true, created temporary files will be deleted after each test -->
         <cleanup.tmp>true</cleanup.tmp>
@@ -57,8 +57,8 @@
                                     <forkCount>1</forkCount>
                                     <reuseForks>false</reuseForks>
                                     <systemPropertyVariables>
-                                        <jbossas.dist>${jboss.home.env}</jbossas.dist>
-                                        <module.path>${jboss.home.env}/modules</module.path>
+                                        <jbossas.dist>${jboss.dist}</jbossas.dist>
+                                        <module.path>${jboss.dist}/modules</module.path>
                                         <server.jvm.args>${surefire.system.args}</server.jvm.args>
                                          <!--jboss.server.config.file.name>standalone-remoting-11.xml</jboss.server.config.file.name-->
                                     </systemPropertyVariables>
@@ -72,7 +72,7 @@
                     </plugin>
                     
                     <!-- Build the server configuration -->
-                    <!--plugin>
+                    <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-antrun-plugin</artifactId>
                         <executions combine.children="append">
@@ -85,14 +85,14 @@
                                 <configuration>
                                     <target>
                                         <ant antfile="${jbossas.ts.integ.dir}/src/test/scripts/remoting-build.xml">
-                                            <property name="jboss.dist" value="${jboss.home.env}" />
+                                            <property name="jboss.dist" value="${jboss.dist}" />
                                             <target name="build-remoting"/>
                                         </ant>
                                     </target>
                                 </configuration>
                             </execution>
                         </executions>
-                    </plugin-->
+                    </plugin>
 
                 </plugins>
             </build>
