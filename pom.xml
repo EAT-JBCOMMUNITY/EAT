@@ -273,6 +273,11 @@
                     <systemPropertyVariables combine.children="append">
                         <server.jvm.args>${surefire.system.args}</server.jvm.args>
                     </systemPropertyVariables>
+                    
+                     <!-- Arquillian's config files. -->
+                    <additionalClasspathElements combine.children="append">
+                        <additionalClasspathElement>${basedir}/src/test/config/arq</additionalClasspathElement>
+                    </additionalClasspathElements>
 
                 </configuration>
             </plugin>
