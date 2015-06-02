@@ -215,6 +215,56 @@
                     <version>1.1.6.Final-wildfly-1</version>
                 </dependency>
             </dependencies>
+            
+            <build>
+                <plugins>
+
+                    <plugin>
+                        <groupId>com.googlecode.maven-download-plugin</groupId>
+                        <artifactId>maven-download-plugin</artifactId>
+                        <version>1.1.0</version>
+                        <inherited>false</inherited>
+                        <executions>
+                            <execution>
+                                <!-- the wget goal actually binds itself to this phase by default -->
+                                <id>download</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>wget</goal>
+                                </goals>
+                                <configuration>
+                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/wildfly-master-build/lastSuccessfulBuild/artifact/build/target/*zip*/wildfly-10.0.0.Alpha3-SNAPSHOT.zip</url>
+                                    <outputFileName>../wildfly/build/target/wildfly-10.0.0.Alpha3-SNAPSHOT.zip</outputFileName>
+                                    <!-- default target location, just to demonstrate the parameter -->
+                                    <targetDirectory>${project.build.directory}</targetDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+            
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.6</version>
+                        <inherited>false</inherited>
+                        <executions>
+                            <execution>
+                                <id>prepare</id>
+                                <phase>generate-test-sources</phase>
+                                <configuration>
+                                    <target>
+                                        <unzip src="wildfly/build/target/wildfly-10.0.0.Alpha3-SNAPSHOT.zip" dest="wildfly/build/target/" />
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+            
         </profile>
 
     </profiles>
