@@ -32,33 +32,38 @@
         <testLogToFile>true</testLogToFile>
     </properties>
     
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${version.org.apache.commons}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.security</groupId>
+                <artifactId>wildfly-elytron</artifactId>
+                <version>1.0.0.Alpha1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.xnio</groupId>
+                <artifactId>xnio-api</artifactId>
+                <version>${xnio.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.xnio</groupId>
+                <artifactId>xnio-nio</artifactId>
+                <version>${xnio.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${version.junit}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>${version.org.apache.commons}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.security</groupId>
-            <artifactId>wildfly-elytron</artifactId>
-            <version>1.0.0.Alpha1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.xnio</groupId>
-            <artifactId>xnio-api</artifactId>
-            <version>${xnio.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.xnio</groupId>
-            <artifactId>xnio-nio</artifactId>
-            <version>${xnio.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -81,6 +86,16 @@
                 <jboss.home>${eap.build.directory}</jboss.home>
             </properties>
 
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.jboss.remoting3</groupId>
+                        <artifactId>jboss-remoting</artifactId>
+                        <version>3.3.4.Final</version>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
+            
             <dependencies>
                 <dependency>
                     <groupId>org.jboss.as</groupId>
@@ -107,11 +122,6 @@
                     <artifactId>arquillian-junit-container</artifactId>
                     <version>1.0.0.Final</version>
                     <scope>test</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.jboss.remoting3</groupId>
-                    <artifactId>jboss-remoting</artifactId>
-                    <version>3.3.4.Final</version>
                 </dependency>
             </dependencies>
             
@@ -178,6 +188,16 @@
                 <jboss.home>${wildfly.build.directory}</jboss.home>
             </properties>
             
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.jboss.remoting</groupId>
+                        <artifactId>jboss-remoting</artifactId>
+                        <version>4.0.9.Final</version>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
+            
             <dependencies>
                 <dependency>
                     <groupId>org.wildfly.arquillian</groupId>
@@ -193,11 +213,6 @@
                     <groupId>org.jboss.arquillian.junit</groupId>
                     <artifactId>arquillian-junit-container</artifactId>
                     <version>1.1.6.Final-wildfly-1</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.jboss.remoting</groupId>
-                    <artifactId>jboss-remoting</artifactId>
-                    <version>4.0.9.Final</version>
                 </dependency>
             </dependencies>
         </profile>
