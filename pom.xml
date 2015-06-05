@@ -168,11 +168,18 @@
                                 </goals>
                             </execution>
                             <execution>
-                                <inherited>true</inherited>
+                                <inherited>false</inherited>
                                 <phase>generate-test-resources</phase>
                                 <configuration>
                                     <target>
                                         <copy todir="${basedir}/target/jbossas" preservelastmodified="true">
+                                            <fileset dir="${eap.build.directory}">
+                                                <include name="**/**"/>
+                                            </fileset>
+                                        </copy>                            
+                                    </target>
+                                    <target>
+                                        <copy todir="${basedir}/remoting/target/jbossas" preservelastmodified="true">
                                             <fileset dir="${eap.build.directory}">
                                                 <include name="**/**"/>
                                             </fileset>
@@ -276,7 +283,7 @@
                                 </goals>
                             </execution>
                             <execution>
-                                <inherited>true</inherited>
+                                <inherited>false</inherited>
                                 <phase>generate-test-resources</phase>
                                 <configuration>
                                     <target>
@@ -284,7 +291,14 @@
                                             <fileset dir="${wildfly.build.directory}">
                                                 <include name="**/**"/>
                                             </fileset>
-                                        </copy>                            
+                                        </copy> 
+                                    </target>
+                                    <target>
+                                        <copy todir="${basedir}/remoting/target/jbossas" preservelastmodified="true">
+                                            <fileset dir="${wildfly.build.directory}">
+                                                <include name="**/**"/>
+                                            </fileset>
+                                        </copy>                              
                                     </target>
                                 </configuration>
                                 <goals>
