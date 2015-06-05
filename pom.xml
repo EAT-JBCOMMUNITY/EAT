@@ -135,7 +135,6 @@
                         <inherited>false</inherited>
                         <executions>
                             <execution>
-                                <!-- the wget goal actually binds itself to this phase by default -->
                                 <id>download</id>
                                 <phase>generate-sources</phase>
                                 <goals>
@@ -144,7 +143,6 @@
                                 <configuration>
                                     <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-6.4.x-build/lastSuccessfulBuild/artifact/build/target/jboss-as-7.5.1.Final-redhat-SNAPSHOT/*zip*/jboss-as-7.5.1.Final-redhat-SNAPSHOT.zip</url>
                                     <outputFileName>../eap/build/target/jboss-as-7.5.1.Final-redhat-SNAPSHOT.zip</outputFileName>
-                                    <!-- default target location, just to demonstrate the parameter -->
                                     <targetDirectory>${project.build.directory}</targetDirectory>
                                 </configuration>
                             </execution>
@@ -159,7 +157,7 @@
                         <executions>
                             <execution>
                                 <id>prepare</id>
-                                <phase>generate-test-sources</phase>
+                                <phase>generate-resources</phase>
                                 <configuration>
                                     <target>
                                         <unzip src="eap/build/target/jboss-as-7.5.1.Final-redhat-SNAPSHOT.zip" dest="eap/build/target/" />
