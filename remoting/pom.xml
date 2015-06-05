@@ -135,7 +135,7 @@
                                 <configuration>
                                     <target>
                                         <ant antfile="${jbossas.ts.integ.dir}/src/test/scripts/remoting-build.xml">
-                                            <property name="jboss.dist" value="${jboss.dist}" />
+                                            <property name="jboss.dist" value="../${jboss.home}" />
                                             <target name="build-remoting"/>
                                         </ant>
                                     </target>
