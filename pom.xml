@@ -277,6 +277,9 @@
                                     <target>
                                         <unzip src="wildfly/build/target/wildfly-10.0.0.Alpha3-SNAPSHOT.zip" dest="wildfly/build/target/" />
                                     </target>
+                                     <target>
+                                        <unzip src="wildfly/build/target/target/wildfly-10.0.0.Alpha3-SNAPSHOT.zip" dest="wildfly/build/target/" />
+                                    </target>
                                 </configuration>
                                 <goals>
                                     <goal>run</goal>
