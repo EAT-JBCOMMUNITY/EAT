@@ -311,13 +311,13 @@
                         <inherited>true</inherited>
                         <phase>generate-test-resources</phase>
                         <configuration>
-                            <tasks>
+                            <target>
                                 <copy todir="${basedir}/target/jbossas" preservelastmodified="true">
-                                    <fileset dir="${jboss.home.env}">
+                                    <fileset dir="/${jboss.home.env}">
                                         <include name="**/**"/>
                                     </fileset>
                                 </copy>                            
-                            </tasks>
+                            </target>
                         </configuration>
                         <goals>
                             <goal>run</goal>
