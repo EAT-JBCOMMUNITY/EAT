@@ -304,15 +304,27 @@
             </plugin-->
             
             <plugin>
-                <groupId>com.atlassian.maven.plugins</groupId>
-                <artifactId>maven-upload-plugin</artifactId>
-                <version>1.1</version>
-                <configuration>
-                    <resourceSrc>${jboss.home.env}</resourceSrc>
-                    <resourceDest>${basedir}/target/jbossas</resourceDest>
-                </configuration>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <inherited>true</inherited>
+                        <phase>generate-test-resources</phase>
+                        <configuration>
+                            <tasks>
+                                <copy todir="${basedir}/target/jbossas" preservelastmodified="true">
+                                    <fileset dir="${jboss.home.env}">
+                                        <include name="**/**"/>
+                                    </fileset>
+                                </copy>                            
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
-
       
             <!-- General surefire configuration. Applies to submodules too. -->
             <plugin>
