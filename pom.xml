@@ -103,20 +103,20 @@
                     <version>${version.org.jboss.arquillian.container.managed}</version>
                 </dependency>
                 <dependency>
-		    <groupId>org.jboss.shrinkwrap</groupId>
-		    <artifactId>shrinkwrap-api</artifactId>
-		    <version>1.1.2.redhat-1</version>
-		</dependency>
+                    <groupId>org.jboss.shrinkwrap</groupId>
+                    <artifactId>shrinkwrap-api</artifactId>
+                    <version>1.1.2.redhat-1</version>
+                </dependency>
                 <dependency>
-			<groupId>org.jboss.shrinkwrap</groupId>
-			<artifactId>shrinkwrap-spi</artifactId>
-			<version>1.1.2.redhat-1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jboss.shrinkwrap</groupId>
-			<artifactId>shrinkwrap-impl-base</artifactId>
-			<version>1.1.2.redhat-1</version>
-		</dependency>
+                    <groupId>org.jboss.shrinkwrap</groupId>
+                    <artifactId>shrinkwrap-spi</artifactId>
+                    <version>1.1.2.redhat-1</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.jboss.shrinkwrap</groupId>
+                    <artifactId>shrinkwrap-impl-base</artifactId>
+                    <version>1.1.2.redhat-1</version>
+                </dependency>
                 <dependency>
                     <groupId>org.jboss.arquillian.junit</groupId>
                     <artifactId>arquillian-junit-container</artifactId>
@@ -203,10 +203,10 @@
                     <version>${version.org.wildfly.arquillian}</version>
                 </dependency>
                 <dependency>
-		    <groupId>org.jboss.shrinkwrap</groupId>
-		    <artifactId>shrinkwrap-api</artifactId>
-		    <version>1.1.2</version>
-		</dependency>
+                    <groupId>org.jboss.shrinkwrap</groupId>
+                    <artifactId>shrinkwrap-api</artifactId>
+                    <version>1.1.2</version>
+                </dependency>
                 <dependency>
                     <groupId>org.jboss.arquillian.junit</groupId>
                     <artifactId>arquillian-junit-container</artifactId>
@@ -271,9 +271,10 @@
         
         <plugins>
 
-            <plugin>
+            <!--plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
+                <version>2.7</version>
                 <executions combine.children="append">
                     <execution>
                         <id>ts.copy-jbossas.groups</id>
@@ -300,7 +301,18 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin-->
+            
+            <plugin>
+                <groupId>com.atlassian.maven.plugins</groupId>
+                <artifactId>maven-upload-plugin</artifactId>
+                <version>1.1</version>
+                <configuration>
+                    <resourceSrc>${jboss.home.env}</resourceSrc>
+                    <resourceDest>${basedir}/target/jbossas</resourceDest>
+                </configuration>
             </plugin>
+
       
             <!-- General surefire configuration. Applies to submodules too. -->
             <plugin>
@@ -315,7 +327,7 @@
                         <server.jvm.args>${surefire.system.args}</server.jvm.args>
                     </systemPropertyVariables>
                     
-                     <!-- Arquillian's config files. -->
+                    <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
                         <additionalClasspathElement>${basedir}/src/test/config/arq</additionalClasspathElement>
                     </additionalClasspathElements>
