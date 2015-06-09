@@ -83,7 +83,7 @@
             </activation>
 
             <properties>
-                <jboss.home>${eap.build.directory}</jboss.home>
+                <jboss.home.value>${eap.build.directory}</jboss.home.value>
             </properties>
 
             <dependencyManagement>
@@ -172,13 +172,6 @@
                                 <phase>generate-test-resources</phase>
                                 <configuration>
                                     <target>
-                                        <copy todir="${basedir}/target/jbossas" preservelastmodified="true">
-                                            <fileset dir="${eap.build.directory}">
-                                                <include name="**/**"/>
-                                            </fileset>
-                                        </copy>                            
-                                    </target>
-                                    <target>
                                         <copy todir="${basedir}/remoting/target/jbossas" preservelastmodified="true">
                                             <fileset dir="${eap.build.directory}">
                                                 <include name="**/**"/>
@@ -207,7 +200,7 @@
             </activation>
             
             <properties>
-                <jboss.home>${wildfly.build.directory}</jboss.home>
+                <jboss.home.value>${wildfly.build.directory}</jboss.home.value>
             </properties>
             
             <dependencyManagement>
@@ -288,13 +281,6 @@
                                 <phase>generate-test-resources</phase>
                                 <configuration>
                                     <target>
-                                        <copy todir="${basedir}/target/jbossas" preservelastmodified="true">
-                                            <fileset dir="${wildfly.build.directory}">
-                                                <include name="**/**"/>
-                                            </fileset>
-                                        </copy> 
-                                    </target>
-                                    <target>
                                         <copy todir="${basedir}/remoting/target/jbossas" preservelastmodified="true">
                                             <fileset dir="${wildfly.build.directory}">
                                                 <include name="**/**"/>
@@ -319,40 +305,6 @@
     <build>
         
         <plugins>
-
-            <!--plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.7</version>
-                <executions combine.children="append">
-                    <execution>
-                        <id>ts.copy-jbossas.groups</id>
-                        <inherited>true</inherited>
-                        <phase>generate-test-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${basedir}/target/jbossas</outputDirectory>
-                            <overwrite>true</overwrite>
-                            <resources>
-                                <resource>
-                                    <directory>${jboss.home.env}</directory>
-                                    <excludes>
-                                        <exclude>modules/</exclude>
-                                        <exclude>bundles/</exclude>
-                                        <exclude>standalone/data</exclude>
-                                        <exclude>standalone/log</exclude>
-                                        <exclude>standalone/tmp</exclude>
-                                    </excludes>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin-->
-            
-            
       
             <!-- General surefire configuration. Applies to submodules too. -->
             <plugin>
