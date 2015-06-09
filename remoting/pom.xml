@@ -110,7 +110,6 @@
                                         <jbossas.dist>${jboss.dist}</jbossas.dist>
                                         <module.path>${jboss.dist}/modules</module.path>
                                         <server.jvm.args>${surefire.system.args}</server.jvm.args>
-                                         <!--jboss.server.config.file.name>standalone-remoting-11.xml</jboss.server.config.file.name-->
                                     </systemPropertyVariables>
                                     <!-- Tests to execute. -->
                                     <includes>
