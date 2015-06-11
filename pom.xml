@@ -125,11 +125,11 @@
                         <inherited>false</inherited>
                         <executions>
                             <execution>
-                                <inherited>false</inherited>
+                                <inherited>true</inherited>
                                 <phase>generate-test-resources</phase>
                                 <configuration>
                                     <target>
-                                        <copy todir="${basedir}/remoting/target/jbossas" preservelastmodified="true">
+                                        <copy todir="${basedir}/target/jbossas" preservelastmodified="true">
                                             <fileset dir="${jboss.home.env}">
                                                 <include name="**/**"/>
                                             </fileset>
@@ -214,11 +214,11 @@
                         <inherited>false</inherited>
                         <executions>
                             <execution>
-                                <inherited>false</inherited>
+                                <inherited>true</inherited>
                                 <phase>generate-test-resources</phase>
                                 <configuration>
                                     <target>
-                                        <copy todir="${basedir}/remoting/target/jbossas" preservelastmodified="true">
+                                        <copy todir="${basedir}/target/jbossas" preservelastmodified="true">
                                             <fileset dir="${jboss.home.env}">
                                                 <include name="**/**"/>
                                             </fileset>
@@ -265,7 +265,7 @@
                     <execution>
                         <id>auto-clean</id>
                         <phase>validate</phase>
-                        <inherited>false</inherited>
+                        <inherited>true</inherited>
                         <goals>
                             <goal>clean</goal>
                         </goals>
@@ -273,12 +273,6 @@
                             <filesets>
                                 <fileset>
                                     <directory>${basedir}/target</directory>
-                                    <includes>
-                                        <include>**/*</include>
-                                    </includes>
-                                </fileset>
-                                <fileset>
-                                    <directory>${basedir}/remoting/target</directory>
                                     <includes>
                                         <include>**/*</include>
                                     </includes>
