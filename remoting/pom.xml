@@ -19,10 +19,12 @@
         <jbossas.ts.integ.dir>${basedir}/..</jbossas.ts.integ.dir>
         <jbossas.ts.dir>${jbossas.ts.integ.dir}/..</jbossas.ts.dir>
         <jbossas.project.dir>${jbossas.ts.dir}/..</jbossas.project.dir>
-        <jboss.home.dir>${basedir}/target/jbossas}</jboss.home.dir>
-        <jboss.dist>${basedir}/target/jbossas}</jboss.dist>
+        <jboss.home.dir>${basedir}/target/jbossas</jboss.home.dir>
+        <jboss.dist>${basedir}/target/jbossas</jboss.dist>
         <!-- if true, created temporary files will be deleted after each test -->
         <cleanup.tmp>true</cleanup.tmp>
+        <jvm.args.ip>-Djava.net.preferIPv4Stack=true -Djava.net.preferIPv6Addresses=false</jvm.args.ip>
+        <jvm.args.ip.server>${jvm.args.ip}</jvm.args.ip.server>
     </properties>
 
     <dependencies>
@@ -52,6 +54,10 @@
                 </property>
             </activation>
             
+            <properties>
+		<standalone.conf>src/test/config/standaloneEap/standalone.xml</standalone.conf>
+	    </properties>
+
             <dependencies>
                 <dependency>
                     <groupId>org.jboss.remoting3</groupId>
@@ -68,6 +74,11 @@
                 </property>
             </activation>
             
+            
+	    <properties>
+		<standalone.conf>src/test/config/standaloneWildfly/standalone.xml</standalone.conf>
+	    </properties>
+
             <dependencies>
                 <dependency>
                     <groupId>org.jboss.remoting</groupId>
@@ -103,18 +114,25 @@
                                     <goal>test</goal>
                                 </goals>
                                 <configuration>
-                                    <!-- fork for each each test class -->
-                                    <forkCount>1</forkCount>
-                                    <reuseForks>false</reuseForks>
-                                    <systemPropertyVariables>
-                                        <jbossas.dist>${jboss.dist}</jbossas.dist>
-                                        <module.path>${jboss.dist}/modules</module.path>
-                                        <server.jvm.args>${surefire.system.args}</server.jvm.args>
-                                    </systemPropertyVariables>
+                                   
                                     <!-- Tests to execute. -->
                                     <includes>
                                         <include>org/jboss/as/test/remoting/**/*Test*.java</include>
                                     </includes>
+                                    
+                                    <!--environmentVariables>
+                                        <JBOSS_HOME>${jboss.dist}</JBOSS_HOME>
+                                    </environmentVariables-->
+                                    
+                                    <forkCount>1</forkCount>
+                                    <reuseForks>false</reuseForks>
+                                    <systemPropertyVariables>
+                                        <jboss.options>${surefire.system.args} </jboss.options>
+                                        <jboss.dist>${jboss.dist}</jboss.dist>
+                                        <jboss.home>${basedir}/target/jbossas</jboss.home>
+                                        <module.path>${jboss.dist}/modules</module.path>
+                                        <server.jvm.args>${surefire.system.args} ${jvm.args.ip.server} -Dnode0=${node0}</server.jvm.args>
+                                    </systemPropertyVariables>
                                 </configuration>
                             </execution>
                         </executions>
@@ -134,7 +152,8 @@
                                 <configuration>
                                     <target>
                                         <ant antfile="${jbossas.ts.integ.dir}/src/test/scripts/remoting-build.xml">
-                                            <property name="jboss.dist" value="/${jboss.home.value}" />
+                                            <property name="jboss.dist" value="/${jboss.home.env}" />
+                                            <property name="standaloneConfiguration" value="${standalone.conf}" />
                                             <target name="build-remoting"/>
                                         </ant>
                                     </target>

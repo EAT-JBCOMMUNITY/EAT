@@ -34,7 +34,7 @@
             <fileset dir="${jboss.dist}/modules"/>
         </copy>
 
-        <copy file="src/test/config/standalone.xml" todir="target/jbossas/standalone/configuration" />
+        <copy file="${standaloneConfiguration}" todir="target/jbossas/standalone/configuration" />
     </target>
 
 </project>
