@@ -71,7 +71,7 @@
 
     <modules>
         <module>remoting</module>
-        <!--module>datasource</module-->
+        <module>web</module>
     </modules>
     
     <profiles>

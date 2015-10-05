@@ -23,7 +23,11 @@
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxws</artifactId>
-            <version>3.0.4</version>
+            <version>3.0.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-io</artifactId>
         </dependency>
     </dependencies>
     
@@ -56,8 +60,11 @@
                                 <configuration>
                                     <!-- Tests to execute. -->
                                     <includes>
-                                        <include>org/jboss/test/integration/mtom/**/*TestCase.java</include>
+                                        <include>**/org/jboss/test/integration/classloading/war/**/*TestCase.java</include>
                                     </includes>
+                                    <excludes>
+                                        <exclude>**/org/jboss/test/integration/mtom/**/*TestCase.java</exclude>
+                                    </excludes>
                                 </configuration>
                             </execution>
 
