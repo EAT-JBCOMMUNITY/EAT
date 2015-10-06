@@ -21,59 +21,108 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-frontend-jaxws</artifactId>
-            <version>3.0.5</version>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-io</artifactId>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.enterprise.concurrent</artifactId>
         </dependency>
     </dependencies>
-    
+
     <profiles>
 
         <profile>
-            <id>web.additional.tests.profile</id>
+            <id>eap.web</id>
             <activation>
                 <property>
-                    <name>!ts.noAdditionalWeb</name>
+                    <name>eap</name>
                 </property>
             </activation>
-            <build>
-
-                <!--
-                   Surefire test executions
-                -->
-                <plugins>  
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <executions>
-
-                            <execution>
-                                <id>additional-tests-web.surefire</id>
-                                <phase>test</phase>
-                                <goals>
-                                    <goal>test</goal>
-                                </goals>
-                                <configuration>
-                                    <!-- Tests to execute. -->
-                                    <includes>
-                                        <include>**/org/jboss/test/integration/classloading/war/**/*TestCase.java</include>
-                                    </includes>
-                                    <excludes>
-                                        <exclude>**/org/jboss/test/integration/mtom/**/*TestCase.java</exclude>
-                                    </excludes>
-                                </configuration>
-                            </execution>
-
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
+            
+            <dependencies>
+                <dependency>
+                    <groupId>org.jboss.spec.javax.servlet</groupId>
+                    <artifactId>jboss-servlet-api_2.5_spec</artifactId>
+                </dependency>
+            </dependencies>
         </profile>
+        
+        <profile>
+            <id>wildfly.web</id>
+            <activation>
+                <property>
+                    <name>wildfly</name>
+                </property>
+            </activation>
 
+            <dependencies>
+                
+                <dependency>
+                    <groupId>org.jboss.spec.javax.servlet</groupId>
+                    <artifactId>jboss-servlet-api_3.1_spec</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
     </profiles>
+    
+    <build>
+
+            <!--
+               Surefire test executions
+            -->
+        <plugins>  
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <executions>
+
+                    <execution>
+                        <id>default-test</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Tests to execute. -->
+                            <includes>
+                                <include>**/org/jboss/test/integration/classloading/war/**/*TestCase.java</include>
+                                <include>**/org/jboss/test/integration/servlet/**/*TestCase.java</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>eap-test</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Tests to execute. -->
+                            <includes>
+                                <include>**/org/jboss/test/integration/mtom/**/*TestCase.java</include>
+                            </includes>
+                            <skipTests>${skipEapTests}</skipTests>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>wildfly-test</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Tests to execute. -->
+                            <includes>
+                                <include>**/org/jboss/test/integration/ee/**/*TestCase.java</include>
+                            </includes>
+                            <skipTests>${skipWildflyTests}</skipTests>
+                        </configuration>
+                    </execution>
+
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

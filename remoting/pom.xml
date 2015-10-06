@@ -17,21 +17,9 @@
 
     <properties>
         <jbossas.ts.integ.dir>${basedir}/..</jbossas.ts.integ.dir>
-        <jbossas.ts.dir>${jbossas.ts.integ.dir}/..</jbossas.ts.dir>
-        <jbossas.project.dir>${jbossas.ts.dir}/..</jbossas.project.dir>
-        <jboss.home.dir>${basedir}/target/jbossas</jboss.home.dir>
-        <jboss.dist>${basedir}/target/jbossas</jboss.dist>
-        <!-- if true, created temporary files will be deleted after each test -->
-        <cleanup.tmp>true</cleanup.tmp>
-        <jvm.args.ip>-Djava.net.preferIPv4Stack=true -Djava.net.preferIPv6Addresses=false</jvm.args.ip>
-        <jvm.args.ip.server>${jvm.args.ip}</jvm.args.ip.server>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.wildfly.security</groupId>
-            <artifactId>wildfly-elytron</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.jboss.xnio</groupId>
             <artifactId>xnio-api</artifactId>
@@ -41,6 +29,10 @@
             <groupId>org.jboss.xnio</groupId>
             <artifactId>xnio-nio</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly.security</groupId>
+            <artifactId>wildfly-elytron</artifactId>
         </dependency>
     </dependencies>
     
@@ -86,86 +78,77 @@
                 </dependency>
             </dependencies>
         </profile>
-        
-        
-        <profile>
-            <id>remoting.additional.tests.profile</id>
-            <activation>
-                <property>
-                    <name>!ts.noAdditionalRemoting</name>
-                </property>
-            </activation>
-            <build>
-
-                <!--
-                   Surefire test executions
-                -->
-                <plugins>  
-                    
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-
-                        <executions>
-                            <execution>
-                                <id>additional-tests-remoting.surefire</id>
-                                <phase>test</phase>
-                                <goals>
-                                    <goal>test</goal>
-                                </goals>
-                                <configuration>
-                                   
-                                    <!-- Tests to execute. -->
-                                    <includes>
-                                        <include>org/jboss/as/test/remoting/**/*Test*.java</include>
-                                    </includes>
-                                    
-                                    <!--environmentVariables>
-                                        <JBOSS_HOME>${jboss.dist}</JBOSS_HOME>
-                                    </environmentVariables-->
-                                    
-                                    <forkCount>1</forkCount>
-                                    <reuseForks>false</reuseForks>
-                                    <systemPropertyVariables>
-                                        <jboss.options>${surefire.system.args} </jboss.options>
-                                        <jboss.dist>${jboss.dist}</jboss.dist>
-                                        <jboss.home>${basedir}/target/jbossas</jboss.home>
-                                        <module.path>${jboss.dist}/modules</module.path>
-                                        <server.jvm.args>${surefire.system.args} ${jvm.args.ip.server} -Dnode0=${node0}</server.jvm.args>
-                                    </systemPropertyVariables>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    
-                    <!-- Build the server configuration -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-antrun-plugin</artifactId>
-                        <executions combine.children="append">
-                            <execution>
-                                <id>build-remoting-config</id>
-                                <phase>process-test-resources</phase>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                                <configuration>
-                                    <target>
-                                        <ant antfile="${jbossas.ts.integ.dir}/src/test/scripts/remoting-build.xml">
-                                            <property name="jboss.dist" value="/${jboss.home.env}" />
-                                            <property name="standaloneConfiguration" value="${standalone.conf}" />
-                                            <target name="build-remoting"/>
-                                        </ant>
-                                    </target>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                </plugins>
-            </build>
-        </profile>
-
     </profiles>
+        
+    <build>
+
+        <!--
+           Surefire test executions
+        -->
+        <plugins>  
+                    
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+
+                <executions>
+                    <execution>
+                        <id>default-test</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                                   
+                            <!-- Tests to execute. -->
+                            <includes>
+                                <include>org/jboss/as/test/remoting/**/BasicTest.java</include>
+                            </includes>
+                                    
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>wildfly-test</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Tests to execute. -->
+                            <includes>
+                                <include>org/jboss/as/test/remoting/**/*Test*.java</include>
+                            </includes>
+                            <skipTests>${skipWildflyTests}</skipTests>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+                    
+            <!-- Build the server configuration -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions combine.children="append">
+                    <execution>
+                        <id>build-remoting-config</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <ant antfile="${jbossas.ts.integ.dir}/src/test/scripts/remoting-build.xml">
+                                    <property name="jboss.dist" value="/${jboss.home.env}" />
+                                    <property name="standaloneConfiguration" value="${standalone.conf}" />
+                                    <target name="build-remoting"/>
+                                </ant>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
 
 </project>

@@ -27,9 +27,9 @@
     <!-- import shared ant targets -->
     <import file="common-targets.xml" as="common"/>
 
-    <target name="build-datasource" description="Builds server configurations for datasource tests">
+    <target name="general-build" description="Builds server configurations for general tests">
 
-        <echo message="Copying modules needed for datasource testsuite"/>
+        <echo message="Copying modules needed for general testsuite"/>
         <copy todir="target/jbossas/modules">
             <fileset dir="${jboss.dist}/modules"/>
         </copy>
