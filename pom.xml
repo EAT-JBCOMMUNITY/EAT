@@ -166,6 +166,26 @@
                         </executions>
                     </plugin>
 
+                    <plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>build-helper-maven-plugin</artifactId>
+			<version>1.9.1</version>
+			<executions>
+			  <execution>
+			    <id>add-test-source</id>
+			    <phase>generate-test-sources</phase>
+			    <goals>
+			      <goal>add-test-source</goal>
+			    </goals>
+			    <configuration>
+			      <sources>
+				<source>${basedir}/../src/test/java</source>
+			      </sources>
+			    </configuration>
+			  </execution>
+			</executions>
+		    </plugin>
+
                     <!-- General surefire configuration. Applies to submodules too. -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -176,7 +196,7 @@
 		            
                             <!-- Arquillian's config files. -->
                             <additionalClasspathElements combine.children="append">
-                                <additionalClasspathElement>${basedir}/src/test/config/arqEap</additionalClasspathElement>
+                                <additionalClasspathElement>${basedir}/../src/test/config/arqEap</additionalClasspathElement>
                             </additionalClasspathElements>
 
                         </configuration>
@@ -276,6 +296,26 @@
                         </executions>
                     </plugin>
 
+                    <plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>build-helper-maven-plugin</artifactId>
+			<version>1.9.1</version>
+			<executions>
+			  <execution>
+			    <id>add-test-source</id>
+			    <phase>generate-test-sources</phase>
+			    <goals>
+			      <goal>add-test-source</goal>
+			    </goals>
+			    <configuration>
+			      <sources>
+				<source>${basedir}/../src/test/java</source>
+			      </sources>
+			    </configuration>
+			  </execution>
+			</executions>
+		    </plugin>
+
                     <!-- General surefire configuration. Applies to submodules too. -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -286,7 +326,7 @@
 		            
                             <!-- Arquillian's config files. -->
                             <additionalClasspathElements combine.children="append">
-                                <additionalClasspathElement>${basedir}/src/test/config/arqWildfly</additionalClasspathElement>
+                                <additionalClasspathElement>${basedir}/../src/test/config/arqWildfly</additionalClasspathElement>
                             </additionalClasspathElements>
 
                         </configuration>
