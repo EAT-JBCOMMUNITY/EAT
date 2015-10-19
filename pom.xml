@@ -13,7 +13,7 @@
     <groupId>org.jboss.as</groupId>
     <artifactId>jboss-as-additional-testsuite</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0.Final-redhat-SNAPSHOT</version>
+    <version>1.0.0.Final-SNAPSHOT</version>
 
     <name>JBoss Application Server Test Suite: Additional Testsuite</name>
     
@@ -76,11 +76,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-    <modules>
-        <module>remoting</module>
-        <module>web</module>
-    </modules>
     
     <profiles>
         <profile>
@@ -93,7 +88,6 @@
 
             <properties>
                 <jboss.home.value>${eap.build.directory}</jboss.home.value>
-                <skipEapTests>false</skipEapTests>
             </properties>
 
             <dependencyManagement>
@@ -139,6 +133,11 @@
                 </dependency>
             </dependencies>
             
+	    <modules>
+		<module>remoting/Eap</module>
+		<module>web/Eap</module>
+	    </modules>
+
             <build>
                 <plugins>
             
@@ -244,6 +243,11 @@
                 </dependency>
             </dependencies>
             
+            <modules>
+		<module>remoting/Wildfly</module>
+		<module>web/Wildfly</module>
+	    </modules>
+
             <build>
                 <plugins>
             

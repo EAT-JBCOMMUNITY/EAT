@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jboss.as</groupId>
+        <artifactId>jboss-as-additional-testsuite</artifactId>
+        <version>1.0.0.Final-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>jboss-eap-ts-integ-remoting</artifactId>
+    <packaging>jar</packaging>
+    <name>JBoss Eap AdditionalTest Suite: Remoting</name>
+
+
+    <profiles>
+
+        <profile>
+            <id>eap.remoting</id>
+            <activation>
+                <property>
+                    <name>eap</name>
+                </property>
+            </activation>
+            
+            <properties>
+		<standalone.conf>src/test/config/standaloneEap/standalone.xml</standalone.conf>
+		<jbossas.ts.integ.dir>${basedir}/../..</jbossas.ts.integ.dir>
+	    </properties>
+
+	    <dependencies>
+		<dependency>
+		    <groupId>org.jboss.xnio</groupId>
+		    <artifactId>xnio-api</artifactId>
+		    <scope>compile</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.xnio</groupId>
+		    <artifactId>xnio-nio</artifactId>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly.security</groupId>
+		    <artifactId>wildfly-elytron</artifactId>
+		</dependency>
+                <dependency>
+                    <groupId>org.jboss.remoting3</groupId>
+                    <artifactId>jboss-remoting</artifactId>
+                </dependency>
+            </dependencies>
+
+	    <build>
+
+		<!--
+		   Surefire test executions
+		-->
+		<plugins>  
+		            
+		    <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-surefire-plugin</artifactId>
+
+		        <executions>
+		            <execution>
+		                <id>default-test</id>
+		                <phase>test</phase>
+		                <goals>
+		                    <goal>test</goal>
+		                </goals>
+		                <configuration>
+		                           
+		                    <!-- Tests to execute. -->
+		                    <includes>
+		                        <include>org/jboss/as/test/remoting/**/BasicTest.java</include>
+		                    </includes>
+		                            
+		                </configuration>
+		            </execution>
+		        </executions>
+		    </plugin>
+		            
+		    <!-- Build the server configuration -->
+		    <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-antrun-plugin</artifactId>
+		        <executions combine.children="append">
+		            <execution>
+		                <id>build-remoting-config</id>
+		                <phase>process-test-resources</phase>
+		                <goals>
+		                    <goal>run</goal>
+		                </goals>
+		                <configuration>
+		                    <target>
+		                        <ant antfile="${jbossas.ts.integ.dir}/src/test/scripts/remoting-build.xml">
+		                            <property name="jboss.dist" value="/${jboss.home.env}" />
+		                            <property name="standaloneConfiguration" value="${standalone.conf}" />
+		                            <target name="build-remoting"/>
+		                        </ant>
+		                    </target>
+		                </configuration>
+		            </execution>
+		        </executions>
+		    </plugin>
+
+		</plugins>
+	    </build>
+
+	</profile>
+        
+    </profiles>
+
+</project>
