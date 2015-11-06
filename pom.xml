@@ -198,8 +198,8 @@
             </dependencies>
             
 	    <modules>
-		<module>basic/Eap</module>
-		<module>web/Eap</module>
+		<module>basic/jdkAll/Eap</module>
+		<module>web/jdkAll/Eap</module>
 	    </modules>
 
             <build>
@@ -324,8 +324,8 @@
             </dependencies>
             
             <modules>
-		<module>basic/Wildfly</module>
-		<module>web/Wildfly</module>
+		<module>basic/jdkAll/Wildfly</module>
+		<module>web/jdkAll/Wildfly</module>
 	    </modules>
 
             <build>

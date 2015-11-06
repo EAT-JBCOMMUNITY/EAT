@@ -26,7 +26,7 @@
             
             <properties>
 		<standalone.conf>../src/test/config/standaloneEap/standalone.xml</standalone.conf>
-		<jbossas.ts.integ.dir>${basedir}/../..</jbossas.ts.integ.dir>
+		<jbossas.ts.integ.dir>${basedir}/../../..</jbossas.ts.integ.dir>
 	    </properties>
 
 	    <build>
