@@ -8,6 +8,7 @@
         <groupId>org.jboss.as</groupId>
         <artifactId>jboss-as-additional-testsuite</artifactId>
         <version>1.0.0.Final-SNAPSHOT</version>
+        <relativePath>../../../pom.xml</relativePath>
     </parent>
 
     <artifactId>jboss-eap-ts-integ-basic</artifactId>
