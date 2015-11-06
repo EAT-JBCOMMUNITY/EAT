@@ -58,7 +58,7 @@
     
     <profiles>
         <profile>
-            <id>jdk8.testsuite</id>
+            <id>eap.jdk8.testsuite</id>
             <activation>
                 <property>
                     <name>eap.jdk8</name>
@@ -326,6 +326,116 @@
             <modules>
 		<module>basic/jdkAll/Wildfly</module>
 		<module>web/jdkAll/Wildfly</module>
+	    </modules>
+
+            <build>
+                <plugins>
+            
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.6</version>
+                        <inherited>false</inherited>
+                        <executions>
+                            <execution>
+                                <inherited>true</inherited>
+                                <phase>generate-test-resources</phase>
+                                <configuration>
+                                    <target>
+                                        <copy todir="${basedir}/target/jbossas" preservelastmodified="true">
+                                            <fileset dir="${jboss.home.env}">
+                                                <include name="**/**"/>
+                                            </fileset>
+                                        </copy>
+                                        <chmod file="${basedir}/target/jbossas/bin/standalone.sh" perm="777"/>                              
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>build-helper-maven-plugin</artifactId>
+			<version>1.9.1</version>
+			<executions>
+			  <execution>
+			    <id>add-test-source</id>
+			    <phase>generate-test-sources</phase>
+			    <goals>
+			      <goal>add-test-source</goal>
+			    </goals>
+			    <configuration>
+			      <sources>
+				<source>${basedir}/../src/test/java</source>
+			      </sources>
+			    </configuration>
+			  </execution>
+			</executions>
+		    </plugin>
+
+                    <!-- General surefire configuration. Applies to submodules too. -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <!-- Prevent test and server output appearing in console. -->
+                            <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
+
+                            <!-- Arquillian's config files. -->
+                            <additionalClasspathElements combine.children="append">
+                                <additionalClasspathElement>${basedir}/../src/test/config/arqWildfly</additionalClasspathElement>
+                            </additionalClasspathElements>
+
+                        </configuration>
+                    </plugin>
+            
+                </plugins>
+            </build>
+            
+        </profile>
+
+        <profile>
+            <id>wildfly.jdk8.testsuite</id>
+            <activation>
+                <property>
+                    <name>wildfly.jdk8</name>
+                </property>
+            </activation>
+            
+            <dependencies>
+                <dependency>
+                    <groupId>org.wildfly.arquillian</groupId>
+                    <artifactId>wildfly-arquillian-container-managed</artifactId>
+                    <version>${version.org.wildfly.arquillian}</version>
+                </dependency>
+                <dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-arquillian-protocol-jmx</artifactId>
+		    <version>8.2.1.Final</version>
+		</dependency>
+                <dependency>
+                    <groupId>org.jboss.shrinkwrap</groupId>
+                    <artifactId>shrinkwrap-api</artifactId>
+                    <version>1.1.2</version>
+                </dependency>
+                <dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-testsuite-shared</artifactId>
+		    <version>10.0.0.CR4</version>
+		</dependency>
+                <dependency>
+                    <groupId>org.jboss.arquillian.junit</groupId>
+                    <artifactId>arquillian-junit-container</artifactId>
+                    <version>1.1.10.Final</version>
+                </dependency>
+            </dependencies>
+            
+            <modules>
+		<module>ws/jdk8/Wildfly</module>
 	    </modules>
 
             <build>

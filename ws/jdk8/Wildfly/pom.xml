@@ -14,43 +14,32 @@
     <!-- *********************************** Web ******************************** -->
     <!-- ************************************************************************ -->
     <groupId>org.jboss.as</groupId>
-    <artifactId>jboss-wildfly-additional-testsuite-web</artifactId>
+    <artifactId>jboss-wildfly-additional-testsuite-ws</artifactId>
     <version>1.0.0.Final-SNAPSHOT</version>
 
-    <name>JBoss Wildfly Application Server Additional TestSuite: Web</name>
+    <name>JBoss Wildfly Application Server Additional TestSuite: WS</name>
 
     <profiles>
         
         <profile>
-            <id>wildfly.web</id>
+            <id>wildfly.ws</id>
             <activation>
                 <property>
-                    <name>wildfly</name>
+                    <name>wildfly.jdk8</name>
                 </property>
             </activation>
 
-            <dependencies>
-                
-                <dependency>
-                    <groupId>org.jboss.spec.javax.servlet</groupId>
-                    <artifactId>jboss-servlet-api_3.1_spec</artifactId>
-                </dependency>
-		<dependency>
-		    <groupId>org.apache.httpcomponents</groupId>
-		    <artifactId>httpclient</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.glassfish</groupId>
-		    <artifactId>javax.enterprise.concurrent</artifactId>
-		</dependency>
-	    </dependencies>
+            <properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	    </properties>
 
 	    <build>
 
 		    <!--
 		       Surefire test executions
 		    -->
-		<plugins>  
+                <plugins>
 		    <plugin>
 		        <groupId>org.apache.maven.plugins</groupId>
 		        <artifactId>maven-surefire-plugin</artifactId>
@@ -62,12 +51,10 @@
 		                <goals>
 		                    <goal>test</goal>
 		                </goals>
-		                <configuration>
+		                <configuration>org.jboss.test.integration.ws.defaultmethods
 		                    <!-- Tests to execute. -->
 		                    <includes>
-		                        <include>**/org/jboss/test/integration/classloading/war/**/*TestCase.java</include>
-		                        <include>**/org/jboss/test/integration/servlet/**/*TestCase.java</include>
-                                        <include>**/org/jboss/test/integration/ee/**/*TestCase.java</include>
+		                        <include>**/org/jboss/test/integration/ws/defaultmethods/**/*Test*.java</include>
 		                    </includes>
 		                </configuration>
 		            </execution>
@@ -75,8 +62,7 @@
 		    </plugin>
 		</plugins>
 	    </build>
- 
-        </profile>
+    	</profile>
     </profiles>
 
 </project>
