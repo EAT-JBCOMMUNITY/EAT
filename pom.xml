@@ -27,6 +27,8 @@
         <jboss.home.env>${JBOSS_HOME}</jboss.home.env>
         <surefire.memory.args>-Xmx512m -XX:MaxPermSize=256m</surefire.memory.args>
         <surefire.system.args>${surefire.memory.args} -Djboss.dist=${basedir}/target/jbossas -DjbossHome=${basedir}/target/jbossas</surefire.system.args>
+        <eap.build.directory>eap/build/target/jboss-as-7.5.5.Final-redhat-SNAPSHOT</eap.build.directory>
+        <wildfly.build.directory>wildfly/build/target/wildfly-master-SNAPSHOT</wildfly.build.directory>
         <node0>127.0.0.1</node0>
         <!-- Logging config -->
         <testLogToFile>true</testLogToFile>
@@ -91,11 +93,45 @@
                 <plugins>
             
                     <plugin>
+                        <groupId>com.googlecode.maven-download-plugin</groupId>
+                        <artifactId>maven-download-plugin</artifactId>
+                        <version>1.1.0</version>
+                        <inherited>false</inherited>
+                        <executions>
+                            <execution>
+                                <id>download</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>wget</goal>
+                                </goals>
+                                <configuration>
+                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-6.4.x-build/lastSuccessfulBuild/artifact/build/target/jboss-as-7.5.5.Final-redhat-SNAPSHOT/*zip*/jboss-as-7.5.5.Final-redhat-SNAPSHOT.zip</url>
+                                    <outputFileName>../eap/build/target/jboss-as-7.5.5.Final-redhat-SNAPSHOT.zip</outputFileName>
+                                    <targetDirectory>${project.build.directory}</targetDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+            
+                    <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-antrun-plugin</artifactId>
                         <version>1.6</version>
-                        <inherited>false</inherited>
+                        
                         <executions>
+                            <execution>
+                                <id>prepare</id>
+                                <inherited>false</inherited>
+                                <phase>generate-resources</phase>
+                                <configuration>
+                                    <target>
+                                        <unzip src="eap/build/target/jboss-as-7.5.5.Final-redhat-SNAPSHOT.zip" dest="eap/build/target/" />
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
                             <execution>
                                 <inherited>true</inherited>
                                 <phase>generate-test-resources</phase>
@@ -206,11 +242,45 @@
                 <plugins>
             
                     <plugin>
+                        <groupId>com.googlecode.maven-download-plugin</groupId>
+                        <artifactId>maven-download-plugin</artifactId>
+                        <version>1.1.0</version>
+                        <inherited>false</inherited>
+                        <executions>
+                            <execution>
+                                <id>download</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>wget</goal>
+                                </goals>
+                                <configuration>
+                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-6.4.x-build/lastSuccessfulBuild/artifact/build/target/jboss-as-7.5.5.Final-redhat-SNAPSHOT/*zip*/jboss-as-7.5.5.Final-redhat-SNAPSHOT.zip</url>
+                                    <outputFileName>../eap/build/target/jboss-as-7.5.5.Final-redhat-SNAPSHOT.zip</outputFileName>
+                                    <targetDirectory>${project.build.directory}</targetDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+            
+                    <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-antrun-plugin</artifactId>
                         <version>1.6</version>
-                        <inherited>false</inherited>
+                        
                         <executions>
+                            <execution>
+                                <id>prepare</id>
+                                <inherited>false</inherited>
+                                <phase>generate-resources</phase>
+                                <configuration>
+                                    <target>
+                                        <unzip src="eap/build/target/jboss-as-7.5.5.Final-redhat-SNAPSHOT.zip" dest="eap/build/target/" />
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
                             <execution>
                                 <inherited>true</inherited>
                                 <phase>generate-test-resources</phase>
@@ -332,11 +402,45 @@
                 <plugins>
             
                     <plugin>
+                        <groupId>com.googlecode.maven-download-plugin</groupId>
+                        <artifactId>maven-download-plugin</artifactId>
+                        <version>1.1.0</version>
+                        <inherited>false</inherited>
+                        <executions>
+                            <execution>
+                                <id>download</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>wget</goal>
+                                </goals>
+                                <configuration>
+                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/wildfly/lastSuccessfulBuild/artifact/build/target/wildfly-master-SNAPSHOT/*zip*/wildfly-master.zip</url>
+                                    <outputFileName>../wildfly/build/target/wildfly-master-SNAPSHOT.zip</outputFileName>
+                                    <targetDirectory>${project.build.directory}</targetDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+            
+                    <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-antrun-plugin</artifactId>
                         <version>1.6</version>
-                        <inherited>false</inherited>
+                        
                         <executions>
+                            <execution>
+                                <id>prepare</id>
+                                <inherited>false</inherited>
+                                <phase>generate-resources</phase>
+                                <configuration>
+                                    <target>
+                                        <unzip src="wildfly/build/target/wildfly-master-SNAPSHOT.zip" dest="wildfly/build/target/" />
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
                             <execution>
                                 <inherited>true</inherited>
                                 <phase>generate-test-resources</phase>
@@ -347,7 +451,7 @@
                                                 <include name="**/**"/>
                                             </fileset>
                                         </copy>
-                                        <chmod file="${basedir}/target/jbossas/bin/standalone.sh" perm="777"/>                              
+                                        <chmod file="${basedir}/target/jbossas/bin/standalone.sh" perm="777"/>                            
                                     </target>
                                 </configuration>
                                 <goals>
@@ -442,11 +546,45 @@
                 <plugins>
             
                     <plugin>
+                        <groupId>com.googlecode.maven-download-plugin</groupId>
+                        <artifactId>maven-download-plugin</artifactId>
+                        <version>1.1.0</version>
+                        <inherited>false</inherited>
+                        <executions>
+                            <execution>
+                                <id>download</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>wget</goal>
+                                </goals>
+                                <configuration>
+                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/wildfly/lastSuccessfulBuild/artifact/build/target/wildfly-master-SNAPSHOT/*zip*/wildfly-master.zip</url>
+                                    <outputFileName>../wildfly/build/target/wildfly-master-SNAPSHOT.zip</outputFileName>
+                                    <targetDirectory>${project.build.directory}</targetDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+            
+                    <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-antrun-plugin</artifactId>
                         <version>1.6</version>
-                        <inherited>false</inherited>
+                        
                         <executions>
+                            <execution>
+                                <id>prepare</id>
+                                <inherited>false</inherited>
+                                <phase>generate-resources</phase>
+                                <configuration>
+                                    <target>
+                                        <unzip src="wildfly/build/target/wildfly-master-SNAPSHOT.zip" dest="wildfly/build/target/" />
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
                             <execution>
                                 <inherited>true</inherited>
                                 <phase>generate-test-resources</phase>
@@ -457,7 +595,7 @@
                                                 <include name="**/**"/>
                                             </fileset>
                                         </copy>
-                                        <chmod file="${basedir}/target/jbossas/bin/standalone.sh" perm="777"/>                              
+                                        <chmod file="${basedir}/target/jbossas/bin/standalone.sh" perm="777"/>                            
                                     </target>
                                 </configuration>
                                 <goals>
