@@ -54,6 +54,8 @@
 		       <configuration>
 		           <testExcludes>
 			       <testExclude>**/org/jboss/test/integration/ee/**/*.java</testExclude>
+                               <testExclude>**/org/jboss/test/integration/servlet/**/*TestCase.java</testExclude>
+                               <testExclude>**/org/jboss/test/integration/mtom/**/*TestCase.java</testExclude>
 			   </testExcludes>
 		       </configuration>
 		    </plugin>
@@ -73,8 +75,6 @@
 		                    <!-- Tests to execute. -->
 		                    <includes>
 		                        <include>**/org/jboss/test/integration/classloading/war/**/*TestCase.java</include>
-		                        <include>**/org/jboss/test/integration/servlet/**/*TestCase.java</include>
-                                        <include>**/org/jboss/test/integration/mtom/**/*TestCase.java</include>
 		                    </includes>
 		                </configuration>
 		            </execution>
