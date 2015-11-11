@@ -603,7 +603,7 @@
                                     <goal>wget</goal>
                                 </goals>
                                 <configuration>
-                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-7.x-build/lastSuccessfulBuild/artifact/build/target/wildfly-10.0.0.CR5-SNAPSHOT/*zip*/wildfly-10.0.0.CR5-SNAPSHOT.zip</url>
+                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-7.x-build/lastSuccessfulBuild/artifact/dist/target/wildfly-10.0.0.CR5-SNAPSHOT/*zip*/wildfly-10.0.0.CR5-SNAPSHOT.zip</url>
                                     <outputFileName>../wildfly/build/target/wildfly-10.0.0.CR5-SNAPSHOT.zip</outputFileName>
                                     <targetDirectory>${project.build.directory}</targetDirectory>
                                 </configuration>
@@ -833,7 +833,7 @@
                                     <goal>wget</goal>
                                 </goals>
                                 <configuration>
-                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-7.x-build/lastSuccessfulBuild/artifact/build/target/wildfly-10.0.0.CR5-SNAPSHOT/*zip*/wildfly-10.0.0.CR5-SNAPSHOT.zip</url>
+                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-7.x-build/lastSuccessfulBuild/artifact/dist/target/wildfly-10.0.0.CR5-SNAPSHOT/*zip*/wildfly-10.0.0.CR5-SNAPSHOT.zip</url>
                                     <outputFileName>../wildfly/build/target/wildfly-10.0.0.CR5-SNAPSHOT.zip</outputFileName>
                                     <targetDirectory>${project.build.directory}</targetDirectory>
                                 </configuration>
@@ -930,7 +930,7 @@
 		        <updatePolicy>never</updatePolicy>
 		    </releases>
 		    <snapshots>
-		        <enabled>false</enabled>
+		        <enabled>true</enabled>
 		        <updatePolicy>never</updatePolicy>
 		    </snapshots>
 		</repository>
@@ -944,7 +944,7 @@
 		        <updatePolicy>never</updatePolicy>
 		    </releases>
 		    <snapshots>
-		        <enabled>false</enabled>
+		        <enabled>true</enabled>
 		        <updatePolicy>never</updatePolicy>
 		    </snapshots>
 		</repository>
@@ -975,7 +975,7 @@
 		        <updatePolicy>never</updatePolicy>
 		    </releases>
 		    <snapshots>
-		        <enabled>false</enabled>
+		        <enabled>true</enabled>
 		        <updatePolicy>never</updatePolicy>
 		    </snapshots>
 		</pluginRepository>
@@ -989,7 +989,7 @@
 		        <updatePolicy>never</updatePolicy>
 		    </releases>
 		    <snapshots>
-		        <enabled>false</enabled>
+		        <enabled>true</enabled>
 		        <updatePolicy>never</updatePolicy>
 		    </snapshots>
 		</pluginRepository>
