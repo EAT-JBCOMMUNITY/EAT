@@ -46,6 +46,11 @@
 		</dependency>
 	    </dependencies>
 
+            <properties>
+		<standalone.conf>../src/test/config/standaloneWildfly/standalone.xml</standalone.conf>
+                <jbossas.ts.integ.dir>${basedir}/../../..</jbossas.ts.integ.dir>
+	    </properties>
+
 	    <build>
 
 		    <!--
@@ -70,6 +75,30 @@
 		                        <include>**/org/jboss/test/integration/servlet/**/*TestCase.java</include>
                                         <include>**/org/jboss/test/integration/ee/**/*TestCase.java</include>
 		                    </includes>
+		                </configuration>
+		            </execution>
+		        </executions>
+		    </plugin>
+
+                     <!-- Build the server configuration -->
+		    <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-antrun-plugin</artifactId>
+		        <executions combine.children="append">
+		            <execution>
+		                <id>build-remoting-config</id>
+		                <phase>process-test-resources</phase>
+		                <goals>
+		                    <goal>run</goal>
+		                </goals>
+		                <configuration>
+		                    <target>
+		                        <ant antfile="${jbossas.ts.integ.dir}/src/test/scripts/basic-build.xml">
+		                            <property name="jboss.dist" value="/${jboss.home.env}" />
+		                            <property name="standaloneConfiguration" value="${standalone.conf}" />
+		                            <target name="build-basic"/>
+		                        </ant>
+		                    </target>
 		                </configuration>
 		            </execution>
 		        </executions>
