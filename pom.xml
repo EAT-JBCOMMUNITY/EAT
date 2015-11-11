@@ -29,7 +29,7 @@
         <surefire.memory.args>-Xmx512m -XX:MaxPermSize=256m</surefire.memory.args>
         <surefire.system.args>${surefire.memory.args} -Djboss.dist=${workspace}/target/jbossas -DjbossHome=${workspace}/target/jbossas</surefire.system.args>
         <eap.build.directory>eap/build/target/jboss-as-7.5.5.Final-redhat-SNAPSHOT</eap.build.directory>
-        <wildfly.build.directory>wildfly/build/target/wildfly-master-SNAPSHOT</wildfly.build.directory>
+        <wildfly.build.directory>wildfly/build/target/wildfly-10.0.0.CR5-SNAPSHOT</wildfly.build.directory>
         <node0>127.0.0.1</node0>
         <!-- Logging config -->
         <testLogToFile>true</testLogToFile>
@@ -603,8 +603,8 @@
                                     <goal>wget</goal>
                                 </goals>
                                 <configuration>
-                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/wildfly/lastSuccessfulBuild/artifact/build/target/wildfly-master-SNAPSHOT/*zip*/wildfly-master.zip</url>
-                                    <outputFileName>../wildfly/build/target/wildfly-master-SNAPSHOT.zip</outputFileName>
+                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-7.x-build/lastSuccessfulBuild/artifact/build/target/wildfly-10.0.0.CR5-SNAPSHOT/*zip*/wildfly-10.0.0.CR5-SNAPSHOT.zip</url>
+                                    <outputFileName>../wildfly/build/target/wildfly-10.0.0.CR5-SNAPSHOT.zip</outputFileName>
                                     <targetDirectory>${project.build.directory}</targetDirectory>
                                 </configuration>
                             </execution>
@@ -623,7 +623,7 @@
                                 <phase>generate-resources</phase>
                                 <configuration>
                                     <target>
-                                        <unzip src="wildfly/build/target/wildfly-master-SNAPSHOT.zip" dest="wildfly/build/target/" />
+                                        <unzip src="wildfly/build/target/wildfly-10.0.0.CR5-SNAPSHOT.zip" dest="wildfly/build/target/" />
                                     </target>
                                 </configuration>
                                 <goals>
@@ -674,7 +674,6 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <inherited>false</inherited>
                         <configuration>
                             <!-- Prevent test and server output appearing in console. -->
                             <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
@@ -748,8 +747,8 @@
                                     <goal>wget</goal>
                                 </goals>
                                 <configuration>
-                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/wildfly/lastSuccessfulBuild/artifact/build/target/wildfly-master-SNAPSHOT/*zip*/wildfly-master.zip</url>
-                                    <outputFileName>../wildfly/build/target/wildfly-master-SNAPSHOT.zip</outputFileName>
+                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-7.x-build/lastSuccessfulBuild/artifact/build/target/wildfly-10.0.0.CR5-SNAPSHOT/*zip*/wildfly-10.0.0.CR5-SNAPSHOT.zip</url>
+                                    <outputFileName>../wildfly/build/target/wildfly-10.0.0.CR5-SNAPSHOT.zip</outputFileName>
                                     <targetDirectory>${project.build.directory}</targetDirectory>
                                 </configuration>
                             </execution>
@@ -768,7 +767,7 @@
                                 <phase>generate-resources</phase>
                                 <configuration>
                                     <target>
-                                        <unzip src="wildfly/build/target/wildfly-master-SNAPSHOT.zip" dest="wildfly/build/target/" />
+                                        <unzip src="wildfly/build/target/wildfly-10.0.0.CR5-SNAPSHOT.zip" dest="wildfly/build/target/" />
                                     </target>
                                 </configuration>
                                 <goals>
@@ -838,34 +837,4 @@
 
     </profiles>
     
-    <!--build>
-        
-        <plugins>
-            <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>2.2</version>
-                <executions>
-                    <execution>
-                        <id>auto-clean</id>
-                        <phase>validate</phase>
-                        <inherited>true</inherited>
-                        <goals>
-                            <goal>clean</goal>
-                        </goals>
-                        <configuration>
-                            <filesets>
-                                <fileset>
-                                    <directory>${basedir}/target</directory>
-                                    <includes>
-                                        <include>**/*</include>
-                                    </includes>
-                                </fileset>
-                            </filesets>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-        </plugins>
-    </build-->
 </project>
