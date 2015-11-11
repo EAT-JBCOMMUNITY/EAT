@@ -29,10 +29,10 @@
 
     <target name="build-basic" description="Builds server configurations for basic tests">
 
-        <echo message="Copying modules needed for basic testsuite"/>
+        <!--echo message="Copying modules needed for basic testsuite"/>
         <copy todir="target/jbossas/modules">
             <fileset dir="${jboss.dist}/modules"/>
-        </copy>
+        </copy-->
 
         <copy file="${standaloneConfiguration}" todir="target/jbossas/standalone/configuration" />
     </target>
