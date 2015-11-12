@@ -28,8 +28,10 @@
         <workspace>${WORKSPACE}</workspace>
         <surefire.memory.args>-Xmx512m -XX:MaxPermSize=256m</surefire.memory.args>
         <surefire.system.args>${surefire.memory.args} -Djboss.dist=${workspace}/target/jbossas -DjbossHome=${workspace}/target/jbossas</surefire.system.args>
-        <eap.build.directory>eap/build/target/jboss-as-7.5.5.Final-redhat-SNAPSHOT</eap.build.directory>
-        <wildfly.build.directory>wildfly/build/target/wildfly-10.0.0.CR5-SNAPSHOT</wildfly.build.directory>
+        <eap.version>${EAP_VERSION}</eap.version>
+        <eap.zip>${EAP_ZIP}</eap.zip>
+        <wildfly.version>${WILDFLY_VERSION}</wildfly.version>
+        <wildfly.zip>${WILDFLY_ZIP}</wildfly.zip>
         <node0>127.0.0.1</node0>
         <!-- Logging config -->
         <testLogToFile>true</testLogToFile>
@@ -106,8 +108,8 @@
                                     <goal>wget</goal>
                                 </goals>
                                 <configuration>
-                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-6.4.x-proposed-build/lastSuccessfulBuild/artifact/build/target/jboss-as-7.5.5.Final-redhat-SNAPSHOT/*zip*/jboss-as-7.5.5.Final-redhat-SNAPSHOT.zip</url>
-                                    <outputFileName>../eap/build/target/jboss-as-7.5.5.Final-redhat-SNAPSHOT.zip</outputFileName>
+                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-6.4.x-proposed-build/lastSuccessfulBuild/artifact/build/target/${eap.version}/*zip*/${eap.zip}</url>
+                                    <outputFileName>../eap/build/target/${eap.zip}</outputFileName>
                                     <targetDirectory>${project.build.directory}</targetDirectory>
                                 </configuration>
                             </execution>
@@ -126,7 +128,7 @@
                                 <phase>generate-resources</phase>
                                 <configuration>
                                     <target>
-                                        <unzip src="eap/build/target/jboss-as-7.5.5.Final-redhat-SNAPSHOT.zip" dest="eap/build/target/" />
+                                        <unzip src="eap/build/target/${eap.zip}" dest="eap/build/target/" />
                                     </target>
                                 </configuration>
                                 <goals>
@@ -349,8 +351,8 @@
                                     <goal>wget</goal>
                                 </goals>
                                 <configuration>
-                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-6.4.x-proposed-build/lastSuccessfulBuild/artifact/build/target/jboss-as-7.5.5.Final-redhat-SNAPSHOT/*zip*/jboss-as-7.5.5.Final-redhat-SNAPSHOT.zip</url>
-                                    <outputFileName>../eap/build/target/jboss-as-7.5.5.Final-redhat-SNAPSHOT.zip</outputFileName>
+                                   <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-6.4.x-proposed-build/lastSuccessfulBuild/artifact/build/target/${eap.version}/*zip*/${eap.zip}</url>
+                                    <outputFileName>../eap/build/target/${eap.zip}</outputFileName>
                                     <targetDirectory>${project.build.directory}</targetDirectory>
                                 </configuration>
                             </execution>
@@ -369,7 +371,7 @@
                                 <phase>generate-resources</phase>
                                 <configuration>
                                     <target>
-                                        <unzip src="eap/build/target/jboss-as-7.5.5.Final-redhat-SNAPSHOT.zip" dest="eap/build/target/" />
+                                        <unzip src="eap/build/target/${eap.zip}" dest="eap/build/target/" />
                                     </target>
                                 </configuration>
                                 <goals>
@@ -603,8 +605,8 @@
                                     <goal>wget</goal>
                                 </goals>
                                 <configuration>
-                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-7.x-build/lastSuccessfulBuild/artifact/dist/target/wildfly-10.0.0.CR5-SNAPSHOT/*zip*/wildfly-10.0.0.CR5-SNAPSHOT.zip</url>
-                                    <outputFileName>../wildfly/build/target/wildfly-10.0.0.CR5-SNAPSHOT.zip</outputFileName>
+                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-7.x-build/lastSuccessfulBuild/artifact/dist/target/${wildfly.version}/*zip*/${wildfly.zip}</url>
+                                    <outputFileName>../wildfly/build/target/${wildfly.zip}</outputFileName>
                                     <targetDirectory>${project.build.directory}</targetDirectory>
                                 </configuration>
                             </execution>
@@ -623,7 +625,7 @@
                                 <phase>generate-resources</phase>
                                 <configuration>
                                     <target>
-                                        <unzip src="wildfly/build/target/wildfly-10.0.0.CR5-SNAPSHOT.zip" dest="wildfly/build/target/" />
+                                        <unzip src="wildfly/build/target/${wildfly.zip}" dest="wildfly/build/target/" />
                                     </target>
                                 </configuration>
                                 <goals>
@@ -833,8 +835,8 @@
                                     <goal>wget</goal>
                                 </goals>
                                 <configuration>
-                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-7.x-build/lastSuccessfulBuild/artifact/dist/target/wildfly-10.0.0.CR5-SNAPSHOT/*zip*/wildfly-10.0.0.CR5-SNAPSHOT.zip</url>
-                                    <outputFileName>../wildfly/build/target/wildfly-10.0.0.CR5-SNAPSHOT.zip</outputFileName>
+                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-7.x-build/lastSuccessfulBuild/artifact/dist/target/${wildfly.version}/*zip*/${wildfly.zip}</url>
+                                    <outputFileName>../wildfly/build/target/${wildfly.zip}</outputFileName>
                                     <targetDirectory>${project.build.directory}</targetDirectory>
                                 </configuration>
                             </execution>
@@ -853,7 +855,7 @@
                                 <phase>generate-resources</phase>
                                 <configuration>
                                     <target>
-                                        <unzip src="wildfly/build/target/wildfly-10.0.0.CR5-SNAPSHOT.zip" dest="wildfly/build/target/" />
+                                        <unzip src="wildfly/build/target/${wildfly.zip}" dest="wildfly/build/target/" />
                                     </target>
                                 </configuration>
                                 <goals>
