@@ -111,6 +111,8 @@
                                     <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-6.4.x-proposed-build/lastSuccessfulBuild/artifact/build/target/${eap.version}/*zip*/${eap.zip}</url>
                                     <outputFileName>../eap/build/target/${eap.zip}</outputFileName>
                                     <targetDirectory>${project.build.directory}</targetDirectory>
+                                    <override>true</override>
+                                    <cacheDirectory>../eap/build/target/</cacheDirectory>
                                 </configuration>
                             </execution>
                         </executions>
@@ -354,6 +356,8 @@
                                    <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-6.4.x-proposed-build/lastSuccessfulBuild/artifact/build/target/${eap.version}/*zip*/${eap.zip}</url>
                                     <outputFileName>../eap/build/target/${eap.zip}</outputFileName>
                                     <targetDirectory>${project.build.directory}</targetDirectory>
+                                    <override>true</override>
+                                    <cacheDirectory>../eap/build/target/</cacheDirectory>
                                 </configuration>
                             </execution>
                         </executions>
@@ -608,6 +612,8 @@
                                     <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-7.x-build/lastSuccessfulBuild/artifact/dist/target/${wildfly.version}/*zip*/${wildfly.zip}</url>
                                     <outputFileName>../wildfly/build/target/${wildfly.zip}</outputFileName>
                                     <targetDirectory>${project.build.directory}</targetDirectory>
+                                    <override>true</override>
+                                    <cacheDirectory>../wildfly/build/target/</cacheDirectory>
                                 </configuration>
                             </execution>
                         </executions>
@@ -838,6 +844,8 @@
                                     <url>http://thunder.sin2.redhat.com:8380/hudson/job/eap-7.x-build/lastSuccessfulBuild/artifact/dist/target/${wildfly.version}/*zip*/${wildfly.zip}</url>
                                     <outputFileName>../wildfly/build/target/${wildfly.zip}</outputFileName>
                                     <targetDirectory>${project.build.directory}</targetDirectory>
+                                    <override>true</override>
+                                    <cacheDirectory>../wildfly/build/target/</cacheDirectory>
                                 </configuration>
                             </execution>
                         </executions>
