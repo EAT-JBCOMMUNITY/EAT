@@ -15,7 +15,7 @@
     <packaging>pom</packaging>
     <version>1.0.1.Final-SNAPSHOT</version>
 
-    <name>JBoss Application Server Test Suite: Additional Testsuite</name>
+    <name>jboss application server testsuite: additional testsuite</name>
     
     <properties>
         <version.org.jboss.arquillian.container.managed>7.1.3.Final</version.org.jboss.arquillian.container.managed>

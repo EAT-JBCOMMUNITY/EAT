@@ -13,7 +13,7 @@
 
     <artifactId>jboss-eap-ts-integ-basic</artifactId>
     <packaging>jar</packaging>
-    <name>JBoss Eap AdditionalTest Suite: Basic</name>
+    <name>jboss eap additional testsuite: basic</name>
 
     <profiles>
 

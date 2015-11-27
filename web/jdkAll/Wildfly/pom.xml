@@ -18,7 +18,7 @@
     <artifactId>jboss-wildfly-additional-testsuite-web</artifactId>
     <version>1.0.1.Final-SNAPSHOT</version>
 
-    <name>JBoss Wildfly Application Server Additional TestSuite: Web</name>
+    <name>jboss wildfly application server additional testsuite: web</name>
 
     <profiles>
         
