@@ -9,16 +9,16 @@ HOW TO USE:
 TESTING AGAINST EAP APPLICATION SERVER
 
 1. Make sure that JBOSS_HOME is set with the path to your JBOSS EAP zip file,
-             that WORKSPACE is set with the path to the JAVA-T (Jboss All Version Additional - Testsuite) directory,
-             that EAP_VERSION is set to the version of the eap build.
+   WORKSPACE is set with the path to the JAVA-T (Jboss All Version Additional - Testsuite) directory
+   and EAP_VERSION is set to the version of the eap build.
 2. Build the additional testsuite activating the EAP profile (-Deap).
 3. Run the additional testsuite.
 
 TESTING AGAINST WILDFLY APPLICATION SERVER
 
 1. Make sure that JBOSS_HOME is set with the path to your WILDFLY zip file,
-             that WORKSPACE is set with the path to the JAVA-T (Jboss All Version Additional - Testsuite) directory,
-             that WILDFLY_VERSION is set to the version of the wildfly build.
+   WORKSPACE is set with the path to the JAVA-T (Jboss All Version Additional - Testsuite) directory
+   and WILDFLY_VERSION is set to the version of the wildfly build.
 2. Build the additional testsuite activating the WILDFLY profile (-Dwildfly).
 3. Run the additional testsuite.
 
