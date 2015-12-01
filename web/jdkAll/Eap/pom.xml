@@ -86,7 +86,7 @@
 		        </executions>
 		    </plugin>
 
-                    <plugin>
+                    <!--plugin>
 		        <groupId>org.apache.maven.plugins</groupId>
 		        <artifactId>maven-antrun-plugin</artifactId>
 		        <executions combine.children="append">
@@ -99,7 +99,7 @@
 		                <configuration>
 		                    <target>
 		                        <ant antfile="${jbossas.ts.integ.dir}/src/test/scripts/basic-build.xml">
-		                            <property name="jboss.dist" value="/${jboss.home.env}" />
+		                            <property name="workspace" value="/${WORKSPACE}" />
 		                            <property name="standaloneConfiguration" value="${standalone.conf}" />
 		                            <target name="build-basic"/>
 		                        </ant>
@@ -107,7 +107,7 @@
 		                </configuration>
 		            </execution>
 		        </executions>
-		    </plugin>
+		    </plugin-->
 		</plugins>
 	    </build>
 
