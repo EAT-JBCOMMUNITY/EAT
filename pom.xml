@@ -105,7 +105,11 @@
                                 <phase>generate-resources</phase>
                                 <configuration>
                                     <target>
-                                        <unzip src="${jboss.home.env}" dest="eap/build/target/" />
+                                        <copy todir="eap/build/target/" preservelastmodified="true">
+                                            <fileset dir="${jboss.home.env}">
+                                                <include name="**/**"/>
+                                            </fileset>
+                                        </copy>                        
                                     </target>
                                 </configuration>
                                 <goals>
@@ -327,7 +331,11 @@
                                 <phase>generate-resources</phase>
                                 <configuration>
                                     <target>
-                                        <unzip src="${jboss.home.env}" dest="eap/build/target/" />
+                                        <copy todir="eap/build/target/" preservelastmodified="true">
+                                            <fileset dir="${jboss.home.env}">
+                                                <include name="**/**"/>
+                                            </fileset>
+                                        </copy>                        
                                     </target>
                                 </configuration>
                                 <goals>
@@ -560,7 +568,11 @@
                                 <phase>generate-resources</phase>
                                 <configuration>
                                     <target>
-                                        <unzip src="${jboss.home.env}" dest="wildfly/build/target/" />
+                                        <copy todir="wildfly/build/target/" preservelastmodified="true">
+                                            <fileset dir="${jboss.home.env}">
+                                                <include name="**/**"/>
+                                            </fileset>
+                                        </copy>                        
                                     </target>
                                 </configuration>
                                 <goals>
@@ -769,7 +781,11 @@
                                 <phase>generate-resources</phase>
                                 <configuration>
                                     <target>
-                                        <unzip src="${jboss.home.env}" dest="wildfly/build/target/" />
+                                        <copy todir="wildfly/build/target/" preservelastmodified="true">
+                                            <fileset dir="${jboss.home.env}">
+                                                <include name="**/**"/>
+                                            </fileset>
+                                        </copy>                        
                                     </target>
                                 </configuration>
                                 <goals>
