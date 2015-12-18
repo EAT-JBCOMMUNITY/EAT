@@ -8,6 +8,7 @@
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
         <version>16</version>
+        <relativePath></relativePath>
     </parent>
 
     <groupId>org.jboss.as</groupId>
