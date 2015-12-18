@@ -26,7 +26,7 @@
         <javax.enterprise.concurrent>1.0</javax.enterprise.concurrent>
         <xnio.version>3.1.0.Final</xnio.version>
         <jboss.home.env>${JBOSS_HOME}</jboss.home.env>
-        <workspace>${WORKSPACE}</workspace>
+        <workspace>${project.basedir}</workspace>
         <surefire.memory.args>-Xmx512m -XX:MaxPermSize=256m</surefire.memory.args>
         <surefire.system.args>${surefire.memory.args} -Djboss.dist=${workspace}/target/jbossas -DjbossHome=${workspace}/target/jbossas</surefire.system.args>
         <node0>127.0.0.1</node0>
