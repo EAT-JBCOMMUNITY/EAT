@@ -14,7 +14,7 @@
     <name>jboss eap7 additional testsuite: basic : configuration</name>
             
     <properties>
-	<standalone.conf>${basedir}/../src/test/config/standaloneWildfly/standalone.xml</standalone.conf>
+	<standalone.conf>${basedir}/../src/test/config/standaloneEap7/standalone.xml</standalone.conf>
         <jbossas.ts.integ.dir>${basedir}/../../../../..</jbossas.ts.integ.dir>
         <server>eap7</server>
     </properties>
