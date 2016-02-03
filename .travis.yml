@@ -1,15 +1,24 @@
 language: java
 jdk:
   - oraclejdk8
- 
+
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
+
 script:
   - java -version
   - mkdir wildfly
   - cd wildfly
   - git init
   - git remote add origin https://github.com/wildfly/wildfly.git
-  - git pull origin 10.0.0.Alpha1
+  - git pull origin master
+  - export MAVEN_OPTS="-Xmx512M"
+  - bash -c "while true; do echo \$(date) - building ...; sleep 30s; done" & PING_LOOP_PID=$!
   - mvn clean install -DskipTests > output.txt
-  - cd ..
-  - export JBOSS_FOLDER=$PWD'/wildfly/dist/target/wildfly-10.0.0.Alpha1'
+  - cd ./dist/target/wildfly-*!(.jar)
+  - export JBOSS_FOLDER=$PWD
+  - cd ../../../..
   - mvn clean install -Dwildfly
+
