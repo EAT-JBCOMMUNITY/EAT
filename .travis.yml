@@ -11,14 +11,10 @@ script:
   - java -version
   - mkdir wildfly
   - cd wildfly
-  - git init
-  - git remote add origin https://github.com/wildfly/wildfly.git
-  - git pull origin master
-  - export MAVEN_OPTS="-Xmx512M"
-  - bash -c "while true; do echo \$(date) - building ...; sleep 30s; done" & PING_LOOP_PID=$!
-  - mvn clean install -DskipTests > output.txt
-  - cd ./dist/target/wildfly-*!(.jar)
+  - wget --no-check-certificate 'https://googledrive.com/host/0B4Gi0_mfsWRzcUdGaXJvb3VUOEU' -O wildfly.zip
+  - unzip wildfly.zip
+  - cd wildfly-*
   - export JBOSS_FOLDER=$PWD
-  - cd ../../../..
+  - cd ../..
   - mvn clean install -Dwildfly
 
