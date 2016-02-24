@@ -435,7 +435,7 @@
             </activation>
 
             <properties>
-                <JBOSS_FOLDER>../../../build/target/jboss-as-7.5.6.Final-redhat-SNAPSHOT/</JBOSS_FOLDER>
+                <JBOSS_FOLDER>../../../build/target/jboss-as-7.5.7.Final-redhat-SNAPSHOT/</JBOSS_FOLDER>
             </properties>
 
             <build>
@@ -481,7 +481,7 @@
             </activation>
 
             <properties>
-                <JBOSS_FOLDER>../../../build/target/jboss-as-7.5.6.Final-redhat-SNAPSHOT/</JBOSS_FOLDER>
+                <JBOSS_FOLDER>../../../build/target/jboss-as-7.5.7.Final-redhat-SNAPSHOT/</JBOSS_FOLDER>
             </properties>
 
             <build>
@@ -527,7 +527,7 @@
             </activation>
 
             <properties>
-                <JBOSS_FOLDER>../../../dist/target/wildfly-10.0.0.Final-SNAPSHOT/</JBOSS_FOLDER>
+                <JBOSS_FOLDER>../../../dist/target/wildfly-10.1.0.Final-SNAPSHOT/</JBOSS_FOLDER>
             </properties>
 
             <modules>
@@ -573,7 +573,7 @@
             </activation>
 
             <properties>
-                <JBOSS_FOLDER>../../../dist/target/wildfly-10.0.0.Final-SNAPSHOT/</JBOSS_FOLDER>
+                <JBOSS_FOLDER>../../../dist/target/wildfly-10.1.0.Final-SNAPSHOT/</JBOSS_FOLDER>
             </properties>
 
             <modules>
@@ -597,6 +597,97 @@
                                     <target>
                                         <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/wildfly/build/target/jbossas" />
+                                            <property name="jboss.folder" value="${JBOSS_FOLDER}" />
+                                            <target name="copy-server-dir"/>
+                                        </ant>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>eap7.testsuite.onserver</id>
+            <activation>
+                <file>
+                    <exists>../../eap7-testsuite</exists>
+                </file>
+            </activation>
+
+            <properties>
+                <JBOSS_FOLDER>../../../dist/target/wildfly-7.0.0.CR1-redhat-SNAPSHOT/</JBOSS_FOLDER>
+            </properties>
+
+            <modules>
+                <module>testcases/jdkAll/Eap7</module>
+            </modules>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>prepare</id>
+                                <inherited>false</inherited>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                            <property name="todir" value="${basedir}/eap7/build/target/jbossas" />
+                                            <property name="jboss.folder" value="${JBOSS_FOLDER}" />
+                                            <target name="copy-server-dir"/>
+                                        </ant>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+
+        </profile>
+
+        <profile>
+            <id>eap7.jdk8.testsuite.onserver</id>
+            <activation>
+                <file>
+                    <exists>../../eap7-jdk8-testsuite</exists>
+                </file>
+            </activation>
+
+            <properties>
+                <JBOSS_FOLDER>../../../dist/target/wildfly-7.0.0.CR1-redhat-SNAPSHOT/</JBOSS_FOLDER>
+            </properties>
+
+            <modules>
+                <module>testcases/jdk8/Eap7</module>
+            </modules>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>prepare</id>
+                                <inherited>false</inherited>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                            <property name="todir" value="${basedir}/eap7/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
