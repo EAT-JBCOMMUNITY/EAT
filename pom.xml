@@ -130,7 +130,7 @@
             <id>eap.testsuite.onserver</id>
             <activation>
                 <file>
-                    <exists>../../eap-testsuite</exists>
+                    <exists>../eap-testsuite</exists>
                 </file>
             </activation>
 	    <repositories>
@@ -258,7 +258,7 @@
             <id>eap7.testsuite.onserver</id>
             <activation>
                 <file>
-                    <exists>../../eap7-testsuite</exists>
+                    <exists>../eap7-testsuite</exists>
                 </file>
             </activation>
 	    <repositories>
