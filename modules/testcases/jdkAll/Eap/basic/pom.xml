@@ -30,21 +30,6 @@
             </modules>
 
 	</profile>
-
-        <profile>
-            <id>eap.basic.onserver</id>
-            <activation>
-                <file>
-                    <exists>../../../../../../eap-testsuite</exists>
-                </file>
-            </activation>
-            
-            <modules>
-                <module>test-configurations</module>
-            </modules>
-
-	</profile>
-
      </profiles>
 
 </project>

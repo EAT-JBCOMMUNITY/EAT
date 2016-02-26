@@ -31,20 +31,6 @@
 
 	</profile>
 
-        <profile>
-            <id>eap7.web.onserver</id>
-            <activation>
-                <file>
-                    <exists>../../../../../../eap7-testsuite</exists>
-                </file>
-            </activation>
-            
-            <modules>
-                <module>test-configurations</module>
-            </modules>
-
-	</profile>
-
      </profiles>
 
 </project>
