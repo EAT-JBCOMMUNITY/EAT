@@ -36,22 +36,5 @@
             </modules>
 
         </profile>
-
-        <profile>
-            <id>eap7.ws.onserver</id>
-            <activation>
-                <file>
-                    <exists>../../../../../../eap7-jdk8-testsuite</exists>
-                </file>
-            </activation>
-            
-            <modules>
-                <module>test-configurations</module>
-            </modules>
-
-        </profile>
     </profiles>
-    <modules>
-        <module>test-configurations</module>
-    </modules>
 </project>

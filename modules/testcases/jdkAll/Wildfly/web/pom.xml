@@ -31,20 +31,6 @@
 
 	</profile>
 
-        <profile>
-            <id>wildfly.web.onserver</id>
-            <activation>
-                <file>
-                    <exists>../../../../../../wildfly-testsuite</exists>
-                </file>
-            </activation>
-            
-            <modules>
-                <module>test-configurations</module>
-            </modules>
-
-	</profile>
-
      </profiles>
 
 </project>

@@ -34,24 +34,7 @@
             <modules>
                 <module>test-configurations</module>
             </modules>
-
-        </profile>
-
-        <profile>
-            <id>wildfly.ws.onserver</id>
-            <activation>
-                <file>
-                    <exists>../../../../../../wildfly-jdk8-testsuite</exists>
-                </file>
-            </activation>
-            
-            <modules>
-                <module>test-configurations</module>
-            </modules>
-
         </profile>
     </profiles>
-    <modules>
-        <module>test-configurations</module>
-    </modules>
+
 </project>
