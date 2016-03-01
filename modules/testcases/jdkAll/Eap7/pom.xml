@@ -23,42 +23,44 @@
         <surefire.system.args>${surefire.memory.args} -Djboss.dist=${project.basedir}/../../../../../eap7/build/target/jbossas -DjbossHome=${project.basedir}/../../../../../eap7/build/target/jbossas</surefire.system.args>
         <jboss.home.env>${project.basedir}/../../../eap7/build/target/jbossas</jboss.home.env>
     </properties>
-            
+        
+    <dependencyManagement>    
+        <dependencies>
+            <dependency>
+                <groupId>org.jboss.eap</groupId>
+                <artifactId>jboss-eap-parent</artifactId>
+                <type>pom</type>
+                <version>${JBOSS_VERSION}</version>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.wildfly.arquillian</groupId>
             <artifactId>wildfly-arquillian-container-managed</artifactId>
-            <version>1.0.2.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly</groupId>
-            <artifactId>wildfly-arquillian-protocol-jmx</artifactId>
-            <version>8.2.1.Final</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.shrinkwrap</groupId>
             <artifactId>shrinkwrap-api</artifactId>
-            <version>1.2.3</version>
         </dependency>
         <dependency>
-            <groupId>org.wildfly</groupId>
+            <groupId>org.jboss.eap</groupId>
             <artifactId>wildfly-testsuite-shared</artifactId>
-            <version>10.0.0.CR5</version>
+            <version>${JBOSS_VERSION}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-container</artifactId>
-            <version>1.1.10.Final</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>4.5.1</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.spec.javax.servlet</groupId>
             <artifactId>jboss-servlet-api_3.1_spec</artifactId>
-            <version>1.0.0.Final-redhat-1</version>
         </dependency>
     </dependencies>
             

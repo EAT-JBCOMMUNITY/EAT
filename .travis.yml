@@ -11,10 +11,11 @@ script:
   - java -version
   - mkdir wildfly
   - cd wildfly
-  - wget --no-check-certificate 'https://googledrive.com/host/0B4Gi0_mfsWRzcUdGaXJvb3VUOEU' -O wildfly.zip
+  - wget --no-check-certificate 'https://googledrive.com/host/0B4Gi0_mfsWRzbTBMb2d0bGhuUzA' -O wildfly.zip
   - unzip wildfly.zip
   - cd wildfly-*
   - export JBOSS_FOLDER=$PWD
+  - export JBOSS_VERSION=10.0.0.Final
   - cd ../..
   - mvn clean install -Dwildfly
 

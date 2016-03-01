@@ -25,16 +25,27 @@
         <jboss.home.env>${project.basedir}/../../../eap/build/target/jbossas</jboss.home.env>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jboss.as</groupId>
+                <artifactId>jboss-as-parent</artifactId>
+                <type>pom</type>
+                <version>${JBOSS_VERSION}</version>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.jboss.as</groupId>
             <artifactId>jboss-as-arquillian-container-managed</artifactId>
-            <version>${version.org.jboss.arquillian.container.managed}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.as</groupId>
             <artifactId>jboss-as-testsuite-shared</artifactId>
-            <version>7.2.0.Final</version>
+            <version>${JBOSS_VERSION}</version>
             <exclusions>
 		<exclusion>
 		  <groupId>com.github.relaxng</groupId>
@@ -49,7 +60,6 @@
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-container</artifactId>
-            <version>1.0.0.Final</version>
         </dependency>  
     </dependencies>
 
