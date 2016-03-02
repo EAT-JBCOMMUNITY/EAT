@@ -24,17 +24,54 @@
         <jboss.home.env>${project.basedir}/../../../wildfly/build/target/jbossas</jboss.home.env>
     </properties>
     
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.wildfly</groupId>
-                <artifactId>wildfly-parent</artifactId>
-                <type>pom</type>
-                <version>${JBOSS_VERSION}</version>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <profiles>
+        <profile>
+            <id>standalone</id>
+            <activation>
+                <property>
+                    <name>standalone</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+	    <dependencyManagement>
+		<dependencies>
+		    <dependency>
+		        <groupId>org.wildfly</groupId>
+		        <artifactId>wildfly-parent</artifactId>
+		        <type>pom</type>
+		        <version>${JBOSS_VERSION}</version>
+		        <scope>import</scope>
+		    </dependency>
+		</dependencies>
+	    </dependencyManagement>
+
+        </profile>
+
+        <profile>
+            <id>server-integration</id>
+            <activation>
+                <property>
+                    <name>server-integration</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+	    <dependencyManagement>
+		<dependencies>
+		    <dependency>
+		        <groupId>org.wildfly</groupId>
+		        <artifactId>wildfly-boms</artifactId>
+		        <type>pom</type>
+		        <version>${JBOSS_VERSION}</version>
+		        <scope>import</scope>
+		    </dependency>
+		</dependencies>
+	    </dependencyManagement>
+
+        </profile>
+
+    </profiles>
         
     <dependencies>
         <dependency>
