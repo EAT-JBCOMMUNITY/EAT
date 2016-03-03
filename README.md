@@ -10,11 +10,11 @@ In order to synchronize the dependecny versions of eap-additional-testsuite with
 
 Standalone Mode
 ---------------
-If you enable standalone mode please make sure that the server parent pom is available locally as an artifact.
+If you enable standalone mode (-Dstandalone), please make sure that the server parent pom is available locally as an artifact.
 
 Server-Integration Mode
 ---------------
-If you enable server-integration mode please make sure that the server BOM is available locally as an artifact.
+If you enable server-integration mode (-Dserver-integration), please make sure that the server BOM is available locally as an artifact.
 
 
 
@@ -38,6 +38,27 @@ Testing EAP or Wildfly with specific JDK version
 2. Make sure that JBOSS_VERSION environment variable is set with the version of JBOSS EAP OR WILDFLY Server.
 3. Make sure that JAVA_HOME is pointing to the jdk of desired version.
 4. Build and run the additional testsuite activating the EAP or WILDFLY specific jdk version profile (-Deap-jdk8, -Dwildfly-jdk8).
+
+
+ADVANTAGES 
+----------
+1. Having all the tests at one place.
+2. Comparison of the servers based on the testsuite.
+3. Guarding against regression.
+
+ 
+MOTIVATION
+----------
+If a test is developed for server X then it can be automatically tested against all the other servers.
+
+ 
+HOW TO DEBUG
+------------
+1. Start the server (that you have defined in JBOSS_FOLDER) with the --debug 'port' option.
+2. Connect the Debugger to the Remote VM inside the server using some IDE.
+3. Activate the equivalent debug profile at your IDE (eg eap7.debug)
+4. Set your breakpoints.
+5. And then start the debugging executing the specific test which is errorous.
 
 
 #License 
