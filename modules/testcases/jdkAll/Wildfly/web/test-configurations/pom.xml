@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss.as</groupId>
-        <artifactId>jboss-wildfly-ts-integ-web</artifactId>
+        <groupId>org.jboss</groupId>
+        <artifactId>wildfly-additional-testsuite-web</artifactId>
         <version>1.0.1.Final-SNAPSHOT</version>
     </parent>
 
-    <artifactId>jboss-wildfly-ts-integ-web-configuration</artifactId>
-    <name>jboss wildfly additional testsuite: web : configuration</name>
+    <artifactId>wildfly-additional-testsuite-web-configuration</artifactId>
+    <name>wildfly additional testsuite: web : configuration</name>
             
     <properties>
 	<standalone.conf>../src/test/config/standaloneWildfly/standalone.xml</standalone.conf>
@@ -39,9 +39,10 @@
 		        <configuration>         
 		            <!-- Tests to execute. -->
 		            <includes>
-		                <include>org/jboss/test/web/classloading/war/**/*TestCase.java</include>
-		                <include>org/jboss/test/web/servlet/**/*TestCase.java</include>
-                                <include>org/jboss/test/web/ee/**/*TestCase.java</include>
+		                <include>org/jboss/additional/testsuite/web/classloading/war/**/*TestCase.java</include>
+		                <include>org/jboss/additional/testsuite/web/servlet/**/*TestCase.java</include>
+                                <include>org/jboss/additional/testsuite/web/ee/**/*TestCase.java</include>
+                                <include>org/jboss/additional/testsuite/web/mtom/**/*TestCase.java</include>
 		            </includes> 
 		        </configuration>
 		    </execution>
