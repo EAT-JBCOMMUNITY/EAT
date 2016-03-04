@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss.as</groupId>
-        <artifactId>jboss-wildfly-ts-integ-basic</artifactId>
+        <groupId>org.jboss</groupId>
+        <artifactId>wildfly-additional-testsuite-basic</artifactId>
         <version>1.0.1.Final-SNAPSHOT</version>
     </parent>
 
-    <artifactId>jboss-wildfly-ts-integ-basic-configuration</artifactId>
-    <name>jboss wildfly additional testsuite: basic : configuration</name>
+    <artifactId>wildfly-additional-testsuite-basic-configuration</artifactId>
+    <name>wildfly additional testsuite: basic : configuration</name>
             
     <properties>
 	<standalone.conf>${basedir}/../src/test/config/standaloneWildfly/standalone.xml</standalone.conf>
@@ -40,7 +40,7 @@
 		        <configuration>         
 		            <!-- Tests to execute. -->
 		            <includes>
-		                <include>org/jboss/test/basic/**/BasicTest.java</include>
+		                <include>org/jboss/additional/testsuite/basic/**/BasicTest.java</include>
 		            </includes> 
 		        </configuration>
 		    </execution>

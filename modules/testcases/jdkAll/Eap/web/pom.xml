@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss.as</groupId>
-        <artifactId>jboss-as-additional-testsuite-eap</artifactId>
+        <groupId>org.jboss</groupId>
+        <artifactId>eap64-additional-testsuite</artifactId>
         <version>1.0.1.Final-SNAPSHOT</version>
     </parent>
 
-    <artifactId>jboss-eap-ts-integ-web</artifactId>
+    <artifactId>eap-additional-testsuite-web</artifactId>
     <packaging>pom</packaging>
-    <name>jboss eap additional testsuite: web</name>
+    <name>eap additional testsuite: web</name>
 
     <profiles>
         
