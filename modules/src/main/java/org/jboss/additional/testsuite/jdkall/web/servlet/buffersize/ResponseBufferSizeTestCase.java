@@ -40,8 +40,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -50,8 +49,6 @@ import java.util.Arrays;
 @RunAsClient
 @RunWith(Arquillian.class)
 public class ResponseBufferSizeTestCase {
-
-    private static final Logger log = LoggerFactory.getLogger(ResponseBufferSizeTestCase.class);
 
     public static final String DEPLOYMENT = "response-buffer-size.war";
 
@@ -79,9 +76,7 @@ public class ResponseBufferSizeTestCase {
             String content = EntityUtils.toString(response.getEntity());
             Assert.assertFalse(content.contains(ResponseBufferSizeServlet.RESPONSE_COMMITED_MESSAGE));
             final Header[] transferEncodingHeaders = response.getHeaders("Transfer-Encoding");
-            log.info("transferEncodingHeaders: " + Arrays.toString(transferEncodingHeaders));
             final Header[] contentLengthHeader = response.getHeaders("Content-Length");
-            log.info("contentLengthHeader: " + Arrays.toString(contentLengthHeader));
 
             for (Header transferEncodingHeader : transferEncodingHeaders) {
                 Assert.assertNotEquals("Transfer-Encoding shouldn't be chunked as set BufferSize shouldn't be filled yet, "
