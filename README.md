@@ -64,10 +64,10 @@ HOW TO DEBUG
 EAP-ADDITIONAL-TESTSUITE INTEGRATED INSIDE THE SERVERS (HOW TO USE)  - AVAILABLE SOON
 -------------------------------------------------------------------------------------
 1. Send your PR containing the test to eap-additional-testsuite.
-2. Before sending the server PR inform the server that you would like to include a specific PR of eap-additional-testsuite :
-    $ git submodule update --init --remote
-    $ cd testsuite/addtional-testsuite/eap-additional-testsuite/
-    $ git fetch origin refs/pull/8/head && git checkout FETCH_HEAD (declare that you would like to include PR 8 of eap-additional-testsuite)
+2. Before sending the server PR inform the server that you would like to include a specific PR of eap-additional-testsuite : 
+    - git submodule update --init --remote
+    - cd testsuite/addtional-testsuite/eap-additional-testsuite/
+    - git fetch origin refs/pull/8/head && git checkout FETCH_HEAD (declare that you would like to include PR 8 of eap-additional-testsuite)
 3. Commit the changes on the server and send the server PR.
 4. The specific PR of the test will be tested along with the server PR.
 
