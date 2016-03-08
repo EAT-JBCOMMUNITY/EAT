@@ -20,8 +20,8 @@
     
     <properties>
         <surefire.memory.args>-Xmx512m -XX:MaxPermSize=256m</surefire.memory.args>
-        <surefire.system.args>${surefire.memory.args} -Djboss.dist=${project.basedir}/../../../../../wildfly-release/build/target/jbossas -DjbossHome=${project.basedir}/../../../../../wildfly-release/build/target/jbossas</surefire.system.args>
-        <jboss.home.env>${project.basedir}/../../../wildfly-release/build/target/jbossas</jboss.home.env>
+        <surefire.system.args>${surefire.memory.args} -Djboss.dist=${project.basedir}/../../../../../wildfly/build/target/jbossas -DjbossHome=${project.basedir}/../../../../../wildfly/build/target/jbossas</surefire.system.args>
+        <jboss.home.env>${project.basedir}/../../../wildfly/build/target/jbossas</jboss.home.env>
     </properties>
             
     <profiles>
@@ -143,8 +143,8 @@
 
 		            <systemPropertyVariables>
 		                <jboss.options>${surefire.system.args}</jboss.options>
-		                <jboss.home>${project.basedir}/../../../../../wildfly-release/build/target/jbossas</jboss.home>
-		                <module.path>${project.basedir}/../../../../../wildfly-release/build/target/jbossas/modules</module.path>
+		                <jboss.home>${project.basedir}/../../../../../wildfly/build/target/jbossas</jboss.home>
+		                <module.path>${project.basedir}/../../../../../wildfly/build/target/jbossas/modules</module.path>
 		            </systemPropertyVariables>
 		        </configuration>
 		    </plugin>
