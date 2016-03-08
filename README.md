@@ -10,11 +10,11 @@ In order to synchronize the dependecny versions of eap-additional-testsuite with
 
 Standalone Mode
 ---------------
-If you enable standalone mode (-Dstandalone), please make sure that the server parent pom is available locally as an artifact.
+If you enable standalone mode (-Dstandalone), please make sure that the server parent pom is available locally or remotely as an artifact.
 
 Server-Integration Mode
 ---------------
-If you enable server-integration mode (-Dserver-integration), please make sure that the server BOM is available locally as an artifact.
+If you enable server-integration mode (-Dserver-integration), please make sure that the server BOM is available locally or remotely as an artifact.
 
 
 
@@ -59,6 +59,15 @@ HOW TO DEBUG
 3. Activate the equivalent debug profile at your IDE (eg eap7.testsuite)
 4. Set your breakpoints.
 5. And then start the debugging executing the specific test which is errorous.
+
+
+HOW TO USE EAP ADDITIONAL TESTSUITE INSIDE AN IDE
+--------------------------------------------------
+1. Load the project at your IDE.
+2. Go to the configuration of the project and activate the profile of the server that you would like (eg eap7.testsuite profile)
+3. Go to the properties of the project and add the JBOSS_FOLDER and JBOSS_VERSION environment variables. Also when building the project make sure that the standalone profile is also enabled in parallel with the server profile.
+4. Make sure that the server parent pom is available locally or remotely as an artifact.
+5. Build your project.
 
 
 EAP-ADDITIONAL-TESTSUITE INTEGRATED INSIDE THE SERVERS (HOW TO USE)  - AVAILABLE SOON
