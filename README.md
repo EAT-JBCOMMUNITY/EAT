@@ -61,7 +61,7 @@ HOW TO DEBUG
 5. And then start the debugging executing the specific test which is errorous.
 
 
-HOW TO USE EAP ADDITIONAL TESTSUITE INSIDE AN IDE
+HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE
 --------------------------------------------------
 1. Load the project at your IDE.
 2. Go to the configuration of the project and activate the profile of the server that you would like (eg eap7.testsuite profile)
