@@ -16,7 +16,7 @@
     <properties>
 	<standalone.conf>${basedir}/../src/test/config/standaloneWildfly/standalone.xml</standalone.conf>
         <jbossas.ts.integ.dir>${basedir}/../../../../..</jbossas.ts.integ.dir>
-        <server>wildfly-release</server>
+        <server>wildfly</server>
     </properties>
         
     <build>
