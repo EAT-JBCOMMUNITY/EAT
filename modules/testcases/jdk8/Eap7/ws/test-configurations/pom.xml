@@ -44,7 +44,7 @@
                         <configuration>
                             <!-- Tests to execute. -->
                             <includes>
-                                <include>org/jboss/additional/testsuite/ws/defaultmethods/**/*Test*.java</include>
+                                <include>org/jboss/additional/testsuite/jdk8/ws/defaultmethods/**/*Test*.java</include>
                             </includes>
                         </configuration>
                     </execution>

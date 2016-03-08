@@ -17,24 +17,11 @@
     <artifactId>wildfly-jdk8-additional-testsuite-ws</artifactId>
     <version>1.0.1.Final-SNAPSHOT</version>
 
-    <name>eap additional testsuite: ws</name>
+    <name>wildfly additional testsuite: ws</name>
     <packaging>pom</packaging>
 
-    <profiles>
-        
-        <profile>
-            <id>wildfly.ws</id>
-            <activation>
-                <property>
-                    <name>wildfly-jdk8</name>
-                    <value>true</value>
-                </property>
-            </activation>
-
-            <modules>
-                <module>test-configurations</module>
-            </modules>
-        </profile>
-    </profiles>
+    <modules>
+        <module>test-configurations</module>
+    </modules>
 
 </project>
