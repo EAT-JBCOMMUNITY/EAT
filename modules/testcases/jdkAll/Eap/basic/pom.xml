@@ -14,22 +14,7 @@
     <packaging>pom</packaging>
     <name>eap additional testsuite: basic</name>
 
-    <profiles>
-        
-        <profile>
-            <id>eap.basic</id>
-            <activation>
-                <property>
-                    <name>eap</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            
-            <modules>
-                <module>test-configurations</module>
-            </modules>
-
-	</profile>
-     </profiles>
-
+     <modules>
+         <module>test-configurations</module>
+     </modules>
 </project>

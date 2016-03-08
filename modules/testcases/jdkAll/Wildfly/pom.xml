@@ -71,87 +71,104 @@
 
         </profile>
 
-    </profiles>
         
-    <dependencies>
-        <dependency>
-            <groupId>org.wildfly.arquillian</groupId>
-            <artifactId>wildfly-arquillian-container-managed</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.shrinkwrap</groupId>
-            <artifactId>shrinkwrap-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly</groupId>
-            <artifactId>wildfly-testsuite-shared</artifactId>
-            <version>${JBOSS_VERSION}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.arquillian.junit</groupId>
-            <artifactId>arquillian-junit-container</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.spec.javax.servlet</groupId>
-            <artifactId>jboss-servlet-api_3.1_spec</artifactId>
-        </dependency>
-    </dependencies>
-            
+        <profile>
+            <id>wildfly.testsuite</id>
+            <activation>
+                <property>
+                    <name>wildfly</name>
+                    <value>true</value>
+                </property>
+            </activation>
+   
+	     <dependencies>
+		<dependency>
+		    <groupId>org.wildfly.arquillian</groupId>
+		    <artifactId>wildfly-arquillian-container-managed</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.shrinkwrap</groupId>
+		    <artifactId>shrinkwrap-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-testsuite-shared</artifactId>
+		    <version>${JBOSS_VERSION}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.arquillian.junit</groupId>
+		    <artifactId>arquillian-junit-container</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.servlet</groupId>
+		    <artifactId>jboss-servlet-api_3.1_spec</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>org.hibernate</groupId>
+                    <artifactId>hibernate-search-analyzers</artifactId>
+                    <version>4.5.3.Final</version>
+	        </dependency>
+	    </dependencies>    
+	    
+	    <build>
+		<plugins>
+		    
+		    <!-- General surefire configuration. Applies to submodules too. -->
+		    <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-surefire-plugin</artifactId>
+		        <configuration>
+		            <!-- Prevent test and server output appearing in console. -->
+		            <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
+
+		            <systemPropertyVariables>
+		                <jboss.options>${surefire.system.args}</jboss.options>
+		                <jboss.home>${project.basedir}/../../../../../wildfly/build/target/jbossas</jboss.home>
+		                <module.path>${project.basedir}/../../../../../wildfly/build/target/jbossas/modules</module.path>
+		            </systemPropertyVariables>
+
+		            <!-- Arquillian's config files. -->
+		            <additionalClasspathElements combine.children="append">
+		                <additionalClasspathElement>${basedir}/../../../../../src/config/arqWildfly</additionalClasspathElement>
+		            </additionalClasspathElements>
+
+		        </configuration>
+		    </plugin>
+
+		    <plugin>
+		        <groupId>org.codehaus.mojo</groupId>
+		        <artifactId>build-helper-maven-plugin</artifactId>
+		        <version>1.10</version>
+		        <executions>
+		            <execution>
+		                <id>add-test-source</id>
+		                <phase>generate-test-sources</phase>
+		                <goals>
+		                    <goal>add-test-source</goal>
+		                </goals>
+		                <configuration>
+		                    <sources>
+		                        <source>${basedir}/../../../../../src/main/java</source>
+		                    </sources>
+		                </configuration>
+		            </execution>
+		        </executions>
+		    </plugin>
+
+		</plugins>
+	    </build>
+
+        </profile>
+    </profiles>
+
     <modules>
         <module>basic</module>
-        <module>web</module>
+        <module>web</module> 
     </modules>
 
-    <build>
-        <plugins>
-            
-            <!-- General surefire configuration. Applies to submodules too. -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <!-- Prevent test and server output appearing in console. -->
-                    <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
-
-                    <systemPropertyVariables>
-                        <jboss.options>${surefire.system.args}</jboss.options>
-                        <jboss.home>${project.basedir}/../../../../../wildfly/build/target/jbossas</jboss.home>
-                        <module.path>${project.basedir}/../../../../../wildfly/build/target/jbossas/modules</module.path>
-                    </systemPropertyVariables>
-
-                    <!-- Arquillian's config files. -->
-                    <additionalClasspathElements combine.children="append">
-                        <additionalClasspathElement>${basedir}/../../../../../src/config/arqWildfly</additionalClasspathElement>
-                    </additionalClasspathElements>
-
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.10</version>
-                <executions>
-                    <execution>
-                        <id>add-test-source</id>
-                        <phase>generate-test-sources</phase>
-                        <goals>
-                            <goal>add-test-source</goal>
-                        </goals>
-                        <configuration>
-                            <sources>
-                                <source>${basedir}/../../../../../src/main/java/jdkAll</source>
-                            </sources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-        </plugins>
-    </build>
 
 </project>

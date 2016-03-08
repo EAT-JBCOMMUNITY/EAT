@@ -14,23 +14,9 @@
     <packaging>pom</packaging>
     <name>wildfly additional testsuite: web</name>
 
-    <profiles>
-        
-        <profile>
-            <id>wildfly.web</id>
-            <activation>
-                <property>
-                    <name>wildfly</name>
-                    <value>true</value>
-                </property>
-            </activation>
             
-            <modules>
-                <module>test-configurations</module>
-            </modules>
-
-	</profile>
-
-     </profiles>
+    <modules>
+        <module>test-configurations</module>
+    </modules>
 
 </project>

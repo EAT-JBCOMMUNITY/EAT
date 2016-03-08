@@ -20,21 +20,8 @@
     <name>eap additional testsuite: ws</name>
     <packaging>pom</packaging>
 
-    <profiles>
-        
-        <profile>
-            <id>eap7.ws</id>
-            <activation>
-                <property>
-                    <name>eap7-jdk8</name>
-                    <value>true</value>
-                </property>
-            </activation>
+    <modules>
+        <module>test-configurations</module>
+    </modules>
 
-            <modules>
-                <module>test-configurations</module>
-            </modules>
-
-        </profile>
-    </profiles>
 </project>

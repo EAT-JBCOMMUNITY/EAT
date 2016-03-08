@@ -17,5 +17,5 @@ script:
   - export JBOSS_FOLDER=$PWD
   - export JBOSS_VERSION=10.0.0.Final
   - cd ../..
-  - mvn clean install -Dwildfly -Dwildfly-jdk8 -Dstandalone
+  - mvn clean install -Dwildfly-release -Dwildfly-release-jdk8 -Dstandalone
 

@@ -39,9 +39,9 @@
                         <configuration>         
                             <!-- Tests to execute. -->
                             <includes>
-                                <include>org/jboss/additional/testsuite/web/classloading/war/**/*TestCase.java</include>
-                                <include>org/jboss/additional/testsuite/web/servlet/**/*TestCase.java</include>
-                                <include>org/jboss/additional/testsuite/web/mtom/**/*TestCase.java</include>
+                                <include>org/jboss/additional/testsuite/jdkall/web/classloading/war/**/*TestCase.java</include>
+                                <include>org/jboss/additional/testsuite/jdkall/web/servlet/**/*TestCase.java</include>
+                                <include>org/jboss/additional/testsuite/jdkall/web/mtom/**/*TestCase.java</include>
                             </includes> 
                         </configuration>
                     </execution>
