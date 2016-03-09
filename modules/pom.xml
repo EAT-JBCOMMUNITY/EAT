@@ -573,6 +573,12 @@
 		    <artifactId>wildfly-testsuite-shared</artifactId>
 		    <version>${JBOSS_VERSION}</version>
 		</dependency>
+                <dependency>
+                    <groupId>org.wildfly</groupId>
+                    <artifactId>wildfly-weld</artifactId>
+                    <version>${JBOSS_VERSION}</version>
+                    <type>jar</type>
+                </dependency>
 		<dependency>
 		    <groupId>org.jboss.arquillian.junit</groupId>
 		    <artifactId>arquillian-junit-container</artifactId>
