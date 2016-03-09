@@ -80,6 +80,23 @@ EAP-ADDITIONAL-TESTSUITE INTEGRATED INSIDE THE SERVERS (HOW TO USE)  - AVAILABLE
 3. Commit the changes on the server and send the server PR.
 4. The specific PR of the test will be tested along with the server PR.
 
+
+EXAMPLE OF USAGE 
+-----------------
+Supposing that we would like to add Mtom TestCase for Wildfly (master) and Eap 7 (7.x) Servers in Eap Additional Testsuite, we would follow the steps bellow :
+
+1. Add the source code of the test in [Wildfly/src/main directory](https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/testcases/jdkAll/Wildfly/src/main/java/org/jboss/additional/testsuite/jdkall/web/mtom) (for Wildfly) and [Eap7/src/main directory](https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/testcases/jdkAll/Eap7/src/main/java/org/jboss/additional/testsuite/jdkall/web/mtom) (for Eap7) respectively
+
+2. Add the resources in [Wildfy Mtom recource directory](https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/testcases/jdkAll/Wildfly/web/test-configurations/src/test/resources) (for Wildfly) and  [Eap7 Mtom recource directory](https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/testcases/jdkAll/Eap7/web/test-configurations/src/test/resources) (for Eap7)
+
+3. Add any additional dependencies in [Wildfy pom](https://github.com/jboss-set/eap-additional-testsuite/blob/master/modules/testcases/jdkAll/Wildfly/pom.xml)  (for Wildfly) and [Eap7 pom](https://github.com/jboss-set/eap-additional-testsuite/blob/master/modules/testcases/jdkAll/Eap7/pom.xml) (for Eap7)
+
+4. Enable the Mtom TestCase in [Wildfy Web Configuration pom](https://github.com/jboss-set/eap-additional-testsuite/blob/master/modules/testcases/jdkAll/Wildfly/web/test-configurations/pom.xml) (for Wildfly) and [Eap7 Web Configuration pom](https://github.com/jboss-set/eap-additional-testsuite/blob/master/modules/testcases/jdkAll/Eap7/web/test-configurations/pom.xml) (for Eap7)
+
+5. Build the Eap Additional Testsuite for Wildfy and Eap7 (having set the equivalent JBOSS_FOLDER and JBOSS_VERSION environment variables) :
+    - mvn clean install -Dwildfly -Dstandalone (for Wildfly)
+    - mvn clean install -Deap7 -Dstandalone (for Eap7)
+    
  
 OTHER FEATURES
 --------------
