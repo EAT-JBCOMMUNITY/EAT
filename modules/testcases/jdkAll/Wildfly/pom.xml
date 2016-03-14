@@ -45,6 +45,54 @@
 		    </dependency>
 		</dependencies>
 	    </dependencyManagement>
+            
+            <dependencies>
+		<dependency>
+		    <groupId>org.wildfly.arquillian</groupId>
+		    <artifactId>wildfly-arquillian-container-managed</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.shrinkwrap</groupId>
+		    <artifactId>shrinkwrap-api</artifactId>
+                    <scope>compile</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-testsuite-shared</artifactId>
+                    <scope>compile</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.arquillian.junit</groupId>
+		    <artifactId>arquillian-junit-container</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.servlet</groupId>
+		    <artifactId>jboss-servlet-api_3.1_spec</artifactId>
+		</dependency>
+                <dependency>
+                    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-weld</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>org.hibernate</groupId>
+                    <artifactId>hibernate-search-analyzers</artifactId>
+                    <version>4.5.3.Final</version>
+	        </dependency>
+                <dependency>
+                    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+                    <scope>compile</scope>
+		</dependency>
+                <dependency>
+                    <groupId>javax.enterprise.concurrent</groupId>
+                    <artifactId>javax.enterprise.concurrent-api</artifactId>
+                    <version>1.0</version>
+                </dependency>
+	    </dependencies>   
 
         </profile>
 
@@ -68,20 +116,8 @@
 		    </dependency>
 		</dependencies>
 	    </dependencyManagement>
-
-        </profile>
-
-        
-        <profile>
-            <id>wildfly.testsuite</id>
-            <activation>
-                <property>
-                    <name>wildfly</name>
-                    <value>true</value>
-                </property>
-            </activation>
             
-	     <dependencies>
+            <dependencies>
 		<dependency>
 		    <groupId>org.wildfly.arquillian</groupId>
 		    <artifactId>wildfly-arquillian-container-managed</artifactId>
@@ -112,7 +148,18 @@
                     <artifactId>hibernate-search-analyzers</artifactId>
                     <version>4.5.3.Final</version>
 	        </dependency>
-	    </dependencies>    
+                <dependency>
+                    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		</dependency>
+	    </dependencies>   
+
+        </profile>
+
+          </profiles>
+
+
+	      
 	    
 	    <build>
 		<plugins>
@@ -162,8 +209,7 @@
 		</plugins>
 	    </build>
 
-        </profile>
-    </profiles>
+  
 
     <modules>
         <module>basic</module>

@@ -89,7 +89,7 @@
 		<dependency>
 		    <groupId>org.jboss.as</groupId>
 		    <artifactId>jboss-as-testsuite-shared</artifactId>
-		    <version>${JBOSS_VERSION}</version>
+		    <scope>compile</scope>
 		    <exclusions>
 			<exclusion>
 			  <groupId>com.github.relaxng</groupId>
@@ -114,6 +114,11 @@
 		    <artifactId>javax.enterprise.concurrent</artifactId>
 		    <version>1.0</version>
 		</dependency>   
+                <dependency>
+                    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+                    <scope>compile</scope>
+		</dependency>
 	    </dependencies>    
 
 	    <build>
