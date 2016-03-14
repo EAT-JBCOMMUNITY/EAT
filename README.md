@@ -63,7 +63,7 @@ HOW TO DEBUG
 
 HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (NETBEANS)
 --------------------------------------------------------------
-1. Before starting the IDE, export JBOSS_FOLDER and JBOSS_VERSION environment variables at file /etc/environment and execute the command "source etc/environment".
+1. Before starting the IDE, export JBOSS_FOLDER and JBOSS_VERSION environment variables at file /etc/environment and execute the command "source /etc/environment".
 2. Start your IDE and load the project.
 3. Activate the standalone profile.
 4. Make sure that the server parent pom is available locally or remotely as an artifact.
