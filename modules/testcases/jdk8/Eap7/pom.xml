@@ -88,11 +88,12 @@
 		<dependency>
 		    <groupId>org.jboss.shrinkwrap</groupId>
 		    <artifactId>shrinkwrap-api</artifactId>
+                    <scope>compile</scope>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.eap</groupId>
 		    <artifactId>wildfly-testsuite-shared</artifactId>
-		     <version>${JBOSS_VERSION}</version>
+		     <scope>compile</scope>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.arquillian.junit</groupId>
@@ -103,6 +104,16 @@
                     <artifactId>hibernate-search-analyzers</artifactId>
                     <version>4.5.3.Final</version>
 	        </dependency>
+                <dependency>
+                    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+                    <scope>compile</scope>
+		</dependency>
+                <dependency>
+                    <groupId>javax.enterprise.concurrent</groupId>
+                    <artifactId>javax.enterprise.concurrent-api</artifactId>
+                    <version>1.0</version>
+                </dependency>
 	    </dependencies>
 
 	    <build>

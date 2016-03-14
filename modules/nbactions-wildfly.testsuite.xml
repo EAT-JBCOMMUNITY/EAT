@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>rebuild</actionName>
+            <packagings>
+                <packaging>*</packaging>
+            </packagings>
+            <goals>
+                <goal>clean</goal>
+                <goal>install</goal>
+            </goals>
+            <properties>
+                <JBOSS_FOLDER>/home/panos/JBOSS_ADDITIONAL_TESTS/wildfly_NEW/dist/target/wildfly-10.1.0.Final-SNAPSHOT</JBOSS_FOLDER>
+                <JBOSS_VERSION>10.1.0.Final-SNAPSHOT</JBOSS_VERSION>
+            </properties>
+            <activatedProfiles>
+                <activatedProfile>standalone</activatedProfile>
+            </activatedProfiles>
+        </action>
+    </actions>
