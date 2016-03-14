@@ -61,11 +61,11 @@ HOW TO DEBUG
 5. And then start the debugging executing the specific test which is errorous.
 
 
-HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE
---------------------------------------------------
-1. Load the project at your IDE.
-2. Go to the configuration of the project and activate the profile of the server that you would like (eg eap7.testsuite profile)
-3. Go to the properties of the project and add the JBOSS_FOLDER and JBOSS_VERSION environment variables. Also when building the project make sure that the standalone profile is also enabled in parallel with the server profile.
+HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (NETBEANS)
+--------------------------------------------------------------
+1. Before starting the IDE, export JBOSS_FOLDER and JBOSS_VERSION environment variables at file /etc/environment and execute the command "source etc/environment".
+2. Start your IDE and load the project.
+3. Activate the standalone profile.
 4. Make sure that the server parent pom is available locally or remotely as an artifact.
 5. Build your project.
 
