@@ -4,6 +4,7 @@
 .settings
 .DS_Store
 nb-configuration.xml
+nb-*
 jboss.xml
 
 #dirs
