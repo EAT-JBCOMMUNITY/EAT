@@ -63,9 +63,9 @@ HOW TO DEBUG
 
 HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (NETBEANS)
 --------------------------------------------------------------
-1. Before starting the IDE, export JBOSS_FOLDER and JBOSS_VERSION environment variables at file /etc/environment and execute the command "source /etc/environment".
-2. Start your IDE and load the project.
-3. Activate the standalone profile.
+1. Before starting the IDE, go to your IDE directory and export JBOSS_FOLDER and JBOSS_VERSION environment variables at file /etc/environment and execute the command "source /etc/environment".
+2. Start your IDE from command line and load the project.
+3. Go to Modules directory and activate the desired server profile (eg wildfly.testsuite). Then activate the standalone profile at the server dir that has appeared.
 4. Make sure that the server parent pom is available locally or remotely as an artifact.
 5. Build your project.
 
