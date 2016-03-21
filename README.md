@@ -1,5 +1,8 @@
 # EAP ADDITIONAL TESTSUITE
-============================
+==========================
+## THE TESTSUITE TO DEVELOP TESTS AGAINST INFINITE NUMBER OF SERVERS
+====================================================================
+
 An additional JBOSS testsuite in order to facilitate QE.
 
 Write your tests and run them on both EAP and WILDFLY application server.
@@ -100,8 +103,9 @@ Supposing that we would like to add Mtom TestCase for Wildfly (master) and Eap 7
  
 OTHER FEATURES
 --------------
-1. Eap-Additional-Testsuite could be a very helpful tool in combination with the documentation. In parallel with the documentation, examples of use cases could be provided, which could be tested against all the servers.
-2. Eap-Additional-Testsuite is the first component to change the relation of Component -> Server to Component <-> Server, as this component can be considered as a part of a Server, but also a Server can be considered as a part of Eap-Additional-Testsuite.
+1. Infinite number of servers could be added in Eap-Additional-Testsuite, while the tests included could be tested against all these servers.
+2. Eap-Additional-Testsuite could be a very helpful tool in combination with the documentation. In parallel with the documentation, examples of use cases could be provided, which could be tested against all the servers.
+3. Eap-Additional-Testsuite is the first component to change the relation of Component -> Server to Component <-> Server, as this component can be considered as a part of a Server, but also a Server can be considered as a part of Eap-Additional-Testsuite.
 
  
 
