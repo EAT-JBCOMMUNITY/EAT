@@ -1,7 +1,7 @@
 # EAP ADDITIONAL TESTSUITE
 ==========================
-## THE TESTSUITE TO DEVELOP TESTS AGAINST INFINITE NUMBER OF SERVERS
-====================================================================
+## THE JBOSS TESTSUITE TO DEVELOP TESTS AGAINST INFINITE NUMBER OF JBOSS SERVERS
+================================================================================
 
 An additional JBOSS testsuite in order to facilitate QE.
 
