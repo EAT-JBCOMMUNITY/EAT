@@ -22,6 +22,9 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
+        <surefire.memory.args>-Xmx512m -XX:MaxPermSize=256m</surefire.memory.args>
+        <surefire.system.args>${surefire.memory.args} -Djboss.dist=${jboss.modules.dir}/eap7/build/target/jbossas -DjbossHome=${jboss.modules.dir}/eap7/build/target/jbossas</surefire.system.args>
     </properties>
 
     <build>
@@ -49,6 +52,22 @@
                         </configuration>
                     </execution>
                 </executions>
+
+                <configuration>
+                    <!-- Prevent test and server output appearing in console. -->
+                    <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
+
+                    <!-- Arquillian's config files. -->
+                    <additionalClasspathElements combine.children="append">
+                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEap7</additionalClasspathElement>
+                    </additionalClasspathElements>
+
+                    <systemPropertyVariables>
+                        <jboss.options>${surefire.system.args}</jboss.options>
+                        <jboss.home>${jboss.modules.dir}/eap7/build/target/jbossas</jboss.home>
+                        <module.path>${jboss.modules.dir}/eap7/build/target/jbossas/modules</module.path>
+                    </systemPropertyVariables>
+                </configuration>
             </plugin>
 
         </plugins>

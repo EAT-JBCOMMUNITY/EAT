@@ -15,7 +15,9 @@
             
     <properties>
 	<standalone.conf>${basedir}/../src/test/config/standaloneEap7/standalone.xml</standalone.conf>
-        <jbossas.ts.integ.dir>${basedir}/../../../../..</jbossas.ts.integ.dir>
+        <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
+        <surefire.memory.args>-Xmx512m -XX:MaxPermSize=256m</surefire.memory.args>
+        <surefire.system.args>${surefire.memory.args} -Djboss.dist=${jboss.modules.dir}/eap7/build/target/jbossas -DjbossHome=${jboss.modules.dir}/eap7/build/target/jbossas</surefire.system.args>
         <server>eap7</server>
     </properties>
         
@@ -45,6 +47,23 @@
 		        </configuration>
 		    </execution>
 		</executions>
+
+                <configuration>
+                    <!-- Prevent test and server output appearing in console. -->
+                    <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
+
+                    <systemPropertyVariables>
+                        <jboss.options>${surefire.system.args}</jboss.options>
+                        <jboss.home>${jboss.modules.dir}/eap7/build/target/jbossas</jboss.home>
+                        <module.path>${jboss.modules.dir}/eap7/build/target/jbossas/modules</module.path>
+                    </systemPropertyVariables>
+
+                    <!-- Arquillian's config files. -->
+                    <additionalClasspathElements combine.children="append">
+                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEap7</additionalClasspathElement>
+                    </additionalClasspathElements>
+
+                </configuration>
 	    </plugin>
 		            
             <!-- Build the server configuration -->
@@ -60,8 +79,8 @@
 	                </goals>
 	                <configuration>
 	                    <target>
-	                        <ant antfile="${jbossas.ts.integ.dir}/src/test/scripts/basic-build.xml">
-	                            <property name="workspace" value="/${jbossas.ts.integ.dir}" />
+	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/basic-build.xml">
+	                            <property name="workspace" value="/${jboss.modules.dir}" />
                                     <property name="server" value="${server}" />
 	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
 	                            <target name="build-basic"/>

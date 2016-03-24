@@ -22,6 +22,19 @@
         <module>modules</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.eap.additional.testsuite</groupId>
+            <artifactId>eap-additional-testsuite-source-distribution</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.eap.additional.testsuite</groupId>
+            <artifactId>eap-additional-testsuite-annotations</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
+    </dependencies>
+
     <repositories>
         <repository>
             <id>central</id>
@@ -256,5 +269,32 @@
         </profile>
 
     </profiles>
+
+    <build>
+        <plugins>
+
+            <plugin>  
+	        <groupId>org.codehaus.mojo</groupId>  
+	        <artifactId>exec-maven-plugin</artifactId>  
+	        <version>1.1.1</version>  
+	        <executions>  
+	            <execution>  
+	                <phase>test</phase>  
+	                <goals>  
+		            <goal>java</goal>  
+	                </goals>  
+	            </execution>  
+	       </executions>  
+               <configuration>  
+		   <mainClass>org.jboss.eap.additional.testsuite.source.distribution.AdditionalTestsuiteDistributeSources</mainClass>  
+		   <arguments>  
+		       <argument>${basedir}</argument>  
+		       <argument>${basedir}/modules/src/main/java</argument>  
+		   </arguments>  
+	       </configuration>  
+	    </plugin>
+
+       </plugins>
+   </build>
     
 </project>

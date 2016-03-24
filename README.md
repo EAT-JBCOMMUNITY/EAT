@@ -5,7 +5,7 @@
 
 An additional JBOSS testsuite in order to facilitate QE.
 
-Write your tests and run them on both EAP and WILDFLY application server.
+Write your tests once and run them on both EAP and WILDFLY application server.
 
 
 

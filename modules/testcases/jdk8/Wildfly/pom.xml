@@ -19,8 +19,6 @@
     <name>wildfly additional testsuite: additional testsuite for wildfly using jdk8</name>
     
     <properties>
-        <surefire.memory.args>-Xmx512m -XX:MaxPermSize=256m</surefire.memory.args>
-        <surefire.system.args>${surefire.memory.args} -Djboss.dist=${project.basedir}/../../../../../wildfly/build/target/jbossas -DjbossHome=${project.basedir}/../../../../../wildfly/build/target/jbossas</surefire.system.args>
         <jboss.home.env>${project.basedir}/../../../wildfly/build/target/jbossas</jboss.home.env>
     </properties>
             
@@ -142,55 +140,6 @@
         </profile>
 
     </profiles>
-
-
-    <build>
-        <plugins>
-		    
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.10</version>
-                <executions>
-                    <execution>
-                        <id>add-test-source</id>
-                        <phase>generate-test-sources</phase>
-                        <goals>
-                            <goal>add-test-source</goal>
-                        </goals>
-                        <configuration>
-                            <sources>
-                                <source>${basedir}/../../src/main/java</source>
-                            </sources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- General surefire configuration. Applies to submodules too. -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <!-- Prevent test and server output appearing in console. -->
-                    <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
-
-                    <!-- Arquillian's config files. -->
-                    <additionalClasspathElements combine.children="append">
-                        <additionalClasspathElement>${basedir}/../../../../../src/config/arqWildfly</additionalClasspathElement>
-                    </additionalClasspathElements>
-
-                    <systemPropertyVariables>
-                        <jboss.options>${surefire.system.args}</jboss.options>
-                        <jboss.home>${project.basedir}/../../../../../wildfly/build/target/jbossas</jboss.home>
-                        <module.path>${project.basedir}/../../../../../wildfly/build/target/jbossas/modules</module.path>
-                    </systemPropertyVariables>
-                </configuration>
-            </plugin>
-
-        </plugins>
-    </build>
-
     
 
     <modules>
