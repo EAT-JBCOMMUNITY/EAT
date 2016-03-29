@@ -107,6 +107,10 @@ OTHER FEATURES
 2. Eap-Additional-Testsuite could be a very helpful tool in combination with the documentation. In parallel with the documentation, examples of use cases could be provided, which could be tested against all the servers.
 3. Eap-Additional-Testsuite is the first component to change the relation of Component -> Server to Component <-> Server, as this component can be considered as a part of a Server, but also a Server can be considered as a part of Eap-Additional-Testsuite.
 
+
+MOJO DOCUMENTATION
+------------------
+[Eap Additional Testsuite Mojo Document](https://mojo.redhat.com/docs/DOC-1063426)
  
 
 EAP-ADDITIONAL-TESTSUITE as a COLLABORATION PROJECT
