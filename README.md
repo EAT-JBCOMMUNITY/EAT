@@ -113,6 +113,11 @@ MOJO DOCUMENTATION
 ------------------
 [Eap Additional Testsuite Mojo Document](https://mojo.redhat.com/docs/DOC-1063426)
  
+ 
+EAP-ADDITIONAL-TESTSUITE PRESENTATION
+-------------------------------------
+[Eap Additional Testsuite Presentation](http://redhat.slides.com/panossot/eap-wildfly-additional-testsuite)
+
 
 EAP-ADDITIONAL-TESTSUITE as a COLLABORATION PROJECT
 ---------------------------------------------------
