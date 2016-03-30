@@ -48,6 +48,7 @@ ADVANTAGES
 1. Having all the tests at one place.
 2. Comparison of the servers based on the testsuite.
 3. Guarding against regression.
+4. Faster convergence among the servers.
 
  
 MOTIVATION
