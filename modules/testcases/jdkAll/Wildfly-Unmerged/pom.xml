@@ -12,11 +12,11 @@
     </parent>
 
     <groupId>org.jboss</groupId>
-    <artifactId>wildfly-additional-testsuite</artifactId>
+    <artifactId>wildfly-unmerged-additional-testsuite</artifactId>
     <packaging>pom</packaging>
     <version>1.0.1.Final-SNAPSHOT</version>
 
-    <name>wildfly additional testsuite: additional testsuite for wildfly</name>
+    <name>wildfly unmerged additional testsuite: additional testsuite for wildfly in cases where part of the whole of the fix in not yet merged</name>
     
     <properties>
         <jboss.home.env>${project.basedir}/../../../wildfly/build/target/jbossas</jboss.home.env>
@@ -184,7 +184,6 @@
     </build>
 
     <modules>
-        <module>basic</module>
         <module>web</module> 
     </modules>
 
