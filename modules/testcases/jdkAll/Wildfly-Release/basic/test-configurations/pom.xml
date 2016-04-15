@@ -16,8 +16,6 @@
     <properties>
 	<standalone.conf>${basedir}/../src/test/config/standaloneWildfly/standalone.xml</standalone.conf>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
-        <surefire.memory.args>-Xmx512m -XX:MaxPermSize=256m</surefire.memory.args>
-        <surefire.system.args>${surefire.memory.args} -Djboss.dist=${jboss.modules.dir}/wildfly/build/target/jbossas -DjbossHome=${jboss.modules.dir}/wildfly/build/target/jbossas</surefire.system.args>
         <server>wildfly</server>
     </properties>
         
@@ -36,12 +34,6 @@
                     <!-- Prevent test and server output appearing in console. -->
                     <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
 
-                    <systemPropertyVariables>
-                        <jboss.options>${surefire.system.args}</jboss.options>
-                        <jboss.home>${jboss.modules.dir}/wildfly/build/target/jbossas</jboss.home>
-                        <module.path>${jboss.modules.dir}/wildfly/build/target/jbossas/modules</module.path>
-                    </systemPropertyVariables>
-
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
                         <additionalClasspathElement>${jboss.modules.dir}/src/config/arqWildfly</additionalClasspathElement>
@@ -59,7 +51,7 @@
 		        <configuration>         
 		            <!-- Tests to execute. -->
 		            <includes>
-		                <include>org/jboss/additional/testsuite/jdkall/basic/**/BasicTest.java</include>
+		                <include>org/jboss/additional/testsuite/jdkall/general/basic/**/BasicTest.java</include>
 		            </includes> 
 		        </configuration>
 		    </execution>
@@ -82,6 +74,7 @@
 	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/basic-build.xml">
 	                            <property name="workspace" value="/${jboss.modules.dir}" />
                                     <property name="server" value="${server}" />
+                                    <property name="dist" value="jbossas" />
 	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
 	                            <target name="build-basic"/>
 	                        </ant>

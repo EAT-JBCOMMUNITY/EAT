@@ -16,8 +16,6 @@
     <properties>
 	<standalone.conf>../src/test/config/standaloneWildfly/standalone.xml</standalone.conf>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
-        <surefire.memory.args>-Xmx512m -XX:MaxPermSize=256m</surefire.memory.args>
-        <surefire.system.args>${surefire.memory.args} -Djboss.dist=${jboss.modules.dir}/eap7/build/target/jbossas -DjbossHome=${jboss.modules.dir}/eap7/build/target/jbossas</surefire.system.args>
     </properties>
         
     <build>
@@ -41,10 +39,10 @@
 		        <configuration>         
 		            <!-- Tests to execute. -->
 		            <includes>
-		                <include>org/jboss/additional/testsuite/jdkall/web/classloading/war/**/*TestCase.java</include>
-		                <include>org/jboss/additional/testsuite/jdkall/web/servlet/**/*TestCase.java</include>
-                                <include>org/jboss/additional/testsuite/jdkall/web/ee/**/*TestCase.java</include>
-                                <include>org/jboss/additional/testsuite/jdkall/web/mtom/**/*TestCase.java</include>
+		                <include>org/jboss/additional/testsuite/jdkall/general/web/classloading/war/**/*TestCase.java</include>
+		                <include>org/jboss/additional/testsuite/jdkall/general/web/servlet/**/*TestCase.java</include>
+                                <include>org/jboss/additional/testsuite/jdkall/general/web/ee/**/*TestCase.java</include>
+                                <include>org/jboss/additional/testsuite/jdkall/general/web/mtom/**/*TestCase.java</include>
 		            </includes> 
 		        </configuration>
 		    </execution>
@@ -53,12 +51,6 @@
                 <configuration>
                     <!-- Prevent test and server output appearing in console. -->
                     <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
-
-                    <systemPropertyVariables>
-                        <jboss.options>${surefire.system.args}</jboss.options>
-                        <jboss.home>${jboss.modules.dir}/eap7/build/target/jbossas</jboss.home>
-                        <module.path>${jboss.modules.dir}/eap7/build/target/jbossas/modules</module.path>
-                    </systemPropertyVariables>
 
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
