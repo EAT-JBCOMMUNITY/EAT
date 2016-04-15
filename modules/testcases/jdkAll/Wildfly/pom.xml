@@ -18,10 +18,6 @@
 
     <name>wildfly additional testsuite: additional testsuite for wildfly</name>
     
-    <properties>
-        <jboss.home.env>${project.basedir}/../../../wildfly/build/target/jbossas</jboss.home.env>
-    </properties>
-    
     <profiles>
         <profile>
             <id>standalone</id>
@@ -185,6 +181,7 @@
 
     <modules>
         <module>basic</module>
+        <module>clustering</module> 
         <module>web</module> 
     </modules>
 

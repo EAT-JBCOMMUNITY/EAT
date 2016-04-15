@@ -42,7 +42,7 @@
 		        <configuration>         
 		            <!-- Tests to execute. -->
 		            <includes>
-		                <include>org/jboss/additional/testsuite/jdkall/basic/**/BasicTest.java</include>
+		                <include>org/jboss/additional/testsuite/jdkall/general/basic/**/BasicTest.java</include>
 		            </includes> 
 		        </configuration>
 		    </execution>
@@ -82,6 +82,7 @@
 	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/basic-build.xml">
 	                            <property name="workspace" value="/${jboss.modules.dir}" />
                                     <property name="server" value="${server}" />
+                                    <property name="dist" value="jbossas" />
 	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
 	                            <target name="build-basic"/>
 	                        </ant>

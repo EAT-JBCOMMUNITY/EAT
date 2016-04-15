@@ -185,7 +185,7 @@
             
     <modules>
         <module>basic</module>
-        <module>web</module> 
+        <module>web</module>
     </modules>
 
 

@@ -23,8 +23,6 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
-        <surefire.memory.args>-Xmx512m -XX:MaxPermSize=256m</surefire.memory.args>
-        <surefire.system.args>${surefire.memory.args} -Djboss.dist=${jboss.modules.dir}/wildfly/build/target/jbossas -DjbossHome=${jboss.modules.dir}/wildfly/build/target/jbossas</surefire.system.args>
     </properties>
 
     <build>
@@ -47,7 +45,7 @@
                         <configuration>
                             <!-- Tests to execute. -->
                             <includes>
-                                <include>org/jboss/additional/testsuite/jdk8/ws/defaultmethods/**/*Test*.java</include>
+                                <include>org/jboss/additional/testsuite/jdk8/general/ws/defaultmethods/**/*Test*.java</include>
                             </includes>
                         </configuration>
                     </execution>
@@ -62,11 +60,6 @@
                         <additionalClasspathElement>${jboss.modules.dir}/src/config/arqWildfly</additionalClasspathElement>
                     </additionalClasspathElements>
 
-                    <systemPropertyVariables>
-                        <jboss.options>${surefire.system.args}</jboss.options>
-                        <jboss.home>${jboss.modules.dir}/wildfly/build/target/jbossas</jboss.home>
-                        <module.path>${jboss.modules.dir}/wildfly/build/target/jbossas/modules</module.path>
-                    </systemPropertyVariables>
                 </configuration>
             </plugin>
 
