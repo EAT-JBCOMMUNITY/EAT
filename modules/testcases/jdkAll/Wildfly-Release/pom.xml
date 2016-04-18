@@ -185,6 +185,7 @@
             
     <modules>
         <module>basic</module>
+        <module>clustering</module>
         <module>web</module>
     </modules>
 
