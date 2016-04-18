@@ -1,7 +1,6 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" ?>
 
-<server xmlns="urn:jboss:domain:4.1">
-
+<server xmlns="urn:jboss:domain:4.0">
     <extensions>
         <extension module="org.jboss.as.clustering.infinispan"/>
         <extension module="org.jboss.as.clustering.jgroups"/>
@@ -36,8 +35,6 @@
         <extension module="org.wildfly.extension.undertow"/>
         <extension module="org.wildfly.iiop-openjdk"/>
     </extensions>
-
-
     <management>
         <security-realms>
             <security-realm name="ManagementRealm">
@@ -87,7 +84,6 @@
             </role-mapping>
         </access-control>
     </management>
-
     <profile>
         <subsystem xmlns="urn:jboss:domain:logging:3.0">
             <console-handler name="CONSOLE">
@@ -191,6 +187,7 @@
             </mdb>
             <pools>
                 <bean-instance-pools>
+                    <!-- Automatically configure pools. Alternatively, max-pool-size can be set to a specific value -->
                     <strict-max-pool name="slsb-strict-max-pool" derive-size="from-worker-pools" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
                     <strict-max-pool name="mdb-strict-max-pool" derive-size="from-cpu-count" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
                 </bean-instance-pools>
@@ -233,7 +230,7 @@
             </cache-container>
             <cache-container name="web" default-cache="dist" module="org.wildfly.clustering.web.infinispan">
                 <transport lock-timeout="60000"/>
-                <distributed-cache name="dist" mode="SYNC" l1-lifespan="0" owners="2">
+                <distributed-cache name="dist" mode="ASYNC" l1-lifespan="0" owners="2">
                     <locking isolation="REPEATABLE_READ"/>
                     <transaction mode="BATCH"/>
                     <file-store/>
@@ -241,7 +238,7 @@
             </cache-container>
             <cache-container name="ejb" aliases="sfsb" default-cache="dist" module="org.wildfly.clustering.ejb.infinispan">
                 <transport lock-timeout="60000"/>
-                <distributed-cache name="dist" mode="SYNC" l1-lifespan="0" owners="2">
+                <distributed-cache name="dist" mode="ASYNC" l1-lifespan="0" owners="2">
                     <locking isolation="REPEATABLE_READ"/>
                     <transaction mode="BATCH"/>
                     <file-store/>
@@ -260,20 +257,9 @@
                 </invalidation-cache>
                 <replicated-cache name="timestamps" mode="ASYNC"/>
             </cache-container>
-            <cache-container name="testDbPersistence" default-cache="jdbc-cache" module="org.wildfly.clustering.web.infinispan">
-                <transport lock-timeout="6000"/>
-                <replicated-cache name="jdbc-cache" mode="SYNC">
-                    <binary-keyed-jdbc-store data-source="ExampleDS" passivation="false" preload="true" purge="false">
-                        <binary-keyed-table prefix="binarybased">
-                            <id-column name="id" type="VARCHAR(255)"/>
-                            <data-column name="datum" type="VARBINARY(10000)"/>
-                            <timestamp-column name="version" type="BIGINT"/>
-                        </binary-keyed-table>
-                    </binary-keyed-jdbc-store>
-                </replicated-cache>
-            </cache-container>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:iiop-openjdk:1.0">
+            <orb socket-binding="iiop" ssl-socket-binding="iiop-ssl"/>
             <initializers transactions="spec" security="identity"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:jaxrs:1.0"/>
@@ -299,15 +285,11 @@
         <subsystem xmlns="urn:jboss:domain:jdr:1.0"/>
         <subsystem xmlns="urn:jboss:domain:jgroups:4.0">
             <channels default="ee">
-                <channel name="ee" stack="tcp"/>
+                <channel name="ee" stack="udp"/>
             </channels>
             <stacks>
                 <stack name="udp">
-                    <transport type="UDP" socket-binding="jgroups-udp">
-                        <property name="ip_ttl">
-                            0
-                        </property>
-                    </transport>
+                    <transport type="UDP" socket-binding="jgroups-udp"/>
                     <protocol type="PING"/>
                     <protocol type="MERGE3"/>
                     <protocol type="FD_SOCK" socket-binding="jgroups-udp-fd"/>
@@ -323,11 +305,7 @@
                 </stack>
                 <stack name="tcp">
                     <transport type="TCP" socket-binding="jgroups-tcp"/>
-                    <protocol type="MPING" socket-binding="jgroups-mping">
-                        <property name="ip_ttl">
-                            0
-                        </property>
-                    </protocol>
+                    <protocol type="MPING" socket-binding="jgroups-mping"/>
                     <protocol type="MERGE3"/>
                     <protocol type="FD_SOCK" socket-binding="jgroups-tcp-fd"/>
                     <protocol type="FD"/>
@@ -360,11 +338,11 @@
             <server name="default">
                 <cluster password="${jboss.messaging.cluster.password:CHANGE ME!!}"/>
                 <security-setting name="#">
-                    <role name="guest" delete-non-durable-queue="true" create-non-durable-queue="true" consume="true" send="true"/>
+                    <role name="guest" send="true" consume="true" create-non-durable-queue="true" delete-non-durable-queue="true"/>
                 </security-setting>
-                <address-setting name="#" redistribution-delay="1000" message-counter-history-day-limit="10" page-size-bytes="2097152" max-size-bytes="10485760" expiry-address="jms.queue.ExpiryQueue" dead-letter-address="jms.queue.DLQ"/>
-                <http-connector name="http-connector" endpoint="http-acceptor" socket-binding="http"/>
-                <http-connector name="http-connector-throughput" endpoint="http-acceptor-throughput" socket-binding="http">
+                <address-setting name="#" dead-letter-address="jms.queue.DLQ" expiry-address="jms.queue.ExpiryQueue" max-size-bytes="10485760" page-size-bytes="2097152" message-counter-history-day-limit="10" redistribution-delay="1000"/>
+                <http-connector name="http-connector" socket-binding="http" endpoint="http-acceptor"/>
+                <http-connector name="http-connector-throughput" socket-binding="http" endpoint="http-acceptor-throughput">
                     <param name="batch-delay" value="50"/>
                 </http-connector>
                 <in-vm-connector name="in-vm" server-id="0"/>
@@ -376,12 +354,12 @@
                 <in-vm-acceptor name="in-vm" server-id="0"/>
                 <broadcast-group name="bg-group1" connectors="http-connector" jgroups-channel="activemq-cluster"/>
                 <discovery-group name="dg-group1" jgroups-channel="activemq-cluster"/>
-                <cluster-connection name="my-cluster" discovery-group="dg-group1" connector-name="http-connector" address="jms"/>
+                <cluster-connection name="my-cluster" address="jms" connector-name="http-connector" discovery-group="dg-group1"/>
                 <jms-queue name="ExpiryQueue" entries="java:/jms/queue/ExpiryQueue"/>
                 <jms-queue name="DLQ" entries="java:/jms/queue/DLQ"/>
-                <connection-factory name="InVmConnectionFactory" entries="java:/ConnectionFactory" connectors="in-vm"/>
-                <connection-factory name="RemoteConnectionFactory" reconnect-attempts="-1" block-on-acknowledge="true" ha="true" entries="java:jboss/exported/jms/RemoteConnectionFactory" connectors="http-connector"/>
-                <pooled-connection-factory name="activemq-ra" transaction="xa" entries="java:/JmsXA java:jboss/DefaultJMSConnectionFactory" connectors="in-vm"/>
+                <connection-factory name="InVmConnectionFactory" connectors="in-vm" entries="java:/ConnectionFactory"/>
+                <connection-factory name="RemoteConnectionFactory" ha="true" block-on-acknowledge="true" reconnect-attempts="-1" connectors="http-connector" entries="java:jboss/exported/jms/RemoteConnectionFactory"/>
+                <pooled-connection-factory name="activemq-ra" transaction="xa" connectors="in-vm" entries="java:/JmsXA java:jboss/DefaultJMSConnectionFactory"/>
             </server>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:modcluster:2.0">
@@ -456,11 +434,11 @@
             </core-environment>
             <recovery-environment socket-binding="txn-recovery-environment" status-socket-binding="txn-status-manager"/>
         </subsystem>
-        <subsystem xmlns="urn:jboss:domain:undertow:3.1">
+        <subsystem xmlns="urn:jboss:domain:undertow:3.0">
             <buffer-cache name="default"/>
             <server name="default-server">
                 <ajp-listener name="ajp" socket-binding="ajp"/>
-                <http-listener name="default" disallowed-methods="" socket-binding="http" redirect-socket="https"/>
+                <http-listener name="default" socket-binding="http" redirect-socket="https"/>
                 <host name="default-host" alias="localhost">
                     <location name="/" handler="welcome-content"/>
                     <filter-ref name="server-header"/>
@@ -491,10 +469,9 @@
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:weld:3.0"/>
     </profile>
-
     <interfaces>
         <interface name="management">
-            <inet-address value="127.0.0.1"/>
+            <inet-address value="${jboss.bind.address.management:127.0.0.1}"/>
         </interface>
         <interface name="public">
             <inet-address value="${jboss.bind.address:127.0.0.1}"/>
@@ -506,9 +483,8 @@
             <inet-address value="${jboss.bind.address.unsecure:127.0.0.1}"/>
         </interface>
     </interfaces>
-
     <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
-        <socket-binding name="management-http" interface="management" port="9990"/>
+        <socket-binding name="management-http" interface="management" port="${jboss.management.http.port:9990}"/>
         <socket-binding name="management-https" interface="management" port="${jboss.management.https.port:9993}"/>
         <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
         <socket-binding name="http" port="${jboss.http.port:8080}"/>
@@ -520,11 +496,11 @@
         <socket-binding name="jgroups-tcp-fd" interface="private" port="57600"/>
         <socket-binding name="jgroups-udp" interface="private" port="55200" multicast-address="${jboss.default.multicast.address:230.0.0.4}" multicast-port="45688"/>
         <socket-binding name="jgroups-udp-fd" interface="private" port="54200"/>
-        <socket-binding name="modcluster" port="0" multicast-address="230.0.0.4" multicast-port="23364"/>
+        <socket-binding name="modcluster" port="0" multicast-address="224.0.1.105" multicast-port="23364"/>
         <socket-binding name="txn-recovery-environment" port="4712"/>
         <socket-binding name="txn-status-manager" port="4713"/>
         <outbound-socket-binding name="mail-smtp">
-            <remote-destination host="127.0.0.1" port="25"/>
+            <remote-destination host="localhost" port="25"/>
         </outbound-socket-binding>
     </socket-binding-group>
 </server>
