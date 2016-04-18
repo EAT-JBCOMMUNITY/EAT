@@ -119,6 +119,11 @@ EAP-ADDITIONAL-TESTSUITE PRESENTATION
 [Eap Additional Testsuite Presentation](http://redhat.slides.com/panossot/eap-wildfly-additional-testsuite)
 
 
+EAP-ADDITIONAL-TESTSUITE VIDEO PRESENTATION
+-------------------------------------------
+[Eap Additional Testsuite Video](https://bluejeans.com/s/9qrr/)
+
+
 EAP-ADDITIONAL-TESTSUITE as a COLLABORATION PROJECT
 ---------------------------------------------------
 Many thanks to Carlo de Wolf for his ideas and help.
