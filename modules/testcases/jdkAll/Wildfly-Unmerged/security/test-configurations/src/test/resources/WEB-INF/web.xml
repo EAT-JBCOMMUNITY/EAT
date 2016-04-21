@@ -1,0 +1,14 @@
+<web-app>
+    <servlet>
+        <servlet-name>JMSClientServlet</servlet-name>
+        <!-- ... -->
+        <run-as> 
+            <role-name>Support</role-name>
+        </run-as>
+    </servlet>
+
+    <security-role>
+        <description>The single application role</description>
+        <role-name>Support</role-name>
+    </security-role>
+</web-app>
