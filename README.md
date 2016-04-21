@@ -56,7 +56,7 @@ MOTIVATION
 If a test is developed for server X then it can be automatically tested against all the other servers.
 
  
-HOW TO DEBUG (for testable deployments or non-marked as @RunAsClinet tests)
+HOW TO DEBUG (for testable deployments or non-marked as @RunAsClient tests)
 ---------------------------------------
 1. Start the server (that you have defined in JBOSS_FOLDER) with the --debug 'port' option.
 2. Connect the Debugger to the Remote VM inside the server using some IDE.
@@ -65,7 +65,7 @@ HOW TO DEBUG (for testable deployments or non-marked as @RunAsClinet tests)
 5. And then start the debugging executing the specific test which is errorous.
 
 
-HOW TO DEBUG (for non-testable deployments or marked as @RunAsClinet tests)
+HOW TO DEBUG (for non-testable deployments or marked as @RunAsClient tests)
 ---------------------------------------
 1. Activate the equivalent debug profile at your IDE (eg eap7.testsuite).
 2. Set your breakpoints.
