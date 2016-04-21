@@ -56,8 +56,8 @@ MOTIVATION
 If a test is developed for server X then it can be automatically tested against all the other servers.
 
  
-HOW TO DEBUG
-------------
+HOW TO DEBUG (for testable deployments)
+---------------------------------------
 1. Start the server (that you have defined in JBOSS_FOLDER) with the --debug 'port' option.
 2. Connect the Debugger to the Remote VM inside the server using some IDE.
 3. Activate the equivalent debug profile at your IDE (eg eap7.testsuite)
