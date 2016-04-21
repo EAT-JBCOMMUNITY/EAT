@@ -56,13 +56,23 @@ MOTIVATION
 If a test is developed for server X then it can be automatically tested against all the other servers.
 
  
-HOW TO DEBUG (for testable deployments)
+HOW TO DEBUG (for testable deployments or non-marked as @RunAsClinet tests)
 ---------------------------------------
 1. Start the server (that you have defined in JBOSS_FOLDER) with the --debug 'port' option.
 2. Connect the Debugger to the Remote VM inside the server using some IDE.
-3. Activate the equivalent debug profile at your IDE (eg eap7.testsuite)
+3. Activate the equivalent debug profile at your IDE (eg eap7.testsuite).
 4. Set your breakpoints.
 5. And then start the debugging executing the specific test which is errorous.
+
+
+HOW TO DEBUG (for non-testable deployments or marked as @RunAsClinet tests)
+---------------------------------------
+1. Activate the equivalent debug profile at your IDE (eg eap7.testsuite).
+2. Set your breakpoints.
+3. Run your tests from command line adding -Dmaven.surefire.debug="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8787 -Xnoagent -Djava.compiler=NONE" property. 
+e.g. mvn -Dmaven.surefire.debug="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8787 -Xnoagent -Djava.compiler=NONE" test -Dwildfly -Dstandalone
+4. Connect the Debugger to the Remote VM inside the server using some IDE.
+5. Debug the specific test which is errorous.
 
 
 HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (NETBEANS)
