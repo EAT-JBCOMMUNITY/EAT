@@ -71,7 +71,7 @@ HOW TO DEBUG (for non-testable deployments and marked as @RunAsClient tests)
 2. Set your breakpoints.
 3. Run your tests from command line adding -Dmaven.surefire.debug="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8787 -Xnoagent -Djava.compiler=NONE" property. 
 e.g. mvn -Dmaven.surefire.debug="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8787 -Xnoagent -Djava.compiler=NONE" test -Dwildfly -Dstandalone
-4. Connect the Debugger to the Remote VM inside the server using some IDE.
+4. Connect the Debugger to the Remote VM using some IDE.
 5. Debug the specific test which is errorous.
 
 
