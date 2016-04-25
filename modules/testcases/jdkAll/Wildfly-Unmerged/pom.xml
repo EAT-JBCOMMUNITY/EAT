@@ -185,7 +185,7 @@
 
     <modules>
         <module>web</module>
-        <module>security</module>
+        <!--module>security</module-->
     </modules>
 
 
