@@ -82,12 +82,6 @@
 	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
 	                            <target name="build-basic"/>
 	                        </ant>
-                                <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
-	                            <property name="fileName" value="application-roles.properties" />
-                                    <property name="filePath" value="${jboss.modules.dir}/eap/build/target/jbossas/standalone/configuration" />
-                                    <property name="fileToCopy" value="${jboss.modules.dir}/testcases/jdkAll/Eap/security/src/test/config/roles/application-roles.properties" />
-	                            <target name="copy-file"/>
-	                        </ant>
 	                    </target>
 	                </configuration>
 	            </execution>

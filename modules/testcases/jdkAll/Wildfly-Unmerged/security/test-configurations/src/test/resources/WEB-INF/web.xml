@@ -1,12 +1,8 @@
 <web-app>
-    <servlet>
-        <servlet-name>JMSClientServlet</servlet-name>
-        <!-- ... -->
-        <run-as> 
-            <role-name>Support</role-name>
-        </run-as>
-    </servlet>
-
+    <login-config>
+            <auth-method>BASIC</auth-method>
+            <realm-name>WebSecurityBasic</realm-name>
+    </login-config>
     <security-role>
         <description>The single application role</description>
         <role-name>Support</role-name>
