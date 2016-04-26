@@ -30,18 +30,16 @@ import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.security.annotation.SecurityDomain;
  
 @MessageDriven(name = "MessageMDBSample", activationConfig = {
 @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
 @ActivationConfigProperty(propertyName = "destination", propertyValue = "/jms/queue/sampleQueue"),
 @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge") })
-@DeclareRoles({MDBSample.AUTHORIZED_ROLE})
 @EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly-Unmerged/security/src/main/java","modules/testcases/jdkAll/Eap/security/src/main/java"})
+//@RolesAllowed("Support")
 public class MDBSample implements MessageListener {
- 
-    public static final String AUTHORIZED_ROLE = "Support";
-    
-    @RolesAllowed(AUTHORIZED_ROLE)
+
     public void onMessage(Message message) {
  
        TextMessage tm = (TextMessage) message;

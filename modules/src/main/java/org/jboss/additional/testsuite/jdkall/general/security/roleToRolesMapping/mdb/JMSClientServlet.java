@@ -23,8 +23,6 @@ package org.jboss.additional.testsuite.jdkall.general.security.roleToRolesMappin
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.annotation.security.DeclareRoles;
-import javax.annotation.security.RolesAllowed;
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
@@ -48,8 +46,11 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
  */
 @EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly-Unmerged/security/src/main/java","modules/testcases/jdkAll/Eap/security/src/main/java"})
 @WebServlet(name = "JMSClientServlet", urlPatterns = {"/JMSClientServlet"})
-@ServletSecurity(@HttpConstraint(rolesAllowed = { "Support" }))
+@ServletSecurity(@HttpConstraint(rolesAllowed = "Support" ))
 public class JMSClientServlet extends HttpServlet {
+    
+    /** The String returned in the HTTP response body. */
+    public static final String RESPONSE_BODY = "GOOD";
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String destinationName = "/jms/queue/sampleQueue";
@@ -73,7 +74,8 @@ public class JMSClientServlet extends HttpServlet {
             TextMessage message = session.createTextMessage("Hello AS 7 !");
             publisher.send(message);
 
-            out.println("Message sent to the JMS Provider");
+            out.write(RESPONSE_BODY);
+       //     out.println("Message sent to the JMS Provider");
 
         } catch (Exception exc) {
             response.addHeader("OUTCOME", "ERROR");

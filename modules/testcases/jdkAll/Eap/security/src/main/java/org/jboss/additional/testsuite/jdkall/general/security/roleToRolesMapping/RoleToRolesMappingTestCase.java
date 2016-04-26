@@ -21,7 +21,9 @@
  */
 package org.jboss.additional.testsuite.jdkall.general.security.roleToRolesMapping;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.net.URL;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -34,9 +36,14 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.as.test.integration.security.common.Utils;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.shrinkwrap.api.asset.StringAsset;
+import org.jboss.shrinkwrap.api.exporter.ZipExporter;
+import org.jboss.shrinkwrap.impl.base.exporter.zip.ZipExporterImpl;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 import org.junit.Test;
@@ -57,30 +64,41 @@ public class RoleToRolesMappingTestCase {
         WebArchive war = ShrinkWrap.create(WebArchive.class,"securityRoles.war");
         war.addClasses(JMSClientServlet.class);
         war.addClasses(MDBSample.class);
-        war.addAsResource("WEB-INF/jboss-web.xml");
-        war.addAsResource("WEB-INF/beans.xml");
+        war.addAsResource("application-users.properties");
+        war.addAsResource("application-roles.properties");
+        war.addAsWebInfResource(new StringAsset("<jboss-web>" + //
+                "<security-domain>test</security-domain>" + 
+                "<security-role><role-name>Employee</role-name><principal-name>Support</principal-name><principal-name>Sales</principal-name></security-role>" +//
+                "</jboss-web>"), "jboss-web.xml");
         war.setWebXML("WEB-INF/web.xml");
+        war.as(ZipExporter.class).exportTo(new File(war.getName()), true);
         return war;
     }
 
     @Test
     public void roleToRolesMappingServletTest(@ArquillianResource URL url) throws Exception {
         URL testURL = new URL(url.toString() + "JMSClientServlet");
+        
+        System.out.println(testURL + ".............");
 
-        final HttpGet request = new HttpGet(testURL.toString());
-        CloseableHttpClient httpClient = HttpClientBuilder.create().build();
-        CloseableHttpResponse response = null;
+        //successful authentication and authorization
+        assertEquals("Response body is not correct.", JMSClientServlet.RESPONSE_BODY,
+                Utils.makeCallWithBasicAuthn(testURL, "username", "password", 200));
+        
+   //     final HttpGet request = new HttpGet(testURL.toString());
+   //     CloseableHttpClient httpClient = HttpClientBuilder.create().build();
+  //      CloseableHttpResponse response = null;
 
         try {
-            response = httpClient.execute(request);
-            System.out.println("Response : " + response.toString());
+     //       response = httpClient.execute(request);
+     //       System.out.println("Response : " + response.toString());
 
         } catch (Exception e) {
             e.printStackTrace();
             fail();
         } finally {
-            IOUtils.closeQuietly(response);
-            httpClient.close();
+      //      IOUtils.closeQuietly(response);
+       //     httpClient.close();
             
             Thread.sleep(1000);
             
