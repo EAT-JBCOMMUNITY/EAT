@@ -182,6 +182,7 @@
     <modules>
         <module>basic</module>
         <module>clustering</module> 
+        <module>security</module> 
         <module>web</module> 
     </modules>
 

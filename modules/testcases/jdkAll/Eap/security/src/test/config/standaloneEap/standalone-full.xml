@@ -371,9 +371,11 @@
             <security-domains>
                 <security-domain name="test" cache-type="default">
                     <authentication>
-                        <login-module code="UsersRoles" flag="optional">
+                        <login-module code="UsersRoles" flag="required">
                             <module-option name="usersProperties" value="application-users.properties"/>
                             <module-option name="rolesProperties" value="application-roles.properties"/>
+                            <module-option name="password-stacking">useFirstPass</module-option>
+                            <module-option name="unauthenticatedIdentity">cts-user</module-option>
                         </login-module>
                     </authentication>
                     <mapping>
