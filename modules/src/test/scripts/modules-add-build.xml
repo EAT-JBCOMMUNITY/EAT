@@ -27,7 +27,7 @@
     <target name="general-build" description="Builds server configurations for general tests">
 
         <echo message="Copying modules needed for general testsuite"/>
-        <copy todir="{$server}/build/target/jbossas/modules">
+        <copy todir="{$server}/servers/build/target/{$dist}/modules">
             <fileset dir="${jboss.dist}/modules"/>
         </copy>
 

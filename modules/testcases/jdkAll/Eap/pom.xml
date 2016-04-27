@@ -20,7 +20,6 @@
     
     <properties>
         <version.org.jboss.arquillian.container.managed>7.1.3.Final</version.org.jboss.arquillian.container.managed>
-        <jboss.home.env>${project.basedir}/../../../eap/build/target/jbossas</jboss.home.env>
     </properties>
            
     <profiles>

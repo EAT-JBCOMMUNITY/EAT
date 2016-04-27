@@ -50,7 +50,7 @@
                                 <configuration>
                                     <target>
                                         <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
-                                            <property name="todir" value="${basedir}/eap/build/target/jbossas" />
+                                            <property name="todir" value="${basedir}/servers/eap/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
@@ -93,7 +93,7 @@
                                 <configuration>
                                     <target>
                                         <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
-                                            <property name="todir" value="${basedir}/eap/build/target/jbossas" />
+                                            <property name="todir" value="${basedir}/servers/eap/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
@@ -184,7 +184,7 @@
                                 <configuration>
                                     <target>
                                         <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
-                                            <property name="todir" value="${basedir}/eap7/build/target/jbossas" />
+                                            <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
@@ -227,7 +227,7 @@
                                 <configuration>
                                     <target>
                                         <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
-                                            <property name="todir" value="${basedir}/eap7/build/target/jbossas" />
+                                            <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
@@ -270,7 +270,7 @@
                                 <configuration>
                                     <target>
                                         <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
-                                            <property name="todir" value="${basedir}/wildfly/build/target/jbossas" />
+                                            <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
@@ -313,7 +313,7 @@
                                 <configuration>
                                     <target>
                                         <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
-                                            <property name="todir" value="${basedir}/wildfly/build/target/jbossas" />
+                                            <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
@@ -356,7 +356,7 @@
                                 <configuration>
                                     <target>
                                         <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
-                                            <property name="todir" value="${basedir}/wildfly/build/target/jbossas" />
+                                            <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
@@ -399,7 +399,7 @@
                                 <configuration>
                                     <target>
                                         <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
-                                            <property name="todir" value="${basedir}/wildfly/build/target/jbossas" />
+                                            <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
@@ -442,7 +442,7 @@
                                 <configuration>
                                     <target>
                                         <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
-                                            <property name="todir" value="${basedir}/wildfly/build/target/jbossas" />
+                                            <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>

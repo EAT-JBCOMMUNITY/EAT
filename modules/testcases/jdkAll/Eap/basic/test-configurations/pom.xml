@@ -16,8 +16,6 @@
     <properties>
 	<standalone.conf>${basedir}/../src/test/config/standaloneEap/standalone.xml</standalone.conf>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
-        <surefire.memory.args>-Xmx512m -XX:MaxPermSize=256m</surefire.memory.args>
-        <surefire.system.args>${surefire.memory.args} -Djboss.dist=${jboss.modules.dir}/eap/build/target/jbossas -DjbossHome=${jboss.modules.dir}/eap/build/target/jbossas</surefire.system.args>
         <server>eap</server>
     </properties>
         
@@ -51,12 +49,6 @@
                 <configuration>
                     <!-- Prevent test and server output appearing in console. -->
                     <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
-
-                    <systemPropertyVariables>
-                        <jboss.options>${surefire.system.args}</jboss.options>
-                        <jboss.home>${jboss.modules.dir}/eap/build/target/jbossas</jboss.home>
-                        <module.path>${jboss.modules.dir}/eap/build/target/jbossas/modules</module.path>
-                    </systemPropertyVariables>
 
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
