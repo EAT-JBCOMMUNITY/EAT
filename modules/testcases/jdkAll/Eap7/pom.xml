@@ -188,6 +188,7 @@
         <module>basic</module>
         <module>web</module>
         <module>clustering</module>
+        <module>security</module>
     </modules>
 
 </project>

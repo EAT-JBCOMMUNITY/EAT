@@ -23,6 +23,7 @@ package org.jboss.additional.testsuite.jdkall.general.security.roleToRolesMappin
 
 import javax.annotation.security.DeclareRoles;
 import javax.annotation.security.RolesAllowed;
+import javax.annotation.security.RunAs;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
 import javax.jms.JMSException;
@@ -36,8 +37,7 @@ import org.jboss.security.annotation.SecurityDomain;
 @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
 @ActivationConfigProperty(propertyName = "destination", propertyValue = "/jms/queue/sampleQueue"),
 @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge") })
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly-Unmerged/security/src/main/java","modules/testcases/jdkAll/Eap/security/src/main/java"})
-//@RolesAllowed("Support")
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/security/src/main/java","modules/testcases/jdkAll/Wildfly-Release/security/src/main/java","modules/testcases/jdkAll/Wildfly/security/src/main/java","modules/testcases/jdkAll/Wildfly-Unmerged/security/src/main/java","modules/testcases/jdkAll/Eap/security/src/main/java"})
 public class MDBSample implements MessageListener {
 
     public void onMessage(Message message) {
