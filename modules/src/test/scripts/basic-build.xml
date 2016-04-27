@@ -25,8 +25,8 @@
 <project>
     <target name="build-basic" description="Replaces server configurations">
         <echo message="Copying standalone file : ${standaloneConfiguration} needed for the specific test"/>
-        <chmod file="${workspace}/${server}/build/target/${dist}/bin/standalone.sh" perm="777"/>
-        <copy file="${standaloneConfiguration}" todir="${workspace}/${server}/build/target/${dist}/standalone/configuration" overwrite="true" />
+        <chmod file="${workspace}/servers/${server}/build/target/${dist}/bin/standalone.sh" perm="777"/>
+        <copy file="${standaloneConfiguration}" todir="${workspace}/servers/${server}/build/target/${dist}/standalone/configuration" overwrite="true" />
     </target>
 
 </project>

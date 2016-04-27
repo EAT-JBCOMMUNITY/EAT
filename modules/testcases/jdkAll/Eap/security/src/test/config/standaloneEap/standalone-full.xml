@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
-<server xmlns="urn:jboss:domain:1.7">
+<server xmlns="urn:jboss:domain:1.8">
 
     <extensions>
         <extension module="org.jboss.as.clustering.infinispan"/>
@@ -32,11 +32,6 @@
         <extension module="org.jboss.as.weld"/>
     </extensions>
 
-    <system-properties>
-        <property name="org.apache.commons.logging.simplelog.log.httpclient.wire.header" value="debug"/>
-        <property name="org.apache.commons.logging.simplelog.log.org.apache.commons.httpclient" value="debug"/>
-    </system-properties>
-
 
     <management>
         <security-realms>
@@ -45,7 +40,7 @@
                     <local default-user="$local" skip-group-loading="true"/>
                     <properties path="mgmt-users.properties" relative-to="jboss.server.config.dir"/>
                 </authentication>
-                <authorization map-groups-to-roles="true">
+                <authorization map-groups-to-roles="false">
                     <properties path="mgmt-groups.properties" relative-to="jboss.server.config.dir"/>
                 </authorization>
             </security-realm>
@@ -345,6 +340,7 @@
                         </entries>
                     </pooled-connection-factory>
                 </jms-connection-factories>
+
                 <jms-destinations>
                     <jms-queue name="ExpiryQueue">
                         <entry name="java:/jms/queue/ExpiryQueue"/>
@@ -371,11 +367,9 @@
             <security-domains>
                 <security-domain name="test" cache-type="default">
                     <authentication>
-                        <login-module code="UsersRoles" flag="required">
+                        <login-module code="UsersRoles" flag="optional">
                             <module-option name="usersProperties" value="application-users.properties"/>
                             <module-option name="rolesProperties" value="application-roles.properties"/>
-                            <module-option name="password-stacking">useFirstPass</module-option>
-                            <module-option name="unauthenticatedIdentity">cts-user</module-option>
                         </login-module>
                     </authentication>
                     <mapping>
@@ -391,9 +385,6 @@
                             <module-option name="password-stacking" value="useFirstPass"/>
                         </login-module>
                     </authentication>
-                    <mapping>
-                        <mapping-module code="org.jboss.security.mapping.providers.DeploymentRoleToRolesMappingProvider" type="role"/>
-                    </mapping>
                 </security-domain>
                 <security-domain name="jboss-web-policy" cache-type="default">
                     <authorization>
@@ -469,5 +460,4 @@
             <remote-destination host="localhost" port="25"/>
         </outbound-socket-binding>
     </socket-binding-group>
-
 </server>
