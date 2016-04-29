@@ -75,7 +75,7 @@ e.g. mvn -Dmaven.surefire.debug="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,
 5. Debug the specific test which is errorous.
 
 
-HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (NETBEANS)
+HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (ECLIPSE,NETBEANS)
 --------------------------------------------------------------
 1. Before starting the IDE, go to your IDE directory and export JBOSS_FOLDER and JBOSS_VERSION environment variables at file /etc/environment and execute the command "source /etc/environment".
 2. Start your IDE from command line and load the project.
