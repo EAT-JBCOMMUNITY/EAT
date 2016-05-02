@@ -33,6 +33,7 @@
                 <configuration>
                     <!-- Prevent test and server output appearing in console. -->
                     <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
+                    <failIfNoTests>false</failIfNoTests>
 
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
