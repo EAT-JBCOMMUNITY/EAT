@@ -50,7 +50,7 @@
 		        <configuration>         
 		            <!-- Tests to execute. -->
 		            <includes>
-                                <include>org/jboss/additional/testsuite/jdkall/general/web/threads/**/*TestCase.java</include>
+                                <include>org/jboss/additional/testsuite/jdkall/present/web/threads/**/*TestCase.java</include>
 		            </includes> 
 		        </configuration>
 		    </execution>

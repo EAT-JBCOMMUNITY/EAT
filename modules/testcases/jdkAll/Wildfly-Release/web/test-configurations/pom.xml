@@ -50,10 +50,10 @@
 		        <configuration>         
 		            <!-- Tests to execute. -->
 		            <includes>
-		                <include>org/jboss/additional/testsuite/jdkall/general/web/classloading/war/**/*TestCase.java</include>
-		                <include>org/jboss/additional/testsuite/jdkall/general/web/servlet/**/*TestCase.java</include>
-                                <include>org/jboss/additional/testsuite/jdkall/general/web/ee/**/*TestCase.java</include>
-                                <include>org/jboss/additional/testsuite/jdkall/general/web/mtom/**/*TestCase.java</include>
+		                <include>org/jboss/additional/testsuite/jdkall/present/web/classloading/war/**/*TestCase.java</include>
+		                <include>org/jboss/additional/testsuite/jdkall/present/web/servlet/**/*TestCase.java</include>
+                                <include>org/jboss/additional/testsuite/jdkall/present/web/ee/**/*TestCase.java</include>
+                                <include>org/jboss/additional/testsuite/jdkall/present/web/mtom/**/*TestCase.java</include>
 		            </includes> 
 		        </configuration>
 		    </execution>
