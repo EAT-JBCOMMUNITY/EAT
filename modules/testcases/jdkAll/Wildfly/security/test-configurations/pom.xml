@@ -33,6 +33,7 @@
                 <configuration>
                     <!-- Prevent test and server output appearing in console. -->
                     <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
+                    <failIfNoTests>false</failIfNoTests>
 
                     <systemPropertyVariables>
                         <jboss.server.config.file.name>standalone-full.xml</jboss.server.config.file.name>

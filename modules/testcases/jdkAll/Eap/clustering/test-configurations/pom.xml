@@ -33,6 +33,7 @@
                 <configuration>
                     <!-- Prevent test and server output appearing in console. -->
                     <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
+                    <failIfNoTests>false</failIfNoTests>
                     <argLine>-Dstack=SYNC</argLine>
 
                     <systemPropertyVariables>
