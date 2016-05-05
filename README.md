@@ -86,10 +86,23 @@ HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (ECLIPSE, NETBEANS)
 
 HOW TO PROCESS THE SOURCES INSIDE AN IDE
 ----------------------------------------
-In order to process the eap-additional-testsuite sources, please, **go to the Server Level** (e.g. [Wildfly Server Level](https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/testcases/jdkAll/Wildfly)) and after activating the equivalent server profile and the standalone profile, proceed to the following actions depending on the IDE :
+In order to process the eap-additional-testsuite sources, please, **go to the Server Level** (e.g. [Wildfly Server Level](https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/testcases/jdkAll/Wildfly)) and after following the steps of the section **"HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (ECLIPSE, NETBEANS)"** (activating the equivalent server profile and the standalone profile, etc), proceed to the following actions depending on the IDE :
 
-1. **Eclipse :** Go to the Server Level Project -> Properties -> Java Build Path. Under the Source Tab click the Link Source Button. Linked folder location should be "PATH_TO_PROJECT/eap-additional-testsuite/modules/src/main/java" and "Update exclusion filters in other source folders to solve nesting" should be chosen. Apply the changes. The sources should be, now, visible in your IDE to process. (**Important Note :** The sources to be processed should be the ones linked to modules/src/main/java directory)
-2. **Netbeans :** The sources should be visible in your IDE to process.
+* **Eclipse :** 
+  * Go to the Server Level Project -> Properties -> Java Build Path. Under the Source Tab click the Link Source Button. Linked folder location should be "PATH_TO_PROJECT/eap-additional-testsuite/modules/src/main/java" and "Update exclusion filters in other source folders to solve nesting" should be chosen. Apply the changes. The sources should be, now, visible in your IDE to process. 
+  * Add the JRE System Library in your project.
+  * Add the following lines in the .classpath file : 
+```xml 
+<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+<classpathentry exported="true" kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+</classpathentry>
+```
+**Important Note :** The sources to be processed should be the ones linked to modules/src/main/java directory.
+
+* **Netbeans :** The sources should be visible in your IDE to process.
 
 
 EAP-ADDITIONAL-TESTSUITE INTEGRATED INSIDE THE SERVERS (HOW TO USE)  - AVAILABLE SOON
