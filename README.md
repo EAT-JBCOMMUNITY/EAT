@@ -87,7 +87,7 @@ HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (ECLIPSE, IntelliJ IDEA, NET
 
 HOW TO PROCESS THE SOURCES INSIDE AN IDE
 ----------------------------------------
-In order to process the eap-additional-testsuite sources, please, **go to the Server Level** (e.g. [Wildfly Server Level](https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/testcases/jdkAll/Wildfly)) and after following the steps of the section **"HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (ECLIPSE, IntelliJ IDEA, NETBEANS)"** for the Server Level (activating the equivalent server profile and the standalone profile, etc), proceed to the following actions depending on the way of processing that you choose and the IDE :
+In order to process the eap-additional-testsuite sources, please, after following the steps of the section **"HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (ECLIPSE, IntelliJ IDEA, NETBEANS)"** (activating the equivalent server profile and the standalone profile, etc), proceed to the following actions depending on the way of processing and the IDE that you choose :
 
 **1st WAY OF PROCESSING (This way applies for all the IDEs)**
 
@@ -96,6 +96,9 @@ In order to process the eap-additional-testsuite sources, please, **go to the Se
 3. Do not forget to copy the modified sources at the Modules Level (modules/src/main/java). In a different case, if you run the project from the Parent Level, your modified sources will be overriden by the ones that exist at the Modules Level (Risk of losing your modifications).
 
 **2nd WAY OF PROCESSING**
+
+Please, **go to the Server Level** (e.g. [Wildfly Server Level](https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/testcases/jdkAll/Wildfly)) and follow the actions depending on the IDE:
+
 * **Eclipse :** 
   * Go to the Server Level Project -> Properties -> Java Build Path. Under the Source Tab click the Link Source Button. Linked folder location should be "PATH_TO_PROJECT/eap-additional-testsuite/modules/src/main/java" and "Update exclusion filters in other source folders to solve nesting" should be chosen. Apply the changes. The sources should be, now, visible in your IDE to process. 
   * The .project file should look like :
