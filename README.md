@@ -81,7 +81,7 @@ HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (ECLIPSE, NETBEANS)
 2. Start your IDE from command line and load the project.
 3. Go to Modules directory and activate the desired server profile (eg wildfly.testsuite). Then activate the standalone profile at the server dir that has appeared.
 4. Make sure that the server parent pom is available locally or remotely as an artifact.
-5. Modify the run/build configurations in order to use the the desired goals, profiles and environment variables.
+5. Modify the run/build configurations in order to use the the desired goals, profiles and environment variables (**Important note :** If the sources are to be modified or extended, the working directory should be set to the eap-additional-testsuite parent directory, in order that any changes in the sources would be propagated to the specific server sources).
 6. Build your project.
 
 
