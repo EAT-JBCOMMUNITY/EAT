@@ -75,19 +75,19 @@ e.g. mvn -Dmaven.surefire.debug="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,
 5. Debug the specific test which is errorous.
 
 
-HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (ECLIPSE, NETBEANS)
+HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (ECLIPSE, IntelliJ IDEA, NETBEANS)
 --------------------------------------------------------------
 1. Before starting the IDE, go to your IDE directory and export JBOSS_FOLDER and JBOSS_VERSION environment variables at file /etc/environment and execute the command "source /etc/environment".
 2. Start your IDE from command line and load the project.
 3. Go to Modules directory and activate the desired server profile (eg wildfly.testsuite). Then activate the standalone profile at the server dir that has appeared.
 4. Make sure that the server parent pom is available locally or remotely as an artifact.
-5. Modify the run/build configurations in order to use the the desired goals, profiles and environment variables (**Important note :** If the sources are to be modified or extended, the working directory should be set to the eap-additional-testsuite parent directory, in order that any changes in the sources would be propagated to the specific server sources).
+5. Modify the run/build configurations in order to use the the desired goals, profiles and environment variables 
 6. Build your project.
 
 
 HOW TO PROCESS THE SOURCES INSIDE AN IDE
 ----------------------------------------
-In order to process the eap-additional-testsuite sources, please, **go to the Server Level** (e.g. [Wildfly Server Level](https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/testcases/jdkAll/Wildfly)) and after following the steps of the section **"HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (ECLIPSE, NETBEANS)"** (activating the equivalent server profile and the standalone profile, etc), proceed to the following actions depending on the IDE :
+In order to process the eap-additional-testsuite sources, please, **go to the Server Level** (e.g. [Wildfly Server Level](https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/testcases/jdkAll/Wildfly)) and after following the steps of the section **"HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (ECLIPSE, IntelliJ IDEA, NETBEANS)"** for the Server Level (activating the equivalent server profile and the standalone profile, etc), proceed to the following actions depending on the IDE :
 
 * **Eclipse :** 
   * Go to the Server Level Project -> Properties -> Java Build Path. Under the Source Tab click the Link Source Button. Linked folder location should be "PATH_TO_PROJECT/eap-additional-testsuite/modules/src/main/java" and "Update exclusion filters in other source folders to solve nesting" should be chosen. Apply the changes. The sources should be, now, visible in your IDE to process. 
@@ -129,9 +129,15 @@ In order to process the eap-additional-testsuite sources, please, **go to the Se
 		</attributes>
 </classpathentry>
 ```
-**Important Note :** The sources to be processed should be the ones linked to modules/src/main/java directory.
+
+* **IntelliJ IDEA :** Go to the Server Level Project -> Project Structure -> Sources, remove the current context root and add "PATH_TO_PROJECT/eap-additional-testsuite/modules/src/main/java" as the context root. Apply the changes. The sources should be, now, visible in your IDE to process under "java" directory. 
 
 * **Netbeans :** The sources should be visible in your IDE to process.
+
+**Important note for all IDEs :** 
+
+1. If the sources are to be modified or extended, the working directory of the run/build configuration should be set to the eap-additional-testsuite parent directory, in order that any changes in the sources would be propagated to the specific server sources.
+2. The sources to be processed should be the ones linked to modules/src/main/java directory.
 
 
 EAP-ADDITIONAL-TESTSUITE INTEGRATED INSIDE THE SERVERS (HOW TO USE)  - AVAILABLE SOON
