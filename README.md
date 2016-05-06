@@ -144,7 +144,7 @@ Please, **go to the Server Level** (e.g. [Wildfly Server Level](https://github.c
 
 * **Netbeans :** The sources should be visible in your IDE to process.
 
-**Important note for all IDEs :** 
+**Important note :** 
 
 1. If the sources are to be modified or extended, the working directory of the run/build configuration should be set to the eap-additional-testsuite parent directory, in order that any changes in the sources would be propagated to the specific server sources.
 2. The sources to be processed should be the ones linked to modules/src/main/java directory.
