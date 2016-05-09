@@ -45,10 +45,13 @@ Testing EAP or Wildfly with specific JDK version
 
 ADVANTAGES 
 ----------
-1. Having all the tests at one place.
-2. Comparison of the servers based on the testsuite.
-3. Guarding against regression.
-4. Faster convergence among the servers.
+1. Writing the tests once and testing against infinite number of Application Servers.
+2. Having all the tests at one place.
+3. Comparison of the servers based on the testsuite.
+4. Guarding against regression.
+5. Faster convergence among the servers.
+6. Comparison of the servers based on tests of the past and the present.
+7. Addition of tests with possible future features that are not at the moment available.
 
  
 MOTIVATION
