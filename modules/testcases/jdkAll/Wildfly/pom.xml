@@ -183,7 +183,8 @@
         <module>jaxrs</module> 
         <module>clustering</module> 
         <module>security</module> 
-        <module>web</module> 
+        <module>web</module>
+        <module>weld</module> 
     </modules>
 
 

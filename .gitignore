@@ -1,11 +1,15 @@
 # Files
 .classpath
 .project
-.settings
+.iml
 .DS_Store
 nb-configuration.xml
 nb-*
 jboss.xml
+profiles.xml
+.war
 
 #dirs
 target
+.idea
+.settings
