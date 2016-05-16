@@ -185,6 +185,7 @@
             
     <modules>
         <module>basic</module>
+        <module>ejb</module>
         <module>jaxrs</module>
         <module>clustering</module>
         <module>security</module> 
