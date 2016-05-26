@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>org.jboss</groupId>
-        <artifactId>wildfly-jdk8-additional-testsuite-management</artifactId>
+        <artifactId>wildfly-release-jdk8-additional-testsuite-management</artifactId>
         <version>1.0.1.Final-SNAPSHOT</version>
     </parent>
 
