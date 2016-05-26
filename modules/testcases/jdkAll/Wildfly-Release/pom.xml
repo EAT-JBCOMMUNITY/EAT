@@ -188,6 +188,7 @@
         <module>ejb</module>
         <module>jaxrs</module>
         <module>clustering</module>
+        <module>management</module>
         <module>security</module> 
         <module>web</module>
         <module>weld</module> 
