@@ -77,6 +77,11 @@
                     <version>4.5.3.Final</version>
                 </dependency>
                 <dependency>
+                    <groupId>org.jboss.osgi.metadata</groupId>
+                    <artifactId>jbosgi-metadata</artifactId>
+                    <version>2.2.0.Final</version>
+                </dependency>
+                <dependency>
                     <groupId>junit</groupId>
                     <artifactId>junit</artifactId>
                     <scope>compile</scope>
@@ -143,6 +148,11 @@
                     <version>4.5.3.Final</version>
                 </dependency>
                 <dependency>
+                    <groupId>org.jboss.osgi.metadata</groupId>
+                    <artifactId>jbosgi-metadata</artifactId>
+                    <version>2.2.0.Final</version>
+                </dependency>
+                <dependency>
                     <groupId>junit</groupId>
                     <artifactId>junit</artifactId>
                     <scope>compile</scope>
@@ -189,6 +199,7 @@
         <module>ejb</module>
         <module>jaxrs</module>
         <module>clustering</module>
+        <module>logging</module>
         <module>management</module>
         <module>security</module>
         <module>web</module>
