@@ -171,6 +171,7 @@
     <modules>
         <module>ws</module>
         <module>management</module>
+        <module>logging</module>
     </modules>
 
 </project>

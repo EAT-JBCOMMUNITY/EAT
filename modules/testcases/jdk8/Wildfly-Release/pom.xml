@@ -170,6 +170,7 @@
 
     <modules>
         <module>ws</module>
+        <module>logging</module>
         <module>management</module>
     </modules>
 
