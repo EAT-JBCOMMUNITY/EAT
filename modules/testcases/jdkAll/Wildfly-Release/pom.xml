@@ -200,6 +200,7 @@
         <module>clustering</module>
         <module>logging</module>
         <module>management</module>
+        <module>messaging</module>
         <module>security</module> 
         <module>web</module>
         <module>weld</module> 
