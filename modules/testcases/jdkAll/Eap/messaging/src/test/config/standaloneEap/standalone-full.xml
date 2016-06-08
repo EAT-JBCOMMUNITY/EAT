@@ -1,4 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><server xmlns="urn:jboss:domain:1.7">
+<?xml version='1.0' encoding='UTF-8'?>
+
+<server xmlns="urn:jboss:domain:1.8">
+
     <extensions>
         <extension module="org.jboss.as.clustering.infinispan"/>
         <extension module="org.jboss.as.cmp"/>
@@ -28,14 +31,8 @@
         <extension module="org.jboss.as.webservices"/>
         <extension module="org.jboss.as.weld"/>
     </extensions>
-<vault>
-<vault-option name="KEYSTORE_URL" value="/home/panos/JBOSS_ADDITIONAL_TESTS/jboss-eap-6.4.x/testsuite/integration/basic/target/test-classes/security/vault.keystore"/>
-<vault-option name="KEYSTORE_PASSWORD" value="MASK-1CY3kNqbYVLo5njerVXKG7"/>
-<vault-option name="KEYSTORE_ALIAS" value="vault"/>
-<vault-option name="SALT" value="12345678"/>
-<vault-option name="ITERATION_COUNT" value="50"/>
-<vault-option name="ENC_FILE_DIR" value="/home/panos/JBOSS_ADDITIONAL_TESTS/jboss-eap-6.4.x/testsuite/integration/basic/target/test-classes/security/"/>
-</vault>
+
+
     <management>
         <security-realms>
             <security-realm name="ManagementRealm">
@@ -62,7 +59,7 @@
                 <json-formatter name="json-formatter"/>
             </formatters>
             <handlers>
-                <file-handler name="file" formatter="json-formatter" relative-to="jboss.server.data.dir" path="audit-log.log"/>
+                <file-handler name="file" formatter="json-formatter" path="audit-log.log" relative-to="jboss.server.data.dir"/>
             </handlers>
             <logger log-boot="true" log-read-only="false" enabled="false">
                 <handlers>
@@ -88,6 +85,7 @@
             </role-mapping>
         </access-control>
     </management>
+
     <profile>
         <subsystem xmlns="urn:jboss:domain:logging:1.5">
             <console-handler name="CONSOLE">
@@ -139,14 +137,6 @@
         <subsystem xmlns="urn:jboss:domain:cmp:1.1"/>
         <subsystem xmlns="urn:jboss:domain:datasources:1.2">
             <datasources>
-<datasource jndi-name="java:jboss/datasources/MaskedDS" use-java-context="true" enabled="true" pool-name="MaskedDS">
-<connection-url>jdbc:h2:mem:masked;DB_CLOSE_DELAY=-1</connection-url>
-<driver>h2</driver>
-<security>
-<user-name>sa</user-name>
-<password>${VAULT::ds_ExampleDS::password::1}</password>
-</security>
-</datasource>
                 <datasource jndi-name="java:jboss/datasources/ExampleDS" pool-name="ExampleDS" enabled="true" use-java-context="true">
                     <connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url>
                     <driver>h2</driver>
@@ -237,7 +227,7 @@
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:jacorb:1.4">
             <orb socket-binding="jacorb" ssl-socket-binding="jacorb-ssl">
-                <initializers transactions="spec" security="identity"/>
+                <initializers security="identity" transactions="spec"/>
             </orb>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:jaxr:1.1">
@@ -284,6 +274,7 @@
                 <persistence-enabled>true</persistence-enabled>
                 <journal-type>NIO</journal-type>
                 <journal-min-files>2</journal-min-files>
+
                 <connectors>
                     <netty-connector name="netty" socket-binding="messaging"/>
                     <netty-connector name="netty-throughput" socket-binding="messaging-throughput">
@@ -291,6 +282,7 @@
                     </netty-connector>
                     <in-vm-connector name="in-vm" server-id="0"/>
                 </connectors>
+
                 <acceptors>
                     <netty-acceptor name="netty" socket-binding="messaging"/>
                     <netty-acceptor name="netty-throughput" socket-binding="messaging-throughput">
@@ -299,6 +291,7 @@
                     </netty-acceptor>
                     <in-vm-acceptor name="in-vm" server-id="0"/>
                 </acceptors>
+
                 <security-settings>
                     <security-setting match="#">
                         <permission type="send" roles="guest"/>
@@ -307,18 +300,19 @@
                         <permission type="deleteNonDurableQueue" roles="guest"/>
                     </security-setting>
                 </security-settings>
+
                 <address-settings>
-                    <!--default for catch all-->
                     <address-setting match="#">
                         <dead-letter-address>jms.queue.DLQ</dead-letter-address>
                         <expiry-address>jms.queue.ExpiryQueue</expiry-address>
                         <redelivery-delay>0</redelivery-delay>
                         <max-size-bytes>10485760</max-size-bytes>
-                        <address-full-policy>PAGE</address-full-policy>
                         <page-size-bytes>2097152</page-size-bytes>
+                        <address-full-policy>PAGE</address-full-policy>
                         <message-counter-history-day-limit>10</message-counter-history-day-limit>
                     </address-setting>
                 </address-settings>
+
                 <jms-connection-factories>
                     <connection-factory name="InVmConnectionFactory">
                         <connectors>
@@ -346,12 +340,16 @@
                         </entries>
                     </pooled-connection-factory>
                 </jms-connection-factories>
+
                 <jms-destinations>
                     <jms-queue name="ExpiryQueue">
                         <entry name="java:/jms/queue/ExpiryQueue"/>
                     </jms-queue>
                     <jms-queue name="DLQ">
                         <entry name="java:/jms/queue/DLQ"/>
+                    </jms-queue>
+                    <jms-queue name="sampleQueue">
+                        <entry name="java:/jms/queue/sampleQueue"/>
                     </jms-queue>
                 </jms-destinations>
             </hornetq-server>
@@ -367,6 +365,17 @@
         <subsystem xmlns="urn:jboss:domain:sar:1.0"/>
         <subsystem xmlns="urn:jboss:domain:security:1.2">
             <security-domains>
+                <security-domain name="test" cache-type="default">
+                    <authentication>
+                        <login-module code="UsersRoles" flag="optional">
+                            <module-option name="usersProperties" value="application-users.properties"/>
+                            <module-option name="rolesProperties" value="application-roles.properties"/>
+                        </login-module>
+                    </authentication>
+                    <mapping>
+                        <mapping-module code="org.jboss.security.mapping.providers.DeploymentRoleToRolesMappingProvider" type="role"/>
+                    </mapping>
+                </security-domain>
                 <security-domain name="other" cache-type="default">
                     <authentication>
                         <login-module code="Remoting" flag="optional">
@@ -419,22 +428,19 @@
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:weld:1.0"/>
     </profile>
+
     <interfaces>
         <interface name="management">
-            <inet-address value="127.0.0.1"/>
+            <inet-address value="${jboss.bind.address.management:127.0.0.1}"/>
         </interface>
         <interface name="public">
             <inet-address value="${jboss.bind.address:127.0.0.1}"/>
         </interface>
-        <!-- TODO - only show this if the jacorb subsystem is added  -->
         <interface name="unsecure">
-            <!--
-              ~  Used for IIOP sockets in the standard configuration.
-              ~                  To secure JacORB you need to setup SSL 
-              -->
             <inet-address value="${jboss.bind.address.unsecure:127.0.0.1}"/>
         </interface>
     </interfaces>
+
     <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
         <socket-binding name="management-native" interface="management" port="${jboss.management.native.port:9999}"/>
         <socket-binding name="management-http" interface="management" port="${jboss.management.http.port:9990}"/>
@@ -451,7 +457,7 @@
         <socket-binding name="txn-recovery-environment" port="4712"/>
         <socket-binding name="txn-status-manager" port="4713"/>
         <outbound-socket-binding name="mail-smtp">
-            <remote-destination host="127.0.0.1" port="25"/>
+            <remote-destination host="localhost" port="25"/>
         </outbound-socket-binding>
     </socket-binding-group>
 </server>
