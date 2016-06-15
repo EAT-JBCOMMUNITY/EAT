@@ -78,8 +78,7 @@ public class InjectedJMSContextTestCase {
         return ShrinkWrap.create(JavaArchive.class, "InjectedJMSContextTestCase.jar")
                 .addClass(TimeoutUtil.class)
                 .addPackage(TransactedMDB.class.getPackage())
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
-                .addAsResource(createPermissionsXmlAsset(new PropertyPermission("ts.timeout.factor", "read")), "META-INF/jboss-permissions.xml");
+                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
     @After

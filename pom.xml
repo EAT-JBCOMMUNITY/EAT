@@ -26,12 +26,12 @@
         <dependency>
             <groupId>org.jboss.eap.additional.testsuite</groupId>
             <artifactId>eap-additional-testsuite-source-distribution</artifactId>
-            <version>1.0.0.Final</version>
+            <version>1.0.1.Final</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.eap.additional.testsuite</groupId>
             <artifactId>eap-additional-testsuite-annotations</artifactId>
-            <version>1.0.0.Final</version>
+            <version>1.0.1.Final</version>
         </dependency>
     </dependencies>
 
@@ -97,6 +97,76 @@
 
     <profiles>
         <profile>
+            <id>wildfly.testsuite</id>
+            <activation>
+                <property>
+                    <name>wildfly</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <properties>
+		<serverDir>Wildfly</serverDir>
+	    </properties>
+        </profile>
+
+        <profile>
+            <id>wildfly.jdk8.testsuite</id>
+            <activation>
+                <property>
+                    <name>wildfly-jdk8</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <properties>
+		<serverDir>Wildfly</serverDir>
+	    </properties>
+        </profile>
+
+        <profile>
+            <id>wildfly.unmerged.testsuite</id>
+            <activation>
+                <property>
+                    <name>wildfly-unmerged</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <properties>
+		<serverDir>Wildfly-Unmerged</serverDir>
+	    </properties>
+        </profile>
+
+        <profile>
+            <id>wildfly.release.testsuite</id>
+            <activation>
+                <property>
+                    <name>wildfly-release</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <properties>
+		<serverDir>Wildfly-Release</serverDir>
+	    </properties>
+        </profile>
+
+        <profile>
+            <id>wildfly.release.jdk8.testsuite</id>
+            <activation>
+                <property>
+                    <name>wildfly-release-jdk8</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <properties>
+		<serverDir>Wildfly-Release</serverDir>
+	    </properties>
+        </profile>
+
+        <profile>
             <id>eap.jdk8.testsuite</id>
             <activation>
                 <property>
@@ -137,6 +207,10 @@
 		    </snapshots>
 		</pluginRepository>
 	    </pluginRepositories>
+
+            <properties>
+		<serverDir>Eap</serverDir>
+	    </properties>
         </profile>
 
         <profile>
@@ -180,6 +254,10 @@
 		    </snapshots>
 		</pluginRepository>
 	    </pluginRepositories>
+
+            <properties>
+		<serverDir>Eap</serverDir>
+	    </properties>
         </profile>
 
         <profile>
@@ -223,6 +301,10 @@
 		    </snapshots>
 		</pluginRepository>
 	    </pluginRepositories>
+
+            <properties>
+		<serverDir>Eap7</serverDir>
+	    </properties>
         </profile>
 
         <profile>
@@ -266,6 +348,10 @@
 		    </snapshots>
 		</pluginRepository>
 	    </pluginRepositories>
+
+            <properties>
+		<serverDir>Eap7</serverDir>
+	    </properties>
         </profile>
 
     </profiles>
@@ -289,7 +375,8 @@
 		   <mainClass>org.jboss.eap.additional.testsuite.source.distribution.AdditionalTestsuiteDistributeSources</mainClass>  
 		   <arguments>  
 		       <argument>${basedir}</argument>  
-		       <argument>${basedir}/modules/src/main/java</argument>  
+		       <argument>${basedir}/modules/src/main/java</argument> 
+                       <argument>${serverDir}</argument>  
 		   </arguments>  
 	       </configuration>  
 	    </plugin>

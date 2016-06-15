@@ -53,7 +53,7 @@ import org.wildfly.extension.messaging.activemq.CommonAttributes;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/messaging/src/main/java","modules/testcases/jdkAll/Wildfly-Release/messaging/src/main/java","modules/testcases/jdkAll/Wildfly/messaging/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/messaging/src/main/java"})
 public class AddressSettingsTestCase extends ContainerResourceMgmtTestBase {
 
     private ModelNode defaultAddress;
