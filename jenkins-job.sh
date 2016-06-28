@@ -22,4 +22,4 @@ export MAVEN_OPTS="-Xmx1024m -Xms512m -XX:MaxPermSize=256m"
 # remove previous build
 rm -r -f eap*
 
-mvn clean install -D${JBOSS_VERSION_CODE} -Dstandalone -Dmaven.repo.local=${LOCAL_REPO_DIR}
+mvn clean install -D${JBOSS_VERSION_CODE} -Dstandalone -Dmaven.repo.local=${LOCAL_REPO_DIR}  -Dnode0=127.0.${EXECUTOR_NUMBER}.1 -Dnode1=127.0.${EXECUTOR_NUMBER}.1
