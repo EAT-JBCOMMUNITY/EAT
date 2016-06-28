@@ -14,7 +14,9 @@
     <name>eap 6.4.x proposed additional testsuite: logging : configuration</name>
             
     <properties>
+        <standalone.conf>${basedir}/../src/test/config/standaloneEap/standalone-full.xml</standalone.conf>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
+        <server>eap</server>
     </properties>
         
     <build>
@@ -55,6 +57,51 @@
 		        </configuration>
 		    </execution>
 		</executions>
+	    </plugin>
+
+            <!-- Build the server configuration -->
+	    <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-antrun-plugin</artifactId>
+	        <executions>
+	            <execution>
+	                <id>build-basic-config</id>
+	                <phase>process-test-resources</phase>
+	                <goals>
+	                    <goal>run</goal>
+	                </goals>
+	                <configuration>
+	                    <target>
+	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/basic-build.xml">
+	                            <property name="workspace" value="/${jboss.modules.dir}" />
+                                    <property name="server" value="${server}" />
+                                    <property name="dist" value="jbossas" />
+	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
+	                            <target name="build-basic"/>
+	                        </ant>
+	                    </target>
+	                </configuration>
+	            </execution>
+
+                    <execution>
+	                <id>build-basic-config-check</id>
+	                <phase>test-compile</phase>
+	                <goals>
+	                    <goal>run</goal>
+	                </goals>
+	                <configuration>
+	                    <target>
+	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/basic-build.xml">
+	                            <property name="workspace" value="/${jboss.modules.dir}" />
+                                    <property name="server" value="${server}" />
+                                    <property name="dist" value="jbossas" />
+	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
+	                            <target name="build-basic-check"/>
+	                        </ant>
+	                    </target>
+	                </configuration>
+	            </execution>
+	        </executions>
 	    </plugin>
         </plugins> 
 		            

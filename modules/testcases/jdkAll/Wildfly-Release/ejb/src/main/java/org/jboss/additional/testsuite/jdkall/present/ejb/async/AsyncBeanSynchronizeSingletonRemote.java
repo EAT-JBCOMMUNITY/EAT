@@ -29,7 +29,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
  * @author Ondrej Chaloupka
  */
 @Remote
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/ejb/src/main/java","modules/testcases/jdkAll/Wildfly-Release/ejb/src/main/java","modules/testcases/jdkAll/Wildfly/ejb/src/main/java","modules/testcases/jdkAll/Eap/ejb/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/ejb/src/main/java","modules/testcases/jdkAll/Wildfly-Release/ejb/src/main/java","modules/testcases/jdkAll/Wildfly/ejb/src/main/java","modules/testcases/jdkAll/Eap64x/ejb/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/ejb/src/main/java","modules/testcases/jdkAll/Eap63x/ejb/src/main/java"})
 public interface AsyncBeanSynchronizeSingletonRemote {
     void reset();    
     void latchCountDown();

@@ -45,7 +45,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/web/src/main/java","modules/testcases/jdkAll/Eap7/web/src/main/java","modules/testcases/jdkAll/Eap/web/src/main/java","modules/testcases/jdkAll/Wildfly-Release/web/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/web/src/main/java","modules/testcases/jdkAll/Eap7/web/src/main/java","modules/testcases/jdkAll/Eap64x/web/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/web/src/main/java","modules/testcases/jdkAll/Wildfly-Release/web/src/main/java"})
 public class MtomTestCase {
 
     private final String serverLogPath = "surefire-reports/org.jboss.additional.testsuite.jdkall.present.web.mtom.MtomTestCase-output.txt";

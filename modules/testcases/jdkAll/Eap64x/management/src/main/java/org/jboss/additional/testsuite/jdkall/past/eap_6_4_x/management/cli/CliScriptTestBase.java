@@ -38,7 +38,7 @@ import org.jboss.as.test.shared.TestSuiteEnvironment;
 /**
  * @author Alexey Loubyansky
  */
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap64x/management/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/management/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap64x/management/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/management/src/main/java","modules/testcases/jdkAll/Eap63x/management/src/main/java"})
 public class CliScriptTestBase {
 
     private static final int CLI_PROC_TIMEOUT = 10000;

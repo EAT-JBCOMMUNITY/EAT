@@ -44,7 +44,7 @@ import org.junit.Assert;
 /**
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>
  */
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/logging/src/main/java","modules/testcases/jdkAll/Wildfly-Release/logging/src/main/java","modules/testcases/jdkAll/Wildfly/logging/src/main/java","modules/testcases/jdkAll/Eap/logging/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/logging/src/main/java","modules/testcases/jdkAll/Wildfly-Release/logging/src/main/java","modules/testcases/jdkAll/Wildfly/logging/src/main/java","modules/testcases/jdkAll/Eap64x/logging/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/logging/src/main/java","modules/testcases/jdkAll/Eap63x/logging/src/main/java"})
 abstract class AbstractLoggingOperationsTestCase {
     private final Logger log = Logger.getLogger(this.getClass().getName());
 

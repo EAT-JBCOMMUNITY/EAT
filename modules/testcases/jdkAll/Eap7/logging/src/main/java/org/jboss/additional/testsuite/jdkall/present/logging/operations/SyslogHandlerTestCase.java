@@ -88,7 +88,7 @@ import org.productivity.java.syslog4j.server.SyslogServerEventIF;
 @RunWith(Arquillian.class)
 @ServerSetup(SyslogHandlerTestCase.SyslogHandlerTestCaseSetup.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/logging/src/main/java","modules/testcases/jdkAll/Wildfly-Release/logging/src/main/java","modules/testcases/jdkAll/Wildfly/logging/src/main/java","modules/testcases/jdkAll/Eap/logging/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/logging/src/main/java","modules/testcases/jdkAll/Wildfly-Release/logging/src/main/java","modules/testcases/jdkAll/Wildfly/logging/src/main/java","modules/testcases/jdkAll/Eap64x/logging/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/logging/src/main/java","modules/testcases/jdkAll/Eap63x/logging/src/main/java"})
 public class SyslogHandlerTestCase extends AbstractLoggingTest {
 
     private static Logger LOGGER = Logger.getLogger(SyslogHandlerTestCase.class);
