@@ -71,7 +71,7 @@ import org.junit.runner.RunWith;
  */
 @ServerSetup(NonExistingProfileTestCase.NonExistingProfileTestCaseSetup.class)
 @RunWith(Arquillian.class)
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap64x/logging/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/logging/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap64x/logging/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/logging/src/main/java","modules/testcases/jdkAll/Eap63x/logging/src/main/java"})
 public class NonExistingProfileTestCase extends AbstractLoggingTest {
 
 	private static Logger log = Logger
