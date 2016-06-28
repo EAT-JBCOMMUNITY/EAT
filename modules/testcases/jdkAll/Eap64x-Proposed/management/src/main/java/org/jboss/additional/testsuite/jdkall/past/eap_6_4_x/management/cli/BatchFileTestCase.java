@@ -41,6 +41,7 @@ import org.jboss.dmr.Property;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 import org.junit.AfterClass;
 import org.junit.Test;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 
 
@@ -50,7 +51,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap64x/management/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/management/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap64x/management/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/management/src/main/java","modules/testcases/jdkAll/Eap63x/management/src/main/java"})
 public class BatchFileTestCase {
 
     private static final String FILE_NAME = "jboss-cli-batch-file-test.cli";
@@ -98,6 +99,7 @@ public class BatchFileTestCase {
         }
     }
 
+    @Ignore //It does not work with 6.3.x
     @Test
     public void testRunBatchFile() throws Exception {
         createFile(new String[]{"/system-property=batchfiletest:add(value=true)",

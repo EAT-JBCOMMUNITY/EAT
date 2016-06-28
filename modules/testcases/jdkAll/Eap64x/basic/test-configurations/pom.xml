@@ -56,11 +56,6 @@
                         <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEap</additionalClasspathElement>
                     </additionalClasspathElements>
 
-                    <systemPropertyVariables combine.children="append">
-                        <node0>${node0}</node0>
-                        <node1>${node1}</node1>
-                    </systemPropertyVariables>
-
                 </configuration>
 	    </plugin>
 		            
