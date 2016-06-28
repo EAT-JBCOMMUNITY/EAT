@@ -40,7 +40,7 @@ import org.junit.runner.RunWith;
  * @author Dominik Pospisil <dpospisi@redhat.com>
  */
 @RunWith(Arquillian.class)
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/management/src/main/java","modules/testcases/jdkAll/Wildfly-Release/management/src/main/java","modules/testcases/jdkAll/Wildfly/management/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/management/src/main/java"})
 public class JmsTestCase extends AbstractCliTestBase {
 
     @BeforeClass

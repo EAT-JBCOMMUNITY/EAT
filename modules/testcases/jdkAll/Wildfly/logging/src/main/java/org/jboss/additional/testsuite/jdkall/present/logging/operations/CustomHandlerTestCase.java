@@ -57,7 +57,7 @@ import org.junit.runner.RunWith;
  */
 @ServerSetup(CustomHandlerTestCase.CustomHandlerSetUp.class)
 @RunWith(Arquillian.class)
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/logging/src/main/java","modules/testcases/jdkAll/Wildfly-Release/logging/src/main/java","modules/testcases/jdkAll/Wildfly/logging/src/main/java","modules/testcases/jdkAll/Eap/logging/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/logging/src/main/java","modules/testcases/jdkAll/Wildfly-Release/logging/src/main/java","modules/testcases/jdkAll/Wildfly/logging/src/main/java","modules/testcases/jdkAll/Eap64x/logging/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/logging/src/main/java","modules/testcases/jdkAll/Eap63x/logging/src/main/java"})
 public class CustomHandlerTestCase extends AbstractLoggingOperationsTestCase {
 
     private static final String FILE_NAME = "custom-handler-file.log";

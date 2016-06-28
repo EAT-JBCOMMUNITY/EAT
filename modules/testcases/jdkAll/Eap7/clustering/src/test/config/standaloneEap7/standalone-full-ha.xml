@@ -487,10 +487,10 @@
 
     <interfaces>
         <interface name="management">
-            <inet-address value="127.0.0.1"/>
+            <inet-address value="${node0:127.0.0.1}"/>
         </interface>
         <interface name="public">
-            <inet-address value="${jboss.bind.address:127.0.0.1}"/>
+            <inet-address value="${node0:127.0.0.1}"/>
         </interface>
         <interface name="private">
             <inet-address value="${jboss.bind.address.private:127.0.0.1}"/>

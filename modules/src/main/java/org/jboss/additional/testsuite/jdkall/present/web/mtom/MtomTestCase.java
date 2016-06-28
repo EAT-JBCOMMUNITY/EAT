@@ -37,6 +37,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -45,6 +46,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
+@Ignore // It is available only for localhost tests
 @EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/web/src/main/java","modules/testcases/jdkAll/Eap7/web/src/main/java","modules/testcases/jdkAll/Eap64x/web/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/web/src/main/java","modules/testcases/jdkAll/Wildfly-Release/web/src/main/java"})
 public class MtomTestCase {
 

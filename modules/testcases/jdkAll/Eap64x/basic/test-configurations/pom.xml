@@ -56,6 +56,11 @@
                         <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEap</additionalClasspathElement>
                     </additionalClasspathElements>
 
+                    <systemPropertyVariables combine.children="append">
+                        <node0>${node0}</node0>
+                        <node1>${node1}</node1>
+                    </systemPropertyVariables>
+
                 </configuration>
 	    </plugin>
 		            
@@ -78,6 +83,25 @@
                                     <property name="dist" value="jbossas" />
 	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
 	                            <target name="build-basic"/>
+	                        </ant>
+	                    </target>
+	                </configuration>
+	            </execution>
+
+                    <execution>
+	                <id>build-basic-config-check</id>
+	                <phase>test-compile</phase>
+	                <goals>
+	                    <goal>run</goal>
+	                </goals>
+	                <configuration>
+	                    <target>
+	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/basic-build.xml">
+	                            <property name="workspace" value="/${jboss.modules.dir}" />
+                                    <property name="server" value="${server}" />
+                                    <property name="dist" value="jbossas" />
+	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
+	                            <target name="build-basic-check"/>
 	                        </ant>
 	                    </target>
 	                </configuration>

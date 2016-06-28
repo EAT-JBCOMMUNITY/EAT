@@ -36,6 +36,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 
 import javax.servlet.http.HttpServletResponse;
@@ -55,7 +56,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
  * @author <a href="mailto:pkremens@redhat.com">Petr Kremensky</a>
  */
 @RunWith(Arquillian.class)
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/logging/src/main/java","modules/testcases/jdkAll/Wildfly-Release/logging/src/main/java","modules/testcases/jdkAll/Wildfly/logging/src/main/java","modules/testcases/jdkAll/Eap64x/logging/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/logging/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/logging/src/main/java","modules/testcases/jdkAll/Wildfly-Release/logging/src/main/java","modules/testcases/jdkAll/Wildfly/logging/src/main/java","modules/testcases/jdkAll/Eap64x/logging/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/logging/src/main/java","modules/testcases/jdkAll/Eap63x/logging/src/main/java"})
 public class SizeRotatingHandlerTestCase extends AbstractLoggingOperationsTestCase {
 
     private static String fileName = "size-rotating-handler.log";
@@ -155,6 +156,7 @@ public class SizeRotatingHandlerTestCase extends AbstractLoggingOperationsTestCa
         searchLog(newMessage, true);
     }
 
+    @Ignore //It does not work with 6.3.x
     @Test
     @RunAsClient
     public void testSuffix() throws Exception {
