@@ -81,7 +81,7 @@
                                     <property name="server" value="${server}" />
                                     <property name="dist" value="jbossas" />
 	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
-	                            <target name="build-basic"/>
+	                            <target name="build-basic-check"/>
 	                        </ant>
                                 <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
 	                            <property name="fileName" value="application-roles.properties" />
@@ -94,25 +94,6 @@
                                     <property name="filePath" value="/${jboss.modules.dir}/servers/${server}/build/target/jbossas/standalone/configuration" />
                                     <property name="fileToCopy" value="${basedir}/../src/test/config/securityProperties/application-users.properties" />
 	                            <target name="copy-file"/>
-	                        </ant>
-	                    </target>
-	                </configuration>
-	            </execution>
-
-                    <execution>
-	                <id>build-basic-config-check</id>
-	                <phase>test-compile</phase>
-	                <goals>
-	                    <goal>run</goal>
-	                </goals>
-	                <configuration>
-	                    <target>
-	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/basic-build.xml">
-	                            <property name="workspace" value="/${jboss.modules.dir}" />
-                                    <property name="server" value="${server}" />
-                                    <property name="dist" value="jbossas" />
-	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
-	                            <target name="build-basic-check"/>
 	                        </ant>
 	                    </target>
 	                </configuration>
