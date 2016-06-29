@@ -22,7 +22,9 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <standalone.conf>${basedir}/../src/test/config/standaloneWildfly/standalone-full.xml</standalone.conf>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
+        <server>wildfly</server>
     </properties>
 
     <build>
@@ -61,9 +63,38 @@
                         <additionalClasspathElement>${jboss.modules.dir}/src/config/arqWildfly</additionalClasspathElement>
                     </additionalClasspathElements>
 
+                    <systemPropertyVariables>
+                        <jboss.server.config.file.name>standalone-full.xml</jboss.server.config.file.name>
+                    </systemPropertyVariables>
+
                 </configuration>
             </plugin>
 
+            <!-- Build the server configuration -->
+	    <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-antrun-plugin</artifactId>
+	        <executions>
+                    <execution>
+	                <id>build-basic-config-check</id>
+	                <phase>process-test-resources</phase>
+	                <goals>
+	                    <goal>run</goal>
+	                </goals>
+	                <configuration>
+	                    <target>
+	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/basic-build.xml">
+	                            <property name="workspace" value="/${jboss.modules.dir}" />
+                                    <property name="server" value="${server}" />
+                                    <property name="dist" value="jbossas" />
+	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
+	                            <target name="build-basic-check"/>
+	                        </ant>
+	                    </target>
+	                </configuration>
+	            </execution>
+	        </executions>
+	    </plugin>
         </plugins>
     </build>
 

@@ -31,6 +31,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 
 import javax.xml.namespace.QName;
@@ -39,6 +40,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 @RunWith(Arquillian.class)
+@Ignore // Ignore the test becaust it can run only on localhost
 @EapAdditionalTestsuite({"modules/testcases/jdk8/Wildfly/ws/src/main/java","modules/testcases/jdk8/Eap7/ws/src/main/java","modules/testcases/jdk8/Wildfly-Release/ws/src/main/java"})
 public class WsTest {
 
