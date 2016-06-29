@@ -30,9 +30,6 @@
         <replace token= "${node0:127.0.0.1}" value="${node0}" dir="${workspace}/servers/${server}/build/target/${dist}/standalone/configuration">                                 
             <include name="*.xml"/>
         </replace>
-        <replace token= "${node0:127.0.0.1}" value="${node0}" dir="${workspace}/servers/${server}/build/target/${dist}/standalone/configuration">                                 
-            <include name="*.xml"/>
-        </replace>
     </target>
 
     <target name="build-basic-check" description="Replaces server configurations" depends="build-basic">
