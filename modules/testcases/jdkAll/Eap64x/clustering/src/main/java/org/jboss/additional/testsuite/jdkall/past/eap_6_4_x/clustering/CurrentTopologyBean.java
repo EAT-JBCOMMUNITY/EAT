@@ -43,7 +43,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
  */
 @Stateless
 @Remote(CurrentTopology.class)
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap64x/clustering/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap63x/clustering/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap64x/clustering/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap63x/clustering/src/main/java","modules/testcases/jdkAll/Eap62x/clustering/src/main/java"})
 public class CurrentTopologyBean implements CurrentTopology {
 
     @Override

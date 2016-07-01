@@ -33,7 +33,7 @@ import java.util.List;
 
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.as.test.shared.TestSuiteEnvironment;
+import org.jboss.additional.testsuite.jdkall.present.shared.TestSuiteEnvironment;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;

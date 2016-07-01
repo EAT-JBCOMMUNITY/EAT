@@ -28,7 +28,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
  * @author Stuart Douglas
  */
 @Alternative
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/weld/src/main/java","modules/testcases/jdkAll/Wildfly-Release/weld/src/main/java","modules/testcases/jdkAll/Wildfly/weld/src/main/java","modules/testcases/jdkAll/Eap64x/weld/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/weld/src/main/java","modules/testcases/jdkAll/Eap63x/weld/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/weld/src/main/java","modules/testcases/jdkAll/Wildfly-Release/weld/src/main/java","modules/testcases/jdkAll/Wildfly/weld/src/main/java","modules/testcases/jdkAll/Eap64x/weld/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/weld/src/main/java","modules/testcases/jdkAll/Eap63x/weld/src/main/java","modules/testcases/jdkAll/Eap62x/weld/src/main/java"})
 public class AlternativeBean extends SimpleBean {
 
     @Override
