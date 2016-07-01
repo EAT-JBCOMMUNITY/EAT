@@ -63,7 +63,7 @@ import org.junit.runner.RunWith;
  */
 @RunAsClient()
 @RunWith(Arquillian.class)
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap64x/messaging/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/messaging/src/main/java","modules/testcases/jdkAll/Eap63x/messaging/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap64x/messaging/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/messaging/src/main/java","modules/testcases/jdkAll/Eap63x/messaging/src/main/java","modules/testcases/jdkAll/Eap62x/messaging/src/main/java"})
 public class CoreQueueManagementTestCase {
 
     private static long count = System.currentTimeMillis();
