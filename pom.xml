@@ -601,7 +601,7 @@
 		<repository>
 		    <id>jboss-product-repository-eap7</id>
 		    <name>JBoss Product Repository</name>
-		    <url>http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.0-rhel-7-maven-build/latest/maven/</url>
+		    <url>http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.1-rhel-7-maven-build/latest/maven/</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -618,7 +618,7 @@
 		<pluginRepository>
 		    <id>jboss-product-repository-eap7</id>
 		    <name>JBoss Product Repository</name>
-		    <url>http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.0-rhel-7-maven-build/latest/maven/</url>
+		    <url>http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.1-rhel-7-maven-build/latest/maven/</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -648,7 +648,7 @@
 		<repository>
 		    <id>jboss-product-repository-eap7</id>
 		    <name>JBoss Product Repository</name>
-		    <url>http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.0-rhel-7-maven-build/latest/maven/</url>
+		    <url>http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.1-rhel-7-maven-build/latest/maven/</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -665,7 +665,7 @@
 		<pluginRepository>
 		    <id>jboss-product-repository-eap7</id>
 		    <name>JBoss Product Repository</name>
-		    <url>http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.0-rhel-7-maven-build/latest/maven/</url>
+		    <url>http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.1-rhel-7-maven-build/latest/maven/</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
