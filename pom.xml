@@ -687,6 +687,26 @@
 
     <build>
         <plugins>
+             <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-antrun-plugin</artifactId>
+	        <executions>
+	            <execution>
+	                <id>clear previous sources</id>
+	                <phase>process-test-resources</phase>
+	                <goals>
+	                    <goal>run</goal>
+	                </goals>
+	                <configuration>
+	                    <target name="clean" description="clean">
+				<delete includeEmptyDirs="true" failonerror="false">
+				    <fileset dir="${basedir}/modules/testcases" includes="**/${serverDir}/**/src/main/java/"/>
+				</delete>
+			    </target>
+	                </configuration>
+	            </execution>
+	        </executions>
+	    </plugin>
 
             <plugin>  
 	        <groupId>org.codehaus.mojo</groupId>  
