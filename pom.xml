@@ -26,12 +26,12 @@
         <dependency>
             <groupId>org.jboss.eap.additional.testsuite</groupId>
             <artifactId>eap-additional-testsuite-source-distribution</artifactId>
-            <version>1.0.1.Final</version>
+            <version>1.0.2.Final</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.eap.additional.testsuite</groupId>
             <artifactId>eap-additional-testsuite-annotations</artifactId>
-            <version>1.0.1.Final</version>
+            <version>1.0.2.Final</version>
         </dependency>
     </dependencies>
 
@@ -726,6 +726,8 @@
 		       <argument>${basedir}</argument>  
 		       <argument>${basedir}/modules/src/main/java</argument> 
                        <argument>${serverDir}</argument>  
+                       <argument>${JBOSS_VERSION}</argument>
+                       <argument>versionOrder</argument>
 		   </arguments>  
 	       </configuration>  
 	    </plugin>
