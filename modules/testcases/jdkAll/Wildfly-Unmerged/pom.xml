@@ -7,14 +7,14 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>eap-additional-testsuite-modules</artifactId>
-        <version>1.0.1.Final-SNAPSHOT</version>
+        <version>1.0.2.Final</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
     <groupId>org.jboss</groupId>
     <artifactId>wildfly-unmerged-additional-testsuite</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.1.Final-SNAPSHOT</version>
+    <version>1.0.2.Final</version>
 
     <name>wildfly unmerged additional testsuite: additional testsuite for wildfly in cases where part of the whole of the fix in not yet merged</name>
     
