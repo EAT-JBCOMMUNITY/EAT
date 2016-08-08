@@ -11,5 +11,6 @@ profiles.xml
 
 #dirs
 target
+modules/testcases/**/src/main/java/**/*.java
 .idea
 .settings
