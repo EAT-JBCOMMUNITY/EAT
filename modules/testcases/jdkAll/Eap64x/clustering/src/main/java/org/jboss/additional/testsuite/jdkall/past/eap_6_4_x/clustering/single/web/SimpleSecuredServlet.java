@@ -35,7 +35,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 @DeclareRoles({ SimpleSecuredServlet.ALLOWED_ROLE })
 @ServletSecurity(@HttpConstraint(rolesAllowed = { SimpleSecuredServlet.ALLOWED_ROLE }))
 @WebServlet(SimpleSecuredServlet.SERVLET_PATH)
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap64x/clustering/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap63x/clustering/src/main/java","modules/testcases/jdkAll/Eap62x/clustering/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap64x/clustering/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap63x/clustering/src/main/java","modules/testcases/jdkAll/Eap62x/clustering/src/main/java","modules/testcases/jdkAll/Eap61x/clustering/src/main/java"})
 public class SimpleSecuredServlet extends SimpleServlet {
 
     /** The serialVersionUID */

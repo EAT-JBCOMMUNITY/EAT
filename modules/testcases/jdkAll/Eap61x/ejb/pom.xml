@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>eap61x-additional-testsuite</artifactId>
-        <version>1.0.1.Final-SNAPSHOT</version>
+        <version>1.0.2.Final</version>
     </parent>
 
     <artifactId>eap61x-additional-testsuite-ejb</artifactId>

@@ -14,10 +14,35 @@
     <groupId>org.jboss</groupId>
     <artifactId>eap-additional-testsuite</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.1.Final-SNAPSHOT</version>
+    <version>1.0.2.Final</version>
 
-    <name>eap additional testsuite: eap additional testsuite repos</name>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>The testsuite to write your tests once and test them against any version of the jboss server.</description>
+    <url>https://github.com/jboss-set/eap-additional-testsuite</url>
 
+    <licenses>
+        <license>
+            <name>GNU LESSER GENERAL PUBLIC LICENSE</name>
+            <url>http://www.gnu.org/licenses/lgpl-2.1-standalone.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Panagiotis Sotiropoulos</name>
+            <email>psotirop@redhat.com</email>
+            <organization>Red Hat</organization>
+            <organizationUrl>http://www.redhat.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:jboss-set/eap-additional-testsuite.git</connection>
+        <developerConnection>scm:git:git@github.com:jboss-set/eap-additional-testsuite.git</developerConnection>
+        <url>https://github.com/jboss-set/eap-additional-testsuite</url>
+    </scm>
+    
     <modules>
         <module>modules</module>
     </modules>

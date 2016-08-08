@@ -7,14 +7,14 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>eap-additional-testsuite-modules</artifactId>
-        <version>1.0.1.Final-SNAPSHOT</version>
+        <version>1.0.2.Final</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
     <groupId>org.jboss</groupId>
     <artifactId>eap64x-proposed-jdk8-additional-testsuite</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.1.Final-SNAPSHOT</version>
+    <version>1.0.2.Final</version>
 
     <name>eap additional testsuite: additional testsuite for eap proposed 6.4.x using jdk8</name>
     
