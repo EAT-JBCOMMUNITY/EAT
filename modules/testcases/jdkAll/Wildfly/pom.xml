@@ -292,8 +292,9 @@
 
     <modules>
         <module>basic</module>
-        <module>ejb</module>
+        
         <module>jaxrs</module> 
+<module>ejb</module>
         <module>clustering</module>
         <module>logging</module>  
         <module>management</module>  
