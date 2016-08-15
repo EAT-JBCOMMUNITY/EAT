@@ -19,9 +19,7 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.additional.testsuite.jdkall.present.weld.noComponentUgradeNeeded;
-
-import javax.inject.Inject;
+package org.jboss.additional.testsuite.jdkall.present.jaxrs.noComponentUgradeNeeded;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -42,7 +40,7 @@ import org.junit.runner.RunWith;
  * @author Stuart Douglas
  */
 @RunWith(Arquillian.class)
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/weld/src/main/java#10.1.0-Final"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#10.1.0-Final"})
 public class NoComponentUgradeNeededTestCase {
 
     @Deployment
@@ -56,6 +54,5 @@ public class NoComponentUgradeNeededTestCase {
     public void testNoComponentUgradeNeeded() {
         Assert.assertEquals(true, URLUtils.testNewFeature());
     }
-
 
 }
