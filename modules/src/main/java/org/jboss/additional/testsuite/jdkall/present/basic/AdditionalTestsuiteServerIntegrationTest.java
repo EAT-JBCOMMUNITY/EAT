@@ -26,12 +26,14 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 import static org.jboss.as.weld.util.Utils.printDefaultMessage;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import static org.junit.Assert.fail;
 
 @RunWith(Arquillian.class)
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/basic/src/main/java","modules/testcases/jdkAll/Eap7/basic/src/main/java","modules/testcases/jdkAll/Eap64x/basic/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/basic/src/main/java","modules/testcases/jdkAll/Wildfly-Release/basic/src/main/java","modules/testcases/jdkAll/Eap63x/basic/src/main/java","modules/testcases/jdkAll/Eap62x/basic/src/main/java","modules/testcases/jdkAll/Eap61x/basic/src/main/java"})
 public class AdditionalTestsuiteServerIntegrationTest {
 
     @Deployment
