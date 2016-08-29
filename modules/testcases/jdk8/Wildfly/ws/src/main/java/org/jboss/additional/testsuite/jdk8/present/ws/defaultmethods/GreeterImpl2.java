@@ -26,6 +26,6 @@ import javax.jws.WebService;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 
 @WebService(targetNamespace = "http://defaultmethods.ws.jdk8.testsuite.additional.jboss.org/")
-@EapAdditionalTestsuite({"modules/testcases/jdk8/Wildfly/ws/src/main/java","modules/testcases/jdk8/Eap7/ws/src/main/java","modules/testcases/jdk8/Wildfly-Release/ws/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdk8/Wildfly/ws/src/main/java","modules/testcases/jdk8/Eap7/ws/src/main/java","modules/testcases/jdk8/WildflyRelease/ws/src/main/java"})
 public class GreeterImpl2 implements GreeterSEI {
 }

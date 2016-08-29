@@ -40,7 +40,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
  * @author Eduardo Martins
  */
 @WebServlet(name = "SimpleServlet", urlPatterns = {"/simple"})
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/web/src/main/java","modules/testcases/jdkAll/Eap7/web/src/main/java","modules/testcases/jdkAll/Wildfly-Release/web/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/web/src/main/java","modules/testcases/jdkAll/Eap7/web/src/main/java","modules/testcases/jdkAll/WildflyRelease/web/src/main/java"})
 public class DefaultConcurrencyTestServlet extends HttpServlet {
 
     @Resource

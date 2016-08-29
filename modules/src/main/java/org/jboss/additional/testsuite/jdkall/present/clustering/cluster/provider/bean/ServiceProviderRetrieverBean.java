@@ -15,7 +15,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 
 @Stateless
 @Remote(ServiceProviderRetriever.class)
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/clustering/src/main/java","modules/testcases/jdkAll/Wildfly-Release/clustering/src/main/java","modules/testcases/jdkAll/Eap7/clustering/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/clustering/src/main/java","modules/testcases/jdkAll/WildflyRelease/clustering/src/main/java","modules/testcases/jdkAll/Eap7/clustering/src/main/java"})
 public class ServiceProviderRetrieverBean implements ServiceProviderRetriever {
 
     @EJB

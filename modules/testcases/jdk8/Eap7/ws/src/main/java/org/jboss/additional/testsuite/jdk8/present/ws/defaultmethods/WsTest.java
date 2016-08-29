@@ -41,7 +41,7 @@ import java.net.URL;
 
 @RunWith(Arquillian.class)
 @Ignore // Ignore the test becaust it can run only on localhost
-@EapAdditionalTestsuite({"modules/testcases/jdk8/Wildfly/ws/src/main/java","modules/testcases/jdk8/Eap7/ws/src/main/java","modules/testcases/jdk8/Wildfly-Release/ws/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdk8/Wildfly/ws/src/main/java","modules/testcases/jdk8/Eap7/ws/src/main/java","modules/testcases/jdk8/WildflyRelease/ws/src/main/java"})
 public class WsTest {
 
     @Deployment(name = "jax-ws-test-pojo", testable = false)

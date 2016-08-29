@@ -13,7 +13,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
  * @author Stuart Douglas
  */
 @WebServlet(urlPatterns = "/EarServlet")
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/management/src/main/java","modules/testcases/jdkAll/Wildfly-Release/management/src/main/java","modules/testcases/jdkAll/Wildfly/management/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/management/src/main/java","modules/testcases/jdkAll/WildflyRelease/management/src/main/java","modules/testcases/jdkAll/Wildfly/management/src/main/java"})
 public class EarServlet extends HttpServlet {
 
     @Override

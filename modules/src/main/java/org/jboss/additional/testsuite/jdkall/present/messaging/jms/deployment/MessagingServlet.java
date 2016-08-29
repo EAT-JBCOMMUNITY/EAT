@@ -46,7 +46,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
  * @author <a href="http://jmesnil.net/">Jeff Mesnil</a> (c) 2014 Red Hat inc.
  */
 @WebServlet("/DependentMessagingDeploymentTestCase")
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/messaging/src/main/java","modules/testcases/jdkAll/Wildfly-Release/messaging/src/main/java","modules/testcases/jdkAll/Wildfly/messaging/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/messaging/src/main/java","modules/testcases/jdkAll/WildflyRelease/messaging/src/main/java","modules/testcases/jdkAll/Wildfly/messaging/src/main/java"})
 public class MessagingServlet extends HttpServlet {
 
     @Resource(lookup = QUEUE_LOOKUP)
