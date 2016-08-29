@@ -24,7 +24,7 @@
             <activation>
                 <property>
                     <name>env.JBOSS_VERSION</name>
-                    <value>10.1.0.Final-SNAPSHOT</value>
+                    <value>11.0.0.Alpha1-SNAPSHOT</value>
                 </property>
             </activation>
 

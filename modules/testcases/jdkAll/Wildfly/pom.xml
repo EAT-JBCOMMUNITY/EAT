@@ -300,6 +300,7 @@
         <module>management</module>  
         <module>messaging</module>
         <module>security</module> 
+        <module>server</module> 
         <module>web</module>
         <module>weld</module> 
     </modules>

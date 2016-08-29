@@ -666,7 +666,7 @@
             </build>
 
             <modules>
-                <module>testcases/jdkAll/Wildfly-Release</module>
+                <module>testcases/jdkAll/WildflyRelease</module>
             </modules>
 
         </profile>
@@ -709,7 +709,7 @@
             </build>
                      
             <modules>
-                <module>testcases/jdk8/Wildfly-Release</module>
+                <module>testcases/jdk8/WildflyRelease</module>
             </modules>
 
         </profile>

@@ -52,6 +52,7 @@ ADVANTAGES
 5. Faster convergence among the servers.
 6. Comparison of the servers based on tests of the past and the present.
 7. Addition of tests with possible future features that are not at the moment available.
+8. It makes possible to push a testcase of a fix regarding a specific component of the server, without the component version to have been updated at the server pom.
 
  
 MOTIVATION
