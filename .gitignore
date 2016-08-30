@@ -8,9 +8,9 @@ nb-*
 jboss.xml
 profiles.xml
 .war
+modules/testcases/**/src/main/java/*.java
 
 #dirs
 target
-modules/testcases/**/src/main/java
 .idea
 .settings
