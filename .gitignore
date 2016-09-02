@@ -9,6 +9,8 @@ jboss.xml
 profiles.xml
 .war
 modules/testcases/**/src/main/java/*.java
+modules/testcases/**/security/test-configurations/securityRoles.war
+
 
 #dirs
 target
