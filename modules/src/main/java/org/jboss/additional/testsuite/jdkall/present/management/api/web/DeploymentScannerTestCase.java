@@ -19,7 +19,7 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.additional.testsuite.jdkall.past.management.api.web;
+package org.jboss.additional.testsuite.jdkall.present.management.api.web;
 
 import java.io.File;
 import java.io.IOException;
@@ -38,6 +38,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.Ignore;
 
 import static org.jboss.as.test.integration.management.util.ModelUtil.createOpNode;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
@@ -53,7 +54,7 @@ import static org.junit.Assert.assertTrue;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap64x/management/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/management/src/main/java","modules/testcases/jdkAll/Eap63x/management/src/main/java","modules/testcases/jdkAll/Eap62x/management/src/main/java","modules/testcases/jdkAll/Eap61x/management/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/management/src/main/java","modules/testcases/jdkAll/WildflyRelease/management/src/main/java","modules/testcases/jdkAll/Wildfly/management/src/main/java,modules/testcases/jdkAll/Eap64x/management/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/management/src/main/java","modules/testcases/jdkAll/Eap63x/management/src/main/java","modules/testcases/jdkAll/Eap62x/management/src/main/java","modules/testcases/jdkAll/Eap61x/management/src/main/java"})
 public class DeploymentScannerTestCase extends ContainerResourceMgmtTestBase {
 
     private static final Logger logger = Logger.getLogger(DeploymentScannerTestCase.class);
@@ -106,6 +107,7 @@ public class DeploymentScannerTestCase extends ContainerResourceMgmtTestBase {
      * @throws Exception
      */
     @Test
+    @Ignore //Not valid for Eap7 any more
     public void testAddWrongPath() throws Exception {
 
         // add deployment scanner with non existing path
