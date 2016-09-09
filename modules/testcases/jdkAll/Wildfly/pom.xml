@@ -292,10 +292,10 @@
 
     <modules>
         <module>basic</module>
-        
-        <module>jaxrs</module> 
-<module>ejb</module>
+        <module>ejb</module>
         <module>clustering</module>
+        <module>domain_management</module> 
+        <module>jaxrs</module> 
         <module>logging</module>  
         <module>management</module>  
         <module>messaging</module>
