@@ -199,6 +199,7 @@
         <module>ejb</module>
         <module>jaxrs</module>
         <module>clustering</module>
+        <module>domain_management</module>
         <module>logging</module>
         <module>management</module>
         <module>messaging</module>
