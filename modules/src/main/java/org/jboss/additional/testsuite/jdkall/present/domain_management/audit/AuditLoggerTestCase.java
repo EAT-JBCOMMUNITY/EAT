@@ -56,7 +56,7 @@ public class AuditLoggerTestCase extends AbstractCliTestBase {
 
     @Test
     public void testJaxrs() throws Exception {
-        AbstractCliTestBase.initCLI(DomainTestSupport.masterAddress);
+        AbstractCliTestBase.initCLI(System.getProperty("node0","127.0.0.1"));
 
         cli.sendLine("/core-service=management/access=audit/logger=audit-log:remove()");
         cli.sendLine("/core-service=management/access=audit/logger=audit-log:add(enabled=true, log-boot=true, log-read-only=false)");
