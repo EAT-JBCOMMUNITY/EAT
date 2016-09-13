@@ -2,7 +2,7 @@
 <metadata modelVersion="1.1.0">
   <groupId>org.jboss.resteasy</groupId>
   <artifactId>resteasy-jaxrs</artifactId>
-  <version>3.0.20.Final-SNAPSHOT</version>
+  <version>3.0.19.Final</version>
   <versioning>
     <snapshot>
       <localCopy>true</localCopy>
@@ -12,17 +12,17 @@
       <snapshotVersion>
         <classifier>sources</classifier>
         <extension>jar</extension>
-        <value>3.0.20.Final-SNAPSHOT</value>
+        <value>3.0.19.Final</value>
         <updated>20160810083358</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>jar</extension>
-        <value>3.0.20.Final-SNAPSHOT</value>
+        <value>3.0.19.Final</value>
         <updated>20160810083358</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>3.0.20.Final-SNAPSHOT</value>
+        <value>3.0.19.Final</value>
         <updated>20160810083358</updated>
       </snapshotVersion>
     </snapshotVersions>
