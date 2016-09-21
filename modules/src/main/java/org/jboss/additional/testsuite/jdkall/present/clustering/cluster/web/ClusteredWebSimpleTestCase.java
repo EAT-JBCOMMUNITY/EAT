@@ -70,6 +70,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 public class ClusteredWebSimpleTestCase extends ClusterAbstractTestCase {
 
     private static final int REQUEST_DURATION = 10000;
+    private static final String MODULE_NAME = "ClusteredWebSimpleTestCase";
 
     @Deployment(name = DEPLOYMENT_1, managed=false, testable=false)
     @TargetsContainer(CONTAINER_1)
@@ -86,7 +87,7 @@ public class ClusteredWebSimpleTestCase extends ClusterAbstractTestCase {
     }
 
     private static Archive<?> getDeployment() {
-        WebArchive war = ShrinkWrap.create(WebArchive.class, "distributable.war");
+        WebArchive war = ShrinkWrap.create(WebArchive.class, MODULE_NAME + ".war");
         war.addClasses(SimpleServlet.class, Mutable.class);
         war.setWebXML("web.xml");
         return war;

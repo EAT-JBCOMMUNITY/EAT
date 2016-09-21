@@ -63,6 +63,7 @@ import org.jboss.logging.Logger;
 public class ExternalizerTestCase extends ClusterAbstractTestCase {
     private static final String DEPLOYMENT_NAME = "externalizer.war";
     protected static final Logger log = Logger.getLogger(ExternalizerTestCase.class);
+    private static final String MODULE_NAME = "ExternalizerTestCase";
 
     @Deployment(name = DEPLOYMENT_1, managed=false, testable=false)
     @TargetsContainer(CONTAINER_1)
@@ -79,7 +80,7 @@ public class ExternalizerTestCase extends ClusterAbstractTestCase {
     }
 
     private static Archive<?> getDeployment() {
-        WebArchive war = ShrinkWrap.create(WebArchive.class, DEPLOYMENT_NAME);
+        WebArchive war = ShrinkWrap.create(WebArchive.class, MODULE_NAME + ".war");
         war.addPackage(CounterServlet.class.getPackage());
         war.setWebXML("web.xml");
         war.addAsServiceProvider(Externalizer.class, CounterExternalizer.class);
