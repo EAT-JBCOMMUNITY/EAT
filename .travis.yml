@@ -15,7 +15,7 @@ script:
   - java -version
   - mkdir wildfly
   - cd wildfly
-  - wget --no-check-certificate 'https://googledrive.com/host/0B4Gi0_mfsWRzbTBMb2d0bGhuUzA' -O wildfly.zip
+  - wget --no-check-certificate 'https://www.dropbox.com/s/c4wuchuu4r2bk52/wildfly-10.1.0.Final-SNAPSHOT.zip?dl=0' -O wildfly.zip
   - unzip wildfly.zip
   - cd wildfly-*
   - export JBOSS_FOLDER=$PWD
