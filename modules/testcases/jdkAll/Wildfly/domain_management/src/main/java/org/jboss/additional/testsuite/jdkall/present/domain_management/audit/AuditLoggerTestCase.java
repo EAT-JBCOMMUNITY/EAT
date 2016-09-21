@@ -27,7 +27,6 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.OUTCOME;
-import org.jboss.as.test.integration.domain.management.util.DomainTestSupport;
 import org.jboss.as.test.integration.management.base.AbstractCliTestBase;
 import org.jboss.as.test.integration.management.util.CLIOpResult;
 import org.junit.Test;
@@ -56,7 +55,7 @@ public class AuditLoggerTestCase extends AbstractCliTestBase {
 
     @Test
     public void testJaxrs() throws Exception {
-        AbstractCliTestBase.initCLI(DomainTestSupport.masterAddress);
+        AbstractCliTestBase.initCLI(System.getProperty("node0","127.0.0.1"));
 
         cli.sendLine("/core-service=management/access=audit/logger=audit-log:remove()");
         cli.sendLine("/core-service=management/access=audit/logger=audit-log:add(enabled=true, log-boot=true, log-read-only=false)");
