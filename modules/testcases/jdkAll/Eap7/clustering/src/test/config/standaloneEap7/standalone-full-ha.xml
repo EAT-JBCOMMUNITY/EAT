@@ -523,7 +523,7 @@
         </interface>
     </interfaces>
 
-    <socket-binding-group name="standard-sockets" default-interface="public" port-offset="0">
+    <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
         <socket-binding name="management-http" interface="management" port="9990"/>
         <socket-binding name="management-https" interface="management" port="${jboss.management.https.port:9993}"/>
         <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
@@ -543,10 +543,4 @@
             <remote-destination host="127.0.0.1" port="25"/>
         </outbound-socket-binding>
     </socket-binding-group>
-
-    <deployments>
-        <deployment name="remote-failover-test.jar" runtime-name="remote-failover-test.jar">
-            <content sha1="353bad5d994a7977da3a04d849ee865802dc2ca9"/>
-        </deployment>
-    </deployments>
 </server>
