@@ -48,7 +48,7 @@ public class AuditLoggerTestCase extends AbstractCliTestBase {
 
     @Deployment
     public static Archive<?> getDeployment() {
-        JavaArchive archive = ShrinkWrap.create(JavaArchive.class);
+        JavaArchive archive = ShrinkWrap.create(JavaArchive.class, "AuditLoggerTestCase.war");
         archive.addClass(AuditLoggerTestCase.class);
         return archive;
     }

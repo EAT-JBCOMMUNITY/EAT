@@ -50,6 +50,11 @@
                 </authorization>
             </security-realm>
             <security-realm name="ApplicationRealm">
+                <server-identities>
+                    <ssl>
+                        <keystore path="application.keystore" relative-to="jboss.server.config.dir" keystore-password="password" alias="server" key-password="password" generate-self-signed-certificate-host="localhost"/>
+                    </ssl>
+                </server-identities>
                 <authentication>
                     <local default-user="$local" allowed-users="*" skip-group-loading="true"/>
                     <properties path="application-users.properties" relative-to="jboss.server.config.dir"/>
@@ -263,7 +268,6 @@
                     <expiration max-idle="100000"/>
                 </invalidation-cache>
                 <replicated-cache name="timestamps" mode="ASYNC"/>
-                <replicated-cache name="entity-replicated" mode="SYNC"/>
             </cache-container>
             <cache-container name="testDbPersistence" default-cache="jdbc-cache" module="org.wildfly.clustering.web.infinispan">
                 <transport lock-timeout="6000"/>
