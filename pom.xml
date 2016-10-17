@@ -712,6 +712,100 @@
 	    </properties>
         </profile>
 
+        <profile>
+            <id>eap70x.testsuite</id>
+            <activation>
+                <property>
+                    <name>eap70x</name>
+                    <value>true</value>
+                </property>
+            </activation>
+	    <repositories>
+		<repository>
+		    <id>jboss-product-repository-eap7</id>
+		    <name>JBoss Product Repository</name>
+		    <url>http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.0-rhel-7-maven-build/latest/maven/</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</repository>
+	    </repositories>
+
+	    <pluginRepositories>
+		<pluginRepository>
+		    <id>jboss-product-repository-eap7</id>
+		    <name>JBoss Product Repository</name>
+		    <url>http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.0-rhel-7-maven-build/latest/maven/</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</pluginRepository>
+	    </pluginRepositories>
+
+            <properties>
+		<serverDir>Eap70x</serverDir>
+	    </properties>
+        </profile>
+
+        <profile>
+            <id>eap70x.jdk8.testsuite</id>
+            <activation>
+                <property>
+                    <name>eap70x-jdk8</name>
+                    <value>true</value>
+                </property>
+            </activation>
+	    <repositories>
+		<repository>
+		    <id>jboss-product-repository-eap7</id>
+		    <name>JBoss Product Repository</name>
+		    <url>http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.0-rhel-7-maven-build/latest/maven/</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</repository>
+	    </repositories>
+
+	    <pluginRepositories>
+		<pluginRepository>
+		    <id>jboss-product-repository-eap7</id>
+		    <name>JBoss Product Repository</name>
+		    <url>http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.0-rhel-7-maven-build/latest/maven/</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</pluginRepository>
+	    </pluginRepositories>
+
+            <properties>
+		<serverDir>Eap70x</serverDir>
+	    </properties>
+        </profile>
+
     </profiles>
 
     <build>
