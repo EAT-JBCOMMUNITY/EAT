@@ -129,6 +129,7 @@ public class VirtualServerTestCase extends ContainerResourceMgmtTestBase {
     private void addVirtualServer() throws IOException, MgmtOperationException {
         ModelNode addOp = createOpNode("subsystem=undertow/server=default-server/host=test", "add");
         addOp.get("alias").add(virtualHost);
+        addOp.get("default-web-module").set("some-test.war");
 
         ModelNode rewrite = new ModelNode();
         rewrite.get("condition").setEmptyList();
