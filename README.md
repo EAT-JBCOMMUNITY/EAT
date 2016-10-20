@@ -189,6 +189,13 @@ OTHER FEATURES
 3. Eap-Additional-Testsuite is the first component to change the relation of Component -> Server to Component <-> Server, as this component can be considered as a part of a Server, but also a Server can be considered as a part of Eap-Additional-Testsuite.
 
 
+I NEED ASSISTANCE TO ADD A NEW TEST
+-----------------------------------
+If any assistance is needed to add a new test in Eap Additional Testsuite, please added to the following folders, denoting the versions of the servers within the tests should be tested (eg EAP 7.1.1.DR1, etc) :
+1. https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/src/main/java/org/jboss/additional/testsuite/jdkall/IwantToAddAnewTest
+2. https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/src/main/java/org/jboss/additional/testsuite/jdk8/IwantToAddAnewTest
+
+
 MOJO DOCUMENTATION
 ------------------
 [Eap Additional Testsuite Mojo Document](https://mojo.redhat.com/docs/DOC-1063426)
