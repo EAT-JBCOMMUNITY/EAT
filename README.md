@@ -191,7 +191,8 @@ OTHER FEATURES
 
 I NEED ASSISTANCE TO ADD A NEW TEST
 -----------------------------------
-If any assistance is needed to add a new test in Eap Additional Testsuite, please added to the following folders, denoting the versions of the servers within the tests should be tested (eg EAP 7.1.1.DR1, etc) :
+If any assistance is needed to add a new test in Eap Additional Testsuite, please add it to the following directories, denoting the versions of the servers within the tests should be tested (eg EAP 7.1.1.DR1, etc) :
+
 1. https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/src/main/java/org/jboss/additional/testsuite/jdkall/IwantToAddAnewTest
 2. https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/src/main/java/org/jboss/additional/testsuite/jdk8/IwantToAddAnewTest
 
