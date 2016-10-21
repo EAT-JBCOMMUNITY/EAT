@@ -38,7 +38,7 @@ import static org.junit.Assert.assertFalse;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/WildflyRelease/server/src/main/java#10.0.0-Final","modules/testcases/jdkAll/Wildfly/server/src/main/java#11.0.0-Alpha1","modules/testcases/jdkAll/Eap7/server/src/main/java#7.0.2-GA"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/WildflyRelease/server/src/main/java#10.0.0-Final","modules/testcases/jdkAll/Wildfly/server/src/main/java#11.0.0-Alpha1"})
 public class ModuleNotFoundExceptionTestCase {
     
     private final String serverLogPath = "target/surefire-reports/org.jboss.additional.testsuite.jdkall.present.server.ModuleNotFoundExceptionTestCase-output.txt";
