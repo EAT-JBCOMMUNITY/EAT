@@ -31,7 +31,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/management/src/main/java","modules/testcases/jdkAll/Eap70x/management/src/main/java","modules/testcases/jdkAll/WildflyRelease/management/src/main/java","modules/testcases/jdkAll/Wildfly/management/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap70x/management/src/main/java","modules/testcases/jdkAll/WildflyRelease/management/src/main/java"})
 public class StatelessEJBRemoteHomeRuntimeNameTestCase extends AbstractRuntimeTestCase {
 
     private static Logger log = Logger.getLogger(StatelessEJBRemoteHomeRuntimeNameTestCase.class);
@@ -111,7 +111,7 @@ public class StatelessEJBRemoteHomeRuntimeNameTestCase extends AbstractRuntimeTe
             context.close();
         } catch (Throwable t) {
             // just log
-            log.info("Ignoring a problem which occurred while closing: " + context, t);
+            log.trace("Ignoring a problem which occurred while closing: " + context, t);
         }
         context = null;
     }
