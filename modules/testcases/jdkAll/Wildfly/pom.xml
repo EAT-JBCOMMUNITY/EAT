@@ -298,6 +298,7 @@
         <module>basic</module>
         <module>ejb</module>
         <module>clustering</module>
+        <module>domain</module> 
         <module>domain_management</module> 
         <module>jaxrs</module> 
         <module>logging</module>  

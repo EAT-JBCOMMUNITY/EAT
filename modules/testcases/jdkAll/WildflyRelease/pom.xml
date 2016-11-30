@@ -302,6 +302,7 @@
         <module>ejb</module>
         <module>jaxrs</module>
         <module>clustering</module>
+        <module>domain</module>
         <module>logging</module>
         <module>management</module>
         <module>messaging</module>
