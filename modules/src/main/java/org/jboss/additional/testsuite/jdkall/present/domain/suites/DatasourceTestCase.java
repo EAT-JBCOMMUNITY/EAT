@@ -46,7 +46,7 @@ import org.junit.Test;
  *
  * @author Brian Stansberry (c) 2012 Red Hat Inc.
  */
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/domain/src/main/java","modules/testcases/jdkAll/WildflyRelease/domain/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/domain/src/main/java"})
 public class DatasourceTestCase {
 
     private static DomainTestSupport testSupport;

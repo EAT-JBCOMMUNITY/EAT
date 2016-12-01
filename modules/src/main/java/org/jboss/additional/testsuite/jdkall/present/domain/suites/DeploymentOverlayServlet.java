@@ -37,7 +37,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
  * @author Stuart Douglas
  */
 @WebServlet(urlPatterns = "/*")
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/domain/src/main/java","modules/testcases/jdkAll/WildflyRelease/domain/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/domain/src/main/java"})
 public class DeploymentOverlayServlet extends HttpServlet {
 
     @Override

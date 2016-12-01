@@ -51,7 +51,7 @@ import org.junit.Test;
  *
  * @author Kabir Khan
  */
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/domain/src/main/java","modules/testcases/jdkAll/WildflyRelease/domain/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/domain/src/main/java"})
 public class OrderedChildResourcesTestCase extends BuildConfigurationTestBase {
 
 

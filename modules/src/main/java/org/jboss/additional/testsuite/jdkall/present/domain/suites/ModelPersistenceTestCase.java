@@ -61,7 +61,7 @@ import org.junit.Test;
  *
  * @author Dominik Pospisil <dpospisi@redhat.com>
  */
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/domain/src/main/java","modules/testcases/jdkAll/WildflyRelease/domain/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/domain/src/main/java"})
 public class ModelPersistenceTestCase {
 
     enum Host { MASTER, SLAVE }

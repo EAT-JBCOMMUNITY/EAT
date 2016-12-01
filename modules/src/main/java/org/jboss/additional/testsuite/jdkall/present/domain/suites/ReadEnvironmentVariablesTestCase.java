@@ -66,7 +66,7 @@ import org.xnio.IoUtils;
  *
  * @author <a href="kabir.khan@jboss.com">Kabir Khan</a>
  */
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/domain/src/main/java","modules/testcases/jdkAll/WildflyRelease/domain/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/domain/src/main/java"})
 public class ReadEnvironmentVariablesTestCase {
     private static DomainTestSupport testSupport;
     private static DomainLifecycleUtil domainMasterLifecycleUtil;
