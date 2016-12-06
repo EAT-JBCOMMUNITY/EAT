@@ -65,7 +65,7 @@ import org.junit.Test;
 /**
  * @author Alexey Loubyansky
  */
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/domain/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/domain/src/main/java","modules/testcases/jdkAll/Eap7/domain/src/main/java"})
 public class DomainDeploymentOverlayTestCase {
 
     private static final String SOCKET_BINDING_GROUP_NAME = "standard-sockets";
