@@ -3,7 +3,7 @@ if [ -z "${LOCAL_REPO_DIR}" ]; then
   exit 1
 fi
 
-if [ -z "${JBOSS_FOLDER}" && ! -d "${JBOSS_FOLDER}" ]; then
+if [ -z "${JBOSS_FOLDER}" -a ! -d "${JBOSS_FOLDER}" ]; then
   echo "Missing JBOSS_FOLDER variable or not pointing to a directory: ${JBOSS_FOLDER}"
   exit 2
 fi

@@ -10,8 +10,8 @@ if [ -z "${WORKSPACE}" ]; then
   exit 2
 fi
 
-if [ -z "${MAVEN_HOME}" ]; then
-  echo "No MAVEN_HOME defined, this is required to run the build."
+if [ -z "${M2_HOME}" ]; then
+  echo "No M2_HOME defined, this is required to run the build."
   exit 3
 fi
 
@@ -19,15 +19,11 @@ fi
 
   readonly DOCKER_JAVAZI_MOUNT=${DOCKER_JAVAZI_MOUNT:-'/usr/share/javazi-1.8/:/usr/share/javazi-1.8/'}
   readonly DOCKER_WORKSPACE_MOUNT="${WORKSPACE}:/workspace"
-  readonly DOCKER_MAVEN_HOME_MOUNT="${MAVEN_HOME}:/maven_home"
+  readonly DOCKER_MAVEN_HOME_MOUNT="${M2_HOME}:/maven_home"
   readonly DOCKER_JAVA_HOME_MOUNT="${JAVA_HOME}:/java"
   readonly DOCKER_OPT_MOUNT='/opt:/opt'
-  readonly LOCAL_REPO_DIR=${LOCAL_REPO_DIR}
-  readonly JBOSS_FOLDER=${JBOSS_FOLDER}
-  readonly JBOSS_VERSION=${JBOSS_VERSION}
-  readonly JBOSS_VERSION_CODE=${JBOSS_VERSION_CODE}
 
-  readonly CONTAINER_ID=$(docker run -d -v "${DOCKER_WORKSPACE_MOUNT}" -v "${DOCKER_MAVEN_HOME_MOUNT}" -v "${DOCKER_JAVAZI_MOUNT}" -v ${LOCAL_REPO_DIR} -v "${DOCKER_JAVA_HOME_MOUNT}" -v "${DOCKER_OPT_MOUNT}" -v $(pwd):/job_home "${DOCKER_IMAGE}" -v LOCAL_REPO_DIR=${LOCAL_REPO_DIR} -v JBOSS_FOLDER=${JBOSS_FOLDER} -v JBOSS_FOLDER=${JBOSS_FOLDER} -v JBOSS_VERSION=${JBOSS_VERSION} -v JBOSS_VERSION_CODE=${JBOSS_VERSION_CODE})
+  readonly CONTAINER_ID=$(docker run -d -v "${DOCKER_WORKSPACE_MOUNT}" -v "${DOCKER_MAVEN_HOME_MOUNT}" -v "${DOCKER_JAVAZI_MOUNT}" -v ${LOCAL_REPO_DIR} -v "${DOCKER_JAVA_HOME_MOUNT}" -v "${DOCKER_OPT_MOUNT}" -v $(pwd):/job_home "${DOCKER_IMAGE}")
 
   if [ "${?}" -ne 0 ]; then
     echo 'Failed to create container.'
@@ -42,7 +38,7 @@ fi
   fi
 
   trap "docker stop ${CONTAINER_ID}" EXIT INT QUIT TERM
-  docker exec "${CONTAINER_ID}" /bin/bash /job_home/jenkins-job.sh
+  docker exec "${CONTAINER_ID}" /bin/bash -c "export LOCAL_REPO_DIR=${LOCAL_REPO_DIR} && export JBOSS_FOLDER=${JBOSS_FOLDER} && export JBOSS_VERSION=${JBOSS_VERSION} && export JBOSS_VERSION_CODE=${JBOSS_VERSION_CODE} && export EXECUTOR_NUMBER=${EXECUTOR_NUMBER} && export M2_HOME=/maven_home && /workspace/jenkins-job.sh" 
   status=${?}
   docker stop "${CONTAINER_ID}"
   exit "${status}"
