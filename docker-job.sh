@@ -38,7 +38,7 @@ fi
   fi
 
   trap "docker stop ${CONTAINER_ID}" EXIT INT QUIT TERM
-  docker exec "${CONTAINER_ID}" /bin/bash -c "export LOCAL_REPO_DIR=${LOCAL_REPO_DIR} && export JBOSS_FOLDER=${JBOSS_FOLDER} && export JBOSS_VERSION=${JBOSS_VERSION} && export JBOSS_VERSION_CODE=${JBOSS_VERSION_CODE} && export M2_HOME=/maven_home && /workspace/jenkins-job.sh" 
+  docker exec "${CONTAINER_ID}" /bin/bash -c "export LOCAL_REPO_DIR=${LOCAL_REPO_DIR} && export JBOSS_FOLDER=${JBOSS_FOLDER} && export JBOSS_VERSION=${JBOSS_VERSION} && export JBOSS_VERSION_CODE=${JBOSS_VERSION_CODE} && export PATH=/maven_home/bin:${PATH} && /workspace/jenkins-job.sh"
   status=${?}
   docker stop "${CONTAINER_ID}"
   exit "${status}"
