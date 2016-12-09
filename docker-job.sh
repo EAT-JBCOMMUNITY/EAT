@@ -21,9 +21,11 @@ fi
   readonly DOCKER_WORKSPACE_MOUNT="${WORKSPACE}:/workspace"
   readonly DOCKER_MAVEN_HOME_MOUNT="${M2_HOME}:/maven_home"
   readonly DOCKER_JAVA_HOME_MOUNT="${JAVA_HOME}:/java"
+  readonly DOCKER_LOCAL_REPO_DIR="${LOCAL_REPO_DIR}:/repo"
+  readonly DOCKER_JBOSS_FOLDER="${JBOSS_FOLDER}:/jboss_folder"
   readonly DOCKER_OPT_MOUNT='/opt:/opt'
 
-  readonly CONTAINER_ID=$(docker run -d -v "${DOCKER_WORKSPACE_MOUNT}" -v "${DOCKER_MAVEN_HOME_MOUNT}" -v "${DOCKER_JAVAZI_MOUNT}" -v ${LOCAL_REPO_DIR} -v "${DOCKER_JAVA_HOME_MOUNT}" -v "${DOCKER_OPT_MOUNT}" -v $(pwd):/job_home "${DOCKER_IMAGE}")
+  readonly CONTAINER_ID=$(docker run -d -v "${DOCKER_WORKSPACE_MOUNT}" -v "${DOCKER_MAVEN_HOME_MOUNT}" -v "${DOCKER_JAVAZI_MOUNT}" -v ${DOCKER_LOCAL_REPO_DIR} -v ${DOCKER_JBOSS_FOLDER} -v "${DOCKER_JAVA_HOME_MOUNT}" -v "${DOCKER_OPT_MOUNT}" -v $(pwd):/job_home "${DOCKER_IMAGE}")
 
   if [ "${?}" -ne 0 ]; then
     echo 'Failed to create container.'
@@ -38,7 +40,7 @@ fi
   fi
 
   trap "docker stop ${CONTAINER_ID}" EXIT INT QUIT TERM
-  docker exec "${CONTAINER_ID}" /bin/bash -c "export LOCAL_REPO_DIR=${LOCAL_REPO_DIR} && export JBOSS_FOLDER=${JBOSS_FOLDER} && export JBOSS_VERSION=${JBOSS_VERSION} && export JBOSS_VERSION_CODE=${JBOSS_VERSION_CODE} && export PATH=/maven_home/bin:${PATH} && /workspace/jenkins-job.sh"
+  docker exec "${CONTAINER_ID}" /bin/bash -c "export LOCAL_REPO_DIR=/repo && export JBOSS_FOLDER=/jboss_folder && export JBOSS_VERSION=${JBOSS_VERSION} && export JBOSS_VERSION_CODE=${JBOSS_VERSION_CODE} && export PATH=/maven_home/bin:${PATH} && cd /workspace && ./jenkins-job.sh"
   status=${?}
   docker stop "${CONTAINER_ID}"
   exit "${status}"
