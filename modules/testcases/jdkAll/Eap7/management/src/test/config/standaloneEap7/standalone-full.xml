@@ -270,8 +270,9 @@
             </cache-container>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:iiop-openjdk:3.0">
-            <orb socket-binding="iiop" ssl-socket-binding="iiop-ssl"/>
+            <orb socket-binding="iiop"/>
             <initializers security="identity" transactions="spec"/>
+            <security server-requires-ssl="false" client-requires-ssl="false"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:jaxrs:1.0"/>
         <subsystem xmlns="urn:jboss:domain:jca:4.0">
