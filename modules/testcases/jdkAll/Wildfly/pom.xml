@@ -76,6 +76,10 @@
                     <artifactId>wildfly-weld</artifactId>
                 </dependency>
                 <dependency>
+                    <groupId>org.jboss</groupId>
+                    <artifactId>jboss-ejb-client</artifactId>
+                </dependency>
+                <dependency>
 		    <groupId>org.infinispan</groupId>
 		    <artifactId>infinispan-core</artifactId>
 		</dependency>
@@ -197,6 +201,10 @@
                     <artifactId>wildfly-weld</artifactId>
                 </dependency>
                 <dependency>
+                    <groupId>org.jboss</groupId>
+                    <artifactId>jboss-ejb-client</artifactId>
+                </dependency>
+                <dependency>
 		    <groupId>org.infinispan</groupId>
 		    <artifactId>infinispan-core</artifactId>
 		</dependency>
@@ -296,8 +304,8 @@
 
     <modules>
         <module>basic</module>
-        <module>ejb</module>
-        <module>clustering</module>
+        <!--module>ejb</module-->
+        <!--module>clustering</module-->
         <module>domain</module> 
         <module>domain_management</module> 
         <module>jaxrs</module> 

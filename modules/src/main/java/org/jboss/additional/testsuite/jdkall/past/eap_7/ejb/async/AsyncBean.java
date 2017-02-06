@@ -20,7 +20,7 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-package org.jboss.additional.testsuite.jdkall.present.ejb.async;
+package org.jboss.additional.testsuite.jdkall.past.eap_7.ejb.async;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
@@ -43,7 +43,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 @Stateless
 @Asynchronous
 @LocalBean
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/ejb/src/main/java","modules/testcases/jdkAll/Eap70x/ejb/src/main/java","modules/testcases/jdkAll/WildflyRelease/ejb/src/main/java","modules/testcases/jdkAll/Eap64x/ejb/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/ejb/src/main/java","modules/testcases/jdkAll/Eap63x/ejb/src/main/java","modules/testcases/jdkAll/Eap62x/ejb/src/main/java","modules/testcases/jdkAll/Eap61x/ejb/src/main/java"})
 public class AsyncBean implements AsyncBeanCancelRemoteInterface {
     public static volatile boolean voidMethodCalled = false;
     public static volatile boolean futureMethodCalled = false;

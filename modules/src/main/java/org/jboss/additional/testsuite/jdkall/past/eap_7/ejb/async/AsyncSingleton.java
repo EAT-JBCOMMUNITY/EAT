@@ -20,24 +20,23 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-package org.jboss.additional.testsuite.jdkall.present.ejb.async;
+package org.jboss.additional.testsuite.jdkall.past.eap_7.ejb.async;
 
 import javax.ejb.AsyncResult;
 import javax.ejb.Asynchronous;
-import javax.ejb.Stateful;
-
+import javax.ejb.Singleton;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 
 /**
- * Stateful bean
+ * Singleton
  */
-@Stateful
+@Singleton
 @Asynchronous
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java"})
-public class AsyncStateful {
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/ejb/src/main/java","modules/testcases/jdkAll/Eap70x/ejb/src/main/java","modules/testcases/jdkAll/WildflyRelease/ejb/src/main/java","modules/testcases/jdkAll/Eap64x/ejb/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/ejb/src/main/java","modules/testcases/jdkAll/Eap63x/ejb/src/main/java","modules/testcases/jdkAll/Eap62x/ejb/src/main/java","modules/testcases/jdkAll/Eap61x/ejb/src/main/java"})
+public class AsyncSingleton {
 
     public static volatile boolean voidMethodCalled = false;
     public static volatile boolean futureMethodCalled = false;
