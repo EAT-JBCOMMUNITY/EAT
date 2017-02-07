@@ -20,7 +20,7 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-package org.jboss.additional.testsuite.jdkall.present.clustering;
+package org.jboss.additional.testsuite.jdkall.past.eap_7.clustering;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,7 +36,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 /**
  * @author Paul Ferraro
  */
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/clustering/src/main/java","modules/testcases/jdkAll/WildflyRelease/clustering/src/main/java","modules/testcases/jdkAll/Eap7/clustering/src/main/java","modules/testcases/jdkAll/Eap70x/clustering/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap70x/clustering/src/main/java"})
 public class EJBClientContextSelector {
     public static ContextSelector<EJBClientContext> setup(String file) throws IOException {
         return setup(file, null);

@@ -1,4 +1,4 @@
-package org.jboss.additional.testsuite.jdkall.present.clustering.cluster.provider;
+package org.jboss.additional.testsuite.jdkall.past.eap_7.clustering.cluster.provider;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -9,13 +9,13 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.container.test.api.TargetsContainer;
 import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.additional.testsuite.jdkall.present.clustering.EJBClientContextSelector;
-import org.jboss.additional.testsuite.jdkall.present.clustering.cluster.ClusterAbstractTestCase;
-import org.jboss.additional.testsuite.jdkall.present.clustering.cluster.provider.bean.ServiceProviderRetriever;
-import org.jboss.additional.testsuite.jdkall.present.clustering.cluster.provider.bean.ServiceProviderRetrieverBean;
+import org.jboss.additional.testsuite.jdkall.past.eap_7.clustering.EJBClientContextSelector;
+import org.jboss.additional.testsuite.jdkall.past.eap_7.clustering.cluster.ClusterAbstractTestCase;
+import org.jboss.additional.testsuite.jdkall.past.eap_7.clustering.cluster.provider.bean.ServiceProviderRetriever;
+import org.jboss.additional.testsuite.jdkall.past.eap_7.clustering.cluster.provider.bean.ServiceProviderRetrieverBean;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
-import org.jboss.additional.testsuite.jdkall.present.clustering.ejb.EJBDirectory;
-import org.jboss.additional.testsuite.jdkall.present.clustering.ejb.RemoteEJBDirectory;
+import org.jboss.additional.testsuite.jdkall.past.eap_7.clustering.ejb.EJBDirectory;
+import org.jboss.additional.testsuite.jdkall.past.eap_7.clustering.ejb.RemoteEJBDirectory;
 import org.jboss.ejb.client.ContextSelector;
 import org.jboss.ejb.client.EJBClientContext;
 import org.jboss.logging.Logger;
@@ -27,7 +27,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/clustering/src/main/java","modules/testcases/jdkAll/WildflyRelease/clustering/src/main/java","modules/testcases/jdkAll/Eap7/clustering/src/main/java","modules/testcases/jdkAll/Eap70x/clustering/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap70x/clustering/src/main/java"})
 public class ServiceProviderRegistrationTestCase extends ClusterAbstractTestCase {
     private static final Logger log = Logger.getLogger(ServiceProviderRegistrationTestCase.class);
     private static final String MODULE_NAME = "service-provider-registration";
