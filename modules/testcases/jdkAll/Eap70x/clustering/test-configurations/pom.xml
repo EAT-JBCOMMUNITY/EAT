@@ -60,7 +60,8 @@
 		        <configuration>         
 		            <!-- Tests to execute. -->
 		            <includes>
-		                <include>org/jboss/additional/testsuite/jdkall/present/clustering/**/*TestCase.java</include>
+		                <include>org/jboss/additional/testsuite/jdkall/past/Eap_7/clustering/**/*TestCase.java</include>
+                                <include>org/jboss/additional/testsuite/jdkall/present/clustering/**/*TestCase.java</include>
 		            </includes> 
 		        </configuration>
 		    </execution>
