@@ -200,7 +200,7 @@
      
     <modules>
         <module>basic</module>
-        <!--module>ejb</module-->
+        <module>ejb</module>
         <module>jaxrs</module>
         <module>clustering</module>
         <module>domain</module>
