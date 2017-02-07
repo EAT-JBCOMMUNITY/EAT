@@ -1,6 +1,6 @@
 /*
  * JBoss, Home of Professional Open Source.
- * Copyright 2011, Red Hat, Inc., and individual contributors 
+ * Copyright 2011, Red Hat, Inc., and individual contributors
  * as indicated by the @author tags. See the copyright.txt file in the
  * distribution for a full listing of individual contributors.
  *
@@ -26,7 +26,6 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
@@ -35,32 +34,33 @@ import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.as.arquillian.api.ContainerResource;
+import org.jboss.as.test.shared.util.DisableInvocationTestUtil;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
-import org.jboss.ejb.client.ContextSelector;
-import org.jboss.ejb.client.EJBClientContext;
-import org.jboss.logging.Logger;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.Ignore;
 import org.junit.runner.RunWith;
 
 /**
- * Tests that a simple async annotation works. 
+ * Tests that a simple async annotation works.
  * Enhanced test by migration [ JIRA JBQA-5483 ].
  *
  * @author Stuart Douglas, Ondrej Chaloupka
  */
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/ejb/src/main/java","modules/testcases/jdkAll/Wildfly/ejb/src/main/java"})
 @RunWith(Arquillian.class)
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java"})
 public class AsyncMethodTestCase {
-    private static final Logger log = Logger.getLogger(AsyncMethodTestCase.class);
-    private static final String ARCHIVE_NAME = "test";
+    private static final String ARCHIVE_NAME = "AsyncTestCase";
     private static final Integer WAIT_TIME_S = 10;
-    private static final String CLIENT_PROPERTIES = "META-INF/jboss-ejb-client.properties";
+
+    @BeforeClass
+    public static void beforeClass() {
+        DisableInvocationTestUtil.disable();
+    }
 
     @ArquillianResource
     private InitialContext iniCtx;
@@ -74,7 +74,6 @@ public class AsyncMethodTestCase {
         jar.addPackage(AsyncMethodTestCase.class.getPackage());
         jar.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
         jar.addAsManifestResource("META-INF/ejb-jar.xml");
-        log.info(jar.toString(true));
         return jar;
     }
 
@@ -208,38 +207,28 @@ public class AsyncMethodTestCase {
         Assert.assertFalse(wasCanceled); // this should be false because task was not cancelled
         Assert.assertEquals("false;true", result); // the bean knows that it was cancelled
     }
-   
+
     @Test
     @RunAsClient
-    @Ignore //Ignore temporarily because remoting is modified
     public void testCancelRemoteAsyncMethod() throws Exception {
-        ContextSelector<EJBClientContext> selector = EJBClientContextSelector.setup(CLIENT_PROPERTIES);
-        
-        try {
-            AsyncBeanCancelRemoteInterface bean = (AsyncBeanCancelRemoteInterface) remoteContext.lookup(ARCHIVE_NAME + "/" + 
-                    AsyncBean.class.getSimpleName() + "!" + AsyncBeanCancelRemoteInterface.class.getName());
-            AsyncBeanSynchronizeSingletonRemote singleton = (AsyncBeanSynchronizeSingletonRemote) remoteContext.lookup(ARCHIVE_NAME + "/" + 
-                    AsyncBeanSynchronizeSingleton.class.getSimpleName() + "!" + AsyncBeanSynchronizeSingletonRemote.class.getName());
+        AsyncBeanCancelRemoteInterface bean = (AsyncBeanCancelRemoteInterface) remoteContext.lookup(ARCHIVE_NAME + "/" +
+                AsyncBean.class.getSimpleName() + "!" + AsyncBeanCancelRemoteInterface.class.getName());
+        AsyncBeanSynchronizeSingletonRemote singleton = (AsyncBeanSynchronizeSingletonRemote) remoteContext.lookup(ARCHIVE_NAME + "/" +
+                AsyncBeanSynchronizeSingleton.class.getSimpleName() + "!" + AsyncBeanSynchronizeSingletonRemote.class.getName());
 
-            singleton.reset();
-            final Future<String> future = bean.asyncRemoteCancelMethod();
-            singleton.latchAwaitSeconds(WAIT_TIME_S); // waiting for the bean method was already invocated
-            Assert.assertFalse("isDone() was expected to return false because the method is still active", future.isDone()); // we are in async method
-            Assert.assertFalse("isCancelled() was expected to return false because the method is still active", future.isCancelled());
-            boolean wasCanceled = future.cancel(true); // we are running - task can't be canceled
-            if (wasCanceled) {
-                Assert.assertTrue("isDone() was expected to return true after a call to cancel() with mayBeInterrupting = true, returned true", future.isDone());
-                Assert.assertTrue("isCancelled() was expected to return true after a call to cancel() returned true", future.isCancelled());
-            }
-            singleton.latch2CountDown(); // the bean method can finish
-            String result = future.get();
-            Assert.assertFalse(wasCanceled); // this should be false because task was not cancelled
-            Assert.assertEquals("false;true", result); // the bean knows that it was cancelled
-        } finally {
-            if (selector != null) {
-                EJBClientContext.setSelector(selector);
-            }
+        singleton.reset();
+        final Future<String> future = bean.asyncRemoteCancelMethod();
+        singleton.latchAwaitSeconds(WAIT_TIME_S); // waiting for the bean method was already invocated
+        Assert.assertFalse("isDone() was expected to return false because the method is still active", future.isDone()); // we are in async method
+        Assert.assertFalse("isCancelled() was expected to return false because the method is still active", future.isCancelled());
+        boolean wasCanceled = future.cancel(true); // we are running - task can't be canceled
+        if (wasCanceled) {
+            Assert.assertTrue("isDone() was expected to return true after a call to cancel() with mayBeInterrupting = true, returned true", future.isDone());
+            Assert.assertTrue("isCancelled() was expected to return true after a call to cancel() returned true", future.isCancelled());
         }
+        String result = future.get();
+        Assert.assertFalse(wasCanceled); // this should be false because task was not cancelled
+        Assert.assertEquals("false;true", result); // the bean knows that it was cancelled
     }
 
     /**
@@ -293,19 +282,10 @@ public class AsyncMethodTestCase {
      */
     @Test
     @RunAsClient
-    @Ignore //Ignore temporarily because remoting is modified
     public void testRemoteAsynchronousVoidCall() throws Exception {
-        ContextSelector<EJBClientContext> selector = EJBClientContextSelector.setup(CLIENT_PROPERTIES);
-        
-        try {
-            AsyncBeanRemoteInterface bean = (AsyncBeanRemoteInterface) remoteContext.lookup(
-                    ARCHIVE_NAME + "/" + AsyncBeanRemote.class.getSimpleName() + "!" + AsyncBeanRemoteInterface.class.getName());
-            bean.asyncMethod();
-        } finally {
-            if (selector != null) {
-                EJBClientContext.setSelector(selector);
-            }
-        }
+        AsyncBeanRemoteInterface bean = (AsyncBeanRemoteInterface) remoteContext.lookup(
+                ARCHIVE_NAME + "/" + AsyncBeanRemote.class.getSimpleName() + "!" + AsyncBeanRemoteInterface.class.getName());
+        bean.asyncMethod();
     }
 
     /**
@@ -313,19 +293,10 @@ public class AsyncMethodTestCase {
      */
     @Test
     @RunAsClient
-    @Ignore //Ignore temporarily because remoting is modified
     public void testRemoteAsynchronousReturnFutureCall() throws Exception {
-        ContextSelector<EJBClientContext> selector = EJBClientContextSelector.setup(CLIENT_PROPERTIES);
-        
-        try {
-            AsyncBeanRemoteInterface bean = (AsyncBeanRemoteInterface) remoteContext.lookup(
-                    ARCHIVE_NAME + "/" + AsyncBeanRemote.class.getSimpleName() + "!" + AsyncBeanRemoteInterface.class.getName());
-            Future<Boolean> future = bean.futureMethod();
-            Assert.assertTrue("Supposing that future.get() method returns TRUE but it returned FALSE", future.get());
-        } finally {
-            if (selector != null) {
-                EJBClientContext.setSelector(selector);
-            }
-        }
+        AsyncBeanRemoteInterface bean = (AsyncBeanRemoteInterface) remoteContext.lookup(
+                ARCHIVE_NAME + "/" + AsyncBeanRemote.class.getSimpleName() + "!" + AsyncBeanRemoteInterface.class.getName());
+        Future<Boolean> future = bean.futureMethod();
+        Assert.assertTrue("Supposing that future.get() method returns TRUE but it returned FALSE", future.get());
     }
 }
