@@ -60,12 +60,14 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.Ignore;
 
 
 /**
  * @author Alexey Loubyansky
  */
 @EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/domain/src/main/java","modules/testcases/jdkAll/Eap7/domain/src/main/java"})
+@Ignore
 public class DomainDeploymentOverlayTestCase {
 
     private static final String SOCKET_BINDING_GROUP_NAME = "standard-sockets";

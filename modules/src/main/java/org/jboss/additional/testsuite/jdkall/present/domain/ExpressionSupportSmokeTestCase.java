@@ -275,6 +275,11 @@ public class ExpressionSupportSmokeTestCase extends BuildConfigurationTestBase {
                 }
                 boolean conflict = false;
                 for (String baseAttr : base) {
+                    if (!resource.hasDefined(baseAttr)) {
+                        conflict = true;
+                        break;
+                    }
+
                     ModelNode baseAttrAlts = attributeDescriptions.get(baseAttr, ALTERNATIVES);
                     if (baseAttrAlts.isDefined()) {
                         for (ModelNode alt : baseAttrAlts.asList()) {
