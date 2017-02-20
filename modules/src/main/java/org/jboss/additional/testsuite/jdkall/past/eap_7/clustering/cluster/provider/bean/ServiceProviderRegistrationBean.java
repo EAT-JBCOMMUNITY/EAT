@@ -16,7 +16,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 
 @Singleton
 @Startup
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap70x/clustering/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap70x/clustering/src/main/java","modules/testcases/jdkAll/Eap70x-Proposed/clustering/src/main/java"})
 @Local(ServiceProviderRegistration.class)
 public class ServiceProviderRegistrationBean implements ServiceProviderRegistration<String>, ServiceProviderRegistration.Listener {
     @Resource(lookup = "java:jboss/clustering/providers/server/default")
