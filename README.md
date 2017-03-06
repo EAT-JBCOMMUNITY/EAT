@@ -198,6 +198,11 @@ If any assistance is needed to add a new test in Eap Additional Testsuite, pleas
 2. https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/src/main/java/org/jboss/additional/testsuite/jdk8/IwantToAddAnewTest
 
 
+INNOVATION
+-----------------------------------
+The innovative part of EAT is creating the test once and testing with any version of the tested software. It may be firstly applied for the JBOSS Servers, but, in general, a similar structure, can be used for creating tests about any software with multiple versions.
+
+
 MOJO DOCUMENTATION
 ------------------
 [Eap Additional Testsuite Mojo Document](https://mojo.redhat.com/docs/DOC-1063426)
