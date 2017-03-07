@@ -34,7 +34,7 @@
 
             <properties>
 		<version.org.jboss.as.server>2.0.10.Final</version.org.jboss.as.server>
-                <artifactdir>${LOCAL_REPO_DIR}</artifactdir>
+                <artifactdir>${settings.localRepository}</artifactdir>
                 <moduledir>${basedir}/../../../../servers/wildfly/build/target/jbossas/modules</moduledir>
                 <server.module>${basedir}/updatedModules</server.module>
                 <server.artifact>${basedir}/updatedArtifacts</server.artifact>
