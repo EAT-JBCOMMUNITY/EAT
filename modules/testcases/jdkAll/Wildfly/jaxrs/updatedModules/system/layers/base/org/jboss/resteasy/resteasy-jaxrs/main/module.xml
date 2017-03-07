@@ -25,12 +25,11 @@
 <module xmlns="urn:jboss:module:1.5" name="org.jboss.resteasy.resteasy-jaxrs">
 
     <resources>
-        <resource-root path="resteasy-jaxrs-3.1.0.CR3.jar"/>
-        <resource-root path="resteasy-client-3.1.0.CR3.jar"/>
+        <resource-root path="resteasy-jaxrs-3.0.21.Final.jar"/>
+        <resource-root path="resteasy-client-3.0.21.Final.jar"/>
     </resources>
 
     <dependencies>
-        <module name="org.jboss.resteasy.resteasy-jaxrs-services" services="import"/>
         <module name="javax.api"/>
         <module name="javax.annotation.api"/>
         <module name="javax.activation.api"/>
