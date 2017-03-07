@@ -22,7 +22,7 @@
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
 
-<module xmlns="urn:jboss:module:1.3" name="org.jboss.as.jaxrs">
+<module xmlns="urn:jboss:module:1.5" name="org.jboss.as.jaxrs">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
@@ -32,7 +32,7 @@
     </exports>
 
     <resources>
-        <resource-root path="wildfly-jaxrs-10.1.0.Final-SNAPSHOT.jar"/>
+        <resource-root path="wildfly-jaxrs-11.0.0.Alpha1-SNAPSHOT.jar"/>
     </resources>
 
     <dependencies>
