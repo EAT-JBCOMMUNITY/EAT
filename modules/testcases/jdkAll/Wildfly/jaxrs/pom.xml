@@ -33,7 +33,7 @@
             </activation>
 
             <properties>
-		<version.org.jboss.resteasy>3.0.19.Final</version.org.jboss.resteasy>
+		<version.org.jboss.resteasy>3.0.21.Final</version.org.jboss.resteasy>
                 <artifactdir>${LOCAL_REPO_DIR}</artifactdir>
                 <moduledir>${basedir}/../../../../servers/wildfly/build/target/jbossas/modules</moduledir>
                 <resteasy.module>${basedir}/updatedModules</resteasy.module>
