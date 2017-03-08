@@ -200,7 +200,7 @@ If any assistance is needed to add a new test in Eap Additional Testsuite, pleas
 
 INNOVATION
 -----------------------------------
-The innovative part of EAT is creating the test once and testing with any version of the tested software. It may be firstly applied for the JBOSS Servers, but, in general, a similar structure, can be used for creating tests about any software with multiple versions.
+The innovative part of EAT is creating the test once and testing with any version of the tested software. It may be firstly applied for the JBOSS Servers, but, in general, a similar structure, can be used for creating tests about any software with multiple versions or for multiple software programs that have a part of the testsuite in common.
 
 
 MOJO DOCUMENTATION
