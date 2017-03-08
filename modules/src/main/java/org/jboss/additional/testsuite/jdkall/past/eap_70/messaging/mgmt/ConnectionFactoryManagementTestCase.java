@@ -20,7 +20,7 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-package org.jboss.additional.testsuite.jdkall.present.messaging.mgmt;
+package org.jboss.additional.testsuite.jdkall.past.messaging.mgmt;
 
 import static java.util.UUID.randomUUID;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.FAILED;
@@ -57,7 +57,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7x/messaging/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap70x/messaging/src/main/java","modules/testcases/jdkAll/Eap70x-Proposed/messaging/src/main/java","modules/testcases/jdkAll/Eap70x/messaging/src/main/java","modules/testcases/jdkAll/Eap70x-Proposed/messaging/src/main/java"})
 public class ConnectionFactoryManagementTestCase extends ContainerResourceMgmtTestBase {
 
     private static final String CF_NAME = randomUUID().toString();
@@ -85,7 +85,7 @@ public class ConnectionFactoryManagementTestCase extends ContainerResourceMgmtTe
         } catch (MgmtOperationException e) {
             assertEquals(FAILED, e.getResult().get(OUTCOME).asString());
             assertEquals(true, e.getResult().get(ROLLED_BACK).asBoolean());
-            assertTrue(e.getResult().get(FAILURE_DESCRIPTION).asString().contains("WFLYCTL0105"));
+            assertTrue(e.getResult().get(FAILURE_DESCRIPTION).asString().contains("WFLYMSGAMQ0019"));
         }
 
         jmsOperations.removeJmsConnectionFactory(CF_NAME);
