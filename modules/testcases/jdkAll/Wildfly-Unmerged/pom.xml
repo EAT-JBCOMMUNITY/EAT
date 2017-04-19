@@ -83,6 +83,12 @@
                     <groupId>org.hibernate</groupId>
                     <artifactId>hibernate-search-analyzers</artifactId>
                     <version>4.5.3.Final</version>
+                    <exclusions>
+			<exclusion>
+			    <groupId>org.apache.lucene</groupId>
+			    <artifactId>lucene-analyzers</artifactId>
+			</exclusion>
+		    </exclusions> 
                 </dependency>
                 <dependency>
                     <groupId>junit</groupId>
@@ -149,6 +155,12 @@
                     <groupId>org.hibernate</groupId>
                     <artifactId>hibernate-search-analyzers</artifactId>
                     <version>4.5.3.Final</version>
+                    <exclusions>
+			<exclusion>
+			    <groupId>org.apache.lucene</groupId>
+			    <artifactId>lucene-analyzers</artifactId>
+			</exclusion>
+		    </exclusions> 
                 </dependency>
                 <dependency>
                     <groupId>junit</groupId>
