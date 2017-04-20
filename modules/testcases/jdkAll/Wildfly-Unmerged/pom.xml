@@ -88,6 +88,10 @@
 			    <groupId>org.apache.lucene</groupId>
 			    <artifactId>lucene-analyzers</artifactId>
 			</exclusion>
+                        <exclusion>
+			    <groupId>org.apache.solr</groupId>
+			    <artifactId>solr-analysis-extras</artifactId>
+			</exclusion>
 		    </exclusions> 
                 </dependency>
                 <dependency>
@@ -159,6 +163,10 @@
 			<exclusion>
 			    <groupId>org.apache.lucene</groupId>
 			    <artifactId>lucene-analyzers</artifactId>
+			</exclusion>
+                        <exclusion>
+			    <groupId>org.apache.solr</groupId>
+			    <artifactId>solr-analysis-extras</artifactId>
 			</exclusion>
 		    </exclusions> 
                 </dependency>
