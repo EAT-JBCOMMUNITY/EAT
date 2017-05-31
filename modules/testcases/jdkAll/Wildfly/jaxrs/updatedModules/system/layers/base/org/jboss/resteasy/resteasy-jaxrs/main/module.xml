@@ -25,8 +25,8 @@
 <module xmlns="urn:jboss:module:1.5" name="org.jboss.resteasy.resteasy-jaxrs">
 
     <resources>
-        <resource-root path="resteasy-jaxrs-3.0.21.Final.jar"/>
-        <resource-root path="resteasy-client-3.0.21.Final.jar"/>
+        <resource-root path="resteasy-jaxrs-3.0.23.Final.jar"/>
+        <resource-root path="resteasy-client-3.0.23.Final.jar"/>
     </resources>
 
     <dependencies>
