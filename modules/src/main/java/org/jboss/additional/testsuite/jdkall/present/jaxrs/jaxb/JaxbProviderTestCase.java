@@ -37,6 +37,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 
 /**
  * Tests a JAX-RS deployment without an application bundled.

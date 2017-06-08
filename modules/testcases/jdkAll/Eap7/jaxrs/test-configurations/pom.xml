@@ -15,7 +15,7 @@
     </parent>
 
     <artifactId>eap7-additional-testsuite-jaxrs-configuration</artifactId>
-    <name>eap7additional testsuite: jaxrs : configuration</name>
+    <name>eap7 additional testsuite: jaxrs : configuration</name>
             
     <properties>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
