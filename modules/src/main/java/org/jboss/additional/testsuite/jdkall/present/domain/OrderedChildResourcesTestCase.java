@@ -51,7 +51,6 @@ import org.junit.Test;
  *
  * @author Kabir Khan
  */
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/domain/src/main/java"})
 public class OrderedChildResourcesTestCase extends BuildConfigurationTestBase {
 
 
