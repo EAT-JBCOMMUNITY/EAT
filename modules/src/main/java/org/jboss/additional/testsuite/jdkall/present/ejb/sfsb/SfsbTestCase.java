@@ -48,7 +48,7 @@ import java.util.Arrays;
 
 @RunAsClient
 @RunWith(Arquillian.class)
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java","modules/testcases/jdkAll/Eap7/ejb/src/main/java"})
 public class SfsbTestCase {
 
     public static final String DEPLOYMENT = "sfsbServlet.war";
