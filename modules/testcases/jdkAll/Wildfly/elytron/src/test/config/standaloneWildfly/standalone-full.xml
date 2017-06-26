@@ -277,7 +277,7 @@
                 <local-cache name="timestamps"/>
             </cache-container>
         </subsystem>
-        <subsystem xmlns="urn:jboss:domain:iiop-openjdk:3.0">
+        <subsystem xmlns="urn:jboss:domain:iiop-openjdk:2.0">
             <orb socket-binding="iiop"/>
             <initializers security="identity" transactions="spec"/>
             <security server-requires-ssl="false" client-requires-ssl="false"/>
@@ -525,7 +525,7 @@
                 <file name="welcome-content" path="${jboss.home.dir}/welcome-content"/>
             </handlers>
             <filters>
-                <response-header name="server-header" header-name="Server" header-value="JBoss-EAP/7"/>
+                <response-header name="server-header" header-name="Server" header-value="WildFly/11"/>
                 <response-header name="x-powered-by-header" header-name="X-Powered-By" header-value="Undertow/1"/>
             </filters>
         </subsystem>
