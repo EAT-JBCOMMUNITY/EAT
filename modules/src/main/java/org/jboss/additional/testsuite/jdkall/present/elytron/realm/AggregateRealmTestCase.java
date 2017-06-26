@@ -56,6 +56,7 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import static org.junit.Assert.fail;
 import org.junit.Test;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 
@@ -78,6 +79,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 @RunWith(Arquillian.class)
 @RunAsClient
 @ServerSetup({AggregateRealmTestCase.SetupTask.class})
+@Ignore
 public class AggregateRealmTestCase {
 
     private static final String CHARSET_UTF_8 = "UTF-8";
@@ -549,7 +551,7 @@ public class AggregateRealmTestCase {
                         PROPERTIES_REALM_AUTHZ_NAME, asAbsolutePath(usersAuthzRealmFile),
                         asAbsolutePath(rolesAuthzRealmFile)));
                 cli.sendLine(String.format(
-                        "/subsystem=elytron/filesystem-realm=%s:add(case-sensitive=true,path=%s)",
+                        "/subsystem=elytron/filesystem-realm=%s:add(path=%s)",
                         FILESYSTEM_REALM_AUTHN_NAME, fsRealmPath));
                 addUserToFilesystemRealm(cli, USER_WITHOUT_ROLE, CORRECT_PASSWORD);
                 addUserToFilesystemRealm(cli, USER_WITH_ONE_ROLE, CORRECT_PASSWORD);

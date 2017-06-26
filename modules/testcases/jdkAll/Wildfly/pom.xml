@@ -325,7 +325,7 @@
     <modules>
         <module>basic</module>
         <module>ejb</module>
-        <!--module>elytron</module-->
+        <module>elytron</module>
         <module>clustering</module>
         <module>domain</module> 
         <module>domain_management</module> 
