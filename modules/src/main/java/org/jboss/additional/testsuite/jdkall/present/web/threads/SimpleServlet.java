@@ -33,7 +33,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 /**
  */
 @WebServlet(name = "SimpleServlet", urlPatterns = {"/testNewThreadPool"})
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly-Unmerged/web/src/main/java"})
+@apAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly-Unmerged/web/src/main/java"})
 public class SimpleServlet extends HttpServlet {
 
     private static int value = 0;
