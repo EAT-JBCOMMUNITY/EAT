@@ -55,7 +55,7 @@
 		        <configuration>         
 		            <!-- Tests to execute. -->
 		            <includes>
-                                <include>org/jboss/additional/testsuite/jdkall/present/web/threads/**/*TestCase.java</include>
+                                <include>org/jboss/additional/testsuite/jdkall/present/web/servlet/**/*TestCase.java</include>
 		            </includes> 
 		        </configuration>
 		    </execution>

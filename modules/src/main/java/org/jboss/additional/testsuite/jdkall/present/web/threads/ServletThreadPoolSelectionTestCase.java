@@ -55,7 +55,7 @@ import static org.junit.Assert.assertEquals;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly-Unmerged/web/src/main/java"})
+@apAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly-Unmerged/web/src/main/java"})
 public class ServletThreadPoolSelectionTestCase {
 
     @ArquillianResource
