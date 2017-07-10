@@ -245,13 +245,11 @@
                 </local-cache>
             </cache-container>
             <cache-container name="ejb" aliases="sfsb" default-cache="passivation" module="org.wildfly.clustering.ejb.infinispan">
-                    <local-cache name="passivation">
-		    <locking isolation="REPEATABLE_READ"/>
-		    <transaction mode="BATCH"/>
-		    <eviction strategy="LRU" max-entries="1"/>
-		    <expiration max-idle="100"/>
-		    <file-store passivation="true" purge="false"/>
-	        </local-cache>
+                <local-cache name="passivation">
+                    <locking isolation="REPEATABLE_READ"/>
+                    <transaction mode="BATCH"/>
+                    <file-store passivation="true" purge="false"/>
+                </local-cache>
                 <local-cache name="persistent">
                     <locking isolation="REPEATABLE_READ"/>
                     <transaction mode="BATCH"/>
@@ -424,7 +422,7 @@
                 </configurable-sasl-server-factory>
             </sasl>
         </subsystem>
-        <subsystem xmlns="urn:jboss:domain:security:3.0">
+        <subsystem xmlns="urn:jboss:domain:security:2.0">
             <security-domains>
                 <security-domain name="other" cache-type="default">
                     <authentication>
@@ -456,7 +454,7 @@
                 </security-domain>
             </security-domains>
         </subsystem>
-        <subsystem xmlns="urn:jboss:domain:transactions:3.1">
+        <subsystem xmlns="urn:jboss:domain:transactions:4.0">
             <core-environment>
                 <process-id>
                     <uuid/>
