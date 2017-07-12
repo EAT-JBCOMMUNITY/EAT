@@ -324,6 +324,7 @@
 
     <modules>
         <module>basic</module>
+        <module>core</module>
         <module>ejb</module>
         <module>elytron</module>
         <module>clustering</module>

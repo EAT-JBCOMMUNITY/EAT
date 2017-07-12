@@ -220,6 +220,7 @@
      
     <modules>
         <module>basic</module>
+        <module>core</module>
         <module>ejb</module>
         <module>jaxrs</module>
         <module>clustering</module>
