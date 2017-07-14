@@ -34,7 +34,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly-Unmerged/web/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/web/src/main/java","modules/testcases/jdkAll/Eap7/web/src/main/java"})
 @WebServlet(name = "CookieHeaderServlet", urlPatterns = {"/cookieHeaderServlet"})
 public class CookieHeaderServlet extends HttpServlet {
 
@@ -53,7 +53,7 @@ public class CookieHeaderServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet sfsbCache</title>");            
+            out.println("<title>Servlet cookieHeader</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet cookieHeaderServlet at " + request.getContextPath() + "</h1>");
