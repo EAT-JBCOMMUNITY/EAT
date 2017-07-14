@@ -48,7 +48,7 @@ import java.util.Arrays;
 
 @RunAsClient
 @RunWith(Arquillian.class)
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly-Unmerged/web/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/web/src/main/java","modules/testcases/jdkAll/Eap7/web/src/main/java"})
 public class CookieHeaderServletTestCase {
 
     public static final String DEPLOYMENT = "cookieHeaderServlet.war";
