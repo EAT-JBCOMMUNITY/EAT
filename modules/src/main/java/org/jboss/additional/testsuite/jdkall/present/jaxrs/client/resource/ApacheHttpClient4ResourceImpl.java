@@ -1,12 +1,10 @@
 package org.jboss.additional.testsuite.jdkall.present.jaxrs.client.resource;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.jboss.resteasy.spi.NoLogWebApplicationException;
 import org.jboss.resteasy.util.HttpResponseCodes;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/jaxrs/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/jaxrs/src/main/java","modules/testcases/jdkAll/Eap70x/jaxrs/src/main/java"})
 public class ApacheHttpClient4ResourceImpl implements ApacheHttpClient4Resource {
     public String get() {
     /*    try {
