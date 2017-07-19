@@ -344,7 +344,7 @@
                 <smtp-server outbound-socket-binding-ref="mail-smtp"/>
             </mail-session>
         </subsystem>
-        <subsystem xmlns="urn:jboss:domain:messaging-activemq:1.1">
+        <subsystem xmlns="urn:jboss:domain:messaging-activemq:2.0">
             <server name="default">
                 <cluster password="${jboss.messaging.cluster.password:CHANGE ME!!}"/>
                 <security-setting name="#">
