@@ -69,13 +69,10 @@ public class CookieHeaderServletTestCase {
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
         CloseableHttpResponse response = null;
 
-        try {
-            response = httpClient.execute(request);
-            Assert.assertTrue("Wrong Set-Cookie header format.", response.getFirstHeader("Set-Cookie").getValue().contains("\"example cookie\""));
-            
-        }finally {
-            IOUtils.closeQuietly(response);
-            httpClient.close();
-        }
+        response = httpClient.execute(request);
+        Assert.assertTrue("Wrong Set-Cookie header format.", response.getFirstHeader("Set-Cookie").getValue().contains("\"example cookie\""));
+        IOUtils.closeQuietly(response);
+        httpClient.close();
+
     }
 }

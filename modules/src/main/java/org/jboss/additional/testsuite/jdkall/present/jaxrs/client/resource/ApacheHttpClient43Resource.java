@@ -7,7 +7,7 @@ import javax.ws.rs.core.Response;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 
 @Path("/test2")
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java", "modules/testcases/jdkAll/Eap7/jaxrs/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/jaxrs/src/main/java"})
 public interface ApacheHttpClient43Resource {
     @GET
     @Produces("text/plain")
