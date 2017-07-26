@@ -28,5 +28,23 @@ under the License.
       <name>Thunder Maven Central Cache</name>
       <url>http://thunder.sin2.redhat.com/maven</url>
     </mirror>
+    <mirror>
+      <id>thunder.jboss-eap-7.1-product-repository</id>
+      <mirrorOf>jboss-eap-7.1-product-repository</mirrorOf>
+      <name>Thunder Product EAP Cache</name>
+      <url>http://thunder.sin2.redhat.com/eap-7.1/</url>
+    </mirror>
+    <mirror>
+      <id>thunder.jboss-eap-7.0-product-repository</id>
+      <mirrorOf>jboss-product-repository</mirrorOf>
+      <name>Thunder Product EAP 7.0 Cache</name>
+      <url>http://thunder.sin2.redhat.com/eap-7.0</url>
+    </mirror>
+    <mirror>
+      <id>thunder.jboss.org.cache</id>
+      <mirrorOf>jboss-public-repository-group</mirrorOf>
+      <name>Thunder JBoss Public Repositories Cache</name>
+      <url>http://thunder.sin2.redhat.com/jboss</url>
+    </mirror>
   </mirrors>
 </settings>
