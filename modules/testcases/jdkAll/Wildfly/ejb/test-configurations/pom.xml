@@ -20,6 +20,8 @@
     <properties>
 	<standalone.conf>${basedir}/../src/test/config/standaloneWildfly/standalone.xml</standalone.conf>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <server>wildfly</server>
     </properties>
         

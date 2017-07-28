@@ -115,7 +115,7 @@
                     <groupId>org.apache.activemq</groupId>
                     <artifactId>artemis-jms-client</artifactId>
                 </dependency>
-                <dependency>
+                <!--dependency>
                     <groupId>org.hibernate</groupId>
                     <artifactId>hibernate-search-analyzers</artifactId>
                     <version>4.5.3.Final</version>
@@ -129,7 +129,7 @@
 			    <artifactId>solr-analysis-extras</artifactId>
 			</exclusion>
 		    </exclusions> 
-                </dependency>
+                </dependency-->
                 <dependency>
                     <groupId>org.jboss.osgi.metadata</groupId>
                     <artifactId>jbosgi-metadata</artifactId>

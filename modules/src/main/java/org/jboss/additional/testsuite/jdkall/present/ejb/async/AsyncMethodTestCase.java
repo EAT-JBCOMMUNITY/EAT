@@ -34,7 +34,7 @@ import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.as.arquillian.api.ContainerResource;
-import org.jboss.as.test.shared.util.DisableInvocationTestUtil;
+import org.jboss.additional.testsuite.jdkall.present.shared.DisableInvocationTestUtil;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -51,7 +51,7 @@ import org.junit.runner.RunWith;
  *
  * @author Stuart Douglas, Ondrej Chaloupka
  */
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/ejb/src/main/java","modules/testcases/jdkAll/Wildfly/ejb/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java","modules/testcases/jdkAll/Eap7/ejb/src/main/java"})
 @RunWith(Arquillian.class)
 public class AsyncMethodTestCase {
     private static final String ARCHIVE_NAME = "AsyncTestCase";
