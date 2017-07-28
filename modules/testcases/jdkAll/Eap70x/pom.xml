@@ -75,7 +75,7 @@
                     <groupId>org.jboss.spec.javax.servlet</groupId>
                     <artifactId>jboss-servlet-api_3.1_spec</artifactId>
                 </dependency>
-                <dependency>
+                <!--dependency>
                     <groupId>org.hibernate</groupId>
                     <artifactId>hibernate-search-analyzers</artifactId>
                     <version>4.5.3.Final</version>
@@ -89,7 +89,7 @@
 			    <artifactId>solr-analysis-extras</artifactId>
 			</exclusion>
 		    </exclusions> 
-                </dependency>
+                </dependency-->
                 <dependency>
                     <groupId>org.jboss.osgi.metadata</groupId>
                     <artifactId>jbosgi-metadata</artifactId>
