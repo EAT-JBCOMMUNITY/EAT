@@ -101,6 +101,7 @@ cd ..
 export JBOSS_FOLDER=${JBOSS_FOLDER:-$(ls -d ${CHECKOUT_FOLDER}/dist/target/*-${JBOSS_VERSION})}
 if [ ! -d "${JBOSS_FOLDER}" ]; then
   echo "The folder provided for JBoss AS server using the JBOSS_FOLDER env  is not a directory: ${JBOSS_FOLDER}."
+  ls ${CHECKOUT_FOLDER}/dist/target
   exit 6
 fi
 
