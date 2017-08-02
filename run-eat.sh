@@ -40,6 +40,22 @@ if [ -z "${JBOSS_VERSION_CODE}" ]; then
   exit 2
 fi
 
+#
+# Checking out Wildfly/EAP
+#
+if [ -d "${CHECKOUT_FOLDER}" ]; then
+  echo "Folder already exists - updating local repository"
+  cd "${CHECKOUT_FOLDER}"
+  git pull origin "${GIT_BRANCH}"
+  cd - > /dev/null
+else
+  git clone "${GIT_REPO}" --branch "${GIT_BRANCH}" "${CHECKOUT_FOLDER}"
+fi
+
+#
+# Setting up maven
+#
+
 if [ -z "${MAVEN_HOME}" ]; then
   echo "No MAVEN_HOME has been defined."
   usage
@@ -62,10 +78,6 @@ if [ -e "${SETTINGS_XML}" ]; then
   readonly SETTINGS_XML_OPTION="-s ${SETTINGS_XML}"
 fi
 
-#
-# Setting up maven
-#
-
 mkdir -p "${LOCAL_REPO_DIR}"
 
 export MAVEN_HOME
@@ -74,18 +86,6 @@ export PATH="${MAVEN_HOME}/bin:${PATH}"
 export MAVEN_OPTS="${MAVEN_OPTS} -Dmaven.wagon.http.pool=false"
 export MAVEN_OPTS="${MAVEN_OPTS} -Dmaven.wagon.httpconnectionManager.maxPerRoute=3"
 export MAVEN_OPTS="${MAVEN_OPTS} -Xmx1024m -Xms512m -XX:MaxPermSize=256m"
-
-#
-# Checking out Wildfly/EAP
-#
-if [ -d "${CHECKOUT_FOLDER}" ]; then
-  echo "Folder already exists - updating local repository"
-  cd "${CHECKOUT_FOLDER}"
-  git pull origin "${GIT_BRANCH}"
-  cd - > /dev/null
-else
-  git clone "${GIT_REPO}" --branch "${GIT_BRANCH}" "${CHECKOUT_FOLDER}"
-fi
 
 #
 # Building Wildfly/EAP
