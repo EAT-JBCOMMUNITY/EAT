@@ -44,8 +44,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Arrays;
 import org.jboss.marshalling.InputStreamByteInput;
 import org.jboss.marshalling.MarshallingConfiguration;
@@ -74,7 +72,7 @@ public class MarshallingTestCase {
     }
 
     @Test
-    public void deserializationTest(@ArquillianResource URL url) throws Exception {
+    public void deserializationTest() throws Exception {
         RiverMarshallerFactory factory = new RiverMarshallerFactory();  
 	    MarshallingConfiguration configuration = new MarshallingConfiguration();  
 	  
