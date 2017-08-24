@@ -24,6 +24,9 @@ package org.jboss.additional.testsuite.jdkall.present.core.marshalling;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InvalidObjectException;
+import java.io.Serializable;
+import java.util.ArrayList;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.Header;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -45,16 +48,22 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.Arrays;
+import java.util.List;
+import static org.hibernate.validator.internal.util.Contracts.assertTrue;
 import org.jboss.marshalling.InputStreamByteInput;
 import org.jboss.marshalling.MarshallingConfiguration;
 import org.jboss.marshalling.OutputStreamByteOutput;
+import org.jboss.marshalling.cloner.ClonerConfiguration;
+import org.jboss.marshalling.cloner.ObjectCloner;
+import org.jboss.marshalling.cloner.ObjectClonerFactory;
+import org.jboss.marshalling.cloner.ObjectCloners;
 import org.jboss.marshalling.river.RiverMarshaller;
 import org.jboss.marshalling.river.RiverMarshallerFactory;
 import org.jboss.marshalling.river.RiverUnmarshaller;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 
 @RunWith(Arquillian.class)
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/core/src/main/java","modules/testcases/jdkAll/Eap7/core/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/core/src/main/java","modules/testcases/jdkAll/Eap7/core/src/main/java","modules/testcases/jdkAll/Eap70x/core/src/main/java"})
 public class MarshallingTestCase {
 
     public static final String DEPLOYMENT = "marshallingTestCase.war";
@@ -68,6 +77,7 @@ public class MarshallingTestCase {
         archive.addPackage("org.jboss.marshalling.util");
         archive.addPackage("org.jboss.marshalling.river");
         archive.addPackage("org.jboss.marshalling.reflect");
+        archive.addPackage("org.jboss.marshalling.cloner");
         return archive;
     }
 
@@ -103,5 +113,43 @@ public class MarshallingTestCase {
             }
             
             unmarshaller.finish();
+    }
+    
+    @Test
+    public void testNoDefaultConstructor() throws Throwable {
+        final SerializableWithNonSerializableChildWithNoPublicConstructor object = new SerializableWithNonSerializableChildWithNoPublicConstructor();        
+        final ObjectClonerFactory clonerFactory = ObjectCloners.getCloneableObjectClonerFactory();
+        final ClonerConfiguration configuration = new ClonerConfiguration();
+        final ObjectCloner cloner = clonerFactory.createCloner(configuration);
+        try {
+        	cloner.clone(object);
+        } catch(InvalidObjectException ioe) {
+        	// This is expected behavior
+    	} catch(Exception e) {
+            assertTrue(false,"testNoDefaultConstructor has failed.");
+    	}         
+    }  
+    
+    public static final class SerializableWithNonSerializableChildWithNoPublicConstructor implements Serializable {
+        private static final long serialVersionUID = 1L;
+        private List<Object> children = new ArrayList();
+        public SerializableWithNonSerializableChildWithNoPublicConstructor() {
+        	children.add(new TestNotSerializableNoDefaultConstructor("Test"));	
+        }  
+        
+    }
+ 
+    public static interface TestNotSerializableNoDefaultConstructorInterface {
+    	public String getName();
+    }
+    
+    public static class TestNotSerializableNoDefaultConstructor implements TestNotSerializableNoDefaultConstructorInterface {
+       private String name;
+       public TestNotSerializableNoDefaultConstructor(String name) {
+          this.name = name;
+       }
+       public String getName() {
+    	   return name;
+       }
     }
 }
