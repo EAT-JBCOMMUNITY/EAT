@@ -10,12 +10,12 @@
 
     <parent>
         <groupId>org.jboss</groupId>
-        <artifactId>eap70x-additional-testsuite-web</artifactId>
+        <artifactId>eap70x-additional-testsuite-security</artifactId>
         <version>1.0.2.Final</version>
     </parent>
 
-    <artifactId>eap70x-additional-testsuite-web-configuration</artifactId>
-    <name>eap70x additional testsuite: web : configuration</name>
+    <artifactId>eap70x-additional-testsuite-security-configuration-2</artifactId>
+    <name>eap70x additional testsuite: security : configuration-2</name>
             
     <properties>
 	<standalone.conf>../src/test/config/standaloneEap7/standalone.xml</standalone.conf>
@@ -34,25 +34,6 @@
 		<groupId>org.apache.maven.plugins</groupId>
 		<artifactId>maven-surefire-plugin</artifactId>
 
-		<executions>
-	            <execution>
-		        <id>default-test</id>
-		        <phase>test</phase>
-		        <goals>
-		            <goal>test</goal>
-		        </goals>
-		        <configuration>         
-		            <!-- Tests to execute. -->
-		            <includes>
-		                <include>org/jboss/additional/testsuite/jdkall/present/web/classloading/war/**/*TestCase.java</include>
-		                <include>org/jboss/additional/testsuite/jdkall/present/web/servlet/**/*TestCase.java</include>
-                                <include>org/jboss/additional/testsuite/jdkall/present/web/ee/**/*TestCase.java</include>
-                                <include>org/jboss/additional/testsuite/jdkall/present/web/mtom/**/*TestCase.java</include>
-		            </includes> 
-		        </configuration>
-		    </execution>
-		</executions>
-
                 <configuration>
                     <!-- Prevent test and server output appearing in console. -->
                     <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
@@ -64,6 +45,22 @@
                     </additionalClasspathElements>
 
                 </configuration>
+
+		<executions>
+	            <execution>
+		        <id>default-test</id>
+		        <phase>test</phase>
+		        <goals>
+		            <goal>test</goal>
+		        </goals>
+		        <configuration>         
+		            <!-- Tests to execute. -->
+		            <includes>
+		                <include>org/jboss/additional/testsuite/jdkall/present/security/validations/*TestCase.java</include>
+		            </includes> 
+		        </configuration>
+		    </execution>
+		</executions>
 	    </plugin>
 
             <!-- Build the server configuration -->
@@ -93,6 +90,7 @@
 	    </plugin>
 
         </plugins>
+	
     </build>
 
 </project>
