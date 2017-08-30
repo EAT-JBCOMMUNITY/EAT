@@ -23,12 +23,10 @@
 package org.jboss.additional.testsuite.jdkall.present.web.servlet.headers;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.http.Header;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.OperateOnDeployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
@@ -42,9 +40,17 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import static java.util.concurrent.TimeUnit.SECONDS;
+import org.apache.http.client.CookieStore;
+import org.apache.http.client.protocol.HttpClientContext;
+import org.apache.http.cookie.Cookie;
+import org.apache.http.impl.client.HttpClients;
+import org.jboss.as.test.integration.common.HttpRequest;
+import org.junit.Ignore;
 
 @RunAsClient
 @RunWith(Arquillian.class)
@@ -52,11 +58,19 @@ import java.util.Arrays;
 public class CookieHeaderServletTestCase {
 
     public static final String DEPLOYMENT = "cookieHeaderServlet.war";
+    public static final String DEPLOYMENT2 = "cookieHeaderServlet2.war";
 
     @Deployment(name = DEPLOYMENT)
     public static Archive<?> getDeployment() {
         WebArchive war = ShrinkWrap.create(WebArchive.class, DEPLOYMENT);
         war.addClass(CookieHeaderServlet.class);
+        return war;
+    }
+    
+    @Deployment(name = DEPLOYMENT2)
+    public static Archive<?> getDeployment2() {
+        WebArchive war = ShrinkWrap.create(WebArchive.class, DEPLOYMENT2);
+        war.addClass(CookieHeaderServlet2.class);
         return war;
     }
 
@@ -71,6 +85,26 @@ public class CookieHeaderServletTestCase {
 
         response = httpClient.execute(request);
         Assert.assertTrue("Wrong Set-Cookie header format.", response.getFirstHeader("Set-Cookie").getValue().contains("\"example cookie\""));
+        IOUtils.closeQuietly(response);
+        httpClient.close();
+
+    }
+    
+    @Test
+    @Ignore
+    @OperateOnDeployment(DEPLOYMENT2)
+    public void cookieHeaderCommaSeparatorTest(@ArquillianResource URL url2) throws Exception {
+        URL testURL = new URL(url2.toString() + "cookieHeaderServlet2");
+
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        final HttpGet request = new HttpGet(testURL.toString());
+        
+        CloseableHttpResponse response = null;
+        response = httpClient.execute(request);
+        response = httpClient.execute(request);
+        Assert.assertTrue("The cookie length should be 2.", response.getFirstHeader("cookies.length").getValue().compareTo("2")==0);
+        Assert.assertTrue("The cookie value1 should be example_cookie.", response.getFirstHeader("cookies.value1").getValue().compareTo("example_cookie")==0);
+        Assert.assertTrue("The cookie value2 should be example2_cookie.", response.getFirstHeader("cookies.value2").getValue().compareTo("example2_cookie")==0);
         IOUtils.closeQuietly(response);
         httpClient.close();
 
