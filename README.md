@@ -210,7 +210,7 @@ MOJO DOCUMENTATION
  
 EAP-ADDITIONAL-TESTSUITE PRESENTATION
 -------------------------------------
-[Eap Additional Testsuite Presentation](http://redhat.slides.com/panossot/eap-wildfly-additional-testsuite)
+[Eap Additional Testsuite Presentation](http://redhat.slides.com/panossot/eap-wildfly-additional-testsuite-5?token=cJjcvl_r)
 
 
 EAP-ADDITIONAL-TESTSUITE VIDEO PRESENTATION
