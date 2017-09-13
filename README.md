@@ -218,6 +218,11 @@ EAP-ADDITIONAL-TESTSUITE VIDEO PRESENTATION
 [Eap Additional Testsuite Video](https://bluejeans.com/s/9qrr/)
 
 
+EAP-ADDITIONAL-TESTSUITE WORKSHOP
+---------------------------------
+[Eap Additional Testsuite Workshop](https://www.dropbox.com/s/bebhyd1iz7cg1i2/EAT_WORKSHOP.odt?dl=0)
+
+
 EAP-ADDITIONAL-TESTSUITE as a COLLABORATION PROJECT
 ---------------------------------------------------
 Many thanks to Carlo de Wolf for his ideas and help.
