@@ -18,6 +18,8 @@
     <name>eap7 additional testsuite: clustering : configuration</name>
             
     <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
 	<standalone.conf>${basedir}/../src/test/config/standaloneEap7/standalone-full-ha.xml</standalone.conf>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
         <server>eap7</server>
