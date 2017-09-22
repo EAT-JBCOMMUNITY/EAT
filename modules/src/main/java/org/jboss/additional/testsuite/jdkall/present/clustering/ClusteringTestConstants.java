@@ -86,4 +86,6 @@ public interface ClusteringTestConstants {
     int CLUSTER_ESTABLISHMENT_LOOP_COUNT = 20;
     int WAIT_FOR_PASSIVATION_MS = TimeoutUtil.adjust(5);
     int HTTP_REQUEST_WAIT_TIME_S = TimeoutUtil.adjust(5);
+    String NODE_NAME_PROPERTY = "jboss.node.name";
+
 }

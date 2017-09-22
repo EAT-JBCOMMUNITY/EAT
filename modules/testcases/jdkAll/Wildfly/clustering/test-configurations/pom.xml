@@ -18,6 +18,8 @@
     <name>wildfly additional testsuite: clustering : configuration</name>
             
     <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
 	<standalone.conf>${basedir}/../src/test/config/standaloneWildfly/standalone-full-ha.xml</standalone.conf>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
         <server>wildfly</server>
