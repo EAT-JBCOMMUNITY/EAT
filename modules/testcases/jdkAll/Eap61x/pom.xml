@@ -147,6 +147,157 @@
             </dependencies> 
         </profile>
 
+        <profile>
+            <id>basicActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>basic</value>
+                </property>
+            </activation>
+            <modules>
+                <module>basic</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>ejbActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>ejb</value>
+                </property>
+            </activation>
+            <modules>
+                <module>ejb</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>clusteringActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>clustering</value>
+                </property>
+            </activation>
+            <modules>
+                <module>clustering</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>jaxrsActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>jaxrs</value>
+                </property>
+            </activation>
+            <modules>
+                <module>jaxrs</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>loggingActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>logging</value>
+                </property>
+            </activation>
+            <modules>
+                <module>logging</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>managementActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>management</value>
+                </property>
+            </activation>
+            <modules>
+                <module>management</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>messagingActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>messaging</value>
+                </property>
+            </activation>
+            <modules>
+                <module>messaging</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>securityActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>security</value>
+                </property>
+            </activation>
+            <modules>
+                <module>security</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>webActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>web</value>
+                </property>
+            </activation>
+            <modules>
+                <module>web</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>weldActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>weld</value>
+                </property>
+            </activation>
+            <modules>
+                <module>weld</module>
+            </modules>
+        </profile>
+
+        <profile>
+	    <id>all</id>
+	    <activation>
+	        <property>
+		    <name>!module</name>
+	        </property>
+	    </activation>
+            <modules>
+		<module>basic</module>
+		<module>ejb</module>
+		<module>jaxrs</module>
+		<module>clustering</module>
+		<module>logging</module>
+		<module>management</module>
+		<module>messaging</module>
+		<module>security</module>
+		<module>web</module>
+		<module>weld</module>
+	    </modules>
+        </profile>
+
     </profiles>
 
     <build>
@@ -175,18 +326,5 @@
 
         </plugins>
     </build>
-            
-    <modules>
-        <module>basic</module>
-        <module>ejb</module>
-        <module>jaxrs</module>
-        <module>clustering</module>
-        <module>logging</module>
-        <module>management</module>
-        <module>messaging</module>
-        <module>security</module>
-        <module>web</module>
-        <module>weld</module>
-    </modules>
 
 </project>
