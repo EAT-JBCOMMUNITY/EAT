@@ -62,7 +62,7 @@ import static org.junit.Assert.assertTrue;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/web/src/main/java","modules/testcases/jdkAll/Eap7/web/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/web/src/main/java","modules/testcases/jdkAll/Eap7/web/src/main/java","modules/testcases/jdkAll/Eap70x/web/src/main/java"})
 public class ServletThreadPoolRejectionTestCase {
 
     @ArquillianResource
