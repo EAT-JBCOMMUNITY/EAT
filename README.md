@@ -228,6 +228,6 @@ EAP-ADDITIONAL-TESTSUITE as a COLLABORATION PROJECT
 Many thanks to Carlo de Wolf for his ideas and help.
 
 
-#License 
+# License 
 * [GNU Lesser General Public License Version 2.1](http://www.gnu.org/licenses/lgpl-2.1-standalone.html)
 
