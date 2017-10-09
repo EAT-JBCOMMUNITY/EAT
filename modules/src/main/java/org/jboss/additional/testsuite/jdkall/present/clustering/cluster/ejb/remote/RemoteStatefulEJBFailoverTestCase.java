@@ -51,7 +51,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/clustering/src/main/java","modules/testcases/jdkAll/Eap7/clustering/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/clustering/src/main/java"})
 public class RemoteStatefulEJBFailoverTestCase extends ClusterAbstractTestCase {
     private static final String MODULE_NAME = "remote-stateful-ejb-failover-test";
 
