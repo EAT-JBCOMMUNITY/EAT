@@ -28,9 +28,10 @@ import org.junit.AfterClass;
 import static org.junit.Assert.assertTrue;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.Ignore;
 
-//@apAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/security/src/main/java","modules/testcases/jdkAll/Eap7/security/src/main/java"})
-public class PolicyTestCase extends AbstractCliTestBase {
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/security/src/main/java","modules/testcases/jdkAll/Eap7/security/src/main/java"})
+public class CliTestCase extends AbstractCliTestBase {
 
     @BeforeClass
     public static void before() throws Exception {
@@ -44,6 +45,7 @@ public class PolicyTestCase extends AbstractCliTestBase {
 
 
     @Test
+    @Ignore
     public void jaccPolicyTest() throws Exception {
         cli.sendLine("/subsystem=elytron/policy=jacc:add(jacc-policy=[{name => jacc}])");
         cli.sendLine("reload");
@@ -57,6 +59,19 @@ public class PolicyTestCase extends AbstractCliTestBase {
             cli.sendLine("/subsystem=elytron/policy=jacc:add(jacc-policy=[{name => jacc}])");
         }catch(Exception e){ // This part is not needed as the assertion which fails in inside sendLine method
             assertTrue("StackOverflowError when adding and removing jacc policy in the elytron subsystem.",false);
+        }
+    }
+
+    @Test
+    @Ignore
+    public void invalidAttributeTest() throws Exception {
+        cli.sendLine("/subsystem=remoting/http-connector=random:add(connector-ref=default)");
+        cli.sendLine("/subsystem=remoting/http-connector=random/security=sasl:add()");
+        cli.sendLine("/subsystem=remoting/http-connector=random/security=sasl:write-attribute(name=qop,value=[aaa])");
+        try {
+            cli.sendLine("reload");
+        }catch(Exception e){ // This part is not needed as the assertion which fails in inside sendLine method
+            assertTrue("Server could not start.",false);
         }
     }
     
