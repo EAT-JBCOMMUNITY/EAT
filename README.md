@@ -203,6 +203,12 @@ INNOVATION
 The innovative part of EAT is creating the test once and testing with any version of the tested software. It may be firstly applied for the JBOSS Servers, but, in general, a similar structure, can be used for creating tests about any software with multiple versions or for multiple software programs that have a part of the testsuite in common.
 
 
+FUTURE DEVELOPMENT
+-----------------------------------
+1. Use the generalized additional testsuite structure in order to include Openshift tests for multiple versions of Openshift.
+2. Test categorization not only at class level but also at method level.
+
+
 MOJO DOCUMENTATION
 ------------------
 [Eap Additional Testsuite Mojo Document](https://mojo.redhat.com/docs/DOC-1063426)
