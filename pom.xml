@@ -55,7 +55,7 @@
         <dependency>
             <groupId>org.jboss.eap.additional.testsuite</groupId>
             <artifactId>eap-additional-testsuite-source-distribution</artifactId>
-            <version>1.0.2.Final</version>
+            <version>1.0.3.Final</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.eap.additional.testsuite</groupId>
@@ -969,6 +969,21 @@
 			    </target>
 	                </configuration>
 	            </execution>
+                    <execution>
+                        <id>prepare</id>
+		        <inherited>false</inherited>
+		        <phase>generate-resources</phase>
+	                <configuration>
+		            <target name="command">
+		                <exec executable="/bin/bash" osfamily="unix">
+				    <arg value="cloneRemoteTests.sh" />
+				</exec>      
+		            </target>
+	                </configuration>
+			<goals>
+		            <goal>run</goal>
+		        </goals>
+                    </execution>
 	        </executions>
 	    </plugin>
 
@@ -978,22 +993,40 @@
 	        <version>1.1.1</version>
 	        <executions>
 	            <execution>
+                        <id>java-sources</id>
 	                <phase>test</phase>
 	                <goals>
 		            <goal>java</goal>
 	                </goals>
+                        <configuration>
+			   <mainClass>org.jboss.eap.additional.testsuite.source.distribution.AdditionalTestsuiteDistributeSources</mainClass>
+			   <arguments>
+			       <argument>${basedir}</argument>
+			       <argument>${basedir}/modules/src/main/java</argument>
+		               <argument>${serverDir}</argument>
+		               <argument>${JBOSS_VERSION}</argument>
+		               <argument>versionOrder</argument>
+			   </arguments>
+		        </configuration>
+	            </execution>
+                    <execution>
+                        <id>configs</id>
+	                <phase>test</phase>
+	                <goals>
+		            <goal>java</goal>
+	                </goals>
+                        <configuration>
+			   <mainClass>org.jboss.eap.additional.testsuite.source.distribution.AdditionalTestsuiteDistributeSources</mainClass>
+			   <arguments>
+			       <argument>${basedir}</argument>
+			       <argument>${basedir}/modules/src/config</argument>
+		               <argument>${serverDir}</argument>
+		               <argument>${JBOSS_VERSION}</argument>
+		               <argument>versionOrder</argument>
+			   </arguments>
+		        </configuration>
 	            </execution>
 	       </executions>
-               <configuration>
-		   <mainClass>org.jboss.eap.additional.testsuite.source.distribution.AdditionalTestsuiteDistributeSources</mainClass>
-		   <arguments>
-		       <argument>${basedir}</argument>
-		       <argument>${basedir}/modules/src/main/java</argument>
-                       <argument>${serverDir}</argument>
-                       <argument>${JBOSS_VERSION}</argument>
-                       <argument>versionOrder</argument>
-		   </arguments>
-	       </configuration>
 	    </plugin>
 
        </plugins>

@@ -23,12 +23,10 @@
 package org.jboss.additional.testsuite.jdkall.present.ejb.sfsb;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.http.Header;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.OperateOnDeployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
@@ -44,11 +42,10 @@ import org.junit.runner.RunWith;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Arrays;
 
 @RunAsClient
 @RunWith(Arquillian.class)
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java","modules/testcases/jdkAll/Eap7/ejb/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/ejb/src/main/java"})
 public class SfsbTestCase {
 
     public static final String DEPLOYMENT = "sfsbServlet.war";
@@ -64,7 +61,7 @@ public class SfsbTestCase {
 
     @Test
     @OperateOnDeployment(DEPLOYMENT)
-    public void increaseBufferSizeTest(@ArquillianResource URL url) throws Exception {
+    public void sfsbTest(@ArquillianResource URL url) throws Exception {
         URL testURL = new URL(url.toString() + "sfsbCache?product=makaronia&quantity=10");
 
         final HttpGet request = new HttpGet(testURL.toString());

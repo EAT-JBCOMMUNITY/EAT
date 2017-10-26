@@ -37,22 +37,15 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
-import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.ThreadPoolExecutor;
-
-import static java.util.concurrent.TimeUnit.MILLISECONDS;
-import org.glassfish.enterprise.concurrent.ContextServiceImpl;
-import org.glassfish.enterprise.concurrent.ManagedExecutorServiceImpl;
-import org.glassfish.enterprise.concurrent.ManagedThreadFactoryImpl;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
-import static org.glassfish.enterprise.concurrent.AbstractManagedExecutorService.RejectPolicy.ABORT;
 import org.jboss.as.threads.ManagedJBossThreadPoolExecutorService;
 import org.jboss.as.threads.TimeSpec;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
-import org.jboss.threads.JBossThreadPoolExecutor;
-import static org.junit.Assert.assertTrue;
+import org.jboss.threads.JBossThreadPoolExecutorReuseIdleThreads;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Tests the use of a custom thread pool with servlet deployments.
@@ -62,8 +55,8 @@ import static org.junit.Assert.assertTrue;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/web/src/main/java","modules/testcases/jdkAll/Eap7/web/src/main/java","modules/testcases/jdkAll/Eap70x/web/src/main/java"})
-public class ServletThreadPoolRejectionTestCase {
+@apAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly-Unmerged/web/src/main/java"})
+public class ServletThreadPoolSelectionBoundedTestCase {
 
     @ArquillianResource
     private URL url;
@@ -81,105 +74,17 @@ public class ServletThreadPoolRejectionTestCase {
         int maxThreads = 10;
         TimeSpec keepAliveSpec = new TimeSpec(SECONDS, 10);
         long keepAliveTime = keepAliveSpec.getUnit().toNanos(keepAliveSpec.getDuration());
-        final JBossThreadPoolExecutor jbossExecutor = new JBossThreadPoolExecutor(0, maxThreads, keepAliveTime, TimeUnit.NANOSECONDS, new SynchronousQueue<Runnable>());
+        final JBossThreadPoolExecutorReuseIdleThreads jbossExecutor = new JBossThreadPoolExecutorReuseIdleThreads((int)(maxThreads/2), maxThreads, keepAliveTime, TimeUnit.NANOSECONDS, new LinkedBlockingQueue<Runnable>(9990));
+        String result = null;
         int rejected = 0;
          
         ExecutorService executor = new ManagedJBossThreadPoolExecutorService(jbossExecutor);
         try {
             
                 final List<Future<?>> results = new ArrayList<Future<?>>();
-                for (int i = 0; i<12; i++) {
+                for (int i = 1; i<100000; i++) {
                     try {
                         results.add(executor.submit(new Callable<Object>() {
-                        
-                        @Override
-                        public Object call() throws Exception {
-                            
-                            HttpRequest.get(url.toExternalForm() + "/testNewThreadPool", 10, SECONDS);
-                            
-                            return null;
-                        }
-                    }));
-                    } catch (Exception e) {
-                        rejected++; //count the rejected tasks
-                    }
-                }
-                for (Future<?> res : results) {
-                    res.get();
-                }
-                
-                Thread.sleep(1000);
-            
-
-                assertTrue("2 tasks should be rejected",rejected==2);
-        } finally {
-            executor.shutdown();
-        }
-    }
-
-    @Test
-    public void testExecutor2() throws Exception {
-        int maxThreads = 10;
-        TimeSpec keepAliveSpec = new TimeSpec(SECONDS, 10);
-        long keepAliveTime = keepAliveSpec.getUnit().toNanos(keepAliveSpec.getDuration());
-        final ThreadPoolExecutor javaExecutor = new ThreadPoolExecutor(0, maxThreads, keepAliveTime, TimeUnit.NANOSECONDS, new SynchronousQueue<Runnable>());
-        int rejected = 0;
-         
-        try {
-            
-                final List<Future<?>> results = new ArrayList<Future<?>>();
-                for (int i = 0; i<12; i++) {
-                    try {
-                        results.add(javaExecutor.submit(new Callable<Object>() {
-                        
-                        @Override
-                        public Object call() throws Exception {
-                            
-                            HttpRequest.get(url.toExternalForm() + "/testNewThreadPool", 10, SECONDS);
-                            
-                            return null;
-                        }
-                    }));
-                    } catch (Exception e) {
-                        rejected++; //count the rejected tasks
-                    }
-                }
-                for (Future<?> res : results) {
-                    res.get();
-                }
-                
-                Thread.sleep(1000);
-            
-                System.out.println("Rejected : " + rejected);
-
-                assertTrue("2 tasks should be rejected",rejected==2);
-        } finally {
-            javaExecutor.shutdown();
-        }
-    }
-
-    @Test
-    public void testExecutor3() throws Exception {
-        final int queueCapacity = 0;
-        final int coreThreads = 0;
-        final int maxThreads = 10;
-        final long keepAliveMillis = 500L;
-        final long threadLifeTimeSeconds = 0L;
-        int rejected = 0;
-        
-        final ManagedThreadFactoryImpl tf = new ManagedThreadFactoryImpl("test"); 
-        final ContextServiceImpl ctxSvc = null; 
-        
-        
-        ManagedExecutorServiceImpl mes = new ManagedExecutorServiceImpl("directHandoff", tf, 1000L, false, coreThreads,
-maxThreads, keepAliveMillis, MILLISECONDS, threadLifeTimeSeconds, queueCapacity, ctxSvc, ABORT);
-        
-        try {
-            
-                final List<Future<?>> results = new ArrayList<Future<?>>();
-                for (int i = 0; i<12; i++) {
-                    try {
-                        results.add(mes.submit(new Callable<Object>() {
                         
                         @Override
                         public Object call() throws Exception {
@@ -197,14 +102,13 @@ maxThreads, keepAliveMillis, MILLISECONDS, threadLifeTimeSeconds, queueCapacity,
                     res.get();
                 }
                 
-                Thread.sleep(1000);
-
-                System.out.println("Rejected : " + rejected);
+                Thread.sleep(10000);
+                result = HttpRequest.get(url.toExternalForm() + "/testNewThreadPool", 10, SECONDS);
             
 
-            assertTrue("2 tasks should be rejected",rejected==2);
+            assertEquals("100000", String.valueOf(Integer.parseInt(result)+rejected));
         } finally {
-            mes.shutdown();
+            executor.shutdown();
         }
     }
 }
