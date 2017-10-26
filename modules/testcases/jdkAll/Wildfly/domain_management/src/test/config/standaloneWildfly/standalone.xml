@@ -63,10 +63,14 @@
             </formatters>
             <handlers>
                 <file-handler name="file" formatter="json-formatter" path="audit-log.log" relative-to="jboss.server.data.dir"/>
+                <syslog-handler name="my-syslog-handler" formatter="json-formatter">
+                    <udp host="127.0.0.1" port="514"/>
+                </syslog-handler>
             </handlers>
             <logger log-boot="true" log-read-only="false" enabled="false">
                 <handlers>
                     <handler name="file"/>
+                    <handler name="my-syslog-handler"/>
                 </handlers>
             </logger>
         </audit-log>
