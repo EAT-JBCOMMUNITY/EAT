@@ -54,6 +54,7 @@ ADVANTAGES
 6. Comparison of the servers based on tests of the past and the present.
 7. Addition of tests with possible future features that are not at the moment available.
 8. It makes possible to push a testcase of a fix regarding a specific component of the server, without the component version to have been updated at the server pom.
+9. Ability to merge tests from remote testsuites.
 
  
 MOTIVATION
@@ -196,6 +197,13 @@ If any assistance is needed to add a new test in Eap Additional Testsuite, pleas
 
 1. https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/src/main/java/org/jboss/additional/testsuite/jdkall/IwantToAddAnewTest
 2. https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/src/main/java/org/jboss/additional/testsuite/jdk8/IwantToAddAnewTest
+
+
+HOW TO MERGE TESTS FROM REMOTE TESTSUITES
+-----------------------------------------
+1. Set the GITHUB_REPO environment variable with the url of the remote testsuite repo (e.g. export GITHUB_REPO=https://github.com/panossot/RemoteTestRepo.git).
+2. Set the SUBDIR environment variable with the subdirectory path of the repo you would like to copy to modules/src/main/java direcory of EAT (e.g. export SUBDIR=RemoteTestRepo/src/java/main/org).
+3. Run EAT as usual.
 
 
 INNOVATION
