@@ -69,7 +69,7 @@ public class MtomTestCase {
 
         FileInputStream inputStream = new FileInputStream(path + "../" + serverLogPath);
         try {
-            String everything = IOUtils.toString(inputStream, "UTF-8");
+            String everything = IOUtils.toString(inputStream);
             assertFalse("Testing archive has enabled mtom feature", everything.contains("mtomEnabled=true"));
         } finally {
             inputStream.close();
