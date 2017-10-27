@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- @EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/messaging/src/test/config/standaloneEap7#7.1.0.GA*7.1.20.GA"}) -->
+<!-- @EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/security/src/test/config/standaloneEap7#7.1.0.GA*7.1.20.GA"}) -->
 <server xmlns="urn:jboss:domain:5.0">
     <extensions>
         <extension module="org.jboss.as.clustering.infinispan"/>
@@ -58,6 +58,16 @@
                 <authorization>
                     <properties path="application-roles.properties" relative-to="jboss.server.config.dir"/>
                 </authorization>
+            </security-realm>
+            <security-realm name="ciphers-test-realm">
+                <server-identities>
+                    <ssl>
+                        <keystore path="server-cert-key-rsa.jks" relative-to="jboss.server.config.dir" keystore-password="tomcat" alias="javaserver"/>
+                    </ssl>
+                </server-identities>
+                <authentication>
+                    <truststore path="ca-cert.jks" relative-to="jboss.server.config.dir" keystore-password="tomcat"/>
+                </authentication>
             </security-realm>
         </security-realms>
         <audit-log>
@@ -508,7 +518,7 @@
             <buffer-cache name="default"/>
             <server name="default-server">
                 <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true"/>
-                <https-listener name="https" socket-binding="https" security-realm="ApplicationRealm" enable-http2="true"/>
+                <https-listener name="https" enabled-cipher-suites="ECDH-RSA-AES256-SHA" security-realm="ciphers-test-realm" socket-binding="https"/>
                 <host name="default-host" alias="localhost">
                     <location name="/" handler="welcome-content"/>
                     <filter-ref name="server-header"/>
