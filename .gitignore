@@ -11,6 +11,7 @@ profiles.xml
 modules/testcases/**/src/main/java/*.java
 modules/testcases/**/security/test-configurations/securityRoles.war
 remoteSrc/**/*.*
+modules/testcases/**/src/**/standalone*.*
 
 
 #dirs
