@@ -11,7 +11,7 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>eap70x-proposed-jdk8-additional-testsuite</artifactId>
-        <version>1.0.2.Final</version>
+        <version>1.0.3.Final</version>
     </parent>
 
     <!-- ************************************************************************ -->
@@ -19,7 +19,7 @@
     <!-- ************************************************************************ -->
     <groupId>org.jboss</groupId>
     <artifactId>eap70x-proposed-jdk8-additional-testsuite-management</artifactId>
-    <version>1.0.2.Final</version>
+    <version>1.0.3.Final</version>
 
     <name>eap70x additional testsuite: management</name>
     <packaging>pom</packaging>
