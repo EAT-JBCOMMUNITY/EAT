@@ -11,13 +11,13 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>eap-additional-testsuite</artifactId>
-        <version>1.0.2.Final</version>
+        <version>1.0.3.Final</version>
     </parent>
 
     <groupId>org.jboss</groupId>
     <artifactId>eap-additional-testsuite-modules</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.2.Final</version>
+    <version>1.0.3.Final</version>
 
     <name>eap additional testsuite: eap additional testsuite modules</name>
     

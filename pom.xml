@@ -18,7 +18,7 @@
     <groupId>org.jboss</groupId>
     <artifactId>eap-additional-testsuite</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.2.Final</version>
+    <version>1.0.3.Final</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>The testsuite to write your tests once and test them against any version of the jboss server.</description>

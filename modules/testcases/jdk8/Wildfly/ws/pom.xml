@@ -11,7 +11,7 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>wildfly-jdk8-additional-testsuite</artifactId>
-        <version>1.0.2.Final</version>
+        <version>1.0.3.Final</version>
     </parent>
 
     <!-- ************************************************************************ -->
@@ -19,7 +19,7 @@
     <!-- ************************************************************************ -->
     <groupId>org.jboss</groupId>
     <artifactId>wildfly-jdk8-additional-testsuite-ws</artifactId>
-    <version>1.0.2.Final</version>
+    <version>1.0.3.Final</version>
 
     <name>wildfly additional testsuite: ws</name>
     <packaging>pom</packaging>
