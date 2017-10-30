@@ -215,7 +215,7 @@ FUTURE DEVELOPMENT
 -----------------------------------
 1. Use the generalized additional testsuite structure in order to include Openshift tests for multiple versions of Openshift.
 2. Test categorization not only at class level but also at method level.
-3. Pulling testcases into modules/source directory from separate github repositories.
+3. Create a framework that will combine all ATs (Additional Testsuites), e.g. EAT, JBTAT, etc. The user would be able to add a test to whichever testsuite he/she would choose. Furthermore, the user should be able to add more ATs in this framework, according to the software project of usage.
 
 
 MOJO DOCUMENTATION
