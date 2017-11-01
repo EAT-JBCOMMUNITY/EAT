@@ -23,6 +23,7 @@
 package org.jboss.additional.testsuite.jdkall.present.logging.misc;
 
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,16 +32,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import org.jboss.additional.testsuite.jdkall.present.logging.misc.log.LoggingUtil;
-import org.jboss.logging.Logger;
 
-/**
- * @author Eduardo Martins
- */
-@WebServlet(name = "SimpleServlet", urlPatterns = {"/simple"})
+@WebServlet(name = "SimpleServlet", urlPatterns = {"/simple2"})
 @EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/logging/src/main/java","modules/testcases/jdkAll/Eap7/logging/src/main/java","modules/testcases/jdkAll/Eap70x/logging/src/main/java"})
-public class LoggingTestServlet extends HttpServlet {
+public class LoggingTestServlet2 extends HttpServlet {
 
-    private static final Logger LOGGER = Logger.getLogger(LoggingTestServlet.class.getPackage().getName());
+    private static final Logger LOGGER = Logger.getLogger(LoggingTestServlet2.class.getPackage().getName());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

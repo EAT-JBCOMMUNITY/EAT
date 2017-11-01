@@ -74,18 +74,4 @@ public class WsJDK8DefaultMethodsTestCase {
         //test default method implementation
         Assert.assertEquals("Hello, Default", greeter.sayHello());
     }
-
-    @Test
-    @RunAsClient
-    public void testPojoInheritedDefaultMethod() throws MalformedURLException {
-        Service greeterService = Service.create(
-                new URL("http://localhost:8080/jax-ws-test-pojo/GreeterImpl2?wsdl"),
-                new QName("http://defaultmethods.ws.jdk8.testsuite.additional.jboss.org/", "GreeterImpl2Service"));
-
-        Assert.assertNotNull(greeterService);
-        GreeterSEI greeter = greeterService.getPort(GreeterSEI.class);
-
-        //test default method implementation
-        Assert.assertEquals("Hi, Default", greeter.sayHi());
-    }
 }
