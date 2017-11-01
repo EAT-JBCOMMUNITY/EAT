@@ -10,11 +10,12 @@ profiles.xml
 .war
 modules/testcases/**/src/main/java/*.java
 modules/testcases/**/security/test-configurations/securityRoles.war
-remoteSrc/**/*.*
-modules/testcases/**/src/**/standalone*.*
 
 
 #dirs
 target
+remoteSrc
+src/test/config
+
 .idea
 .settings
