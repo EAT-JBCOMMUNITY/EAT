@@ -66,7 +66,6 @@ public class LoggingServletTestCase {
     public static WebArchive deployment() {
         WebArchive war = ShrinkWrap.create(WebArchive.class, LoggingServletTestCase.class.getSimpleName() + ".war");
         war.addClasses(HttpRequest.class, LoggingTestServlet.class, LogResource.class, JaxRsActivator.class, LoggingUtil.class);
-        war.addAsLibrary("logging-lib-1.0.0.Final-SNAPSHOT.jar");
         war.addAsWebInfResource(new StringAsset("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
                 "\n" +
                 "<web-app version=\"3.0\"\n" +
@@ -98,7 +97,6 @@ public class LoggingServletTestCase {
     public static WebArchive deployment2() {
         WebArchive war = ShrinkWrap.create(WebArchive.class, LoggingServletTestCase.class.getSimpleName() + "2.war");
         war.addClasses(HttpRequest.class, LoggingTestServlet2.class, LogResource.class, JaxRsActivator.class, LoggingUtil.class);
-        war.addAsLibrary("logging-lib-1.0.0.Final-SNAPSHOT.jar");
         war.addAsWebInfResource(new StringAsset("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
                 "\n" +
                 "<web-app version=\"3.0\"\n" +
