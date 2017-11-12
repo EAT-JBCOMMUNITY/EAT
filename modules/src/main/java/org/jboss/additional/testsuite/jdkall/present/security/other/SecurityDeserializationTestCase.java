@@ -16,6 +16,7 @@
  */
 package org.jboss.additional.testsuite.jdkall.present.security.other;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
@@ -28,6 +29,7 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -40,7 +42,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/security/src/main/java", "modules/testcases/jdkAll/Eap7/security/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/security/src/main/java", "modules/testcases/jdkAll/Eap7/security/src/main/java", "modules/testcases/jdkAll/Eap70x/security/src/main/java"})
 public class SecurityDeserializationTestCase {
 
     private static final String ARCHIVE_NAME = "SecurityDeserializationTestCase";
@@ -53,7 +55,7 @@ public class SecurityDeserializationTestCase {
     }
 
     @Test
-    public void testVoidAsyncStatelessMethod() throws Exception {
+    public void testSecuirtyDatabind() throws Exception {
 
         final String JSON = aposToQuotes(
                 "{'id': 1111,\n"
@@ -77,12 +79,58 @@ public class SecurityDeserializationTestCase {
         }
 
     }
+    
+    @Test
+    @Ignore
+    public void testSecuirtyDatabind2() throws Exception {
+
+        final String JSON = aposToQuotes(
+                "{'v':['java.util.logging.FileHandler','/tmp/foobar.txt']}"
+                 );
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enableDefaultTyping();
+
+        try {
+            PolyWrapper sc = mapper.readValue(JSON, PolyWrapper.class);
+            fail("Should not be able to deserialize because of security prevention.");
+        }catch(JsonMappingException e){
+            assertTrue("Fail because of security issues...",e.getMessage().contains("prevented for security reasons"));
+        }
+
+    }
+    
+    @Test
+    @Ignore
+    public void testSecuirtyDatabind3() throws Exception {
+
+        final String JSON = aposToQuotes(
+                "{'v':['java.rmi.server.UnicastRemoteObject','/tmp/foobar.txt']}"
+                 );
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enableDefaultTyping();
+
+        try {
+            PolyWrapper sc = mapper.readValue(JSON, PolyWrapper.class);
+            fail("Should not be able to deserialize because of security prevention.");
+        }catch(JsonMappingException e){
+            assertTrue("Fail because of security issues...",e.getMessage().contains("prevented for security reasons"));
+        }
+
+    }
 
     static class SerializedClass {
 
         public int id;
         public Object obj;
     }
+    
+    static class PolyWrapper {
+         @JsonTypeInfo(use = JsonTypeInfo.Id.CLASS,
+                 include = JsonTypeInfo.As.WRAPPER_ARRAY)
+         public Object v;
+     }
 
     protected String aposToQuotes(String json) {
         return json.replace("'", "\"");
