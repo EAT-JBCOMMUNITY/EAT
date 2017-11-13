@@ -50,11 +50,6 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 import org.jboss.additional.testsuite.jdkall.present.logging.misc.log.LoggingUtil;
 import static org.junit.Assert.assertTrue;
 
-/**
- * Test for EE's default data source on a Servlet
- *
- * @author Eduardo Martins
- */
 @RunWith(Arquillian.class)
 @RunAsClient
 @EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/logging/src/main/java","modules/testcases/jdkAll/Eap7/logging/src/main/java","modules/testcases/jdkAll/Eap71x/logging/src/main/java"})
