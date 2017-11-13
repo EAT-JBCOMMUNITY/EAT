@@ -27,7 +27,7 @@ import javax.ws.rs.core.Application;
 /**
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>
  */
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/logging/src/main/java","modules/testcases/jdkAll/Eap7/messaging/src/main/java","modules/testcases/jdkAll/Eap71x/messaging/src/main/java","modules/testcases/jdkAll/Eap71x/messaging/src/main/java","modules/testcases/jdkAll/Eap71x/logging/src/main/java","modules/testcases/jdkAll/Eap70x/logging/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/logging/src/main/java","modules/testcases/jdkAll/Eap7/logging/src/main/java","modules/testcases/jdkAll/Eap71x/logging/src/main/java","modules/testcases/jdkAll/Eap70x/logging/src/main/java"})
 @ApplicationPath("/rest")
 public class JaxRsActivator extends Application {
 }
