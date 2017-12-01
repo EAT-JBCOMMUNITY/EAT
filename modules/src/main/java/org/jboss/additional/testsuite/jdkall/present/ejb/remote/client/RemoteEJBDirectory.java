@@ -48,30 +48,11 @@ public class RemoteEJBDirectory extends AbstractEJBDirectory {
         // env.setProperty(Context.PROVIDER_URL, String.join(",", EJBClientContext.getCurrent().getConfiguredConnections().stream().map(EJBClientConnection::getDestination).map(URI::toString).collect(Collectors.toList())));
         return env;
     }
-    
-    private static Properties createEnvironment2() {
-        Properties props = new Properties();
-        props.put("org.jboss.ejb.client.scoped.context", true);
-        props.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
-        props.put("remote.connections", "main");
-        props.put("remote.connection.main.host", "localhost");
-        props.put("remote.connection.main.port", "8080");
-        props.put("remote.connection.main.connect.options.org.xnio.Options.READ_TIMEOUT", "11000");
-        props.put("remote.connection.main.connect.options.org.xnio.Options.WRITE_TIMEOUT", "11000");
-        props.put("remote.connection.main.connect.options.org.jboss.remoting3.RemotingOptions.HEARTBEAT_INTERVAL", "11000");
-        
-        return props;
-    }
 
     private final String module;
 
     public RemoteEJBDirectory(String module) throws NamingException {
         super(TX_CONTEXT_NAME, createEnvironment());
-        this.module = module;
-    }
-    
-    public RemoteEJBDirectory(String module, boolean second) throws NamingException {
-        super(TX_CONTEXT_NAME, createEnvironment2());
         this.module = module;
     }
 
