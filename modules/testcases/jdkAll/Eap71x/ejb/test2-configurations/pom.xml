@@ -10,12 +10,12 @@
 
     <parent>
         <groupId>org.jboss</groupId>
-        <artifactId>eap7-additional-testsuite-ejb</artifactId>
+        <artifactId>eap71x-additional-testsuite-ejb</artifactId>
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>eap7-additional-testsuite-ejb-configuration-2</artifactId>
-    <name>eap7 additional testsuite: ejb : configuration-2</name>
+    <artifactId>eap71x-additional-testsuite-ejb-configuration-2</artifactId>
+    <name>eap71x additional testsuite: ejb : configuration-2</name>
             
     <properties>
 	<standalone.conf>../src/test/config/standaloneEap7/standalone.xml</standalone.conf>
