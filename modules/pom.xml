@@ -460,6 +460,49 @@
         </profile>
 
         <profile>
+            <id>eap71x.proposed.jdk8.testsuite</id>
+            <activation>
+                <property>
+                    <name>eap71x-proposed-jdk8</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>prepare</id>
+                                <inherited>false</inherited>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                            <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
+                                            <property name="jboss.folder" value="${JBOSS_FOLDER}" />
+                                            <target name="copy-server-dir"/>
+                                        </ant>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+
+            <modules>
+                <module>testcases/jdk8/Eap71x-Proposed</module>
+            </modules>
+
+        </profile>
+
+        <profile>
             <id>eap70x.jdk8.testsuite</id>
             <activation>
                 <property>
@@ -671,6 +714,49 @@
 
             <modules>
                 <module>testcases/jdkAll/Eap71x</module>
+            </modules>
+            
+        </profile>
+
+        <profile>
+            <id>eap71x.proposed.testsuite</id>
+            <activation>
+                <property>
+                    <name>eap71x-proposed</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>prepare</id>
+                                <inherited>false</inherited>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                            <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
+                                            <property name="jboss.folder" value="${JBOSS_FOLDER}" />
+                                            <target name="copy-server-dir"/>
+                                        </ant>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+
+            <modules>
+                <module>testcases/jdkAll/Eap71x-Proposed</module>
             </modules>
             
         </profile>
