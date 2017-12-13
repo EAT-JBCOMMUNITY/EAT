@@ -28,7 +28,6 @@ import java.util.TimeZone;
 import javax.ejb.ScheduleExpression;
 import org.jboss.as.ejb3.timerservice.schedule.CalendarBasedTimeout;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
-import org.jboss.eap.additional.testsuite.annotations.ATTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -42,7 +41,6 @@ public class CalendarTimeoutTestCase {
      * This is a test to ensure WFLY-9537 will not break this.
      */
     @Test
-    @ATTest({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java#12.0.0.Alpha1"})
     public void testChangeCET2CEST() {
         Calendar start = new GregorianCalendar(TimeZone.getTimeZone("Europe/Berlin"));
         start.clear();
@@ -95,7 +93,6 @@ public class CalendarTimeoutTestCase {
      * This is a test for WFLY-9537
      */
     @Test
-    @ATTest({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java#12.0.0.Alpha1"})
     public void testChangeCEST2CET() {
         Calendar start = new GregorianCalendar(TimeZone.getTimeZone("Europe/Berlin"));
         start.clear();
@@ -145,7 +142,6 @@ public class CalendarTimeoutTestCase {
      * This is a test to ensure WFLY-9537 will not break this.
      */
     @Test
-    @ATTest({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java#12.0.0.Alpha1"})
     public void testChangeUS2Summer() {
         Calendar start = new GregorianCalendar(TimeZone.getTimeZone("America/Los_Angeles"));
         start.clear();
