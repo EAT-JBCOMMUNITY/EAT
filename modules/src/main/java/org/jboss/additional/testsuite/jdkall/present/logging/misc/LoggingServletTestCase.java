@@ -135,7 +135,7 @@ public class LoggingServletTestCase {
         return HttpRequest.get(url + urlPattern, 10, TimeUnit.SECONDS);
     }
 
-    @Test()
+    @Test
     @OperateOnDeployment("DEPLOYMENT1")
     public void testProfiles1() throws Exception {
         performCall("rest/log");
