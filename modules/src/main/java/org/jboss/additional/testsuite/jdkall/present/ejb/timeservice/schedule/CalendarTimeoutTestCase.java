@@ -28,6 +28,8 @@ import java.util.TimeZone;
 import javax.ejb.ScheduleExpression;
 import org.jboss.as.ejb3.timerservice.schedule.CalendarBasedTimeout;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.ATTest;
+import org.jboss.eap.additional.testsuite.annotations.ATFeature;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -40,7 +42,7 @@ public class CalendarTimeoutTestCase {
      * The test should be run similar in any OS/JVM default timezone
      * This is a test to ensure WFLY-9537 will not break this.
      */
-    @Test
+    @ATTest({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java#12.0.0.Alpha1"})
     public void testChangeCET2CEST() {
         Calendar start = new GregorianCalendar(TimeZone.getTimeZone("Europe/Berlin"));
         start.clear();
@@ -93,6 +95,7 @@ public class CalendarTimeoutTestCase {
      * This is a test for WFLY-9537
      */
     @Test
+    @ATFeature(feature={"feature1,feature2,feature3"},minVersion={"1.2.3,1,1"},maxVersion={"2.3.4,12,null"})
     public void testChangeCEST2CET() {
         Calendar start = new GregorianCalendar(TimeZone.getTimeZone("Europe/Berlin"));
         start.clear();
@@ -141,7 +144,7 @@ public class CalendarTimeoutTestCase {
      * The timer should be fired every 15 minutes (absolutely).
      * This is a test to ensure WFLY-9537 will not break this.
      */
-    @Test
+    @ATTest({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java#12.0.0.Alpha1"})
     public void testChangeUS2Summer() {
         Calendar start = new GregorianCalendar(TimeZone.getTimeZone("America/Los_Angeles"));
         start.clear();
