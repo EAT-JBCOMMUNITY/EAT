@@ -210,6 +210,8 @@ INNOVATION
 -----------------------------------
 The innovative part of EAT is creating the test once and testing with any version of the tested software. It may be firstly applied for the JBOSS Servers, but, in general, a similar structure, can be used for creating tests about any software with multiple versions or for multiple software programs that have a part of the testsuite in common.
 
+Another innovative part of the AT structure is that using the annotation @ATFeature, it can create dynamic subsets of tests in order to test dynamically created software programs (using provisioning tools) according to a specific list of features / characteristics.
+
 
 FUTURE DEVELOPMENT
 -----------------------------------
