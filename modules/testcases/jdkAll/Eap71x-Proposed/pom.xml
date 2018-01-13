@@ -385,6 +385,19 @@
         </profile>
 
         <profile>
+            <id>jpaActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>jpa</value>
+                </property>
+            </activation>
+            <modules>
+                <module>jpa</module>
+            </modules>
+        </profile>
+
+        <profile>
 	    <id>all</id>
 	    <activation>
 	        <property>
@@ -397,6 +410,7 @@
 		<module>ejb</module>
 		<module>elytron</module>
 		<module>jaxrs</module>
+                <module>jpa</module>
 		<module>clustering</module>
 		<module>domain</module>
 		<module>domain_management</module>
