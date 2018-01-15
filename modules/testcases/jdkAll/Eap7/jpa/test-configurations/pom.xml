@@ -10,12 +10,12 @@
 
     <parent>
         <groupId>org.jboss</groupId>
-        <artifactId>eap71x-proposed-additional-testsuite-jpa</artifactId>
+        <artifactId>eap7-additional-testsuite-jpa</artifactId>
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>eap71x-proposed-additional-testsuite-jpa-configuration</artifactId>
-    <name>eap71x-proposed additional testsuite: jpa : configuration</name>
+    <artifactId>eap7-additional-testsuite-jpa-configuration</artifactId>
+    <name>eap7 additional testsuite: jpa : configuration</name>
             
     <properties>
         <standalone.conf>${basedir}/../src/test/config/standaloneEap7/standalone-full.xml</standalone.conf>

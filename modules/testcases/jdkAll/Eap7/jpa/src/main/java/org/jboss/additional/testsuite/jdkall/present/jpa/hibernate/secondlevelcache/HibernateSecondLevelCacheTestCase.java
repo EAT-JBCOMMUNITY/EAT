@@ -22,22 +22,15 @@
 
 package org.jboss.additional.testsuite.jdkall.present.jpa.hibernate.secondlevelcache;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.Connection;
-import java.util.LinkedList;
-import java.util.List;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
@@ -47,7 +40,6 @@ import org.jboss.shrinkwrap.api.asset.StringAsset;
 import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
-import static org.junit.Assert.assertTrue;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -58,7 +50,7 @@ import org.junit.runner.RunWith;
  * @author Scott Marlow (based on Madhumita's Hibernate test)
  */
 @RunWith(Arquillian.class)
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/jpa/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/jpa/src/main/java","modules/testcases/jdkAll/Eap7/jpa/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/jpa/src/main/java","modules/testcases/jdkAll/Eap71x/jpa/src/main/java"})
 public class HibernateSecondLevelCacheTestCase {
 
     private static final String FACTORY_CLASS = "<property name=\"hibernate.cache.region.factory_class\">org.jboss.as.jpa.hibernate5.infinispan.InfinispanRegionFactory</property>";
@@ -209,23 +201,7 @@ public class HibernateSecondLevelCacheTestCase {
     }
     
     @Test
-    @RunAsClient
-    public void testWarningLogWithSecondLevelCache() throws IOException {
-        List<String> logfile = new LinkedList<>();
+    public void testWarningLogWithSecondLevelCache() {
         
-        final String logDir = System.getProperty("server.dir")+"/standalone/log";
-        if (logDir == null) {
-            throw new RuntimeException("Could not resolve jboss.server.log.dir");
-        }
-        System.out.println("log : " + logDir);
-        final java.nio.file.Path logFile = Paths.get(logDir, "server.log");
-        if (!Files.notExists(logFile)) {
-            logfile = Files.readAllLines(logFile, StandardCharsets.UTF_8);
-            String log = String.join("\n", logfile);
-            
-            System.out.println("log : " + log);
-            
-            assertTrue("Transactional 2nd level cache warning should not exist ...", !log.contains("Requesting TRANSACTIONAL cache concurrency strategy but the cache is not configured as transactional."));
-        }
     }
 }
