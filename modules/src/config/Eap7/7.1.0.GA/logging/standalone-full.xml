@@ -169,6 +169,28 @@
                         <pattern-formatter pattern="[profile-two] %d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n"/>
                     </formatter>
                 </logging-profile>
+                <logging-profile name="LoggingProfile1">
+                    <file-handler name="App1Handler">
+                        <level name="ALL"/>
+                        <file relative-to="jboss.server.log.dir" path="myapp1.log"/>
+                    </file-handler>
+                    <root-logger>
+                        <handlers>
+                            <handler name="App1Handler"/>
+                        </handlers>
+                    </root-logger>
+                </logging-profile>
+                <logging-profile name="LoggingProfile2">
+                    <file-handler name="App2Handler">
+                        <level name="ALL"/>
+                        <file relative-to="jboss.server.log.dir" path="myapp2.log"/>
+                    </file-handler>
+                    <root-logger>
+                        <handlers>
+                            <handler name="App2Handler"/>
+                        </handlers>
+                    </root-logger>
+                </logging-profile>
             </logging-profiles>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:batch-jberet:2.0">

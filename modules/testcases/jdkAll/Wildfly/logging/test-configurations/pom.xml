@@ -87,6 +87,18 @@
 	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
 	                            <target name="build-basic-check"/>
 	                        </ant>
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
+	                            <property name="fileName" value="Application1-ear-0.0.1-SNAPSHOT.ear" />
+                                    <property name="filePath" value="${jboss.modules.dir}/servers/${server}/build/target/jbossas/standalone/deployments" />
+                                    <property name="fileToCopy" value="${basedir}/src/test/resources/Application1-ear-0.0.1-SNAPSHOT.ear" />
+	                            <target name="copy-file"/>
+	                        </ant>
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
+	                            <property name="fileName" value="Application2-ear-0.0.1-SNAPSHOT.ear" />
+                                    <property name="filePath" value="${jboss.modules.dir}/servers/${server}/build/target/jbossas/standalone/deployments" />
+                                    <property name="fileToCopy" value="${basedir}/src/test/resources/Application2-ear-0.0.1-SNAPSHOT.ear" />
+	                            <target name="copy-file"/>
+	                        </ant>
 	                    </target>
 	                </configuration>
 	            </execution>
