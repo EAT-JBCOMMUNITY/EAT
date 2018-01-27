@@ -75,21 +75,11 @@
                     <groupId>org.jboss.spec.javax.servlet</groupId>
                     <artifactId>jboss-servlet-api_3.1_spec</artifactId>
                 </dependency>
-                <!--dependency>
-                    <groupId>org.hibernate</groupId>
-                    <artifactId>hibernate-search-analyzers</artifactId>
-                    <version>4.5.3.Final</version>
-                    <exclusions>
-			<exclusion>
-			    <groupId>org.apache.lucene</groupId>
-			    <artifactId>lucene-analyzers</artifactId>
-			</exclusion>
-                        <exclusion>
-			    <groupId>org.apache.solr</groupId>
-			    <artifactId>solr-analysis-extras</artifactId>
-			</exclusion>
-		    </exclusions> 
-                </dependency-->
+                <dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.7</version>
+		</dependency>
                 <dependency>
                     <groupId>org.jboss.osgi.metadata</groupId>
                     <artifactId>jbosgi-metadata</artifactId>
