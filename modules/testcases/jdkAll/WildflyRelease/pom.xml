@@ -131,6 +131,11 @@
 		    </exclusions> 
                 </dependency>
                 <dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.7</version>
+		</dependency>
+                <dependency>
                     <groupId>org.jboss.osgi.metadata</groupId>
                     <artifactId>jbosgi-metadata</artifactId>
                     <version>2.2.0.Final</version>
