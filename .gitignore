@@ -8,7 +8,6 @@ nb-*
 jboss.xml
 profiles.xml
 .war
-modules/testcases/**/src/main/java/*.java
 modules/testcases/**/security/test-configurations/securityRoles.war
 
 
@@ -16,6 +15,7 @@ modules/testcases/**/security/test-configurations/securityRoles.war
 target
 remoteSrc
 src/test/config
+modules/testcases/**/src/
 
 .idea
 .settings
