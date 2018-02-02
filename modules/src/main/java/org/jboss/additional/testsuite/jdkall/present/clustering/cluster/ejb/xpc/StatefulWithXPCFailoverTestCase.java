@@ -49,6 +49,7 @@ import org.jboss.additional.testsuite.jdkall.present.clustering.cluster.ejb.xpc.
 import org.jboss.additional.testsuite.jdkall.present.clustering.cluster.ejb.xpc.servlet.StatefulServlet;
 import org.jboss.additional.testsuite.jdkall.present.clustering.ejb.EJBDirectory;
 import org.jboss.as.test.http.util.TestHttpClientUtils;
+import org.jboss.eap.additional.testsuite.annotations.ATTest;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
@@ -65,7 +66,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/clustering/src/main/java","modules/testcases/jdkAll/Eap7/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/clustering/src/main/java#10.0.0.Final*11.0.0.Final","modules/testcases/jdkAll/Eap7/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
 public class StatefulWithXPCFailoverTestCase extends ClusterAbstractTestCase {
 
     private static final String persistence_xml =
@@ -190,7 +191,7 @@ public class StatefulWithXPCFailoverTestCase extends ClusterAbstractTestCase {
         }
     }
 
-    @Test
+    @ATTest({"modules/testcases/jdkAll/Wildfly/clustering/src/main/java#10.0.0.Final*11.0.0.Final","modules/testcases/jdkAll/Eap7/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
     public void testBasicXPC(
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_1) URL baseURL1,
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_2) URL baseURL2)
