@@ -20,7 +20,7 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-package org.jboss.additional.testsuite.jdkall.present.clustering.cluster.ejb.remote;
+package org.jboss.additional.testsuite.jdkall.past.clustering.cluster.ejb.remote;
 
 import java.util.PropertyPermission;
 
