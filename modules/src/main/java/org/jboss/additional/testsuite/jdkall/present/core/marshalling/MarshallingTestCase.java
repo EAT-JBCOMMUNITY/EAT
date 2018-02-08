@@ -49,7 +49,6 @@ import org.junit.runner.RunWith;
 
 import java.util.Arrays;
 import java.util.List;
-import static org.hibernate.validator.internal.util.Contracts.assertTrue;
 import org.jboss.marshalling.InputStreamByteInput;
 import org.jboss.marshalling.MarshallingConfiguration;
 import org.jboss.marshalling.OutputStreamByteOutput;
@@ -126,7 +125,7 @@ public class MarshallingTestCase {
         } catch(InvalidObjectException ioe) {
         	// This is expected behavior
     	} catch(Exception e) {
-            assertTrue(false,"testNoDefaultConstructor has failed.");
+            Assert.assertTrue("testNoDefaultConstructor has failed.",false);
     	}         
     }  
     
