@@ -61,6 +61,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.ATTest;
 
 /**
  * Validates failover of a SFSB in different contexts
@@ -223,7 +224,7 @@ public class StatefulFailoverTestCase extends ClusterAbstractTestCase {
     /**
      * Validates failover on server restart of a simple @Stateful bean
      */
-    @Test
+    @ATTest({"modules/testcases/jdkAll/Wildfly/clustering/src/main/java#10.0.0.Final*11.0.0.Final","modules/testcases/jdkAll/Eap7/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
     public void failoverOnStop(
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_1) URL baseURL1,
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_2) URL baseURL2) throws Exception {
