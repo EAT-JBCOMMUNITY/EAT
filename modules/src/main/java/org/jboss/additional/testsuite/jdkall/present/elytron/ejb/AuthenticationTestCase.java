@@ -78,7 +78,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
  * @author <a href="mailto:cdewolf@redhat.com">Carlo de Wolf</a>
  * @author <a href="mailto:darran.lofthouse@jboss.com">Darran Lofthouse</a>
  */
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/elytron/src/main/java#12.0.0.Alpha1","modules/testcases/jdkAll/Eap7/elytron/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/elytron/src/main/java","modules/testcases/jdkAll/Eap71x/elytron/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/elytron/src/main/java#12.0.0.Alpha1"})
 @RunWith(Arquillian.class)
 @ServerSetup({ AuthenticationTestCase.EjbSecurityDomainSetup.class })
 @Category(CommonCriteria.class)
