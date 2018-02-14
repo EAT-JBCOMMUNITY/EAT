@@ -12,7 +12,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
-//@apAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java","modules/testcases/jdkAll/Eap7/ejb/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/ejb/src/main/java","modules/testcases/jdkAll/Eap71x/ejb/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java","modules/testcases/jdkAll/Eap7/ejb/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/ejb/src/main/java","modules/testcases/jdkAll/Eap71x/ejb/src/main/java"})
 public class RemoteEJBClientManualTest {
 
     private static String result = null;
@@ -22,7 +22,7 @@ public class RemoteEJBClientManualTest {
         try {
             Thread t = new Thread(){
                 public void run(){
-                    Properties props = new Properties();
+              /*      Properties props = new Properties();
                     props.put("org.jboss.ejb.client.scoped.context", true);
                     props.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
                     props.put("remote.connections", "main");
@@ -31,11 +31,11 @@ public class RemoteEJBClientManualTest {
                     props.put("remote.connection.main.connect.options.org.xnio.Options.READ_TIMEOUT", "11000");
                     props.put("remote.connection.main.connect.options.org.xnio.Options.WRITE_TIMEOUT", "11000");
                     props.put("remote.connection.main.connect.options.org.jboss.remoting3.RemotingOptions.HEARTBEAT_INTERVAL", "11000");
-            
+            */
                     InitialContext ctx = null;
                         
                     try {
-                        ctx = new InitialContext(props);
+                        ctx = new InitialContext();
                         
                         String lookupName = "ejb:/server/HelloBean!ejb.HelloBeanRemote";
                         // Invoke a stateless bean
