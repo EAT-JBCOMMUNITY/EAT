@@ -5,7 +5,9 @@
  */
 package org.jboss.pmparser;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
@@ -16,12 +18,17 @@ import org.w3c.dom.NodeList;
 /**
  *
  * @author panos
+ * 
+ * ProvisionedXmlPath env variable should be set to the path where the provisioned.xml file exists
+ * The output is a feature.txt file with the features and the feature versions of the provisioned server for various standalone configs
+ * 
  */
 public class PMparser {
 
     public static void main(String[] args) {
-        System.setProperty("ProvisionedXmlPath", "/home/panos/pm-test/.pm");
+    //    System.setProperty("ProvisionedXmlPath", "/home/panos/pm-test/.pm");
         String filePath = System.getProperty("ProvisionedXmlPath");
+        StringBuilder sb = new StringBuilder();
 
         try {
             File inputFile = new File(filePath + "/provisioned.xml");
@@ -41,6 +48,7 @@ public class PMparser {
                     Element eElement = (Element) nNode;
                     System.out.println("config name : "
                             + eElement.getAttribute("name"));
+                    sb.append("config name : " + eElement.getAttribute("name") + "\n");
                     NodeList nList2 = eElement.getElementsByTagName("spec");
 
                     for (int temp2 = 0; temp2 < nList2.getLength(); temp2++) {
@@ -51,6 +59,7 @@ public class PMparser {
                             Element eElement2 = (Element) nNode2;
                             System.out.println("spec name : "
                                     + eElement2.getAttribute("name"));
+                            sb.append("spec name : " + eElement2.getAttribute("name") + "\n");
                             NodeList nList3 = eElement2.getElementsByTagName("feature");
 
                             for (int temp3 = 0; temp3 < nList3.getLength(); temp3++) {
@@ -61,12 +70,22 @@ public class PMparser {
                                     Element eElement3 = (Element) nNode3;
                                     System.out.println("feature id : "
                                             + eElement3.getAttribute("id"));
+                                    int end = eElement3.getAttribute("id").indexOf("#");
+                                    int start = eElement3.getAttribute("id").substring(0, end).lastIndexOf(":");
+                                    String version = eElement3.getAttribute("id").substring(start+1, end);
+                                    sb.append("feature id : " + eElement3.getAttribute("id").replace(":" + version, "") + "\n");
+                                    sb.append("version : " + version + "\n");
                                 }
                             }
                         }
                     }
-
+                    sb.append("\n");
                 }
+            }
+            
+            File file = new File(filePath + "/features.txt");
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+                writer.write(sb.toString());
             }
         } catch (Exception e) {
             e.printStackTrace();
