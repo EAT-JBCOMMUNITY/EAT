@@ -81,6 +81,7 @@ public class JaxbProviderDeserializationSecurityCheckTestCase {
 
         try{
             BogusPointcutAdvisor jaxbModel = new ObjectMapper().configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false).readValue(result, BogusPointcutAdvisor.class);
+            Assert.fail();
         }catch(JsonMappingException e){
             Assert.assertTrue("Should prevente json deserialization because of security reasons.", e.getMessage().contains("Illegal type"));
         }
