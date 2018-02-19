@@ -56,7 +56,7 @@ import org.springframework.jacksontest.BogusPointcutAdvisor;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-//@apAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7/jaxrs/src/main/java","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap70x/jaxrs/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7/jaxrs/src/main/java","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap70x/jaxrs/src/main/java"})
 public class JaxbProviderDeserializationSecurityCheckTestCase {
 
     @Deployment(testable = false)
