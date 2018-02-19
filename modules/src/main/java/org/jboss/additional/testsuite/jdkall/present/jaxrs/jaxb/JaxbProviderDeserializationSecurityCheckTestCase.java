@@ -32,6 +32,8 @@ import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.as.test.integration.common.HttpRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import org.jboss.resteasy.client.jaxrs.ResteasyClient;
+import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
@@ -39,7 +41,13 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.springframework.jacksontest.BogusApplicationContext;
 import org.springframework.jacksontest.BogusPointcutAdvisor;
+
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  * Tests a JAX-RS deployment without an application bundled.
@@ -56,7 +64,7 @@ import org.springframework.jacksontest.BogusPointcutAdvisor;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-//@apAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7/jaxrs/src/main/java","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap70x/jaxrs/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java"})
 public class JaxbProviderDeserializationSecurityCheckTestCase {
 
     @Deployment(testable = false)
@@ -64,7 +72,10 @@ public class JaxbProviderDeserializationSecurityCheckTestCase {
         WebArchive war = ShrinkWrap.create(WebArchive.class,"jaxrssecurity.war");
         war.addPackage(HttpRequest.class.getPackage());
         war.addClasses(JaxbProviderDeserializationSecurityCheckTestCase.class, JaxbResourceDeserializationSecurityCheck.class,ExampleApplication.class,
-                       org.springframework.jacksontest.BogusPointcutAdvisor.class, org.springframework.jacksontest.AbstractPointcutAdvisor.class);
+                       org.springframework.jacksontest.BogusPointcutAdvisor.class, org.springframework.jacksontest.AbstractPointcutAdvisor.class,
+                       org.springframework.jacksontest.BogusApplicationContext.class, org.springframework.jacksontest.AbstractApplicationContext.class,
+                       org.apache.ibatis.datasource.jndi.JndiDataSourceFactory.class, org.hibernate.jmx.StatisticsService.class,
+                       TestMapperResolver.class);
         return war;
     }
 
@@ -76,8 +87,8 @@ public class JaxbProviderDeserializationSecurityCheckTestCase {
     }
 
     @Test
-    public void testJaxRsWithNoApplication() throws Exception {
-        String result = performCall("rest/jaxb");
+    public void testPointcutAdvisor() throws Exception {
+        String result = performCall("rest/jaxb/advisor");
 
         try{
             BogusPointcutAdvisor jaxbModel = new ObjectMapper().configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false).readValue(result, BogusPointcutAdvisor.class);
@@ -85,8 +96,61 @@ public class JaxbProviderDeserializationSecurityCheckTestCase {
         }catch(JsonMappingException e){
             Assert.assertTrue("Should prevente json deserialization because of security reasons.", e.getMessage().contains("Illegal type"));
         }
-    
+
     }
+
+    @Test
+    public void testApplicationContext() throws Exception {
+        String result = performCall("rest/jaxb/appcontext");
+
+        try{
+            BogusApplicationContext jaxbModel = new ObjectMapper().configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false).readValue(result, BogusApplicationContext.class);
+            Assert.fail("Should prevente json deserialization because of security reasons.");
+        }catch(JsonMappingException e){
+            Assert.assertTrue("Should prevente json deserialization because of security reasons.", e.getMessage().contains("Illegal type"));
+        }
+
+    }
+
+    @Test
+    public void testStatisticsService(){
+        doRequestAndExpectIllegalTypeMessage(getStatisticsService());
+    }
+
+    @Test
+    public void testMyBatisJndiDataSourceFactory(){
+        doRequestAndExpectIllegalTypeMessage(getMyBatisJndiDataSourceFactory());
+    }
+
+    private void doRequestAndExpectIllegalTypeMessage(String nastyJson) {
+        ResteasyClient client = null;
+        Response response = null;
+        try {
+            client = new ResteasyClientBuilder().build();
+            Invocation.Builder request = client.target(url + "rest/jaxb/bad").request();
+            response = request.post(Entity.entity(nastyJson, MediaType.APPLICATION_JSON_TYPE));
+            Assert.assertEquals("The request should fail because of security reasons!", 400, response.getStatus());
+            Assert.assertTrue("The response should contain \"Illegal type\"", response.readEntity(String.class).contains("Illegal type"));
+        } finally {
+            response.close();
+            client.close();
+        }
+    }
+
+    private String getMyBatisJndiDataSourceFactory(){
+        String s = "['org.apache.ibatis.datasource.jndi.JndiDataSourceFactory',{'properties':{'data_source':'ldap://localhost:1389/obj'}}]";
+        return aposToQuotes(s);
+    }
+
+    private String getStatisticsService(){
+        String s = "['org.hibernate.jmx.StatisticsService',{'sessionFactoryJNDIName':'ldap://localhost:1389/obj'}]";
+        return aposToQuotes(s);
+    }
+
+    private String aposToQuotes(String json) {
+        return json.replace("'", "\"");
+    }
+
 
 
 }
