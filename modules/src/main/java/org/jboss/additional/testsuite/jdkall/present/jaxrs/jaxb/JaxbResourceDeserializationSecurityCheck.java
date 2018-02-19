@@ -21,12 +21,16 @@
  */
 package org.jboss.additional.testsuite.jdkall.present.jaxrs.jaxb;
 
+import org.springframework.jacksontest.BogusApplicationContext;
 import org.springframework.jacksontest.BogusPointcutAdvisor;
 import java.io.IOException;
 import java.rmi.RemoteException;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 
@@ -35,10 +39,29 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 @EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7/jaxrs/src/main/java","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap70x/jaxrs/src/main/java"})
 public class JaxbResourceDeserializationSecurityCheck {
     @GET
-    @Produces("application/json")
-    public Response get() throws RemoteException, IOException {
+    @Path("advisor")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getAdvisor() throws RemoteException, IOException {
         BogusPointcutAdvisor obj = new BogusPointcutAdvisor();
 
         return Response.ok().entity(obj).build();
     }
+
+    @GET
+    @Path("appcontext")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getAppContext() throws RemoteException, IOException {
+        BogusApplicationContext obj = new BogusApplicationContext();
+
+        return Response.ok().entity(obj).build();
+    }
+
+    @POST
+    @Path("bad")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response uhoh(Object o) throws Exception {
+        System.out.println(o.getClass().getName());
+        return Response.ok(o.getClass().getName()).build();
+    }
+
 }
