@@ -219,6 +219,7 @@ FUTURE DEVELOPMENT
 2. Create different categories of ATs (Additional Testsuites) : e.g. ATs for features could be different from ATs for bugs.
 3. Use AT structures for testing containers (e.g. using Arquillian cube)
 4. Create a framework that will combine all ATs (Additional Testsuites), e.g. EAT, JBTAT, etc. The user would be able to add a test to whichever testsuite he/she would choose. Furthermore, the user should be able to add more ATs in this framework, according to the software project of usage.
+5. NEXT GENERATION AT STRUCTURES : The tests should be independent modules that will have dependencies on libraries and other tests. A management tool should compose the composed distributed test cases to the appropriate subcategories.
 
 
 MOJO DOCUMENTATION
