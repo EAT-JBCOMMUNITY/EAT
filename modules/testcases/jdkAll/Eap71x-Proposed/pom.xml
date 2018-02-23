@@ -407,7 +407,6 @@
             <modules>
                 <module>basic</module>
 		<module>core</module>
-		<module>ejb</module>
 		<module>elytron</module>
 		<module>jaxrs</module>
                 <module>jpa</module>
@@ -421,6 +420,7 @@
 		<module>server</module>
 		<module>web</module>
 		<module>weld</module> 
+                <module>ejb</module>
             </modules>
         </profile>
     
