@@ -43,6 +43,7 @@ import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.ATTest;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -80,7 +81,7 @@ public class MarshallingTestCase {
         return archive;
     }
 
-    @Test
+    @ATTest({"modules/testcases/jdkAll/Wildfly/core/src/main/java#10.0.0.Final*11.0.0.Beta1"})
     public void deserializationTest() throws Exception {
         RiverMarshallerFactory factory = new RiverMarshallerFactory();  
 	    MarshallingConfiguration configuration = new MarshallingConfiguration();  
