@@ -10,7 +10,7 @@ Write your tests once and run them against any version of EAP and WILDFLY applic
 
 
 
-In order to synchronize the dependecny versions of eap-additional-testsuite with the component versions of the equivalent server you can run the additional-testsuite using -Dstandalone or -Dserver-integration property.
+In order to synchronize the dependency versions of eap-additional-testsuite with the component versions of the equivalent server you can run the additional-testsuite using -Dstandalone or -Dserver-integration property.
 
 Standalone Mode
 ---------------
