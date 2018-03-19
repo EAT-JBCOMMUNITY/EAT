@@ -16,18 +16,18 @@
 
     <artifactId>wildfly-additional-testsuite-server-configuration</artifactId>
     <name>wildfly additional testsuite: server : configuration</name>
-            
+
     <properties>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
     </properties>
-        
+
     <build>
 
         <!--
 	    Surefire test executions
 	 -->
-	 <plugins>  
-		            
+	 <plugins>
+
 	    <plugin>
 		<groupId>org.apache.maven.plugins</groupId>
 		<artifactId>maven-surefire-plugin</artifactId>
@@ -42,6 +42,13 @@
                         <additionalClasspathElement>${jboss.modules.dir}/src/config/arqWildfly</additionalClasspathElement>
                     </additionalClasspathElements>
 
+					<systemProperties>
+						<property>
+							<name>java.util.logging.manager</name>
+							<value>org.jboss.logmanager.LogManager</value>
+						</property>
+					</systemProperties>
+
                 </configuration>
 
 		<executions>
@@ -51,11 +58,11 @@
 		        <goals>
 		            <goal>test</goal>
 		        </goals>
-		        <configuration>         
+		        <configuration>
 		            <!-- Tests to execute. -->
 		            <includes>
 		                <include>org/jboss/additional/testsuite/jdkall/present/server/**/*TestCase.java</include>
-		            </includes> 
+		            </includes>
 		        </configuration>
 		    </execution>
 		</executions>
@@ -90,8 +97,8 @@
 	            </execution>
 	        </executions>
 	    </plugin>
-        </plugins> 
-		            
+        </plugins>
+
     </build>
 
 </project>
