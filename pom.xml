@@ -55,12 +55,12 @@
         <dependency>
             <groupId>org.jboss.eap.additional.testsuite</groupId>
             <artifactId>eap-additional-testsuite-source-distribution</artifactId>
-            <version>1.0.5.Final</version>
+            <version>1.0.6.Final</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.eap.additional.testsuite</groupId>
             <artifactId>eap-additional-testsuite-annotations</artifactId>
-            <version>1.0.5.Final</version>
+            <version>1.0.6.Final</version>
         </dependency>
     </dependencies>
 
@@ -1196,6 +1196,7 @@
 		               <argument>versionOrder</argument>
                                <argument>${DISABLE_TESTS}</argument>
                                <argument>${FEATURE_LIST}</argument>
+                               <argument>${PM_FEATURES}</argument>
 			   </arguments>
 		        </configuration>
 	            </execution>
@@ -1213,6 +1214,7 @@
 		               <argument>${serverDir}</argument>
 		               <argument>${JBOSS_VERSION}</argument>
 		               <argument>versionOrder</argument>
+                               <argument></argument>
                                <argument></argument>
                                <argument></argument>
 			   </arguments>
