@@ -21,7 +21,7 @@
     <version>1.0.3.Final</version>
 
     <name>wildfly additional testsuite: additional testsuite for wildfly</name>
-    
+
     <profiles>
         <profile>
             <id>standalone</id>
@@ -43,7 +43,7 @@
                     </dependency>
                 </dependencies>
             </dependencyManagement>
-            
+
             <dependencies>
                 <dependency>
                     <groupId>org.wildfly.arquillian</groupId>
@@ -128,7 +128,7 @@
 			    <groupId>org.apache.solr</groupId>
 			    <artifactId>solr-analysis-extras</artifactId>
 			</exclusion>
-		    </exclusions> 
+		    </exclusions>
                 </dependency-->
                 <dependency>
                     <groupId>org.jboss.osgi.metadata</groupId>
@@ -155,7 +155,7 @@
                     <artifactId>javax.enterprise.concurrent-api</artifactId>
                     <version>1.0</version>
                 </dependency>
-            </dependencies>   
+            </dependencies>
 
         </profile>
 
@@ -179,7 +179,7 @@
                     </dependency>
                 </dependencies>
             </dependencyManagement>
-            
+
             <dependencies>
                 <dependency>
                     <groupId>org.wildfly.arquillian</groupId>
@@ -263,7 +263,7 @@
 			    <groupId>org.apache.solr</groupId>
 			    <artifactId>solr-analysis-extras</artifactId>
 			</exclusion>
-		    </exclusions> 
+		    </exclusions>
                 </dependency>
                 <dependency>
                     <groupId>org.jboss.osgi.metadata</groupId>
@@ -290,7 +290,7 @@
                     <artifactId>javax.enterprise.concurrent-api</artifactId>
                     <version>1.0</version>
                 </dependency>
-            </dependencies>   
+            </dependencies>
 
         </profile>
 
@@ -524,15 +524,15 @@
 		<module>security</module>
 		<module>server</module>
 		<module>web</module>
-		<module>weld</module> 
+		<module>weld</module>
                 <module>ejb</module>
             </modules>
         </profile>
 
     </profiles>
-  
+
     <build>
-        <plugins>  
+        <plugins>
 
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
