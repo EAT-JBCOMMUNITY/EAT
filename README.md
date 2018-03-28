@@ -242,6 +242,8 @@ EAP-ADDITIONAL-TESTSUITE WORKSHOP
 ---------------------------------
 [Eap Additional Testsuite Workshop](https://www.dropbox.com/s/bebhyd1iz7cg1i2/EAT_WORKSHOP.odt?dl=0)
 
+[Eap Additional Testsuite Workshop (Download)](https://drive.google.com/open?id=1iRT_FoRxj2tOcIPD42mUQpqcbDxuczCy)
+
 
 EAP-ADDITIONAL-TESTSUITE as a COLLABORATION PROJECT
 ---------------------------------------------------
