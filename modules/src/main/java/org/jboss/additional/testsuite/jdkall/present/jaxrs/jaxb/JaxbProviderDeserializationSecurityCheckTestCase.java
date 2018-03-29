@@ -43,11 +43,13 @@ import org.junit.runner.RunWith;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 import org.springframework.jacksontest.BogusApplicationContext;
 import org.springframework.jacksontest.BogusPointcutAdvisor;
+import com.mchange.v2.c3p0.jacksonTest.ComboPooledDataSource;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import org.jboss.eap.additional.testsuite.annotations.ATTest;
 
 /**
  * Tests a JAX-RS deployment without an application bundled.
@@ -75,7 +77,7 @@ public class JaxbProviderDeserializationSecurityCheckTestCase {
                        org.springframework.jacksontest.BogusPointcutAdvisor.class, org.springframework.jacksontest.AbstractPointcutAdvisor.class,
                        org.springframework.jacksontest.BogusApplicationContext.class, org.springframework.jacksontest.AbstractApplicationContext.class,
                        org.apache.ibatis.datasource.jndi.JndiDataSourceFactory.class, org.hibernate.jmx.StatisticsService.class,
-                       TestMapperResolver.class);
+                       TestMapperResolver.class,com.mchange.v2.c3p0.jacksonTest.ComboPooledDataSource.class);
         return war;
     }
 
@@ -105,6 +107,19 @@ public class JaxbProviderDeserializationSecurityCheckTestCase {
 
         try{
             BogusApplicationContext jaxbModel = new ObjectMapper().configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false).readValue(result, BogusApplicationContext.class);
+            Assert.fail("Should prevente json deserialization because of security reasons.");
+        }catch(JsonMappingException e){
+            Assert.assertTrue("Should prevente json deserialization because of security reasons.", e.getMessage().contains("Illegal type"));
+        }
+
+    }
+    
+    @ATTest({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#14.0.0","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java#7.1.3"})
+    public void testMChangeV2C3p0() throws Exception {
+        String result = performCall("rest/jaxb/mchange");
+
+        try{
+            ComboPooledDataSource jaxbModel = new ObjectMapper().configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false).readValue(result, ComboPooledDataSource.class);
             Assert.fail("Should prevente json deserialization because of security reasons.");
         }catch(JsonMappingException e){
             Assert.assertTrue("Should prevente json deserialization because of security reasons.", e.getMessage().contains("Illegal type"));

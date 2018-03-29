@@ -21,6 +21,9 @@
  */
 package org.jboss.additional.testsuite.jdkall.present.jaxrs.jaxb;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.mchange.v2.c3p0.jacksonTest.ComboPooledDataSource;
 import org.springframework.jacksontest.BogusApplicationContext;
 import org.springframework.jacksontest.BogusPointcutAdvisor;
 import java.io.IOException;
@@ -46,6 +49,20 @@ public class JaxbResourceDeserializationSecurityCheck {
 
         return Response.ok().entity(obj).build();
     }
+    
+    @GET
+    @Path("mchange")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getComboPooledDataSource() throws RemoteException, IOException {
+        ComboPooledDataSource obj = new ComboPooledDataSource();
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+        // do various things, perhaps:
+        String objJsonString = mapper.writeValueAsString(obj);
+
+        return Response.ok().entity(objJsonString).build();
+    }
+
 
     @GET
     @Path("appcontext")
