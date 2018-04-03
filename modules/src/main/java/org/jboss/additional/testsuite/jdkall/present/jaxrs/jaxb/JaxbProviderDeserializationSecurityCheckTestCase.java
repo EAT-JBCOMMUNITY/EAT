@@ -49,6 +49,7 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import org.jboss.eap.additional.testsuite.annotations.EATDPM;
 import org.jboss.eap.additional.testsuite.annotations.ATTest;
 
 /**
@@ -67,6 +68,7 @@ import org.jboss.eap.additional.testsuite.annotations.ATTest;
 @RunWith(Arquillian.class)
 @RunAsClient
 @EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java"})
+@EATDPM(config="standalone.xml", features={"org.wildfly:wildfly-feature-pack-new#jaxrs:subsystem=jaxrs"}, minVersions={"12.0.0.Final"}, maxVersions={"null"}, isClassAnnotation="true")
 public class JaxbProviderDeserializationSecurityCheckTestCase {
 
     @Deployment(testable = false)
@@ -114,7 +116,7 @@ public class JaxbProviderDeserializationSecurityCheckTestCase {
 
     }
     
-    @ATTest({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#14.0.0","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java#7.1.3"})
+    @ATTest({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#14.0.0.Final","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java#7.1.3"})
     public void testMChangeV2C3p0() throws Exception {
         String result = performCall("rest/jaxb/mchange");
 
