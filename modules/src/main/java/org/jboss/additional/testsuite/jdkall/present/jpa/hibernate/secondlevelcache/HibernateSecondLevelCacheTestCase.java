@@ -41,6 +41,7 @@ import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.ATTest;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
@@ -208,8 +209,8 @@ public class HibernateSecondLevelCacheTestCase {
         }
     }
     
-    @Test
     @RunAsClient
+    @ATTest({"modules/testcases/jdkAll/Wildfly/jpa/src/main/java#12.0.0.Final","modules/testcases/jdkAll/Eap71x-Proposed/jpa/src/main/java#7.1.1","modules/testcases/jdkAll/Eap71x/jpa/src/main/java#7.1.1"})
     public void testWarningLogWithSecondLevelCache() throws IOException {
         List<String> logfile = new LinkedList<>();
         
