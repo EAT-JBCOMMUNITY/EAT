@@ -55,12 +55,12 @@
         <dependency>
             <groupId>org.jboss.eap.additional.testsuite</groupId>
             <artifactId>eap-additional-testsuite-source-distribution</artifactId>
-            <version>1.0.7.Final</version>
+            <version>1.0.9.Final</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.eap.additional.testsuite</groupId>
             <artifactId>eap-additional-testsuite-annotations</artifactId>
-            <version>1.0.7.Final</version>
+            <version>1.0.9.Final</version>
         </dependency>
     </dependencies>
 
