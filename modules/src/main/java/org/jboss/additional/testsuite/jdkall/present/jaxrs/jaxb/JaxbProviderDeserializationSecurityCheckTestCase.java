@@ -69,6 +69,7 @@ import org.jboss.eap.additional.testsuite.annotations.ATTest;
 @RunAsClient
 @EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java"})
 @EATDPM(config="standalone.xml", features={"org.wildfly:wildfly-feature-pack-new#jaxrs:subsystem=jaxrs"}, minVersions={"12.0.0.Final"}, maxVersions={"null"}, isClassAnnotation="true")
+//@EATDPM(config="standalone.xml", features={"org.wildfly:wildfly-feature-pack-new#subsystem.jaxrs:subsystem=jaxrs"}, minVersions={"12.0.0.Final"}, maxVersions={"null"}, isClassAnnotation="true")
 public class JaxbProviderDeserializationSecurityCheckTestCase {
 
     @Deployment(testable = false)
