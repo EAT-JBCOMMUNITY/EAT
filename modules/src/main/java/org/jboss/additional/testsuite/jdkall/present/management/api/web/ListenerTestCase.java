@@ -38,18 +38,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.as.arquillian.api.ServerSetup;
 import org.jboss.as.controller.operations.common.Util;
-import org.jboss.as.test.http.util.TestHttpClientUtils;
 import org.jboss.as.test.integration.common.HttpRequest;
 import org.jboss.as.test.integration.management.Listener;
 import org.jboss.as.test.integration.management.base.ContainerResourceMgmtTestBase;
@@ -124,7 +118,7 @@ public class ListenerTestCase extends ContainerResourceMgmtTestBase {
     public void testAddAndRemoveRollbacks() throws Exception {
 
         // execute and rollback add socket
-        ModelNode addSocketOp = getAddSocketBindingOp(Listener.HTTPJIO);
+        ModelNode addSocketOp = getAddSocketBindingOp(Listener.HTTP);
         ModelNode ret = executeAndRollbackOperation(addSocketOp);
         assertTrue("failed".equals(ret.get("outcome").asString()));
 
@@ -132,7 +126,7 @@ public class ListenerTestCase extends ContainerResourceMgmtTestBase {
         executeOperation(addSocketOp);
 
         // execute and rollback add connector
-        ModelNode addConnectorOp = getAddListenerOp(Listener.HTTPJIO);
+        ModelNode addConnectorOp = getAddListenerOp(Listener.HTTP);
         ret = executeAndRollbackOperation(addConnectorOp);
         assertTrue("failed".equals(ret.get("outcome").asString()));
 
@@ -140,10 +134,10 @@ public class ListenerTestCase extends ContainerResourceMgmtTestBase {
         executeOperation(addConnectorOp);
 
         // check it is listed
-        assertTrue(getListenerList().get("http").contains("test-" + Listener.HTTPJIO.getName() + "-listener"));
+        assertTrue(getListenerList().get("http").contains("test-" + Listener.HTTP.getName() + "-listener"));
 
         // execute and rollback remove connector
-        ModelNode removeConnOp = getRemoveConnectorOp(Listener.HTTPJIO);
+        ModelNode removeConnOp = getRemoveConnectorOp(Listener.HTTP);
         ret = executeAndRollbackOperation(removeConnOp);
         assertEquals("failed", ret.get("outcome").asString());
 
@@ -157,7 +151,7 @@ public class ListenerTestCase extends ContainerResourceMgmtTestBase {
         assertFalse("Connector not removed.", WebUtil.testHttpURL(cURL));
 
         // execute and rollback remove socket binding
-        ModelNode removeSocketOp = getRemoveSocketBindingOp(Listener.HTTPJIO);
+        ModelNode removeSocketOp = getRemoveSocketBindingOp(Listener.HTTP);
         ret = executeAndRollbackOperation(removeSocketOp);
         assertEquals("failed", ret.get("outcome").asString());
 
