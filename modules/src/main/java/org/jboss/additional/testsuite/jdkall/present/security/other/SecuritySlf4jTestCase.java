@@ -22,7 +22,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.ext.EventData;
 
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/security/src/main/java"})//,"modules/testcases/jdkAll/Eap71x-Proposed/security/src/main/java","modules/testcases/jdkAll/Eap71x/security/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/security/src/main/java","modules/testcases/jdkAll/Eap71x/security/src/main/java"})
 public class SecuritySlf4jTestCase {
 
 
@@ -31,11 +31,11 @@ public class SecuritySlf4jTestCase {
 
         String xml = new String("<?xml version='1.0' encoding='utf-8'?>"
 			+ "<test>test</test>");
-        try{
-	    EventData e = new EventData(xml);
-            Assert.fail();
-        }catch(Exception e){
-            Assert.assertTrue("EventData constructor should through an SecurityException.", true);
+        try {
+            EventData e = new EventData(xml);
+            Assert.fail("EventData constructor should throw a SecurityException.");
+        } catch(SecurityException e){
+            // this is expected
         }
 
     }
