@@ -31,14 +31,13 @@ import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
-import org.jboss.shrinkwrap.api.importer.ZipImporter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import static org.junit.Assert.assertFalse;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-//@AdditionalTestsuite({"modules/testcases/jdkAll/WildflyRelease/server/src/main/java#11.0.0-Final","modules/testcases/jdkAll/Wildfly/server/src/main/java#11.0.0-Alpha1"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/WildflyRelease/server/src/main/java#11.0.0-Final","modules/testcases/jdkAll/Wildfly/server/src/main/java#11.0.0-Alpha1"})
 public class ModuleNotFoundExceptionTestCase {
     
     private final String serverLogPath = "target/surefire-reports/org.jboss.additional.testsuite.jdkall.present.server.ModuleNotFoundExceptionTestCase-output.txt";
