@@ -117,7 +117,7 @@ public class JaxbProviderDeserializationSecurityCheckTestCase {
 
     }
     
-    @ATTest({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#13.0.0.Alpha1","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java#7.1.3"})
+    @ATTest({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#13.0.0.Alpha1","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java#7.1.33"})
     public void testMChangeV2C3p0() throws Exception {
         String result = performCall("rest/jaxb/mchange");
 
