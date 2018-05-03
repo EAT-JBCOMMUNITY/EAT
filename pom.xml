@@ -55,12 +55,12 @@
         <dependency>
             <groupId>org.jboss.eap.additional.testsuite</groupId>
             <artifactId>eap-additional-testsuite-source-distribution</artifactId>
-            <version>1.0.9.Final</version>
+            <version>2.1.0.Final</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.eap.additional.testsuite</groupId>
             <artifactId>eap-additional-testsuite-annotations</artifactId>
-            <version>1.0.9.Final</version>
+            <version>2.1.0.Final</version>
         </dependency>
     </dependencies>
 
@@ -1176,6 +1176,29 @@
 	    </plugin>
 
             <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-antrun-plugin</artifactId>
+	        <executions>
+	            <execution>
+	                <id>copy-src</id>
+	                <phase>process-test-resources</phase>
+	                <goals>
+	                    <goal>run</goal>
+	                </goals>
+	                <configuration>
+			    <tasks>
+				<copy todir="${project.build.directory}/../modules/srcPool" failonerror="false" overwrite="true">
+				    <fileset dir="${project.build.directory}/../modules/src">
+                                        <include name="**/*"/>
+                                    </fileset>
+				</copy>
+			    </tasks>
+	                </configuration>
+	            </execution>
+	        </executions>
+	    </plugin>
+
+            <plugin>
 	        <groupId>org.codehaus.mojo</groupId>
 	        <artifactId>exec-maven-plugin</artifactId>
 	        <version>1.1.1</version>
@@ -1190,7 +1213,7 @@
 			   <mainClass>org.jboss.eap.additional.testsuite.source.distribution.AdditionalTestsuiteDistributeSources</mainClass>
 			   <arguments>
 			       <argument>${basedir}</argument>
-			       <argument>${basedir}/modules/src/main/java</argument>
+			       <argument>${basedir}/modules/srcPool/main/java</argument>
 		               <argument>${serverDir}</argument>
 		               <argument>${JBOSS_VERSION}</argument>
 		               <argument>versionOrder</argument>
@@ -1210,7 +1233,7 @@
 			   <mainClass>org.jboss.eap.additional.testsuite.source.distribution.AdditionalTestsuiteDistributeSources</mainClass>
 			   <arguments>
 			       <argument>${basedir}</argument>
-			       <argument>${basedir}/modules/src/config</argument>
+			       <argument>${basedir}/modules/srcPool/config</argument>
 		               <argument>${serverDir}</argument>
 		               <argument>${JBOSS_VERSION}</argument>
 		               <argument>versionOrder</argument>
