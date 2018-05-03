@@ -44,6 +44,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 import org.springframework.jacksontest.BogusApplicationContext;
 import org.springframework.jacksontest.BogusPointcutAdvisor;
 import com.mchange.v2.c3p0.jacksonTest.ComboPooledDataSource;
+import javax.ws.rs.GET;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
@@ -67,9 +68,9 @@ import org.jboss.eap.additional.testsuite.annotations.ATTest;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java"})
-@EATDPM(config="standalone.xml", features={"org.wildfly:wildfly-feature-pack-new#jaxrs:subsystem=jaxrs"}, minVersions={"12.0.0.Final"}, maxVersions={"null"}, isClassAnnotation="true")
-//@EATDPM(config="standalone.xml", features={"org.wildfly:wildfly-feature-pack-new#subsystem.jaxrs:subsystem=jaxrs"}, minVersions={"12.0.0.Final"}, maxVersions={"null"}, isClassAnnotation="true")
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#13.0.0","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java#7.1.2"})
+//@ATDPM(config="standalone.xml", features={"org.wildfly:wildfly-feature-pack-new#jaxrs:subsystem=jaxrs"}, minVersions={"13.0.0"}, maxVersions={"null"}, isClassAnnotation="true")
+//@ATDPM(config="standalone.xml", features={"org.wildfly:wildfly-feature-pack-new#subsystem.jaxrs:subsystem=jaxrs"}, minVersions={"13.0.0"}, maxVersions={"null"}, isClassAnnotation="true")
 public class JaxbProviderDeserializationSecurityCheckTestCase {
 
     @Deployment(testable = false)
@@ -92,6 +93,8 @@ public class JaxbProviderDeserializationSecurityCheckTestCase {
     }
 
     @Test
+    @EATDPM(config="standalone.xml", features={"org.wildfly:wildfly-feature-pack-new#jaxrs:subsystem=jaxrs"}, minVersions={"13.0.0"}, maxVersions={"null"}, isClassAnnotation="false", excludeDependencies={"javax.ws.rs.GET;"})
+    //@EATDPM(config="standalone.xml", features={"org.wildfly:wildfly-feature-pack-new#subsystem.jaxrs:subsystem=jaxrs"}, minVersions={"13.0.0"}, maxVersions={"null"}, isClassAnnotation="false", excludeDependencies={"javax.ws.rs.GET;"})
     public void testPointcutAdvisor() throws Exception {
         String result = performCall("rest/jaxb/advisor");
 
@@ -104,6 +107,8 @@ public class JaxbProviderDeserializationSecurityCheckTestCase {
 
     }
 
+    @EATDPM(config="standalone.xml", features={"org.wildfly:wildfly-feature-pack-new#jaxrs:subsystem=jaxrs"}, minVersions={"13.0.0"}, maxVersions={"null"}, isClassAnnotation="false", excludeDependencies={"javax.ws.rs.GET;"})
+    //@EATDPM(config="standalone.xml", features={"org.wildfly:wildfly-feature-pack-new#subsystem.jaxrs:subsystem=jaxrs"}, minVersions={"13.0.0"}, maxVersions={"null"}, isClassAnnotation="false", excludeDependencies={"javax.ws.rs.GET;"})
     @Test
     public void testApplicationContext() throws Exception {
         String result = performCall("rest/jaxb/appcontext");
@@ -130,14 +135,19 @@ public class JaxbProviderDeserializationSecurityCheckTestCase {
 
     }
 
-    @Test
+    @ATTest({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#13.0.0","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java#7.1.2"})
     public void testStatisticsService(){
         doRequestAndExpectIllegalTypeMessage(getStatisticsService());
     }
 
-    @Test
+    @ATTest({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#13.0.0","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java#7.1.2"})
     public void testMyBatisJndiDataSourceFactory(){
         doRequestAndExpectIllegalTypeMessage(getMyBatisJndiDataSourceFactory());
+    }
+
+    @Test
+    public void defaultTest(){
+        System.out.println("Adding a default test for usage of this class with the EAT workshop");
     }
 
     private void doRequestAndExpectIllegalTypeMessage(String nastyJson) {
