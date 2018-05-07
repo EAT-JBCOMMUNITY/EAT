@@ -69,6 +69,7 @@
 		            <!-- Tests to execute. -->
 		            <includes>
 		                <include>org/jboss/additional/testsuite/jdkall/present/jpa/**/*TestCase.java</include>
+                                <include>org/jboss/additional/testsuite/jdkall/past/jpa/**/*TestCase.java</include>
 		            </includes> 
 		        </configuration>
 		    </execution>

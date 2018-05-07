@@ -20,7 +20,7 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-package org.jboss.additional.testsuite.jdkall.present.jpa.hibernate.secondlevelcache;
+package org.jboss.additional.testsuite.jdkall.past.jpa.hibernate.secondlevelcache;
 
 import javax.persistence.Entity;
 import org.hibernate.annotations.Cache;
@@ -33,7 +33,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
  *
  * @author Madhumita Sadhukhan
  */
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/jpa/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/jpa/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/jpa/src/main/java","modules/testcases/jdkAll/Eap71x/jpa/src/main/java"})
 @Entity
 @Cache(usage=TRANSACTIONAL)
 public class Student {
