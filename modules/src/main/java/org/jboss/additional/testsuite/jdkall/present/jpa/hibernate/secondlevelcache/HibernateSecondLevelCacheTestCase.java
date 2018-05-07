@@ -71,6 +71,7 @@ public class HibernateSecondLevelCacheTestCase {
             + "<!DOCTYPE hibernate-configuration PUBLIC " + "\"//Hibernate/Hibernate Configuration DTD 3.0//EN\" "
             + "\"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd\">"
             + "<hibernate-configuration><session-factory>" + "<property name=\"show_sql\">false</property>"
+            + "<property name=\"cache.region.factory_class\">org.infinispan.hibernate.cache.v51.InfinispanRegionFactory</property>"
             + "<property name=\"hibernate.cache.use_second_level_cache\">true</property>"
             + "<property name=\"hibernate.show_sql\">false</property>"
             + FACTORY_CLASS
@@ -205,6 +206,27 @@ public class HibernateSecondLevelCacheTestCase {
                 sfsb.cleanup();
             } catch (Throwable ignore) {}
 
+        }
+    }
+    
+    @RunAsClient
+    @ATTest({"modules/testcases/jdkAll/Wildfly/jpa/src/main/java#12.0.0.Final"})
+    public void testWarningLogWithSecondLevelCache() throws IOException {
+        List<String> logfile = new LinkedList<>();
+        
+        final String logDir = System.getProperty("server.dir")+"/standalone/log";
+        if (logDir == null) {
+            throw new RuntimeException("Could not resolve jboss.server.log.dir");
+        }
+        System.out.println("log : " + logDir);
+        final java.nio.file.Path logFile = Paths.get(logDir, "server.log");
+        if (!Files.notExists(logFile)) {
+            logfile = Files.readAllLines(logFile, StandardCharsets.UTF_8);
+            String log = String.join("\n", logfile);
+            
+            System.out.println("log : " + log);
+            
+            assertTrue("Transactional 2nd level cache warning should not exist ...", !log.contains("Requesting TRANSACTIONAL cache concurrency strategy but the cache is not configured as transactional."));
         }
     }
 }
