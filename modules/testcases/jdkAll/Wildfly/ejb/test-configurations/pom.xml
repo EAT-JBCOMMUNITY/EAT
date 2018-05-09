@@ -60,6 +60,9 @@
 		            <includes>
 		                <include>org/jboss/additional/testsuite/jdkall/present/ejb/**/*TestCase.java</include>
 		            </includes> 
+                            <excludes>
+		                <exclude>org/jboss/additional/testsuite/jdkall/present/ejb/client/outbound/connection/*TestCase.java</exclude>
+		            </excludes> 
 		        </configuration>
 		    </execution>
 		</executions>
