@@ -47,7 +47,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 @JMSDestinationDefinition(
         name = QUEUE_NAME,
         interfaceName = "javax.jms.Queue",
-        destinationName = "InjectedJMSContextTestCaseQueue"
+        destinationName = "AppScopedBeanQueue"
 )
 @MessageDriven(
         name = "TransactedMDB",
