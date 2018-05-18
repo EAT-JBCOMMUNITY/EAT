@@ -40,7 +40,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 @JMSDestinationDefinition(
         name = QUEUE_NAME,
         interfaceName = "javax.jms.Queue",
-        destinationName = "InjectedJMSContextTestCaseQueue"
+        destinationName = "AppScopedBeanQueue"
 )
 @Stateful(passivationCapable = false)
 @EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/messaging/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/messaging/src/main/java","modules/testcases/jdkAll/Eap71x/messaging/src/main/java","modules/testcases/jdkAll/Eap7.1.0.Beta/messaging/src/main/java","modules/testcases/jdkAll/Eap70x/messaging/src/main/java","modules/testcases/jdkAll/Eap70x-Proposed/messaging/src/main/java","modules/testcases/jdkAll/WildflyRelease/messaging/src/main/java","modules/testcases/jdkAll/Wildfly/messaging/src/main/java"})
