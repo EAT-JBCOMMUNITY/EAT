@@ -22,7 +22,7 @@
 
 package org.jboss.additional.testsuite.jdkall.present.messaging.jms.context.transactionscoped.auxiliary;
 
-import static org.jboss.additional.testsuite.jdkall.present.messaging.jms.context.transactionscoped.TransactionScopedJMSContextTestCase.QUEUE_NAME;
+import static org.jboss.additional.testsuite.jdkall.present.messaging.jms.context.transactionscoped.auxiliary.AppScopedBean.QUEUE_NAME;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
