@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+    <target name="clean-deployments" description="deletes the deployments of the servers">
+        <echo message="Deleting existing deployments..."/>
+        <delete dir="${serverDir}/eap7/build/target/jbossas/standalone/deployments" failonerror="false"/>
+        <mkdir dir="${serverDir}/eap7/build/target/jbossas/standalone/deployments"/>
+        <delete dir="${serverDir}/eap7/build/target/eap7-SYNC-tcp-0/standalone/deployments" failonerror="false"/>
+        <mkdir dir="${serverDir}/eap7/build/target/eap7-SYNC-tcp-0/standalone/deployments"/>
+        <delete dir="${serverDir}/eap7/build/target/eap7-SYNC-tcp-1/standalone/deployments" failonerror="false"/>
+        <mkdir dir="${serverDir}/eap7/build/target/eap7-SYNC-tcp-1/standalone/deployments"/>
+        <delete dir="${serverDir}/eap7/build/target/jbossas1/standalone/deployments" failonerror="false"/>
+        <mkdir dir="${serverDir}/eap7/build/target/jbossas1/standalone/deployments"/>
+        <delete dir="${serverDir}/eap7/build/target/jbossas2/standalone/deployments" failonerror="false"/>
+        <mkdir dir="${serverDir}/eap7/build/target/jbossas2/standalone/deployments"/>
+        <delete dir="${serverDir}/wildfly/build/target/jbossas/standalone/deployments" failonerror="false"/>
+        <mkdir dir="${serverDir}/wildfly/build/target/jbossas/standalone/deployments"/>
+        <delete dir="${serverDir}/wildfly/build/target/wildfly-SYNC-tcp-0/standalone/deployments" failonerror="false"/>
+        <mkdir dir="${serverDir}/wildfly/build/target/wildfly-SYNC-tcp-0/standalone/deployments"/>
+        <delete dir="${serverDir}/wildfly/build/target/wildfly-SYNC-tcp-1/standalone/deployments" failonerror="false"/>
+        <mkdir dir="${serverDir}/wildfly/build/target/wildfly-SYNC-tcp-1/standalone/deployments"/>
+        <delete dir="${serverDir}/wildfly/build/target/jbossas1/standalone/deployments" failonerror="false"/>
+        <mkdir dir="${serverDir}/wildfly/build/target/jbossas1/standalone/deployments"/>
+        <delete dir="${serverDir}/wildfly/build/target/jbossas2/standalone/deployments" failonerror="false"/>
+        <mkdir dir="${serverDir}/wildfly/build/target/jbossas2/standalone/deployments"/>
+    </target>
+
+</project>
