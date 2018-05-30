@@ -16,7 +16,7 @@
     </target>
 
      <target name="check-1">
-          <fileset id="fs" dir="${serverDir}/eap7/build/target/jbossas/standalone/deployments"/>
+          <fileset id="fs" dir="${serverDir}/eap7/build/target/jbossas/standalone/deployments" erroronmissingdir="false" />
 	  <condition property="delbuild-1">
               <not>
 	          <length length="0">
@@ -33,7 +33,7 @@
      </target>
 
      <target name="check-2">
-          <fileset id="fs" dir="${serverDir}/eap7/build/target/eap7-SYNC-tcp-0/standalone/deployments"/>
+          <fileset id="fs" dir="${serverDir}/eap7/build/target/eap7-SYNC-tcp-0/standalone/deployments" erroronmissingdir="false" />
 	  <condition property="delbuild-2">
               <not>
 	          <length length="0">
@@ -50,7 +50,7 @@
      </target>
 
      <target name="check-3">
-          <fileset id="fs" dir="${serverDir}/eap7/build/target/eap7-SYNC-tcp-1/standalone/deployments"/>
+          <fileset id="fs" dir="${serverDir}/eap7/build/target/eap7-SYNC-tcp-1/standalone/deployments" erroronmissingdir="false" />
 	  <condition property="delbuild-3">
               <not>
 	          <length length="0">
@@ -67,7 +67,7 @@
      </target>
 
      <target name="check-4">
-          <fileset id="fs" dir="${serverDir}/eap7/build/target/jbossas1/standalone/deployments"/>
+          <fileset id="fs" dir="${serverDir}/eap7/build/target/jbossas1/standalone/deployments" erroronmissingdir="false" />
 	  <condition property="delbuild-4">
 	      <not>
 	          <length length="0">
@@ -84,7 +84,7 @@
      </target>
 
      <target name="check-5">
-          <fileset id="fs" dir="${serverDir}/eap7/build/target/jbossas2/standalone/deployments"/>
+          <fileset id="fs" dir="${serverDir}/eap7/build/target/jbossas2/standalone/deployments" erroronmissingdir="false" />
 	  <condition property="delbuild-5">
 	      <not>
 	          <length length="0">
@@ -101,7 +101,7 @@
      </target>
 
      <target name="check-6">
-          <fileset id="fs" dir="${serverDir}/wildfly/build/target/jbossas/standalone/deployments"/>
+          <fileset id="fs" dir="${serverDir}/wildfly/build/target/jbossas/standalone/deployments" erroronmissingdir="false" />
 	  <condition property="delbuild-6">
               <not>
 	          <length length="0">
@@ -118,7 +118,7 @@
      </target>
 
      <target name="check-7">
-          <fileset id="fs" dir="${serverDir}/wildfly/build/target/wildfly-SYNC-tcp-0/standalone/deployments"/>
+          <fileset id="fs" dir="${serverDir}/wildfly/build/target/wildfly-SYNC-tcp-0/standalone/deployments" erroronmissingdir="false" />
 	  <condition property="delbuild-7">
 	      <not>
 	          <length length="0">
@@ -135,7 +135,7 @@
      </target>
 
      <target name="check-8">
-          <fileset id="fs" dir="${serverDir}/wildfly/build/target/wildfly-SYNC-tcp-1/standalone/deployments"/>
+          <fileset id="fs" dir="${serverDir}/wildfly/build/target/wildfly-SYNC-tcp-1/standalone/deployments" erroronmissingdir="false" />
 	  <condition property="delbuild-8">
 	      <not>
 	          <length length="0">
@@ -152,7 +152,7 @@
      </target>
 
      <target name="check-9">
-          <fileset id="fs" dir="${serverDir}/wildfly/build/target/jbossas1/standalone/deployments"/>
+          <fileset id="fs" dir="${serverDir}/wildfly/build/target/jbossas1/standalone/deployments" erroronmissingdir="false" />
 	  <condition property="delbuild-9">
 	      <not>
 	          <length length="0">
@@ -169,7 +169,7 @@
      </target>
 
      <target name="check-10">
-          <fileset id="fs" dir="${serverDir}/wildfly/build/target/jbossas2/standalone/deployments"/>
+          <fileset id="fs" dir="${serverDir}/wildfly/build/target/jbossas2/standalone/deployments" erroronmissingdir="false" />
 	  <condition property="delbuild-10">
 	      <not>
 	          <length length="0">
