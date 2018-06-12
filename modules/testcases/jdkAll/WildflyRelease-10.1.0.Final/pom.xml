@@ -20,7 +20,7 @@
     <packaging>pom</packaging>
     <version>1.0.3.Final</version>
 
-    <name>wildfly release-10.1.0.Final additional testsuite: additional testsuite for wildfly release-10.1.0.Finald</name>
+    <name>wildfly release-10.1.0.Final additional testsuite: additional testsuite for wildfly release-10.1.0.Final</name>
     
     <properties>
         <jboss.home.env>${project.basedir}/../../../wildfly/build/target/jbossas</jboss.home.env>
