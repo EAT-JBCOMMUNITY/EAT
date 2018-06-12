@@ -1057,7 +1057,7 @@
             </build>
 
             <modules>
-                <module>testcases/jdkAll/WildflyRelease-10.1.0.Final-10.1.0.Final</module>
+                <module>testcases/jdkAll/WildflyRelease-10.1.0.Final</module>
             </modules>
 
         </profile>
@@ -1100,7 +1100,7 @@
             </build>
                      
             <modules>
-                <module>testcases/jdk8/WildflyRelease-10.1.0.Final-10.1.0.Final</module>
+                <module>testcases/jdk8/WildflyRelease-10.1.0.Final</module>
             </modules>
 
         </profile>
