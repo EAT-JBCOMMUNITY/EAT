@@ -1020,10 +1020,10 @@
         </profile>
 
         <profile>
-            <id>wildfly.release.testsuite</id>
+            <id>wildfly.release-10.1.0.Final.testsuite</id>
             <activation>
                 <property>
-                    <name>wildfly-release</name>
+                    <name>wildfly-release-10.1.0.Final</name>
                     <value>true</value>
                 </property>
             </activation>
@@ -1057,16 +1057,16 @@
             </build>
 
             <modules>
-                <module>testcases/jdkAll/WildflyRelease</module>
+                <module>testcases/jdkAll/WildflyRelease-10.1.0.Final</module>
             </modules>
 
         </profile>
 
         <profile>
-            <id>wildfly.release.jdk8.testsuite</id>
+            <id>wildfly.release-10.1.0.Final.jdk8.testsuite</id>
             <activation>
                 <property>
-                    <name>wildfly-release-jdk8</name>
+                    <name>wildfly-release-10.1.0.Final-jdk8</name>
                     <value>true</value>
                 </property>
             </activation>
@@ -1100,7 +1100,7 @@
             </build>
                      
             <modules>
-                <module>testcases/jdk8/WildflyRelease</module>
+                <module>testcases/jdk8/WildflyRelease-10.1.0.Final</module>
             </modules>
 
         </profile>
