@@ -10,10 +10,24 @@ import java.util.HashSet;
 public class DependencyTree {
 
     public static void main(String[] args) throws Exception {
-        HashSet<String> packages = DependencyTreeMethods.listPackages();
-        
-        for(String s : packages){
-            System.out.println(s);
+        try {
+            HashSet<String> packages = DependencyTreeMethods.listPackages();
+
+            System.out.println("Available libraries : ");
+
+            for(String s : packages){
+                System.out.println(s);
+            }
+
+            HashSet<String> usedLibraries = JavaClassParser.testLibraryUsage();
+
+            System.out.println("\n\n\nTest libraries used : ");
+
+            for(String s : usedLibraries){
+                System.out.println(s);
+            }
+        }catch(Exception e) {
+            e.printStackTrace();
         }
     }
 
