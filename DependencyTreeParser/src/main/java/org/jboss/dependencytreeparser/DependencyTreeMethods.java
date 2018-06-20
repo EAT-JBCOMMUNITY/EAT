@@ -10,12 +10,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -153,6 +150,8 @@ public class DependencyTreeMethods {
         HashSet<String> packages = new HashSet<String>();
         
         ArrayList<String> jarClasses = DependencyTreeMethods.listClasses();
+        
+        System.out.println("jarClasses.size() : " + jarClasses.size());
         
         for(String jc : jarClasses){
             if(jc.contains(".class") && jc.lastIndexOf("/")!=-1) {

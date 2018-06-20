@@ -26,11 +26,31 @@
                             <properties>
                                 <property>
                                     <name>DependencyTreeFilePath</name>
-                                    <value>/home/panos/RC/wildflyLast2/output.txt</value>
+                                    <value>${DependencyTreeFilePath}</value>
                                 </property>
                                 <property>
                                     <name>MavenRepoPath</name>
-                                    <value>/home/panos/.m2/repository</value>
+                                    <value>${MavenRepoPath}</value>
+                                </property>
+                                <property>
+                                    <name>BaseDir</name>
+                                    <value>${BaseDir}</value>
+                                </property>
+                                <property>
+                                    <name>SourcePath</name>
+                                    <value>${SourcePath}</value>
+                                </property>
+                                <property>
+                                    <name>Server</name>
+                                    <value>${Server}</value>
+                                </property>
+                                <property>
+                                    <name>Version</name>
+                                    <value>${Version}</value>
+                                </property>
+                                <property>
+                                    <name>VersionOrderDir</name>
+                                    <value>${VersionOrderDir}</value>
                                 </property>
                             </properties>
                         </configuration>
