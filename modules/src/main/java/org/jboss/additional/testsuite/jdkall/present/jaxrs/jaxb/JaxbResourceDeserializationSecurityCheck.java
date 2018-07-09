@@ -35,6 +35,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import org.apache.ibatis.datasource.jndi.JndiDataSourceFactory;
+import org.hibernate.jmx.StatisticsService;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 
 @Path("jaxb")
@@ -73,12 +75,22 @@ public class JaxbResourceDeserializationSecurityCheck {
         return Response.ok().entity(obj).build();
     }
 
-    @POST
-    @Path("bad")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response uhoh(Object o) throws Exception {
-        System.out.println(o.getClass().getName());
-        return Response.ok(o.getClass().getName()).build();
+    @GET
+    @Path("statistics")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getStatisticsService() throws RemoteException, IOException {
+        StatisticsService obj = new StatisticsService();
+
+        return Response.ok().entity(obj).build();
+    }
+
+    @GET
+    @Path("datasource")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getDatasource() throws RemoteException, IOException {
+        JndiDataSourceFactory obj = new JndiDataSourceFactory();
+
+        return Response.ok().entity(obj).build();
     }
 
 }
