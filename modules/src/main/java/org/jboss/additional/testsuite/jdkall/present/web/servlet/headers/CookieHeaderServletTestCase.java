@@ -84,7 +84,7 @@ public class CookieHeaderServletTestCase {
 
     }
 
-    @ATTest({"modules/testcases/jdkAll/Wildfly/web/src/main/java#13.0.0"})
+    @ATTest({"modules/testcases/jdkAll/Wildfly/web/src/main/java#13.0.0","modules/testcases/jdkAll/Eap71x-Proposed/web/src/main/java#7.1.4","modules/testcases/jdkAll/Eap71x/web/src/main/java#7.1.4"})
     @OperateOnDeployment(DEPLOYMENT)
     public void headerProtocolTest(@ArquillianResource URL url) throws Exception {
         URL testURL = new URL(url.toString() + "cookieHeaderServlet");
