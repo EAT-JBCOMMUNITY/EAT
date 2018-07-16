@@ -40,6 +40,7 @@ import org.junit.runner.RunWith;
 
 import java.io.File;
 import java.util.regex.Pattern;
+import org.jboss.additional.testsuite.jdkall.present.shared.ServerLogPatternListener;
 
 /**
  * Test that querying MBeans in the init method of an eagerly loaded Servlet doesn't cause errors
