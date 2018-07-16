@@ -1,6 +1,6 @@
 /*
  * JBoss, Home of Professional Open Source
- * Copyleft 2018, Red Hat Inc., and individual contributors as indicated
+ * Copyright 2018, Red Hat Inc., and individual contributors as indicated
  * by the @authors tag. See the copyright.txt in the distribution for a
  * full listing of individual contributors.
  *
