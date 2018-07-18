@@ -11,7 +11,7 @@ sudo: required
 install: true
 
 script:
-  - sudo apt-get update && sudo apt-get install oracle-java8-installer
+ # - sudo apt-get update && sudo apt-get install oracle-java8-installer
   - java -version
   - mkdir wildfly
   - cd wildfly
@@ -21,4 +21,4 @@ script:
   - export JBOSS_FOLDER=$PWD
   - export JBOSS_VERSION=13.0.0.Final
   - cd ../..
-  - mvn -q clean install -Dwildfly-release-13.0.0.Final -Dstandalone
+  - mvn -q clean install -Dwildfly-release-13.0.0.Final -Dwildfly-release-13.0.0.Final-jdk8 -Dstandalone
