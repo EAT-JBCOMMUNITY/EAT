@@ -121,11 +121,18 @@
                 <dependencies>
                     <dependency>
                         <groupId>org.jboss.eap</groupId>
-                        <artifactId>eap7-boms</artifactId>
+                        <artifactId>wildfly-component-matrix</artifactId>
                         <type>pom</type>
                         <version>${JBOSS_VERSION}</version>
                         <scope>import</scope>
                     </dependency>
+                    <!--dependency>
+                        <groupId>org.jboss.eap</groupId>
+                        <artifactId>eap7-boms</artifactId>
+                        <type>pom</type>
+                        <version>${JBOSS_VERSION}</version>
+                        <scope>import</scope>
+                    </dependency-->
                 </dependencies>
             </dependencyManagement>
 
