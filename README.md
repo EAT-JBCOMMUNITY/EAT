@@ -247,7 +247,8 @@ EAP-ADDITIONAL-TESTSUITE WORKSHOP
 
 EAP-ADDITIONAL-TESTSUITE as a COLLABORATION PROJECT
 ---------------------------------------------------
-Many thanks to Carlo de Wolf for his ideas and help.
+Many thanks to Carlo de Wolf for his ideas and help and for including EAT under the JBoss-SET umbrella.
+Also many thanks to the University of Peloponnese for evolving the theory of AT Structures.
 
 
 # License 
