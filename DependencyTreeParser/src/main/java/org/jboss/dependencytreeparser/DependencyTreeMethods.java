@@ -92,13 +92,16 @@ public class DependencyTreeMethods {
                         art.groupId = parts[1];
                         art.type = parts[2];
                         art.version = parts[3];
+                        art.scope = parts[4];
                         
-                        artifacts.add(art);
+                        if (!parts[4].contains("optional") && !parts[4].contains("test"))
+                            artifacts.add(art);
                     }else if(parts.length==6) {
                         art.artifactId = parts[0];
                         art.groupId = parts[1];
                         art.type = parts[2];
                         art.version = parts[4];
+                        art.scope = parts[5];
                     }
                     
                     
@@ -114,14 +117,57 @@ public class DependencyTreeMethods {
                 
             }
             
-        /*    for(Artifact a:artifacts){
-                System.out.println(a.artifactId + " " + a.groupId + " " + a.version);
-            }*/
+            String filePath2 = System.getProperty("ExternalDependencyPath");
+            artifacts = addExternalLibraries(artifacts, filePath2);
+            
+            for(Artifact a:artifacts){
+                System.out.println(a.artifactId + " " + a.groupId + " " + a.version + " " + a.type + " " + a.scope);
+            }
             
         } catch(Exception e) {
             e.printStackTrace();
         }finally {
             br.close();
+            return artifacts;
+        }
+    }
+    
+    public static ArrayList<Artifact> addExternalLibraries(ArrayList<Artifact> artifacts, String filePath) throws IOException {
+        BufferedReader br = null;
+        try {
+            FileReader fr = new FileReader(filePath);
+            if(fr!=null) {
+                br = new BufferedReader(fr);
+                String line = br.readLine();
+
+                while (line != null) {
+                        Artifact art = new Artifact();
+                        String[] parts;
+                        parts = line.trim().split(":");
+
+                        if (parts.length==4) {
+                            art.artifactId = parts[0];
+                            art.groupId = parts[1];
+                            art.type = parts[2];
+                            art.version=parts[3];
+                                    
+
+                            artifacts.add(art);
+                        }        
+
+                    line = br.readLine();
+                }
+
+            //    for(Artifact a:artifacts){
+            //        System.out.println(a.artifactId + " " + a.groupId + " " + a.version + " " + a.type + " " + a.scope);
+            //    }
+            }
+            
+        } catch(Exception e) {
+            e.printStackTrace();
+        }finally {
+            if(br!=null)
+                br.close();
             return artifacts;
         }
     }
@@ -135,7 +181,7 @@ public class DependencyTreeMethods {
             
             for(Artifact ar : artifacts) {
                 if(ar.type.contains("jar")) {
-                //    System.out.println(repoPath + ar.artifactId.replaceAll("//.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
+                    System.out.println(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
                     jarClasses.addAll(DependencyTreeMethods.listJars(repoPath + "/"+ ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar"));
                 }
             }
@@ -193,4 +239,5 @@ class Artifact {
     String artifactId;
     String version;
     String type;
+    String scope;
 }
