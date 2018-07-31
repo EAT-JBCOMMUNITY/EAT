@@ -8,11 +8,16 @@ package org.jboss.dependencytreeparser;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
+import static javax.management.DefaultLoaderRepository.loadClass;
 
 /**
  *
@@ -172,8 +177,8 @@ public class DependencyTreeMethods {
         }
     }
     
-    public static ArrayList<String> listClasses(){
-        ArrayList<String> jarClasses = new ArrayList<>();
+    public static HashMap<String,ArrayList<Class[]>> listClasses(){
+        HashMap<String,ArrayList<Class[]>> jarClasses = new HashMap<>();
          
         try {
             ArrayList<Artifact> artifacts = DependencyTreeMethods.getArtifacts();
@@ -181,8 +186,8 @@ public class DependencyTreeMethods {
             
             for(Artifact ar : artifacts) {
                 if(ar.type.contains("jar")) {
-                    System.out.println(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
-                    jarClasses.addAll(DependencyTreeMethods.listJars(repoPath + "/"+ ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar"));
+                 //   System.out.println(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
+                    jarClasses.putAll(DependencyTreeMethods.listJars(repoPath + "/"+ ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar"));
                 }
             }
         } catch (Exception ex) {
@@ -195,11 +200,11 @@ public class DependencyTreeMethods {
     public static HashSet<String> listPackages(){
         HashSet<String> packages = new HashSet<String>();
         
-        ArrayList<String> jarClasses = DependencyTreeMethods.listClasses();
+        HashMap<String,ArrayList<Class[]>> jarClasses = DependencyTreeMethods.listClasses();
         
         System.out.println("jarClasses.size() : " + jarClasses.size());
         
-        for(String jc : jarClasses){
+        for(String jc : jarClasses.keySet()){
             if(jc.contains(".class") && jc.lastIndexOf("/")!=-1) {
                 String packageName = jc.substring(0, jc.lastIndexOf("/")).replaceAll("/", ".");
            //     System.out.println("packageName : " + packageName);
@@ -211,17 +216,33 @@ public class DependencyTreeMethods {
         return packages;
     }
     
-    private static ArrayList<String> listJars(String path) {
-        ArrayList<String> jarClasses = new ArrayList<>();
+    private static HashMap<String,ArrayList<Class[]>> listJars(String path) {
+        HashMap<String,ArrayList<Class[]>> jarClasses = new HashMap<>();
         
         try{
             if (path!=null) {
                 JarFile jarFile = new JarFile(path);
+               
+                URL[] urls = { new URL("jar:file:" + path+"!/") };
+                URLClassLoader cl = URLClassLoader.newInstance(urls);
+
                 Enumeration allEntries = jarFile.entries();
                 while (allEntries.hasMoreElements()) {
                     JarEntry entry = (JarEntry) allEntries.nextElement();
                     String name = entry.getName();
-                    jarClasses.add(name);
+                    
+                    if(name.contains(".class") && !name.contains("$")) {
+                        name = name.substring(0,name.lastIndexOf(".class"));
+                        name=name.replaceAll("/", ".");
+                        Class clas = cl.loadClass(name);
+                        Constructor[] constructors = clas.getConstructors();
+                        ArrayList<Class[]> constructorParams = new ArrayList<>();
+                        for(Constructor c : constructors) {
+                            Class[] parameterTypes = c.getParameterTypes();
+                            constructorParams.add(parameterTypes);
+                        }
+                        jarClasses.put(name,constructorParams);
+                    }
                 //    System.out.println(name);
                 }
             }
