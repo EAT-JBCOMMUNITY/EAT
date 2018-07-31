@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 
 /**
@@ -19,6 +20,7 @@ import java.util.HashSet;
  */
 public class JavaClassParser {
     static HashSet<String> testLibraries = new HashSet<>();
+    static HashMap<String,String> internalPackagesAndClasses = new HashMap<>();
     
     public static HashSet<String> testLibraryUsage() {
         String basedir = System.getProperty("BaseDir");
@@ -30,6 +32,18 @@ public class JavaClassParser {
         HashSet<String> testLibraries = fileProcessing(basedir, sourcePath, server, version, versionOrderDir, "@EapAdditionalTestsuite");
         
         return testLibraries;
+    }
+
+    public static HashSet<String> getTestLibraries() {
+        return testLibraries;
+    }
+
+    public static HashMap<String, String> getInternalPackagesAndClasses() {
+        return internalPackagesAndClasses;
+    }
+    
+    private static void readInternalPackagesAndClasses(FileData fd) {
+        internalPackagesAndClasses.put(fd.packageName.replaceAll("/","."),fd.fileName.replaceAll("\\.java", ""));
     }
     
     public static HashSet<String> fileProcessing(String basedir, String sourcePath, String server, String version, String versionOrderDir, String searchString) {
@@ -87,6 +101,7 @@ public class JavaClassParser {
                                                         if (lastPart.contains(ver) || lastPart.compareTo(ver) == 0) {
                                                             String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
                                                             readTestLibrariesFromFile(f, testLibraries, searchString);
+                                                            readInternalPackagesAndClasses(dest);
                                                         }
                                                     }
                                                 }
@@ -97,10 +112,12 @@ public class JavaClassParser {
                             } else if (verRelease1 >= verRelease2 && (verRelease3 == 0 || verRelease1 <= verRelease3)) {
                                 String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
                                 readTestLibrariesFromFile(f, testLibraries, searchString);
+                                readInternalPackagesAndClasses(dest);
                             }
                         } else {
                             String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
                             readTestLibrariesFromFile(f, testLibraries, searchString);
+                            readInternalPackagesAndClasses(dest);
                         }
                     }
                 }
