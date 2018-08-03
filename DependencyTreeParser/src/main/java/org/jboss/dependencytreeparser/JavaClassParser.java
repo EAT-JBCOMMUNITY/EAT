@@ -19,22 +19,22 @@ import java.util.HashSet;
  * @author panos
  */
 public class JavaClassParser {
-    static HashSet<String> testLibraries = new HashSet<>();
+    static HashMap<String,ArrayList<String>> testLibraries = new HashMap<>();
     static HashMap<String,String> internalPackagesAndClasses = new HashMap<>();
     
-    public static HashSet<String> testLibraryUsage() {
+    public static HashMap<String,ArrayList<String>> testLibraryUsage() {
         String basedir = System.getProperty("BaseDir");
         String sourcePath = System.getProperty("SourcePath");
         String server = System.getProperty("Server");
         String version = System.getProperty("Version");
         String versionOrderDir = System.getProperty("VersionOrderDir");
         
-        HashSet<String> testLibraries = fileProcessing(basedir, sourcePath, server, version, versionOrderDir, "@EapAdditionalTestsuite");
+        HashMap<String,ArrayList<String>> testLibraries = fileProcessing(basedir, sourcePath, server, version, versionOrderDir, "@EapAdditionalTestsuite");
         
         return testLibraries;
     }
 
-    public static HashSet<String> getTestLibraries() {
+    public static HashMap<String,ArrayList<String>> getTestLibraries() {
         return testLibraries;
     }
 
@@ -46,7 +46,7 @@ public class JavaClassParser {
         internalPackagesAndClasses.put(fd.packageName.replaceAll("/","."),fd.fileName.replaceAll("\\.java", ""));
     }
     
-    public static HashSet<String> fileProcessing(String basedir, String sourcePath, String server, String version, String versionOrderDir, String searchString) {
+    public static HashMap<String,ArrayList<String>> fileProcessing(String basedir, String sourcePath, String server, String version, String versionOrderDir, String searchString) {
         File folder = new File(sourcePath);
         File[] listOfFiles = folder.listFiles();
 
@@ -129,7 +129,7 @@ public class JavaClassParser {
         }
     }
     
-    private static void readTestLibrariesFromFile(String file,  HashSet<String> testLibraries, String searchString) throws FileNotFoundException, IOException {
+    private static void readTestLibrariesFromFile(String file,  HashMap<String,ArrayList<String>> testLibraries, String searchString) throws FileNotFoundException, IOException {
         BufferedReader br = new BufferedReader(new FileReader(file));
 
         try {
@@ -138,16 +138,30 @@ public class JavaClassParser {
             while (line != null) {
                 if(line.trim().startsWith("package")) {
                     String library = line.trim().replaceFirst("package", "").replaceAll(";", "");
-                    if(!testLibraries.contains(library)) {
+                    if(!testLibraries.keySet().contains(library)) {
               //          testLibraries.add(library);
                     }
                 }else if(line.trim().startsWith("import")) {
                     String library = line.trim().replaceFirst("import", "").trim().replaceFirst("static", "").trim().replaceAll(";", "");
-                    if(Character.isUpperCase(library.substring(library.lastIndexOf(".")+1).charAt(0))){
-                        library = library.substring(0, library.lastIndexOf("."));
+                    String lib2=library;
+                    String className = null;
+                    while(lib2.lastIndexOf(".")!=-1) {
+                        if(Character.isUpperCase(lib2.substring(lib2.lastIndexOf(".")+1).charAt(0))){
+                            library = lib2.substring(0, lib2.lastIndexOf("."));
+                            className = lib2.substring(lib2.lastIndexOf(".")+1);
+                        }
+                        lib2=lib2.substring(0,lib2.lastIndexOf(".")-1);
                     }
-                    if(!testLibraries.contains(library)) {
-                        testLibraries.add(library);
+                    if(!testLibraries.keySet().contains(library)) {
+                        if (testLibraries.get(library)==null) {
+                            ArrayList<String> al = new ArrayList<>();
+                            if(className!=null)
+                                al.add(className);
+                            testLibraries.put(library,al);
+                        }else if(className!=null){
+                            if(!testLibraries.get(library).contains(className))
+                                testLibraries.get(library).add(className);
+                        }
                     }
                 }else if(line.contains(searchString))
                     break;
