@@ -253,5 +253,5 @@ Also many thanks to the University of Peloponnese for evolving the theory of AT 
 
 
 # License 
-* [GNU Lesser General Public License Version 2.1](http://www.gnu.org/licenses/lgpl-2.1-standalone.html)
+* [GNU Lesser General Public License Version 2.1](http://www.gnu.org/licenses/lgpl-2.1-standalone.html) ([GPL Cooperation Commitment](https://github.com/gplcc/gplcc/blob/master/Project/COMMITMENT))
 
