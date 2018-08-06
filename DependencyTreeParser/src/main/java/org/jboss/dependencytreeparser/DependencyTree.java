@@ -51,6 +51,8 @@ public class DependencyTree {
                 System.out.println(s + " " + internalPackagesAndClasses.get(s));
             }
             
+            HashSet<String> excludedLibraries = DependencyTreeMethods.addExcludedLibraries();
+            
             int found = 0;
             int notFound = 0;
             HashSet<String> foundArray = new HashSet<>();
@@ -60,8 +62,20 @@ public class DependencyTree {
                     found++;
                     foundArray.add(s);
                 }else{
-                    notFound++;
-                    notfoundArray.add(s);
+                    boolean excluded = false;
+                    
+                    for(String d : excludedLibraries) {
+                        if(s.startsWith(d)){
+                            excluded = true;
+                            break;
+                        }
+                            
+                    }
+                    
+                    if(!excluded) {
+                        notFound++;
+                        notfoundArray.add(s);
+                    }
                 }
             }
             

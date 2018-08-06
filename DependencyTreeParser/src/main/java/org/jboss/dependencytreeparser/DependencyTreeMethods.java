@@ -137,6 +137,33 @@ public class DependencyTreeMethods {
         }
     }
     
+    public static HashSet<String> addExcludedLibraries() throws IOException {
+        HashSet<String> excludedLibraries = new HashSet<>();
+        String filePath = System.getProperty("ExcludedDependenciesPath");
+                
+        BufferedReader br = null;
+        try {
+            FileReader fr = new FileReader(filePath);
+            if(fr!=null) {
+                br = new BufferedReader(fr);
+                String line = br.readLine();
+
+                while (line != null) {
+                    excludedLibraries.add(line);
+                    line = br.readLine();
+                }
+
+            }
+            
+        } catch(Exception e) {
+            e.printStackTrace();
+        }finally {
+            if(br!=null)
+                br.close();
+            return excludedLibraries;
+        }
+    }
+    
     public static HashSet<Artifact> addExternalLibraries(HashSet<Artifact> artifacts, String filePath) throws IOException {
         BufferedReader br = null;
         try {
