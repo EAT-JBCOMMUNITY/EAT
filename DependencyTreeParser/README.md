@@ -10,7 +10,7 @@ Starting the development of a first implementation of the dependency schema of A
 This subdirectory is used for finding the packages that are used / loaded by the JBoss Servers and the packages that are used via the test cases.
 
 
-1. ** Go to the server parent directory and execute : mvn dependency:tree > output.txt **
+1. ** Go to the server parent directory and build the server : mvn clean install -DskipTests . Also, execute : mvn dependency:tree > output.txt ** 
 2. export DependencyTreeFilePath=path to the output.txt file
 3. export ExternalDependencyPath=path to the another file listing the external dependencies (line format : new.artifact:new.id:jar:new.version)
 4. export MavenRepoPath=path to the local maven repository
