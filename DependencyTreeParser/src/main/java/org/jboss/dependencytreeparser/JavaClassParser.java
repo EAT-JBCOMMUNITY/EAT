@@ -158,10 +158,10 @@ public class JavaClassParser {
                             if(className!=null)
                                 al.add(className);
                             testLibraries.put(library,al);
-                        }else if(className!=null){
-                            if(!testLibraries.get(library).contains(className))
-                                testLibraries.get(library).add(className);
                         }
+                    }else if(className!=null){
+                        if(!testLibraries.get(library).contains(className))
+                            testLibraries.get(library).add(className);
                     }
                 }else if(line.contains(searchString))
                     break;

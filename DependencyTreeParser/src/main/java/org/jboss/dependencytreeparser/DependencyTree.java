@@ -37,11 +37,11 @@ public class DependencyTree {
             }
             HashMap<String,ArrayList<String>> usedLibraries = JavaClassParser.testLibraryUsage();
 
-            System.out.println("\n\n\nTest libraries used : ");
+            System.out.println("\n\n\nTest libraries used : " + usedLibraries.keySet().size());
 
-         //   for(String s : usedLibraries.keySet()){
-        //        System.out.println(s + " " + usedLibraries.get(s).toString());
-         //   }
+            for(String s : usedLibraries.keySet()){
+                System.out.println(s + " " + usedLibraries.get(s).toString());
+            }
             
             HashMap<String,String> internalPackagesAndClasses = JavaClassParser.getInternalPackagesAndClasses();
             
