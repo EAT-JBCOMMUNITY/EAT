@@ -1,10 +1,2 @@
-org.jboss.eap.additional.testsuite:eap-additional-testsuite-source-distribution:jar:2.4.0.Final
 org.jboss.eap.additional.testsuite:eap-additional-testsuite-annotations:jar:2.4.0.Final
-org.wildfly.arquillian:wildfly-arquillian-container-managed:jar:2.1.1.Final
-org.jboss.shrinkwrap:shrinkwrap-api:jar:1.2.6
-org.wildfly:wildfly-testsuite-shared:jar:2.1.1.Final
-org.jboss.arquillian.junit:arquillian-junit-container:jar:1.1.13.Final
-org.apache.httpcomponents:httpclient:jar:4.5.4
 org.jboss.osgi.metadata:jbosgi-metadata:jar:2.2.0.Final
-junit:junit:jar:4.12
-javax.enterprise.concurrent:javax.enterprise.concurrent-api:jar:1.0
