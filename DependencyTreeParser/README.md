@@ -12,7 +12,7 @@ This subdirectory is used for finding the packages that are used / loaded by the
 
 1. ** Go to the server parent directory and build the server : mvn clean install -DskipTests . Also, execute : mvn dependency:tree > output.txt ** 
 2. export DependencyTreeFilePath=path to the output.txt file
-3. export ExternalDependencyPath=path to the another file listing the external dependencies (line format : new.artifact:new.id:jar:new.version)
+3. export ExternalDependencyPath=path to the another file listing the external dependencies / testsuite dependencies that are already downloaded in the local repo (line format : new.artifact:new.id:jar:new.version)
 4. export ExcludedDependenciesPath=path to the another file listing the excluded libraries (parend dir of library) that we know that are not provided by the server dependency lists (line format : org.jboss.eap.additional.testsuite.annotations)
 5. export MavenRepoPath=path to the local maven repository
 6. export BaseDir=the path to the eap-additional-testsuite dir
