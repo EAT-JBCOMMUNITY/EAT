@@ -35,6 +35,18 @@ public class DependencyTree {
                         System.out.println(classes.get(s).get(i)[j].getTypeName());
                 }
             }
+            
+            HashMap<String,HashMap<String,Class[]>> methods = DependencyTreeMethods.listMethods();
+            
+            for(String s : methods.keySet()) {
+                System.out.println("class : " + s);
+                for (String m : methods.get(s).keySet()) {
+                    System.out.println("Method : " + m + " with parameters : ");
+                    for (int j=0; j<methods.get(s).get(m).length; j++)
+                        System.out.println(methods.get(s).get(m)[j].getTypeName());
+                }
+            }
+            
             HashMap<String,ArrayList<String>> usedLibraries = JavaClassParser.testLibraryUsage();
 
             System.out.println("\n\n\nTest libraries used : " + usedLibraries.keySet().size());
