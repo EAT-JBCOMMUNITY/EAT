@@ -11,6 +11,14 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     
+    <dependencies>
+        <dependency>
+            <groupId>com.github.javaparser</groupId>
+            <artifactId>javaparser-core</artifactId>
+            <version>3.6.16</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -27,6 +35,14 @@
                                 <property>
                                     <name>DependencyTreeFilePath</name>
                                     <value>${DependencyTreeFilePath}</value>
+                                </property>
+                                <property>
+                                    <name>ExternalDependencyPath</name>
+                                    <value>${ExternalDependencyPath}</value>
+                                </property>
+                                <property>
+                                    <name>ExcludedDependenciesPath</name>
+                                    <value>${ExcludedDependenciesPath}</value>
                                 </property>
                                 <property>
                                     <name>MavenRepoPath</name>
