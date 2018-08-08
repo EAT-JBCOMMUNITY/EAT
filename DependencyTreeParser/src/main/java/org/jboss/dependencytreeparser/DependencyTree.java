@@ -46,9 +46,23 @@ public class DependencyTree {
                         System.out.println(methods.get(s).get(m)[j].getTypeName());
                 }
             }
+        
             
             HashMap<String,ArrayList<String>> usedLibraries = JavaClassParser.testLibraryUsage();
 
+            HashMap<String,HashMap<String,String[]>> localMethods = JavaClassParser.getInternalClassMethods();
+             
+            
+            for(String s : localMethods.keySet()) {
+                System.out.println("class : " + s);
+                for (String m : localMethods.get(s).keySet()) {
+                    System.out.println("Method : " + m + " with parameters : ");
+                    for (int j=0; j<localMethods.get(s).get(m).length; j++)
+                        System.out.println(localMethods.get(s).get(m)[j]);
+                }
+            }
+            
+            
             System.out.println("\n\n\nTest libraries used : " + usedLibraries.keySet().size());
 
             for(String s : usedLibraries.keySet()){

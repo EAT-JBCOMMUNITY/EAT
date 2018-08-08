@@ -5,11 +5,17 @@
  */
 package org.jboss.dependencytreeparser;
 
+import com.github.javaparser.JavaParser;
+import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -21,6 +27,7 @@ import java.util.HashSet;
 public class JavaClassParser {
     static HashMap<String,ArrayList<String>> testLibraries = new HashMap<>();
     static HashMap<String,String> internalPackagesAndClasses = new HashMap<>();
+    static HashMap<String,HashMap<String,String[]>> internalClassMethods = new HashMap<>();
     
     public static HashMap<String,ArrayList<String>> testLibraryUsage() {
         String basedir = System.getProperty("BaseDir");
@@ -42,10 +49,32 @@ public class JavaClassParser {
         return internalPackagesAndClasses;
     }
     
+    public static HashMap<String,HashMap<String,String[]>> getInternalClassMethods() {
+        return internalClassMethods;
+    }
+    
     private static void readInternalPackagesAndClasses(FileData fd) {
         internalPackagesAndClasses.put(fd.packageName.replaceAll("/","."),fd.fileName.replaceAll("\\.java", ""));
     }
-    
+
+    private static void readInternalClassMethods(String file, FileData fd) throws IOException {
+        InputStream in = null;
+        CompilationUnit cu = null;
+        try {
+            in = new FileInputStream(file);
+            cu = JavaParser.parse(in);
+            MethodVisitor visitor = new MethodVisitor();
+            if(internalClassMethods.get(fd.fileName.replaceAll("\\.java", ""))==null) {
+                internalClassMethods.put(fd.fileName.replaceAll("\\.java", ""), new HashMap<String,String[]>());
+            }
+            visitor.visit(cu, internalClassMethods.get(fd.fileName.replaceAll("\\.java", "")));
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            in.close();
+        }
+    }
+
     public static HashMap<String,ArrayList<String>> fileProcessing(String basedir, String sourcePath, String server, String version, String versionOrderDir, String searchString) {
         File folder = new File(sourcePath);
         File[] listOfFiles = folder.listFiles();
@@ -102,6 +131,7 @@ public class JavaClassParser {
                                                             String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
                                                             readTestLibrariesFromFile(f, testLibraries, searchString);
                                                             readInternalPackagesAndClasses(dest);
+                                                            readInternalClassMethods(f,dest);
                                                         }
                                                     }
                                                 }
@@ -113,11 +143,13 @@ public class JavaClassParser {
                                 String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
                                 readTestLibrariesFromFile(f, testLibraries, searchString);
                                 readInternalPackagesAndClasses(dest);
+                                readInternalClassMethods(f,dest);
                             }
                         } else {
                             String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
                             readTestLibrariesFromFile(f, testLibraries, searchString);
                             readInternalPackagesAndClasses(dest);
+                            readInternalClassMethods(f,dest);
                         }
                     }
                 }
@@ -268,4 +300,17 @@ class FileData {
         this.lineNum = lineNum;
     }
 
+}
+
+class MethodVisitor extends VoidVisitorAdapter
+{
+    public void visit(MethodDeclaration n, Object arg)
+    {
+        String[] params = new String[n.getParameters().size()];
+        for(int i=0; i<n.getParameters().size(); i++)
+            params[i]=n.getParameters().get(i).getTypeAsString();
+        
+        ((HashMap<String,String[]>)arg).put(n.getName().toString(), params);
+        
+    }
 }
