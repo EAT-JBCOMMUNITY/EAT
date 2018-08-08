@@ -9,6 +9,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
@@ -224,6 +226,26 @@ public class DependencyTreeMethods {
         }
     }
     
+    public static HashMap<String,HashMap<String,Class[]>> listMethods(){
+        HashMap<String,HashMap<String,Class[]>> classMethods = new HashMap<>();
+         
+        try {
+            HashSet<Artifact> artifacts = DependencyTreeMethods.getArtifacts();
+            String repoPath = System.getProperty("MavenRepoPath");
+            
+            for(Artifact ar : artifacts) {
+                if(ar.type.contains("jar")) {
+                //    System.out.println(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
+                    classMethods.putAll(DependencyTreeMethods.listClassMethods(repoPath + "/"+ ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar"));
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            return classMethods;
+        }
+    }
+    
     public static HashSet<String> listPackages(){
         HashSet<String> jarPackages = new HashSet<>();
          
@@ -325,6 +347,47 @@ public class DependencyTreeMethods {
             e.printStackTrace();
         }finally {
             return jarClasses;
+        }
+    }
+    
+    private static HashMap<String,HashMap<String,Class[]>> listClassMethods(String path) {
+        HashMap<String,HashMap<String,Class[]>> classMethods = new HashMap<>();
+        
+        try{
+            if (path!=null) {
+                JarFile jarFile = new JarFile(path);
+               
+                URL[] urls = { new URL("jar:file:" + path+"!/") };
+                URLClassLoader cl = URLClassLoader.newInstance(urls);
+
+                Enumeration allEntries = jarFile.entries();
+                while (allEntries.hasMoreElements()) {
+                    JarEntry entry = (JarEntry) allEntries.nextElement();
+                    String name = entry.getName();
+                    
+                    if(name.contains(".class") && !name.contains("$")) {
+                        name = name.substring(0,name.lastIndexOf(".class"));
+                        name=name.replaceAll("/", ".");
+                        Class clas = cl.loadClass(name);
+                        
+                        HashMap<String,Class[]> allMethods = new HashMap<>();
+                        
+                        for (Class<?> c = clas; c != null; c = c.getSuperclass()) {
+                            for (Method method : c.getMethods()) {
+                                if(Modifier.toString(method.getModifiers()).contains("public")) {
+                                    allMethods.put(method.getName(), method.getParameterTypes());
+                                }
+                            }
+                        }       
+                        classMethods.put(name,allMethods);
+                    }
+
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            return classMethods;
         }
     }
 
