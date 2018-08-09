@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- @EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap64x/logging/src/test/config/standaloneEap#7.5.10*7.5.20","modules/testcases/jdkAll/Eap64x-Proposed/logging/src/test/config/standaloneEap#7.5.10*7.5.20"}) -->
+<!-- @EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap64x/logging/src/test/config/standaloneEap#7.5.10*7.5.30","modules/testcases/jdkAll/Eap64x-Proposed/logging/src/test/config/standaloneEap#7.5.10*7.5.30"}) -->
 <server xmlns="urn:jboss:domain:1.8">
 
     <extensions>
