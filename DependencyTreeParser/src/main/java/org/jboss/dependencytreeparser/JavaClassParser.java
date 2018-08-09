@@ -64,10 +64,10 @@ public class JavaClassParser {
             in = new FileInputStream(file);
             cu = JavaParser.parse(in);
             MethodVisitor visitor = new MethodVisitor();
-            if(internalClassMethods.get(fd.fileName.replaceAll("\\.java", ""))==null) {
-                internalClassMethods.put(fd.fileName.replaceAll("\\.java", ""), new HashMap<String,String[]>());
+            if(internalClassMethods.get(fd.packageName.replaceAll("/", ".") + "." + fd.fileName.replaceAll("\\.java", ""))==null) {
+                internalClassMethods.put(fd.packageName.replaceAll("/", ".") + "." + fd.fileName.replaceAll("\\.java", ""), new HashMap<String,String[]>());
             }
-            visitor.visit(cu, internalClassMethods.get(fd.fileName.replaceAll("\\.java", "")));
+            visitor.visit(cu, internalClassMethods.get(fd.packageName.replaceAll("/", ".") + "." + fd.fileName.replaceAll("\\.java", "")));
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
