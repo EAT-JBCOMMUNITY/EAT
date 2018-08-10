@@ -129,9 +129,11 @@ public class JavaClassParser {
                                                     for (String ver : versions) {
                                                         if (lastPart.contains(ver) || lastPart.compareTo(ver) == 0) {
                                                             String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
+                                                        //    System.out.println(f);
                                                             readTestLibrariesFromFile(f, testLibraries, searchString);
                                                             readInternalPackagesAndClasses(dest);
                                                             readInternalClassMethods(f,dest);
+                                                        //    TestsuiteParser.parse(f);
                                                         }
                                                     }
                                                 }
@@ -141,15 +143,19 @@ public class JavaClassParser {
                                 }
                             } else if (verRelease1 >= verRelease2 && (verRelease3 == 0 || verRelease1 <= verRelease3)) {
                                 String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
+                            //    System.out.println(f);
                                 readTestLibrariesFromFile(f, testLibraries, searchString);
                                 readInternalPackagesAndClasses(dest);
                                 readInternalClassMethods(f,dest);
+                             //   TestsuiteParser.parse(f);
                             }
                         } else {
                             String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
+                          //  System.out.println(f);
                             readTestLibrariesFromFile(f, testLibraries, searchString);
                             readInternalPackagesAndClasses(dest);
                             readInternalClassMethods(f,dest);
+                          //  TestsuiteParser.parse(f);
                         }
                     }
                 }
@@ -307,10 +313,13 @@ class MethodVisitor extends VoidVisitorAdapter
     public void visit(MethodDeclaration n, Object arg)
     {
         String[] params = new String[n.getParameters().size()];
+
         for(int i=0; i<n.getParameters().size(); i++)
             params[i]=n.getParameters().get(i).getTypeAsString();
         
+        
         ((HashMap<String,String[]>)arg).put(n.getName().toString(), params);
+        ((HashMap<String,String[]>)arg).put(n.getName().toString()+"_Return_Type", new String[]{n.getTypeAsString()});
         
     }
 }

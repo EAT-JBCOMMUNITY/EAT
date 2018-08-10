@@ -376,6 +376,7 @@ public class DependencyTreeMethods {
                             for (Method method : c.getMethods()) {
                                 if(Modifier.toString(method.getModifiers()).contains("public")) {
                                     allMethods.put(method.getName(), method.getParameterTypes());
+                                    allMethods.put(method.getName()+"_Return_Type", new Class[]{method.getReturnType()});
                                 }
                             }
                         }       
