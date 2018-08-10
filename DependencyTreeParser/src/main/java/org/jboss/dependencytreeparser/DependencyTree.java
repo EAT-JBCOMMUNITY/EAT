@@ -25,6 +25,9 @@ public class DependencyTree {
                 System.out.println(s);
             }
        
+            
+            System.out.println("\n\n\nJar Classes : ");
+            
             HashMap<String,ArrayList<Class[]>> classes = DependencyTreeMethods.listClasses();
             
             for(String s : classes.keySet()) {
@@ -35,6 +38,9 @@ public class DependencyTree {
                         System.out.println(classes.get(s).get(i)[j].getTypeName());
                 }
             }
+            
+            
+            System.out.println("\n\n\nJar Methods : ");
             
             HashMap<String,HashMap<String,Class[]>> methods = DependencyTreeMethods.listMethods();
             
@@ -47,6 +53,7 @@ public class DependencyTree {
                 }
             }
         
+            System.out.println("\n\n\nInternal Classes and Methods : ");
             
             HashMap<String,ArrayList<String>> usedLibraries = JavaClassParser.testLibraryUsage();
 
