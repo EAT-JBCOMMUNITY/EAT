@@ -307,7 +307,8 @@ public class DependencyTreeMethods {
                 }
             }
         }catch(Exception e){
-            e.printStackTrace();
+            System.out.println(path + " is not available.");
+         //   e.printStackTrace();
         }finally {
             return jarPackages;
         }
@@ -344,7 +345,8 @@ public class DependencyTreeMethods {
                 }
             }
         }catch(Exception e){
-            e.printStackTrace();
+            System.out.println(path + " is not available.");
+         //   e.printStackTrace();
         }finally {
             return jarClasses;
         }
@@ -386,7 +388,8 @@ public class DependencyTreeMethods {
                 }
             }
         }catch(Exception e){
-            e.printStackTrace();
+            System.out.println(path + " is not available.");
+           // e.printStackTrace();
         }finally {
             return classMethods;
         }
