@@ -59,7 +59,7 @@ public class SecurityDeserializationTestCase {
 
         final String JSON = aposToQuotes(
                 "{'id': 1111,\n"
-                + " 'obj':[ 'com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl',\n"
+                + " 'obj':[ 'org.apache.xalan.xsltc.trax.TemplatesImpl',\n"
                 + "  {\n"
                 + "    'transletBytecodes' : [ 'AAIAZQ==' ],\n"
                 + "    'transletName' : 'a.b',\n"
