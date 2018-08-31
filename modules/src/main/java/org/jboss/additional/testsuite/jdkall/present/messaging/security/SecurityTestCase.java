@@ -46,6 +46,7 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.as.arquillian.api.ContainerResource;
 import org.jboss.as.arquillian.container.ManagementClient;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.ATTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -147,7 +148,7 @@ public class SecurityTestCase {
     }
 
 
-    @Test
+    @ATTest({"modules/testcases/jdkAll/Wildfly/messaging/src/main/java#11.0.0*13.0.0"})
     public void testUnsuccessfulAuthorization() throws Exception {
         final String queueName = "queue.testUnsuccessfulAuthorization";
         final ClientSessionFactory sf = createClientSessionFactory(managementClient.getMgmtAddress(), managementClient.getWebUri().getPort());
