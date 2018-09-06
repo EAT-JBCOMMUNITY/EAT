@@ -836,6 +836,100 @@
         </profile>
 
         <profile>
+            <id>eap72x.testsuite</id>
+            <activation>
+                <property>
+                    <name>eap72x</name>
+                    <value>true</value>
+                </property>
+            </activation>
+	    <repositories>
+		<repository>
+            <id>jboss-eap-7.2-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>http://http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.2-maven-build/latest/maven/</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</repository>
+	    </repositories>
+
+	    <pluginRepositories>
+		<pluginRepository>
+            <id>jboss-eap-7.2-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>http://http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.2-maven-build/latest/maven/</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</pluginRepository>
+	    </pluginRepositories>
+
+            <properties>
+		<serverDir>Eap72x</serverDir>
+	    </properties>
+        </profile>
+
+        <profile>
+            <id>eap72x.jdk8.testsuite</id>
+            <activation>
+                <property>
+                    <name>eap72x-jdk8</name>
+                    <value>true</value>
+                </property>
+            </activation>
+	    <repositories>
+		<repository>
+		    <id>jboss-eap-7.2-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>http://http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.2-maven-build/latest/maven/</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</repository>
+	    </repositories>
+
+	    <pluginRepositories>
+		<pluginRepository>
+		    <id>jboss-eap-7.2-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>http://http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.2-maven-build/latest/maven/</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</pluginRepository>
+	    </pluginRepositories>
+
+            <properties>
+		<serverDir>Eap72x</serverDir>
+	    </properties>
+        </profile>
+
+        <profile>
             <id>eap71x.proposed.jdk8.testsuite</id>
             <activation>
                 <property>
@@ -926,6 +1020,100 @@
 
             <properties>
 		<serverDir>Eap71x-Proposed</serverDir>
+	    </properties>
+        </profile>
+
+        <profile>
+            <id>eap72x.proposed.jdk8.testsuite</id>
+            <activation>
+                <property>
+                    <name>eap72x-proposed-jdk8</name>
+                    <value>true</value>
+                </property>
+            </activation>
+	    <repositories>
+		<repository>
+		    <id>jboss-eap-7.2-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>http://http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.2-maven-build/latest/maven/</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</repository>
+	    </repositories>
+
+	    <pluginRepositories>
+		<pluginRepository>
+		    <id>jboss-eap-7.2-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>http://http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.2-maven-build/latest/maven/</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</pluginRepository>
+	    </pluginRepositories>
+
+            <properties>
+		<serverDir>Eap72x-Proposed</serverDir>
+	    </properties>
+        </profile>
+
+        <profile>
+            <id>eap72x.proposed.testsuite</id>
+            <activation>
+                <property>
+                    <name>eap72x-proposed</name>
+                    <value>true</value>
+                </property>
+            </activation>
+	    <repositories>
+		<repository>
+            <id>jboss-eap-7.2-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>http://http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.2-maven-build/latest/maven/</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</repository>
+	    </repositories>
+
+	    <pluginRepositories>
+		<pluginRepository>
+            <id>jboss-eap-7.2-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>http://http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.2-maven-build/latest/maven/</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</pluginRepository>
+	    </pluginRepositories>
+
+            <properties>
+		<serverDir>Eap72x-Proposed</serverDir>
 	    </properties>
         </profile>
 
