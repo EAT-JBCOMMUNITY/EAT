@@ -33,7 +33,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
  *
  * @author Madhumita Sadhukhan
  */
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/jpa/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/jpa/src/main/java","modules/testcases/jdkAll/Eap71x/jpa/src/main/java","modules/testcases/jdkAll/Eap72x/jpa/src/main/java#7.2.0.CD13"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/jpa/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/jpa/src/main/java","modules/testcases/jdkAll/Eap71x/jpa/src/main/java"})
 @Entity
 @Cache(usage=TRANSACTIONAL)
 public class Student {
