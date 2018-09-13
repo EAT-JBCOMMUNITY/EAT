@@ -35,8 +35,9 @@ public class JavaClassParser {
         String server = System.getProperty("Server");
         String version = System.getProperty("Version");
         String versionOrderDir = System.getProperty("VersionOrderDir");
+        String disableSnapshotVersions = System.getProperty("DisableSnapshotVersions");
         
-        HashMap<String,ArrayList<String>> testLibraries = fileProcessing(basedir, sourcePath, server, version, versionOrderDir, "@EapAdditionalTestsuite");
+        HashMap<String,ArrayList<String>> testLibraries = fileProcessing(basedir, sourcePath, server, version, versionOrderDir, "@EapAdditionalTestsuite", disableSnapshotVersions);
         
         return testLibraries;
     }
@@ -75,22 +76,26 @@ public class JavaClassParser {
         }
     }
 
-    public static HashMap<String,ArrayList<String>> fileProcessing(String basedir, String sourcePath, String server, String version, String versionOrderDir, String searchString) {
+    public static HashMap<String,ArrayList<String>> fileProcessing(String basedir, String sourcePath, String server, String version, String versionOrderDir, String searchString, String disableSnapshotVersions) {
         File folder = new File(sourcePath);
         File[] listOfFiles = folder.listFiles();
 
         if (listOfFiles == null) {
             return null;
         }
-
+        
         try {
             for (File file : listOfFiles) {
                 if (file.isDirectory()) {
-                    fileProcessing(basedir, file.getAbsolutePath(), server, version, versionOrderDir, searchString);
+                    fileProcessing(basedir, file.getAbsolutePath(), server, version, versionOrderDir, searchString, disableSnapshotVersions);
                 } else {
-                    ArrayList<FileData> output = checkFileForAnnotation(file.getAbsolutePath(), searchString, server);
+                    ArrayList<FileData> output = checkFileForAnnotation(file.getAbsolutePath(), "@EapAdditionalTestsuite", server);
                     for (FileData dest : output) {
                         if (dest.minVersion != null) {
+                            boolean isSnapshot = false;
+                            if (disableSnapshotVersions != null && disableSnapshotVersions.contains("true")) {
+                                isSnapshot = version.contains("SNAPSHOT");
+                            }
                             String[] versionRelease = version.split("-");
                             int verRelease1 = 0;
                             String[] verPart = versionRelease[0].split("\\.");
@@ -105,66 +110,160 @@ public class JavaClassParser {
                             }
 
                             int verRelease3 = 0;
+                            String[] subVersionsMax = null;
 
                             if (dest.maxVersion != null) {
-                                String[] subVersionsMax = dest.maxVersion.split("-");
+                                subVersionsMax = dest.maxVersion.split("-");
                                 verPart = subVersionsMax[0].split("\\.");
 
                                 if (verPart.length > 2) {
                                     verRelease3 = Integer.parseInt(verPart[0] + verPart[1] + verPart[2]);
                                 }
                             }
+                            
+                            if ((subVersions.length >= 1 && verRelease1 == verRelease2)) {
 
-                            if (subVersions.length > 1 && verRelease1 == verRelease2) {
-                                File versionFolder = new File(basedir + "/" + versionOrderDir + "/" + server + "/" + subVersions[0]);
-                                if (versionFolder.exists()) {
-                                    String versionsString = readFile(basedir + "/" + versionOrderDir + "/" + server + "/" + subVersions[0]);
-                                    if (versionsString != null && versionsString.contains(subVersions[1])) {
-                                        String[] versions = versionsString.substring(versionsString.indexOf(subVersions[1])).split(",");
+                                String[] vf = new String[2];
+                                if (verRelease1 == verRelease2 && subVersions[0].split("\\.").length > 3) {
+                                    vf[0] = subVersions[0].substring(0, subVersions[0].lastIndexOf("."));
+                                    vf[1] = subVersions[0].substring(subVersions[0].lastIndexOf(".") + 1);
+                                } else {
+                                    vf[0] = subVersions[0];
+                                    vf[1] = null;
+                                }
+
+                                File versionFolder = new File(basedir + "/" + versionOrderDir + "/" + server + "/" + vf[0]);
+                                if (vf != null && versionFolder.exists()) {
+                                    String versionsString = readFile(basedir + "/" + versionOrderDir + "/" + server + "/" + vf[0]);
+                                    if (versionsString != null) {
+                                        String[] versions = null;
+                                        if (vf[1] != null) {
+                                            versions = versionsString.substring(versionsString.indexOf(vf[1])).split(",");
+                                        } else {
+                                            versions = versionsString.split(",");
+                                        }
                                         for (String versionPart : versionRelease) {
                                             if (versionPart.contains(".")) {
                                                 String[] versionNums = versionPart.split("\\.");
                                                 String lastPart = versionNums[versionNums.length - 1];
                                                 if (!lastPart.matches("[0-9]+")) {
                                                     for (String ver : versions) {
-                                                        if (lastPart.contains(ver) || lastPart.compareTo(ver) == 0) {
+                                                        if (lastPart.contains(ver)) {
+                                                            if (!(ver.equals(lastPart) && isSnapshot)) {
+                                                                if ((verRelease3 == 0 || verRelease1 < verRelease3)) {
+                                                                    String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
+                                                                    System.out.println(f);
+                                                                    readTestLibrariesFromFile(f, testLibraries, searchString);
+                                                                    readInternalPackagesAndClasses(dest);
+                                                                    readInternalClassMethods(f,dest);
+                                                                } else if (verRelease1 == verRelease3) {
+                                                                    procedure0(dest, server, basedir, versionOrderDir, verRelease1, verRelease3, subVersionsMax, versionRelease, isSnapshot, searchString);
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                } else {
+                                                    if (!(verRelease1 == verRelease2 && isSnapshot)) {
+                                                        if ((verRelease3 == 0 || verRelease1 < verRelease3)) {
                                                             String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
-                                                        //    System.out.println(f);
+                                                            System.out.println(f);
                                                             readTestLibrariesFromFile(f, testLibraries, searchString);
                                                             readInternalPackagesAndClasses(dest);
                                                             readInternalClassMethods(f,dest);
-                                                        //    TestsuiteParser.parse(f);
+                                                        } else if (verRelease1 == verRelease3) {
+                                                            procedure0(dest, server, basedir, versionOrderDir, verRelease1, verRelease3, subVersionsMax, versionRelease, isSnapshot, searchString);
                                                         }
                                                     }
                                                 }
+
                                             }
                                         }
                                     }
                                 }
-                            } else if (verRelease1 >= verRelease2 && (verRelease3 == 0 || verRelease1 <= verRelease3)) {
-                                String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
-                            //    System.out.println(f);
-                                readTestLibrariesFromFile(f, testLibraries, searchString);
-                                readInternalPackagesAndClasses(dest);
-                                readInternalClassMethods(f,dest);
-                             //   TestsuiteParser.parse(f);
+                            } else if (verRelease1 >= verRelease2) {
+                                if (!(verRelease1 == verRelease2 && isSnapshot)) {
+                                    if (verRelease3 == 0 || verRelease1 < verRelease3) {
+                                        if (verRelease1 != verRelease2 || !isSnapshot) {
+                                            String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
+                                            System.out.println(f);
+                                            readTestLibrariesFromFile(f, testLibraries, searchString);
+                                            readInternalPackagesAndClasses(dest);
+                                            readInternalClassMethods(f,dest);
+                                        }
+                                    } else if (verRelease1 == verRelease3) {
+                                        procedure0(dest, server, basedir, versionOrderDir, verRelease1, verRelease3, subVersionsMax, versionRelease, isSnapshot, searchString);
+                                    }
+                                }
                             }
                         } else {
                             String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
-                          //  System.out.println(f);
+                            System.out.println(f);
                             readTestLibrariesFromFile(f, testLibraries, searchString);
                             readInternalPackagesAndClasses(dest);
                             readInternalClassMethods(f,dest);
-                          //  TestsuiteParser.parse(f);
                         }
                     }
+
                 }
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
+        }finally {
             return testLibraries;
         }
+    }
+    
+    private static void procedure0(FileData dest, String server, String basedir, String versionOrderDir, int verRelease1, int verRelease3, String[] subVersionsMax, String[] versionRelease, boolean isSnapshot, String searchString) throws IOException, ClassNotFoundException {
+        if (verRelease1 == verRelease3) {
+
+            String[] vf = new String[2];
+            if (subVersionsMax != null && verRelease1 == verRelease3 && subVersionsMax[0].split("\\.").length > 3) {
+                vf[0] = subVersionsMax[0].substring(0, subVersionsMax[0].lastIndexOf("."));
+                vf[1] = subVersionsMax[0].substring(subVersionsMax[0].lastIndexOf(".") + 1);
+            } else {
+                vf[0] = subVersionsMax[0];
+                vf[1] = null;
+            }
+
+            File versionFolder = new File(basedir + "/" + versionOrderDir + "/" + server + "/" + vf[0]);
+            if (vf != null && versionFolder.exists()) {
+                String versionsString = readFile(basedir + "/" + versionOrderDir + "/" + server + "/" + vf[0]);
+                if (versionsString != null) {
+                    String[] versions = null;
+                    if (vf[1] != null) {
+                        versions = versionsString.substring(0, versionsString.indexOf(vf[1])).concat(vf[1]).split(",");
+                    } else {
+                        versions = versionsString.split(",");
+                    }
+                    for (String versionPart : versionRelease) {
+                        if (versionPart.contains(".")) {
+                            String[] versionNums = versionPart.split("\\.");
+                            String lastPart = versionNums[versionNums.length - 1];
+                            if (!lastPart.matches("[0-9]+")) {
+                                for (String ver : versions) {
+                                    if (lastPart.contains(ver) && !(ver.equals(lastPart) && isSnapshot)) {
+                                        String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
+                                        System.out.println(f);
+                                        readTestLibrariesFromFile(f, testLibraries, searchString);
+                                        readInternalPackagesAndClasses(dest);
+                                        readInternalClassMethods(f,dest);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } else if (verRelease1 <= verRelease3) {
+                if (!(verRelease1 == verRelease3 && isSnapshot)) {
+                    String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
+                    System.out.println(f);
+                    readTestLibrariesFromFile(f, testLibraries, searchString);
+                    readInternalPackagesAndClasses(dest);
+                    readInternalClassMethods(f,dest);
+                }
+            }
+        }
+
     }
     
     private static void readTestLibrariesFromFile(String file,  HashMap<String,ArrayList<String>> testLibraries, String searchString) throws FileNotFoundException, IOException {
