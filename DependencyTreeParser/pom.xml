@@ -68,6 +68,10 @@
                                     <name>VersionOrderDir</name>
                                     <value>${VersionOrderDir}</value>
                                 </property>
+                                <property>
+                                    <name>DisableSnapshotVersions</name>
+                                    <value>${DisableSnapshotVersions:false}</value>
+                                </property>
                             </properties>
                         </configuration>
                     </execution>
