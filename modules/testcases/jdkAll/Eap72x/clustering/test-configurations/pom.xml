@@ -59,7 +59,8 @@
 		        <goals>
 		            <goal>test</goal>
 		        </goals>
-		        <configuration>         
+		        <configuration>  
+                            <runOrder>reversealphabetical</runOrder>       
 		            <!-- Tests to execute. -->
 		            <includes>
 		                <include>org/jboss/additional/testsuite/jdkall/present/clustering/**/*TestCase.java</include>
