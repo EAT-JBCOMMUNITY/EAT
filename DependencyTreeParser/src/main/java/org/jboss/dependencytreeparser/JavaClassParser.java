@@ -7,6 +7,7 @@ package org.jboss.dependencytreeparser;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.body.ConstructorDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import java.io.BufferedReader;
@@ -28,6 +29,7 @@ public class JavaClassParser {
     static HashMap<String,ArrayList<String>> testLibraries = new HashMap<>();
     static HashMap<String,String> internalPackagesAndClasses = new HashMap<>();
     static HashMap<String,HashMap<String,String[]>> internalClassMethods = new HashMap<>();
+    static HashMap<String,ParsedTests> testData = new HashMap<String, ParsedTests>();
     
     public static HashMap<String,ArrayList<String>> testLibraryUsage() {
         String basedir = System.getProperty("BaseDir");
@@ -40,6 +42,14 @@ public class JavaClassParser {
         HashMap<String,ArrayList<String>> testLibraries = fileProcessing(basedir, sourcePath, server, version, versionOrderDir, "@EapAdditionalTestsuite", disableSnapshotVersions);
         
         return testLibraries;
+    }
+
+    public static HashMap<String, ParsedTests> getTestData() {
+        return testData;
+    }
+
+    public static void setTestData(HashMap<String, ParsedTests> testData) {
+        JavaClassParser.testData = testData;
     }
 
     public static HashMap<String,ArrayList<String>> getTestLibraries() {
@@ -153,9 +163,19 @@ public class JavaClassParser {
                                                                 if ((verRelease3 == 0 || verRelease1 < verRelease3)) {
                                                                     String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
                                                                     System.out.println(f);
-                                                                    readTestLibrariesFromFile(f, testLibraries, searchString);
+                                                                    String extesnion = readTestLibrariesFromFile(f, testLibraries, searchString);
                                                                     readInternalPackagesAndClasses(dest);
                                                                     readInternalClassMethods(f,dest);
+                                                                    TestsuiteParser.parse(f);
+                                                                    ParsedTests ps = new ParsedTests();
+                                                                    ps.extension = extesnion;
+                                                                    ps.types.addAll(TestsuiteParser.getTypes());
+                                                                    ps.imports.addAll(TestsuiteParser.getImports());
+                                                                    ps.classInstanceCreations.addAll(TestsuiteParser.getClassInstanceCreations());
+                                                                    ps.methodInvocations.addAll(TestsuiteParser.getMethodInvocations());
+                                                                    ps.typesNotResolved.addAll(TestsuiteParser.getTypesNotResolved());
+                                                                    ps.methodsNotResolved.addAll(TestsuiteParser.getMethodsNotResolved());
+                                                                    testData.put(dest.packageName.replaceAll("/", ".")+"."+dest.fileName.replace(".java", ""), ps);
                                                                 } else if (verRelease1 == verRelease3) {
                                                                     procedure0(dest, server, basedir, versionOrderDir, verRelease1, verRelease3, subVersionsMax, versionRelease, isSnapshot, searchString);
                                                                 }
@@ -167,9 +187,19 @@ public class JavaClassParser {
                                                         if ((verRelease3 == 0 || verRelease1 < verRelease3)) {
                                                             String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
                                                             System.out.println(f);
-                                                            readTestLibrariesFromFile(f, testLibraries, searchString);
+                                                            String extesnion = readTestLibrariesFromFile(f, testLibraries, searchString);
                                                             readInternalPackagesAndClasses(dest);
                                                             readInternalClassMethods(f,dest);
+                                                            TestsuiteParser.parse(f);
+                                                            ParsedTests ps = new ParsedTests();
+                                                            ps.extension = extesnion;
+                                                            ps.types.addAll(TestsuiteParser.getTypes());
+                                                            ps.imports.addAll(TestsuiteParser.getImports());
+                                                            ps.classInstanceCreations.addAll(TestsuiteParser.getClassInstanceCreations());
+                                                            ps.methodInvocations.addAll(TestsuiteParser.getMethodInvocations());
+                                                            ps.typesNotResolved.addAll(TestsuiteParser.getTypesNotResolved());
+                                                            ps.methodsNotResolved.addAll(TestsuiteParser.getMethodsNotResolved());
+                                                            testData.put(dest.packageName.replaceAll("/", ".")+"."+dest.fileName.replace(".java", ""), ps);
                                                         } else if (verRelease1 == verRelease3) {
                                                             procedure0(dest, server, basedir, versionOrderDir, verRelease1, verRelease3, subVersionsMax, versionRelease, isSnapshot, searchString);
                                                         }
@@ -186,9 +216,19 @@ public class JavaClassParser {
                                         if (verRelease1 != verRelease2 || !isSnapshot) {
                                             String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
                                             System.out.println(f);
-                                            readTestLibrariesFromFile(f, testLibraries, searchString);
+                                            String extesnion = readTestLibrariesFromFile(f, testLibraries, searchString);
                                             readInternalPackagesAndClasses(dest);
                                             readInternalClassMethods(f,dest);
+                                            TestsuiteParser.parse(f);
+                                            ParsedTests ps = new ParsedTests();
+                                            ps.extension = extesnion;
+                                            ps.types.addAll(TestsuiteParser.getTypes());
+                                            ps.imports.addAll(TestsuiteParser.getImports());
+                                            ps.classInstanceCreations.addAll(TestsuiteParser.getClassInstanceCreations());
+                                            ps.methodInvocations.addAll(TestsuiteParser.getMethodInvocations());
+                                            ps.typesNotResolved.addAll(TestsuiteParser.getTypesNotResolved());
+                                            ps.methodsNotResolved.addAll(TestsuiteParser.getMethodsNotResolved());
+                                            testData.put(dest.packageName.replaceAll("/", ".")+"."+dest.fileName.replace(".java", ""), ps);
                                         }
                                     } else if (verRelease1 == verRelease3) {
                                         procedure0(dest, server, basedir, versionOrderDir, verRelease1, verRelease3, subVersionsMax, versionRelease, isSnapshot, searchString);
@@ -198,9 +238,19 @@ public class JavaClassParser {
                         } else {
                             String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
                             System.out.println(f);
-                            readTestLibrariesFromFile(f, testLibraries, searchString);
+                            String extesnion = readTestLibrariesFromFile(f, testLibraries, searchString);
                             readInternalPackagesAndClasses(dest);
                             readInternalClassMethods(f,dest);
+                            TestsuiteParser.parse(f);
+                            ParsedTests ps = new ParsedTests();
+                            ps.extension = extesnion;
+                            ps.types.addAll(TestsuiteParser.getTypes());
+                            ps.imports.addAll(TestsuiteParser.getImports());
+                            ps.classInstanceCreations.addAll(TestsuiteParser.getClassInstanceCreations());
+                            ps.methodInvocations.addAll(TestsuiteParser.getMethodInvocations());
+                            ps.typesNotResolved.addAll(TestsuiteParser.getTypesNotResolved());
+                            ps.methodsNotResolved.addAll(TestsuiteParser.getMethodsNotResolved());
+                            testData.put(dest.packageName.replaceAll("/", ".")+"."+dest.fileName.replace(".java", ""), ps);
                         }
                     }
 
@@ -244,9 +294,19 @@ public class JavaClassParser {
                                     if (lastPart.contains(ver) && !(ver.equals(lastPart) && isSnapshot)) {
                                         String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
                                         System.out.println(f);
-                                        readTestLibrariesFromFile(f, testLibraries, searchString);
+                                        String extesnion = readTestLibrariesFromFile(f, testLibraries, searchString);
                                         readInternalPackagesAndClasses(dest);
                                         readInternalClassMethods(f,dest);
+                                        TestsuiteParser.parse(f);
+                                        ParsedTests ps = new ParsedTests();
+                                        ps.extension = extesnion;
+                                        ps.types.addAll(TestsuiteParser.getTypes());
+                                        ps.imports.addAll(TestsuiteParser.getImports());
+                                        ps.classInstanceCreations.addAll(TestsuiteParser.getClassInstanceCreations());
+                                        ps.methodInvocations.addAll(TestsuiteParser.getMethodInvocations());
+                                        ps.typesNotResolved.addAll(TestsuiteParser.getTypesNotResolved());
+                                        ps.methodsNotResolved.addAll(TestsuiteParser.getMethodsNotResolved());
+                                        testData.put(dest.packageName.replaceAll("/", ".")+"."+dest.fileName.replace(".java", ""), ps);
                                     }
                                 }
                             }
@@ -257,29 +317,51 @@ public class JavaClassParser {
                 if (!(verRelease1 == verRelease3 && isSnapshot)) {
                     String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
                     System.out.println(f);
-                    readTestLibrariesFromFile(f, testLibraries, searchString);
+                    String extesnion = readTestLibrariesFromFile(f, testLibraries, searchString);
                     readInternalPackagesAndClasses(dest);
                     readInternalClassMethods(f,dest);
+                    TestsuiteParser.parse(f);
+                    ParsedTests ps = new ParsedTests();
+                    ps.extension = extesnion;
+                    ps.types.addAll(TestsuiteParser.getTypes());
+                    ps.imports.addAll(TestsuiteParser.getImports());
+                    ps.classInstanceCreations.addAll(TestsuiteParser.getClassInstanceCreations());
+                    ps.methodInvocations.addAll(TestsuiteParser.getMethodInvocations());
+                    ps.typesNotResolved.addAll(TestsuiteParser.getTypesNotResolved());
+                    ps.methodsNotResolved.addAll(TestsuiteParser.getMethodsNotResolved());
+                    testData.put(dest.packageName.replaceAll("/", ".")+"."+dest.fileName.replace(".java", ""), ps);
                 }
             }
         }
 
     }
     
-    private static void readTestLibrariesFromFile(String file,  HashMap<String,ArrayList<String>> testLibraries, String searchString) throws FileNotFoundException, IOException {
+    private static String readTestLibrariesFromFile(String file,  HashMap<String,ArrayList<String>> testLibraries, String searchString) throws FileNotFoundException, IOException {
         BufferedReader br = new BufferedReader(new FileReader(file));
+        String extension = null;
+        String packageName = "";
 
         try {
+            String lineEx = br.readLine();
+            while (lineEx != null) {
+                if (lineEx.contains("extends")){
+                    extension = lineEx.substring(lineEx.indexOf("extends")+7).trim().split(" ")[0];
+                    break;
+                }
+                lineEx = br.readLine();
+            }
+            br = new BufferedReader(new FileReader(file));
             String line = br.readLine();
 
             while (line != null) {
                 if(line.trim().startsWith("package")) {
-                    String library = line.trim().replaceFirst("package", "").replaceAll(";", "");
-                    if(!testLibraries.keySet().contains(library)) {
-              //          testLibraries.add(library);
-                    }
+                    String library = line.trim().replaceFirst("package ", "").replaceAll(";", "");
+                    packageName = library;
                 }else if(line.trim().startsWith("import")) {
                     String library = line.trim().replaceFirst("import", "").trim().replaceFirst("static", "").trim().replaceAll(";", "");
+                    if(extension!=null && library.contains(extension)){
+                        extension = library.substring(0, library.indexOf(extension)+extension.length());
+                    }
                     String lib2=library;
                     String className = null;
                     while(lib2.lastIndexOf(".")!=-1) {
@@ -307,6 +389,9 @@ public class JavaClassParser {
             }
         } finally {
             br.close();
+            if(extension!=null && !extension.contains("."))
+                extension = packageName+"."+extension;
+            return extension;
         }
     }
     
@@ -409,6 +494,7 @@ class FileData {
 
 class MethodVisitor extends VoidVisitorAdapter
 {
+    @Override
     public void visit(MethodDeclaration n, Object arg)
     {
         String[] params = new String[n.getParameters().size()];
@@ -421,4 +507,27 @@ class MethodVisitor extends VoidVisitorAdapter
         ((HashMap<String,String[]>)arg).put(n.getName().toString()+"_Return_Type", new String[]{n.getTypeAsString()});
         
     }
+    
+    @Override
+    public void visit(ConstructorDeclaration n, Object arg)
+    {
+        String[] params = new String[n.getParameters().size()];
+
+        for(int i=0; i<n.getParameters().size(); i++)
+            params[i]=n.getParameters().get(i).getTypeAsString();
+        
+        
+        ((HashMap<String,String[]>)arg).put(n.getName().toString()+"_Constructor", params);
+        
+    }
+}
+
+class ParsedTests {
+    public String extension = null;
+    public HashSet<String> types = new HashSet<>();
+    public HashSet<String> imports = new HashSet<>();
+    public HashSet<String> typesNotResolved = new HashSet<>();
+    public HashSet<String> methodsNotResolved = new HashSet<>();
+    public ArrayList<ClassInfo> classInstanceCreations = new ArrayList<>();
+    public ArrayList<MethodInfo> methodInvocations = new ArrayList<>();
 }
