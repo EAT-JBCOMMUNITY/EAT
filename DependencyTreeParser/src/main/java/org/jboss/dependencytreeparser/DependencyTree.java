@@ -53,10 +53,84 @@ public class DependencyTree {
                 }
             }
         
-            System.out.println("\n\n\nInternal Classes and Methods : ");
+            
+        
+            System.out.println("\n\n\nJar Fields : ");
+            
+            HashMap<String,ArrayList<String>> fields = DependencyTreeMethods.listFields();
+            
+            for(String s : fields.keySet()) {
+                System.out.println("class : " + s);
+                for (String f : fields.get(s)) {
+                    System.out.println("Field : " + f );
+                    
+                }
+            }
             
             HashMap<String,ArrayList<String>> usedLibraries = JavaClassParser.testLibraryUsage();
-
+            HashMap<String,ParsedTests> testData = JavaClassParser.getTestData();
+            
+            for(String key:testData.keySet()) {
+                ParsedTests ps = testData.get(key);
+                System.out.println("Class : " + key.toString() + " extends " + ps.extension);
+                System.out.println("usedLibraries : " + ps.imports);
+                
+                HashSet<String> classLibraries = ps.imports;
+                HashSet<String> availableFields = new HashSet<>();
+                if(classLibraries!=null) {
+                    for(String lib : classLibraries) {
+                        for(String cl : classes.keySet()) {
+                            if(cl.contains(lib)){
+                                if(fields.get(cl)!=null)
+                                    availableFields.addAll(fields.get(cl));
+                                if(!cl.replaceAll(lib+".", "").equals(cl))
+                                    availableFields.add(cl.replaceAll(lib+".", ""));
+                                else {
+                                    availableFields.add(lib.substring(lib.lastIndexOf(".")+1));
+                                //    System.out.println("cccccccc " + lib.substring(lib.lastIndexOf(".")+1));
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                System.out.println("Types : =========="+availableFields.size());
+                ArrayList<String> acceptedTypes = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "types.txt");
+                System.out.println(acceptedTypes.toString());
+                for(String type : ps.types){
+                    if(!acceptedTypes.contains(type) && !availableFields.contains(type))
+                        System.out.println(type);
+                }
+                System.out.println("Types Not Resolved : ==========");
+                for(String typeNotResolved : ps.typesNotResolved){
+                    if(!acceptedTypes.contains(typeNotResolved))
+                        System.out.println(typeNotResolved);
+                }
+                System.out.println("Method Invocations : ==========");
+                ArrayList<String> acceptedMethods = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "methods.txt");
+                for(MethodInfo methodInfo : ps.methodInvocations){
+                    String methodI = methodInfo.methodName;
+                    if(methodInfo.expression!=null)
+                        methodI=methodInfo.expression + "." + methodInfo.methodName;
+                    if(!acceptedMethods.contains(methodI) && !methodInfo.isResolvedParam.contains("false"))
+                        System.out.println(methodInfo.methodName + " " + methodInfo.expression + " " + methodInfo.params.toString() + " " + methodInfo.isResolvedParam.toString());
+                }
+                System.out.println("Methods Not Resolved : ==========");
+                for(String methodNotResolved : ps.methodsNotResolved){
+                    if(!acceptedMethods.contains(methodNotResolved))
+                        System.out.println(methodNotResolved);
+                }
+                System.out.println("Class Instance Creations : ==========");
+                ArrayList<String> acceptedclasses = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "classInstances.txt");
+                for(ClassInfo classInfo : ps.classInstanceCreations){
+                    if(!acceptedclasses.contains(classInfo.className) && !classInfo.isResolvedParam.contains("false"))
+                        System.out.println(classInfo.className + " " + classInfo.params.toString() + " " + classInfo.isResolvedParam.toString());
+                }
+            }
+            
+/*
+            System.out.println("\n\n\nInternal Classes and Methods : ");
+            
             HashMap<String,HashMap<String,String[]>> localMethods = JavaClassParser.getInternalClassMethods();
              
             
@@ -125,7 +199,7 @@ public class DependencyTree {
             for(String s : notfoundArray) {
                 System.out.println("Not Found : " + s);
             }
-            
+            */
         }catch(Exception e) {
             e.printStackTrace();
         }

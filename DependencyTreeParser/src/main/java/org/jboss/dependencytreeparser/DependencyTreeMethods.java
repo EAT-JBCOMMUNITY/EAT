@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.net.URL;
@@ -246,6 +247,26 @@ public class DependencyTreeMethods {
         }
     }
     
+    public static HashMap<String,ArrayList<String>> listFields(){
+        HashMap<String,ArrayList<String>> classFields = new HashMap<>();
+         
+        try {
+            HashSet<Artifact> artifacts = DependencyTreeMethods.getArtifacts();
+            String repoPath = System.getProperty("MavenRepoPath");
+            
+            for(Artifact ar : artifacts) {
+                if(ar.type.contains("jar")) {
+                //    System.out.println(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
+                    classFields.putAll(DependencyTreeMethods.listClassFields(repoPath + "/"+ ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar"));
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            return classFields;
+        }
+    }
+    
     public static HashSet<String> listPackages(){
         HashSet<String> jarPackages = new HashSet<>();
          
@@ -308,7 +329,7 @@ public class DependencyTreeMethods {
             }
         }catch(Exception e){
             System.out.println(path + " is not available.");
-         //   e.printStackTrace();
+          //  e.printStackTrace();
         }finally {
             return jarPackages;
         }
@@ -345,8 +366,8 @@ public class DependencyTreeMethods {
                 }
             }
         }catch(Exception e){
-            System.out.println(path + " is not available.");
-         //   e.printStackTrace();
+           // e.printStackTrace();
+           System.out.println(path + " is not available.");
         }finally {
             return jarClasses;
         }
@@ -388,10 +409,54 @@ public class DependencyTreeMethods {
                 }
             }
         }catch(Exception e){
+        //    e.printStackTrace();
             System.out.println(path + " is not available.");
-           // e.printStackTrace();
         }finally {
             return classMethods;
+        }
+    }
+    
+    
+    private static HashMap<String,ArrayList<String>> listClassFields(String path) {
+        HashMap<String,ArrayList<String>> classFields = new HashMap<>();
+        
+        try{
+            if (path!=null) {
+                JarFile jarFile = new JarFile(path);
+               
+                URL[] urls = { new URL("jar:file:" + path+"!/") };
+                URLClassLoader cl = URLClassLoader.newInstance(urls);
+
+                Enumeration allEntries = jarFile.entries();
+                while (allEntries.hasMoreElements()) {
+                    JarEntry entry = (JarEntry) allEntries.nextElement();
+                    String name = entry.getName();
+                    
+                    if(name.contains(".class") && !name.contains("$")) {
+                        name = name.substring(0,name.lastIndexOf(".class"));
+                        name=name.replaceAll("/", ".");
+                        Class clas = cl.loadClass(name);
+                        
+                        ArrayList<String> allFields = new ArrayList<>();
+                        
+                        for (Class<?> c = clas; c != null; c = c.getSuperclass()) {
+                            for(Field f : c.getFields()) {
+                                if(Modifier.toString(f.getModifiers()).contains("public")){
+                                    if(!allFields.contains(f))
+                                        allFields.add(f.getName());
+                                }
+                            }
+                        }       
+                        classFields.put(name,allFields);
+                    }
+
+                }
+            }
+        }catch(Exception e){
+        //    e.printStackTrace();
+            System.out.println(path + " is not available.");
+        }finally {
+            return classFields;
         }
     }
 

@@ -72,6 +72,10 @@
                                     <name>DisableSnapshotVersions</name>
                                     <value>${DisableSnapshotVersions:false}</value>
                                 </property>
+                                <property>
+                                    <name>AcceptedTypesFilePath</name>
+                                    <value>${AcceptedTypesFilePath}</value>
+                                </property>
                             </properties>
                         </configuration>
                     </execution>
