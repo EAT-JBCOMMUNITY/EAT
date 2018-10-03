@@ -353,6 +353,7 @@ public class DependencyTreeMethods {
                     if(name.contains(".class") && !name.contains("$")) {
                         name = name.substring(0,name.lastIndexOf(".class"));
                         name=name.replaceAll("/", ".");
+                        name=name.replaceAll("-", ".");
                         Class clas = cl.loadClass(name);
                         Constructor[] constructors = clas.getConstructors();
                         ArrayList<Class[]> constructorParams = new ArrayList<>();
@@ -391,6 +392,7 @@ public class DependencyTreeMethods {
                     if(name.contains(".class") && !name.contains("$")) {
                         name = name.substring(0,name.lastIndexOf(".class"));
                         name=name.replaceAll("/", ".");
+                        name=name.replaceAll("-", ".");
                         Class clas = cl.loadClass(name);
                         
                         HashMap<String,Class[]> allMethods = new HashMap<>();
@@ -435,6 +437,7 @@ public class DependencyTreeMethods {
                     if(name.contains(".class") && !name.contains("$")) {
                         name = name.substring(0,name.lastIndexOf(".class"));
                         name=name.replaceAll("/", ".");
+                        name=name.replaceAll("-", ".");
                         Class clas = cl.loadClass(name);
                         
                         ArrayList<String> allFields = new ArrayList<>();

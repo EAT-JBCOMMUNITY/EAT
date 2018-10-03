@@ -67,26 +67,89 @@ public class DependencyTree {
                 }
             }
             
+            System.out.println("\n\n\nInternal Classes and Methods : ");
+            
+          //  HashMap<String,HashMap<String,String[]>> localClasses = JavaClassParser.getInternalClassMethods();
+            
+            /*
+            for(String s : localClasses.keySet()) {
+                System.out.println("class : " + s);
+                for (String m : localClasses.get(s).keySet()) {
+                    System.out.println("Method : " + m + " with parameters : ");
+                    for (int j=0; j<localClasses.get(s).get(m).length; j++)
+                        System.out.println(localClasses.get(s).get(m)[j]);
+                }
+            }*/
+            
             HashMap<String,ArrayList<String>> usedLibraries = JavaClassParser.testLibraryUsage();
+            HashMap<String,HashSet<String>> localClasses = JavaClassParser.getInternalPackagesAndClasses();
+            HashMap<String,ArrayList<String>> internalClasses = JavaClassParser.getInternalClasses();
+            System.out.println("internalClasses size : " + internalClasses.size());
             HashMap<String,ParsedTests> testData = JavaClassParser.getTestData();
             
+            ArrayList<String> acceptedLibraries = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "libraries.txt");
+             
             for(String key:testData.keySet()) {
                 ParsedTests ps = testData.get(key);
                 System.out.println("Class : " + key.toString() + " extends " + ps.extension);
+                if(internalClasses.get(key.toString())!=null)
+                    System.out.println("All Classes : " + internalClasses.get(key.toString()).toString());
+                String path = key.toString().substring(0,key.toString().lastIndexOf("."));
+                System.out.println("Path : " + path);
                 System.out.println("usedLibraries : " + ps.imports);
                 
-                HashSet<String> classLibraries = ps.imports;
                 HashSet<String> availableFields = new HashSet<>();
-                if(classLibraries!=null) {
-                    for(String lib : classLibraries) {
+                
+                for(String s : localClasses.keySet()){
+                    if(s.contains(path)){
+                   //     System.out.println("++++++++ " + s + " " + localClasses.get(s).toString());
+                        availableFields.addAll(localClasses.get(s));
+                    }
+                }
+                
+                if(ps.extension!=null) {
+                    if(testData.get(ps.extension)!=null) {
+                        String ex = ps.extension;
+                        do{
+                            System.out.println("ps.extension : " + ps.extension + " : " + testData.get(ex).fields.keySet());
+                            availableFields.addAll(testData.get(ex).fields.keySet());
+                            if(testData.get(ex)!=null)
+                                ex = testData.get(ex).extension;
+                            else 
+                                ex = null;
+                        }while(ex!=null);
+                    }else {
                         for(String cl : classes.keySet()) {
-                            if(cl.contains(lib)){
+                            if(cl.equals(ps.extension)){
                                 if(fields.get(cl)!=null)
                                     availableFields.addAll(fields.get(cl));
+                                break;
+                            }
+                        }
+                        
+                    }
+                }
+                
+                
+                HashSet<String> classLibraries = ps.imports;
+                
+                if(classLibraries!=null) {
+                    for(String lib : classLibraries) {
+                        for(String acclib : acceptedLibraries) {
+                            if(lib.startsWith(acclib)){
+                                availableFields.add(lib.substring(lib.lastIndexOf(".")+1));
+                                break;
+                            }
+                        }
+                        for(String cl : classes.keySet()) {
+                            if(cl.contains(lib)){
+                            //    if(fields.get(cl)!=null)
+                            //        availableFields.addAll(fields.get(cl));
                                 if(!cl.replaceAll(lib+".", "").equals(cl))
                                     availableFields.add(cl.replaceAll(lib+".", ""));
                                 else {
                                     availableFields.add(lib.substring(lib.lastIndexOf(".")+1));
+                                    
                                 //    System.out.println("cccccccc " + lib.substring(lib.lastIndexOf(".")+1));
                                 }
                             }
@@ -94,17 +157,77 @@ public class DependencyTree {
                     }
                 }
                 
-                System.out.println("Types : =========="+availableFields.size());
+               
+                
+                System.out.println("Types : ==========");
                 ArrayList<String> acceptedTypes = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "types.txt");
-                System.out.println(acceptedTypes.toString());
+            //    System.out.println(acceptedTypes.toString());
                 for(String type : ps.types){
-                    if(!acceptedTypes.contains(type) && !availableFields.contains(type))
-                        System.out.println(type);
+                    boolean b = false;
+                    type = type.replaceAll("\\.Builder", "");
+                    type = type.replaceAll("\\.RolloutPolicy", "");
+                    if(!acceptedTypes.contains(type) && !availableFields.contains(type) && !classLibraries.contains(type) && !internalClasses.keySet().contains(type) && !internalClasses.get(key.toString()).contains(type)) {
+                    //    System.out.println(type + "------" + classLibraries.toString());
+
+                        
+                        for(String im : classLibraries) {
+                            if(im.contains(type)){
+                                b=true;
+                                break;
+                            }
+                        }
+                        
+                        
+                        if(!b) {
+                            for(String acclib : acceptedLibraries) {
+                                if(type.startsWith(acclib)){
+                                    b = true;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        if(!b) {
+                            String packageName =  key.toString().substring(0,key.toString().lastIndexOf("."));
+                            for(String locClass : localClasses.get(packageName)) {
+                                if(locClass.contains(type)){
+                                    b = true;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        if(!b){
+                            System.out.println(type + "------");
+                        }
+                    }
+                        
                 }
                 System.out.println("Types Not Resolved : ==========");
                 for(String typeNotResolved : ps.typesNotResolved){
-                    if(!acceptedTypes.contains(typeNotResolved))
-                        System.out.println(typeNotResolved);
+                    boolean b = false;
+                    if(!acceptedTypes.contains(typeNotResolved) && !availableFields.contains(typeNotResolved) && !classLibraries.contains(typeNotResolved) && !internalClasses.keySet().contains(typeNotResolved) && !internalClasses.get(key.toString()).contains(typeNotResolved)) {
+                        for(String im : classLibraries) {
+                            if(im.contains(typeNotResolved)){
+                                b=true;
+                                break;
+                            }
+                        }
+                        
+                        if(!b) {
+                            String packageName =  key.toString().substring(0,key.toString().lastIndexOf("."));
+                            for(String locClass : localClasses.get(packageName)) {
+                                if(locClass.contains(typeNotResolved)){
+                                    b = true;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        if(!b){
+                            System.out.println(typeNotResolved + "------");
+                        }
+                }
                 }
                 System.out.println("Method Invocations : ==========");
                 ArrayList<String> acceptedMethods = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "methods.txt");
@@ -126,6 +249,9 @@ public class DependencyTree {
                     if(!acceptedclasses.contains(classInfo.className) && !classInfo.isResolvedParam.contains("false"))
                         System.out.println(classInfo.className + " " + classInfo.params.toString() + " " + classInfo.isResolvedParam.toString());
                 }
+                System.out.println("Libraries : =========="+availableFields.size());
+                
+
             }
             
 /*
