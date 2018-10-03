@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -34,11 +35,20 @@ import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
  */
 public class TestsuiteParser {
     static HashSet<String> types = new HashSet<>();
+    static HashMap<String,String> fields = new HashMap<>();
     static HashSet<String> imports = new HashSet<>();
     static HashSet<String> typesNotResolved = new HashSet<>();
     static HashSet<String> methodsNotResolved = new HashSet<>();
     static ArrayList<ClassInfo> classInstanceCreations = new ArrayList<>();
     static ArrayList<MethodInfo> methodInvocations = new ArrayList<>();
+
+    public static HashMap<String,String> getFields() {
+        return fields;
+    }
+
+    public static void setFields(HashMap<String,String> fields) {
+        TestsuiteParser.fields = fields;
+    }
 
     public static HashSet<String> getTypes() {
         return types;
@@ -75,10 +85,12 @@ public class TestsuiteParser {
     public static void parse(String str) throws IOException {
 
         types.clear();
+        fields.clear();
         classInstanceCreations.clear();
         typesNotResolved.clear();
         methodsNotResolved.clear();
         methodInvocations.clear();
+        imports.clear();
    //     System.out.println("parse");
         ASTParser parser = ASTParser.newParser(AST.JLS3);
   //      System.out.println("parse");
@@ -100,31 +112,47 @@ public class TestsuiteParser {
                 String name = node.fragments().get(0).toString().split("=")[0].trim();
                 String type = node.getType().toString();
                 
-                System.out.println("Declaration of field '" + name + " of type " + type + "' at line"
-                                + cu.getLineNumber(node.getStartPosition())); 
+             //   System.out.println("Declaration of field '" + name + " of type " + type + "' at line"
+             //                   + cu.getLineNumber(node.getStartPosition()) + " " + node.modifiers().toString()); 
                 
                 declarations.put(name, type);
+                if(node.modifiers().toString().contains("public") || node.modifiers().toString().contains("protected")){
+                    System.out.println("modifiers : " + node.modifiers().contains("public") + " " + node.modifiers().contains("protected") + " " + node.modifiers().toString());
+                    fields.put(name, type);
+                }
                 
                 ArrayList<String> types0 = new ArrayList<>();
                 
                 String type2 =null;
                 do {
                     if(type.contains("[")) {
-                        type = type.substring(0,type.indexOf("["));
-                    }else if(type.contains("<")) {
+                        type=type.replaceAll("\\[\\]", "");
+                        if(type.contains("["))
+                            type = type.substring(0,type.indexOf("["));
+                    }
+                    
+                    if(type.contains("<")) {
                         String type3=type;
                         type = type.substring(0,type.indexOf("<"));
                         if (type3.substring(type3.indexOf("<")+1).startsWith("<>") || type3.substring(type.indexOf("<")+1).startsWith("<T>"))
                             type2=null;
                         else{
                             type2 = type3.substring(type3.indexOf("<")+1,type3.lastIndexOf(">"));
-                            for(String s : type2.split(","))
-                                types0.add(s);
+                            if(type2.contains(",")) {
+                                if(type2.substring(0, type2.indexOf(",")).contains("<")){
+                                    types0.add(type2);
+                                }else{
+                                    types0.add(type2.substring(0, type2.indexOf(",")));
+                                    types0.add(type2.substring(type2.indexOf(",")+1));
+                                }
+                            }else {
+                                types0.add(type2);
+                            }
                         }
                         
                     }
 
-                    types.add(type);
+                    types.addAll(Arrays.asList(type.split(" extends ")));
                     if(types0.size()!=0)
                         type = types0.remove(0);
                     else
@@ -136,8 +164,8 @@ public class TestsuiteParser {
 
             public boolean visit(MethodDeclaration node) {
                 if (node.getName().getIdentifier() != null) {
-                    System.out.println("Declaration of method '" + node.getName() + "' at line"
-                                + cu.getLineNumber(node.getStartPosition())); 
+                //    System.out.println("Declaration of method '" + node.getName() + "' at line"
+                //                + cu.getLineNumber(node.getStartPosition())); 
                    
                     HashMap<String,String> bDeclarations = new HashMap();
                     bDeclarations.putAll(declarations);
@@ -145,7 +173,7 @@ public class TestsuiteParser {
                     List params = node.parameters();
                     for(Object s : params) {
                         String type = ((SingleVariableDeclaration)s).getType().toString();
-                        System.out.println("with param : " + type + " " + ((SingleVariableDeclaration)s).getName().toString());
+                //        System.out.println("with param : " + type + " " + ((SingleVariableDeclaration)s).getName().toString());
                         
                         bDeclarations.put(((SingleVariableDeclaration)s).getName().toString(),type);
                         
@@ -154,7 +182,9 @@ public class TestsuiteParser {
                         String type2 =null;
                         do {
                             if(type.contains("[")) {
-                                type = type.substring(0,type.indexOf("["));
+                                type=type.replaceAll("\\[\\]", "");
+                                if(type.contains("["))
+                                    type = type.substring(0,type.indexOf("["));
                             }else if(type.contains("<")) {
                                 String type3=type;
                                 type = type.substring(0,type.indexOf("<"));
@@ -162,13 +192,21 @@ public class TestsuiteParser {
                                     type2=null;
                                 else{
                                     type2 = type3.substring(type3.indexOf("<")+1,type3.lastIndexOf(">"));
-                                    for(String ss : type2.split(","))
-                                        types0.add(ss);
+                                    if(type2.contains(",")) {
+                                        if(type2.substring(0, type2.indexOf(",")).contains("<")){
+                                            types0.add(type2);
+                                        }else{
+                                            types0.add(type2.substring(0, type2.indexOf(",")));
+                                            types0.add(type2.substring(type2.indexOf(",")+1));
+                                        }
+                                    }else {
+                                        types0.add(type2);
+                                    }
                                 }
 
                             }
 
-                            types.add(type);
+                            types.addAll(Arrays.asList(type.split(" extends ")));
                             if(types0.size()!=0)
                                 type = types0.remove(0);
                             else
@@ -179,8 +217,8 @@ public class TestsuiteParser {
                     
                     Block block = node.getBody();
                     
-                    if(block!=null)
-                        System.out.println("Block " + block.toString());
+                //    if(block!=null)
+                //        System.out.println("Block " + block.toString());
                     blockIterate(block, cu, bDeclarations);
                 }
                 return true;
@@ -197,7 +235,7 @@ public class TestsuiteParser {
             }
         });
 
-        System.out.println("Types : ");
+    /*    System.out.println("Types : ");
         for(String type:types){
             System.out.println(type);
         }
@@ -220,7 +258,7 @@ public class TestsuiteParser {
         System.out.println("MethodInvocations : ");
         for(MethodInfo methodInfo:methodInvocations){
             System.out.println(methodInfo.methodName + " " + methodInfo.expression + " " + methodInfo.params.toString() + " " + methodInfo.isResolvedParam.toString());
-        }
+        }*/
     }
 
     public static HashSet<String> getTypesNotResolved() {
@@ -246,7 +284,7 @@ public class TestsuiteParser {
         
         if(block!=null)
             statements = block.statements();
-        System.out.println("Statements : " + statements.toString());
+    //    System.out.println("Statements : " + statements.toString());
         
         
         for (Statement s : statements) {
@@ -259,8 +297,8 @@ public class TestsuiteParser {
                     public boolean visit(SingleVariableDeclaration node) {
                         String name = node.getName().toString();
                         String type = node.getType().toString();
-                        System.out.println("Declaration of variable '" + name + " " + type + "' at line"
-                                + cu.getLineNumber(node.getStartPosition())); 
+                    //    System.out.println("Declaration of variable '" + name + " " + type + "' at line"
+                    //            + cu.getLineNumber(node.getStartPosition())); 
                         
                         bDeclarations.put(name,type);
                         
@@ -269,21 +307,33 @@ public class TestsuiteParser {
                         String type2 =null;
                         do {
                             if(type.contains("[")) {
-                                type = type.substring(0,type.indexOf("["));
-                            }else if(type.contains("<")) {
+                                type=type.replaceAll("\\[\\]", "");
+                                if(type.contains("["))
+                                    type = type.substring(0,type.indexOf("["));
+                            }
+                            
+                            if(type.contains("<")) {
                                 String type3=type;
                                 type = type.substring(0,type.indexOf("<"));
                                 if (type3.substring(type3.indexOf("<")+1).startsWith("<>") || type3.substring(type.indexOf("<")+1).startsWith("<T>"))
                                     type2=null;
                                 else{
                                     type2 = type3.substring(type3.indexOf("<")+1,type3.lastIndexOf(">"));
-                                    for(String s : type2.split(","))
-                                        types0.add(s);
+                                    if(type2.contains(",")) {
+                                        if(type2.substring(0, type2.indexOf(",")).contains("<")){
+                                            types0.add(type2);
+                                        }else{
+                                            types0.add(type2.substring(0, type2.indexOf(",")));
+                                            types0.add(type2.substring(type2.indexOf(",")+1));
+                                        }
+                                    }else {
+                                        types0.add(type2);
+                                    }
                                 }
 
                             }
 
-                            types.add(type);
+                            types.addAll(Arrays.asList(type.split(" extends ")));
                             if(types0.size()!=0)
                                 type = types0.remove(0);
                             else
@@ -306,21 +356,34 @@ public class TestsuiteParser {
                         String type2 =null;
                         do {
                             if(type.contains("[")) {
-                                type = type.substring(0,type.indexOf("["));
-                            }else if(type.contains("<")) {
+                                type=type.replaceAll("\\[\\]", "");
+                                if(type.contains("["))
+                                    type = type.substring(0,type.indexOf("["));
+                            }
+                            
+                            if(type.contains("<")) {
                                 String type3=type;
                                 type = type.substring(0,type.indexOf("<"));
                                 if (type3.substring(type3.indexOf("<")+1).startsWith("<>") || type3.substring(type.indexOf("<")+1).startsWith("<T>"))
                                     type2=null;
                                 else{
+                                //    System.out.println("........" + type3);
                                     type2 = type3.substring(type3.indexOf("<")+1,type3.lastIndexOf(">"));
-                                    for(String s : type2.split(","))
-                                        types0.add(s);
+                                    if(type2.contains(",")) {
+                                        if(type2.substring(0, type2.indexOf(",")).contains("<")){
+                                            types0.add(type2);
+                                        }else{
+                                            types0.add(type2.substring(0, type2.indexOf(",")));
+                                            types0.add(type2.substring(type2.indexOf(",")+1));
+                                        }
+                                    }else {
+                                        types0.add(type2);
+                                    }
                                 }
 
                             }
 
-                            types.add(type);
+                            types.addAll(Arrays.asList(type.split(" extends ")));
                             if(types0.size()!=0)
                                 type = types0.remove(0);
                             else
@@ -332,8 +395,8 @@ public class TestsuiteParser {
 
                     public boolean visit(SimpleType node) {
                         
-                            System.out.println("Usage of method/variable/field/parameter type : " + node.getName() + " at line "
-                                    + cu.getLineNumber(node.getStartPosition()) );
+                        //    System.out.println("Usage of method/variable/field/parameter type : " + node.getName() + " at line "
+                        //            + cu.getLineNumber(node.getStartPosition()) );
                             
                             String type = node.getName().toString();
                             String name = node.getName().toString();
@@ -345,21 +408,33 @@ public class TestsuiteParser {
                             String type2 =null;
                             do {
                                 if(type.contains("[")) {
-                                    type = type.substring(0,type.indexOf("["));
-                                }else if(type.contains("<")) {
+                                    type=type.replaceAll("\\[\\]", "");
+                                    if(type.contains("["))
+                                        type = type.substring(0,type.indexOf("["));
+                                }
+                                
+                                if(type.contains("<")) {
                                     String type3=type;
                                     type = type.substring(0,type.indexOf("<"));
                                     if (type3.substring(type3.indexOf("<")+1).startsWith("<>") || type3.substring(type.indexOf("<")+1).startsWith("<T>"))
                                         type2=null;
                                     else{
                                         type2 = type3.substring(type3.indexOf("<")+1,type3.lastIndexOf(">"));
-                                        for(String s : type2.split(","))
-                                            types0.add(s);
+                                        if(type2.contains(",")) {
+                                            if(type2.substring(0, type2.indexOf(",")).contains("<")){
+                                                types0.add(type2);
+                                            }else{
+                                                types0.add(type2.substring(0, type2.indexOf(",")));
+                                                types0.add(type2.substring(type2.indexOf(",")+1));
+                                            }
+                                        }else {
+                                            types0.add(type2);
+                                        }
                                     }
 
                                 }
 
-                                types.add(type);
+                                types.addAll(Arrays.asList(type.split(" extends ")));
                                 if(types0.size()!=0)
                                     type = types0.remove(0);
                                 else
@@ -373,8 +448,8 @@ public class TestsuiteParser {
                     
                     public boolean visit(ClassInstanceCreation node) {
                         
-                            System.out.println("ClassInstanceCreation " + node.getType() + " at line "
-                                    + cu.getLineNumber(node.getStartPosition()) );
+                        //    System.out.println("ClassInstanceCreation " + node.getType() + " at line "
+                        //            + cu.getLineNumber(node.getStartPosition()) );
                             
                             ClassInfo clInfo = new ClassInfo();
                             clInfo.className = node.getType().toString();
@@ -384,6 +459,9 @@ public class TestsuiteParser {
                             for(Object s : params) {
                                 boolean resolved = true;
                                 String arg = ((Expression)s).toString();
+
+                                if(arg.contains("["))
+                                    arg = arg.substring(0,arg.indexOf("["));
                                 if(arg.startsWith("\"") && arg.endsWith("\""))
                                     arg = "String";
                                 else if(arg.startsWith("\'") && arg.endsWith("\'"))
@@ -394,13 +472,16 @@ public class TestsuiteParser {
                                     arg = bDeclarations.get(arg);
                                 else if(arg.equals("true") || arg.equals("false"))
                                     arg = "Boolean";
-                                else if(arg.contains("=="))
+                                else if(arg.contains("==") || arg.contains(">") || arg.contains("<") || arg.contains("!=") || arg.contains(">=") || arg.contains("<="))
                                     arg = "Boolean";
                                 else if(arg.contains(".class"))
                                     arg = arg.replaceAll(".class", "");
                                 else if(arg.startsWith("new ")){
                                     arg = arg.replaceAll("new ", "");
-                                    arg = arg.substring(0, arg.indexOf("("));
+                                    if(arg.contains("("))
+                                        arg = arg.substring(0, arg.indexOf("("));
+                                    else if(arg.contains("["))
+                                        arg = arg.substring(0, arg.indexOf("["));
                                 }else if(NumberUtils.isNumber(arg)){
                                     arg = "Numeric";
                                 }else if(arg.contains(".") && arg.substring(arg.lastIndexOf(".")).contains("String")) {
@@ -427,7 +508,7 @@ public class TestsuiteParser {
                                 
                                 clInfo.params.add(arg);
                                 clInfo.isResolvedParam.add(resolved);
-                                System.out.println("with args : " + arg);
+                        //        System.out.println("with args : " + arg);
                             }
                             
                             classInstanceCreations.add(clInfo);
@@ -437,13 +518,15 @@ public class TestsuiteParser {
                     
                     public boolean visit(ConstructorInvocation node) {
                         
-                            System.out.println("ConstructorInvocation " + node.toString() + " at line "
-                                    + cu.getLineNumber(node.getStartPosition()) );
+                        //    System.out.println("ConstructorInvocation " + node.toString() + " at line "
+                        //            + cu.getLineNumber(node.getStartPosition()) );
 
                         List params = node.arguments();
                         for(Object s : params) {
                             boolean resolved = true;
                             String arg = ((Expression)s).toString();
+                            if(arg.contains("["))
+                                arg = arg.substring(0,arg.indexOf("["));
                             if(arg.startsWith("\"") && arg.endsWith("\""))
                                 arg = "String";
                             else if(arg.startsWith("\'") && arg.endsWith("\'"))
@@ -454,13 +537,16 @@ public class TestsuiteParser {
                                 arg = bDeclarations.get(arg);
                             else if(arg.equals("true") || arg.equals("false"))
                                     arg = "Boolean";
-                            else if(arg.contains("=="))
+                            else if(arg.contains("==") || arg.contains(">") || arg.contains("<") || arg.contains("!=") || arg.contains(">=") || arg.contains("<="))
                                     arg = "Boolean";
                             else if(arg.contains(".class"))
                                 arg = arg.replaceAll(".class", "");
                             else if(arg.startsWith("new ")){
                                 arg = arg.replaceAll("new ", "");
-                                arg = arg.substring(0, arg.indexOf("("));
+                                if(arg.contains("("))
+                                    arg = arg.substring(0, arg.indexOf("("));
+                                else if(arg.contains("["))
+                                    arg = arg.substring(0, arg.indexOf("["));
                             }else if(NumberUtils.isNumber(arg)) {
                                 arg = "Numeric";
                             }else if(arg.contains(".") && arg.substring(arg.lastIndexOf(".")).contains("String")) {
@@ -485,21 +571,21 @@ public class TestsuiteParser {
                                     methodsNotResolved.add(arg);
                             }
                             
-                            System.out.println("with args : " + arg);
+                        //    System.out.println("with args : " + arg);
                         }
                         
                         return true;
                     }
 
-                    public boolean visit(NormalAnnotation node) {
+                /*    public boolean visit(NormalAnnotation node) {
                         
-                            System.out.println("NormalAnnotation '" + node.getTypeName().getFullyQualifiedName() + "' at line "
-                                    + cu.getLineNumber(node.getStartPosition()) );
+                        //    System.out.println("NormalAnnotation '" + node.getTypeName().getFullyQualifiedName() + "' at line "
+                        //            + cu.getLineNumber(node.getStartPosition()) );
 
                          
                         
                         return true;
-                    }
+                    }*/
                     
                     public boolean visit(MethodInvocation node) {
                        
@@ -515,13 +601,15 @@ public class TestsuiteParser {
                                 methodsNotResolved.add(node.getExpression().toString()+"."+node.getName());
                         }
                         
-                         System.out.println("MethodInvocation: " + node.getName() + " at line "
-                                + cu.getLineNumber(node.getStartPosition()) + " with arguments " + node.arguments() + " exp " + exp);
+                    //     System.out.println("MethodInvocation: " + node.getName() + " at line "
+                    //            + cu.getLineNumber(node.getStartPosition()) + " with arguments " + node.arguments() + " exp " + exp);
                         
                         List params = node.arguments();
                         for(Object s : params) {
                             boolean resolved = true;
                             String arg = ((Expression)s).toString();
+                            if(arg.contains("["))
+                                arg = arg.substring(0,arg.indexOf("["));
                             if(arg.startsWith("\"") && arg.endsWith("\""))
                                 arg = "String";
                             else if(arg.startsWith("\'") && arg.endsWith("\'"))
@@ -532,13 +620,16 @@ public class TestsuiteParser {
                                 arg = bDeclarations.get(arg);
                             else if(arg.equals("true") || arg.equals("false"))
                                     arg = "Boolean";
-                            else if(arg.contains("=="))
+                            else if(arg.contains("==") || arg.contains(">") || arg.contains("<") || arg.contains("!=") || arg.contains(">=") || arg.contains("<="))
                                     arg = "Boolean";
                             else if(arg.contains(".class"))
                                 arg = arg.replaceAll(".class", "");
                             else if(arg.startsWith("new ")){
                                 arg = arg.replaceAll("new ", "");
-                                arg = arg.substring(0, arg.indexOf("("));
+                                if(arg.contains("("))
+                                    arg = arg.substring(0, arg.indexOf("("));
+                                else if(arg.contains("["))
+                                    arg = arg.substring(0, arg.indexOf("["));
                             }else if(NumberUtils.isNumber(arg)){
                                 arg = "Numeric"; 
                             }else if(arg.contains(".") && arg.substring(arg.lastIndexOf(".")).contains("String")) {
@@ -568,7 +659,7 @@ public class TestsuiteParser {
                             
                             methodInvocations.add(mInfo);
                             
-                            System.out.println("with param : " + arg);
+                        //    System.out.println("with param : " + arg);
                         }
 
                         return true;

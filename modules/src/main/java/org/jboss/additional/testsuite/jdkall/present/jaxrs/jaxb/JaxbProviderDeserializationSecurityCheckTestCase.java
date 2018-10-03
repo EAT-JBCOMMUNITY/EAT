@@ -43,6 +43,8 @@ import org.springframework.jacksontest.BogusApplicationContext;
 import org.springframework.jacksontest.BogusPointcutAdvisor;
 import com.mchange.v2.c3p0.jacksonTest.ComboPooledDataSource;
 import org.apache.ibatis.datasource.jndi.JndiDataSourceFactory;
+import org.springframework.jacksontest.AbstractPointcutAdvisor;
+import org.springframework.jacksontest.AbstractApplicationContext;
 import org.hibernate.jmx.StatisticsService;
 import org.jboss.eap.additional.testsuite.annotations.EATDPM;
 import org.jboss.eap.additional.testsuite.annotations.ATTest;
