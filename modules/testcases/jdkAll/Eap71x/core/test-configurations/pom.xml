@@ -48,9 +48,9 @@
 		            </systemPropertyVariables>
     
 		            <!-- Tests to execute. -->
-		            <includes>
-		                <include>org/jboss/additional/testsuite/jdkall/present/core/**/*TestCase.java</include>
-		            </includes> 
+		            <excludes>
+		                <exclude>org/jboss/additional/testsuite/jdkall/present/core/**/DatasourcesActiveCountTestCase.java</exclude>
+		            </excludes> 
 		        </configuration>
 		    </execution>
 		</executions>

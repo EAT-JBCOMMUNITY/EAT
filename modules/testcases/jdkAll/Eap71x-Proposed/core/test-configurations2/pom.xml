@@ -14,7 +14,7 @@
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>eap71x-proposed-additional-testsuite-core-configuration</artifactId>
+    <artifactId>eap71x-proposed-additional-testsuite-core-configuration2</artifactId>
     <name>eap7 additional testsuite: core : configuration</name>
             
     <properties>
@@ -47,9 +47,9 @@
 		                <jboss.server.config.file.name>standalone-full.xml</jboss.server.config.file.name>
 		            </systemPropertyVariables>
 		            <!-- Tests to execute. -->
-		            <excludes>
-		                <exclude>org/jboss/additional/testsuite/jdkall/present/core/**/DatasourcesActiveCountTestCase.java</exclude>
-		            </excludes> 
+		            <includes>
+		                <include>org/jboss/additional/testsuite/jdkall/present/core/**/DatasourcesActiveCountTestCase.java</include>
+		            </includes> 
 		        </configuration>
 		    </execution>
 		</executions>
