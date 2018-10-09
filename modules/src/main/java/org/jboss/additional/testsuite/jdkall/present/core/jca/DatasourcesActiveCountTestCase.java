@@ -62,6 +62,7 @@ public class DatasourcesActiveCountTestCase extends AbstractCliTestBase {
 
    // The test trying find out ActiveCount 'COUNT_OF_RETRYING' times
    private static final int COUNT_OF_RETRYING = 10;
+   private static final int EXPECTED_ACTIVE_COUNT = 100;
 
    @BeforeClass
    public static void before() throws Exception {
@@ -101,15 +102,24 @@ public class DatasourcesActiveCountTestCase extends AbstractCliTestBase {
       cli.sendLine(OP_PATTERN_RELOAD);
    }
 
-   private void checkNumberOfActiveCount() throws IOException {
+   private void checkNumberOfActiveCount() throws IOException, InterruptedException {
+      int activeCount = getActiveCount();
+      if (activeCount < EXPECTED_ACTIVE_COUNT) {
+         Thread.sleep(1000);
+         activeCount = getActiveCount();
+      }
+      Assert.assertEquals(EXPECTED_ACTIVE_COUNT, activeCount);
+   }
+
+   private int getActiveCount() throws IOException {
       cli.sendLine(OP_PATTERN_READ);
       CLIOpResult opResult = cli.readAllAsOpResult();
       Assert.assertTrue(opResult.isIsOutcomeSuccess());
-      Assert.assertEquals("(\"ActiveCount\" => 100)", opResult.getResponseNode().get(ModelDescriptionConstants.RESULT).asList().get(0).toString());
+      return Integer.parseInt((String) opResult.getNamedResult("ActiveCount"));
    }
 
    @Test
-   public void testCheckCountOfActiveDatasources() throws IOException {
+   public void testCheckCountOfActiveDatasources() throws IOException, InterruptedException {
 
       // try to reload and check ActiveCount more times
       for (int i = 0 ; i < COUNT_OF_RETRYING ; i++) {
