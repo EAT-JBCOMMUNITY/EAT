@@ -41,6 +41,8 @@ public class TestsuiteParser {
     static HashSet<String> methodsNotResolved = new HashSet<>();
     static ArrayList<ClassInfo> classInstanceCreations = new ArrayList<>();
     static ArrayList<MethodInfo> methodInvocations = new ArrayList<>();
+    
+    static HashMap<String,String> importedClassFields = new HashMap<>();
 
     public static HashMap<String,String> getFields() {
         return fields;
@@ -116,7 +118,7 @@ public class TestsuiteParser {
              //                   + cu.getLineNumber(node.getStartPosition()) + " " + node.modifiers().toString()); 
                 
                 declarations.put(name, type);
-                if(node.modifiers().toString().contains("public") || node.modifiers().toString().contains("protected")){
+                if(!node.modifiers().toString().contains("private")){
                     System.out.println("modifiers : " + node.modifiers().contains("public") + " " + node.modifiers().contains("protected") + " " + node.modifiers().toString());
                     fields.put(name, type);
                 }
@@ -159,15 +161,16 @@ public class TestsuiteParser {
                         type = null;
                 }while(type!=null);
                 
-                return true;
+                return false;
             }
 
             public boolean visit(MethodDeclaration node) {
                 if (node.getName().getIdentifier() != null) {
-                //    System.out.println("Declaration of method '" + node.getName() + "' at line"
-                //                + cu.getLineNumber(node.getStartPosition())); 
+                    System.out.println("Declaration of method '" + node.getName() + "' at line"
+                                + cu.getLineNumber(node.getStartPosition())); 
                    
                     HashMap<String,String> bDeclarations = new HashMap();
+                    bDeclarations.putAll(importedClassFields);
                     bDeclarations.putAll(declarations);
         
                     List params = node.parameters();
@@ -221,7 +224,7 @@ public class TestsuiteParser {
                 //        System.out.println("Block " + block.toString());
                     blockIterate(block, cu, bDeclarations);
                 }
-                return true;
+                return false;
             }
         
             public boolean visit(ImportDeclaration node) {
@@ -229,9 +232,17 @@ public class TestsuiteParser {
                                 + cu.getLineNumber(node.getStartPosition())); 
                    
                 imports.add(node.getName().toString());
+                
+                if(DependencyTreeMethods.jarClassPaths.containsKey(node.getName().toString())) {
+                    importedClassFields = DependencyTreeMethods.listFieldsOfJarClass(DependencyTreeMethods.jarClassPaths.get(node.getName().toString()),node.getName().toString());
+                    fields.putAll(importedClassFields);
+                    if(node.getName().toString().equals("org.jboss.as.controller.descriptions.ModelDescriptionConstants")){
+                        System.out.println("EEE : " + importedClassFields.keySet().toString());
+                    }
+                }
                   
                 
-                return true;
+                return false;
             }
         });
 
@@ -297,8 +308,8 @@ public class TestsuiteParser {
                     public boolean visit(SingleVariableDeclaration node) {
                         String name = node.getName().toString();
                         String type = node.getType().toString();
-                    //    System.out.println("Declaration of variable '" + name + " " + type + "' at line"
-                    //            + cu.getLineNumber(node.getStartPosition())); 
+                        System.out.println("Declaration of variable '" + name + " " + type + "' at line"
+                                + cu.getLineNumber(node.getStartPosition())); 
                         
                         bDeclarations.put(name,type);
                         
@@ -395,8 +406,8 @@ public class TestsuiteParser {
 
                     public boolean visit(SimpleType node) {
                         
-                        //    System.out.println("Usage of method/variable/field/parameter type : " + node.getName() + " at line "
-                        //            + cu.getLineNumber(node.getStartPosition()) );
+                            System.out.println("Usage of method/variable/field/parameter type : " + node.getName() + " at line "
+                                    + cu.getLineNumber(node.getStartPosition()) );
                             
                             String type = node.getName().toString();
                             String name = node.getName().toString();
@@ -448,8 +459,8 @@ public class TestsuiteParser {
                     
                     public boolean visit(ClassInstanceCreation node) {
                         
-                        //    System.out.println("ClassInstanceCreation " + node.getType() + " at line "
-                        //            + cu.getLineNumber(node.getStartPosition()) );
+                            System.out.println("ClassInstanceCreation " + node.getType() + " at line "
+                                    + cu.getLineNumber(node.getStartPosition()) );
                             
                             ClassInfo clInfo = new ClassInfo();
                             clInfo.className = node.getType().toString();
@@ -460,13 +471,13 @@ public class TestsuiteParser {
                                 boolean resolved = true;
                                 String arg = ((Expression)s).toString();
 
-                                if(arg.contains("["))
+                                if(arg.contains("[") && !arg.contains("\""))
                                     arg = arg.substring(0,arg.indexOf("["));
                                 if(arg.startsWith("\"") && arg.endsWith("\""))
                                     arg = "String";
                                 else if(arg.startsWith("\'") && arg.endsWith("\'"))
                                     arg = "Character";
-                                else if(arg.contains("+"))
+                                else if(arg.contains("+") && arg.contains("\""))
                                     arg = "String";
                                 else if(bDeclarations.containsKey(arg))
                                     arg = bDeclarations.get(arg);
@@ -483,6 +494,8 @@ public class TestsuiteParser {
                                     else if(arg.contains("["))
                                         arg = arg.substring(0, arg.indexOf("["));
                                 }else if(NumberUtils.isNumber(arg)){
+                                    arg = "Numeric";
+                                }else if(arg.contains("-") || arg.contains("+") || arg.contains("*")){
                                     arg = "Numeric";
                                 }else if(arg.contains(".") && arg.substring(arg.lastIndexOf(".")).contains("String")) {
                                     arg = "String";
@@ -518,20 +531,20 @@ public class TestsuiteParser {
                     
                     public boolean visit(ConstructorInvocation node) {
                         
-                        //    System.out.println("ConstructorInvocation " + node.toString() + " at line "
-                        //            + cu.getLineNumber(node.getStartPosition()) );
+                            System.out.println("ConstructorInvocation " + node.toString() + " at line "
+                                    + cu.getLineNumber(node.getStartPosition()) );
 
                         List params = node.arguments();
                         for(Object s : params) {
                             boolean resolved = true;
                             String arg = ((Expression)s).toString();
-                            if(arg.contains("["))
+                            if(arg.contains("[") && !arg.contains("\""))
                                 arg = arg.substring(0,arg.indexOf("["));
                             if(arg.startsWith("\"") && arg.endsWith("\""))
                                 arg = "String";
                             else if(arg.startsWith("\'") && arg.endsWith("\'"))
                                 arg = "Character";
-                            else if(arg.contains("+"))
+                            else if(arg.contains("+") && arg.contains("\""))
                                 arg = "String";
                             else if(bDeclarations.containsKey(arg))
                                 arg = bDeclarations.get(arg);
@@ -548,6 +561,8 @@ public class TestsuiteParser {
                                 else if(arg.contains("["))
                                     arg = arg.substring(0, arg.indexOf("["));
                             }else if(NumberUtils.isNumber(arg)) {
+                                arg = "Numeric";
+                            }else if(arg.contains("-") || arg.contains("+") || arg.contains("*")){
                                 arg = "Numeric";
                             }else if(arg.contains(".") && arg.substring(arg.lastIndexOf(".")).contains("String")) {
                                 arg = "String";
@@ -601,20 +616,20 @@ public class TestsuiteParser {
                                 methodsNotResolved.add(node.getExpression().toString()+"."+node.getName());
                         }
                         
-                    //     System.out.println("MethodInvocation: " + node.getName() + " at line "
-                    //            + cu.getLineNumber(node.getStartPosition()) + " with arguments " + node.arguments() + " exp " + exp);
+                         System.out.println("MethodInvocation: " + node.getName() + " at line "
+                                + cu.getLineNumber(node.getStartPosition()) + " with arguments " + node.arguments() + " exp " + exp);
                         
                         List params = node.arguments();
                         for(Object s : params) {
                             boolean resolved = true;
                             String arg = ((Expression)s).toString();
-                            if(arg.contains("["))
+                            if(arg.contains("[") && !arg.contains("\""))
                                 arg = arg.substring(0,arg.indexOf("["));
                             if(arg.startsWith("\"") && arg.endsWith("\""))
                                 arg = "String";
                             else if(arg.startsWith("\'") && arg.endsWith("\'"))
                                 arg = "Character";
-                            else if(arg.contains("+"))
+                            else if(arg.contains("+") && arg.contains("\""))
                                 arg = "String";
                             else if(bDeclarations.containsKey(arg))
                                 arg = bDeclarations.get(arg);
@@ -632,6 +647,8 @@ public class TestsuiteParser {
                                     arg = arg.substring(0, arg.indexOf("["));
                             }else if(NumberUtils.isNumber(arg)){
                                 arg = "Numeric"; 
+                            }else if(arg.contains("-") || arg.contains("+") || arg.contains("*")){
+                                arg = "Numeric";
                             }else if(arg.contains(".") && arg.substring(arg.lastIndexOf(".")).contains("String")) {
                                 arg = "String";
                             }else if(arg.contains(".") && arg.substring(arg.lastIndexOf(".")).startsWith(".is")) {
@@ -708,6 +725,19 @@ public class TestsuiteParser {
         reader.close();
 
         return acceptedTypes;
+    }
+    
+    public static ArrayList<String> loadFieldsFromFile(String filePath) throws IOException {
+        ArrayList<String> addedFields = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new FileReader(filePath));
+
+        for(String line = reader.readLine(); line != null; line = reader.readLine()) {
+            addedFields.add(line);
+        }
+
+        reader.close();
+
+        return addedFields;
     }
 }
 

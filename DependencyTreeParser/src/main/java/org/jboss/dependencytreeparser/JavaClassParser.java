@@ -180,6 +180,7 @@ public class JavaClassParser {
                                                                     readInternalPackagesAndClasses(dest);
                                                                     readInternalClassMethods(f,dest);
                                                                     TestsuiteParser.parse(f);
+                                                                    System.out.println("fff : " + f);
                                                                     ParsedTests ps = new ParsedTests();
                                                                     ps.extension = extesnion;
                                                                     ps.types.addAll(TestsuiteParser.getTypes());
@@ -206,6 +207,7 @@ public class JavaClassParser {
                                                             readInternalPackagesAndClasses(dest);
                                                             readInternalClassMethods(f,dest);
                                                             TestsuiteParser.parse(f);
+                                                            System.out.println("fff : " + f);
                                                             ParsedTests ps = new ParsedTests();
                                                             ps.extension = extesnion;
                                                             ps.types.addAll(TestsuiteParser.getTypes());
@@ -237,6 +239,7 @@ public class JavaClassParser {
                                             readInternalPackagesAndClasses(dest);
                                             readInternalClassMethods(f,dest);
                                             TestsuiteParser.parse(f);
+                                            System.out.println("fff : " + f);
                                             ParsedTests ps = new ParsedTests();
                                             ps.extension = extesnion;
                                             ps.types.addAll(TestsuiteParser.getTypes());
@@ -261,6 +264,7 @@ public class JavaClassParser {
                             readInternalPackagesAndClasses(dest);
                             readInternalClassMethods(f,dest);
                             TestsuiteParser.parse(f);
+                            System.out.println("fff : " + f);
                             ParsedTests ps = new ParsedTests();
                             ps.extension = extesnion;
                             ps.types.addAll(TestsuiteParser.getTypes());
@@ -319,10 +323,12 @@ public class JavaClassParser {
                                         readInternalPackagesAndClasses(dest);
                                         readInternalClassMethods(f,dest);
                                         TestsuiteParser.parse(f);
+                                        System.out.println("fff : " + f);
                                         ParsedTests ps = new ParsedTests();
                                         ps.extension = extesnion;
                                         ps.types.addAll(TestsuiteParser.getTypes());
                                         ps.fields.putAll(TestsuiteParser.getFields());
+                                        System.out.println("ps fields : " + TestsuiteParser.getFields().keySet().toString() + " " + ps.fields.keySet().toString());
                                         ps.imports.addAll(TestsuiteParser.getImports());
                                         ps.classInstanceCreations.addAll(TestsuiteParser.getClassInstanceCreations());
                                         ps.methodInvocations.addAll(TestsuiteParser.getMethodInvocations());
@@ -343,10 +349,12 @@ public class JavaClassParser {
                     readInternalPackagesAndClasses(dest);
                     readInternalClassMethods(f,dest);
                     TestsuiteParser.parse(f);
+                    System.out.println("fff : " + f);
                     ParsedTests ps = new ParsedTests();
                     ps.extension = extesnion;
                     ps.types.addAll(TestsuiteParser.getTypes());
                     ps.fields.putAll(TestsuiteParser.getFields());
+                    System.out.println("ps fields : " + TestsuiteParser.getFields().keySet().toString() + " " + ps.fields.keySet().toString());
                     ps.imports.addAll(TestsuiteParser.getImports());
                     ps.classInstanceCreations.addAll(TestsuiteParser.getClassInstanceCreations());
                     ps.methodInvocations.addAll(TestsuiteParser.getMethodInvocations());
@@ -370,6 +378,9 @@ public class JavaClassParser {
             while (lineEx != null) {
                 if (lineEx.contains("extends") && lineEx.contains("class")){
                     extension = lineEx.substring(lineEx.indexOf("extends")+7).trim().split(" ")[0];
+                    break;
+                }else if (lineEx.contains("implements") && lineEx.contains("class")){
+                    extension = lineEx.substring(lineEx.indexOf("implements")+10).trim().split(" ")[0];
                     break;
                 }
                 lineEx = br.readLine();
