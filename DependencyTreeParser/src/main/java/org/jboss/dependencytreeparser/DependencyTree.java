@@ -98,6 +98,8 @@ public class DependencyTree {
                 System.out.println("Path : " + path);
                 System.out.println("usedLibraries : " + ps.imports);
                 
+                ArrayList<String> acceptedFieldsFromLibrary = TestsuiteParser.loadFieldsFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "classesToLoadFields.txt");
+                
                 HashSet<String> availableFields = new HashSet<>();
                 
                 for(String s : localClasses.keySet()){
@@ -107,15 +109,28 @@ public class DependencyTree {
                     }
                 }
                 
+                for(String s : acceptedFieldsFromLibrary){
+                    if(ps.imports.contains(s)){
+                        System.out.println("S : " + s);
+                        if(fields.get(s)!=null){
+                            System.out.println("FieldsFromFile : " + fields.get(s).toString());
+                            availableFields.addAll(fields.get(s));
+                        }else{
+                            System.out.println("LLL " + fields.keySet());
+                        }
+                    }
+                }
+                
                 if(ps.extension!=null) {
                     if(testData.get(ps.extension)!=null) {
                         String ex = ps.extension;
                         do{
-                            System.out.println("ps.extension : " + ps.extension + " : " + testData.get(ex).fields.keySet());
-                            availableFields.addAll(testData.get(ex).fields.keySet());
-                            if(testData.get(ex)!=null)
+                            
+                            if(testData.get(ex)!=null) {
+                                System.out.println("ps.extension : " + ps.extension + " : " + testData.get(ex).fields.keySet());
+                                availableFields.addAll(testData.get(ex).fields.keySet());
                                 ex = testData.get(ex).extension;
-                            else 
+                            }else 
                                 ex = null;
                         }while(ex!=null);
                     }else {

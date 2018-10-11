@@ -27,6 +27,8 @@ import java.util.jar.JarFile;
  */
 public class DependencyTreeMethods {
     
+    public static HashMap<String,String> jarClassPaths = new HashMap<>();
+    
     public static void printDependencies() throws IOException {
         String filePath = System.getProperty("DependencyTreeFilePath");
         boolean deleteAll =true;
@@ -207,6 +209,77 @@ public class DependencyTreeMethods {
         }
     }
     
+    public static HashMap<String,String> listJarClassPaths(){
+        HashMap<String,String> jarClassPaths = new HashMap<>();
+         
+        try {
+            HashSet<Artifact> artifacts = DependencyTreeMethods.getArtifacts();
+            String repoPath = System.getProperty("MavenRepoPath");
+            
+            for(Artifact ar : artifacts) {
+                if(ar.type.contains("jar")) {
+                //    System.out.println(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
+                    jarClassPaths.putAll(DependencyTreeMethods.listJarClassPaths(repoPath + "/"+ ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar"));
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            return jarClassPaths;
+        }
+    }
+    
+    public static HashMap<String,String> listFieldsOfJarClass(String path, String className) {
+        HashMap<String,String> jarClassFields = new HashMap<>();
+        
+        try{
+            if (path!=null) {
+                JarFile jarFile = new JarFile(path);
+                
+               
+                URL[] urls = { new URL("jar:file:" + path+"!/") };
+                URLClassLoader cl = URLClassLoader.newInstance(urls);
+
+                Enumeration<JarEntry> allEntries = jarFile.entries();
+                while (allEntries.hasMoreElements()) {
+                    JarEntry entry = (JarEntry) allEntries.nextElement();
+                    String name = entry.getName();
+                    
+            //        System.out.println("Entry Name : " + name);
+                    
+                    if(name.replaceAll("/", ".").replaceAll("-", ".").contains(className) && name.endsWith(".class") && !name.contains("$") && !entry.isDirectory()) {
+                        name = name.substring(0,name.lastIndexOf(".class"));
+                        name=name.replaceAll("/", ".");
+                        name=name.replaceAll("-", ".");
+                        
+                        try{
+                            Class clas = cl.loadClass(name);
+
+                            for (Class<?> c = clas; c != null; c = c.getSuperclass()) {
+                                for(Field f : c.getFields()) {
+                                    if(Modifier.toString(f.getModifiers()).contains("public")){
+                                        if(!jarClassFields.keySet().contains(f))
+                                            jarClassFields.put(f.getName(),f.getType().toString());
+                                    }
+                                }
+                            }       
+                         
+                        }catch(Exception ex){
+                        //    ex.printStackTrace();
+                        }
+                    }
+
+                }
+                jarFile.close();
+            }
+        }catch(Exception e){
+        //    e.printStackTrace();
+            System.out.println(path + " is not available.");
+        }finally {
+            return jarClassFields;
+        }
+    }
+    
     public static HashMap<String,ArrayList<Class[]>> listClasses(){
         HashMap<String,ArrayList<Class[]>> jarClasses = new HashMap<>();
          
@@ -218,6 +291,7 @@ public class DependencyTreeMethods {
                 if(ar.type.contains("jar")) {
                 //    System.out.println(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
                     jarClasses.putAll(DependencyTreeMethods.listJarClasses(repoPath + "/"+ ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar"));
+                    jarClassPaths.putAll(listJarClassPaths(repoPath + "/"+ ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar"));
                 }
             }
         } catch (Exception ex) {
@@ -256,7 +330,7 @@ public class DependencyTreeMethods {
             
             for(Artifact ar : artifacts) {
                 if(ar.type.contains("jar")) {
-                //    System.out.println(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
+                //    System.out.println("AAA " + repoPath + "/" + ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
                     classFields.putAll(DependencyTreeMethods.listClassFields(repoPath + "/"+ ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar"));
                 }
             }
@@ -314,12 +388,14 @@ public class DependencyTreeMethods {
                 JarFile jarFile = new JarFile(path);
                
                 URL[] urls = { new URL("jar:file:" + path+"!/") };
-                URLClassLoader cl = URLClassLoader.newInstance(urls);
 
                 Enumeration allEntries = jarFile.entries();
                 while (allEntries.hasMoreElements()) {
                     JarEntry entry = (JarEntry) allEntries.nextElement();
                     String name = entry.getName();
+                    
+                //    System.out.println("Entry Name 1 : " + name);
+                    
                     if(name.contains(".class"))
                         jarPackages.add(name.substring(0,name.lastIndexOf("/")).replaceAll("/", "."));
                     else
@@ -332,6 +408,35 @@ public class DependencyTreeMethods {
           //  e.printStackTrace();
         }finally {
             return jarPackages;
+        }
+    }
+    
+    private static HashMap<String,String> listJarClassPaths(String path) {
+        HashMap<String,String> jarClasses = new HashMap<>();
+        
+        try{
+            if (path!=null) {
+                JarFile jarFile = new JarFile(path);
+               
+                URL[] urls = { new URL("jar:file:" + path+"!/") };
+
+                Enumeration allEntries = jarFile.entries();
+                while (allEntries.hasMoreElements()) {
+                    JarEntry entry = (JarEntry) allEntries.nextElement();
+                    String name = entry.getName();
+                    
+                //    System.out.println("Entry Name 1 : " + name);
+                    
+                    if(name.contains(".class"))
+                        jarClasses.put(name.replaceAll("/", ".").replaceAll(".class", ""),path);
+                   
+                }
+            }
+        }catch(Exception e){
+            System.out.println(path + " is not available.");
+          //  e.printStackTrace();
+        }finally {
+            return jarClasses;
         }
     }
     
@@ -350,18 +455,24 @@ public class DependencyTreeMethods {
                     JarEntry entry = (JarEntry) allEntries.nextElement();
                     String name = entry.getName();
                     
+            //        System.out.println("Entry Name 2 : " + name);
+                    
                     if(name.contains(".class") && !name.contains("$")) {
                         name = name.substring(0,name.lastIndexOf(".class"));
                         name=name.replaceAll("/", ".");
                         name=name.replaceAll("-", ".");
-                        Class clas = cl.loadClass(name);
-                        Constructor[] constructors = clas.getConstructors();
-                        ArrayList<Class[]> constructorParams = new ArrayList<>();
-                        for(Constructor c : constructors) {
-                            Class[] parameterTypes = c.getParameterTypes();
-                            constructorParams.add(parameterTypes);
+                        try{
+                            Class clas = cl.loadClass(name);
+                            Constructor[] constructors = clas.getConstructors();
+                            ArrayList<Class[]> constructorParams = new ArrayList<>();
+                            for(Constructor c : constructors) {
+                                Class[] parameterTypes = c.getParameterTypes();
+                                constructorParams.add(parameterTypes);
+                            }
+                            jarClasses.put(name,constructorParams);
+                        }catch(Exception ex){
+                        //    ex.printStackTrace();
                         }
-                        jarClasses.put(name,constructorParams);
                     }
                 //    System.out.println("nnn " + name);
                 }
@@ -393,19 +504,24 @@ public class DependencyTreeMethods {
                         name = name.substring(0,name.lastIndexOf(".class"));
                         name=name.replaceAll("/", ".");
                         name=name.replaceAll("-", ".");
-                        Class clas = cl.loadClass(name);
                         
-                        HashMap<String,Class[]> allMethods = new HashMap<>();
-                        
-                        for (Class<?> c = clas; c != null; c = c.getSuperclass()) {
-                            for (Method method : c.getMethods()) {
-                                if(Modifier.toString(method.getModifiers()).contains("public")) {
-                                    allMethods.put(method.getName(), method.getParameterTypes());
-                                    allMethods.put(method.getName()+"_Return_Type", new Class[]{method.getReturnType()});
+                        try{
+                            Class clas = cl.loadClass(name);
+
+                            HashMap<String,Class[]> allMethods = new HashMap<>();
+
+                            for (Class<?> c = clas; c != null; c = c.getSuperclass()) {
+                                for (Method method : c.getMethods()) {
+                                    if(Modifier.toString(method.getModifiers()).contains("public")) {
+                                        allMethods.put(method.getName(), method.getParameterTypes());
+                                        allMethods.put(method.getName()+"_Return_Type", new Class[]{method.getReturnType()});
+                                    }
                                 }
-                            }
-                        }       
-                        classMethods.put(name,allMethods);
+                            }       
+                            classMethods.put(name,allMethods);
+                        }catch(Exception ex){
+                        //    ex.printStackTrace();
+                        }
                     }
 
                 }
@@ -425,35 +541,44 @@ public class DependencyTreeMethods {
         try{
             if (path!=null) {
                 JarFile jarFile = new JarFile(path);
+                
                
                 URL[] urls = { new URL("jar:file:" + path+"!/") };
                 URLClassLoader cl = URLClassLoader.newInstance(urls);
 
-                Enumeration allEntries = jarFile.entries();
+                Enumeration<JarEntry> allEntries = jarFile.entries();
                 while (allEntries.hasMoreElements()) {
                     JarEntry entry = (JarEntry) allEntries.nextElement();
                     String name = entry.getName();
                     
-                    if(name.contains(".class") && !name.contains("$")) {
+            //        System.out.println("Entry Name : " + name);
+                    
+                    if(name.endsWith(".class") && !name.contains("$") && !entry.isDirectory()) {
                         name = name.substring(0,name.lastIndexOf(".class"));
                         name=name.replaceAll("/", ".");
                         name=name.replaceAll("-", ".");
-                        Class clas = cl.loadClass(name);
                         
-                        ArrayList<String> allFields = new ArrayList<>();
-                        
-                        for (Class<?> c = clas; c != null; c = c.getSuperclass()) {
-                            for(Field f : c.getFields()) {
-                                if(Modifier.toString(f.getModifiers()).contains("public")){
-                                    if(!allFields.contains(f))
-                                        allFields.add(f.getName());
+                        try{
+                            Class clas = cl.loadClass(name);
+
+                            ArrayList<String> allFields = new ArrayList<>();
+
+                            for (Class<?> c = clas; c != null; c = c.getSuperclass()) {
+                                for(Field f : c.getFields()) {
+                                    if(Modifier.toString(f.getModifiers()).contains("public")){
+                                        if(!allFields.contains(f))
+                                            allFields.add(f.getName());
+                                    }
                                 }
-                            }
-                        }       
-                        classFields.put(name,allFields);
+                            }       
+                            classFields.put(name,allFields);
+                        }catch(Exception ex){
+                        //    ex.printStackTrace();
+                        }
                     }
 
                 }
+                jarFile.close();
             }
         }catch(Exception e){
         //    e.printStackTrace();
