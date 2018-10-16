@@ -299,6 +299,91 @@
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-ext</artifactId>
                 </dependency>
+                <dependency>
+		    <groupId>org.jboss.spec.javax.annotation</groupId>
+		    <artifactId>jboss-annotations-api_1.3_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.batch</groupId>
+		    <artifactId>jboss-batch-api_1.0_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.faces</groupId>
+		    <artifactId>jboss-jsf-api_2.3_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.jms</groupId>
+		    <artifactId>jboss-jms-api_2.0_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.management.j2ee</groupId>
+		    <artifactId>jboss-j2eemgmt-api_1.1_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.security.auth.message</groupId>
+		    <artifactId>jboss-jaspi-api_1.1_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.websocket</groupId>
+		    <artifactId>jboss-websocket-api_1.1_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.ws.rs</groupId>
+		    <artifactId>jboss-jaxrs-api_2.1_spec</artifactId>
+		</dependency>
+		<!-- Required for Java 11 -->
+		<dependency>
+		    <groupId>org.jboss.spec.javax.xml.ws</groupId>
+		    <artifactId>jboss-jaxws-api_2.3_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.weld</groupId>
+		    <artifactId>weld-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.weld</groupId>
+		    <artifactId>weld-core-impl</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.weld</groupId>
+		    <artifactId>weld-spi</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jsoup</groupId>
+		    <artifactId>jsoup</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.syslog4j</groupId>
+		    <artifactId>syslog4j</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>jipijapa-spi</artifactId>
+		</dependency>
+		<!-- This is not desired, however the JCA tests seem to require this -->
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-connector</artifactId>
+		    <scope>test</scope>
+		</dependency>
+		<!-- This is not desired, however the UncheckedStatelessBean requires this -->
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-ejb3</artifactId>
+		</dependency>
+		<!-- This is required for the JmsTestCase which uses CLI -->
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-messaging-activemq</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-pojo</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-system-jmx</artifactId>
+		</dependency>
             </dependencies>
 
         </profile>
@@ -586,6 +671,91 @@
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-ext</artifactId>
                 </dependency>
+                <dependency>
+		    <groupId>org.jboss.spec.javax.annotation</groupId>
+		    <artifactId>jboss-annotations-api_1.3_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.batch</groupId>
+		    <artifactId>jboss-batch-api_1.0_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.faces</groupId>
+		    <artifactId>jboss-jsf-api_2.3_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.jms</groupId>
+		    <artifactId>jboss-jms-api_2.0_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.management.j2ee</groupId>
+		    <artifactId>jboss-j2eemgmt-api_1.1_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.security.auth.message</groupId>
+		    <artifactId>jboss-jaspi-api_1.1_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.websocket</groupId>
+		    <artifactId>jboss-websocket-api_1.1_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.ws.rs</groupId>
+		    <artifactId>jboss-jaxrs-api_2.1_spec</artifactId>
+		</dependency>
+		<!-- Required for Java 11 -->
+		<dependency>
+		    <groupId>org.jboss.spec.javax.xml.ws</groupId>
+		    <artifactId>jboss-jaxws-api_2.3_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.weld</groupId>
+		    <artifactId>weld-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.weld</groupId>
+		    <artifactId>weld-core-impl</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.weld</groupId>
+		    <artifactId>weld-spi</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jsoup</groupId>
+		    <artifactId>jsoup</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.syslog4j</groupId>
+		    <artifactId>syslog4j</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>jipijapa-spi</artifactId>
+		</dependency>
+		<!-- This is not desired, however the JCA tests seem to require this -->
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-connector</artifactId>
+		    <scope>test</scope>
+		</dependency>
+		<!-- This is not desired, however the UncheckedStatelessBean requires this -->
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-ejb3</artifactId>
+		</dependency>
+		<!-- This is required for the JmsTestCase which uses CLI -->
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-messaging-activemq</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-pojo</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-system-jmx</artifactId>
+		</dependency>
             </dependencies>
 
         </profile>
@@ -825,10 +995,10 @@
 		<module>jaxrs</module>
                 <module>jpa</module>
 		<module>clustering</module>
-		<!--module>domain</module-->
+		<module>domain</module>
 		<module>domain_management</module>
 		<!--module>logging</module-->
-		<!--module>management</module-->
+		<module>management</module>
                 <module>manualmode</module>
 		<module>messaging</module>
 		<module>security</module>
