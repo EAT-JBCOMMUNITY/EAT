@@ -115,21 +115,30 @@
                     <groupId>org.apache.activemq</groupId>
                     <artifactId>artemis-jms-client</artifactId>
                 </dependency>
-                <!--dependency>
-                    <groupId>org.hibernate</groupId>
-                    <artifactId>hibernate-search-analyzers</artifactId>
-                    <version>4.5.3.Final</version>
-                    <exclusions>
-			<exclusion>
-			    <groupId>org.apache.lucene</groupId>
-			    <artifactId>lucene-analyzers</artifactId>
-			</exclusion>
-                        <exclusion>
-			    <groupId>org.apache.solr</groupId>
-			    <artifactId>solr-analysis-extras</artifactId>
-			</exclusion>
-		    </exclusions>
-                </dependency-->
+                <dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-batch-jberet</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>joda-time</groupId>
+		    <artifactId>joda-time</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>org.jboss.spec.javax.batch</groupId>
+		    <artifactId>jboss-batch-api_1.0_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.jms</groupId>
+		    <artifactId>jboss-jms-api_2.0_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.xml.bind</groupId>
+		    <artifactId>jboss-jaxb-api_2.3_spec</artifactId>
+		</dependency>
                 <dependency>
                     <groupId>org.jboss.osgi.metadata</groupId>
                     <artifactId>jbosgi-metadata</artifactId>
@@ -154,6 +163,141 @@
                     <groupId>javax.enterprise.concurrent</groupId>
                     <artifactId>javax.enterprise.concurrent-api</artifactId>
                     <version>1.0</version>
+                </dependency>
+                <dependency>
+		    <groupId>org.jboss.ws.cxf</groupId>
+		    <artifactId>jbossws-cxf-client</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>io.undertow</groupId>
+		    <artifactId>undertow-servlet</artifactId>
+		    <exclusions>
+		        <exclusion>
+		            <groupId>org.jboss.spec.javax.annotation</groupId>
+		            <artifactId>jboss-annotations-api_1.2_spec</artifactId>
+		        </exclusion>
+		    </exclusions>
+		</dependency>
+		<dependency>
+		    <groupId>javax.activation</groupId>
+		    <artifactId>activation</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>javax.jws</groupId>
+		    <artifactId>jsr181-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>javax.persistence</groupId>
+		    <artifactId>javax.persistence-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>javax.security.enterprise</groupId>
+		    <artifactId>javax.security.enterprise-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>javax.validation</groupId>
+		    <artifactId>validation-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>log4j</groupId>
+		    <artifactId>log4j</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.activemq</groupId>
+		    <artifactId>artemis-core-client</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.activemq</groupId>
+		    <artifactId>artemis-jms-client</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.lucene</groupId>
+		    <artifactId>lucene-core</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-databinding-jaxb</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-frontend-jaxws</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-frontend-simple</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-transports-http</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.ws.xmlschema</groupId>
+		    <artifactId>xmlschema-core</artifactId>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.codehaus.jackson</groupId>
+		    <artifactId>jackson-core-asl</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-envers</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-search-engine</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-search-orm</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.hibernate.validator</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss</groupId>
+		    <artifactId>jboss-ejb-client</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.classfilewriter</groupId>
+		    <artifactId>jboss-classfilewriter</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.ejb3</groupId>
+		    <artifactId>jboss-ejb3-ext-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.ironjacamar</groupId>
+		    <artifactId>ironjacamar-core-impl</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.ironjacamar</groupId>
+		    <artifactId>ironjacamar-jdbc</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-jackson-provider</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-jaxrs</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-multipart-provider</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.security</groupId>
+		    <artifactId>jbossxacml</artifactId>
+		</dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-ext</artifactId>
                 </dependency>
             </dependencies>
 
@@ -195,11 +339,12 @@
                 <dependency>
                     <groupId>org.jboss.shrinkwrap</groupId>
                     <artifactId>shrinkwrap-api</artifactId>
+                    <scope>compile</scope>
                 </dependency>
                 <dependency>
                     <groupId>org.wildfly</groupId>
                     <artifactId>wildfly-testsuite-shared</artifactId>
-                    <version>${JBOSS_VERSION}</version>
+                    <scope>compile</scope>
                 </dependency>
                 <dependency>
                     <groupId>org.jboss.arquillian.junit</groupId>
@@ -258,20 +403,29 @@
                     <artifactId>artemis-jms-client</artifactId>
                 </dependency>
                 <dependency>
-                    <groupId>org.hibernate</groupId>
-                    <artifactId>hibernate-search-analyzers</artifactId>
-                    <version>4.5.3.Final</version>
-                    <exclusions>
-			<exclusion>
-			    <groupId>org.apache.lucene</groupId>
-			    <artifactId>lucene-analyzers</artifactId>
-			</exclusion>
-                        <exclusion>
-			    <groupId>org.apache.solr</groupId>
-			    <artifactId>solr-analysis-extras</artifactId>
-			</exclusion>
-		    </exclusions>
-                </dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-batch-jberet</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>joda-time</groupId>
+		    <artifactId>joda-time</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>org.jboss.spec.javax.batch</groupId>
+		    <artifactId>jboss-batch-api_1.0_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.jms</groupId>
+		    <artifactId>jboss-jms-api_2.0_spec</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.spec.javax.xml.bind</groupId>
+		    <artifactId>jboss-jaxb-api_2.3_spec</artifactId>
+		</dependency>
                 <dependency>
                     <groupId>org.jboss.osgi.metadata</groupId>
                     <artifactId>jbosgi-metadata</artifactId>
@@ -296,6 +450,141 @@
                     <groupId>javax.enterprise.concurrent</groupId>
                     <artifactId>javax.enterprise.concurrent-api</artifactId>
                     <version>1.0</version>
+                </dependency>
+                <dependency>
+		    <groupId>org.jboss.ws.cxf</groupId>
+		    <artifactId>jbossws-cxf-client</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>io.undertow</groupId>
+		    <artifactId>undertow-servlet</artifactId>
+		    <exclusions>
+		        <exclusion>
+		            <groupId>org.jboss.spec.javax.annotation</groupId>
+		            <artifactId>jboss-annotations-api_1.2_spec</artifactId>
+		        </exclusion>
+		    </exclusions>
+		</dependency>
+		<dependency>
+		    <groupId>javax.activation</groupId>
+		    <artifactId>activation</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>javax.jws</groupId>
+		    <artifactId>jsr181-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>javax.persistence</groupId>
+		    <artifactId>javax.persistence-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>javax.security.enterprise</groupId>
+		    <artifactId>javax.security.enterprise-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>javax.validation</groupId>
+		    <artifactId>validation-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>log4j</groupId>
+		    <artifactId>log4j</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.activemq</groupId>
+		    <artifactId>artemis-core-client</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.activemq</groupId>
+		    <artifactId>artemis-jms-client</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.lucene</groupId>
+		    <artifactId>lucene-core</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-databinding-jaxb</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-frontend-jaxws</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-frontend-simple</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-transports-http</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.ws.xmlschema</groupId>
+		    <artifactId>xmlschema-core</artifactId>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.codehaus.jackson</groupId>
+		    <artifactId>jackson-core-asl</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-envers</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-search-engine</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-search-orm</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.hibernate.validator</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss</groupId>
+		    <artifactId>jboss-ejb-client</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.classfilewriter</groupId>
+		    <artifactId>jboss-classfilewriter</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.ejb3</groupId>
+		    <artifactId>jboss-ejb3-ext-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.ironjacamar</groupId>
+		    <artifactId>ironjacamar-core-impl</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.ironjacamar</groupId>
+		    <artifactId>ironjacamar-jdbc</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-jackson-provider</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-jaxrs</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-multipart-provider</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.security</groupId>
+		    <artifactId>jbossxacml</artifactId>
+		</dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-ext</artifactId>
                 </dependency>
             </dependencies>
 
@@ -532,15 +821,15 @@
             <modules>
                 <module>basic</module>
 		<module>core</module>
-		<!--module>elytron</module-->
+		<module>elytron</module>
 		<module>jaxrs</module>
                 <module>jpa</module>
 		<module>clustering</module>
-		<module>domain</module>
+		<!--module>domain</module-->
 		<module>domain_management</module>
-		<module>logging</module>
-		<module>management</module>
-        <module>manualmode</module>
+		<!--module>logging</module-->
+		<!--module>management</module-->
+                <module>manualmode</module>
 		<module>messaging</module>
 		<module>security</module>
 		<module>server</module>
