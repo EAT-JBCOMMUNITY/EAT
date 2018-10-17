@@ -384,6 +384,10 @@
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-system-jmx</artifactId>
 		</dependency>
+                <dependency>
+		    <groupId>org.wildfly.core</groupId>
+		    <artifactId>wildfly-logging</artifactId>
+		</dependency>
             </dependencies>
 
         </profile>
@@ -756,6 +760,10 @@
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-system-jmx</artifactId>
 		</dependency>
+                <dependency>
+		    <groupId>org.wildfly.core</groupId>
+		    <artifactId>wildfly-logging</artifactId>
+		</dependency>
             </dependencies>
 
         </profile>
@@ -997,7 +1005,7 @@
 		<module>clustering</module>
 		<module>domain</module>
 		<module>domain_management</module>
-		<!--module>logging</module-->
+		<module>logging</module>
 		<module>management</module>
                 <module>manualmode</module>
 		<module>messaging</module>
