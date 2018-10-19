@@ -608,12 +608,23 @@ public class TestsuiteParser {
                         MethodInfo mInfo = new MethodInfo();
                         mInfo.methodName = node.getName().toString();
                         
+                        boolean methodUnResolved = false;
+                        
                         if(node.getExpression()!=null) {
-                            mInfo.expression = node.getExpression().toString();
+                            mInfo.expression = node.getExpression().toString().replaceAll("this.", "");
                             if(exp.startsWith("\"") && exp.endsWith("\""))
                                 exp = "String";
-                            if(!bDeclarations.containsKey(mInfo.expression))
-                                methodsNotResolved.add(node.getExpression().toString()+"."+node.getName());
+                            else if(exp.equals("this"))
+                                mInfo.expression = null;
+                            if(!bDeclarations.containsKey(mInfo.expression)) {
+                                methodsNotResolved.add(node.getExpression().toString()+"."+node.getName()+"("+node.arguments()+")");
+                                methodUnResolved = true;
+                            }else if(bDeclarations.get(mInfo.expression)!=null) {
+                                if(!bDeclarations.get(mInfo.expression).contains("<"))
+                                    mInfo.expression = bDeclarations.get(mInfo.expression);
+                                else
+                                    mInfo.expression = bDeclarations.get(mInfo.expression).substring(0, bDeclarations.get(mInfo.expression).indexOf("<"));
+                            }
                         }
                         
                          System.out.println("MethodInvocation: " + node.getName() + " at line "
@@ -667,17 +678,19 @@ public class TestsuiteParser {
                                 resolved = false;
                                 if(!arg.contains(".") && !arg.contains("(") && !arg.contains(")"))
                                     typesNotResolved.add(arg);
-                                else 
+                                else  if(!methodUnResolved) {
                                     methodsNotResolved.add(arg);
+                                    methodUnResolved=true;
+                                }
                             }
                             
                             mInfo.params.add(arg);
                             mInfo.isResolvedParam.add(resolved);
                             
-                            methodInvocations.add(mInfo);
-                            
                         //    System.out.println("with param : " + arg);
                         }
+                        
+                        methodInvocations.add(mInfo);
 
                         return true;
                     }

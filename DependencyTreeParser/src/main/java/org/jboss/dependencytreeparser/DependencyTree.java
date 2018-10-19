@@ -1,6 +1,7 @@
 package org.jboss.dependencytreeparser;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -43,7 +44,7 @@ public class DependencyTree {
             System.out.println("\n\n\nJar Methods : ");
             
             HashMap<String,HashMap<String,Class[]>> methods = DependencyTreeMethods.listMethods();
-            
+
             for(String s : methods.keySet()) {
                 System.out.println("class : " + s);
                 for (String m : methods.get(s).keySet()) {
@@ -69,17 +70,17 @@ public class DependencyTree {
             
             System.out.println("\n\n\nInternal Classes and Methods : ");
             
-          //  HashMap<String,HashMap<String,String[]>> localClasses = JavaClassParser.getInternalClassMethods();
+            HashMap<String,HashMap<String,String[]>> localMethods = JavaClassParser.getInternalClassMethods();
             
-            /*
-            for(String s : localClasses.keySet()) {
+            
+            for(String s : localMethods.keySet()) {
                 System.out.println("class : " + s);
-                for (String m : localClasses.get(s).keySet()) {
+                for (String m : localMethods.get(s).keySet()) {
                     System.out.println("Method : " + m + " with parameters : ");
-                    for (int j=0; j<localClasses.get(s).get(m).length; j++)
-                        System.out.println(localClasses.get(s).get(m)[j]);
+                    for (int j=0; j<localMethods.get(s).get(m).length; j++)
+                        System.out.println(localMethods.get(s).get(m)[j]);
                 }
-            }*/
+            }
             
             HashMap<String,ArrayList<String>> usedLibraries = JavaClassParser.testLibraryUsage();
             HashMap<String,HashSet<String>> localClasses = JavaClassParser.getInternalPackagesAndClasses();
@@ -242,16 +243,49 @@ public class DependencyTree {
                         if(!b){
                             System.out.println(typeNotResolved + "------");
                         }
-                }
+                    }
                 }
                 System.out.println("Method Invocations : ==========");
+                HashMap<String,String> rMethods = new HashMap<>();
                 ArrayList<String> acceptedMethods = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "methods.txt");
+                Collections.reverse(ps.methodInvocations);
                 for(MethodInfo methodInfo : ps.methodInvocations){
-                    String methodI = methodInfo.methodName;
-                    if(methodInfo.expression!=null)
-                        methodI=methodInfo.expression + "." + methodInfo.methodName;
-                    if(!acceptedMethods.contains(methodI) && !methodInfo.isResolvedParam.contains("false"))
-                        System.out.println(methodInfo.methodName + " " + methodInfo.expression + " " + methodInfo.params.toString() + " " + methodInfo.isResolvedParam.toString());
+                    
+                    if(rMethods.keySet().contains(methodInfo.expression)) {
+                        methodInfo.expression = rMethods.get(methodInfo.expression);
+                    }
+                    
+                    if(methodInfo.expression!=null) {
+                        for(String s : methods.keySet()) {
+                            if(s.contains(methodInfo.expression)){
+                                for(String meth : methods.get(s).keySet()){
+                                    if(meth.equals(methodInfo.methodName)){
+                                        acceptedMethods.add(methodInfo.methodName);
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }else{
+                        for(String s : localMethods.keySet()) {
+                            if(s.contains(key.toString())){
+                                for(String meth : localMethods.get(s).keySet()){
+                                    if(meth.equals(methodInfo.methodName)){
+                                        acceptedMethods.add(methodInfo.methodName);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    int m=0;
+                    for(String param : methodInfo.params) {
+                        if((availableFields.contains(param)|| classLibraries.contains(param) || acceptedMethods.contains(param) || param==null) && !methodInfo.isResolvedParam.get(m))
+                            methodInfo.isResolvedParam.set(m, Boolean.TRUE);
+                        m++;
+                    }
+                    if(!acceptedMethods.contains(methodInfo.methodName) || methodInfo.isResolvedParam.contains("false"))
+                        System.out.println("----" + methodInfo.methodName + " " + methodInfo.expression + " " + methodInfo.params.toString() + " " + methodInfo.isResolvedParam.toString());
                 }
                 System.out.println("Methods Not Resolved : ==========");
                 for(String methodNotResolved : ps.methodsNotResolved){
