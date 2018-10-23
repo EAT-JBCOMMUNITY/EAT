@@ -7,8 +7,12 @@ package org.jboss.dependencytreeparser;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.NodeList;
+import com.github.javaparser.ast.body.BodyDeclaration;
 import com.github.javaparser.ast.body.ConstructorDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.body.TypeDeclaration;
+import com.github.javaparser.ast.visitor.GenericVisitorAdapter;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import java.io.BufferedReader;
 import java.io.File;
@@ -86,11 +90,45 @@ public class JavaClassParser {
         try {
             in = new FileInputStream(file);
             cu = JavaParser.parse(in);
-            MethodVisitor visitor = new MethodVisitor();
+            
             if(internalClassMethods.get(fd.packageName.replaceAll("/", ".") + "." + fd.fileName.replaceAll("\\.java", ""))==null) {
                 internalClassMethods.put(fd.packageName.replaceAll("/", ".") + "." + fd.fileName.replaceAll("\\.java", ""), new HashMap<String,String[]>());
             }
-            visitor.visit(cu, internalClassMethods.get(fd.packageName.replaceAll("/", ".") + "." + fd.fileName.replaceAll("\\.java", "")));
+            
+            NodeList<TypeDeclaration<?>> types = cu.getTypes();
+            for (TypeDeclaration<?> type : types) {
+                // Go through all fields, methods, etc. in this type
+                NodeList<BodyDeclaration<?>> members = type.getMembers();
+                for (BodyDeclaration<?> member : members) {
+                    if (member instanceof MethodDeclaration) {
+                        MethodDeclaration method = (MethodDeclaration) member;
+                        HashMap<String,String[]> arg = internalClassMethods.get(fd.packageName.replaceAll("/", ".") + "." + fd.fileName.replaceAll("\\.java", ""));
+                        String[] params = new String[method.getParameters().size()];
+
+                        for(int i=0; i<method.getParameters().size(); i++)
+                            params[i]=method.getParameters().get(i).getTypeAsString();
+
+
+                        arg.put(method.getName().toString(), params);
+                        arg.put(method.getName().toString()+"_Return_Type", new String[]{method.getTypeAsString()});
+                    }
+                    if (member instanceof ConstructorDeclaration) {
+                        ConstructorDeclaration construct = (ConstructorDeclaration) member;
+                        HashMap<String,String[]> arg = internalClassMethods.get(fd.packageName.replaceAll("/", ".") + "." + fd.fileName.replaceAll("\\.java", ""));
+                        String[] params = new String[construct.getParameters().size()];
+
+                        for(int i=0; i<construct.getParameters().size(); i++)
+                            params[i]=construct.getParameters().get(i).getTypeAsString();
+
+
+                        ((HashMap<String,String[]>)arg).put(construct.getName().toString()+"_Constructor", params);
+                    }
+                }
+            }
+            
+         //   MethodVisitor visitor = new MethodVisitor();
+            
+        //    visitor.visit(cu, internalClassMethods.get(fd.packageName.replaceAll("/", ".") + "." + fd.fileName.replaceAll("\\.java", "")));
             
         } catch (Exception ex) {
             ex.printStackTrace();
