@@ -16,13 +16,13 @@ public class DependencyTree {
     public static void main(String[] args) throws Exception {
         try {
         //    System.out.println("Print Dependencies : ");
-        //    DependencyTreeMethods.getArtifacts();
+            DependencyTreeMethods.artifacts = DependencyTreeMethods.getArtifacts();
             
-            HashSet<String> packages = DependencyTreeMethods.listAvailablePackages();
+            HashMap<String,String> packages = DependencyTreeMethods.listPackages();
 
             System.out.println("\n\n\nAvailable libraries : ");
 
-            for(String s : packages){
+            for(String s : packages.keySet()){
                 System.out.println(s);
             }
        
@@ -40,7 +40,7 @@ public class DependencyTree {
                 }
             }
             
-            
+            /*
             System.out.println("\n\n\nJar Methods : ");
             
             HashMap<String,HashMap<String,Class[]>> methods = DependencyTreeMethods.listMethods();
@@ -53,16 +53,16 @@ public class DependencyTree {
                         System.out.println(methods.get(s).get(m)[j].getTypeName());
                 }
             }
-        
+        */
             
         
             System.out.println("\n\n\nJar Fields : ");
             
-            HashMap<String,ArrayList<String>> fields = DependencyTreeMethods.listFields();
+            HashMap<String,HashMap<String,String>> fields = DependencyTreeMethods.listFields();
             
             for(String s : fields.keySet()) {
                 System.out.println("class : " + s);
-                for (String f : fields.get(s)) {
+                for (String f : fields.get(s).keySet()) {
                     System.out.println("Field : " + f );
                     
                 }
@@ -102,6 +102,7 @@ public class DependencyTree {
                 ArrayList<String> acceptedFieldsFromLibrary = TestsuiteParser.loadFieldsFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "classesToLoadFields.txt");
                 
                 HashSet<String> availableFields = new HashSet<>();
+                HashMap<String,String> availableExtensionFields = new HashMap<>();
                 
                 for(String s : localClasses.keySet()){
                     if(s.contains(path)){
@@ -115,7 +116,7 @@ public class DependencyTree {
                         System.out.println("S : " + s);
                         if(fields.get(s)!=null){
                             System.out.println("FieldsFromFile : " + fields.get(s).toString());
-                            availableFields.addAll(fields.get(s));
+                            availableFields.addAll(fields.get(s).keySet());
                         }else{
                             System.out.println("LLL " + fields.keySet());
                         }
@@ -130,15 +131,19 @@ public class DependencyTree {
                             if(testData.get(ex)!=null) {
                                 System.out.println("ps.extension : " + ps.extension + " : " + testData.get(ex).fields.keySet());
                                 availableFields.addAll(testData.get(ex).fields.keySet());
+                                availableExtensionFields.putAll(testData.get(ex).fields);
                                 ex = testData.get(ex).extension;
                             }else 
                                 ex = null;
                         }while(ex!=null);
                     }else {
+                        System.out.println("org.jboss.as.test.integration.management.base " + classes.keySet().contains("org.jboss.as.test.integration.management.base.AbstractCliTestBase"));
                         for(String cl : classes.keySet()) {
                             if(cl.equals(ps.extension)){
-                                if(fields.get(cl)!=null)
-                                    availableFields.addAll(fields.get(cl));
+                                if(fields.get(cl)!=null) {
+                                    availableFields.addAll(fields.get(cl).keySet());
+                                    availableExtensionFields.putAll(fields.get(cl));
+                                }
                                 break;
                             }
                         }
@@ -248,43 +253,107 @@ public class DependencyTree {
                 System.out.println("Method Invocations : ==========");
                 HashMap<String,String> rMethods = new HashMap<>();
                 ArrayList<String> acceptedMethods = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "methods.txt");
+                ArrayList<String> acceptedExpressions = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "expressions.txt");
+                ArrayList<String> acceptedStartWithExpressions = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "excludeStartWith.txt");
+                ArrayList<String> acceptedEndWithExpressions = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "excludeEndWith.txt");
                 Collections.reverse(ps.methodInvocations);
+                HashMap<String,HashMap<String,Class[]>> methods2 = DependencyTreeMethods.listUsedMethods(ps.imports,packages);
+                System.out.println("methods2 : " + methods2.keySet());
                 for(MethodInfo methodInfo : ps.methodInvocations){
                     
-                    if(rMethods.keySet().contains(methodInfo.expression)) {
-                        methodInfo.expression = rMethods.get(methodInfo.expression);
+                    if(methodInfo.expression!=null && availableExtensionFields.keySet().contains(methodInfo.expression)){
+                        System.out.println("availableExtensionFields " + availableExtensionFields.keySet());
+                        methodInfo.expression = availableExtensionFields.get(methodInfo.expression);
                     }
                     
-                    if(methodInfo.expression!=null) {
-                        for(String s : methods.keySet()) {
+                    if(methodInfo.expression!=null)
+                        
+                        for(String s : rMethods.keySet()) {
+                            if(methodInfo.expression.contains(s))
+                                methodInfo.expression = rMethods.get(s);
+                        }
+
+                    if(methodInfo.expression!=null && !methodInfo.expression.equals("")) {
+                    //    System.out.println("methodInfo.expression : " + methodInfo.expression);
+                        for(String s : methods2.keySet()) {
                             if(s.contains(methodInfo.expression)){
-                                for(String meth : methods.get(s).keySet()){
+                                for(String meth : methods2.get(s).keySet()){
                                     if(meth.equals(methodInfo.methodName)){
                                         acceptedMethods.add(methodInfo.methodName);
+                                        if(methods2.get(s).get(meth+"_Return_Type")[0].toString().contains("class "))
+                                            rMethods.put(methodInfo.methodName, methods2.get(s).get(meth+"_Return_Type")[0].toString().replaceAll("class ", ""));
+                                        else if(methods2.get(s).get(meth+"_Return_Type")[0].toString().contains("interface "))
+                                            rMethods.put(methodInfo.methodName, methods2.get(s).get(meth+"_Return_Type")[0].toString().replaceAll("interface ", ""));
                                     }
                                 }
                             }
                         }
                         
                     }else{
-                        for(String s : localMethods.keySet()) {
-                            if(s.contains(key.toString())){
-                                for(String meth : localMethods.get(s).keySet()){
-                                    if(meth.equals(methodInfo.methodName)){
-                                        acceptedMethods.add(methodInfo.methodName);
+                        
+                        String c = key.toString();
+
+                        while(c!=null) {
+                            for(String s : localMethods.keySet()) {
+                                if(s.contains(c)){
+                                    System.out.println("localMethods " + localMethods.get(s).keySet());
+                                    for(String meth : localMethods.get(s).keySet()){
+                                        if(meth.equals(methodInfo.methodName)){
+                                            acceptedMethods.add(methodInfo.methodName);
+                                        //    rMethods.put(methodInfo.methodName, localMethods.get(s).get(meth+"_Return_Type")[0].toString());
+                                        }
                                     }
                                 }
+                                
+                            }
+                            if(ps.extension!=null && !ps.extension.equals("") && !ps.extension.contains(c))
+                                c = ps.extension;
+                            else
+                                c=null;
+
+                        }
+                    }
+                    
+                    String libName = null;
+                    if(methodInfo.expression!=null) {
+                        for(String s : ps.imports) {
+                            if(s.contains(methodInfo.expression)) {
+                                libName = s;
+                                break;
+                            }
+                        }
+                    }
+                    
+                    if(methodInfo.expression!=null) {
+                        for(String s : acceptedEndWithExpressions) {
+                            if(methodInfo.expression.contains(s)) {
+                                acceptedMethods.add(methodInfo.methodName);
+                                rMethods.put(methodInfo.methodName, "Object");
+                            }
+                        }
+                        
+                        for(String s : acceptedStartWithExpressions) {
+                            if(methodInfo.expression.contains(s) || (libName!=null && libName.contains(s))) {
+                                acceptedMethods.add(methodInfo.methodName);
+                                rMethods.put(methodInfo.methodName, "Object");
+                            }
+                        }
+                        
+                        for(String s : acceptedExpressions) {
+                            if(methodInfo.expression.contains(s)) {
+                                acceptedMethods.add(methodInfo.methodName);
+                                rMethods.put(methodInfo.methodName, "Object");
                             }
                         }
                     }
                     
                     int m=0;
                     for(String param : methodInfo.params) {
-                        if((availableFields.contains(param)|| classLibraries.contains(param) || acceptedMethods.contains(param) || param==null) && !methodInfo.isResolvedParam.get(m))
+                        if((availableFields.contains(param)|| classLibraries.contains(param) || acceptedMethods.contains(param) || param==null || param.equals("this")) && !methodInfo.isResolvedParam.get(m))
                             methodInfo.isResolvedParam.set(m, Boolean.TRUE);
                         m++;
                     }
-                    if(!acceptedMethods.contains(methodInfo.methodName) || methodInfo.isResolvedParam.contains("false"))
+                    if((!acceptedMethods.contains(methodInfo.methodName)) || methodInfo.isResolvedParam.contains("false"))
                         System.out.println("----" + methodInfo.methodName + " " + methodInfo.expression + " " + methodInfo.params.toString() + " " + methodInfo.isResolvedParam.toString());
                 }
                 System.out.println("Methods Not Resolved : ==========");

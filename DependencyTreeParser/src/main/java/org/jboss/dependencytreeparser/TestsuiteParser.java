@@ -166,8 +166,8 @@ public class TestsuiteParser {
 
             public boolean visit(MethodDeclaration node) {
                 if (node.getName().getIdentifier() != null) {
-                    System.out.println("Declaration of method '" + node.getName() + "' at line"
-                                + cu.getLineNumber(node.getStartPosition())); 
+                //    System.out.println("Declaration of method '" + node.getName() + "' at line"
+               //                 + cu.getLineNumber(node.getStartPosition())); 
                    
                     HashMap<String,String> bDeclarations = new HashMap();
                     bDeclarations.putAll(importedClassFields);
@@ -228,17 +228,17 @@ public class TestsuiteParser {
             }
         
             public boolean visit(ImportDeclaration node) {
-                System.out.println("Declaration of import '" + node.getName() + "' at line"
-                                + cu.getLineNumber(node.getStartPosition())); 
+            //    System.out.println("Declaration of import '" + node.getName() + "' at line"
+            //                    + cu.getLineNumber(node.getStartPosition())); 
                    
                 imports.add(node.getName().toString());
                 
                 if(DependencyTreeMethods.jarClassPaths.containsKey(node.getName().toString())) {
                     importedClassFields = DependencyTreeMethods.listFieldsOfJarClass(DependencyTreeMethods.jarClassPaths.get(node.getName().toString()),node.getName().toString());
                     fields.putAll(importedClassFields);
-                    if(node.getName().toString().equals("org.jboss.as.controller.descriptions.ModelDescriptionConstants")){
-                        System.out.println("EEE : " + importedClassFields.keySet().toString());
-                    }
+                //    if(node.getName().toString().equals("org.jboss.as.controller.descriptions.ModelDescriptionConstants")){
+                //        System.out.println("EEE : " + importedClassFields.keySet().toString());
+                //    }
                 }
                   
                 
@@ -308,8 +308,8 @@ public class TestsuiteParser {
                     public boolean visit(SingleVariableDeclaration node) {
                         String name = node.getName().toString();
                         String type = node.getType().toString();
-                        System.out.println("Declaration of variable '" + name + " " + type + "' at line"
-                                + cu.getLineNumber(node.getStartPosition())); 
+                    //    System.out.println("Declaration of variable '" + name + " " + type + "' at line"
+                    //            + cu.getLineNumber(node.getStartPosition())); 
                         
                         bDeclarations.put(name,type);
                         
@@ -357,8 +357,8 @@ public class TestsuiteParser {
                     public boolean visit(VariableDeclarationStatement node) {
                         String name = node.fragments().get(0).toString().split("=")[0].trim();
                         String type = node.getType().toString();
-                        System.out.println("Declaration of variable '" + name + " " + type + "' at line"
-                                + cu.getLineNumber(node.getStartPosition())); 
+                    //    System.out.println("Declaration of variable '" + name + " " + type + "' at line"
+                    //            + cu.getLineNumber(node.getStartPosition())); 
                         
                         bDeclarations.put(name,type);
                         
@@ -406,8 +406,8 @@ public class TestsuiteParser {
 
                     public boolean visit(SimpleType node) {
                         
-                            System.out.println("Usage of method/variable/field/parameter type : " + node.getName() + " at line "
-                                    + cu.getLineNumber(node.getStartPosition()) );
+                        //    System.out.println("Usage of method/variable/field/parameter type : " + node.getName() + " at line "
+                        //            + cu.getLineNumber(node.getStartPosition()) );
                             
                             String type = node.getName().toString();
                             String name = node.getName().toString();
@@ -459,8 +459,8 @@ public class TestsuiteParser {
                     
                     public boolean visit(ClassInstanceCreation node) {
                         
-                            System.out.println("ClassInstanceCreation " + node.getType() + " at line "
-                                    + cu.getLineNumber(node.getStartPosition()) );
+                        //    System.out.println("ClassInstanceCreation " + node.getType() + " at line "
+                        //            + cu.getLineNumber(node.getStartPosition()) );
                             
                             ClassInfo clInfo = new ClassInfo();
                             clInfo.className = node.getType().toString();
@@ -485,6 +485,8 @@ public class TestsuiteParser {
                                     arg = "Boolean";
                                 else if(arg.contains("==") || arg.contains(">") || arg.contains("<") || arg.contains("!=") || arg.contains(">=") || arg.contains("<="))
                                     arg = "Boolean";
+                                else if(arg.contains("TimeUnit.SECONDS"))
+                                    arg = "Numeric";
                                 else if(arg.contains(".class"))
                                     arg = arg.replaceAll(".class", "");
                                 else if(arg.startsWith("new ")){
@@ -531,8 +533,8 @@ public class TestsuiteParser {
                     
                     public boolean visit(ConstructorInvocation node) {
                         
-                            System.out.println("ConstructorInvocation " + node.toString() + " at line "
-                                    + cu.getLineNumber(node.getStartPosition()) );
+                        //    System.out.println("ConstructorInvocation " + node.toString() + " at line "
+                        //            + cu.getLineNumber(node.getStartPosition()) );
 
                         List params = node.arguments();
                         for(Object s : params) {
@@ -552,6 +554,8 @@ public class TestsuiteParser {
                                     arg = "Boolean";
                             else if(arg.contains("==") || arg.contains(">") || arg.contains("<") || arg.contains("!=") || arg.contains(">=") || arg.contains("<="))
                                     arg = "Boolean";
+                            else if(arg.contains("TimeUnit.SECONDS"))
+                                arg = "Numeric";
                             else if(arg.contains(".class"))
                                 arg = arg.replaceAll(".class", "");
                             else if(arg.startsWith("new ")){
@@ -627,8 +631,8 @@ public class TestsuiteParser {
                             }
                         }
                         
-                         System.out.println("MethodInvocation: " + node.getName() + " at line "
-                                + cu.getLineNumber(node.getStartPosition()) + " with arguments " + node.arguments() + " exp " + exp);
+                    //     System.out.println("MethodInvocation: " + node.getName() + " at line "
+                    //            + cu.getLineNumber(node.getStartPosition()) + " with arguments " + node.arguments() + " exp " + exp);
                         
                         List params = node.arguments();
                         for(Object s : params) {
@@ -645,9 +649,11 @@ public class TestsuiteParser {
                             else if(bDeclarations.containsKey(arg))
                                 arg = bDeclarations.get(arg);
                             else if(arg.equals("true") || arg.equals("false"))
-                                    arg = "Boolean";
+                                arg = "Boolean";
                             else if(arg.contains("==") || arg.contains(">") || arg.contains("<") || arg.contains("!=") || arg.contains(">=") || arg.contains("<="))
-                                    arg = "Boolean";
+                                arg = "Boolean";
+                            else if(arg.contains("TimeUnit.SECONDS"))
+                                arg = "Numeric";
                             else if(arg.contains(".class"))
                                 arg = arg.replaceAll(".class", "");
                             else if(arg.startsWith("new ")){

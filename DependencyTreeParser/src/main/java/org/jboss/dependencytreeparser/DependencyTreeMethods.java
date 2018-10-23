@@ -28,6 +28,7 @@ import java.util.jar.JarFile;
 public class DependencyTreeMethods {
     
     public static HashMap<String,String> jarClassPaths = new HashMap<>();
+    public static HashSet<Artifact> artifacts = new HashSet<>();
     
     public static void printDependencies() throws IOException {
         String filePath = System.getProperty("DependencyTreeFilePath");
@@ -73,7 +74,6 @@ public class DependencyTreeMethods {
     
     public static HashSet<Artifact> getArtifacts() throws IOException {
         String filePath = System.getProperty("DependencyTreeFilePath");
-        HashSet<Artifact> artifacts = new HashSet<Artifact>();
         boolean deleteAll =true;
         String keyWord = "--- maven-dependency-plugin";
         String keyWord2 = "--------------------------------------------------";
@@ -213,7 +213,6 @@ public class DependencyTreeMethods {
         HashMap<String,String> jarClassPaths = new HashMap<>();
          
         try {
-            HashSet<Artifact> artifacts = DependencyTreeMethods.getArtifacts();
             String repoPath = System.getProperty("MavenRepoPath");
             
             for(Artifact ar : artifacts) {
@@ -284,7 +283,6 @@ public class DependencyTreeMethods {
         HashMap<String,ArrayList<Class[]>> jarClasses = new HashMap<>();
          
         try {
-            HashSet<Artifact> artifacts = DependencyTreeMethods.getArtifacts();
             String repoPath = System.getProperty("MavenRepoPath");
             
             for(Artifact ar : artifacts) {
@@ -305,7 +303,6 @@ public class DependencyTreeMethods {
         HashMap<String,HashMap<String,Class[]>> classMethods = new HashMap<>();
          
         try {
-            HashSet<Artifact> artifacts = DependencyTreeMethods.getArtifacts();
             String repoPath = System.getProperty("MavenRepoPath");
             
             for(Artifact ar : artifacts) {
@@ -321,11 +318,26 @@ public class DependencyTreeMethods {
         }
     }
     
-    public static HashMap<String,ArrayList<String>> listFields(){
-        HashMap<String,ArrayList<String>> classFields = new HashMap<>();
+    public static HashMap<String,HashMap<String,Class[]>> listUsedMethods(HashSet<String> usedLibraries, HashMap<String,String> packages){
+        HashMap<String,HashMap<String,Class[]>> usedMethods = new HashMap<>();
          
         try {
-            HashSet<Artifact> artifacts = DependencyTreeMethods.getArtifacts();
+            
+            for(String lb : usedLibraries) {
+                //    System.out.println(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
+                usedMethods.putAll(DependencyTreeMethods.listUsedClassMethods(packages.get(lb),lb));
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            return usedMethods;
+        }
+    }
+    
+    public static HashMap<String,HashMap<String,String>> listFields(){
+        HashMap<String,HashMap<String,String>> classFields = new HashMap<>();
+         
+        try {
             String repoPath = System.getProperty("MavenRepoPath");
             
             for(Artifact ar : artifacts) {
@@ -341,17 +353,16 @@ public class DependencyTreeMethods {
         }
     }
     
-    public static HashSet<String> listPackages(){
-        HashSet<String> jarPackages = new HashSet<>();
+    public static HashMap<String,String> listPackages(){
+        HashMap<String,String> jarPackages = new HashMap<>();
          
         try {
-            HashSet<Artifact> artifacts = DependencyTreeMethods.getArtifacts();
             String repoPath = System.getProperty("MavenRepoPath");
             
             for(Artifact ar : artifacts) {
                 if(ar.type.contains("jar")) {
                  //   System.out.println(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
-                    jarPackages.addAll(DependencyTreeMethods.listJarPackages(repoPath + "/"+ ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar"));
+                    DependencyTreeMethods.listJarPackages(repoPath + "/"+ ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar",jarPackages);
                 }
             }
         } catch (Exception ex) {
@@ -364,11 +375,11 @@ public class DependencyTreeMethods {
     public static HashSet<String> listAvailablePackages(){
         HashSet<String> packages = new HashSet<String>();
         
-        HashSet<String> jarPackages = DependencyTreeMethods.listPackages();
+        HashMap<String,String> jarPackages = DependencyTreeMethods.listPackages();
         
         System.out.println("jarPackages.size() : " + jarPackages.size());
         
-        for(String jc : jarPackages){
+        for(String jc : jarPackages.keySet()){
             if(jc.lastIndexOf(".")!=-1) {
                 String packageName = jc.substring(0, jc.lastIndexOf("."));
             //    System.out.println("packageName : " + packageName);
@@ -380,8 +391,7 @@ public class DependencyTreeMethods {
         return packages;
     }
     
-    private static HashSet<String> listJarPackages(String path) {
-        HashSet<String> jarPackages = new HashSet<>();
+    private static HashMap<String,String> listJarPackages(String path, HashMap<String,String> jarPackages) {
         
         try{
             if (path!=null) {
@@ -397,9 +407,9 @@ public class DependencyTreeMethods {
                 //    System.out.println("Entry Name 1 : " + name);
                     
                     if(name.contains(".class"))
-                        jarPackages.add(name.substring(0,name.lastIndexOf("/")).replaceAll("/", "."));
+                        jarPackages.put(name.substring(0,name.lastIndexOf(".")).replaceAll("/", "."),path);
                     else
-                        jarPackages.add(name.replaceAll("/", "."));
+                        jarPackages.put(name.replaceAll("/", "."),path);
                 //    System.out.println("nnn " + name);
                 }
             }
@@ -534,9 +544,60 @@ public class DependencyTreeMethods {
         }
     }
     
+    private static HashMap<String,HashMap<String,Class[]>> listUsedClassMethods(String path, String lib) {
+        HashMap<String,HashMap<String,Class[]>> classMethods = new HashMap<>();
+        
+        try{
+            if (path!=null) {
+                JarFile jarFile = new JarFile(path);
+               
+                URL[] urls = { new URL("jar:file:" + path+"!/") };
+                URLClassLoader cl = URLClassLoader.newInstance(urls);
+
+                Enumeration allEntries = jarFile.entries();
+            //    System.out.println("path : " + path);
+                while (allEntries.hasMoreElements()) {
+                    JarEntry entry = (JarEntry) allEntries.nextElement();
+                    String name = entry.getName();
+                    
+                //    System.out.println("name : " + name + " lib : " + lib);
+                    if(name.contains(".class") && !name.contains("$") && name.replaceAll("/", ".").contains(lib)) {
+                        name = name.substring(0,name.lastIndexOf(".class"));
+                        name=name.replaceAll("/", ".");
+                        name=name.replaceAll("-", ".");
+                        
+                        try{
+                            Class clas = cl.loadClass(name);
+
+                            HashMap<String,Class[]> allMethods = new HashMap<>();
+
+                            for (Class<?> c = clas; c != null; c = c.getSuperclass()) {
+                                for (Method method : c.getMethods()) {
+                                    if(Modifier.toString(method.getModifiers()).contains("public")) {
+                                        allMethods.put(method.getName(), method.getParameterTypes());
+                                        allMethods.put(method.getName()+"_Return_Type", new Class[]{method.getReturnType()});
+                                    }
+                                }
+                            }       
+                            classMethods.put(name,allMethods);
+                        }catch(Exception ex){
+                        //    ex.printStackTrace();
+                        }
+                    }
+
+                }
+            }
+        }catch(Exception e){
+        //    e.printStackTrace();
+            System.out.println(path + " is not available.");
+        }finally {
+            return classMethods;
+        }
+    }
     
-    private static HashMap<String,ArrayList<String>> listClassFields(String path) {
-        HashMap<String,ArrayList<String>> classFields = new HashMap<>();
+    
+    private static HashMap<String,HashMap<String,String>> listClassFields(String path) {
+        HashMap<String,HashMap<String,String>> classFields = new HashMap<>();
         
         try{
             if (path!=null) {
@@ -561,13 +622,13 @@ public class DependencyTreeMethods {
                         try{
                             Class clas = cl.loadClass(name);
 
-                            ArrayList<String> allFields = new ArrayList<>();
+                            HashMap<String,String> allFields = new HashMap<>();
 
                             for (Class<?> c = clas; c != null; c = c.getSuperclass()) {
                                 for(Field f : c.getFields()) {
                                     if(Modifier.toString(f.getModifiers()).contains("public")){
-                                        if(!allFields.contains(f))
-                                            allFields.add(f.getName());
+                                        if(!allFields.keySet().contains(f))
+                                            allFields.put(f.getName(),f.getType().toString());
                                     }
                                 }
                             }       
