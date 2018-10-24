@@ -40,6 +40,7 @@ import org.junit.runner.RunWith;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
@@ -49,7 +50,7 @@ import java.net.URL;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/web/src/main/java#13.0.0","modules/testcases/jdkAll/Eap72x-Proposed/web/src/main/java#7.2.0.CD14","modules/testcases/jdkAll/Eap72x/web/src/main/java#7.2.0.CD14","modules/testcases/jdkAll/Eap71x-Proposed/web/src/main/java#7.1.5","modules/testcases/jdkAll/Eap71x/web/src/main/java#7.1.5"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/web/src/main/java#15.0.0","modules/testcases/jdkAll/Eap72x-Proposed/web/src/main/java#7.2.0.CR1","modules/testcases/jdkAll/Eap72x/web/src/main/java#7.2.0.CR1","modules/testcases/jdkAll/Eap71x-Proposed/web/src/main/java#7.1.5","modules/testcases/jdkAll/Eap71x/web/src/main/java#7.1.5"})
 public class DelegateClassLoaderWSTestCase {
 
     private static final String EAR_NAME = "test";
@@ -87,12 +88,27 @@ public class DelegateClassLoaderWSTestCase {
      * See https://issues.jboss.org/browse/JBEAP-15169
      */
     @Test
-    public void test(@ArquillianResource URL deploymentUrl) throws Exception {
+    public void testParentClassLoader(@ArquillianResource URL deploymentUrl) throws Exception {
+        GreeterEJB greeterEJBService = getClient(deploymentUrl);
+        Assert.assertEquals("Hello World!", greeterEJBService.sayHello());
+    }
+
+    /**
+     * Test that the TCCL for WS deployments is correctly set to the DelegateClassLoader
+     * and is not null during initialization.
+     * See https://issues.jboss.org/browse/JBEAP-15236
+     */
+    @Test
+    public void testTCCL(@ArquillianResource URL deploymentUrl) throws Exception {
+        GreeterEJB greeterEJBService = getClient(deploymentUrl);
+        Assert.assertFalse("TCCL for the web service was null.", greeterEJBService.wasTCCLNull());
+    }
+
+    private static GreeterEJB getClient(URL deploymentUrl) throws MalformedURLException {
         String wsdlUrlString = deploymentUrl.toExternalForm().replace(EAR_NAME, EJB_MODULE_NAME) + GreeterEJBImpl.CLASS_NAME + "?wsdl";
         URL wsdlUrl = new URL(wsdlUrlString);
         QName serviceName = new QName(GreeterEJBImpl.NAMESPACE, GreeterEJBImpl.SERVICE_NAME);
-        GreeterEJB greeterEJBService = Service.create(wsdlUrl, serviceName).getPort(GreeterEJB.class);
-        Assert.assertEquals("Hello World!", greeterEJBService.sayHello());
+        return Service.create(wsdlUrl, serviceName).getPort(GreeterEJB.class);
     }
 
     private static StringAsset createFilteredAsset(String resourceName) throws IOException {

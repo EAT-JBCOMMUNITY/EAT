@@ -31,20 +31,32 @@ import java.net.MalformedURLException;
 
 @WebService
 @Stateless
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/web/src/main/java#13.0.0","modules/testcases/jdkAll/Eap72x-Proposed/web/src/main/java#7.2.0.CD14","modules/testcases/jdkAll/Eap72x/web/src/main/java#7.2.0.CD14","modules/testcases/jdkAll/Eap71x-Proposed/web/src/main/java#7.1.5","modules/testcases/jdkAll/Eap71x/web/src/main/java#7.1.5"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/web/src/main/java#15.0.0","modules/testcases/jdkAll/Eap72x-Proposed/web/src/main/java#7.2.0.CR1","modules/testcases/jdkAll/Eap72x/web/src/main/java#7.2.0.CR1","modules/testcases/jdkAll/Eap71x-Proposed/web/src/main/java#7.1.5","modules/testcases/jdkAll/Eap71x/web/src/main/java#7.1.5"})
 public class GreeterEJBImpl implements GreeterEJB {
 
     public static final String CLASS_NAME = GreeterEJBImpl.class.getSimpleName();
     public static final String SERVICE_NAME = CLASS_NAME + "Service";
     public static final String NAMESPACE = "http://ear.classloading.web.present.jdkall.testsuite.additional.jboss.org/";
 
+    private static ClassLoader cttl;
+    private static boolean cttlAlreadySet = false;
+
     GreeterServiceClient greeterServiceClient = new GreeterServiceClient();
 
     public GreeterEJBImpl() throws MalformedURLException {
+        if (!cttlAlreadySet) {
+            cttl = Thread.currentThread().getContextClassLoader();
+            cttlAlreadySet = true;
+        }
     }
 
     @WebMethod
     public String sayHello() {
         return greeterServiceClient.sayHello();
+    }
+
+    @WebMethod
+    public boolean wasTCCLNull() {
+        return cttl == null;
     }
 }
