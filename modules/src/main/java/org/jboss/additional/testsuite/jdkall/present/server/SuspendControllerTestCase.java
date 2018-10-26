@@ -4,15 +4,15 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
-
 import org.jboss.as.server.suspend.SuspendController;
 import org.jboss.as.server.suspend.ServerActivity;
 import org.jboss.as.server.suspend.ServerActivityCallback;
 
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/server/src/main/java","modules/testcases/jdkAll/Wildfly/server/src/main/java#12.0.0*14.0.0","modules/testcases/jdkAll/Eap71x/server/src/main/java"})
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/server/src/main/java","modules/testcases/jdkAll/Wildfly/server/src/main/java","modules/testcases/jdkAll/Eap71x/server/src/main/java","modules/testcases/jdkAll/Eap72x/server/src/main/java"})
 public class SuspendControllerTestCase {
 
     private static final String FAIL_MESSAGE = "test failure";
@@ -20,26 +20,20 @@ public class SuspendControllerTestCase {
     @Test
     public void testFailedActivityIsLoggedOnResume() throws IOException {
         SuspendController suspendController = new SuspendController();
-        suspendController.registerActivity(new TestActivicy());
+        suspendController.registerActivity(new TestActivity());
 
-        suspendController.suspend(1000);
-        PrintStream oldOut = System.out;
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        try {
-            System.setOut(new PrintStream(baos));
-            suspendController.resume();
-            System.setOut(oldOut);
-            String output = new String(baos.toByteArray());
-            Assert.assertTrue("Exception type of the resume failure is not included in the log message",
-                    output.contains(RuntimeException.class.getSimpleName()));
-            Assert.assertTrue("Cause of the resume failure is not included in the log message",
-                    output.contains(FAIL_MESSAGE));
-        } finally {
-            System.setOut(oldOut);
-        }
+        suspendController.suspend(1000);         
+        suspendController.resume();
+
+        String output = new String(Files.readAllBytes(Paths.get("target/server.log")));
+        
+        Assert.assertTrue("Exception type of the resume failure is not included in the log message",
+                output.contains(RuntimeException.class.getSimpleName()));
+        Assert.assertTrue("Cause of the resume failure is not included in the log message",
+                output.contains(FAIL_MESSAGE));
     }
 
-    private static final class TestActivicy implements ServerActivity {
+    private static final class TestActivity implements ServerActivity {
 
         @Override
         public void preSuspend(ServerActivityCallback listener) {
