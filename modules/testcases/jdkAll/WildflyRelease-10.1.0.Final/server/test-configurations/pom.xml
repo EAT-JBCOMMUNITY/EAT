@@ -80,13 +80,13 @@
                                 <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
 	                            <property name="fileName" value="helloWorld.ear" />
                                     <property name="filePath" value="${jboss.modules.dir}/servers/wildfly/build/target/jbossas/standalone/deployments" />
-                                    <property name="fileToCopy" value="${jboss.modules.dir}/testcases/jdkAll/WildflyRelease-10.1.0.Final/server/test-configurations/helloWorld.ear" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/helloWorld.ear" />
 	                            <target name="copy-file"/>
 	                        </ant>
                                 <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
 	                            <property name="fileName" value="helloWorld2.ear" />
                                     <property name="filePath" value="${jboss.modules.dir}/servers/wildfly/build/target/jbossas/standalone/deployments" />
-                                    <property name="fileToCopy" value="${jboss.modules.dir}/testcases/jdkAll/WildflyRelease-10.1.0.Final/server/test-configurations/helloWorld2.ear" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/helloWorld2.ear" />
 	                            <target name="copy-file"/>
 	                        </ant>
 	                    </target>
