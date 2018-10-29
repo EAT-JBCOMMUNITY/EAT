@@ -25,6 +25,7 @@
 <project>
     <target name="copy-file" description="copies a file from a location to some other">
         <echo message="Copying file : ${fileName} needed for the specific test"/>
+        <mkdir dir="${filePath}" />
         <chmod file="${filePath}/${fileName}" perm="777"/>
         <copy file="${fileToCopy}" todir="${filePath}" overwrite="true" />
     </target>
