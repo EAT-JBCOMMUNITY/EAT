@@ -85,7 +85,7 @@
                                 <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
                                     <property name="filePath" value="${jboss.modules.dir}/servers/${server}/build/target/jbossas/standalone/deployments" />
                                     <property name="fileName" value="server.jar" />
-                                    <property name="fileToCopy" value="${basedir}/server.jar" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/server.jar" />
                                     <target name="copy-file"/>
                                 </ant>
 	                    </target>
