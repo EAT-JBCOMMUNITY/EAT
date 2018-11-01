@@ -84,7 +84,7 @@
 	                        </ant>
                                 <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-dir.xml">
                                     <property name="todir" value="${jboss.modules.dir}/servers/eap7/build/target/jbossas/modules/system/layers/base" />
-                                    <property name="folderToCopy" value="${jboss.modules.dir}/testcases/jdkAll/Eap71x-Proposed/weld/test-configurations2/src/test/resources/modules" />
+                                    <property name="folderToCopy" value="${jboss.modules.dir}/src/resources/modules" />
 	                            <target name="copy-dir"/>
 	                        </ant>
 	                    </target>
