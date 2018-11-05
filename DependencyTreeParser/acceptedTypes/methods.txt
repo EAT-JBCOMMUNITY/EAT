@@ -3,3 +3,5 @@ assertTrue
 assertFalse
 assertEquals
 getClass
+wait
+notify
