@@ -608,18 +608,23 @@ public class TestsuiteParser {
                     
                     public boolean visit(MethodInvocation node) {
                        
-                        String exp =  node.getExpression()!=null?node.getExpression().toString():"";
                         MethodInfo mInfo = new MethodInfo();
+                        mInfo.expression =  node.getExpression()!=null?node.getExpression().toString():"";
                         mInfo.methodName = node.getName().toString();
                         
                         boolean methodUnResolved = false;
                         
                         if(node.getExpression()!=null) {
                             mInfo.expression = node.getExpression().toString().replaceAll("this.", "");
-                            if(exp.startsWith("\"") && exp.endsWith("\""))
-                                exp = "String";
-                            else if(exp.equals("this"))
+                            if(mInfo.expression.startsWith("\"") && mInfo.expression.endsWith("\""))
+                                mInfo.expression = "String";
+                            else if(mInfo.expression.equals("this"))
                                 mInfo.expression = null;
+                            else if(mInfo.expression.startsWith("new ")) {
+                                mInfo.expression = mInfo.expression.replaceAll("new ", "");
+                                if (mInfo.expression.contains("("))
+                                    mInfo.expression=mInfo.expression.substring(0, mInfo.expression.indexOf("("));
+                            }
                             if(!bDeclarations.containsKey(mInfo.expression)) {
                                 methodsNotResolved.add(node.getExpression().toString()+"."+node.getName()+"("+node.arguments()+")");
                                 methodUnResolved = true;

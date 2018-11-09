@@ -35,6 +35,7 @@ public class JavaClassParser {
     static HashMap<String,HashMap<String,String[]>> internalClassMethods = new HashMap<>();
     static HashMap<String,ArrayList<String>> internalClasses = new HashMap<>();
     static HashMap<String,ParsedTests> testData = new HashMap<String, ParsedTests>();
+    static HashSet<String> filesTest = new HashSet<>();
     
     public static HashMap<String,ArrayList<String>> testLibraryUsage() {
         String basedir = System.getProperty("BaseDir");
@@ -403,6 +404,28 @@ public class JavaClassParser {
             }
         }
 
+    }
+    
+    public static void fileDiscovery(String sourcePath) {
+        File folder = new File(sourcePath);
+        File[] listOfFiles = folder.listFiles();
+        System.out.println("sourcePath " + sourcePath);
+
+        if (listOfFiles == null) {
+            return;
+        }
+        
+        try {
+            for (File file : listOfFiles) {
+                if (file.isDirectory()) {
+                    fileDiscovery(file.getAbsolutePath());
+                } else if(file.getAbsolutePath().endsWith(".java")) {
+                    filesTest.add(file.getAbsolutePath());
+                }   
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
     
     private static String readTestLibrariesFromFile(String file,  HashMap<String,ArrayList<String>> testLibraries, String searchString, String filePrefix) throws FileNotFoundException, IOException {

@@ -76,6 +76,14 @@
                                     <name>AcceptedTypesFilePath</name>
                                     <value>${AcceptedTypesFilePath}</value>
                                 </property>
+                                <property>
+                                    <name>ServerDir</name>
+                                    <value>${ServerDir}</value>
+                                </property>
+                                <property>
+                                    <name>CoreDir</name>
+                                    <value>${CoreDir}</value>
+                                </property>
                             </properties>
                         </configuration>
                     </execution>

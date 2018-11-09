@@ -29,6 +29,7 @@ public class DependencyTreeMethods {
     
     public static HashMap<String,String> jarClassPaths = new HashMap<>();
     public static HashSet<Artifact> artifacts = new HashSet<>();
+    public static HashSet<String> testsuiteArtifactsPaths = new HashSet<>();
     
     public static void printDependencies() throws IOException {
         String filePath = System.getProperty("DependencyTreeFilePath");
@@ -246,7 +247,7 @@ public class DependencyTreeMethods {
                     
             //        System.out.println("Entry Name : " + name);
                     
-                    if(name.replaceAll("/", ".").replaceAll("-", ".").contains(className) && name.endsWith(".class") && !name.contains("$") && !entry.isDirectory()) {
+                    if(name.replaceAll("/", ".").replaceAll("-", ".").contains(className) && name.endsWith(".class") && !entry.isDirectory()) {
                         name = name.substring(0,name.lastIndexOf(".class"));
                         name=name.replaceAll("/", ".");
                         name=name.replaceAll("-", ".");
@@ -256,7 +257,7 @@ public class DependencyTreeMethods {
 
                             for (Class<?> c = clas; c != null; c = c.getSuperclass()) {
                                 for(Field f : c.getFields()) {
-                                    if(Modifier.toString(f.getModifiers()).contains("public")){
+                                    if(!Modifier.toString(f.getModifiers()).contains("private")){
                                         if(!jarClassFields.keySet().contains(f))
                                             jarClassFields.put(f.getName(),f.getType().toString());
                                     }
@@ -334,6 +335,22 @@ public class DependencyTreeMethods {
         }
     }
     
+    public static HashMap<String,HashMap<String,Class[]>> listUsedTestMethods(HashSet<String> usedLibraries, String path){
+        HashMap<String,HashMap<String,Class[]>> usedMethods = new HashMap<>();
+         
+        try {
+            
+            for(String lb : usedLibraries) {
+                //    System.out.println(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
+                usedMethods.putAll(DependencyTreeMethods.listUsedClassMethods(path,lb));
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            return usedMethods;
+        }
+    }
+    
     public static HashMap<String,HashMap<String,String>> listFields(){
         HashMap<String,HashMap<String,String>> classFields = new HashMap<>();
          
@@ -362,6 +379,9 @@ public class DependencyTreeMethods {
             for(Artifact ar : artifacts) {
                 if(ar.type.contains("jar")) {
                  //   System.out.println(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
+                    if(ar.groupId.contains("wildfly-core-testsuite-shared") || ar.groupId.contains("wildfly-testsuite-shared")){
+                        testsuiteArtifactsPaths.add(repoPath + "/"+ ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
+                    }
                     DependencyTreeMethods.listJarPackages(repoPath + "/"+ ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar",jarPackages);
                 }
             }
@@ -389,6 +409,22 @@ public class DependencyTreeMethods {
         }
         
         return packages;
+    }
+    
+    public static HashSet<String> getSourceClasses(){
+        HashSet<String> testClasses = new HashSet<>();
+        
+        String serverTestPath = System.getProperty("ServerDir");
+        String coreTestPath = System.getProperty("CoreDir");
+        
+        JavaClassParser.fileDiscovery(serverTestPath);
+        testClasses.addAll(JavaClassParser.filesTest);
+        JavaClassParser.filesTest.clear();
+        JavaClassParser.fileDiscovery(coreTestPath);
+        testClasses.addAll(JavaClassParser.filesTest);
+        JavaClassParser.filesTest.clear();
+        
+        return testClasses;
     }
     
     private static HashMap<String,String> listJarPackages(String path, HashMap<String,String> jarPackages) {
@@ -510,7 +546,7 @@ public class DependencyTreeMethods {
                     JarEntry entry = (JarEntry) allEntries.nextElement();
                     String name = entry.getName();
                     
-                    if(name.contains(".class") && !name.contains("$")) {
+                    if(name.contains(".class")) {
                         name = name.substring(0,name.lastIndexOf(".class"));
                         name=name.replaceAll("/", ".");
                         name=name.replaceAll("-", ".");
@@ -561,19 +597,36 @@ public class DependencyTreeMethods {
                     String name = entry.getName();
                     
                 //    System.out.println("name : " + name + " lib : " + lib);
-                    if(name.contains(".class") && !name.contains("$") && name.replaceAll("/", ".").contains(lib)) {
+                    String packageName = name.replaceAll("-", ".");
+               //     if(packageName.contains("test")){
+               //         System.out.println("package name : " + packageName + " " + name + " " + lib);
+               //     }
+                    if(name.contains(".class") && packageName.replaceAll("/", ".").contains(lib)) {
+                 //       System.out.println("package name 2 : " + packageName);
                         name = name.substring(0,name.lastIndexOf(".class"));
                         name=name.replaceAll("/", ".");
                         name=name.replaceAll("-", ".");
                         
+                    //    if(name.equals("org.jboss.as.test.integration.management.util.CLIWrapper")) {
+                    //        System.out.println("pn1 " + path + " " + name);
+                     //   }
                         try{
                             Class clas = cl.loadClass(name);
 
+                            if(name.equals("org.jboss.as.cli.CommandContext"))
+                            System.out.println("pn1 " );
                             HashMap<String,Class[]> allMethods = new HashMap<>();
 
                             for (Class<?> c = clas; c != null; c = c.getSuperclass()) {
-                                for (Method method : c.getMethods()) {
-                                    if(Modifier.toString(method.getModifiers()).contains("public")) {
+                                if(name.equals("org.jboss.as.cli.CommandContext"))
+                                System.out.println("pm1 : " + c.getName());
+                                
+                                for (Method method : c.getDeclaredMethods()) {
+                                    if(name.equals("org.jboss.as.cli.CommandContext"))
+                                    System.out.println("c.getMethods() " + method.getName() + " " + method.getModifiers());
+                                    if(!Modifier.toString(method.getModifiers()).contains("private") ) {
+                                        if(name.equals("org.jboss.as.cli.CommandContext"))
+                            System.out.println("pn1 " + method.getName() );
                                         allMethods.put(method.getName(), method.getParameterTypes());
                                         allMethods.put(method.getName()+"_Return_Type", new Class[]{method.getReturnType()});
                                     }
@@ -614,7 +667,7 @@ public class DependencyTreeMethods {
                     
             //        System.out.println("Entry Name : " + name);
                     
-                    if(name.endsWith(".class") && !name.contains("$") && !entry.isDirectory()) {
+                    if(name.endsWith(".class") && !entry.isDirectory()) {
                         name = name.substring(0,name.lastIndexOf(".class"));
                         name=name.replaceAll("/", ".");
                         name=name.replaceAll("-", ".");
@@ -626,7 +679,7 @@ public class DependencyTreeMethods {
 
                             for (Class<?> c = clas; c != null; c = c.getSuperclass()) {
                                 for(Field f : c.getFields()) {
-                                    if(Modifier.toString(f.getModifiers()).contains("public")){
+                                    if(!Modifier.toString(f.getModifiers()).contains("private")){
                                         if(!allFields.keySet().contains(f))
                                             allFields.put(f.getName(),f.getType().toString());
                                     }
