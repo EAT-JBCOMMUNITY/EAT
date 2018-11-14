@@ -300,8 +300,8 @@ public class DependencyTreeMethods {
         }
     }
     
-    public static HashMap<String,HashMap<String,Class[]>> listMethods(){
-        HashMap<String,HashMap<String,Class[]>> classMethods = new HashMap<>();
+    public static HashMap<String,HashMap<String,String[]>> listMethods(){
+        HashMap<String,HashMap<String,String[]>> classMethods = new HashMap<>();
          
         try {
             String repoPath = System.getProperty("MavenRepoPath");
@@ -319,8 +319,8 @@ public class DependencyTreeMethods {
         }
     }
     
-    public static HashMap<String,HashMap<String,Class[]>> listUsedMethods(HashSet<String> usedLibraries, HashMap<String,String> packages){
-        HashMap<String,HashMap<String,Class[]>> usedMethods = new HashMap<>();
+    public static HashMap<String,HashMap<String,String[]>> listUsedMethods(HashSet<String> usedLibraries, HashMap<String,String> packages){
+        HashMap<String,HashMap<String,String[]>> usedMethods = new HashMap<>();
          
         try {
             
@@ -335,8 +335,8 @@ public class DependencyTreeMethods {
         }
     }
     
-    public static HashMap<String,HashMap<String,Class[]>> listUsedTestMethods(HashSet<String> usedLibraries, String path){
-        HashMap<String,HashMap<String,Class[]>> usedMethods = new HashMap<>();
+    public static HashMap<String,HashMap<String,String[]>> listUsedTestMethods(HashSet<String> usedLibraries, String path){
+        HashMap<String,HashMap<String,String[]>> usedMethods = new HashMap<>();
          
         try {
             
@@ -531,8 +531,8 @@ public class DependencyTreeMethods {
         }
     }
     
-    private static HashMap<String,HashMap<String,Class[]>> listClassMethods(String path) {
-        HashMap<String,HashMap<String,Class[]>> classMethods = new HashMap<>();
+    private static HashMap<String,HashMap<String,String[]>> listClassMethods(String path) {
+        HashMap<String,HashMap<String,String[]>> classMethods = new HashMap<>();
         
         try{
             if (path!=null) {
@@ -554,13 +554,20 @@ public class DependencyTreeMethods {
                         try{
                             Class clas = cl.loadClass(name);
 
-                            HashMap<String,Class[]> allMethods = new HashMap<>();
+                            HashMap<String,String[]> allMethods = new HashMap<>();
 
                             for (Class<?> c = clas; c != null; c = c.getSuperclass()) {
                                 for (Method method : c.getMethods()) {
-                                    if(Modifier.toString(method.getModifiers()).contains("public")) {
-                                        allMethods.put(method.getName(), method.getParameterTypes());
-                                        allMethods.put(method.getName()+"_Return_Type", new Class[]{method.getReturnType()});
+                                    
+                                    if(!Modifier.toString(method.getModifiers()).contains("private")) {
+                                        String[] params = new String[method.getParameterTypes().length];
+                                        int j=0;
+                                        for(Class cc : method.getParameterTypes()) {
+                                            params[j]=cc.toString();
+                                            j++;
+                                        }
+                                        allMethods.put(method.getName(), params);
+                                        allMethods.put(method.getName()+"_Return_Type", new String[]{method.getReturnType().toString()});
                                     }
                                 }
                             }       
@@ -580,8 +587,8 @@ public class DependencyTreeMethods {
         }
     }
     
-    private static HashMap<String,HashMap<String,Class[]>> listUsedClassMethods(String path, String lib) {
-        HashMap<String,HashMap<String,Class[]>> classMethods = new HashMap<>();
+    private static HashMap<String,HashMap<String,String[]>> listUsedClassMethods(String path, String lib) {
+        HashMap<String,HashMap<String,String[]>> classMethods = new HashMap<>();
         
         try{
             if (path!=null) {
@@ -615,20 +622,26 @@ public class DependencyTreeMethods {
 
                             if(name.equals("org.jboss.as.cli.CommandContext"))
                             System.out.println("pn1 " );
-                            HashMap<String,Class[]> allMethods = new HashMap<>();
+                            HashMap<String,String[]> allMethods = new HashMap<>();
 
                             for (Class<?> c = clas; c != null; c = c.getSuperclass()) {
                                 if(name.equals("org.jboss.as.cli.CommandContext"))
                                 System.out.println("pm1 : " + c.getName());
                                 
-                                for (Method method : c.getDeclaredMethods()) {
+                                for (Method method : c.getMethods()) {
                                     if(name.equals("org.jboss.as.cli.CommandContext"))
                                     System.out.println("c.getMethods() " + method.getName() + " " + method.getModifiers());
                                     if(!Modifier.toString(method.getModifiers()).contains("private") ) {
                                         if(name.equals("org.jboss.as.cli.CommandContext"))
                             System.out.println("pn1 " + method.getName() );
-                                        allMethods.put(method.getName(), method.getParameterTypes());
-                                        allMethods.put(method.getName()+"_Return_Type", new Class[]{method.getReturnType()});
+                                        String[] params = new String[method.getParameterTypes().length];
+                                        int j=0;
+                                        for(Class cc : method.getParameterTypes()) {
+                                            params[j]=cc.toString();
+                                            j++;
+                                        }
+                                        allMethods.put(method.getName(), params);
+                                        allMethods.put(method.getName()+"_Return_Type", new String[]{method.getReturnType().toString()});
                                     }
                                 }
                             }       
