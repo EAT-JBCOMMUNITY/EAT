@@ -21,7 +21,7 @@ public class DependencyTree {
             //    System.out.println("Print Dependencies : ");
             DependencyTreeMethods.artifacts = DependencyTreeMethods.getArtifacts();
             HashMap<String, String> packages = DependencyTreeMethods.listPackages();
-
+/*
             HashMap<String, HashMap<String, MethodInfo2>> sourceClassesMethods = new HashMap<>();
             HashMap<String, HashSet<String>> sourceClassesImports = new HashMap<>();
             HashMap<String, HashMap<String, String>> sourceClassesFields = new HashMap<>();
@@ -66,7 +66,7 @@ public class DependencyTree {
                 }
             }
 
-            /*
+            
             System.out.println("\n\n\nJar Methods : ");
             
             HashMap<String,HashMap<String,Class[]>> methods = DependencyTreeMethods.listMethods();
@@ -79,7 +79,7 @@ public class DependencyTree {
                         System.out.println(methods.get(s).get(m)[j].getTypeName());
                 }
             }
-             */
+             
             System.out.println("\n\n\nJar Fields : ");
 
             HashMap<String, HashMap<String, String>> fields = DependencyTreeMethods.listFields();
@@ -105,10 +105,10 @@ public class DependencyTree {
                     }
                 }
             }
-
+*/
             HashMap<String, ArrayList<String>> usedLibraries = JavaClassParser.testLibraryUsage();
-            HashMap<String, HashSet<String>> localClasses = JavaClassParser.getInternalPackagesAndClasses();
-            HashMap<String, ArrayList<String>> internalClasses = JavaClassParser.getInternalClasses();
+    /*         HashMap<String, HashSet<String>> localClasses = JavaClassParser.getInternalPackagesAndClasses();
+           HashMap<String, ArrayList<String>> internalClasses = JavaClassParser.getInternalClasses();
             System.out.println("internalClasses size : " + internalClasses.size());
             HashMap<String, ParsedTests> testData = JavaClassParser.getTestData();
 
@@ -154,10 +154,7 @@ public class DependencyTree {
                                     params[i]=par;
                                     i++;
                                 }
-                                System.out.println("testtesk : " + mdinfo2.name);
-                                if(p.contains("Utils")) {
-                                    System.out.println("testtest : " + mdinfo2.name);
-                                }
+
                                 mp.put(mdinfo2.name, params);
                                 mp.put(mdinfo2.name+"_Return_Type", new String[]{mdinfo2.returnType});
                             }
@@ -170,6 +167,38 @@ public class DependencyTree {
                         }
                     }
                 }
+                
+                HashMap<String, HashMap<String, String[]>> methodsTest2 = new HashMap<>();
+
+                for (String p : sourceClassesMethods.keySet()) {
+                     //   System.out.println("SSSSS " + p + " " + path2);
+                    HashMap<String, String[]> mp = new HashMap<>();
+                    if (p.contains(ps.packageName)) {
+                        System.out.println("MMMMM " + p + " " + ps.packageName);
+
+                        HashMap<String,MethodInfo2> it = sourceClassesMethods.get(p);
+                            
+                        for (String keyName : it.keySet()) {
+                            MethodInfo2 mdinfo2 = it.get(keyName);
+                            String[] params = new String[mdinfo2.paramTypes.size()];
+                            int i=0;
+                            for (String par : mdinfo2.paramTypes) {
+                                params[i]=par;
+                                i++;
+                            }
+
+                            mp.put(mdinfo2.name, params);
+                            mp.put(mdinfo2.name+"_Return_Type", new String[]{mdinfo2.returnType});
+                        }
+
+                        availableImportFields.putAll(sourceClassesFields.get(p));
+                    }
+
+                    if (mp.size() != 0) {
+                        methodsTest2.put(packageClasses.get(p), mp);
+                    }
+                }
+
 
                 ArrayList<String> acceptedFieldsFromLibrary = TestsuiteParser.loadFieldsFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "classesToLoadFields.txt");
 
@@ -329,6 +358,17 @@ public class DependencyTree {
                 methods2.putAll(methodsTest);
                 
                 methods2.putAll(DependencyTreeMethods.listUsedMethods(ps.imports, packages));
+                HashSet<String> pkg = new HashSet<>();
+                pkg.add(ps.packageName);
+                methodsTest2.putAll(DependencyTreeMethods.listUsedMethods(pkg, packages));
+                
+                HashSet<String> packageNames = new HashSet<>();
+                for (String s : methodsTest2.keySet()) {
+                    for (String meth : methodsTest2.get(s).keySet()) {
+                        packageNames.add(meth);
+                    }
+                }
+                
                 System.out.println("methods2 : " + methods2.keySet());
                 System.out.println("ps.imports : " + ps.imports.toString());
                 for (MethodInfo methodInfo : ps.methodInvocations) {
@@ -343,8 +383,10 @@ public class DependencyTree {
                         for (String s : rMethods.keySet()) {
                             if (methodInfo.expression.contains(s)) {
                                 if (rMethods.get(s).contains("$")) {
+                                    System.out.println("Before : " + methodInfo.expression + " After : " + rMethods.get(s).substring(0, rMethods.get(s).indexOf("$") - 1) + " for method : " + methodInfo.methodName);
                                     methodInfo.expression = rMethods.get(s).substring(0, rMethods.get(s).indexOf("$") - 1);
                                 } else {
+                                    System.out.println("Before : " + methodInfo.expression + " After : " + rMethods.get(s) + " for method : " + methodInfo.methodName);
                                     methodInfo.expression = rMethods.get(s);
                                 }
                             }
@@ -435,7 +477,7 @@ public class DependencyTree {
                         }
                         m++;
                     }
-                    if ((!acceptedMethods.contains(methodInfo.methodName)) || methodInfo.isResolvedParam.contains("false")) {
+                    if (((!acceptedMethods.contains(methodInfo.methodName)) && !packageNames.contains(methodInfo.methodName)) || methodInfo.isResolvedParam.contains("false")) {
                         System.out.println("----" + methodInfo.methodName + " " + methodInfo.expression + " " + methodInfo.params.toString() + " " + methodInfo.isResolvedParam.toString());
                     }
                 }
@@ -455,8 +497,8 @@ public class DependencyTree {
                 System.out.println("Libraries : ==========" + availableFields.size());
 
             }
-
-            /*
+*/
+            
             System.out.println("\n\n\nInternal Classes and Methods : ");
             
             HashMap<String,HashMap<String,String[]>> localMethods = JavaClassParser.getInternalClassMethods();
@@ -478,22 +520,23 @@ public class DependencyTree {
                 System.out.println(s + " " + usedLibraries.get(s).toString());
             }
             
-            HashMap<String,String> internalPackagesAndClasses = JavaClassParser.getInternalPackagesAndClasses();
+            HashMap<String,HashSet<String>> internalPackagesAndClasses = JavaClassParser.getInternalPackagesAndClasses();
             
             System.out.println("\n\n\nInternal Packages And Classes used : ");
             
             for(String s : internalPackagesAndClasses.keySet()){
-                System.out.println(s + " " + internalPackagesAndClasses.get(s));
+                System.out.println(s + " " + internalPackagesAndClasses.get(s).toString());
             }
             
             HashSet<String> excludedLibraries = DependencyTreeMethods.addExcludedLibraries();
+             HashSet<String> allPackages = DependencyTreeMethods.listAvailablePackages();
             
             int found = 0;
             int notFound = 0;
             HashSet<String> foundArray = new HashSet<>();
             HashSet<String> notfoundArray = new HashSet<>();
             for(String s : usedLibraries.keySet()){
-                if(packages.contains(s) || internalPackagesAndClasses.keySet().contains(s)) {
+                if(allPackages.contains(s) || internalPackagesAndClasses.keySet().contains(s)) {
                     found++;
                     foundArray.add(s);
                 }else{
@@ -527,7 +570,7 @@ public class DependencyTree {
             for(String s : notfoundArray) {
                 System.out.println("Not Found : " + s);
             }
-             */
+             
         } catch (Exception e) {
             e.printStackTrace();
         }
