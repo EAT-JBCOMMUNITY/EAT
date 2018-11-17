@@ -65,6 +65,37 @@
                 </configuration>
 	    </plugin>
 
+            <!-- Build the server configuration -->
+	    <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-antrun-plugin</artifactId>
+	        <executions>
+	            <execution>
+	                <id>build-basic-config</id>
+	                <phase>process-test-resources</phase>
+	                <goals>
+	                    <goal>run</goal>
+	                </goals>
+	                <configuration>
+	                    <target>
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
+	                            <property name="fileName" value="rss.png" />
+                                    <property name="filePath" value="${jboss.modules.dir}/testcases/jdkAll/Eap70x-Proposed/web/test-configurations/src/test/resources" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/rss.png" />
+	                            <target name="copy-file"/>
+	                        </ant>
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
+	                            <property name="fileName" value="testTag-1.0-SNAPSHOT.war" />
+                                    <property name="filePath" value="${jboss.modules.dir}/testcases/jdkAll/Eap70x-Proposed/web/test-configurations/src/test/resources" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/testTag-1.0-SNAPSHOT.war" />
+	                            <target name="copy-file"/>
+	                        </ant>
+	                    </target>
+	                </configuration>
+	            </execution>
+	        </executions>
+	    </plugin>
+
         </plugins>
     </build>
 

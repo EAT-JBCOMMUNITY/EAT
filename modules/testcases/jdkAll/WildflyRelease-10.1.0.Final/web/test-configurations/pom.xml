@@ -81,6 +81,18 @@
 	                            <property name="serverDir" value="/${jboss.modules.dir}/servers" />
 	                            <target name="clean-deployments"/>
 	                        </ant>
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
+	                            <property name="fileName" value="rss.png" />
+                                    <property name="filePath" value="${jboss.modules.dir}/testcases/jdkAll/WildflyRelease-10.1.0.Final/web/test-configurations/src/test/resources" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/rss.png" />
+	                            <target name="copy-file"/>
+	                        </ant>
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
+	                            <property name="fileName" value="testTag-1.0-SNAPSHOT.war" />
+                                    <property name="filePath" value="${jboss.modules.dir}/testcases/jdkAll/WildflyRelease-10.1.0.Final/web/test-configurations/src/test/resources" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/testTag-1.0-SNAPSHOT.war" />
+	                            <target name="copy-file"/>
+	                        </ant>
 	                    </target>
 	                </configuration>
 	            </execution>
