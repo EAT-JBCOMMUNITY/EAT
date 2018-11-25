@@ -335,6 +335,32 @@ public class DependencyTreeMethods {
         }
     }
     
+    public static HashMap<String,HashMap<String,String[]>> listUsedMethods2(String usedLibrary, HashMap<String,String> packages){
+        HashMap<String,HashMap<String,String[]>> usedMethods = new HashMap<>();
+         
+        try {
+            
+            for(String lb : packages.keySet()) {
+              //   System.out.println("000 " + lb + " " + usedLibrary);
+                if(lb.contains("$"))
+                    lb = lb.substring(0, lb.indexOf("$"));
+                if(lb.contains("."))
+                    lb = lb.subSequence(0, lb.lastIndexOf(".")).toString();
+               
+                //    System.out.println(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
+                if(lb.equals(usedLibrary)){
+                    System.out.println("bbb " + lb + " " + usedLibrary);
+                    usedMethods.putAll(DependencyTreeMethods.listUsedClassMethods(packages.get(lb),lb));
+                }
+                System.out.println("ccc " + lb + " " + usedLibrary);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            return usedMethods;
+        }
+    }
+    
     public static HashMap<String,HashMap<String,String[]>> listUsedTestMethods(HashSet<String> usedLibraries, String path){
         HashMap<String,HashMap<String,String[]>> usedMethods = new HashMap<>();
          
@@ -620,20 +646,15 @@ public class DependencyTreeMethods {
                         try{
                             Class clas = cl.loadClass(name);
 
-                            if(name.equals("org.jboss.as.cli.CommandContext"))
-                            System.out.println("pn1 " );
                             HashMap<String,String[]> allMethods = new HashMap<>();
 
                             for (Class<?> c = clas; c != null; c = c.getSuperclass()) {
-                                if(name.equals("org.jboss.as.cli.CommandContext"))
-                                System.out.println("pm1 : " + c.getName());
+               
                                 
                                 for (Method method : c.getMethods()) {
-                                    if(name.equals("org.jboss.as.cli.CommandContext"))
-                                    System.out.println("c.getMethods() " + method.getName() + " " + method.getModifiers());
+
                                     if(!Modifier.toString(method.getModifiers()).contains("private") ) {
-                                        if(name.equals("org.jboss.as.cli.CommandContext"))
-                            System.out.println("pn1 " + method.getName() );
+
                                         String[] params = new String[method.getParameterTypes().length];
                                         int j=0;
                                         for(Class cc : method.getParameterTypes()) {

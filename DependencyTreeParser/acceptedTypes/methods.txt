@@ -5,3 +5,7 @@ assertEquals
 getClass
 wait
 notify
+parseInt
+printStackTrace
+parseDouble
+toString

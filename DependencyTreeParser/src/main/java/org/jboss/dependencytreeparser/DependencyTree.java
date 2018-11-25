@@ -21,7 +21,7 @@ public class DependencyTree {
             //    System.out.println("Print Dependencies : ");
             DependencyTreeMethods.artifacts = DependencyTreeMethods.getArtifacts();
             HashMap<String, String> packages = DependencyTreeMethods.listPackages();
-/*
+
             HashMap<String, HashMap<String, MethodInfo2>> sourceClassesMethods = new HashMap<>();
             HashMap<String, HashSet<String>> sourceClassesImports = new HashMap<>();
             HashMap<String, HashMap<String, String>> sourceClassesFields = new HashMap<>();
@@ -40,10 +40,10 @@ public class DependencyTree {
                 sourceClassesImports.put(SourceParser.packageName + "." + clss, new HashSet<String>(SourceParser.imports));
                 
                 packageClasses.put(SourceParser.packageName + "." + clss, SourceParser.packageName + "." + clss);
-                System.out.println("Methods : " + SourceParser.methods.keySet().toString());
-                System.out.println("Fields : " + SourceParser.fields.keySet().toString());
-                System.out.println("Imports : " + SourceParser.imports.toString());
-                System.out.println("PackageClass : " + SourceParser.packageName + "." + clss);
+            //    System.out.println("Methods : " + SourceParser.methods.keySet().toString());
+            //    System.out.println("Fields : " + SourceParser.fields.keySet().toString());
+            //    System.out.println("Imports : " + SourceParser.imports.toString());
+            //    System.out.println("PackageClass : " + SourceParser.packageName + "." + clss);
             }
 
             System.out.println("\n\n\nAvailable libraries : ");
@@ -69,33 +69,33 @@ public class DependencyTree {
             
             System.out.println("\n\n\nJar Methods : ");
             
-            HashMap<String,HashMap<String,Class[]>> methods = DependencyTreeMethods.listMethods();
+            HashMap<String,HashMap<String,String[]>> methods = DependencyTreeMethods.listMethods();
 
-            for(String s : methods.keySet()) {
+        /*    for(String s : methods.keySet()) {
                 System.out.println("class : " + s);
                 for (String m : methods.get(s).keySet()) {
                     System.out.println("Method : " + m + " with parameters : ");
                     for (int j=0; j<methods.get(s).get(m).length; j++)
-                        System.out.println(methods.get(s).get(m)[j].getTypeName());
+                        System.out.println(methods.get(s).get(m)[j]);
                 }
-            }
+            }*/
              
             System.out.println("\n\n\nJar Fields : ");
 
             HashMap<String, HashMap<String, String>> fields = DependencyTreeMethods.listFields();
 
-            for (String s : fields.keySet()) {
+        /*    for (String s : fields.keySet()) {
                 System.out.println("class : " + s);
                 for (String f : fields.get(s).keySet()) {
                     System.out.println("Field : " + f);
 
                 }
-            }
+            }*/
 
             System.out.println("\n\n\nInternal Classes and Methods : ");
 
             HashMap<String, HashMap<String, String[]>> localMethods = JavaClassParser.getInternalClassMethods();
-
+/*
             for (String s : localMethods.keySet()) {
                 System.out.println("class : " + s);
                 for (String m : localMethods.get(s).keySet()) {
@@ -104,45 +104,90 @@ public class DependencyTree {
                         System.out.println(localMethods.get(s).get(m)[j]);
                     }
                 }
-            }
-*/
+            }*/
+
             HashMap<String, ArrayList<String>> usedLibraries = JavaClassParser.testLibraryUsage();
-    /*         HashMap<String, HashSet<String>> localClasses = JavaClassParser.getInternalPackagesAndClasses();
+            HashMap<String, HashSet<String>> localClasses = JavaClassParser.getInternalPackagesAndClasses();
            HashMap<String, ArrayList<String>> internalClasses = JavaClassParser.getInternalClasses();
-            System.out.println("internalClasses size : " + internalClasses.size());
+        //    System.out.println("internalClasses size : " + internalClasses.size());
             HashMap<String, ParsedTests> testData = JavaClassParser.getTestData();
 
             ArrayList<String> acceptedLibraries = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "libraries.txt");
 
+            ArrayList<String> acceptedExpressionTranslations = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "expressionTranslations.txt");
+            HashMap<String,String> expMethodMap = new HashMap<>();
+            
+            for (String str : acceptedExpressionTranslations){
+                expMethodMap.put(str.substring(0,str.indexOf(";")), str.substring(str.indexOf(";")+1));
+            }
+            
+            HashMap<String, String> importFields = new HashMap<>();
+            HashMap<String, HashMap<String, String[]>> methodsTest2 = new HashMap<>();
+
+            
+            for (String p : sourceClassesMethods.keySet()) {
+                     //   System.out.println("SSSSS " + p + " " + path2);
+                        HashMap<String, String[]> mp = new HashMap<>();
+                    //    if (p.contains(path2)) {
+                      //      System.out.println("MMMMM " + p + " " + path2);
+
+                            HashMap<String,MethodInfo2> it = sourceClassesMethods.get(p);
+                            
+                            for (String keyName : it.keySet()) {
+                                MethodInfo2 mdinfo2 = it.get(keyName);
+                                String[] params = new String[mdinfo2.paramTypes.size()];
+                                int i=0;
+                                for (String par : mdinfo2.paramTypes) {
+                                    params[i]=par;
+                                    i++;
+                                }
+
+                                mp.put(mdinfo2.name, params);
+                                mp.put(mdinfo2.name+"_Return_Type", new String[]{mdinfo2.returnType});
+                            }
+
+                            importFields.putAll(sourceClassesFields.get(p));
+                            
+                            if (mp.size() != 0) {
+                        //        System.out.println("packageClasses.get(p) " + packageClasses.get(p));
+                                methodsTest2.put(packageClasses.get(p), mp);
+                            }
+                    //    }
+
+                        
+                    }
             for (String key : testData.keySet()) {
                 ParsedTests ps = testData.get(key);
                 System.out.println("Class : " + key.toString() + " extends " + ps.extension);
-                if (internalClasses.get(key.toString()) != null) {
+           /*     if (internalClasses.get(key.toString()) != null) {
                     System.out.println("All Classes : " + internalClasses.get(key.toString()).toString());
-                }
+                }*/
                 String path = key.toString().substring(0, key.toString().lastIndexOf("."));
-                System.out.println("Path : " + path);
+           //     System.out.println("Path : " + path);
                 if(sourceClassesFields.get(path)!=null)
                     ps.fields.putAll(sourceClassesFields.get(path));
                 if(sourceClassesImports.get(path)!=null)
                     ps.imports.addAll(sourceClassesImports.get(path));
-                System.out.println("usedLibraries : " + ps.imports);
+            //    System.out.println("usedLibraries : " + ps.imports);
 
                 HashMap<String, HashMap<String, String[]>> methodsTest = new HashMap<>();
+                methodsTest.putAll(methodsTest2);
 
                 for (String p : DependencyTreeMethods.testsuiteArtifactsPaths) {
                     methodsTest.putAll(DependencyTreeMethods.listUsedTestMethods(ps.imports, p));
                     //        System.out.println("mmm " + DependencyTreeMethods.listUsedTestMethods(ps.imports, p).keySet());
                 }
                 HashMap<String, String> availableImportFields = new HashMap<>();
+                availableImportFields.putAll(importFields);
 
-                for (String psimp : ps.imports) {
-                    String path2 = psimp;
+                /*
+           //     for (String psimp : ps.imports) {
+            //        String path2 = psimp;
                     for (String p : sourceClassesMethods.keySet()) {
                      //   System.out.println("SSSSS " + p + " " + path2);
                         HashMap<String, String[]> mp = new HashMap<>();
-                        if (p.contains(path2)) {
-                            System.out.println("MMMMM " + p + " " + path2);
+                    //    if (p.contains(path2)) {
+                      //      System.out.println("MMMMM " + p + " " + path2);
 
                             HashMap<String,MethodInfo2> it = sourceClassesMethods.get(p);
                             
@@ -160,45 +205,18 @@ public class DependencyTree {
                             }
 
                             availableImportFields.putAll(sourceClassesFields.get(p));
-                        }
-
-                        if (mp.size() != 0) {
-                            methodsTest.put(packageClasses.get(p), mp);
-                        }
-                    }
-                }
-                
-                HashMap<String, HashMap<String, String[]>> methodsTest2 = new HashMap<>();
-
-                for (String p : sourceClassesMethods.keySet()) {
-                     //   System.out.println("SSSSS " + p + " " + path2);
-                    HashMap<String, String[]> mp = new HashMap<>();
-                    if (p.contains(ps.packageName)) {
-                        System.out.println("MMMMM " + p + " " + ps.packageName);
-
-                        HashMap<String,MethodInfo2> it = sourceClassesMethods.get(p);
                             
-                        for (String keyName : it.keySet()) {
-                            MethodInfo2 mdinfo2 = it.get(keyName);
-                            String[] params = new String[mdinfo2.paramTypes.size()];
-                            int i=0;
-                            for (String par : mdinfo2.paramTypes) {
-                                params[i]=par;
-                                i++;
+                            if (mp.size() != 0) {
+                        //        System.out.println("packageClasses.get(p) " + packageClasses.get(p));
+                                methodsTest.put(packageClasses.get(p), mp);
                             }
+                    //    }
 
-                            mp.put(mdinfo2.name, params);
-                            mp.put(mdinfo2.name+"_Return_Type", new String[]{mdinfo2.returnType});
-                        }
-
-                        availableImportFields.putAll(sourceClassesFields.get(p));
+                        
                     }
-
-                    if (mp.size() != 0) {
-                        methodsTest2.put(packageClasses.get(p), mp);
-                    }
-                }
-
+            //    }
+                */
+              
 
                 ArrayList<String> acceptedFieldsFromLibrary = TestsuiteParser.loadFieldsFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "classesToLoadFields.txt");
 
@@ -214,13 +232,13 @@ public class DependencyTree {
 
                 for (String s : acceptedFieldsFromLibrary) {
                     if (ps.imports.contains(s)) {
-                        System.out.println("S : " + s);
+                    //    System.out.println("S : " + s);
                         if (fields.get(s) != null) {
-                            System.out.println("FieldsFromFile : " + fields.get(s).toString());
+                        //    System.out.println("FieldsFromFile : " + fields.get(s).toString());
                             availableFields.addAll(fields.get(s).keySet());
-                        } else {
-                            System.out.println("LLL " + fields.keySet());
-                        }
+                        }// else {
+                        //    System.out.println("LLL " + fields.keySet());
+                       // }
                     }
                 }
 
@@ -230,7 +248,7 @@ public class DependencyTree {
                         do {
 
                             if (testData.get(ex) != null) {
-                                System.out.println("ps.extension : " + ps.extension + " : " + testData.get(ex).fields.keySet());
+                            //    System.out.println("ps.extension : " + ps.extension + " : " + testData.get(ex).fields.keySet());
                                 availableFields.addAll(testData.get(ex).fields.keySet());
                                 availableExtensionFields.putAll(testData.get(ex).fields);
                                 ex = testData.get(ex).extension;
@@ -239,7 +257,7 @@ public class DependencyTree {
                             }
                         } while (ex != null);
                     } else {
-                        System.out.println("org.jboss.as.test.integration.management.base " + classes.keySet().contains("org.jboss.as.test.integration.management.base.AbstractCliTestBase"));
+                    //    System.out.println("org.jboss.as.test.integration.management.base " + classes.keySet().contains("org.jboss.as.test.integration.management.base.AbstractCliTestBase"));
                         for (String cl : classes.keySet()) {
                             if (cl.equals(ps.extension)) {
                                 if (fields.get(cl) != null) {
@@ -355,22 +373,21 @@ public class DependencyTree {
                 ArrayList<String> acceptedEndWithExpressions = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "excludeEndWith.txt");
                 Collections.reverse(ps.methodInvocations);
                 HashMap<String, HashMap<String, String[]>> methods2 = new HashMap<String, HashMap<String, String[]>>();
+           //     methodsTest.putAll(DependencyTreeMethods.listUsedMethods2(ps.packageName, packages));
                 methods2.putAll(methodsTest);
+            //    System.out.println("ssssszzzzzz " + methodsTest.keySet().toString());
                 
                 methods2.putAll(DependencyTreeMethods.listUsedMethods(ps.imports, packages));
-                HashSet<String> pkg = new HashSet<>();
-                pkg.add(ps.packageName);
-                methodsTest2.putAll(DependencyTreeMethods.listUsedMethods(pkg, packages));
                 
-                HashSet<String> packageNames = new HashSet<>();
-                for (String s : methodsTest2.keySet()) {
-                    for (String meth : methodsTest2.get(s).keySet()) {
-                        packageNames.add(meth);
-                    }
-                }
+                acceptedMethods.addAll(expMethodMap.keySet());
+               
                 
-                System.out.println("methods2 : " + methods2.keySet());
-                System.out.println("ps.imports : " + ps.imports.toString());
+            //    System.out.println("ssssszzzzzz " + methodsTest2.keySet().toString());
+                
+
+                
+            //    System.out.println("methods2 : " + methods2.keySet());
+            //    System.out.println("ps.imports : " + ps.imports.toString());
                 for (MethodInfo methodInfo : ps.methodInvocations) {
 
                     if (methodInfo.expression != null && availableExtensionFields.keySet().contains(methodInfo.expression)) {
@@ -381,62 +398,100 @@ public class DependencyTree {
 
                     if (methodInfo.expression != null) {
                         for (String s : rMethods.keySet()) {
-                            if (methodInfo.expression.contains(s)) {
+                        //    System.out.println("methodInfo.expression sss : " + methodInfo.expression + " sss : " + s);
+                            String lastPart = methodInfo.expression;
+                            if(methodInfo.expression.contains("."))
+                                lastPart = methodInfo.expression.substring(methodInfo.expression.lastIndexOf(".")+1);
+                        //    System.out.println("uuuu " + lastPart + " " + lastPart.substring(lastPart.indexOf("(")+1));
+                            if(lastPart.contains("("))
+                                lastPart = lastPart.substring(0,lastPart.indexOf("("));
+                            if (lastPart.endsWith(s)) {
                                 if (rMethods.get(s).contains("$")) {
-                                    System.out.println("Before : " + methodInfo.expression + " After : " + rMethods.get(s).substring(0, rMethods.get(s).indexOf("$") - 1) + " for method : " + methodInfo.methodName);
-                                    methodInfo.expression = rMethods.get(s).substring(0, rMethods.get(s).indexOf("$") - 1);
+                                //    System.out.println("Before : " + methodInfo.expression + " After : " + rMethods.get(s).substring(0, rMethods.get(s).indexOf("$")) + " for method : " + methodInfo.methodName);
+                                    methodInfo.expression = rMethods.get(s).substring(0, rMethods.get(s).indexOf("$"));
                                 } else {
-                                    System.out.println("Before : " + methodInfo.expression + " After : " + rMethods.get(s) + " for method : " + methodInfo.methodName);
+                                //    System.out.println("Before : " + methodInfo.expression + " After : " + rMethods.get(s) + " for method : " + methodInfo.methodName);
                                     methodInfo.expression = rMethods.get(s);
                                 }
                             }
                         }
                     }
 
-                    if (methodInfo.expression != null && !methodInfo.expression.equals("")) {
-                        //    System.out.println("methodInfo.expression : " + methodInfo.expression);
-                        for (String s : methods2.keySet()) {
-                        //    System.out.println("yyy : " + methodInfo.expression + " " + s);
-                            if (s.contains(methodInfo.expression) || methodInfo.expression.contains(s)) {
-                                for (String meth : methods2.get(s).keySet()) {
-                                    
-                                    if (meth.equals(methodInfo.methodName)) {
-                                        System.out.println("sss : " + methodInfo.methodName + " " + meth);
-                                        System.out.println("Methods : " + meth + " " + methodInfo.methodName);
-                                        acceptedMethods.add(methodInfo.methodName);
-                                        if (methods2.get(s) != null && methods2.get(s).get(meth + "_Return_Type") != null && methods2.get(s).get(meth + "_Return_Type")[0].toString().contains("class ")) {
-                                            rMethods.put(methodInfo.methodName, methods2.get(s).get(meth + "_Return_Type")[0].toString().replaceAll("class ", ""));
-                                        } else if (methods2.get(s) != null && methods2.get(s).get(meth + "_Return_Type") != null && methods2.get(s).get(meth + "_Return_Type")[0].toString().contains("interface ")) {
-                                            rMethods.put(methodInfo.methodName, methods2.get(s).get(meth + "_Return_Type")[0].toString().replaceAll("interface ", ""));
-                                        } else if (methods2.get(s) != null && methods2.get(s).get(meth + "_Return_Type") != null) {
-                                            rMethods.put(methodInfo.methodName, methods2.get(s).get(meth + "_Return_Type")[0].toString());
-                                        }
-                                    }
+                    boolean added = false;
+                    
+                    for(String str : ps.imports) {
+                        if(str.contains(methodInfo.expression)){
+                            for(String lb : acceptedLibraries){
+                                if(str.startsWith(lb)) {
+                                    acceptedMethods.add(methodInfo.methodName);
+                                    rMethods.put(methodInfo.methodName,methodInfo.expression);
+                                    added = true;
                                 }
                             }
-                        }
-
-                    } else {
-
-                        String c = key.toString();
-
-                        for (String s : localMethods.keySet()) {
-                            if (s.contains(c)) {
-                                System.out.println("localMethods " + localMethods.get(s).keySet());
-                                for (String meth : localMethods.get(s).keySet()) {
-                                    if (meth.equals(methodInfo.methodName)) {
-                                        acceptedMethods.add(methodInfo.methodName);
-                                        //    rMethods.put(methodInfo.methodName, localMethods.get(s).get(meth+"_Return_Type")[0].toString());
-                                    }
-                                }
-                            }
-
-                        }
-
-                        if (availableFields.contains(c) || availableExtensionFields.containsKey(c)) {
-                            acceptedMethods.add(methodInfo.methodName);
                         }
                     }
+                    if (methodInfo.expression != null && !methodInfo.expression.equals("") && !added) {
+                        //    System.out.println("methodInfo.expression : " + methodInfo.expression);
+                        for (String s : methods2.keySet()) {
+                            
+                            String s1=s;
+                            if (s.contains("$")) {
+                                s1 = s.substring(0, s.indexOf("$"));
+                            }
+                        //    System.out.println("yyy : " + methodInfo.expression + " " + s);
+                            
+                            if (s1.endsWith(methodInfo.expression)) {
+                                if(s.contains("."))
+                                    s1 = s1.substring(0, s.lastIndexOf(".")+1);
+                                
+                                for (String ms : methods2.keySet()) {
+                                //    System.out.println("mmm1 " + s1 + " " + s + " " + ms);
+                                    String ms1 = ms.replaceAll(s1, "");
+                                    if(ms1.compareTo("")!=0 && !ms1.contains(".")) {
+                                    //    System.out.println("mmm " + methods.keySet().toString() + " " + ms1);
+                                        for (String meth : methods2.get(ms).keySet()) {
+
+                                            if (meth.equals(methodInfo.methodName)) {
+                                            //    System.out.println("sss : " + methodInfo.methodName + " " + meth + " " + methods2.get(s).keySet().toString());
+                                                acceptedMethods.add(methodInfo.methodName);
+                                                if (methods2.get(s) != null && methods2.get(s).get(meth + "_Return_Type") != null && methods2.get(s).get(meth + "_Return_Type")[0].toString().contains("class ")) {
+                                                    rMethods.put(methodInfo.methodName, methods2.get(s).get(meth + "_Return_Type")[0].toString().replaceAll("class ", ""));
+                                                } else if (methods2.get(s) != null && methods2.get(s).get(meth + "_Return_Type") != null && methods2.get(s).get(meth + "_Return_Type")[0].toString().contains("interface ")) {
+                                                    rMethods.put(methodInfo.methodName, methods2.get(s).get(meth + "_Return_Type")[0].toString().replaceAll("interface ", ""));
+                                                } else if (methods2.get(s) != null && methods2.get(s).get(meth + "_Return_Type") != null) {
+                                                    rMethods.put(methodInfo.methodName, methods2.get(s).get(meth + "_Return_Type")[0].toString());
+                                                }
+                                            }
+                                        }
+                                        if(expMethodMap.containsKey(methodInfo.methodName))
+                                            rMethods.put(methodInfo.methodName,expMethodMap.get(methodInfo.methodName));
+                                        
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+
+                    String c = key.toString();
+
+                    for (String s : localMethods.keySet()) {
+                        if (s.contains(c) || s.contains(ps.packageName)) {
+                        //    System.out.println("localMethods " + localMethods.get(s).keySet());
+                            for (String meth : localMethods.get(s).keySet()) {
+                                if (meth.equals(methodInfo.methodName)) {
+                                    acceptedMethods.add(methodInfo.methodName);
+                                    //    rMethods.put(methodInfo.methodName, localMethods.get(s).get(meth+"_Return_Type")[0].toString());
+                                }
+                            }
+                        }
+
+                    }
+
+                    if (availableFields.contains(c) || availableExtensionFields.containsKey(c)) {
+                        acceptedMethods.add(methodInfo.methodName);
+                    }
+                    
 
                     String libName = null;
                     if (methodInfo.expression != null) {
@@ -472,16 +527,18 @@ public class DependencyTree {
 
                     int m = 0;
                     for (String param : methodInfo.params) {
-                        if ((availableFields.contains(param) || classLibraries.contains(param) || acceptedMethods.contains(param) || param == null || param.equals("this")) && !methodInfo.isResolvedParam.get(m)) {
+                        if(param.contains("."))
+                            param = param.substring(param.lastIndexOf(".")+1);
+                        if ((availableImportFields.containsKey(param) || availableFields.contains(param) || classLibraries.contains(param) || acceptedMethods.contains(param) || param == null || param.equals("this")) && !methodInfo.isResolvedParam.get(m)) {
                             methodInfo.isResolvedParam.set(m, Boolean.TRUE);
                         }
                         m++;
                     }
-                    if (((!acceptedMethods.contains(methodInfo.methodName)) && !packageNames.contains(methodInfo.methodName)) || methodInfo.isResolvedParam.contains("false")) {
+                    if (!acceptedMethods.contains(methodInfo.methodName) || methodInfo.isResolvedParam.contains("false")) {
                         System.out.println("----" + methodInfo.methodName + " " + methodInfo.expression + " " + methodInfo.params.toString() + " " + methodInfo.isResolvedParam.toString());
                     }
                 }
-                System.out.println("Methods Not Resolved : ==========");
+        /*        System.out.println("Methods Not Resolved : ==========");
                 for (String methodNotResolved : ps.methodsNotResolved) {
                     if (!acceptedMethods.contains(methodNotResolved)) {
                         System.out.println(methodNotResolved);
@@ -493,12 +550,12 @@ public class DependencyTree {
                     if (!acceptedclasses.contains(classInfo.className) && !classInfo.isResolvedParam.contains("false")) {
                         System.out.println(classInfo.className + " " + classInfo.params.toString() + " " + classInfo.isResolvedParam.toString());
                     }
-                }
+                }*/
                 System.out.println("Libraries : ==========" + availableFields.size());
 
             }
-*/
-            
+
+        /*    
             System.out.println("\n\n\nInternal Classes and Methods : ");
             
             HashMap<String,HashMap<String,String[]>> localMethods = JavaClassParser.getInternalClassMethods();
@@ -570,7 +627,7 @@ public class DependencyTree {
             for(String s : notfoundArray) {
                 System.out.println("Not Found : " + s);
             }
-             
+             */
         } catch (Exception e) {
             e.printStackTrace();
         }

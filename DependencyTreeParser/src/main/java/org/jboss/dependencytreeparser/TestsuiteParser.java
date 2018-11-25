@@ -24,6 +24,7 @@ import org.eclipse.jdt.core.dom.ImportDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.NormalAnnotation;
+import org.eclipse.jdt.core.dom.PackageDeclaration;
 import org.eclipse.jdt.core.dom.SimpleType;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jdt.core.dom.Statement;
@@ -41,6 +42,7 @@ public class TestsuiteParser {
     static HashSet<String> methodsNotResolved = new HashSet<>();
     static ArrayList<ClassInfo> classInstanceCreations = new ArrayList<>();
     static ArrayList<MethodInfo> methodInvocations = new ArrayList<>();
+    static String packageName;
     
     static HashMap<String,String> importedClassFields = new HashMap<>();
 
@@ -119,7 +121,7 @@ public class TestsuiteParser {
                 
                 declarations.put(name, type);
                 if(!node.modifiers().toString().contains("private")){
-                    System.out.println("modifiers : " + node.modifiers().contains("public") + " " + node.modifiers().contains("protected") + " " + node.modifiers().toString());
+                //    System.out.println("modifiers : " + node.modifiers().contains("public") + " " + node.modifiers().contains("protected") + " " + node.modifiers().toString());
                     fields.put(name, type);
                 }
                 
@@ -168,7 +170,6 @@ public class TestsuiteParser {
                 if (node.getName().getIdentifier() != null) {
                 //    System.out.println("Declaration of method '" + node.getName() + "' at line"
                //                 + cu.getLineNumber(node.getStartPosition())); 
-                   
                     HashMap<String,String> bDeclarations = new HashMap();
                     bDeclarations.putAll(importedClassFields);
                     bDeclarations.putAll(declarations);
@@ -243,6 +244,15 @@ public class TestsuiteParser {
                   
                 
                 return false;
+            }
+            
+            public boolean visit(PackageDeclaration node) {
+            //    System.out.println("Declaration of import '" + node.getName() + "' at line"
+            //                    + cu.getLineNumber(node.getStartPosition())); 
+                   
+                packageName = node.getName().toString();
+ 
+                return true;
             }
         });
 
@@ -619,11 +629,14 @@ public class TestsuiteParser {
                             if(mInfo.expression.startsWith("\"") && mInfo.expression.endsWith("\""))
                                 mInfo.expression = "String";
                             else if(mInfo.expression.equals("this"))
-                                mInfo.expression = null;
+                                mInfo.expression = "";
                             else if(mInfo.expression.startsWith("new ")) {
                                 mInfo.expression = mInfo.expression.replaceAll("new ", "");
                                 if (mInfo.expression.contains("("))
                                     mInfo.expression=mInfo.expression.substring(0, mInfo.expression.indexOf("("));
+                            }
+                            if(mInfo.expression.contains("[")){
+                                mInfo.expression = mInfo.expression.substring(0,mInfo.expression.indexOf("["));
                             }
                             if(!bDeclarations.containsKey(mInfo.expression)) {
                                 methodsNotResolved.add(node.getExpression().toString()+"."+node.getName()+"("+node.arguments()+")");

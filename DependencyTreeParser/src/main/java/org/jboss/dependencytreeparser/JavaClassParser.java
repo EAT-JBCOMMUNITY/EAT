@@ -214,22 +214,23 @@ public class JavaClassParser {
                                                             if (!(ver.equals(lastPart) && isSnapshot)) {
                                                                 if ((verRelease3 == 0 || verRelease1 < verRelease3)) {
                                                                     String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
-                                                                    System.out.println(f);
+                                                                //    System.out.println(f);
                                                                     String extesnion = readTestLibrariesFromFile(f, testLibraries, searchString, basedir + "/" + dest.fileBaseDir + "/");
                                                                     readInternalPackagesAndClasses(dest);
                                                                     readInternalClassMethods(f,dest);
                                                                     TestsuiteParser.parse(f);
-                                                                    System.out.println("fff : " + f);
+                                                                //    System.out.println("fff : " + f);
                                                                     ParsedTests ps = new ParsedTests();
                                                                     ps.extension = extesnion;
                                                                     ps.types.addAll(TestsuiteParser.getTypes());
                                                                     ps.fields.putAll(TestsuiteParser.getFields());
-                                                                    System.out.println("ps fields : " + TestsuiteParser.getFields().keySet().toString() + " " + ps.fields.keySet().toString());
+                                                                //    System.out.println("ps fields : " + TestsuiteParser.getFields().keySet().toString() + " " + ps.fields.keySet().toString());
                                                                     ps.imports.addAll(TestsuiteParser.getImports());
                                                                     ps.classInstanceCreations.addAll(TestsuiteParser.getClassInstanceCreations());
                                                                     ps.methodInvocations.addAll(TestsuiteParser.getMethodInvocations());
                                                                     ps.typesNotResolved.addAll(TestsuiteParser.getTypesNotResolved());
                                                                     ps.methodsNotResolved.addAll(TestsuiteParser.getMethodsNotResolved());
+                                                                    ps.packageName=TestsuiteParser.packageName;
                                                                     testData.put(dest.packageName.replaceAll("/", ".")+"."+dest.fileName.replace(".java", ""), ps);
                                                                 } else if (verRelease1 == verRelease3) {
                                                                     procedure0(dest, server, basedir, versionOrderDir, verRelease1, verRelease3, subVersionsMax, versionRelease, isSnapshot, searchString);
@@ -241,22 +242,23 @@ public class JavaClassParser {
                                                     if (!(verRelease1 == verRelease2 && isSnapshot)) {
                                                         if ((verRelease3 == 0 || verRelease1 < verRelease3)) {
                                                             String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
-                                                            System.out.println(f);
+                                                        //    System.out.println(f);
                                                             String extesnion = readTestLibrariesFromFile(f, testLibraries, searchString, basedir + "/" + dest.fileBaseDir + "/");
                                                             readInternalPackagesAndClasses(dest);
                                                             readInternalClassMethods(f,dest);
                                                             TestsuiteParser.parse(f);
-                                                            System.out.println("fff : " + f);
+                                                        //    System.out.println("fff : " + f);
                                                             ParsedTests ps = new ParsedTests();
                                                             ps.extension = extesnion;
                                                             ps.types.addAll(TestsuiteParser.getTypes());
                                                             ps.fields.putAll(TestsuiteParser.getFields());
-                                                            System.out.println("ps fields : " + TestsuiteParser.getFields().keySet().toString() + " " + ps.fields.keySet().toString());
+                                                        //    System.out.println("ps fields : " + TestsuiteParser.getFields().keySet().toString() + " " + ps.fields.keySet().toString());
                                                             ps.imports.addAll(TestsuiteParser.getImports());
                                                             ps.classInstanceCreations.addAll(TestsuiteParser.getClassInstanceCreations());
                                                             ps.methodInvocations.addAll(TestsuiteParser.getMethodInvocations());
                                                             ps.typesNotResolved.addAll(TestsuiteParser.getTypesNotResolved());
                                                             ps.methodsNotResolved.addAll(TestsuiteParser.getMethodsNotResolved());
+                                                            ps.packageName=TestsuiteParser.packageName;
                                                             testData.put(dest.packageName.replaceAll("/", ".")+"."+dest.fileName.replace(".java", ""), ps);
                                                         } else if (verRelease1 == verRelease3) {
                                                             procedure0(dest, server, basedir, versionOrderDir, verRelease1, verRelease3, subVersionsMax, versionRelease, isSnapshot, searchString);
@@ -273,22 +275,23 @@ public class JavaClassParser {
                                     if (verRelease3 == 0 || verRelease1 < verRelease3) {
                                         if (verRelease1 != verRelease2 || !isSnapshot) {
                                             String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
-                                            System.out.println(f);
+                                        //    System.out.println(f);
                                             String extesnion = readTestLibrariesFromFile(f, testLibraries, searchString, basedir + "/" + dest.fileBaseDir + "/");
                                             readInternalPackagesAndClasses(dest);
                                             readInternalClassMethods(f,dest);
                                             TestsuiteParser.parse(f);
-                                            System.out.println("fff : " + f);
+                                        //    System.out.println("fff : " + f);
                                             ParsedTests ps = new ParsedTests();
                                             ps.extension = extesnion;
                                             ps.types.addAll(TestsuiteParser.getTypes());
                                             ps.fields.putAll(TestsuiteParser.getFields());
-                                            System.out.println("ps fields : " + TestsuiteParser.getFields().keySet().toString() + " " + ps.fields.keySet().toString());
+                                        //    System.out.println("ps fields : " + TestsuiteParser.getFields().keySet().toString() + " " + ps.fields.keySet().toString());
                                             ps.imports.addAll(TestsuiteParser.getImports());
                                             ps.classInstanceCreations.addAll(TestsuiteParser.getClassInstanceCreations());
                                             ps.methodInvocations.addAll(TestsuiteParser.getMethodInvocations());
                                             ps.typesNotResolved.addAll(TestsuiteParser.getTypesNotResolved());
                                             ps.methodsNotResolved.addAll(TestsuiteParser.getMethodsNotResolved());
+                                            ps.packageName=TestsuiteParser.packageName;
                                             testData.put(dest.packageName.replaceAll("/", ".")+"."+dest.fileName.replace(".java", ""), ps);
                                         }
                                     } else if (verRelease1 == verRelease3) {
@@ -298,22 +301,23 @@ public class JavaClassParser {
                             }
                         } else {
                             String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
-                            System.out.println(f);
+                        //    System.out.println(f);
                             String extesnion = readTestLibrariesFromFile(f, testLibraries, searchString, basedir + "/" + dest.fileBaseDir + "/");
                             readInternalPackagesAndClasses(dest);
                             readInternalClassMethods(f,dest);
                             TestsuiteParser.parse(f);
-                            System.out.println("fff : " + f);
+                        //    System.out.println("fff : " + f);
                             ParsedTests ps = new ParsedTests();
                             ps.extension = extesnion;
                             ps.types.addAll(TestsuiteParser.getTypes());
                             ps.fields.putAll(TestsuiteParser.getFields());
-                            System.out.println("ps fields : " + TestsuiteParser.getFields().keySet().toString() + " " + ps.fields.keySet().toString());
+                        //    System.out.println("ps fields : " + TestsuiteParser.getFields().keySet().toString() + " " + ps.fields.keySet().toString());
                             ps.imports.addAll(TestsuiteParser.getImports());
                             ps.classInstanceCreations.addAll(TestsuiteParser.getClassInstanceCreations());
                             ps.methodInvocations.addAll(TestsuiteParser.getMethodInvocations());
                             ps.typesNotResolved.addAll(TestsuiteParser.getTypesNotResolved());
                             ps.methodsNotResolved.addAll(TestsuiteParser.getMethodsNotResolved());
+                            ps.packageName=TestsuiteParser.packageName;
                             testData.put(dest.packageName.replaceAll("/", ".")+"."+dest.fileName.replace(".java", ""), ps);
                         }
                     }
@@ -357,22 +361,23 @@ public class JavaClassParser {
                                 for (String ver : versions) {
                                     if (lastPart.contains(ver) && !(ver.equals(lastPart) && isSnapshot)) {
                                         String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
-                                        System.out.println(f);
+                                    //    System.out.println(f);
                                         String extesnion = readTestLibrariesFromFile(f, testLibraries, searchString, basedir + "/" + dest.fileBaseDir + "/");
                                         readInternalPackagesAndClasses(dest);
                                         readInternalClassMethods(f,dest);
                                         TestsuiteParser.parse(f);
-                                        System.out.println("fff : " + f);
+                                    //    System.out.println("fff : " + f);
                                         ParsedTests ps = new ParsedTests();
                                         ps.extension = extesnion;
                                         ps.types.addAll(TestsuiteParser.getTypes());
                                         ps.fields.putAll(TestsuiteParser.getFields());
-                                        System.out.println("ps fields : " + TestsuiteParser.getFields().keySet().toString() + " " + ps.fields.keySet().toString());
+                                    //    System.out.println("ps fields : " + TestsuiteParser.getFields().keySet().toString() + " " + ps.fields.keySet().toString());
                                         ps.imports.addAll(TestsuiteParser.getImports());
                                         ps.classInstanceCreations.addAll(TestsuiteParser.getClassInstanceCreations());
                                         ps.methodInvocations.addAll(TestsuiteParser.getMethodInvocations());
                                         ps.typesNotResolved.addAll(TestsuiteParser.getTypesNotResolved());
                                         ps.methodsNotResolved.addAll(TestsuiteParser.getMethodsNotResolved());
+                                        ps.packageName=TestsuiteParser.packageName;
                                         testData.put(dest.packageName.replaceAll("/", ".")+"."+dest.fileName.replace(".java", ""), ps);
                                     }
                                 }
@@ -383,22 +388,23 @@ public class JavaClassParser {
             } else if (verRelease1 <= verRelease3) {
                 if (!(verRelease1 == verRelease3 && isSnapshot)) {
                     String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
-                    System.out.println(f);
+                //    System.out.println(f);
                     String extesnion = readTestLibrariesFromFile(f, testLibraries, searchString, basedir + "/" + dest.fileBaseDir + "/");
                     readInternalPackagesAndClasses(dest);
                     readInternalClassMethods(f,dest);
                     TestsuiteParser.parse(f);
-                    System.out.println("fff : " + f);
+                //    System.out.println("fff : " + f);
                     ParsedTests ps = new ParsedTests();
                     ps.extension = extesnion;
                     ps.types.addAll(TestsuiteParser.getTypes());
                     ps.fields.putAll(TestsuiteParser.getFields());
-                    System.out.println("ps fields : " + TestsuiteParser.getFields().keySet().toString() + " " + ps.fields.keySet().toString());
+                //    System.out.println("ps fields : " + TestsuiteParser.getFields().keySet().toString() + " " + ps.fields.keySet().toString());
                     ps.imports.addAll(TestsuiteParser.getImports());
                     ps.classInstanceCreations.addAll(TestsuiteParser.getClassInstanceCreations());
                     ps.methodInvocations.addAll(TestsuiteParser.getMethodInvocations());
                     ps.typesNotResolved.addAll(TestsuiteParser.getTypesNotResolved());
                     ps.methodsNotResolved.addAll(TestsuiteParser.getMethodsNotResolved());
+                    ps.packageName=TestsuiteParser.packageName;
                     testData.put(dest.packageName.replaceAll("/", ".")+"."+dest.fileName.replace(".java", ""), ps);
                 }
             }
@@ -409,7 +415,7 @@ public class JavaClassParser {
     public static void fileDiscovery(String sourcePath) {
         File folder = new File(sourcePath);
         File[] listOfFiles = folder.listFiles();
-        System.out.println("sourcePath " + sourcePath);
+    //    System.out.println("sourcePath " + sourcePath);
 
         if (listOfFiles == null) {
             return;
@@ -465,7 +471,7 @@ public class JavaClassParser {
                             library = lib2.substring(0, lib2.lastIndexOf("."));
                             className = lib2.substring(lib2.lastIndexOf(".")+1);
                         }
-                        lib2=lib2.substring(0,lib2.lastIndexOf(".")-1);
+                        lib2=lib2.substring(0,lib2.lastIndexOf("."));
                     }
                     if(!testLibraries.keySet().contains(library)) {
                         if (testLibraries.get(library)==null) {
@@ -493,7 +499,7 @@ public class JavaClassParser {
                 line = br.readLine();
             }
             
-            System.out.println("file : " + file.replaceAll(filePrefix, "").replaceAll("/", ".").replaceAll(".java", "") + " " + inclasses.toString());
+       //     System.out.println("file : " + file.replaceAll(filePrefix, "").replaceAll("/", ".").replaceAll(".java", "") + " " + inclasses.toString());
             internalClasses.put(file.replaceAll(filePrefix, "").replaceAll("/", ".").replaceAll(".java", ""),inclasses);
         } finally {
             br.close();
@@ -639,6 +645,7 @@ class ParsedTests {
     public HashSet<String> imports = new HashSet<>();
     public HashSet<String> typesNotResolved = new HashSet<>();
     public HashSet<String> methodsNotResolved = new HashSet<>();
+    public String packageName = null;
     public ArrayList<ClassInfo> classInstanceCreations = new ArrayList<>();
     public ArrayList<MethodInfo> methodInvocations = new ArrayList<>();
 }
