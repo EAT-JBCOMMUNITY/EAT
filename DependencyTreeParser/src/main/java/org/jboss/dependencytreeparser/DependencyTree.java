@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
+import org.apache.commons.lang3.StringUtils;
 import org.jboss.dependencytreeparser.SourceParser.MethodInfo2;
 
 /**
@@ -170,6 +172,18 @@ public class DependencyTree {
                     ps.imports.addAll(sourceClassesImports.get(path));
             //    System.out.println("usedLibraries : " + ps.imports);
 
+                
+                ArrayList<String> arr = new ArrayList<>();
+                for(String str : ps.imports) {
+                    if(StringUtils.isAllUpperCase(str.substring(str.lastIndexOf(".")+2))){
+                        arr.add(str);
+                    } 
+                }
+                
+                for(String str : arr){
+                    ps.imports.add(str.substring(0,str.lastIndexOf(".")));
+                }
+                
                 HashMap<String, HashMap<String, String[]>> methodsTest = new HashMap<>();
                 methodsTest.putAll(methodsTest2);
 
@@ -384,9 +398,11 @@ public class DependencyTree {
                 
             //    System.out.println("ssssszzzzzz " + methodsTest2.keySet().toString());
                 
-
+              //   for(String str : methods2.keySet()) {
+             //        System.out.println("Method2 : " + str);
+              //   }
                 
-            //    System.out.println("methods2 : " + methods2.keySet());
+                System.out.println("methods2 : " + methods2.keySet());
             //    System.out.println("ps.imports : " + ps.imports.toString());
                 for (MethodInfo methodInfo : ps.methodInvocations) {
 
@@ -420,6 +436,7 @@ public class DependencyTree {
                     boolean added = false;
                     
                     for(String str : ps.imports) {
+                            
                         if(str.contains(methodInfo.expression)){
                             for(String lb : acceptedLibraries){
                                 if(str.startsWith(lb)) {
@@ -431,7 +448,17 @@ public class DependencyTree {
                         }
                     }
                     if (methodInfo.expression != null && !methodInfo.expression.equals("") && !added) {
-                        //    System.out.println("methodInfo.expression : " + methodInfo.expression);
+                        if(methodInfo.expression.endsWith("]")){
+                            methodInfo.expression = methodInfo.expression.substring(0,methodInfo.expression.lastIndexOf("["));
+                        }
+                        if(methodInfo.expression.endsWith(">")){
+                            methodInfo.expression = methodInfo.expression.substring(0,methodInfo.expression.indexOf("<"));
+                        }
+                        
+                        if(methods.keySet().contains(methodInfo.expression)) {
+                            methods2.put(methodInfo.expression, methods.get(methodInfo.expression));
+                        }
+                        //  System.out.println("methodInfo.expression : " + methodInfo.expression);
                         for (String s : methods2.keySet()) {
                             
                             String s1=s;
@@ -444,12 +471,12 @@ public class DependencyTree {
                                 if(s.contains("."))
                                     s1 = s1.substring(0, s.lastIndexOf(".")+1);
                                 
-                                for (String ms : methods2.keySet()) {
+                            //    for (String ms : methods2.keySet()) {
                                 //    System.out.println("mmm1 " + s1 + " " + s + " " + ms);
-                                    String ms1 = ms.replaceAll(s1, "");
+                                    String ms1 = s.replaceAll(s1, "");
                                     if(ms1.compareTo("")!=0 && !ms1.contains(".")) {
                                     //    System.out.println("mmm " + methods.keySet().toString() + " " + ms1);
-                                        for (String meth : methods2.get(ms).keySet()) {
+                                        for (String meth : methods2.get(s).keySet()) {
 
                                             if (meth.equals(methodInfo.methodName)) {
                                             //    System.out.println("sss : " + methodInfo.methodName + " " + meth + " " + methods2.get(s).keySet().toString());
@@ -467,9 +494,10 @@ public class DependencyTree {
                                             rMethods.put(methodInfo.methodName,expMethodMap.get(methodInfo.methodName));
                                         
                                     }
-                                }
+                            //    }
                             }
                         }
+                        //  
 
                     }
 

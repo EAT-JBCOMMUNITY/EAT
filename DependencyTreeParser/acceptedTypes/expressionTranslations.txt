@@ -19,3 +19,12 @@ withTrustManagers;Builder
 withCredential;Builder
 withRealms;Builder
 getMessage;JsonMappingException
+contains;JsonMappingException
+withAuthenticationOptional;Builder
+withAuthnRealm;Builder
+withOid;Builder
+withConstant;Builder
+withAlias;Builder
+permissionMapper;Builder
+withPrincipalDecoder;Builder
+exportTo;ZipExporterImpl
