@@ -9,3 +9,5 @@ parseInt
 printStackTrace
 parseDouble
 toString
+iterator
+keySet

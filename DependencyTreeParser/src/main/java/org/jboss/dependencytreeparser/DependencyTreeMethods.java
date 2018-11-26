@@ -597,6 +597,12 @@ public class DependencyTreeMethods {
                                     }
                                 }
                             }       
+                            
+                            System.out.println("Super " + name);
+                            for (Class<?> c = clas; c != null; c = c.getSuperclass()) {
+                                System.out.println("Super2 " + c.getName());
+                            }
+                                 
                             classMethods.put(name,allMethods);
                         }catch(Exception ex){
                         //    ex.printStackTrace();
