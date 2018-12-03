@@ -434,6 +434,28 @@ public class JavaClassParser {
         }
     }
     
+    public static void classFileDiscovery(String sourcePath) {
+        File folder = new File(sourcePath);
+        File[] listOfFiles = folder.listFiles();
+    //    System.out.println("sourcePath " + sourcePath);
+
+        if (listOfFiles == null) {
+            return;
+        }
+        
+        try {
+            for (File file : listOfFiles) {
+                if (file.isDirectory()) {
+                    classFileDiscovery(file.getAbsolutePath());
+                } else if(file.getAbsolutePath().endsWith(".class")) {
+                    filesTest.add(file.getAbsolutePath());
+                }   
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
     private static String readTestLibrariesFromFile(String file,  HashMap<String,ArrayList<String>> testLibraries, String searchString, String filePrefix) throws FileNotFoundException, IOException {
         BufferedReader br = new BufferedReader(new FileReader(file));
         String extension = null;

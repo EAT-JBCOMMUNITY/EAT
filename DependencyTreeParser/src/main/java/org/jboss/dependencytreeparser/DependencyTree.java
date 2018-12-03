@@ -73,14 +73,14 @@ public class DependencyTree {
             
             HashMap<String,HashMap<String,String[]>> methods = DependencyTreeMethods.listMethods();
 
-        /*    for(String s : methods.keySet()) {
-                System.out.println("class : " + s);
+            for(String s : methods.keySet()) {
+                System.out.println("classs : " + s);
                 for (String m : methods.get(s).keySet()) {
                     System.out.println("Method : " + m + " with parameters : ");
                     for (int j=0; j<methods.get(s).get(m).length; j++)
                         System.out.println(methods.get(s).get(m)[j]);
                 }
-            }*/
+            }
              
             System.out.println("\n\n\nJar Fields : ");
 
@@ -175,7 +175,7 @@ public class DependencyTree {
                 
                 ArrayList<String> arr = new ArrayList<>();
                 for(String str : ps.imports) {
-                    if(StringUtils.isAllUpperCase(str.substring(str.lastIndexOf(".")+2))){
+                    if(StringUtils.isAllUpperCase(str.substring(str.lastIndexOf(".")+1))){
                         arr.add(str);
                     } 
                 }
@@ -432,6 +432,14 @@ public class DependencyTree {
                             }
                         }
                     }
+                    
+                    if(methodInfo.expression!=null && methodInfo.expression.contains(".")){
+                        String outcome = resolveMethods(methodInfo.expression.substring(0, methodInfo.expression.indexOf(".")), methodInfo.expression.substring(methodInfo.expression.indexOf(".")+1), methods);
+                        if(outcome!=null) {
+                            methodInfo.expression = outcome;
+                            System.out.println("OOO : " + outcome);
+                        }
+                    }
 
                     boolean added = false;
                     
@@ -659,6 +667,38 @@ public class DependencyTree {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    private static String resolveMethods(String className, String methodName, HashMap<String,HashMap<String,String[]>> methods){
+        String returnName = null;
+        
+        String methName = methodName;
+        if(methodName.contains("."))
+            methName = methodName.substring(methodName.indexOf(".")+1);
+        if(methName!=null && methName.contains("("))
+            methName=methName.substring(0,methName.indexOf("("));
+        
+        if(methName!=null && className!=null) {
+            for(String pth : methods.keySet()) {
+                if(pth.contains(className)) {
+              //      System.out.println("rrr " + className + " " + methName + " " + methodName);
+                    for(String mmm : methods.get(pth).keySet()) {
+                        if(mmm.contains(methName)){
+                            String className2 = null;
+                            
+                            if(methods.get(pth).get(methName+"_Return_Type")!=null)
+                                className2 = methods.get(pth).get(methName+"_Return_Type")[0];
+                            
+                //            System.out.println("resolutions : " + className2 + " " + methName);
+                            returnName = resolveMethods(className2, methName, methods);
+                        }
+                    }
+                }
+            }
+        }else
+            returnName = className;
+        
+        return null;
     }
 
 }
