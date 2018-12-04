@@ -6,8 +6,10 @@
 
 Execution of the AT Runtimes :
 
+ACTIVEMQ BROKER :
+
 1. (Build the specific runtime project in order to produce the artifacts)
-2. export BRANCH_VERSION="version of the runtime project to be tested"
+2. export ACTIVEMQ_BRANCH_VERSION="version of the ActiveMQ branch to be tested"
 3. mvn clean install
 
 
