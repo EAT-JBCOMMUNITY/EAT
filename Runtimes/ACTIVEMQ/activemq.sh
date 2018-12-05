@@ -1,6 +1,17 @@
 #!/bin/bash
 rm -R ActivemqAT
+rm -R ActiveMQ1
+rm -R ActiveMQ2
+
 git clone https://github.com/panossot/ActivemqAT.git
+
+## Here we add the remote testsuites##
+git clone https://github.com/panossot/remoteReposAT.git ActiveMQ1  --branch ActiveMQ1
+cp -R ./ActiveMQ1/org ./ActivemqAT/modules/src/test/java/present
+git clone https://github.com/panossot/remoteReposAT.git ActiveMQ2  --branch ActiveMQ2
+cp -R ./ActiveMQ2/org ./ActivemqAT/modules/src/test/java/present
+######################################
+
 cd ActivemqAT
 mvn clean install -Dmaster > ../output.txt
 
