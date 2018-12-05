@@ -1,6 +1,17 @@
 #!/bin/bash
 rm -R SpringBootAT
+rm -R SpringBoot1
+rm -R SpringBoot2
+
 git clone https://github.com/panossot/SpringBootAT.git
+
+## Here we add the remote testsuites##
+git clone https://github.com/panossot/remoteReposAT.git SpringBoot1  --branch SpringBoot1
+cp -R ./SpringBoot1/org ./SpringBootAT/modules/src/test/java/present
+git clone https://github.com/panossot/remoteReposAT.git SpringBoot2  --branch SpringBoot2
+cp -R ./SpringBoot2/org ./SpringBootAT/modules/src/test/java/present
+######################################
+
 cd SpringBootAT
 mvn clean install -Dmaster > ../output.txt
 
