@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -R sping-boot
+rm -R SpringBootAT
 git clone https://github.com/panossot/SpringBootAT.git
 cd SpringBootAT
 mvn clean install -Dmaster > ../output.txt
