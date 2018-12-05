@@ -8,7 +8,8 @@ Execution of the SPRINGBOOT AT :
 
 1. (Build the specific project in order to produce the artifacts)
 2. export SPRINGBOOT_BRANCH_VERSION="version of the Spring Boot branch to be tested"
-3. mvn clean install
+3. Add your remote testsuite with the Spring Boot tests in the file springboot.sh
+4. mvn clean install
 
 
 
