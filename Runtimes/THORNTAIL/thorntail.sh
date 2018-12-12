@@ -1,9 +1,15 @@
 #!/bin/bash
 rm -R ThorntailAT
+rm -R Thorntail1
+rm -R Thorntail2
 
 git clone https://github.com/panossot/ThorntailAT.git
 
 ## Here we add the remote testsuites##
+git clone https://github.com/panossot/remoteReposAT.git Thorntail1  --branch Thorntail1
+cp -R ./Thorntail1/org ./ThorntailAT/modules/src/test/java/present
+git clone https://github.com/panossot/remoteReposAT.git Thorntail2  --branch Thorntail2
+cp -R ./Thorntail2/org ./ThorntailAT/modules/src/test/java/present
 ######################################
 
 cd ThorntailAT
