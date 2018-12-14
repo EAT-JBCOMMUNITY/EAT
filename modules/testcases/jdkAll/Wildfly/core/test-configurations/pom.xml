@@ -53,6 +53,13 @@
                     <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
                     <failIfNoTests>false</failIfNoTests>
 
+                    <systemPropertyVariables>
+		        <jboss.dist>${jboss.modules.dir}/servers/wildfly/build/target/jbossas</jboss.dist>
+		        <jboss.home>${jboss.modules.dir}/servers/wildfly/build/target/jbossas</jboss.home>
+		        <module.path>${jboss.modules.dir}/servers/wildfly/build/target/jbossas/modules</module.path>
+		        <jboss.server.config.file.name>standalone-full.xml</jboss.server.config.file.name>
+		    </systemPropertyVariables>
+
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
                         <additionalClasspathElement>${jboss.modules.dir}/src/config/arqWildfly</additionalClasspathElement>
