@@ -73,14 +73,14 @@ public class DependencyTree {
             
             HashMap<String,HashMap<String,String[]>> methods = DependencyTreeMethods.listMethods();
 
-            for(String s : methods.keySet()) {
+        /*    for(String s : methods.keySet()) {
                 System.out.println("classs : " + s);
                 for (String m : methods.get(s).keySet()) {
                     System.out.println("Method : " + m + " with parameters : ");
                     for (int j=0; j<methods.get(s).get(m).length; j++)
                         System.out.println(methods.get(s).get(m)[j]);
                 }
-            }
+            }*/
              
             System.out.println("\n\n\nJar Fields : ");
 
@@ -570,7 +570,7 @@ public class DependencyTree {
                         }
                         m++;
                     }
-                    if (!acceptedMethods.contains(methodInfo.methodName) || methodInfo.isResolvedParam.contains("false")) {
+                    if (!acceptedMethods.contains(methodInfo.methodName) /*|| methodInfo.isResolvedParam.contains("false")*/) {
                         System.out.println("----" + methodInfo.methodName + " " + methodInfo.expression + " " + methodInfo.params.toString() + " " + methodInfo.isResolvedParam.toString());
                     }
                 }
