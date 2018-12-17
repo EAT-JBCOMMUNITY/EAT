@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
@@ -34,6 +35,7 @@ public class DependencyTreeMethods {
     public static HashMap<String, String> jarClassPaths = new HashMap<>();
     public static HashSet<Artifact> artifacts = new HashSet<>();
     public static HashSet<String> testsuiteArtifactsPaths = new HashSet<>();
+    public static HashSet<String> unloadedClasses = new HashSet<>();
 
     public static void printDependencies() throws IOException {
         String filePath = System.getProperty("DependencyTreeFilePath");
@@ -310,9 +312,74 @@ public class DependencyTreeMethods {
         try {
             String repoPath = System.getProperty("MavenRepoPath");
 
+            unloadedClasses.add("LaxMaxAgeHandler");
+            unloadedClasses.add("ThreadSafeClientConnManager$1");
+            unloadedClasses.add("ThreadSafeClientConnManager");
+            unloadedClasses.add("DefaultRedirectStrategy");
+            unloadedClasses.add("NTLMEngineImpl$Type1Message");
+            unloadedClasses.add("ClientExecChain");
+            unloadedClasses.add("SSLSocketFactory");
+            unloadedClasses.add("CookieSpecParamBean");
+            unloadedClasses.add("ConnectionPoolTimeoutException");
+            unloadedClasses.add("AuthParams");
+            unloadedClasses.add("LayeredSocketFactory");
+            unloadedClasses.add("ClientConnectionOperator");
+            unloadedClasses.add("SchemePortResolver");
+            unloadedClasses.add("DefaultSchemePortResolver");
+            unloadedClasses.add("ConnManagerParams");
+            unloadedClasses.add("PoolingHttpClientConnectionManager$1");
+            unloadedClasses.add("ConnManagerParamBean");
+            unloadedClasses.add("ConnectionHolder");
+            unloadedClasses.add("CookieSpecBase");
+            unloadedClasses.add("BasicAuthCache");
+            unloadedClasses.add("HttpConnPool");
+            unloadedClasses.add("BestMatchSpec");
+            unloadedClasses.add("RedirectException");
+            unloadedClasses.add("AutoRetryHttpClient");
+            unloadedClasses.add("TLMEngineImpl$Type2Message");
+            unloadedClasses.add("NTLMEngineImpl$Type2Message");
+            unloadedClasses.add("KerberosScheme");
+            unloadedClasses.add("HttpClientUtils");
+            unloadedClasses.add("AbstractHttpClient");
+            unloadedClasses.add("OperatedClientConnection");
+            unloadedClasses.add("PoolingHttpClientConnectionManager$ConfigData");
+            unloadedClasses.add("NTLMEngineException");
+            unloadedClasses.add("DefaultClientConnectionReuseStrategy");
+            unloadedClasses.add("RequestAuthenticationBase");
+            unloadedClasses.add("IgnoreSpec");
+            unloadedClasses.add("InternalHttpClient$1");
+            unloadedClasses.add("DefaultUserTokenHandler");
+            unloadedClasses.add("SocketFactoryAdaptor");
+            unloadedClasses.add("RFC6265LaxSpec");
+            unloadedClasses.add("CPool");
+            unloadedClasses.add("RFC6265CookieSpec");
+            unloadedClasses.add("RFC2109SpecProvider");
+            unloadedClasses.add("GzipCompressingEntity");
+            unloadedClasses.add("PublicSuffixDomainFilter");
+            unloadedClasses.add("SchemeLayeredSocketFactory");
+            unloadedClasses.add("NetscapeDraftSpec");
+            unloadedClasses.add("ConnRouteParams");
+            unloadedClasses.add("HttpClientBuilder");
+            unloadedClasses.add("AbstractPoolEntry");
+            unloadedClasses.add("DefaultCookieSpec");
+            unloadedClasses.add("CPoolEntry");
+            unloadedClasses.add("CPoolProxy");
+            unloadedClasses.add("HttpUriRequest");
+            unloadedClasses.add("CookieAttributeHandler");
+            unloadedClasses.add("ClientConnectionManager");
+            unloadedClasses.add("AbstractExecutionAwareRequest$1");
+            unloadedClasses.add("PoolingClientConnectionManager$1");
+            unloadedClasses.add("KerberosSchemeFactory");
+            unloadedClasses.add("SPNegoScheme");
+            unloadedClasses.add("BasicMaxAgeHandler");
+            unloadedClasses.add("BrowserCompatVersionAttributeHandler");
+            unloadedClasses.add("CookieSpecProvider");
+            unloadedClasses.add("SingleClientConnManager$1");
+            unloadedClasses.add("InvalidCredentialsException");
+            
             for (Artifact ar : artifacts) {
                 if (ar.type.contains("jar")) {
-                        System.out.println("ccc " + repoPath + "/" + ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
+                    //    System.out.println("ccc " + repoPath + "/" + ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
                     classMethods.putAll(DependencyTreeMethods.listClassMethods2(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//") + "/" + ar.groupId + "/" + ar.version + "/" + ar.groupId + "-" + ar.version + ".jar"));
                 }
             }
@@ -355,10 +422,10 @@ public class DependencyTreeMethods {
 
                 //    System.out.println(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
                 if (lb.equals(usedLibrary)) {
-                    System.out.println("bbb " + lb + " " + usedLibrary);
+                   // System.out.println("bbb " + lb + " " + usedLibrary);
                     usedMethods.putAll(DependencyTreeMethods.listUsedClassMethods(packages.get(lb), lb));
                 }
-                System.out.println("ccc " + lb + " " + usedLibrary);
+            //    System.out.println("ccc " + lb + " " + usedLibrary);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -429,7 +496,7 @@ public class DependencyTreeMethods {
 
         HashMap<String, String> jarPackages = DependencyTreeMethods.listPackages();
 
-        System.out.println("jarPackages.size() : " + jarPackages.size());
+      //  System.out.println("jarPackages.size() : " + jarPackages.size());
 
         for (String jc : jarPackages.keySet()) {
             if (jc.lastIndexOf(".") != -1) {
@@ -589,8 +656,8 @@ public class DependencyTreeMethods {
                         name2 = name2.replaceAll("/", ".");
                         name2 = name2.replaceAll("-", ".");
 
-                        if(name2.contains("hibernate"))
-                                System.out.println("namee " + name);
+                     //   if(name2.contains("hibernate"))
+                         //       System.out.println("namee " + name);
                         
                         try {
                             Class clas = cl.loadClass(name);
@@ -601,8 +668,8 @@ public class DependencyTreeMethods {
                             for (Class<?> c = clas; c != null; c = c.getSuperclass()) {
                                 for (Method method : c.getMethods()) {
 
-                                    if(name.contains("hibernate"))
-                                        System.out.println("methodd " + method.getName());
+                               //     if(name.contains("hibernate"))
+                                //        System.out.println("methodd " + method.getName());
                                     if (!Modifier.toString(method.getModifiers()).contains("private")) {
                                         String[] params = new String[method.getParameterTypes().length];
                                         int j = 0;
@@ -622,8 +689,8 @@ public class DependencyTreeMethods {
 
                             classMethods.put(name, allMethods);
                         } catch (Exception ex) {
-                            if(name.contains("hibernate"))
-                                ex.printStackTrace();
+                       //     if(name.contains("hibernate"))
+                        //        ex.printStackTrace();
                         }
                     }
 
@@ -669,50 +736,144 @@ public class DependencyTreeMethods {
                     System.out.println(dir + " already exists ...");
                 }
                 
+                if(path.contains("httpcomponents"))
+                    System.out.println("pathName : " + path);
+                
                 HashSet<String> paths = DependencyTreeMethods.getDataClasses(dir);
-                System.out.println("paths : " + paths.toString());
-                for(String pth : paths) {
-                    String name = pth;
+             //   if(path.contains("httpcomponents"))
+             //       System.out.println("paths : " + paths.toString());
+                Iterator<String> setIterator = paths.iterator();
+                while(setIterator.hasNext()){
+             //       if(path.contains("httpcomponents")) 
+             //           System.out.println("Start");
+                    String name = setIterator.next();
+              //       if(path.contains("httpcomponents"))
+              //                  System.out.println("name2e " + name);
                     if (name.contains(".class")) {
                         String name2 = name;
                         name2 = name2.substring(0, name.lastIndexOf(".class"));
+                        String className = name2.substring(name2.lastIndexOf("/")+1);
                         name2 = name2.replaceAll("/", ".");
                         name2 = name2.replaceAll("-", ".");
 
-                        if(name.contains("hibernate"))
-                                System.out.println("namee " + name);
+                        if(unloadedClasses.contains(className))
+                            continue;
+                        
+                    //    if(path.contains("httpcomponents"))
+                    //            System.out.println("namee " + name + " " + className);
                         
                         try {
                             URL url = new File(dir).toURI().toURL();
 		            URL[] urls = new URL[]{url};
+                            
                             ClassLoader cl = new URLClassLoader(urls); 
                             String name3 = name.replaceAll(dir+"/", "");
+                     //       if(dir.contains("httpcomponents")){
+                     //           System.out.println("dir " + dir + " " + name3);
+                      //      }
                             name3 = name3.replaceAll(".class", "");
                             name3 = name3.replaceAll("/", ".");
                             name3 = name3.replaceAll("-", ".");
-                             if(name.contains("hibernate"))
-                                System.out.println("nameee " + name3);
+                      //      if(path.contains("httpcomponents"))
+                       //         System.out.println("nameee " + name3);
+                        //    Class clas = Class.forName(nameCopy);
                             Class clas = cl.loadClass(name3);
 
-                            
                             HashMap<String, String[]> allMethods = new HashMap<>();
 
-                            for (Class<?> c = clas; c != null; c = c.getSuperclass()) {
-                                for (Method method : c.getMethods()) {
+                            for (Class c = clas; c != null; c = c.getSuperclass()) {
+  
+                                Method[] mmm = null;
+                            //    if(path.contains("httpcomponents")){
+                                    try{
+                           //             if(path.contains("httpcomponents"))
+                           //             System.out.println("SSS1 " + c.getName());
+                                        mmm = c.getMethods();
+                                    //    System.out.println("SSS1 " + mmm);
+                                    }catch(SecurityException x){
+                                        
+                                    }
+                                    
+                                    if(path.contains("httpcomponents"))
+                                        System.out.println("SSS1 " + c.getName());
+                             //   }
+                                
+                                if(mmm!=null) {
+                                    for (Method method : mmm) {
 
-                                    if(name.contains("hibernate"))
-                                        System.out.println("methodd " + method.getName());
-                                    if (!Modifier.toString(method.getModifiers()).contains("private")) {
-                                        String[] params = new String[method.getParameterTypes().length];
-                                        int j = 0;
-                                        for (Class cc : method.getParameterTypes()) {
-                                            params[j] = cc.toString();
-                                            j++;
+                                        if(c.getName().contains("CloseableHttpClient"))
+                                            System.out.println("methodd " + method.getName());
+                                        if (!Modifier.toString(method.getModifiers()).contains("private")) {
+                                            String[] params = new String[method.getParameterTypes().length];
+                                            int j = 0;
+                                            for (Class cc : method.getParameterTypes()) {
+                                                params[j] = cc.toString();
+                                                j++;
+                                            }
+                                            allMethods.put(method.getName(), params);
+                                            allMethods.put(method.getName() + "_Return_Type", new String[]{method.getReturnType().toString()});
                                         }
-                                        allMethods.put(method.getName(), params);
-                                        allMethods.put(method.getName() + "_Return_Type", new String[]{method.getReturnType().toString()});
                                     }
                                 }
+                            //     if(path.contains("httpcomponents"))
+                             //   System.out.println("SSS2 " + c.getName());
+                                 
+                                        
+                             //           if(path.contains("httpcomponents"))
+                             //                System.out.println("SSS3 " + c.getName());
+                                        
+                                        Class[] ccc = null;
+                            //    if(path.contains("httpcomponents")){
+                                    try{
+                                        
+                                        ccc = c.getInterfaces();
+                                    //    System.out.println("SSS1 " + mmm);
+                                    }catch(Exception x){
+                                        
+                                    }
+                   
+                                        if (ccc!=null) {
+                                            for (Class cc : ccc) {
+                                  //              if(path.contains("httpcomponents"))
+                                  //               System.out.println("SSS4 " + c.getName());
+   
+                                 //               if(path.contains("httpcomponents"))
+                                  //                  System.out.println("SSS11 " + cc.getName());
+
+                                                Method[] mm = null;
+                                        //    if(path.contains("httpcomponents")){
+                                                try{
+
+                                                    mm = cc.getMethods();
+                                                //    System.out.println("SSS1 " + mmm);
+                                                }catch(Exception x){
+
+                                                }
+                                    
+                                                if(mm!=null) {
+                                                    for (Method method2 : mm) {
+
+                                                        if(cc.getName().contains("CloseableHttpClient"))
+                                                              System.out.println("methodb " + method2.getName());
+
+                                                        if (!Modifier.toString(method2.getModifiers()).contains("private")) {
+                                                            String[] params2 = new String[method2.getParameterTypes().length];
+                                                            int j2 = 0;
+                                                            for (Class cc2 : method2.getParameterTypes()) {
+                                                                params2[j2] = cc2.toString();
+                                                                j2++;
+                                                            }
+                                                            allMethods.put(method2.getName(), params2);
+                                                            allMethods.put(method2.getName() + "_Return_Type", new String[]{method2.getReturnType().toString()});
+
+                                                        }
+
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    
+                                
                             }
 
                          //   for (Class c : clas.getInterfaces()) {
@@ -721,14 +882,16 @@ public class DependencyTreeMethods {
 
                             classMethods.put(name2, allMethods);
                         } catch (Exception ex) {
-                            if(name.contains("hibernate"))
-                                ex.printStackTrace();
+                            
                         }
                     }
+                    
+              //      if(path.contains("httpcomponents")) 
+              //          System.out.println("End");
                 }
             }
         } catch (Exception e) {
-            //    e.printStackTrace();
+                e.printStackTrace();
             System.out.println(path + " is not available.");
         //    e.printStackTrace();
         } finally {
@@ -747,7 +910,7 @@ public class DependencyTreeMethods {
     }
 
     private static void parseInterfaces(Class c, String name, HashMap<String, HashMap<String, String[]>> classMethods) throws MalformedURLException, IOException {
-        System.out.println("in " + c.getName() + " " + name);
+    //    System.out.println("in " + c.getName() + " " + name);
         String path2 = jarClassPaths.get(c.getName());
         if (path2 != null) {
             JarFile jarFile2 = new JarFile(path2);

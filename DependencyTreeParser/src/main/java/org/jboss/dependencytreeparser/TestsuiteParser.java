@@ -367,8 +367,8 @@ public class TestsuiteParser {
                     public boolean visit(VariableDeclarationStatement node) {
                         String name = node.fragments().get(0).toString().split("=")[0].trim();
                         String type = node.getType().toString();
-                        System.out.println("Declaration of variable '" + name + " " + type + "' at line"
-                                + cu.getLineNumber(node.getStartPosition())); 
+                   //     System.out.println("Declaration of variable '" + name + " " + type + "' at line"
+                   //             + cu.getLineNumber(node.getStartPosition())); 
                         
                         bDeclarations.put(name,type);
                         
@@ -416,8 +416,8 @@ public class TestsuiteParser {
 
                     public boolean visit(SimpleType node) {
                         
-                            System.out.println("Usage of method/variable/field/parameter type : " + node.getName() + " at line "
-                                    + cu.getLineNumber(node.getStartPosition()) );
+                        //    System.out.println("Usage of method/variable/field/parameter type : " + node.getName() + " at line "
+                        //            + cu.getLineNumber(node.getStartPosition()) );
                             
                             String type = node.getName().toString();
                             String name = node.getName().toString();
@@ -653,8 +653,8 @@ public class TestsuiteParser {
                             }
                         }
                         
-                         System.out.println("MethodInvocation: " + node.getName() + " at line "
-                                + cu.getLineNumber(node.getStartPosition()) + " with arguments " + node.arguments() + " exp " + node.getExpression());
+                    //     System.out.println("MethodInvocation: " + node.getName() + " at line "
+                    //            + cu.getLineNumber(node.getStartPosition()) + " with arguments " + node.arguments() + " exp " + node.getExpression());
                         
                         List params = node.arguments();
                         for(Object s : params) {
