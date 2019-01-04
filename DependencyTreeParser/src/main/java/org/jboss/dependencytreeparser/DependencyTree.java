@@ -1,6 +1,7 @@
 package org.jboss.dependencytreeparser;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -121,6 +122,13 @@ public class DependencyTree {
             
             for (String str : acceptedExpressionTranslations){
                 expMethodMap.put(str.substring(0,str.indexOf(";")), str.substring(str.indexOf(";")+1));
+            }
+            
+            ArrayList<String> acceptedMethodsSet = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "methodInclusion.txt");
+            HashMap<String,String> acceptedMethodMap = new HashMap<>();
+            
+            for (String str : acceptedMethodsSet){
+                acceptedMethodMap.put(str.substring(0,str.indexOf(";")), str.substring(str.indexOf(";")+1));
             }
             
             HashMap<String, String> importFields = new HashMap<>();
@@ -392,6 +400,25 @@ public class DependencyTree {
             //    System.out.println("ssssszzzzzz " + methodsTest.keySet().toString());
                 
                 methods2.putAll(DependencyTreeMethods.listUsedMethods(ps.imports, packages));
+            
+                for(String s : ps.imports) {
+                    if(methods.get(s)!=null) {
+                        for(String m : methods.get(s).keySet()){
+                            if(methods2.get(s)!=null) {
+                                if(!methods2.get(s).keySet().contains(m))
+                                    methods2.get(s).put(m, methods.get(s).get(m));
+                            }else{
+                                methods2.put(s, methods.get(s));
+                            }
+                        }
+                        System.out.println("Ext : " + s + methods.get(s).keySet().contains(s+"_Extensions"));
+                        if(methods.get(s).keySet().contains(s+"_Extensions")) {
+                            addExtensions(methods,methods2,s,s,acceptedMethods,acceptedMethodMap,rMethods);   
+                        }
+                    }
+                }
+               
+                
                 
                 acceptedMethods.addAll(expMethodMap.keySet());
                
@@ -406,11 +433,15 @@ public class DependencyTree {
             //    System.out.println("ps.imports : " + ps.imports.toString());
                 for (MethodInfo methodInfo : ps.methodInvocations) {
 
+                  //  System.out.println("methodInfo.expression : " + methodInfo.expression + " " + availableExtensionFields.toString());
+                    
                     if (methodInfo.expression != null && availableExtensionFields.keySet().contains(methodInfo.expression)) {
                         methodInfo.expression = availableExtensionFields.get(methodInfo.expression);
                     } else if (methodInfo.expression != null && availableImportFields.keySet().contains(methodInfo.expression)) {
                         acceptedMethods.add(methodInfo.methodName);
                     }
+                    
+                 //   System.out.println("methodInfo.expression after : " + methodInfo.expression);
 
                     if (methodInfo.expression != null) {
                         for (String s : rMethods.keySet()) {
@@ -424,10 +455,16 @@ public class DependencyTree {
                             if (lastPart.endsWith(s)) {
                                 if (rMethods.get(s).contains("$")) {
                                 //    System.out.println("Before : " + methodInfo.expression + " After : " + rMethods.get(s).substring(0, rMethods.get(s).indexOf("$")) + " for method : " + methodInfo.methodName);
-                                    methodInfo.expression = rMethods.get(s).substring(0, rMethods.get(s).indexOf("$"));
+                                    if(rMethods.get(s).substring(0, rMethods.get(s).indexOf("$")).trim().compareTo("")!=0) {
+                                        methodInfo.expression = rMethods.get(s).substring(0, rMethods.get(s).indexOf("$"));
+                                   //     System.out.println("methodInfo.expression1 : " + methodInfo.expression);
+                                    }
                                 } else {
                                 //    System.out.println("Before : " + methodInfo.expression + " After : " + rMethods.get(s) + " for method : " + methodInfo.methodName);
-                                    methodInfo.expression = rMethods.get(s);
+                                    if(rMethods.get(s).trim().compareTo("")!=0) {
+                                        methodInfo.expression = rMethods.get(s);
+                                  //      System.out.println("methodInfo.expression2 : " + methodInfo.expression);
+                                    }
                                 }
                             }
                         }
@@ -435,9 +472,9 @@ public class DependencyTree {
                     
                     if(methodInfo.expression!=null && methodInfo.expression.contains(".")){
                         String outcome = resolveMethods(methodInfo.expression.substring(0, methodInfo.expression.indexOf(".")), methodInfo.expression.substring(methodInfo.expression.indexOf(".")+1), methods);
-                        if(outcome!=null) {
+                        if(outcome!=null && outcome!="") {
                             methodInfo.expression = outcome;
-                            System.out.println("OOO : " + outcome);
+                       //     System.out.println("OOO : " + outcome  +"o");
                         }
                     }
 
@@ -458,15 +495,17 @@ public class DependencyTree {
                     if (methodInfo.expression != null && !methodInfo.expression.equals("") && !added) {
                         if(methodInfo.expression.endsWith("]")){
                             methodInfo.expression = methodInfo.expression.substring(0,methodInfo.expression.lastIndexOf("["));
+                        //    System.out.println("methodInfo.expression3 : " + methodInfo.expression);
                         }
                         if(methodInfo.expression.endsWith(">")){
                             methodInfo.expression = methodInfo.expression.substring(0,methodInfo.expression.indexOf("<"));
+                      //      System.out.println("methodInfo.expression4 : " + methodInfo.expression);
                         }
                         
                         if(methods.keySet().contains(methodInfo.expression)) {
                             methods2.put(methodInfo.expression, methods.get(methodInfo.expression));
                         }
-                        //  System.out.println("methodInfo.expression : " + methodInfo.expression);
+                      //    System.out.println("methodInfo.expression : " + methodInfo.expression);
                         for (String s : methods2.keySet()) {
                             
                             String s1=s;
@@ -480,14 +519,14 @@ public class DependencyTree {
                                     s1 = s1.substring(0, s.lastIndexOf(".")+1);
                                 
                             //    for (String ms : methods2.keySet()) {
-                                //    System.out.println("mmm1 " + s1 + " " + s + " " + ms);
+                                 //   System.out.println("mmm1 " + s1 + " " + s + " " + methodInfo.methodName);
                                     String ms1 = s.replaceAll(s1, "");
                                     if(ms1.compareTo("")!=0 && !ms1.contains(".")) {
-                                    //    System.out.println("mmm " + methods.keySet().toString() + " " + ms1);
+                                     //   System.out.println("mmm " + methods.keySet().toString() + " " + ms1);
                                         for (String meth : methods2.get(s).keySet()) {
 
                                             if (meth.equals(methodInfo.methodName)) {
-                                            //    System.out.println("sss : " + methodInfo.methodName + " " + meth + " " + methods2.get(s).keySet().toString());
+                                         //       System.out.println("sss : " + methodInfo.methodName + " " + meth + " " + methods2.get(s).keySet().toString());
                                                 acceptedMethods.add(methodInfo.methodName);
                                                 if (methods2.get(s) != null && methods2.get(s).get(meth + "_Return_Type") != null && methods2.get(s).get(meth + "_Return_Type")[0].toString().contains("class ")) {
                                                     rMethods.put(methodInfo.methodName, methods2.get(s).get(meth + "_Return_Type")[0].toString().replaceAll("class ", ""));
@@ -507,6 +546,125 @@ public class DependencyTree {
                         }
                         //  
 
+                        if(methodInfo.expression.startsWith("."))
+                            methodInfo.expression = methodInfo.expression.replaceFirst(".", "");
+                        if(!rMethods.keySet().contains(methodInfo.expression)){
+                            System.out.println("ttt : " + methodInfo.expression + " " + Arrays.asList(methodInfo.expression.split("\\.")).toString());
+                            ArrayList<String>  longExpression = new ArrayList<>();
+                            longExpression.addAll(Arrays.asList(methodInfo.expression.split("\\.")));
+                            int j=0;
+                            int siz = longExpression.size();
+                            for(int i=0; i<siz; i++) {
+                                Character c = longExpression.get(j++).charAt(0);
+                                if(Character.isUpperCase(c))
+                                    break;
+                                else {
+                                    longExpression.remove(0);
+                                    j--;
+                                }
+                            }
+                            if(longExpression.size()>1) {
+                            //    System.out.println("ooo : " );
+                                while(longExpression.size()>1) {
+                                    boolean breakValue = false;
+                                    for (String s : methods2.keySet()) {
+                                        String s1=s;
+                                        if (s.contains("$")) {
+                                            s1 = s.substring(0, s.indexOf("$"));
+                                        }
+                                    //    if(longExpression.size()>1)
+                                    //        System.out.println("xxz" + longExpression.get(0) + " " + longExpression.get(1));
+                                        while(longExpression.get(0).contains(")") && !longExpression.get(0).contains("("))
+                                                longExpression.remove(0);
+                                        while(longExpression.size()>1 && longExpression.get(1).contains(")") && !longExpression.get(1).contains("("))
+                                                longExpression.remove(1);
+
+                                        if(s1.contains("ShrinkWrap"))
+                                            System.out.println("eee " + longExpression.get(0) + " " + s1.endsWith(longExpression.get(0)));
+                                        
+                                        if (s1.endsWith(longExpression.get(0)) && longExpression.size()>1) {
+                                            if(longExpression.get(1).contains("(")){
+                                                if(!longExpression.get(1).startsWith("as(") && !longExpression.get(1).startsWith("create(")) {
+                                                    String exp = longExpression.remove(1);
+                                                    longExpression.add(1,exp.substring(0,exp.indexOf("(")));
+                                                }else{
+                                                    String exp = longExpression.remove(1);
+                                                    longExpression.add(1,exp.substring(exp.indexOf("(")+1));
+                                                    longExpression.remove(0);
+                                                }
+                                            }
+                                            if(longExpression.get(0).contains("<")){
+                                                String exp = longExpression.remove(0);
+                                                longExpression.add(0,exp.substring(0,exp.indexOf("<")));
+                                            }
+                                            if(longExpression.get(1).contains("<")){
+                                                String exp = longExpression.remove(1);
+                                                longExpression.add(1,exp.substring(0,exp.indexOf("<")));
+                                            }
+                                        //    System.out.println("iii" + longExpression.get(0) + " " + longExpression.get(1) + " " + methods2.get(s).containsKey(longExpression.get(1) + "_Return_Type") + " " + s);
+                                            String rt = longExpression.get(1) + "_Return_Type";
+                                            if(methods2.get(s).get(rt)!=null){
+                                                longExpression.remove(0);
+                                                String exp = longExpression.remove(0);
+                                                System.out.println("exp " + exp + " " + s + " " + methods2.get(s)!=null);
+                                                if(methods2.get(s).get(exp + "_Return_Type")[0]!=null) {
+                                                    if (methods2.get(s) != null && methods2.get(s).get(exp + "_Return_Type") != null && methods2.get(s).get(exp + "_Return_Type")[0].toString().contains("class ")) {
+                                                        longExpression.add(0, methods2.get(s).get(exp + "_Return_Type")[0].toString().replaceAll("class ", ""));
+                                                    } else if (methods2.get(s) != null && methods2.get(s).get(exp + "_Return_Type") != null && methods2.get(s).get(exp + "_Return_Type")[0].toString().contains("interface ")) {
+                                                        longExpression.add(0, methods2.get(s).get(exp + "_Return_Type")[0].toString().replaceAll("interface ", ""));
+                                                    } else if (methods2.get(s) != null && methods2.get(s).get(exp + "_Return_Type") != null) {
+                                                        longExpression.add(0, methods2.get(s).get(exp + "_Return_Type")[0].toString());
+                                                    }
+            
+                                                   System.out.println("RT : " + longExpression.get(0));
+                                                }
+                                                
+                                                if(longExpression.size()<=1)
+                                                    break;
+                                                
+                                            }
+                                        }else{
+                                            breakValue=true;
+                                        }
+                                    }
+                                    if(breakValue)
+                                        break;
+                                } 
+                                
+                            }
+                            
+                            if(longExpression.size()==1 ) {
+
+                                System.out.println("xxx" + longExpression.get(0) + " " + methodInfo.methodName + " " + methodInfo.expression + " " + methods2.keySet().toString());
+                                boolean exists = false;
+                                for(String c : methods2.keySet()){
+                                    if(c.contains(longExpression.get(0))) {
+                                
+                                        if((methods2.get(c).keySet().contains(methodInfo.methodName)) || (acceptedMethodMap.get(longExpression.get(0))!=null && acceptedMethodMap.get(longExpression.get(0)).equals(methodInfo.methodName))){
+                                            acceptedMethods.add(methodInfo.methodName);
+                                            if(methods2.get(c).get(longExpression.get(0) + "_Return_Type")!=null && methods2.get(c).get(longExpression.get(0) + "_Return_Type")[0]!=null) {
+                                                    if (methods2.get(c) != null && methods2.get(c).get(longExpression.get(0) + "_Return_Type") != null && methods2.get(c).get(longExpression.get(0) + "_Return_Type")[0].toString().contains("class ")) {
+                                                        rMethods.put(methodInfo.methodName, methods2.get(c).get(longExpression.get(0) + "_Return_Type")[0].toString().replaceAll("class ", ""));
+                                                    } else if (methods2.get(c) != null && methods2.get(c).get(longExpression.get(0) + "_Return_Type") != null && methods2.get(c).get(longExpression.get(0) + "_Return_Type")[0].toString().contains("interface ")) {
+                                                        rMethods.put(methodInfo.methodName, methods2.get(c).get(longExpression.get(0) + "_Return_Type")[0].toString().replaceAll("interface ", ""));
+                                                    } else if (methods2.get(c) != null && methods2.get(c).get(longExpression.get(0) + "_Return_Type") != null) {
+                                                        rMethods.put(methodInfo.methodName, methods2.get(c).get(longExpression.get(0) + "_Return_Type")[0].toString());
+                                                    }
+            
+                                                   System.out.println("RT : " + longExpression.get(0));
+                                                }
+                                            exists = true;
+                                            System.out.println("xxy" + longExpression.get(0) + " " + methodInfo.methodName + " " + methodInfo.expression);
+                                            break;
+                                        }
+                                    }
+                                }
+                                
+                                if(!exists){
+                                    System.out.println("Not resolved long expression : " + longExpression.toString() + " " + methodInfo.methodName);
+                                }
+                            }
+                        }
                     }
 
                     String c = key.toString();
@@ -558,6 +716,13 @@ public class DependencyTree {
                         if (acceptedExpressions.contains(methodInfo.expression)) {
                             acceptedMethods.add(methodInfo.methodName);
                             rMethods.put(methodInfo.methodName, "Object");
+                        }
+                        
+                        for (String s : acceptedMethodMap.keySet()) {
+                            if (methodInfo.expression.equals(s) && (methodInfo.methodName.equals(acceptedMethodMap.get(s)))) {
+                                acceptedMethods.add(methodInfo.methodName);
+                                rMethods.put(methodInfo.methodName, methodInfo.expression);
+                            }
                         }
                     }
 
@@ -679,18 +844,29 @@ public class DependencyTree {
             methName=methName.substring(0,methName.indexOf("("));
         
         if(methName!=null && className!=null) {
+            
             for(String pth : methods.keySet()) {
                 if(pth.contains(className)) {
               //      System.out.println("rrr " + className + " " + methName + " " + methodName);
                     for(String mmm : methods.get(pth).keySet()) {
-                        if(mmm.contains(methName)){
+                        if(mmm.equals(methName)){
                             String className2 = null;
+
+                            if(methName.contains("["))
+                                methodName = methName.substring(0,methodName.indexOf("["));
                             
-                            if(methods.get(pth).get(methName+"_Return_Type")!=null)
+                            String classNamePrev = methods.get(pth).get(methName+"_Return_Type")[0];
+                            if(methods.get(pth).get(methName+"_Return_Type")!=null){
                                 className2 = methods.get(pth).get(methName+"_Return_Type")[0];
                             
-                //            System.out.println("resolutions : " + className2 + " " + methName);
-                            returnName = resolveMethods(className2, methName, methods);
+                                if(!className2.equals(classNamePrev)) {
+                                //    System.out.println("resolutions : " + className2 + " " + methName);
+                                    if(className2!=null && className2.startsWith("."))
+                                        className2 = className2.replaceFirst(".","");
+                                //    System.out.println("resolutions2 : " + className2 + " " + methName);
+                                    returnName = resolveMethods(className2, methName, methods);
+                                }
+                            }
                         }
                     }
                 }
@@ -698,7 +874,37 @@ public class DependencyTree {
         }else
             returnName = className;
         
-        return null;
+        return returnName;
+    }
+    
+    private static void addExtensions(HashMap<String,HashMap<String,String[]>> methods, HashMap<String,HashMap<String,String[]>> methods2, String extensionName, String extNameConst,ArrayList<String> acceptedMethods,HashMap<String, String> acceptedMethodMap,HashMap<String,String> rMethods){
+        if(methods.get(extensionName)!=null && methods.get(extensionName).get(extensionName + "_Extensions")!=null){
+        //    System.out.println("AllExt : " + Arrays.toString(methods.get(extensionName).get(extensionName + "_Extensions")));
+            for(String e : methods.get(extensionName).get(extensionName + "_Extensions")) {
+                if(methods.get(e)!=null) {
+                    if(methods2.get(extNameConst)==null) {
+                        methods2.put(extNameConst, methods.get(e));
+                 //       System.out.println("extensionName " + extensionName);
+                    } else {
+                        for(String m : methods.get(e).keySet()){
+                            if(methods2.get(extNameConst).get(m)==null) {
+                                methods2.get(extNameConst).put(m, methods.get(e).get(m));
+                         //       System.out.println("extensionM " + extNameConst + " " + m);
+                            }
+                        }
+                    }
+                    addExtensions(methods, methods2, e, extNameConst,acceptedMethods,acceptedMethodMap,rMethods);
+                }else{
+                    for (String s : acceptedMethodMap.keySet()) {
+                  //      System.out.println("uuu : " + extensionName + " " + s + " " + acceptedMethodMap.get(s));
+                        if (e.equals(s)) {
+                            acceptedMethods.add(acceptedMethodMap.get(s));
+                            rMethods.put(acceptedMethodMap.get(s), extNameConst);
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }
