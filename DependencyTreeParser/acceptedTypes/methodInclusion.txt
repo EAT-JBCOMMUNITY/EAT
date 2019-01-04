@@ -1,0 +1,6 @@
+java.io.Closeable;close
+String;trim
+String;compareTo
+String;substring
+StringBuffer;append
+JsonMappingException;startsWith
