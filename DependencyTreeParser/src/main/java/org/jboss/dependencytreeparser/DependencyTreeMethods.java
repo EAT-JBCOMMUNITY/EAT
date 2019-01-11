@@ -1205,18 +1205,18 @@ public class DependencyTreeMethods {
                 //    System.out.println("line " + line);
                     methodName = line.substring(line.lastIndexOf(" ")+1);
                     methods.put(methodName, params);
-                    if(methodName.equals("getStatusCode"))
-                        System.out.println("methodName " + line + " " + methodName + " " + className);
+                 
                 //    System.out.println("line " + line);
                     returnType = line.substring(0, line.lastIndexOf(methodName));
+                    
+                    if(returnType.contains("<"))
+                        returnType = returnType.substring(0,returnType.indexOf("<"));
                     if(returnType.trim().contains(" ")) {
                     //    System.out.println("returnType " + returnType);
                         returnType = returnType.trim();
                         returnType = returnType.substring(returnType.lastIndexOf(" "));
                     //    System.out.println("returnType " + returnType);
                     }
-                    if(returnType.contains("<"))
-                        returnType = returnType.substring(0,returnType.indexOf("<"));
                     if(returnType.contains("["))
                         returnType = returnType.substring(0,returnType.indexOf("["));
                     if(returnType.contains("."))
@@ -1237,7 +1237,7 @@ public class DependencyTreeMethods {
                     
                 //    System.out.println("className " + className);
                     if(className.contains("extends")){
-                        String extension = className.substring(className.indexOf("extends")+8);
+                        String extension = className.substring(className.lastIndexOf("extends")+8);
                         extension = extension.replaceAll("\\{", "");
                         if(extension.contains("implements")){
                             extension = extension.substring(0, extension.indexOf(" implements"));
@@ -1246,12 +1246,16 @@ public class DependencyTreeMethods {
                     //    System.out.println("Extension " + extension);
                         extensions = extension.split(",");
                         for(int i=0; i<extensions.length; i++) {
-                            if(extensions[i].contains("<"))
+                            if(extensions[i].contains("<")){
                                 extensions[i]=extensions[i].substring(0, extensions[i].indexOf("<"));
+                            //    System.out.println("Extension " + extensions[i] + "of class " + className);
+                            }else if(!extensions[i].contains("<") && extensions[i].contains(">")){
+                                extensions[i]=null;
+                            }
                         }
                     }
                     if(className.contains("implements")){
-                        String extension2 = className.substring(className.indexOf("implements")+11);
+                        String extension2 = className.substring(className.lastIndexOf("implements")+11);
                         extension2 = extension2.replaceAll("\\{", "");
                         extension2 = extension2.trim();
                    //     System.out.println("Extension " + extension2);
@@ -1259,11 +1263,16 @@ public class DependencyTreeMethods {
                         for(int i=0; i<extensions2.length; i++) {
                             if(extensions2[i].contains("<"))
                                 extensions2[i]=extensions2[i].substring(0, extensions2[i].indexOf("<"));
+                            else if(!extensions2[i].contains("<") && extensions2[i].contains(">")){
+                                extensions2[i]=null;
+                            }
                         }
                     }
                     
                     if(className.contains(" "))
                         className = className.substring(0,className.indexOf(" "));
+                    if(className.contains("<"))
+                        className = className.substring(0,className.indexOf("<"));
                     
                     methods = new HashMap<>();
                     
@@ -1279,6 +1288,7 @@ public class DependencyTreeMethods {
                 }else if(line.contains("}")) {
                     record = false;
                     classMethods.put(className,methods);
+               //     System.out.println("classExt : " + className + " " + methods.keySet().toString());
                 }
                 line = br.readLine();
             }
