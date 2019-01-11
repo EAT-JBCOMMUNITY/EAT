@@ -23,7 +23,6 @@ import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.ImportDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
-import org.eclipse.jdt.core.dom.NormalAnnotation;
 import org.eclipse.jdt.core.dom.PackageDeclaration;
 import org.eclipse.jdt.core.dom.SimpleType;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
@@ -37,6 +36,7 @@ import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
 public class TestsuiteParser {
     static HashSet<String> types = new HashSet<>();
     static HashMap<String,String> fields = new HashMap<>();
+    static HashMap<String,String[]> methods = new HashMap<>();
     static HashSet<String> imports = new HashSet<>();
     static HashSet<String> typesNotResolved = new HashSet<>();
     static HashSet<String> methodsNotResolved = new HashSet<>();
@@ -46,6 +46,32 @@ public class TestsuiteParser {
     
     static HashMap<String,String> importedClassFields = new HashMap<>();
 
+    public static HashMap<String, String[]> getMethods() {
+        return methods;
+    }
+
+    public static void setMethods(HashMap<String, String[]> methods) {
+        TestsuiteParser.methods = methods;
+    }
+
+    public static String getPackageName() {
+        return packageName;
+    }
+
+    public static void setPackageName(String packageName) {
+        TestsuiteParser.packageName = packageName;
+    }
+
+    public static HashMap<String, String> getImportedClassFields() {
+        return importedClassFields;
+    }
+
+    public static void setImportedClassFields(HashMap<String, String> importedClassFields) {
+        TestsuiteParser.importedClassFields = importedClassFields;
+    }
+
+    
+    
     public static HashMap<String,String> getFields() {
         return fields;
     }
@@ -90,6 +116,7 @@ public class TestsuiteParser {
 
         types.clear();
         fields.clear();
+        methods.clear();
         classInstanceCreations.clear();
         typesNotResolved.clear();
         methodsNotResolved.clear();
@@ -168,13 +195,22 @@ public class TestsuiteParser {
 
             public boolean visit(MethodDeclaration node) {
                 if (node.getName().getIdentifier() != null) {
-                //    System.out.println("Declaration of method '" + node.getName() + "' at line"
-               //                 + cu.getLineNumber(node.getStartPosition())); 
+                    String returnType = null;
+                    if(node.getReturnType2()==null)
+                        returnType = "";
+                    else
+                        returnType = node.getReturnType2().toString();
+                    
+                //    System.out.println("Declaration of method '" + node.getName() + " return type : " + returnType + "' at line"
+                //                + cu.getLineNumber(node.getStartPosition())); 
                     HashMap<String,String> bDeclarations = new HashMap();
                     bDeclarations.putAll(importedClassFields);
                     bDeclarations.putAll(declarations);
         
+                    methods.put(node.getName().toString()+"_Return_Type", new String[]{returnType});
+                    String[] methodParams = new String[node.parameters().size()];
                     List params = node.parameters();
+                    int i=0;
                     for(Object s : params) {
                         String type = ((SingleVariableDeclaration)s).getType().toString();
                 //        System.out.println("with param : " + type + " " + ((SingleVariableDeclaration)s).getName().toString());
@@ -183,7 +219,8 @@ public class TestsuiteParser {
                         
                         ArrayList<String> types0 = new ArrayList<>();
                 
-                        String type2 =null;
+                        String type2 = null;
+                        String typeF = null;
                         do {
                             if(type.contains("[")) {
                                 type=type.replaceAll("\\[\\]", "");
@@ -211,14 +248,19 @@ public class TestsuiteParser {
                             }
 
                             types.addAll(Arrays.asList(type.split(" extends ")));
-                            if(types0.size()!=0)
+                            if(types0.size()!=0){
                                 type = types0.remove(0);
-                            else
+                                typeF = type;
+                            }else
                                 type = null;
                         }while(type!=null);
+                        
+                        methodParams[i++]=typeF;
 
                     }
                     
+                    methods.put(node.getName().toString()+"_Return_Type", methodParams);
+
                     Block block = node.getBody();
                     
                 //    if(block!=null)
