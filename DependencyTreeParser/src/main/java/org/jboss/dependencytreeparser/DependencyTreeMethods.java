@@ -1001,7 +1001,7 @@ public class DependencyTreeMethods {
                     while (p.isAlive());
                     p.destroy(); 
                 }catch (Exception e) {
-                    System.out.println(dir + " already exists ...");
+                //    System.out.println(dir + " already exists ...");
                 }
                 
            
@@ -1228,6 +1228,8 @@ public class DependencyTreeMethods {
                 }
                 
                 if((line.contains("class") || line.contains("interface")) && line.contains("{")) {
+            //        if(line.contains("DomainDeploymentManager"))
+            //            System.out.println("Found ..................");
                     record = true;
                     if(line.contains("class"))
                         className = line.substring(line.indexOf("class")+6);
@@ -1293,7 +1295,8 @@ public class DependencyTreeMethods {
                 line = br.readLine();
             }
         }catch(Exception e){
-            e.printStackTrace();
+            System.out.println("getParsedJarMethods : problem with file " + file);
+        //    e.printStackTrace();
         }
         
         return classMethods;

@@ -531,6 +531,8 @@ public class TestsuiteParser {
                                     arg = "Character";
                                 else if(arg.contains("+") && arg.contains("\""))
                                     arg = "String";
+                                else if(arg.contains("instanceof"))
+                                    arg = arg.substring(arg.indexOf("instanceof")+11);
                                 else if(bDeclarations.containsKey(arg))
                                     arg = bDeclarations.get(arg);
                                 else if(arg.equals("true") || arg.equals("false"))
@@ -600,6 +602,8 @@ public class TestsuiteParser {
                                 arg = "Character";
                             else if(arg.contains("+") && arg.contains("\""))
                                 arg = "String";
+                            else if(arg.contains("instanceof"))
+                                arg = arg.substring(arg.indexOf("instanceof")+11);
                             else if(bDeclarations.containsKey(arg))
                                 arg = bDeclarations.get(arg);
                             else if(arg.equals("true") || arg.equals("false"))
@@ -710,6 +714,8 @@ public class TestsuiteParser {
                                 arg = "Character";
                             else if(arg.contains("+") && arg.contains("\""))
                                 arg = "String";
+                            else if(arg.contains("instanceof"))
+                                arg = arg.substring(arg.indexOf("instanceof")+11);
                             else if(bDeclarations.containsKey(arg))
                                 arg = bDeclarations.get(arg);
                             else if(arg.equals("true") || arg.equals("false"))

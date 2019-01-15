@@ -46,3 +46,4 @@ build;UrlBuilder
 createRemoveOperation;LocalMethods
 keyset;Set
 iterator;Iterator
+getProperties;Properties
