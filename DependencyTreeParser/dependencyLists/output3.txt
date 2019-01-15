@@ -29,3 +29,5 @@ java.util.function
 javax.net.ssl
 javax.security.auth.login
 java.lang.management
+org.jboss.as.logging
+org.slf4j.ext

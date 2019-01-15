@@ -13,6 +13,7 @@ Map;toArray
 Map;size
 Map;keySet
 List;isEmpty
-Configuration;getProperties
+Properties;put
 JsonMappingException;startsWith
 Iterator;next
+InitialDeploymentPlanBuilder;undeploy
