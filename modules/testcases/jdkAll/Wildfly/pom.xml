@@ -393,6 +393,11 @@
 		    <groupId>xalan</groupId>
 		    <artifactId>xalan</artifactId>
 		</dependency>
+                <dependency>
+		    <groupId>org.apache.openjpa</groupId>
+		    <artifactId>openjpa</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
             </dependencies>
 
         </profile>
@@ -773,6 +778,11 @@
                 <dependency>
 		    <groupId>xalan</groupId>
 		    <artifactId>xalan</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>org.apache.openjpa</groupId>
+		    <artifactId>openjpa</artifactId>
+		    <version>3.0.0</version>
 		</dependency>
             </dependencies>
 
