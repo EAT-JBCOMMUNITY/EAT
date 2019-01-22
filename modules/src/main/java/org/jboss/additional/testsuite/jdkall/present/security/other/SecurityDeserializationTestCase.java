@@ -119,6 +119,25 @@ public class SecurityDeserializationTestCase {
 
     }
 
+    @ATTest({"modules/testcases/jdkAll/Wildfly/security/src/main/java#16.0.0.Beta1"})
+    public void testSecuirtyDatabind4() throws Exception {
+
+        final String JSON = aposToQuotes(
+                "{'v':['org.apache.axis2.jaxws.spi.handler.HandlerResolverImpl','/tmp/foobar.txt']}"
+                 );
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enableDefaultTyping();
+
+        try {
+            PolyWrapper sc = mapper.readValue(JSON, PolyWrapper.class);
+            fail("Should not be able to deserialize because of security prevention.");
+        }catch(JsonMappingException e){
+            assertTrue("Fail because of security issues...",e.getMessage().contains("prevented for security reasons"));
+        }
+
+    }
+
     static class SerializedClass {
 
         public int id;
