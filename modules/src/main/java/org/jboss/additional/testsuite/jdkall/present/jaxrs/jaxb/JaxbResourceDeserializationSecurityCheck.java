@@ -37,6 +37,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.apache.ibatis.datasource.jndi.JndiDataSourceFactory;
 import org.hibernate.jmx.StatisticsService;
+import org.apache.openjpa.ee.JNDIManagedRuntime;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 
 @Path("jaxb")
@@ -89,6 +90,15 @@ public class JaxbResourceDeserializationSecurityCheck {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getDatasource() throws RemoteException, IOException {
         JndiDataSourceFactory obj = new JndiDataSourceFactory();
+
+        return Response.ok().entity(obj).build();
+    }
+
+    @GET
+    @Path("openjpa")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getJNDIManagedRuntimeService() throws RemoteException, IOException {
+        JNDIManagedRuntime obj = new JNDIManagedRuntime();
 
         return Response.ok().entity(obj).build();
     }

@@ -46,6 +46,7 @@ import org.apache.ibatis.datasource.jndi.JndiDataSourceFactory;
 import org.springframework.jacksontest.AbstractPointcutAdvisor;
 import org.springframework.jacksontest.AbstractApplicationContext;
 import org.hibernate.jmx.StatisticsService;
+import org.apache.openjpa.ee.JNDIManagedRuntime;
 import org.jboss.eap.additional.testsuite.annotations.EATDPM;
 import org.jboss.eap.additional.testsuite.annotations.ATTest;
 
@@ -77,7 +78,10 @@ public class JaxbProviderDeserializationSecurityCheckTestCase {
                        org.springframework.jacksontest.BogusPointcutAdvisor.class, org.springframework.jacksontest.AbstractPointcutAdvisor.class,
                        org.springframework.jacksontest.BogusApplicationContext.class, org.springframework.jacksontest.AbstractApplicationContext.class,
                        org.apache.ibatis.datasource.jndi.JndiDataSourceFactory.class, org.hibernate.jmx.StatisticsService.class,
-                       TestMapperResolver.class,com.mchange.v2.c3p0.jacksonTest.ComboPooledDataSource.class);
+                       TestMapperResolver.class,com.mchange.v2.c3p0.jacksonTest.ComboPooledDataSource.class, org.apache.openjpa.ee.JNDIManagedRuntime.class,
+                       org.apache.openjpa.ee.ManagedRuntime.class,org.apache.openjpa.ee.AbstractManagedRuntime.class);
+        war.addPackage(org.apache.openjpa.util.GeneralException.class.getPackage());
+        war.addPackage(org.apache.openjpa.lib.util.Localizer.class.getPackage());
         return war;
     }
 
@@ -137,6 +141,19 @@ public class JaxbProviderDeserializationSecurityCheckTestCase {
 
         try{
             StatisticsService jaxbModel = new ObjectMapper().configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false).readValue(result, StatisticsService.class);
+            Assert.fail("Should prevente json deserialization because of security reasons.");
+        }catch(JsonMappingException e){
+            Assert.assertTrue("Should prevente json deserialization because of security reasons.", e.getMessage().contains("Illegal type"));
+        }
+
+    }
+
+    @ATTest({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#16.0.0.Beta1"})
+    public void testOpenjpaService() throws Exception{
+        String result = performCall("rest/jaxb/openjpa");
+
+        try{
+            JNDIManagedRuntime jaxbModel = new ObjectMapper().configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false).readValue(result, JNDIManagedRuntime.class);
             Assert.fail("Should prevente json deserialization because of security reasons.");
         }catch(JsonMappingException e){
             Assert.assertTrue("Should prevente json deserialization because of security reasons.", e.getMessage().contains("Illegal type"));

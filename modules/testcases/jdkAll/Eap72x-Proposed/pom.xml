@@ -16,7 +16,7 @@
     </parent>
 
     <groupId>org.jboss</groupId>
-    <artifactId>eap72x-proposed-additional-testsuite</artifactId>
+    <artifactId>eap72x-additional-testsuite</artifactId>
     <packaging>pom</packaging>
     <version>1.0.3.Final</version>
 
@@ -105,6 +105,11 @@
                     <artifactId>javax.enterprise.concurrent-api</artifactId>
                     <version>1.0</version>
                 </dependency>
+                <dependency>
+		    <groupId>org.apache.openjpa</groupId>
+		    <artifactId>openjpa</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
             </dependencies>
         </profile>
 
@@ -193,6 +198,11 @@
                     <artifactId>javax.enterprise.concurrent-api</artifactId>
                     <version>1.0</version>
                 </dependency>
+                <dependency>
+		    <groupId>org.apache.openjpa</groupId>
+		    <artifactId>openjpa</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
             </dependencies>
         </profile>
 
@@ -426,7 +436,7 @@
 	    </activation>
             <modules>
                 <module>basic</module>
-		<module>core</module>
+		<module>core</module>	
 		<module>elytron</module>
 		<module>jaxrs</module>
                 <module>jpa</module>
@@ -435,7 +445,7 @@
 		<module>domain_management</module>
 		<module>logging</module>
 		<module>management</module>
-        <module>manualmode</module>
+                <module>manualmode</module>
 		<module>messaging</module>
 		<module>security</module>
 		<module>server</module>
