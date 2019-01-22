@@ -110,6 +110,11 @@
 		    <artifactId>openjpa</artifactId>
 		    <version>3.0.0</version>
 		</dependency>
+                <dependency>
+		    <groupId>org.apache.axis2</groupId>
+		    <artifactId>axis2-jaxws</artifactId>
+		    <version>1.7.9</version>
+		</dependency>
             </dependencies>
         </profile>
 
@@ -195,6 +200,11 @@
 		    <groupId>org.apache.openjpa</groupId>
 		    <artifactId>openjpa</artifactId>
 		    <version>3.0.0</version>
+		</dependency>
+                <dependency>
+		    <groupId>org.apache.axis2</groupId>
+		    <artifactId>axis2-jaxws</artifactId>
+		    <version>1.7.9</version>
 		</dependency>
             </dependencies>
         </profile>
