@@ -155,6 +155,11 @@
                     <artifactId>javax.enterprise.concurrent-api</artifactId>
                     <version>1.0</version>
                 </dependency>
+                <dependency>
+		    <groupId>org.apache.openjpa</groupId>
+		    <artifactId>openjpa</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
             </dependencies>
 
         </profile>
@@ -290,6 +295,11 @@
                     <artifactId>javax.enterprise.concurrent-api</artifactId>
                     <version>1.0</version>
                 </dependency>
+                <dependency>
+		    <groupId>org.apache.openjpa</groupId>
+		    <artifactId>openjpa</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
             </dependencies>
 
         </profile>
