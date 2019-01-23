@@ -43,8 +43,8 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/security/src/main/java","modules/testcases/jdkAll/Eap72x/security/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java","modules/testcases/jdkAll/Eap7/security/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java","modules/testcases/jdkAll/Eap72x/security/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/security/src/main/java","modules/testcases/jdkAll/Eap71x/security/src/main/java", "modules/testcases/jdkAll/Eap70x/security/src/main/java"})
-public class SecurityDeserializationTestCase {
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/security/src/main/java"})
+public class SecurityDeserialization2TestCase {
 
     private static final String ARCHIVE_NAME = "SecurityDeserializationTestCase";
 
@@ -81,7 +81,7 @@ public class SecurityDeserializationTestCase {
 
     }
     
-    @ATTest({"modules/testcases/jdkAll/Wildfly/security/src/main/java","modules/testcases/jdkAll/Eap72x/security/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java","modules/testcases/jdkAll/Eap7/security/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java","modules/testcases/jdkAll/Eap72x/security/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/security/src/main/java","modules/testcases/jdkAll/Eap71x/security/src/main/java"})
+    @Test
     public void testSecuirtyDatabind2() throws Exception {
 
         final String JSON = aposToQuotes(
@@ -100,68 +100,11 @@ public class SecurityDeserializationTestCase {
 
     }
     
-    @ATTest({"modules/testcases/jdkAll/Wildfly/security/src/main/java","modules/testcases/jdkAll/Eap72x/security/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java","modules/testcases/jdkAll/Eap7/security/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java","modules/testcases/jdkAll/Eap72x/security/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/security/src/main/java","modules/testcases/jdkAll/Eap71x/security/src/main/java"})
+    @Test
     public void testSecuirtyDatabind3() throws Exception {
 
         final String JSON = aposToQuotes(
                 "{'v':['java.rmi.server.UnicastRemoteObject','/tmp/foobar.txt']}"
-                 );
-
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.enableDefaultTyping();
-
-        try {
-            PolyWrapper sc = mapper.readValue(JSON, PolyWrapper.class);
-            fail("Should not be able to deserialize because of security prevention.");
-        }catch(JsonMappingException e){
-            assertTrue("Fail because of security issues...",e.getMessage().contains("prevented for security reasons"));
-        }
-
-    }
-
-    @ATTest({"modules/testcases/jdkAll/Wildfly/security/src/main/java#16.0.0.Beta1"})
-    public void testSecuirtyDatabind4() throws Exception {
-
-        final String JSON = aposToQuotes(
-                "{'v':['org.apache.axis2.jaxws.spi.handler.HandlerResolverImpl','/tmp/foobar.txt']}"
-                 );
-
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.enableDefaultTyping();
-
-        try {
-            PolyWrapper sc = mapper.readValue(JSON, PolyWrapper.class);
-            fail("Should not be able to deserialize because of security prevention.");
-        }catch(JsonMappingException e){
-            assertTrue("Fail because of security issues...",e.getMessage().contains("prevented for security reasons"));
-        }
-
-    }
-
-    @ATTest({"modules/testcases/jdkAll/Wildfly/security/src/main/java#16.0.0.Beta1"})
-    public void testSecuirtyDatabind5() throws Exception {
-
-        final String JSON = aposToQuotes(
-                "{'v':['org.slf4j.ext.EventData','/tmp/foobar.txt']}"
-                 );
-
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.enableDefaultTyping();
-
-        try {
-            PolyWrapper sc = mapper.readValue(JSON, PolyWrapper.class);
-            fail("Should not be able to deserialize because of security prevention.");
-        }catch(JsonMappingException e){
-            assertTrue("Fail because of security issues...",e.getMessage().contains("prevented for security reasons"));
-        }
-
-    }
-
-    @ATTest({"modules/testcases/jdkAll/Wildfly/security/src/main/java#16.0.0.Beta1"})
-    public void testSecuirtyDatabind6() throws Exception {
-
-        final String JSON = aposToQuotes(
-                "{'v':['org.jboss.util.propertyeditor.DocumentEditor','/tmp/foobar.txt']}"
                  );
 
         ObjectMapper mapper = new ObjectMapper();
