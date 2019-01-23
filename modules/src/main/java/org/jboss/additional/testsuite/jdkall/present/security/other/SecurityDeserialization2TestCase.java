@@ -46,12 +46,12 @@ import org.junit.runner.RunWith;
 @EapAdditionalTestsuite({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/security/src/main/java"})
 public class SecurityDeserialization2TestCase {
 
-    private static final String ARCHIVE_NAME = "SecurityDeserializationTestCase";
+    private static final String ARCHIVE_NAME = "SecurityDeserialization2TestCase";
 
     @Deployment
     public static Archive<?> deploy() {
         JavaArchive jar = ShrinkWrap.create(JavaArchive.class, ARCHIVE_NAME + ".jar");
-        jar.addClass(SecurityDeserializationTestCase.class);
+        jar.addClass(SecurityDeserialization2TestCase.class);
         return jar;
     }
 
