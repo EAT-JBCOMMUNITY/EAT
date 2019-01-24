@@ -10,7 +10,7 @@ RUN dnf -y install wget
 RUN dnf install -y git
 
 # Downloading Java
-RUN wget --no-check-certificate "https://www.dropbox.com/s/vm819mraxwidxqh/jdk-8u191-linux-x64.rpm?dl=0" -O /tmp/jdk-8-linux-x64.rpm && cd /tmp && dnf -y --allowerasing install jdk-8-linux-x64.rpm
+RUN wget --no-check-certificate "https://www.dropbox.com/s/vm819mraxwidxqh/jdk-8u191-linux-x64.rpm?dl=0" -O /tmp/jdk-8-linux-x64.rpm && cd /tmp && dnf -y install findutils && rpm -ivh jdk-8-linux-x64.rpm
 
 RUN rm /tmp/jdk-8-linux-x64.rpm 
 
