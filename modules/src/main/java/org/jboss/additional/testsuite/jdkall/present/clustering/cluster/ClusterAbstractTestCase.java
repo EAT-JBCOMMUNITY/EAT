@@ -21,6 +21,7 @@
  */
 package org.jboss.additional.testsuite.jdkall.present.clustering.cluster;
 
+import java.util.AbstractMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -73,7 +74,9 @@ public abstract class ClusterAbstractTestCase implements ClusteringTestConstants
         Header setCookieHeader = response.getFirstHeader("Set-Cookie");
         if (setCookieHeader == null) return null;
         String setCookieValue = setCookieHeader.getValue();
-        return routing.parse(setCookieValue.substring(setCookieValue.indexOf('=') + 1, setCookieValue.indexOf(';')));
+        final String id = setCookieValue.substring(setCookieValue.indexOf('=') + 1, setCookieValue.indexOf(';'));
+        final int index = id.indexOf('.');
+        return (index < 0) ? new AbstractMap.SimpleImmutableEntry<>(id, null) : new AbstractMap.SimpleImmutableEntry<>(id.substring(0, index), id.substring(index + 1));
     }
 
     @ArquillianResource
