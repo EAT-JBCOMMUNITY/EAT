@@ -98,6 +98,7 @@ public class JaxbBeanValidationTestCase {
 
     }
 
+    @Test
     public void testBeanValidationCdiBeanMethod() throws Exception {
         String result = performCall("bean-validation/test/cdi-bean-method-validation");
 
