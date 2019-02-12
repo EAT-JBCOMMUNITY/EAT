@@ -44,7 +44,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/basic/src/main/java","modules/testcases/jdkAll/Wildfly/basic/src/main/java","modules/testcases/jdkAll/Eap72x/basic/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/basic/src/main/java","modules/testcases/jdkAll/Eap71x/basic/src/main/java", "modules/testcases/jdkAll/Eap71x-Proposed/basic/src/main/java","modules/testcases/jdkAll/Eap7/basic/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/basic/src/main/java","modules/testcases/jdkAll/Eap71x/basic/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/basic/src/main/java","modules/testcases/jdkAll/Eap72x/basic/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/basic/src/main/java","modules/testcases/jdkAll/Eap70x/basic/src/main/java","modules/testcases/jdkAll/Eap70x-Proposed/basic/src/main/java","modules/testcases/jdkAll/Eap7/basic/src/main/java"})
 public class JaxbBeanValidationTestCase {
 
     @Deployment(testable = false)
@@ -90,8 +90,6 @@ public class JaxbBeanValidationTestCase {
             StringBuilder expected = new StringBuilder();
             expected.append("failed:  ({MyCustomConstraint.message})").append("\n");
             expected.append("passed");
-
-            System.out.println("+++++++++++ : " + result);
 
             Assert.assertTrue("Response of custom-class-level-constraint bean validation was not expected.", result.equals(expected.toString()));
         }catch(Exception e){
