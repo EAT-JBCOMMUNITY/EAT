@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--
+     *  ΙΔΕΑ : THE JBOSS TESTSUITE TO DEVELOP TESTS AGAINST INFINITE NUMBER OF JBOSS SERVERS
+    -->
+
+    <parent>
+        <groupId>org.jboss</groupId>
+        <artifactId>eap-additional-testsuite-modules</artifactId>
+        <version>1.0.3.Final</version>
+        <relativePath>../../../pom.xml</relativePath>
+    </parent>
+
+    <groupId>org.jboss</groupId>
+    <artifactId>protean-additional-testsuite</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.3.Final</version>
+
+    <name>protean additional testsuite: additional testsuite for protean</name>
+
+    <properties>
+        <protean.version>${JBOSS_VERSION}</protean.version>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>native</id>
+            <activation>
+                <property>
+                    <name>native</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.jboss.shamrock</groupId>
+                        <artifactId>shamrock-build-parent</artifactId>
+                        <type>pom</type>
+                        <version>${protean.version}</version>
+                        <scope>import</scope>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
+
+            <dependencies>
+                <dependency>
+		    <groupId>org.jboss.shamrock</groupId>
+		    <artifactId>shamrock-jaxrs-deployment</artifactId>
+                    <scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.shamrock</groupId>
+		    <artifactId>shamrock-bean-validation-deployment</artifactId>
+                    <scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.shamrock</groupId>
+		    <artifactId>shamrock-arc-deployment</artifactId>
+                    <scope>provided</scope>
+		</dependency>
+
+		<!-- EL implementation -->
+		<dependency>
+		   <groupId>org.glassfish</groupId>
+		   <artifactId>javax.el</artifactId>
+                   <version>3.0.1-b09</version>
+		</dependency>
+
+		<!-- test dependencies -->
+		<dependency>
+		    <groupId>org.jboss.shamrock</groupId>
+		    <artifactId>shamrock-junit5</artifactId>
+                    <scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>io.rest-assured</groupId>
+		    <artifactId>rest-assured</artifactId>
+                    <scope>provided</scope>
+		</dependency>
+            </dependencies>
+
+        </profile>
+
+        <profile>
+            <id>no-native</id>
+            <activation>
+                <property>
+                    <name>no-native</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.jboss.shamrock</groupId>
+                        <artifactId>shamrock-build-parent</artifactId>
+                        <type>pom</type>
+                        <version>${JBOSS_VERSION}</version>
+                        <scope>import</scope>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
+
+            <dependencies>
+                <dependency>
+		    <groupId>org.jboss.shamrock</groupId>
+		    <artifactId>shamrock-jaxrs-deployment</artifactId>
+                    <scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.shamrock</groupId>
+		    <artifactId>shamrock-bean-validation-deployment</artifactId>
+                    <scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.shamrock</groupId>
+		    <artifactId>shamrock-arc-deployment</artifactId>
+                    <scope>provided</scope>
+		</dependency>
+
+		<!-- EL implementation -->
+		<dependency>
+		   <groupId>org.glassfish</groupId>
+		   <artifactId>javax.el</artifactId>
+		   <version>3.0.1-b09</version>
+		</dependency>
+
+		<!-- test dependencies -->
+		<dependency>
+		    <groupId>org.jboss.shamrock</groupId>
+		    <artifactId>shamrock-junit5</artifactId>
+                    <scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>io.rest-assured</groupId>
+		    <artifactId>rest-assured</artifactId>
+                    <scope>provided</scope>
+		</dependency>
+            </dependencies>
+
+        </profile>
+
+        <profile>
+            <id>basicActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>basic</value>
+                </property>
+            </activation>
+            <modules>
+                <module>basic</module>
+            </modules>
+        </profile>
+
+        <profile>
+	    <id>all</id>
+	    <activation>
+	        <property>
+		    <name>!module</name>
+	        </property>
+	    </activation>
+            <modules>
+                <module>basic</module>
+            </modules>
+        </profile>
+
+    </profiles>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <inherited>false</inherited>
+                <executions>
+                    <execution>
+                        <id>add-test-source</id>
+                        <phase>generate-test-sources</phase>
+                        <goals>
+                            <goal>add-test-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${basedir}/../../../src/main/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
