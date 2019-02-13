@@ -1364,6 +1364,20 @@
 
         </profile>
 
+        <profile>
+            <id>protean.testsuite</id>
+            <activation>
+                <property>
+                    <name>protean</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <modules>
+                <module>testcases/jdkAll/Protean</module>
+            </modules>
+
+        </profile>
 
     </profiles>
     

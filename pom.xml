@@ -141,7 +141,7 @@
             </activation>
 
             <properties>
-		<serverDir>WildflyRelease-13.0.0.Final</serverDir>
+		<serverDir2>WildflyRelease-13.0.0.Final</serverDir2>
 	    </properties>
         </profile>
 
@@ -155,7 +155,7 @@
             </activation>
 
             <properties>
-		<serverDir>WildflyRelease-13.0.0.Final</serverDir>
+		<serverDir2>WildflyRelease-13.0.0.Final</serverDir2>
 	    </properties>
         </profile>
 
@@ -169,7 +169,7 @@
             </activation>
 
             <properties>
-		<serverDir>Wildfly</serverDir>
+		<serverDir2>Wildfly</serverDir2>
 	    </properties>
         </profile>
 
@@ -183,7 +183,7 @@
             </activation>
 
             <properties>
-		<serverDir>Wildfly</serverDir>
+		<serverDir2>Wildfly</serverDir2>
 	    </properties>
         </profile>
 
@@ -197,7 +197,7 @@
             </activation>
 
             <properties>
-		<serverDir>Wildfly-Unmerged</serverDir>
+		<serverDir2>Wildfly-Unmerged</serverDir2>
 	    </properties>
         </profile>
 
@@ -211,7 +211,7 @@
             </activation>
 
             <properties>
-		<serverDir>WildflyRelease-10.1.0.Final</serverDir>
+		<serverDir2>WildflyRelease-10.1.0.Final</serverDir2>
 	    </properties>
         </profile>
 
@@ -225,7 +225,7 @@
             </activation>
 
             <properties>
-		<serverDir>WildflyRelease-10.1.0.Final</serverDir>
+		<serverDir2>WildflyRelease-10.1.0.Final</serverDir2>
 	    </properties>
         </profile>
 
@@ -272,7 +272,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap64x</serverDir>
+		<serverDir2>Eap64x</serverDir2>
 	    </properties>
         </profile>
 
@@ -319,7 +319,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap64x</serverDir>
+		<serverDir2>Eap64x</serverDir2>
 	    </properties>
         </profile>
 
@@ -366,7 +366,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap64x-Proposed</serverDir>
+		<serverDir2>Eap64x-Proposed</serverDir2>
 	    </properties>
         </profile>
 
@@ -413,7 +413,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap64x-Proposed</serverDir>
+		<serverDir2>Eap64x-Proposed</serverDir2>
 	    </properties>
         </profile>
 
@@ -460,7 +460,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap63x</serverDir>
+		<serverDir2>Eap63x</serverDir2>
 	    </properties>
         </profile>
 
@@ -507,7 +507,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap63x</serverDir>
+		<serverDir2>Eap63x</serverDir2>
 	    </properties>
         </profile>
 
@@ -554,7 +554,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap62x</serverDir>
+		<serverDir2>Eap62x</serverDir2>
 	    </properties>
         </profile>
 
@@ -601,7 +601,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap62x</serverDir>
+		<serverDir2>Eap62x</serverDir2>
 	    </properties>
         </profile>
 
@@ -648,7 +648,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap61x</serverDir>
+		<serverDir2>Eap61x</serverDir2>
 	    </properties>
         </profile>
 
@@ -695,7 +695,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap7</serverDir>
+		<serverDir2>Eap7</serverDir2>
 	    </properties>
         </profile>
 
@@ -742,7 +742,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap7</serverDir>
+		<serverDir2>Eap7</serverDir2>
 	    </properties>
         </profile>
 
@@ -789,7 +789,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap71x</serverDir>
+		<serverDir2>Eap71x</serverDir2>
 	    </properties>
         </profile>
 
@@ -864,7 +864,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap71x</serverDir>
+		<serverDir2>Eap71x</serverDir2>
 	    </properties>
         </profile>
 
@@ -939,7 +939,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap72x</serverDir>
+		<serverDir2>Eap72x</serverDir2>
 	    </properties>
         </profile>
 
@@ -1014,7 +1014,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap72x</serverDir>
+		<serverDir2>Eap72x</serverDir2>
 	    </properties>
         </profile>
 
@@ -1061,7 +1061,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap71x-Proposed</serverDir>
+		<serverDir2>Eap71x-Proposed</serverDir2>
 	    </properties>
         </profile>
 
@@ -1136,7 +1136,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap71x-Proposed</serverDir>
+		<serverDir2>Eap71x-Proposed</serverDir2>
 	    </properties>
         </profile>
 
@@ -1211,7 +1211,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap72x-Proposed</serverDir>
+		<serverDir2>Eap72x-Proposed</serverDir2>
 	    </properties>
         </profile>
 
@@ -1286,7 +1286,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap72x-Proposed</serverDir>
+		<serverDir2>Eap72x-Proposed</serverDir2>
 	    </properties>
         </profile>
 
@@ -1333,7 +1333,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap7.1.0.Beta</serverDir>
+		<serverDir2>Eap7.1.0.Beta</serverDir2>
 	    </properties>
         </profile>
 
@@ -1380,7 +1380,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap70x</serverDir>
+		<serverDir2>Eap70x</serverDir2>
 	    </properties>
         </profile>
 
@@ -1427,7 +1427,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap70x</serverDir>
+		<serverDir2>Eap70x</serverDir2>
 	    </properties>
         </profile>
 
@@ -1474,7 +1474,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap70x-Proposed</serverDir>
+		<serverDir2>Eap70x-Proposed</serverDir2>
 	    </properties>
         </profile>
 
@@ -1521,7 +1521,98 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir>Eap70x-Proposed</serverDir>
+		<serverDir2>Eap70x-Proposed</serverDir2>
+	    </properties>
+        </profile>
+
+        <profile>
+            <id>protean.testsuite</id>
+            <activation>
+                <property>
+                    <name>protean</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <repositories>
+		<repository>
+		    <id>central</id>
+		    <name>Maven Repository Switchboard</name>
+		    <url>http://repo.maven.apache.org/maven2</url>
+		</repository>
+		<repository>
+		    <id>jboss</id>
+		    <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+		    <releases>
+		        <enabled>true</enabled>
+		    </releases>
+		    <snapshots>
+		        <enabled>true</enabled>
+		    </snapshots>
+		</repository>
+		<repository>
+		    <id>redhat-ga-repository</id>
+		    <name>Red Hat GA repository</name>
+		    <url>http://maven.repository.redhat.com/ga/</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>daily</updatePolicy>
+		    </snapshots>
+		</repository>
+
+		<!-- Forgot the password? see https://github.com/protean-project/hibernate-protean/wiki/Protean-Nexus-credentials -->
+		<repository>
+		    <id>protean-nexus-release</id>
+		    <name>Protean AWS Nexus - Releases</name>
+		    <url>http://ec2-18-234-117-118.compute-1.amazonaws.com:8081/nexus/content/repositories/releases/</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		    </snapshots>
+		</repository>
+
+		<!-- Forgot the password? see https://github.com/protean-project/hibernate-protean/wiki/Protean-Nexus-credentials -->
+		<repository>
+		    <id>protean-nexus-snapshot</id>
+		    <name>Protean AWS Nexus - Snapshots</name>
+		    <url>http://ec2-18-234-117-118.compute-1.amazonaws.com:8081/nexus/content/repositories/snapshots/</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>true</enabled>
+		        <!-- 10 minutes. Or enforce refresh by using -U option to Maven -->
+		        <updatePolicy>daily</updatePolicy>
+		    </snapshots>
+		</repository>
+	    </repositories>
+
+            <distributionManagement>
+		<repository>
+		    <id>protean-nexus-release</id>
+		    <name>Protean AWS Nexus - Releases</name>
+		    <url>http://ec2-18-234-117-118.compute-1.amazonaws.com:8081/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+		    <id>protean-nexus-snapshot</id>
+		    <name>Protean AWS Nexus - Snapshots</name>
+		    <url>http://ec2-18-234-117-118.compute-1.amazonaws.com:8081/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	    </distributionManagement>
+
+            <properties>
+		<serverDir2>Protean</serverDir2>
 	    </properties>
         </profile>
 
@@ -1553,7 +1644,7 @@
 				   <arguments>
 				       <argument>${basedir}</argument>
 				       <argument>${basedir}/modules/srcPool/main/java</argument>
-				       <argument>${serverDir}</argument>
+				       <argument>${serverDir2}</argument>
 				       <argument>${JBOSS_VERSION}</argument>
 				       <argument>versionOrder</argument>
 		                       <argument>${DISABLE_TESTS}</argument>
@@ -1575,7 +1666,7 @@
 				   <arguments>
 				       <argument>${basedir}</argument>
 				       <argument>${basedir}/modules/srcPool/config</argument>
-				       <argument>${serverDir}</argument>
+				       <argument>${serverDir2}</argument>
 				       <argument>${JBOSS_VERSION}</argument>
 				       <argument>versionOrder</argument>
 		                       <argument></argument>
@@ -1616,7 +1707,7 @@
 			        <configuration>
 			            <target name="clean" description="clean">
 					<delete includeEmptyDirs="true" failonerror="false">
-					    <fileset dir="${basedir}/modules/testcases" includes="**/**/${serverDir}/**/src/main/java/"/>
+					    <fileset dir="${basedir}/modules/testcases" includes="**/**/${serverDir2}/**/src/main/java/"/>
                                             <fileset dir="${basedir}/modules/srcPool/main/java"/>
 					</delete>
 				    </target>
@@ -1682,7 +1773,7 @@
 			        <configuration>
 			            <target name="clean" description="clean">
 					<delete includeEmptyDirs="true" failonerror="false">
-					    <fileset dir="${basedir}/modules/testcases" includes="**/**/${serverDir}/**/src/main/java/"/>
+					    <fileset dir="${basedir}/modules/testcases" includes="**/**/${serverDir2}/**/src/main/java/"/>
                                             <fileset dir="${basedir}/modules/srcPool/main/java"/>
 					</delete>
 				    </target>
