@@ -3,13 +3,15 @@
 set -e
 
 readonly JBOSS_VERSION_CODE=${1}
+readonly SMODE=${2}
+
 readonly NAME_PREFIX=${NAME_PREFIX:-'wildfly'}
 readonly SETTINGS_XML=${SETTINGS_XML:-"$(pwd)/settings.xml"}
 
 usage() {
   local script_name=$(basename ${0})
 
-  echo "${script_name} <jboss-version-code>"
+  echo "${script_name} <jboss-version-code> <smode>"
   echo
   echo "Ex: ${script_name} wildfly"
   echo
@@ -67,6 +69,12 @@ if [ ! -d "${JBOSS_FOLDER}" ]; then
   exit 5
 fi
 
+if [ ! -z "${SMODE}" ]; then
+  SMODE_CONFIG='-Dserver-integration'
+else
+  SMODE_CONFIG='-Dstandalone'
+fi
+
 #
 # Setting up maven
 #
@@ -82,4 +90,4 @@ export MAVEN_OPTS="${MAVEN_OPTS} -Xmx1024m -Xms512m -XX:MaxPermSize=256m"
 # Run EAT
 #
 echo "Runing EAT on JBoss server: ${JBOSS_FOLDER}"
-mvn clean install -D${JBOSS_VERSION_CODE} -Dstandalone ${SETTINGS_XML_OPTION} ${MAVEN_LOCAL_REPOSITORY_OPTION}
+mvn clean install -D${JBOSS_VERSION_CODE} ${SMODE_CONFIG} ${SETTINGS_XML_OPTION} ${MAVEN_LOCAL_REPOSITORY_OPTION}
