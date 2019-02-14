@@ -56,7 +56,7 @@
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.shamrock</groupId>
-		    <artifactId>shamrock-bean-validation-deployment</artifactId>
+		    <artifactId>shamrock-hibernate-validator-deployment</artifactId>
                     <scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -116,7 +116,7 @@
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.shamrock</groupId>
-		    <artifactId>shamrock-bean-validation-deployment</artifactId>
+		    <artifactId>shamrock-hibernate-validator-deployment</artifactId>
                     <scope>provided</scope>
 		</dependency>
 		<dependency>
