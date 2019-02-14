@@ -3,6 +3,7 @@
 set -e
 
 readonly JBOSS_VERSION_CODE=${1}
+readonly NAME_PREFIX=${NAME_PREFIX:-'wildfly'}
 readonly SETTINGS_XML=${SETTINGS_XML:-"$(pwd)/settings.xml"}
 
 usage() {
@@ -14,10 +15,13 @@ usage() {
   echo
   echo "On top of those arguments, this script excepts the following env vars to be set:"
   echo '- MAVEN_HOME, set to the appropriate directory containing the Maven distribution'
-  echo '- JBOSS_VERSION, set the version used for labelling jar dependencies associate to the AS version.'
-  echo "- JBOSS_FOLDER, path to the server built in the previous repository, default to '${JBOSS_FOLDER}'."
   echo "- MAVEN_LOCAL_REPOSITORY, path to a local mave repository to use for dependencies."
+  echo ''
+  echo 'The following parameter can be overridden if needed:'
+  echo '- JBOSS_VERSION, set the version used for labelling jar dependencies associate to the AS version.'
+  echo '- NAME_PREFIX, default to 'wildfly' if not specified.'
 }
+
 
 if [ -z "${JBOSS_VERSION_CODE}" ]; then
   echo "Missing JBOSS_VERSION_CODE (eap7, eap64,...)."
@@ -40,6 +44,11 @@ if [ ! -d "${MAVEN_HOME}" ]; then
   exit 4
 fi
 
+#
+# Set build configuratin (settings.xml, local maven repository) and
+# Generating distribution specific value (JBOSS_VERSION and JBOSS_FOLDER)
+#
+
 if [ -e "${SETTINGS_XML}" ]; then
   readonly SETTINGS_XML_OPTION="-s ${SETTINGS_XML}"
 fi
@@ -47,6 +56,11 @@ fi
 if [ -d "${MAVEN_LOCAL_REPOSITORY}" ]; then
   readonly MAVEN_LOCAL_REPOSITORY_OPTION="-Dmaven.repo.local=${MAVEN_LOCAL_REPOSITORY}"
 fi
+
+readonly JBOSS_VERSION=${JBOSS_VERSION:-"$(basename "$(ls -d $(pwd)/dist/target/${NAME_PREFIX}-* | sed -e '/.jar/d')" | sed -e "s/${NAME_PREFIX}-//" | sed -e 's/-for-validation//')"}
+export JBOSS_VERSION
+readonly JBOSS_FOLDER=${JBOSS_FOLDER:-"$(pwd)/dist/target/${NAME_PREFIX}-${JBOSS_VERSION}"}
+export JBOSS_FOLDER
 
 if [ ! -d "${JBOSS_FOLDER}" ]; then
   echo "The folder provided for JBoss AS server using the JBOSS_FOLDER env  is not a directory: ${JBOSS_FOLDER}."
