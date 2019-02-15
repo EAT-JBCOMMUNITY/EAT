@@ -22,6 +22,7 @@ usage() {
   echo 'The following parameter can be overridden if needed:'
   echo '- JBOSS_VERSION, set the version used for labelling jar dependencies associate to the AS version.'
   echo '- NAME_PREFIX, default to 'wildfly' if not specified.'
+  echo '- VERSION_STRATERGY, indicat which strategy the script should use to retrieve the version. Default is 'mvn' other option is 'shell''
 }
 
 
@@ -39,6 +40,8 @@ fi
 if [ ! -e "${MAVEN_HOME}" ]; then
   echo "Provided MAVEN_HOME does not exist: ${MAVEN_HOME}"
   exit 3
+else
+  export PATH="${MAVEN_HOME}/bin:${PATH}"
 fi
 
 if [ ! -d "${MAVEN_HOME}" ]; then
@@ -59,7 +62,13 @@ if [ -d "${MAVEN_LOCAL_REPOSITORY}" ]; then
   readonly MAVEN_LOCAL_REPOSITORY_OPTION="-Dmaven.repo.local=${MAVEN_LOCAL_REPOSITORY}"
 fi
 
-readonly JBOSS_VERSION=${JBOSS_VERSION:-"$(basename "$(ls -d $(pwd)/dist/target/${NAME_PREFIX}-* | sed -e '/.jar/d')" | sed -e "s/${NAME_PREFIX}-//" | sed -e 's/-for-validation//')"}
+readonly VERSION_STRATEGY=${VERSION_STRATEGY:-'mvn'}
+if [ "${VERSION_STRATEGY}" != 'mvn' ] ; then
+  readonly JBOSS_VERSION=${JBOSS_VERSION:-"$(basename "$(ls -d $(pwd)/dist/target/${NAME_PREFIX}-* | sed -e '/.jar/d')" | sed -e "s/${NAME_PREFIX}-//" | sed -e 's/-for-validation//')"}
+else
+  readonly JBOSS_VERSION=${JBOSS_VERSION:-$(mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version | grep -Ev '(^\[|Download\w+:)')}
+fi
+
 export JBOSS_VERSION
 readonly JBOSS_FOLDER=${JBOSS_FOLDER:-"$(pwd)/dist/target/${NAME_PREFIX}-${JBOSS_VERSION}"}
 export JBOSS_FOLDER
