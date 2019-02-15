@@ -42,6 +42,12 @@
                         <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEap7</additionalClasspathElement>
                     </additionalClasspathElements>
 
+	            <systemProperties>
+			<property>
+			    <name>java.util.logging.manager</name>
+			    <value>org.jboss.logmanager.LogManager</value>
+			</property>
+                    </systemProperties>
                 </configuration>
 
 		<executions>
