@@ -58,6 +58,7 @@ if [ -e "${SETTINGS_XML}" ]; then
   readonly SETTINGS_XML_OPTION="-s ${SETTINGS_XML}"
 fi
 
+readonly MAVEN_LOCAL_REPOSITORY=${MAVEN_LOCAL_REPOSITORY:-"$(pwd)/maven-local-repository"}
 if [ -d "${MAVEN_LOCAL_REPOSITORY}" ]; then
   readonly MAVEN_LOCAL_REPOSITORY_OPTION="-Dmaven.repo.local=${MAVEN_LOCAL_REPOSITORY}"
 fi
