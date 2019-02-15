@@ -5,7 +5,7 @@ set -e
 readonly JBOSS_VERSION_CODE=${1}
 readonly SMODE=${2}
 
-readonly NAME_PREFIX=${NAME_PREFIX:-'wildfly'}
+readonly NAME_PREFIX=${NAME_PREFIX:-'jboss-eap'}
 readonly SETTINGS_XML=${SETTINGS_XML:-"$(pwd)/settings.xml"}
 
 usage() {
@@ -17,14 +17,34 @@ usage() {
   echo
   echo "On top of those arguments, this script excepts the following env vars to be set:"
   echo '- MAVEN_HOME, set to the appropriate directory containing the Maven distribution'
-  echo "- MAVEN_LOCAL_REPOSITORY, path to a local mave repository to use for dependencies."
   echo ''
   echo 'The following parameter can be overridden if needed:'
   echo '- JBOSS_VERSION, set the version used for labelling jar dependencies associate to the AS version.'
-  echo '- NAME_PREFIX, default to 'wildfly' if not specified.'
-  echo '- VERSION_STRATERGY, indicat which strategy the script should use to retrieve the version. Default is 'mvn' other option is 'shell''
+  echo '- NAME_PREFIX, default to 'jboss-eap' if not specified.'
+  echo "- MAVEN_LOCAL_REPOSITORY, path to a local mave repository to use for dependencies."
 }
 
+assertJBossASVersion() {
+  local pom_file_prefix=${1}
+  local m2_repo=${2}
+
+  cd "${m2_repo}"
+  local pom_file=$(find . -name "${pom_file_prefix}-parent*.pom")
+
+  if [ ! -e "${pom_file}" ]; then
+    echo "No pom file found with prefix ${pom_file_prefix} in ${m2_repo}."
+    echo "Cannot infer project version, please set JBOSS_VERSION env var."
+    exit 6
+  fi
+
+  which xpath 2>&1 > /dev/null
+  if [ "${?}" -ne 0 ]; then
+    echo 'Utility 'xpath' is missing from PATH. Please install tool or set JBOSS_VERSION.'
+    exit 7
+  fi
+
+  xpath "${pom_file}" '//project/version' 2> /dev/null | sed -e 's;</*version>;;g'
+}
 
 if [ -z "${JBOSS_VERSION_CODE}" ]; then
   echo "Missing JBOSS_VERSION_CODE (eap7, eap64,...)."
@@ -63,14 +83,9 @@ if [ -d "${MAVEN_LOCAL_REPOSITORY}" ]; then
   readonly MAVEN_LOCAL_REPOSITORY_OPTION="-Dmaven.repo.local=${MAVEN_LOCAL_REPOSITORY}"
 fi
 
-readonly VERSION_STRATEGY=${VERSION_STRATEGY:-'mvn'}
-if [ "${VERSION_STRATEGY}" != 'mvn' ] ; then
-  readonly JBOSS_VERSION=${JBOSS_VERSION:-"$(basename "$(ls -d $(pwd)/dist/target/${NAME_PREFIX}-* | sed -e '/.jar/d')" | sed -e "s/${NAME_PREFIX}-//" | sed -e 's/-for-validation//')"}
-else
-  readonly JBOSS_VERSION=${JBOSS_VERSION:-$(mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version | grep -Ev '(^\[|Download\w+:)')}
-fi
-
+readonly JBOSS_VERSION=${JBOSS_VERSION:-$(assertJBossASVersion "${NAME_PREFIX}" "${MAVEN_LOCAL_REPOSITORY}")}
 export JBOSS_VERSION
+
 readonly JBOSS_FOLDER=${JBOSS_FOLDER:-"$(pwd)/dist/target/${NAME_PREFIX}-${JBOSS_VERSION}"}
 export JBOSS_FOLDER
 
