@@ -6,6 +6,7 @@ Long
 char
 int
 double
+Double
 long
 enum
 byte
