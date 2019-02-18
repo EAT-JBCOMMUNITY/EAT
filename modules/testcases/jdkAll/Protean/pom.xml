@@ -49,11 +49,6 @@
             </dependencyManagement>
 
             <dependencies>
-                <dependency>
-		    <groupId>org.jboss.shamrock</groupId>
-		    <artifactId>shamrock-resteasy-deployment</artifactId>
-                    <scope>provided</scope>
-		</dependency>
 		<dependency>
 		    <groupId>org.jboss.shamrock</groupId>
 		    <artifactId>shamrock-hibernate-validator-deployment</artifactId>
@@ -109,11 +104,6 @@
             </dependencyManagement>
 
             <dependencies>
-                <dependency>
-		    <groupId>org.jboss.shamrock</groupId>
-		    <artifactId>shamrock-resteasy-deployment</artifactId>
-                    <scope>provided</scope>
-		</dependency>
 		<dependency>
 		    <groupId>org.jboss.shamrock</groupId>
 		    <artifactId>shamrock-hibernate-validator-deployment</artifactId>
@@ -141,6 +131,44 @@
 		<dependency>
 		    <groupId>io.rest-assured</groupId>
 		    <artifactId>rest-assured</artifactId>
+                    <scope>provided</scope>
+		</dependency>
+            </dependencies>
+
+        </profile>
+
+        <profile>
+            <id>add-deps-resteasy</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>!0.9.1</value>
+                </property>
+            </activation>
+
+            <dependencies>
+                <dependency>
+		    <groupId>org.jboss.shamrock</groupId>
+		    <artifactId>shamrock-resteasy-deployment</artifactId>
+                    <scope>provided</scope>
+		</dependency>
+            </dependencies>
+
+        </profile>
+
+        <profile>
+            <id>add-deps-jaxrs</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>0.9.1</value>
+                </property>
+            </activation>
+
+            <dependencies>
+                <dependency>
+		    <groupId>org.jboss.shamrock</groupId>
+		    <artifactId>shamrock-jaxrs-deployment</artifactId>
                     <scope>provided</scope>
 		</dependency>
             </dependencies>
