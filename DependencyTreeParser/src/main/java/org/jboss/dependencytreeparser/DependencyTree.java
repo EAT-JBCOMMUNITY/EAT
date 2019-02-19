@@ -267,8 +267,6 @@ public class DependencyTree {
                 */
               
 
-                ArrayList<String> acceptedFieldsFromLibrary = TestsuiteParser.loadFieldsFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "classesToLoadFields.txt");
-
                 HashSet<String> availableFields = new HashSet<>();
                 HashMap<String, String> availableExtensionFields = new HashMap<>();
 
@@ -279,17 +277,6 @@ public class DependencyTree {
                     }
                 }
 
-                for (String s : acceptedFieldsFromLibrary) {
-                    if (ps.imports.contains(s)) {
-                    //    System.out.println("S : " + s);
-                        if (fields.get(s) != null) {
-                        //    System.out.println("FieldsFromFile : " + fields.get(s).toString());
-                            availableFields.addAll(fields.get(s).keySet());
-                        }// else {
-                        //    System.out.println("LLL " + fields.keySet());
-                       // }
-                    }
-                }
 
                 if (ps.extension != null) {
                     if (testData.get(ps.extension) != null) {
@@ -355,6 +342,9 @@ public class DependencyTree {
                     type = type.replaceAll("\\.RolloutPolicy", "");
                     if (!acceptedTypes.contains(type) && !availableFields.contains(type) && !classLibraries.contains(type) && !internalClasses.keySet().contains(type) && !internalClasses.get(key.toString()).contains(type) && !classes.containsKey(type)) {
                         //    System.out.println(type + "------" + classLibraries.toString());
+                        if(type.equals("org.apache.openjpa.ee.ManagedRuntime")) {
+                            System.out.println(type + " ++++ " + classes.keySet().toString());
+                        }
 
                         for (String im : classLibraries) {
                             if (im.contains(type)) {
