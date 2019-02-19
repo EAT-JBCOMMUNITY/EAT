@@ -353,7 +353,7 @@ public class DependencyTree {
                     boolean b = false;
                     type = type.replaceAll("\\.Builder", "");
                     type = type.replaceAll("\\.RolloutPolicy", "");
-                    if (!acceptedTypes.contains(type) && !availableFields.contains(type) && !classLibraries.contains(type) && !internalClasses.keySet().contains(type) && !internalClasses.get(key.toString()).contains(type)) {
+                    if (!acceptedTypes.contains(type) && !availableFields.contains(type) && !classLibraries.contains(type) && !internalClasses.keySet().contains(type) && !internalClasses.get(key.toString()).contains(type) && !classes.containsKey(type)) {
                         //    System.out.println(type + "------" + classLibraries.toString());
 
                         for (String im : classLibraries) {
