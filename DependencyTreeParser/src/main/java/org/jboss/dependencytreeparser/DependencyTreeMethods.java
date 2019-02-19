@@ -17,6 +17,7 @@ import java.lang.reflect.Modifier;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -201,6 +202,8 @@ public class DependencyTreeMethods {
                         artifacts.add(art);
                     }
 
+                 //   System.out.println("aaaaaaaa  " + art.artifactId + " " + art.groupId + " " + art.version + " " + art.type + " " + art.scope);
+                    
                     line = br.readLine();
                 }
 
@@ -297,6 +300,7 @@ public class DependencyTreeMethods {
             for (Artifact ar : artifacts) {
                 if (ar.type.contains("jar")) {
                     //    System.out.println(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
+                    jarClasses.putAll(DependencyTreeMethods.listClasses(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//") + "/" + ar.groupId + "/" + ar.version + "/" + ar.groupId + "-" + ar.version + ".jar"));
                     jarClasses.putAll(DependencyTreeMethods.listJarClasses(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//") + "/" + ar.groupId + "/" + ar.version + "/" + ar.groupId + "-" + ar.version + ".jar"));
                     jarClassPaths.putAll(listJarClassPaths(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//") + "/" + ar.groupId + "/" + ar.version + "/" + ar.groupId + "-" + ar.version + ".jar"));
                 }
@@ -794,6 +798,54 @@ public class DependencyTreeMethods {
 
         return testClasses;
     }
+    
+    private static HashMap<String, ArrayList<Class[]>> listClasses(String path) {
+        HashMap<String, ArrayList<Class[]>> classes = new HashMap<>();
+
+        try {
+            if (path != null) {
+                String dir = path.replaceAll(".jar", "");
+                dir = dir.replaceAll("//", "/");
+            //    System.out.println("dir : " +  dir);
+            
+                ArrayList<String> commands=new ArrayList<String>();
+                commands.add("mkdir");
+                commands.add("-m777");
+                commands.add(dir);
+                ProcessBuilder pb = new ProcessBuilder(commands);
+                Process p = pb.start();
+                while (p.isAlive());
+                p.destroy();
+                
+            
+                try {
+                    JarExtract.jarExtract(Paths.get(path), Paths.get(dir));
+                }catch (Exception e) {
+                //    System.out.println(dir + " already exists ...");
+                }
+                
+                if(!Files.exists(Paths.get(dir+"/jarClasses.txt"))) {
+                    commands=new ArrayList<String>();
+                    commands.add("bash");
+                    commands.add("-c");
+                    commands.add("cd " + dir + " ; find -name '*.class' > jarClasses.txt ; chmod 777 jarClasses.txt");
+                    pb = new ProcessBuilder(commands);
+                    p = pb.start();
+                    while (p.isAlive());
+                    p.destroy(); 
+                }
+
+                classes.putAll(getParsedJarClasses(dir + "/jarClasses.txt"));
+       
+            }
+        } catch (Exception e) {
+                e.printStackTrace();
+            System.out.println(path + " is not available.");
+        //    e.printStackTrace();
+        } finally {
+            return classes;
+        }
+    }
 
     private static HashMap<String, String> listJarPackages(String path, HashMap<String, String> jarPackages) {
 
@@ -869,7 +921,9 @@ public class DependencyTreeMethods {
                     JarEntry entry = (JarEntry) allEntries.nextElement();
                     String name = entry.getName();
 
-                    //        System.out.println("Entry Name 2 : " + name);
+                //    if(name.contains("openjpa"))
+                //            System.out.println("Entry Name 2 : " + name);
+                    
                     if (name.contains(".class") && !name.contains("$")) {
                         name = name.substring(0, name.lastIndexOf(".class"));
                         name = name.replaceAll("/", ".");
@@ -980,6 +1034,7 @@ public class DependencyTreeMethods {
                 String dir = path.replaceAll(".jar", "");
                 dir = dir.replaceAll("//", "/");
             //    System.out.println("dir : " +  dir);
+            
                 ArrayList<String> commands=new ArrayList<String>();
                 commands.add("mkdir");
                 commands.add("-m777");
@@ -992,6 +1047,11 @@ public class DependencyTreeMethods {
             
                 try {
                     JarExtract.jarExtract(Paths.get(path), Paths.get(dir));
+                }catch (Exception e) {
+                //    System.out.println(dir + " already exists ...");
+                }
+                
+                if(!Files.exists(Paths.get(dir+"/jarMethods.txt"))) {
                     commands=new ArrayList<String>();
                     commands.add("bash");
                     commands.add("-c");
@@ -1000,10 +1060,7 @@ public class DependencyTreeMethods {
                     p = pb.start();
                     while (p.isAlive());
                     p.destroy(); 
-                }catch (Exception e) {
-                //    System.out.println(dir + " already exists ...");
                 }
-                
            
                 
                 
@@ -1171,6 +1228,30 @@ public class DependencyTreeMethods {
         } finally {
             return classMethods;
         }
+    }
+    
+    private static HashMap<String, ArrayList<Class[]>> getParsedJarClasses(String file) {
+        HashMap<String, ArrayList<Class[]>> classes = new HashMap<>();
+        
+    //    System.out.println("file " + file);
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+
+        
+            String line = br.readLine();
+
+            while (line != null) {
+                line = line.replaceAll(".class", "");
+                line = line.replaceAll("/", ".");    
+                classes.put(line.replaceFirst("..", ""),null);
+                line = br.readLine();
+            }
+        }catch(Exception e){
+            System.out.println("getParsedJarClasses : problem with file " + file);
+        //    e.printStackTrace();
+        }
+        
+        return classes;
     }
     
     private static HashMap<String, HashMap<String, String[]>> getParsedJarMethods(String file) {
