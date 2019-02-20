@@ -52,9 +52,3 @@ Command
 Host
 Invocation.Builder
 
-org.wildfly.naming.client.WildFlyInitialContextFactory
-org.apache.log4j.Logger
-org.slf4j.Logger
-org.apache.commons.logging.Log
-org.jboss.logging.Logger
-
