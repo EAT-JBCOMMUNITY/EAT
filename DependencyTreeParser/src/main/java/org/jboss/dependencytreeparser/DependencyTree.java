@@ -134,8 +134,6 @@ public class DependencyTree {
         //    System.out.println("internalClasses size : " + internalClasses.size());
             HashMap<String, ParsedTests> testData = JavaClassParser.getTestData();
 
-            ArrayList<String> acceptedLibraries = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "libraries.txt");
-
             ArrayList<String> acceptedExpressionTranslations = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "expressionTranslations.txt");
             HashMap<String,String> expMethodMap = new HashMap<>();
             
@@ -311,12 +309,7 @@ public class DependencyTree {
 
                 if (classLibraries != null) {
                     for (String lib : classLibraries) {
-                        for (String acclib : acceptedLibraries) {
-                            if (lib.startsWith(acclib)) {
-                                availableFields.add(lib.substring(lib.lastIndexOf(".") + 1));
-                                break;
-                            }
-                        }
+       
                         for (String cl : classes.keySet()) {
                             if (cl.contains(lib)) {
                                 //    if(fields.get(cl)!=null)
@@ -354,11 +347,9 @@ public class DependencyTree {
                         }
 
                         if (!b) {
-                            for (String acclib : acceptedLibraries) {
-                                if (type.startsWith(acclib)) {
-                                    b = true;
-                                    break;
-                                }
+                            if (type.startsWith("java")) {
+                                b = true;
+                                break;
                             }
                         }
 
@@ -530,12 +521,10 @@ public class DependencyTree {
                     for(String str : ps.imports) {
                             
                         if(str.contains(methodInfo.expression)){
-                            for(String lb : acceptedLibraries){
-                                if(str.startsWith(lb)) {
-                                    acceptedMethods.add(methodInfo.methodName);
-                                    rMethods.put(methodInfo.methodName,methodInfo.expression);
-                                    added = true;
-                                }
+                            if(str.startsWith("java")) {
+                                acceptedMethods.add(methodInfo.methodName);
+                                rMethods.put(methodInfo.methodName,methodInfo.expression);
+                                added = true;
                             }
                         }
                     }
