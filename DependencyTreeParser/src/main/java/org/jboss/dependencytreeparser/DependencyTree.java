@@ -414,8 +414,6 @@ public class DependencyTree {
                 HashMap<String, String> rMethods = new HashMap<>();
                 ArrayList<String> acceptedMethods = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "methods.txt");
                 ArrayList<String> acceptedExpressions = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "expressions.txt");
-                ArrayList<String> acceptedStartWithExpressions = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "excludeStartWith.txt");
-                ArrayList<String> acceptedEndWithExpressions = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "excludeEndWith.txt");
                 Collections.reverse(ps.methodInvocations);
                 HashMap<String, HashMap<String, String[]>> methods2 = new HashMap<String, HashMap<String, String[]>>();
            //     methodsTest.putAll(DependencyTreeMethods.listUsedMethods2(ps.packageName, packages));
@@ -1185,18 +1183,14 @@ public class DependencyTree {
                     }
 
                     if (methodInfo.expression != null) {
-                        for (String s : acceptedEndWithExpressions) {
-                            if (methodInfo.expression.endsWith(s)) {
-                                acceptedMethods.add(methodInfo.methodName);
-                                rMethods.put(methodInfo.methodName, "Object");
-                            }
+                        if (methodInfo.expression.endsWith(".getClass")) {
+                            acceptedMethods.add(methodInfo.methodName);
+                            rMethods.put(methodInfo.methodName, "Object");
                         }
-
-                        for (String s : acceptedStartWithExpressions) {
-                            if (methodInfo.expression.startsWith(s) || (libName != null && libName.startsWith(s))) {
-                                acceptedMethods.add(methodInfo.methodName);
-                                rMethods.put(methodInfo.methodName, "Object");
-                            }
+                       
+                        if (methodInfo.expression.startsWith("java.") || methodInfo.expression.startsWith("javax.") || (libName != null && libName.startsWith("java.")) || (libName != null && libName.startsWith("javax."))) {
+                            acceptedMethods.add(methodInfo.methodName);
+                            rMethods.put(methodInfo.methodName, "Object");
                         }
 
                         if (acceptedExpressions.contains(methodInfo.expression)) {
