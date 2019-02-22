@@ -750,9 +750,9 @@ public class DependencyTreeMethods {
             for (Artifact ar : artifacts) {
                 if (ar.type.contains("jar")) {
                     //   System.out.println(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//")+"/"+ar.groupId+"/"+ar.version+"/"+ar.groupId + "-" + ar.version+".jar");
-                    if (ar.groupId.contains("wildfly-core-testsuite-shared") || ar.groupId.contains("wildfly-testsuite-shared")) {
+                //    if (ar.groupId.contains("wildfly-core-testsuite-shared") || ar.groupId.contains("wildfly-testsuite-shared")) {
                         testsuiteArtifactsPaths.add(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//") + "/" + ar.groupId + "/" + ar.version + "/" + ar.groupId + "-" + ar.version + ".jar");
-                    }
+                //    }
                     DependencyTreeMethods.listJarPackages(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//") + "/" + ar.groupId + "/" + ar.version + "/" + ar.groupId + "-" + ar.version + ".jar", jarPackages);
                 }
             }
@@ -1273,7 +1273,8 @@ public class DependencyTreeMethods {
                 String returnType = "";
                 String[] extensions = null;
                 String[] extensions2 = null;
-                if(record && !line.contains("private") && !line.contains("}") && !line.contains("class") && !line.contains("interface")){
+                String template = "";
+                if(record && !line.contains("private ") && !line.contains("}") && !line.contains("class ") && !line.contains("interface ")){
                     if(line.contains(")")) {
                         line = line.substring(0,line.lastIndexOf(")"));
                         params = line.substring(line.indexOf("(")+1).split(", ");
@@ -1304,18 +1305,23 @@ public class DependencyTreeMethods {
                         returnType = returnType.substring(returnType.lastIndexOf(".")+1);
                 //    System.out.println("methodName " + line + " " + methodName);
                 //    System.out.println("methodName " + line + " " + methodName);
+                    if(returnType.trim().equals("T")) {
+                        returnType = template;
+                    }
+                    
                     methods.put(methodName +"_Return_Type", new String[]{returnType});
                     
                 }
                 
-                if((line.contains("class") || line.contains("interface")) && line.contains("{")) {
+                if((line.contains("class ") || line.contains("interface ")) && line.contains("{")) {
             //        if(line.contains("DomainDeploymentManager"))
             //            System.out.println("Found ..................");
                     record = true;
-                    if(line.contains("class"))
+                    template = "";
+                    if(line.contains("class "))
                         className = line.substring(line.indexOf("class")+6);
                     
-                    if(line.contains("interface"))
+                    if(line.contains("interface "))
                         className = line.substring(line.indexOf("interface")+10);
                     
                 //    System.out.println("className " + className);
@@ -1354,8 +1360,11 @@ public class DependencyTreeMethods {
                     
                     if(className.contains(" "))
                         className = className.substring(0,className.indexOf(" "));
-                    if(className.contains("<"))
+                    if(className.contains("<")) {
+                        template = className.substring(className.indexOf("<")+1);
+                        template = template.replaceAll(">", "");
                         className = className.substring(0,className.indexOf("<"));
+                    }
                     
                     methods = new HashMap<>();
                     
