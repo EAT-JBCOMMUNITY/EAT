@@ -541,7 +541,7 @@ public class TestsuiteParser {
                                     arg = "Boolean";
                                 else if(arg.contains("TimeUnit.SECONDS"))
                                     arg = "Numeric";
-                                else if(arg.contains(".class"))
+                                else if(arg.contains(".class") && !arg.contains(".className"))
                                     arg = arg.replaceAll(".class", "");
                                 else if(arg.startsWith("new ")){
                                     arg = arg.replaceAll("new ", "");
@@ -612,7 +612,7 @@ public class TestsuiteParser {
                                     arg = "Boolean";
                             else if(arg.contains("TimeUnit.SECONDS"))
                                 arg = "Numeric";
-                            else if(arg.contains(".class"))
+                            else if(arg.contains(".class") && !arg.contains(".className"))
                                 arg = arg.replaceAll(".class", "");
                             else if(arg.startsWith("new ")){
                                 arg = arg.replaceAll("new ", "");
@@ -724,7 +724,7 @@ public class TestsuiteParser {
                                 arg = "Boolean";
                             else if(arg.contains("TimeUnit.SECONDS"))
                                 arg = "Numeric";
-                            else if(arg.contains(".class"))
+                            else if(arg.contains(".class") && !arg.contains(".className"))
                                 arg = arg.replaceAll(".class", "");
                             else if(arg.startsWith("new ")){
                                 arg = arg.replaceAll("new ", "");
