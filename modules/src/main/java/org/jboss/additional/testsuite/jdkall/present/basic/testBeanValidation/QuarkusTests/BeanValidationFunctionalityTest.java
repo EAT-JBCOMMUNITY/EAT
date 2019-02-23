@@ -3,7 +3,7 @@ package org.jboss.additional.testsuite.jdkall.present.basic.testBeanValidation;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 
-import org.jboss.shamrock.test.junit.ShamrockTest;
+import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 import io.restassured.RestAssured;
@@ -13,8 +13,8 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
  * Test various Bean Validation operations running in Shamrock
  */
 
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Protean/basic/test-configurations/src/test/java#0.9.1**0.9.1"})
-@ShamrockTest
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Protean/basic/test-configurations2/src/test/java#1.0.0"})
+@QuarkusTest
 public class BeanValidationFunctionalityTest {
 
     @Test

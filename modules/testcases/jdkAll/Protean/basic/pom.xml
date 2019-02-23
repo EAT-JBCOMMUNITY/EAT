@@ -18,9 +18,37 @@
     <packaging>pom</packaging>
     <name>protean additional testsuite: basic</name>
 
-            
-    <modules>
-        <module>test-configurations</module>
-    </modules>
+             
+    <profiles>
+
+        <profile>
+            <id>quarkus</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>!0.9.1</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>test-configurations2</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>shamrock</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>0.9.1</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>test-configurations</module>
+            </modules>
+        </profile>
+
+    </profiles>
 
 </project>

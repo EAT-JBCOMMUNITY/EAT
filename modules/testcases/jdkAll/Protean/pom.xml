@@ -27,12 +27,74 @@
     </properties>
 
     <profiles>
+
         <profile>
-            <id>native</id>
+            <id>quarkus</id>
             <activation>
                 <property>
-                    <name>native</name>
-                    <value>true</value>
+                    <name>JBOSS_VERSION</name>
+                    <value>!0.9.1</value>
+                </property>
+            </activation>
+
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>io.quarkus</groupId>
+                        <artifactId>quarkus-build-parent</artifactId>
+                        <type>pom</type>
+                        <version>${protean.version}</version>
+                        <scope>import</scope>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
+
+            <dependencies>
+		<dependency>
+		    <groupId>io.quarkus</groupId>
+		    <artifactId>quarkus-hibernate-validator-deployment</artifactId>
+                    <scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>io.quarkus</groupId>
+		    <artifactId>quarkus-arc-deployment</artifactId>
+                    <scope>provided</scope>
+		</dependency>
+
+		<!-- EL implementation -->
+		<dependency>
+		   <groupId>org.glassfish</groupId>
+		   <artifactId>javax.el</artifactId>
+                   <version>3.0.1-b09</version>
+		</dependency>
+
+		<!-- test dependencies -->
+		<dependency>
+		    <groupId>io.quarkus</groupId>
+		    <artifactId>quarkus-junit5</artifactId>
+                    <scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>io.rest-assured</groupId>
+		    <artifactId>rest-assured</artifactId>
+                    <scope>provided</scope>
+		</dependency>
+
+                <dependency>
+		    <groupId>io.quarkus</groupId>
+		    <artifactId>quarkus-resteasy-deployment</artifactId>
+                    <scope>provided</scope>
+		</dependency>
+            </dependencies>
+
+        </profile>
+
+        <profile>
+            <id>shamrock</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>0.9.1</value>
                 </property>
             </activation>
 
@@ -54,6 +116,7 @@
 		    <artifactId>shamrock-hibernate-validator-deployment</artifactId>
                     <scope>provided</scope>
 		</dependency>
+
 		<dependency>
 		    <groupId>org.jboss.shamrock</groupId>
 		    <artifactId>shamrock-arc-deployment</artifactId>
@@ -73,99 +136,13 @@
 		    <artifactId>shamrock-junit5</artifactId>
                     <scope>provided</scope>
 		</dependency>
+
 		<dependency>
 		    <groupId>io.rest-assured</groupId>
 		    <artifactId>rest-assured</artifactId>
                     <scope>provided</scope>
 		</dependency>
-            </dependencies>
 
-        </profile>
-
-        <profile>
-            <id>no-native</id>
-            <activation>
-                <property>
-                    <name>no-native</name>
-                    <value>true</value>
-                </property>
-            </activation>
-
-            <dependencyManagement>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.jboss.shamrock</groupId>
-                        <artifactId>shamrock-build-parent</artifactId>
-                        <type>pom</type>
-                        <version>${JBOSS_VERSION}</version>
-                        <scope>import</scope>
-                    </dependency>
-                </dependencies>
-            </dependencyManagement>
-
-            <dependencies>
-		<dependency>
-		    <groupId>org.jboss.shamrock</groupId>
-		    <artifactId>shamrock-hibernate-validator-deployment</artifactId>
-                    <scope>provided</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.shamrock</groupId>
-		    <artifactId>shamrock-arc-deployment</artifactId>
-                    <scope>provided</scope>
-		</dependency>
-
-		<!-- EL implementation -->
-		<dependency>
-		   <groupId>org.glassfish</groupId>
-		   <artifactId>javax.el</artifactId>
-		   <version>3.0.1-b09</version>
-		</dependency>
-
-		<!-- test dependencies -->
-		<dependency>
-		    <groupId>org.jboss.shamrock</groupId>
-		    <artifactId>shamrock-junit5</artifactId>
-                    <scope>provided</scope>
-		</dependency>
-		<dependency>
-		    <groupId>io.rest-assured</groupId>
-		    <artifactId>rest-assured</artifactId>
-                    <scope>provided</scope>
-		</dependency>
-            </dependencies>
-
-        </profile>
-
-        <profile>
-            <id>add-deps-resteasy</id>
-            <activation>
-                <property>
-                    <name>JBOSS_VERSION</name>
-                    <value>!0.9.1</value>
-                </property>
-            </activation>
-
-            <dependencies>
-                <dependency>
-		    <groupId>org.jboss.shamrock</groupId>
-		    <artifactId>shamrock-resteasy-deployment</artifactId>
-                    <scope>provided</scope>
-		</dependency>
-            </dependencies>
-
-        </profile>
-
-        <profile>
-            <id>add-deps-jaxrs</id>
-            <activation>
-                <property>
-                    <name>JBOSS_VERSION</name>
-                    <value>0.9.1</value>
-                </property>
-            </activation>
-
-            <dependencies>
                 <dependency>
 		    <groupId>org.jboss.shamrock</groupId>
 		    <artifactId>shamrock-jaxrs-deployment</artifactId>
