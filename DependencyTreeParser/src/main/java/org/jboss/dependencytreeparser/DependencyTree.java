@@ -780,13 +780,11 @@ public class DependencyTree {
                                                 String rt = longExpression.get(1) + "_Return_Type";
                                                 if(methods2.get(s).get(rt)!=null){
                                                 //    System.out.println("iii" + longExpression.get(0) + " " + longExpression.get(1) + " " + methods2.get(s).containsKey(longExpression.get(1) + "_Return_Type") + " " + methodInfo.methodName);
-                                                    String exp1 = longExpression.remove(0);
+                                                    longExpression.remove(0);
                                                     String exp = longExpression.remove(0);
                                                 //    System.out.println("exp " + exp + " " + s + " " + methods2.get(s)!=null);
                                                     if(methods2.get(s).get(exp + "_Return_Type")[0]!=null) {
-                                                        if(exp.compareTo("addClasses")==0 || exp.compareTo("addClass")==0)
-                                                            longExpression.add(0,exp1);
-                                                        else if (methods2.get(s) != null && methods2.get(s).get(exp + "_Return_Type") != null && methods2.get(s).get(exp + "_Return_Type")[0].toString().contains("class ")) {
+                                                        if (methods2.get(s) != null && methods2.get(s).get(exp + "_Return_Type") != null && methods2.get(s).get(exp + "_Return_Type")[0].toString().contains("class ")) {
                                                             longExpression.add(0, methods2.get(s).get(exp + "_Return_Type")[0].toString().replaceAll("class ", ""));
                                                         } else if (methods2.get(s) != null && methods2.get(s).get(exp + "_Return_Type") != null && methods2.get(s).get(exp + "_Return_Type")[0].toString().contains("interface ")) {
                                                             longExpression.add(0, methods2.get(s).get(exp + "_Return_Type")[0].toString().replaceAll("interface ", ""));
@@ -1007,14 +1005,12 @@ public class DependencyTree {
                                                     if(methods.get(s).get(rt)!=null){
                                                     //    if(methodInfo.methodName.contains("className"))
                                                     //        System.out.println("iii" + longExpression.get(0) + " " + longExpression.get(1) + " " + methods.get(s).containsKey(longExpression.get(1) + "_Return_Type") + " " + methodInfo.methodName);
-                                                        String exp1 = longExpression.remove(0);
+                                                        longExpression.remove(0);
                                                         String exp = longExpression.remove(0);
                                                    //     if(methodInfo.methodName.contains("className"))
                                                     //        System.out.println("exp " + exp + " " + s + " " + methods2.get(s)!=null);
                                                         if(methods.get(s).get(exp + "_Return_Type")[0]!=null) {
-                                                            if(exp.compareTo("addClasses")==0 || exp.compareTo("addClass")==0)
-                                                                longExpression.add(0,exp1);
-                                                            else if (methods.get(s) != null && methods.get(s).get(exp + "_Return_Type") != null && methods.get(s).get(exp + "_Return_Type")[0].toString().contains("class ")) {
+                                                            if (methods.get(s) != null && methods.get(s).get(exp + "_Return_Type") != null && methods.get(s).get(exp + "_Return_Type")[0].toString().contains("class ")) {
                                                                 longExpression.add(0, methods.get(s).get(exp + "_Return_Type")[0].toString().replaceAll("class ", ""));
                                                             } else if (methods.get(s) != null && methods.get(s).get(exp + "_Return_Type") != null && methods.get(s).get(exp + "_Return_Type")[0].toString().contains("interface ")) {
                                                                 longExpression.add(0, methods.get(s).get(exp + "_Return_Type")[0].toString().replaceAll("interface ", ""));
