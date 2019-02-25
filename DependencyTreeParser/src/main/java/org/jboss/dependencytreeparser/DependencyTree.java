@@ -331,13 +331,13 @@ public class DependencyTree {
                 //    System.out.println(acceptedTypes.toString());
                 for (String type : ps.types) {
                     boolean b = false;
-                    type = type.replaceAll("\\.Builder", "");
-                    type = type.replaceAll("\\.RolloutPolicy", "");
+                //    type = type.replaceAll("\\.Builder", "");
+                //    type = type.replaceAll("\\.RolloutPolicy", "");
                     if (!acceptedTypes.contains(type) && !availableFields.contains(type) && !classLibraries.contains(type) && !internalClasses.keySet().contains(type) && !internalClasses.get(key.toString()).contains(type) && !classes.containsKey(type)) {
                         //    System.out.println(type + "------" + classLibraries.toString());
-                        if(type.equals("org.apache.openjpa.ee.ManagedRuntime")) {
+                     //   if(type.equals("org.apache.openjpa.ee.ManagedRuntime")) {
                      //       System.out.println(type + " ++++ " + classes.keySet().toString());
-                        }
+                     //   }
 
                         for (String im : classLibraries) {
                             if (im.contains(type)) {
@@ -362,6 +362,15 @@ public class DependencyTree {
                                 }
                             }
                         }
+                        
+                        if (!b) {
+                            for(String s : classes.keySet()){
+                                if(s.contains(type) || s.contains(type.replaceFirst("\\.", "\\$"))){
+                                    b = true;
+                                    break;
+                                }
+                            }
+                        }
 
                         if (!b) {
                        //     System.out.println(type + "------");
@@ -372,7 +381,7 @@ public class DependencyTree {
                     }
 
                 }
-           //     System.out.println("Types Not Resolved : ==========");
+            //    System.out.println("Types Not Resolved : ==========");
                 for (String typeNotResolved : ps.typesNotResolved) {
                     boolean b = false;
                     if (!acceptedTypes.contains(typeNotResolved) && !availableFields.contains(typeNotResolved) && !classLibraries.contains(typeNotResolved) && !internalClasses.keySet().contains(typeNotResolved) && !internalClasses.get(key.toString()).contains(typeNotResolved)) {
@@ -392,9 +401,19 @@ public class DependencyTree {
                                 }
                             }
                         }
-
+                        
+                /*        if (!b) {
+                            System.out.println("++++ " + typeNotResolved);
+                            for(String s : classes.keySet()){
+                                if(s.contains(typeNotResolved) || s.contains(typeNotResolved.replaceFirst(".", "$"))){
+                                    b = true;
+                                    break;
+                                }
+                            }
+                        }
+                    */
                         if (!b) {
-                      //      System.out.println(typeNotResolved + "------");
+                        //    System.out.println(typeNotResolved + "------");
                             if(TypesNR.get(key)==null)
                                 TypesNR.put(key,new ArrayList<>());
                             TypesNR.get(key).add(typeNotResolved);
