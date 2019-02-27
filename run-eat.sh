@@ -61,8 +61,6 @@ fi
 if [ ! -e "${MAVEN_HOME}" ]; then
   echo "Provided MAVEN_HOME does not exist: ${MAVEN_HOME}"
   exit 3
-else
-  export PATH="${MAVEN_HOME}/bin:${PATH}"
 fi
 
 if [ ! -d "${MAVEN_HOME}" ]; then
@@ -105,8 +103,10 @@ fi
 # Setting up maven
 #
 
-export MAVEN_HOME
-export PATH="${MAVEN_HOME}/bin:${PATH}"
+if [ -d "${MAVEN_HOME}/bin" ]; then
+  export MAVEN_HOME
+  export PATH="${MAVEN_HOME}/bin:${PATH}"
+fi
 
 export MAVEN_OPTS="${MAVEN_OPTS} -Dmaven.wagon.http.pool=false"
 export MAVEN_OPTS="${MAVEN_OPTS} -Dmaven.wagon.httpconnectionManager.maxPerRoute=3"
