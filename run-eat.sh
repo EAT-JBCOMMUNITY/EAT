@@ -21,7 +21,8 @@ usage() {
   echo 'The following parameter can be overridden if needed:'
   echo '- JBOSS_VERSION, set the version used for labelling jar dependencies associate to the AS version.'
   echo '- NAME_PREFIX, default to 'jboss-eap' if not specified.'
-  echo "- MAVEN_LOCAL_REPOSITORY, path to a local mave repository to use for dependencies."
+  echo '- MAVEN_LOCAL_REPOSITORY, path to a local mave repository to use for dependencies.'
+  echo '- SETTINGS_XML, path to custom settings.xml, default to ./settings.xml'
 }
 
 assertJBossASVersion() {
