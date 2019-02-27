@@ -21,7 +21,8 @@ usage() {
   echo 'The following parameter can be overridden if needed:'
   echo '- JBOSS_VERSION, set the version used for labelling jar dependencies associate to the AS version.'
   echo '- NAME_PREFIX, default to 'jboss-eap' if not specified.'
-  echo "- MAVEN_LOCAL_REPOSITORY, path to a local mave repository to use for dependencies."
+  echo '- MAVEN_LOCAL_REPOSITORY, path to a local mave repository to use for dependencies.'
+  echo '- SETTINGS_XML, path to custom settings.xml, default to ./settings.xml'
 }
 
 assertJBossASVersion() {
@@ -60,8 +61,6 @@ fi
 if [ ! -e "${MAVEN_HOME}" ]; then
   echo "Provided MAVEN_HOME does not exist: ${MAVEN_HOME}"
   exit 3
-else
-  export PATH="${MAVEN_HOME}/bin:${PATH}"
 fi
 
 if [ ! -d "${MAVEN_HOME}" ]; then
@@ -104,8 +103,10 @@ fi
 # Setting up maven
 #
 
-export MAVEN_HOME
-export PATH="${MAVEN_HOME}/bin:${PATH}"
+if [ -d "${MAVEN_HOME}/bin" ]; then
+  export MAVEN_HOME
+  export PATH="${MAVEN_HOME}/bin:${PATH}"
+fi
 
 export MAVEN_OPTS="${MAVEN_OPTS} -Dmaven.wagon.http.pool=false"
 export MAVEN_OPTS="${MAVEN_OPTS} -Dmaven.wagon.httpconnectionManager.maxPerRoute=3"
