@@ -487,21 +487,15 @@ public class DependencyTree {
             //    System.out.println("methods2 : " + methods2.keySet());
             //    System.out.println("ps.imports : " + ps.imports.toString());
                 for (MethodInfo methodInfo : ps.methodInvocations) {
-                //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                //        System.out.println("methodInfo.expression : " + methodInfo.expression + " " + availableExtensionFields.toString());
                     
                     if (methodInfo.expression != null && availableExtensionFields.keySet().contains(methodInfo.expression)) {
                         methodInfo.expression = availableExtensionFields.get(methodInfo.expression);
                     } else if (methodInfo.expression != null && availableImportFields.keySet().contains(methodInfo.expression)) {
                         acceptedMethods.add(methodInfo.methodName);
                     }
-                //   if(methodInfo.methodName.contains("withDefaultRealm")) 
-                //       System.out.println("methodInfo.expression after : " + methodInfo.expression);
 
                     if (methodInfo.expression != null) {
                         for (String s : rMethods.keySet()) {
-                //            if(methodInfo.methodName.contains("withDefaultRealm")) 
-                //                System.out.println("methodInfo.expression sss : " + methodInfo.expression + " sss : " + s);
                             String lastPart = methodInfo.expression;
                             if(methodInfo.expression.contains("."))
                                 lastPart = methodInfo.expression.substring(methodInfo.expression.lastIndexOf(".")+1);
@@ -525,8 +519,6 @@ public class DependencyTree {
                             }
                         }
                     }
-                //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                //        System.out.println("methodInfo.expression after 2 : " + methodInfo.expression);
                     
                     if(methodInfo.expression!=null && methodInfo.expression.contains(".")){
                         String outcome = resolveMethods(methodInfo.expression.substring(0, methodInfo.expression.indexOf(".")), methodInfo.expression.substring(methodInfo.expression.indexOf(".")+1), methods);
@@ -549,8 +541,6 @@ public class DependencyTree {
                         }
                     }
                     
-                //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                //        System.out.println("methodInfo.expression after 3 : " + methodInfo.expression);
                     
                     if (methodInfo.expression != null && !methodInfo.expression.equals("") && !added) {
                         if(methodInfo.expression.endsWith("]")){
@@ -566,8 +556,6 @@ public class DependencyTree {
                         if(methods.keySet().contains(methodInfo.expression)) {
                             methods2.put(methodInfo.expression, methods.get(methodInfo.expression));
                         }
-                    //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                    //        System.out.println("methodInfo.expression : " + methodInfo.expression);
                         for (String s : methods2.keySet()) {
                             
                             String s1=s;
@@ -619,16 +607,12 @@ public class DependencyTree {
                                 String firstEl = longExpression.get(0);
                                 if(firstEl.contains("(")){
                                     firstEl = firstEl.substring(0,firstEl.indexOf("("));
-                                //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                //        System.out.println("firstEl : " + firstEl);
                                 }
                                 for(String im : ps.imports){
                                     if(im.endsWith("." + firstEl)){
                                      //   String exp = longExpression.remove(0);
                                         String rep = im.replaceAll("." + firstEl, "");
                                         longExpression.add(0, rep.substring(rep.lastIndexOf(".")+1));
-                                    //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                    //        System.out.println("aaa " + longExpression.get(0));
                                     }
                                 }
                             }
@@ -648,8 +632,6 @@ public class DependencyTree {
                             
                             
                             if(longExpression.size()>1) {
-                            //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                            //        System.out.println("RT1 : " + longExpression.get(0));
                                 if(longExpression.get(0).contains("<")){
                                      String exp = longExpression.remove(0);
                                      longExpression.add(0,exp.substring(0,exp.indexOf("<")));
@@ -665,8 +647,6 @@ public class DependencyTree {
                                 int prevSize =  Integer.MAX_VALUE;
                                 while(longExpression.size()>1 && longExpression.size()<prevSize) {
                                     prevSize =  longExpression.size();
-                                //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                //        System.out.println("ooo : " + " " + methodInfo.methodName);
                                     if(longExpression.get(0).compareTo("class")==0 || longExpression.get(1).compareTo("class")==0 || longExpression.get(0).compareTo("System")==0 || longExpression.get(0).compareTo("TimeUnit")==0){
                                         acceptedMethods.add(methodInfo.methodName);
                                         break;
@@ -675,8 +655,6 @@ public class DependencyTree {
                                     boolean breakValue = false;
                                     
                                     for (String s : methods2.keySet()) {
-                                    //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                    //        System.out.println("ooo2 : " + " " + methodInfo.methodName);
                                         String s1=s;
                                    //     if (s.contains("$")) {
                                    //         s1 = s.substring(0, s.indexOf("$"));
@@ -684,8 +662,6 @@ public class DependencyTree {
                                     //    if(longExpression.size()>1)
                                     //        System.out.println("xxz" + longExpression.get(0) + " " + longExpression.get(1));
                                         if(longExpression.size()>1){
-                                        //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                        //        System.out.println("ooo3 : " + " " + methodInfo.methodName);
                                             if(longExpression.get(1).contains("(")){
                                                 if(!longExpression.get(1).startsWith("as(") && !longExpression.get(1).startsWith("create(") && !longExpression.get(0).equals("ShrinkWrap")) {
                                                     if(!longExpression.get(1).contains(")")){
@@ -699,8 +675,6 @@ public class DependencyTree {
                                                     String exp = longExpression.remove(1);
                                                     longExpression.add(1,exp.substring(0,exp.indexOf("(")));
                                                 }else{
-                                                //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                //        System.out.println("RT1 : " + longExpression.get(0));
                                                     String exp = longExpression.remove(1);
                                                     longExpression.add(1,exp.substring(exp.indexOf("(")+1));
                                                     
@@ -721,8 +695,6 @@ public class DependencyTree {
                                         while(longExpression.size()>1 && (longExpression.get(1).contains(")") && !longExpression.get(1).contains("(") || (longExpression.get(1).contains("\""))))
                                                 longExpression.remove(1);
 */
-                                    //  if(methodInfo.methodName.contains("withDefaultRealm"))
-                                    //        System.out.println("eee " + s1 + " " + longExpression.get(0) + " " + s1.endsWith(longExpression.get(0)));
                                         if(longExpression.size()>1 && longExpression.get(0).length()>0 && Character.isUpperCase(longExpression.get(0).charAt(0)) && Character.isUpperCase(longExpression.get(1).charAt(0)) && !Character.isUpperCase(longExpression.get(1).charAt(1))){
                                             String exp1 = longExpression.remove(0);
                                             String exp2 = longExpression.remove(0);
@@ -736,8 +708,6 @@ public class DependencyTree {
                                         if (longExpression.size()>1) {
                                             
                                             if(s1.endsWith(longExpression.get(0)) ) {
-                                            //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                            //        System.out.println("s1 " + s1);
                                                 if(longExpression.get(1).contains("(")){
 
                                                     if(!longExpression.get(1).startsWith("as(") && !longExpression.get(1).startsWith("create(") && !longExpression.get(0).equals("ShrinkWrap")) {
@@ -751,8 +721,6 @@ public class DependencyTree {
                                                         String exp = longExpression.remove(1);
                                                         longExpression.add(1,exp.substring(0,exp.indexOf("(")));
                                                     }else{
-                                                    //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                    //        System.out.println("RT1 : " + longExpression.get(0));
                                                         String exp = longExpression.remove(1);
                                                         longExpression.add(1,exp.substring(exp.indexOf("(")+1));
                                                         
@@ -763,8 +731,6 @@ public class DependencyTree {
                                                             longExpression.remove(2);
                                                         }
                                                         longExpression.remove(0);
-                                                    //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                    //        System.out.println("RT2 : " + longExpression.get(0) + " " + methodInfo.methodName);
                                                     }
                                                 }
                                                 if(longExpression.get(0).contains("<")){
@@ -775,8 +741,6 @@ public class DependencyTree {
                                                     String exp = longExpression.remove(1);
                                                     longExpression.add(1,exp.substring(0,exp.indexOf("<")));
                                                 }
-                                            //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                            //        System.out.println("iii" + longExpression.get(0) + " " + longExpression.get(1) + " " + methods2.get(s).containsKey(longExpression.get(1) + "_Return_Type") + " " + s);
                                                 String rt = longExpression.get(1) + "_Return_Type";
                                                 if(methods2.get(s).get(rt)!=null){
                                                 //    System.out.println("iii" + longExpression.get(0) + " " + longExpression.get(1) + " " + methods2.get(s).containsKey(longExpression.get(1) + "_Return_Type") + " " + methodInfo.methodName);
@@ -803,30 +767,20 @@ public class DependencyTree {
                                                                 exp = longExpression.remove(1);
                                                                 longExpression.add(1,exp.substring(0,exp.indexOf("(")));
                                                                 if(!exp.contains(")")){
-                                                                //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                                //        System.out.println("zzz : " + exp + " " + longExpression.get(1)+ " " + methodInfo.methodName);
                                                                     while(longExpression.size()>2 && (!longExpression.get(2).contains(")") || (longExpression.get(2).contains("(") && longExpression.get(2).contains(")")))){
                                                                         longExpression.remove(2);
-                                                                }
-                                                                //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                                //        System.out.println("zzz2 : " + exp + " " + longExpression.get(1) + " " + methodInfo.methodName);
+                                                                    }
                                                                 }
                                                                 if(longExpression.size()>2 && longExpression.get(2).contains(")") && !longExpression.get(2).contains("("))
                                                                     longExpression.remove(2);
                                                                 
                                                             }
                                                             if(expMethodMap.containsKey(longExpression.get(1))){
-                                                            //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                            //        System.out.println("RTTK : " + longExpression.get(0) + " " + longExpression.get(1) + " " + methodInfo.methodName);
                                                                 longExpression.remove(0);
                                                                 exp=longExpression.remove(0);
                                                                 longExpression.add(0,expMethodMap.get(exp));
-                                                            //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                            //        System.out.println("yyy : " + exp + " " + expMethodMap.get(exp));
                                                             }
                                                         }
-                                                    //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                    //        System.out.println("RTT : " + longExpression.get(0) + " " + methodInfo.methodName);
                                                     }
 
                                                 }else if(longExpression.size()>1){
@@ -835,12 +789,8 @@ public class DependencyTree {
                                                         String exp = longExpression.remove(1);
                                                         longExpression.add(1,exp.substring(0,exp.indexOf("(")));
                                                         if(!exp.contains(")")){
-                                                        //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                        //       System.out.println("zzz : " + exp + " " + longExpression.get(1)+ " " + methodInfo.methodName);
                                                             while(longExpression.size()>2 && !longExpression.get(2).contains(")"))
                                                                 longExpression.remove(2);
-                                                        //        if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                        //            System.out.println("zzz2 : " + exp + " " + longExpression.get(1) + " " + methodInfo.methodName);
                                                         }
                                                         if(longExpression.size()>2 && longExpression.get(2).contains(")") && !longExpression.get(2).contains("("))
                                                             longExpression.remove(2);
@@ -851,8 +801,6 @@ public class DependencyTree {
                                                         longExpression.remove(0);
                                                         String exp = longExpression.remove(0);
                                                         longExpression.add(0,lfields.get(exp));
-                                                    //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                    //        System.out.println("zzz2 : " + exp + " " + longExpression.get(0) + " " + methodInfo.methodName);
                                                         if(longExpression.size()>0 && longExpression.get(0).contains("<")){
                                                             exp = longExpression.remove(0);
                                                             longExpression.add(0,exp.substring(0,exp.indexOf("<")));
@@ -864,13 +812,9 @@ public class DependencyTree {
                                                     }
                                                     
                                                     if(longExpression.size()>1 && expMethodMap.containsKey(longExpression.get(1))){
-                                                    //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                    //        System.out.println("RTTK : " + longExpression.get(0) + " " + longExpression.get(1) + " " + methodInfo.methodName);
                                                         longExpression.remove(0);
                                                         String exp=longExpression.remove(0);
                                                         longExpression.add(0,expMethodMap.get(exp));
-                                                    //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                    //        System.out.println("yyy : " + exp + " " + expMethodMap.get(exp));
                                                     }
                                                    
                                                 }
@@ -889,8 +833,6 @@ public class DependencyTree {
                                 if(longExpression.size()>1){
                                     while(longExpression.size()>1 && longExpression.size()<prevSize) {
                                         prevSize =  longExpression.size();
-                                    //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                    //        System.out.println("ooo : " + " " + methodInfo.methodName);
                                         if(longExpression.get(0).compareTo("class")==0 || longExpression.get(1).compareTo("class")==0 || longExpression.get(0).compareTo("System")==0 || longExpression.get(0).compareTo("TimeUnit")==0){
                                             acceptedMethods.add(methodInfo.methodName);
                                             break;
@@ -899,8 +841,6 @@ public class DependencyTree {
                                         boolean breakValue = false;
 
                                         for (String s : methods.keySet()) {
-                                        //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                        //        System.out.println("ooo2 : " + " " + methodInfo.methodName);
                                             String s1=s;
                                        //     if (s.contains("$")) {
                                        //         s1 = s.substring(0, s.indexOf("$"));
@@ -908,8 +848,6 @@ public class DependencyTree {
                                         //    if(longExpression.size()>1)
                                         //        System.out.println("xxz" + longExpression.get(0) + " " + longExpression.get(1));
                                             if(longExpression.size()>1){
-                                            //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                            //        System.out.println("ooo3 : " + " " + methodInfo.methodName);
                                                 if(longExpression.get(1).contains("(")){
                                                     if(!longExpression.get(1).startsWith("as(") && !longExpression.get(1).startsWith("create(") && !longExpression.get(0).equals("ShrinkWrap")) {
                                                         if(!longExpression.get(1).contains(")")){
@@ -923,8 +861,6 @@ public class DependencyTree {
                                                         String exp = longExpression.remove(1);
                                                         longExpression.add(1,exp.substring(0,exp.indexOf("(")));
                                                     }else{
-                                                    //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                    //        System.out.println("RT1 : " + longExpression.get(0));
                                                         String exp = longExpression.remove(1);
                                                         longExpression.add(1,exp.substring(exp.indexOf("(")+1));
 
@@ -945,8 +881,6 @@ public class DependencyTree {
                                             while(longExpression.size()>1 && (longExpression.get(1).contains(")") && !longExpression.get(1).contains("(") || (longExpression.get(1).contains("\""))))
                                                     longExpression.remove(1);
     */
-                                        //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                        //        System.out.println("eee " + s1 + " " + longExpression.get(0) + " " + s1.endsWith(longExpression.get(0)));
                                             if(longExpression.size()>1 && longExpression.get(0).length()>0 && Character.isUpperCase(longExpression.get(0).charAt(0)) && Character.isUpperCase(longExpression.get(1).charAt(0)) && !Character.isUpperCase(longExpression.get(1).charAt(1))){
                                                 String exp1 = longExpression.remove(0);
                                                 String exp2 = longExpression.remove(0);
@@ -961,8 +895,6 @@ public class DependencyTree {
                                             if (longExpression.size()>1) {
 
                                                 if(s1.endsWith(longExpression.get(0)) ) {
-                                                //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                //        System.out.println("s1 " + s1);
                                                     if(longExpression.get(1).contains("(")){
 
                                                         if(!longExpression.get(1).startsWith("as(") && !longExpression.get(1).startsWith("create(") && !longExpression.get(0).equals("ShrinkWrap")) {
@@ -976,8 +908,6 @@ public class DependencyTree {
                                                             String exp = longExpression.remove(1);
                                                             longExpression.add(1,exp.substring(0,exp.indexOf("(")));
                                                         }else{
-                                                        //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                        //        System.out.println("RT1 : " + longExpression.get(0));
                                                             String exp = longExpression.remove(1);
                                                             longExpression.add(1,exp.substring(exp.indexOf("(")+1));
 
@@ -988,8 +918,6 @@ public class DependencyTree {
                                                                 longExpression.remove(2);
                                                             }
                                                             longExpression.remove(0);
-                                                        //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                        //        System.out.println("RT2 : " + longExpression.get(0) + " " + methodInfo.methodName);
                                                         }
                                                     }
                                                     if(longExpression.get(0).contains("<")){
@@ -1003,12 +931,8 @@ public class DependencyTree {
                                                 //    System.out.println("iii" + longExpression.get(0) + " " + longExpression.get(1) + " " + methods2.get(s).containsKey(longExpression.get(1) + "_Return_Type") + " " + s);
                                                     String rt = longExpression.get(1) + "_Return_Type";
                                                     if(methods.get(s).get(rt)!=null){
-                                                    //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                    //        System.out.println("iii" + longExpression.get(0) + " " + longExpression.get(1) + " " + methods.get(s).containsKey(longExpression.get(1) + "_Return_Type") + " " + methodInfo.methodName);
                                                         longExpression.remove(0);
                                                         String exp = longExpression.remove(0);
-                                                    //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                    //        System.out.println("exp " + exp + " " + s + " " + methods2.get(s)!=null);
                                                         if(methods.get(s).get(exp + "_Return_Type")[0]!=null) {
                                                             if (methods.get(s) != null && methods.get(s).get(exp + "_Return_Type") != null && methods.get(s).get(exp + "_Return_Type")[0].toString().contains("class ")) {
                                                                 longExpression.add(0, methods.get(s).get(exp + "_Return_Type")[0].toString().replaceAll("class ", ""));
@@ -1029,30 +953,20 @@ public class DependencyTree {
                                                                     exp = longExpression.remove(1);
                                                                     longExpression.add(1,exp.substring(0,exp.indexOf("(")));
                                                                     if(!exp.contains(")")){
-                                                                    //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                                    //        System.out.println("zzz : " + exp + " " + longExpression.get(1)+ " " + methodInfo.methodName);
                                                                         while(longExpression.size()>2 && (!longExpression.get(2).contains(")") || (longExpression.get(2).contains("(") && longExpression.get(2).contains(")")))){
                                                                             longExpression.remove(2);
                                                                     } 
-                                                                    //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                                    //        System.out.println("zzz2 : " + exp + " " + longExpression.get(1) + " " + methodInfo.methodName);
                                                                     }
                                                                     if(longExpression.size()>2 && longExpression.get(2).contains(")") && !longExpression.get(2).contains("("))
                                                                         longExpression.remove(2);
 
                                                                 }
                                                                 if(expMethodMap.containsKey(longExpression.get(1))){
-                                                                //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                                //        System.out.println("RTTK : " + longExpression.get(0) + " " + longExpression.get(1) + " " + methodInfo.methodName);
                                                                     longExpression.remove(0);
                                                                     exp=longExpression.remove(0);
                                                                     longExpression.add(0,expMethodMap.get(exp));
-                                                                //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                                 //       System.out.println("yyy : " + exp + " " + expMethodMap.get(exp));
                                                                 }
                                                             }
-                                                            if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                                System.out.println("RTT : " + longExpression.get(0) + " " + methodInfo.methodName);
                                                         }
 
                                                     }else if(longExpression.size()>1){
@@ -1060,12 +974,8 @@ public class DependencyTree {
                                                             String exp = longExpression.remove(1);
                                                             longExpression.add(1,exp.substring(0,exp.indexOf("(")));
                                                             if(!exp.contains(")")){
-                                                           //     if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                            //       System.out.println("zzz : " + exp + " " + longExpression.get(1)+ " " + methodInfo.methodName);
                                                                 while(longExpression.size()>2 && !longExpression.get(2).contains(")"))
                                                                     longExpression.remove(2);
-                                                            //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                            //        System.out.println("zzz2 : " + exp + " " + longExpression.get(1) + " " + methodInfo.methodName);
                                                             }
                                                             if(longExpression.size()>2 && longExpression.get(2).contains(")") && !longExpression.get(2).contains("("))
                                                                 longExpression.remove(2);
@@ -1076,8 +986,6 @@ public class DependencyTree {
                                                             longExpression.remove(0);
                                                             String exp = longExpression.remove(0);
                                                             longExpression.add(0,lfields.get(exp));
-                                                        //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                        //        System.out.println("zzz2 : " + exp + " " + longExpression.get(0) + " " + methodInfo.methodName);
                                                             if(longExpression.size()>0 && longExpression.get(0).contains("<")){
                                                                 exp = longExpression.remove(0);
                                                                 longExpression.add(0,exp.substring(0,exp.indexOf("<")));
@@ -1089,13 +997,9 @@ public class DependencyTree {
                                                         }
                                                         
                                                         if(longExpression.size()>1 && expMethodMap.containsKey(longExpression.get(1))){
-                                                        //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                        //        System.out.println("RTTK : " + longExpression.get(0) + " " + longExpression.get(1) + " " + methodInfo.methodName);
                                                             longExpression.remove(0);
                                                             String exp=longExpression.remove(0);
                                                             longExpression.add(0,expMethodMap.get(exp));
-                                                        //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                        //        System.out.println("yyy : " + exp + " " + expMethodMap.get(exp));
                                                         }
 
                                                     }
@@ -1126,15 +1030,9 @@ public class DependencyTree {
                                     exp = exp.substring(exp.lastIndexOf("(")+1);
                                     longExpression.add(0,exp);
                                 }
-                            //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                            //        System.out.println("xxx" + longExpression.get(0) + " " + methodInfo.methodName + " " + methodInfo.expression + " " + methods2.keySet().toString());
                                 boolean exists = false;
                                 for(String c : methods2.keySet()){
-                                  //  if(methodInfo.methodName.contains("withDefaultRealm"))
-                                 //       System.out.println("cccc : " + c);
                                     if(c.contains(longExpression.get(0))) {
-                                    //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                    //        System.out.println("xxy" + longExpression.get(0) + " " + methodInfo.methodName + " " + methodInfo.expression + " " + c + " " + methods2.get(c).keySet().contains(methodInfo.methodName) + " " + methods2.get(c).keySet().toString());
                                         if((methods2.get(c).keySet().contains(methodInfo.methodName)) || (acceptedMethodMap.get(longExpression.get(0))!=null && acceptedMethodMap.get(longExpression.get(0)).contains(methodInfo.methodName))){
                                             acceptedMethods.add(methodInfo.methodName);
                                             if(methods2.get(c).get(longExpression.get(0) + "_Return_Type")!=null && methods2.get(c).get(longExpression.get(0) + "_Return_Type")[0]!=null) {
@@ -1145,12 +1043,9 @@ public class DependencyTree {
                                                     } else if (methods2.get(c) != null && methods2.get(c).get(longExpression.get(0) + "_Return_Type") != null) {
                                                         rMethods.put(methodInfo.methodName, methods2.get(c).get(longExpression.get(0) + "_Return_Type")[0].toString());
                                                     }
-                                                //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                //       System.out.println("RT : " + longExpression.get(0));
                                                 }
                                             exists = true;
-                                        //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                        //        System.out.println("xxy" + longExpression.get(0) + " " + methodInfo.methodName + " " + methodInfo.expression);
+                                    
                                             break;
                                         }
                                     }
@@ -1165,25 +1060,16 @@ public class DependencyTree {
                                     if((acceptedMethodMap.get(longExpression.get(0))!=null && acceptedMethodMap.get(longExpression.get(0)).contains(methodInfo.methodName)) || longExpression.get(0).equals("T") || longExpression.get(0).equals("A")) {
                                         acceptedMethods.add(methodInfo.methodName);
                                         exists=true;
-                                    //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                    //        System.out.println("Accepted : " + " " + methodInfo.methodName);
                                     }
                                     
                                 }
                                 
                                 if(!exists){
-                                //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                //        System.out.println("xxx2" + longExpression.get(0) + " " + methodInfo.methodName + " " + methodInfo.expression + " " + methods2.keySet().toString());
 
                                     for(String c : methods.keySet()){
-                                    //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                    //        System.out.println("cccc2 : " + c);
                                         
                                         if(c.contains(longExpression.get(0))) {
-                                        //    if(methodInfo.methodName.contains("withDefaultRealm")) {
-                                        //        System.out.println("xxy" + longExpression.get(0) + " " + methodInfo.methodName + " " + methodInfo.expression + " " + c + " " + methods.get(c).keySet().contains(methodInfo.methodName) + " " + methods.get(c).keySet().toString());
-                                        //        System.out.println("... " + methods.get(c).keySet().toString());
-                                        //    }
+
                                             if((methods.get(c).keySet().contains(methodInfo.methodName)) || (acceptedMethodMap.get(longExpression.get(0))!=null && acceptedMethodMap.get(longExpression.get(0)).contains(methodInfo.methodName))){
                                                 acceptedMethods.add(methodInfo.methodName);
                                                 if(methods.get(c).get(longExpression.get(0) + "_Return_Type")!=null && methods.get(c).get(longExpression.get(0) + "_Return_Type")[0]!=null) {
@@ -1195,21 +1081,15 @@ public class DependencyTree {
                                                             rMethods.put(methodInfo.methodName, methods.get(c).get(longExpression.get(0) + "_Return_Type")[0].toString());
                                                         }
                                                         
-                                                    //    if(methodInfo.methodName.contains("withDefaultRealm"))
-                                                     //       System.out.println("RT : " + longExpression.get(0));
                                                     }
                                                 exists = true;
-                                           //     if(methodInfo.methodName.contains("withDefaultRealm"))
-                                           //         System.out.println("xxy" + longExpression.get(0) + " " + methodInfo.methodName + " " + methodInfo.expression);
+                                       
                                                 break;
                                             }
                                         }
                                     }
                                 }
                                 
-                           //     if(!exists)
-                           //        if(methodInfo.methodName.contains("withDefaultRealm"))
-                            //           System.out.println("Not resolved long expression : " + longExpression.toString() + " " + methodInfo.methodName);
                             }
                         }
                     }
@@ -1294,8 +1174,8 @@ public class DependencyTree {
                 System.out.println("Class Instance Creations : ==========");
                 ArrayList<String> acceptedclasses = TestsuiteParser.readAcceptedTypesFromFile(System.getProperty("AcceptedTypesFilePath") + "/" + "classInstances.txt");
                 for (ClassInfo classInfo : ps.classInstanceCreations) {
-                    if (!acceptedclasses.contains(classInfo.withDefaultRealm) && !classInfo.isResolvedParam.contains("false")) {
-                        System.out.println(classInfo.withDefaultRealm + " " + classInfo.params.toString() + " " + classInfo.isResolvedParam.toString());
+                    if (!acceptedclasses.contains(classInfo.className) && !classInfo.isResolvedParam.contains("false")) {
+                        System.out.println(classInfo.className + " " + classInfo.params.toString() + " " + classInfo.isResolvedParam.toString());
                     }
                 }*/
             //    System.out.println("Libraries : ==========" + availableFields.size());
@@ -1398,7 +1278,7 @@ public class DependencyTree {
         }
     }
     
-    private static String resolveMethods(String withDefaultRealm, String methodName, HashMap<String,HashMap<String,String[]>> methods){
+    private static String resolveMethods(String className, String methodName, HashMap<String,HashMap<String,String[]>> methods){
         String returnName = null;
         
         String methName = methodName;
@@ -1407,28 +1287,28 @@ public class DependencyTree {
         if(methName!=null && methName.contains("("))
             methName=methName.substring(0,methName.indexOf("("));
         
-        if(methName!=null && withDefaultRealm!=null) {
+        if(methName!=null && className!=null) {
             
             for(String pth : methods.keySet()) {
-                if(pth.contains(withDefaultRealm)) {
-              //      System.out.println("rrr " + withDefaultRealm + " " + methName + " " + methodName);
+                if(pth.contains(className)) {
+              //      System.out.println("rrr " + className + " " + methName + " " + methodName);
                     for(String mmm : methods.get(pth).keySet()) {
                         if(mmm.equals(methName)){
-                            String withDefaultRealm2 = null;
+                            String className2 = null;
 
                             if(methName.contains("["))
                                 methodName = methName.substring(0,methodName.indexOf("["));
                             
-                            String withDefaultRealmPrev = methods.get(pth).get(methName+"_Return_Type")[0];
+                            String classNamePrev = methods.get(pth).get(methName+"_Return_Type")[0];
                             if(methods.get(pth).get(methName+"_Return_Type")!=null){
-                                withDefaultRealm2 = methods.get(pth).get(methName+"_Return_Type")[0];
+                                className2 = methods.get(pth).get(methName+"_Return_Type")[0];
                             
-                                if(!withDefaultRealm2.equals(withDefaultRealmPrev)) {
-                                //    System.out.println("resolutions : " + withDefaultRealm2 + " " + methName);
-                                    if(withDefaultRealm2!=null && withDefaultRealm2.startsWith("."))
-                                        withDefaultRealm2 = withDefaultRealm2.replaceFirst(".","");
-                                //    System.out.println("resolutions2 : " + withDefaultRealm2 + " " + methName);
-                                    returnName = resolveMethods(withDefaultRealm2, methName, methods);
+                                if(!className2.equals(classNamePrev)) {
+                                //    System.out.println("resolutions : " + className2 + " " + methName);
+                                    if(className2!=null && className2.startsWith("."))
+                                        className2 = className2.replaceFirst(".","");
+                                //    System.out.println("resolutions2 : " + className2 + " " + methName);
+                                    returnName = resolveMethods(className2, methName, methods);
                                 }
                             }
                         }
@@ -1436,7 +1316,7 @@ public class DependencyTree {
                 }
             }
         }else
-            returnName = withDefaultRealm;
+            returnName = className;
         
         return returnName;
     }
