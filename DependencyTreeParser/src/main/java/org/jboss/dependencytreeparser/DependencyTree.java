@@ -427,7 +427,11 @@ public class DependencyTree {
                 Collections.reverse(ps.methodInvocations);
                 HashMap<String, HashMap<String, String[]>> methods2 = new HashMap<String, HashMap<String, String[]>>();
            //     methodsTest.putAll(DependencyTreeMethods.listUsedMethods2(ps.packageName, packages));
-                methods2.putAll(methodsTest);
+                for(String kk : methodsTest.keySet()) {
+                    if(!kk.contains("security")){
+                        methods2.putIfAbsent(kk,methodsTest.get(kk));
+                    }
+                }
             //    System.out.println("methodsTest : " + methodsTest.keySet().toString());
             //    System.out.println("ssssszzzzzz " + methodsTest.keySet().toString());
                 HashSet<String> hs = new HashSet<>();
@@ -599,7 +603,10 @@ public class DependencyTree {
                         if(methodInfo.expression.startsWith("."))
                             methodInfo.expression = methodInfo.expression.replaceFirst(".", "");
                         if(!rMethods.keySet().contains(methodInfo.expression)){
-                         //   System.out.println("ttt : " + methodInfo.expression + " " + Arrays.asList(methodInfo.expression.split("\\.")).toString());
+                            if(methodInfo.expression.contains(".withName(")){
+                                methodInfo.expression = methodInfo.expression.substring(0, methodInfo.expression.indexOf(".withName(")) + methodInfo.expression.substring(methodInfo.expression.indexOf(".withName(")+1).substring(methodInfo.expression.substring(methodInfo.expression.indexOf(".withName(")+1).indexOf(")")+1);
+                            }
+
                             ArrayList<String>  longExpression = new ArrayList<>();
                             longExpression.addAll(Arrays.asList(methodInfo.expression.split("\\.")));
                             

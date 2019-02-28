@@ -1,9 +1,3 @@
-withName;Builder
-withKeyStorePath;Builder
-withKeyStore;Builder
-withKeyManagers;Builder
-withPrincipalDecoder;Builder
-withRoleMapper;Builder
 getMessage;JsonMappingException
 contains;JsonMappingException
 openConnection;URL
