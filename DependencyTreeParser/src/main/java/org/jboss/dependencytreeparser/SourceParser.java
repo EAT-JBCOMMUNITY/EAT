@@ -61,13 +61,10 @@ public class SourceParser {
         methods.clear();
         imports.clear();
         types.clear();
-   //     System.out.println("parse");
         ASTParser parser = ASTParser.newParser(AST.JLS3);
-  //      System.out.println("parse");
         parser.setSource(readFileToString(str).toCharArray());
         parser.setKind(ASTParser.K_COMPILATION_UNIT);
 
-   //     System.out.println(readFileToString(str).toCharArray());
         
         final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
         
@@ -81,8 +78,6 @@ public class SourceParser {
                 String name = node.fragments().get(0).toString().split("=")[0].trim();
                 String type = node.getType().toString();
                 
-             //   System.out.println("Declaration of field '" + name + " of type " + type + "' at line"
-             //                   + cu.getLineNumber(node.getStartPosition()) + " " + node.modifiers().toString()); 
                 
                 if(!node.modifiers().toString().contains("private")){
                     fields.put(name, type);
@@ -131,8 +126,6 @@ public class SourceParser {
 
             public boolean visit(MethodDeclaration node) {
                 if (node.getName().getIdentifier() != null) {
-                //    System.out.println("Declaration of method '" + node.getName() + "' at line"
-               //                 + cu.getLineNumber(node.getStartPosition())); 
               
                     MethodInfo2 mf = new MethodInfo2();
                     mf.name = node.getName().toString();
@@ -144,7 +137,6 @@ public class SourceParser {
                     List params = node.parameters();
                     for(Object s : params) {
                         String type = ((SingleVariableDeclaration)s).getType().toString();
-                //        System.out.println("with param : " + type + " " + ((SingleVariableDeclaration)s).getName().toString());
                                                 
                         ArrayList<String> types0 = new ArrayList<>();
                 
@@ -186,7 +178,6 @@ public class SourceParser {
                     
                     mf.paramTypes = types;
                     
-        //            System.out.println("yyyy : " + mf.name);
                 
                     methods.put(mf.name,mf);
                 }
@@ -194,8 +185,6 @@ public class SourceParser {
             }
         
             public boolean visit(ImportDeclaration node) {
-            //    System.out.println("Declaration of import '" + node.getName() + "' at line"
-            //                    + cu.getLineNumber(node.getStartPosition())); 
                    
                 imports.add(node.getName().toString());
  
@@ -203,8 +192,6 @@ public class SourceParser {
             }
             
             public boolean visit(PackageDeclaration node) {
-            //    System.out.println("Declaration of import '" + node.getName() + "' at line"
-            //                    + cu.getLineNumber(node.getStartPosition())); 
                    
                 packageName = node.getName().toString();
  
@@ -214,7 +201,6 @@ public class SourceParser {
 
     }
     
-    //read file content into a string
     private static String readFileToString(String filePath) throws IOException {
         StringBuilder fileData = new StringBuilder();
         BufferedReader reader = new BufferedReader(new FileReader(filePath));

@@ -122,13 +122,10 @@ public class TestsuiteParser {
         methodsNotResolved.clear();
         methodInvocations.clear();
         imports.clear();
-   //     System.out.println("parse");
         ASTParser parser = ASTParser.newParser(AST.JLS3);
-  //      System.out.println("parse");
         parser.setSource(readFileToString(str).toCharArray());
         parser.setKind(ASTParser.K_COMPILATION_UNIT);
 
-   //     System.out.println(readFileToString(str).toCharArray());
         
         final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
         
@@ -143,12 +140,9 @@ public class TestsuiteParser {
                 String name = node.fragments().get(0).toString().split("=")[0].trim();
                 String type = node.getType().toString();
                 
-             //   System.out.println("Declaration of field '" + name + " of type " + type + "' at line"
-             //                   + cu.getLineNumber(node.getStartPosition()) + " " + node.modifiers().toString()); 
                 
                 declarations.put(name, type);
                 if(!node.modifiers().toString().contains("private")){
-                //    System.out.println("modifiers : " + node.modifiers().contains("public") + " " + node.modifiers().contains("protected") + " " + node.modifiers().toString());
                     fields.put(name, type);
                 }
                 
@@ -201,8 +195,6 @@ public class TestsuiteParser {
                     else
                         returnType = node.getReturnType2().toString();
                     
-                //    System.out.println("Declaration of method '" + node.getName() + " return type : " + returnType + "' at line"
-                //                + cu.getLineNumber(node.getStartPosition())); 
                     HashMap<String,String> bDeclarations = new HashMap();
                     bDeclarations.putAll(importedClassFields);
                     bDeclarations.putAll(declarations);
@@ -213,7 +205,6 @@ public class TestsuiteParser {
                     int i=0;
                     for(Object s : params) {
                         String type = ((SingleVariableDeclaration)s).getType().toString();
-                //        System.out.println("with param : " + type + " " + ((SingleVariableDeclaration)s).getName().toString());
                         
                         bDeclarations.put(((SingleVariableDeclaration)s).getName().toString(),type);
                         
@@ -263,25 +254,18 @@ public class TestsuiteParser {
 
                     Block block = node.getBody();
                     
-                //    if(block!=null)
-                //        System.out.println("Block " + block.toString());
                     blockIterate(block, cu, bDeclarations);
                 }
                 return false;
             }
         
             public boolean visit(ImportDeclaration node) {
-            //    System.out.println("Declaration of import '" + node.getName() + "' at line"
-            //                    + cu.getLineNumber(node.getStartPosition())); 
                    
                 imports.add(node.getName().toString());
                 
                 if(DependencyTreeMethods.jarClassPaths.containsKey(node.getName().toString())) {
                     importedClassFields = DependencyTreeMethods.listFieldsOfJarClass(DependencyTreeMethods.jarClassPaths.get(node.getName().toString()),node.getName().toString());
                     fields.putAll(importedClassFields);
-                //    if(node.getName().toString().equals("org.jboss.as.controller.descriptions.ModelDescriptionConstants")){
-                //        System.out.println("EEE : " + importedClassFields.keySet().toString());
-                //    }
                 }
                   
                 
@@ -289,8 +273,6 @@ public class TestsuiteParser {
             }
             
             public boolean visit(PackageDeclaration node) {
-            //    System.out.println("Declaration of import '" + node.getName() + "' at line"
-            //                    + cu.getLineNumber(node.getStartPosition())); 
                    
                 packageName = node.getName().toString();
  
@@ -298,30 +280,6 @@ public class TestsuiteParser {
             }
         });
 
-    /*    System.out.println("Types : ");
-        for(String type:types){
-            System.out.println(type);
-        }
-        System.out.println("Imports : ");
-        for(String import0:imports){
-            System.out.println(import0);
-        }
-        System.out.println("TypesNotResolved : ");
-        for(String typeNotResolved:typesNotResolved){
-            System.out.println(typeNotResolved);
-        }
-        System.out.println("MethodsNotResolved : ");
-        for(String methodNotResolved:methodsNotResolved){
-            System.out.println(methodNotResolved);
-        }
-        System.out.println("ClassInstanceCreations : ");
-        for(ClassInfo classInfo:classInstanceCreations){
-            System.out.println(classInfo.className + " " + classInfo.params.toString() + " " + classInfo.isResolvedParam.toString());
-        }
-        System.out.println("MethodInvocations : ");
-        for(MethodInfo methodInfo:methodInvocations){
-            System.out.println(methodInfo.methodName + " " + methodInfo.expression + " " + methodInfo.params.toString() + " " + methodInfo.isResolvedParam.toString());
-        }*/
     }
 
     public static HashSet<String> getTypesNotResolved() {
@@ -347,7 +305,6 @@ public class TestsuiteParser {
         
         if(block!=null)
             statements = block.statements();
-    //    System.out.println("Statements : " + statements.toString());
         
         
         for (Statement s : statements) {
@@ -360,8 +317,6 @@ public class TestsuiteParser {
                     public boolean visit(SingleVariableDeclaration node) {
                         String name = node.getName().toString();
                         String type = node.getType().toString();
-                    //    System.out.println("Declaration of variable '" + name + " " + type + "' at line"
-                    //            + cu.getLineNumber(node.getStartPosition())); 
                         
                         bDeclarations.put(name,type);
                         
@@ -409,8 +364,6 @@ public class TestsuiteParser {
                     public boolean visit(VariableDeclarationStatement node) {
                         String name = node.fragments().get(0).toString().split("=")[0].trim();
                         String type = node.getType().toString();
-                   //     System.out.println("Declaration of variable '" + name + " " + type + "' at line"
-                   //             + cu.getLineNumber(node.getStartPosition())); 
                         
                         bDeclarations.put(name,type);
                         
@@ -430,7 +383,6 @@ public class TestsuiteParser {
                                 if (type3.substring(type3.indexOf("<")+1).startsWith("<>") || type3.substring(type.indexOf("<")+1).startsWith("<T>"))
                                     type2=null;
                                 else{
-                                //    System.out.println("........" + type3);
                                     type2 = type3.substring(type3.indexOf("<")+1,type3.lastIndexOf(">"));
                                     if(type2.contains(",")) {
                                         if(type2.substring(0, type2.indexOf(",")).contains("<")){
@@ -458,8 +410,6 @@ public class TestsuiteParser {
 
                     public boolean visit(SimpleType node) {
                         
-                        //    System.out.println("Usage of method/variable/field/parameter type : " + node.getName() + " at line "
-                        //            + cu.getLineNumber(node.getStartPosition()) );
                             
                             String type = node.getName().toString();
                             String name = node.getName().toString();
@@ -511,8 +461,6 @@ public class TestsuiteParser {
                     
                     public boolean visit(ClassInstanceCreation node) {
                         
-                        //    System.out.println("ClassInstanceCreation " + node.getType() + " at line "
-                        //            + cu.getLineNumber(node.getStartPosition()) );
                             
                             ClassInfo clInfo = new ClassInfo();
                             clInfo.className = node.getType().toString();
@@ -577,7 +525,6 @@ public class TestsuiteParser {
                                 
                                 clInfo.params.add(arg);
                                 clInfo.isResolvedParam.add(resolved);
-                        //        System.out.println("with args : " + arg);
                             }
                             
                             classInstanceCreations.add(clInfo);
@@ -587,8 +534,6 @@ public class TestsuiteParser {
                     
                     public boolean visit(ConstructorInvocation node) {
                         
-                        //    System.out.println("ConstructorInvocation " + node.toString() + " at line "
-                        //            + cu.getLineNumber(node.getStartPosition()) );
 
                         List params = node.arguments();
                         for(Object s : params) {
@@ -646,21 +591,11 @@ public class TestsuiteParser {
                                     methodsNotResolved.add(arg);
                             }
                             
-                        //    System.out.println("with args : " + arg);
                         }
                         
                         return true;
                     }
 
-                /*    public boolean visit(NormalAnnotation node) {
-                        
-                        //    System.out.println("NormalAnnotation '" + node.getTypeName().getFullyQualifiedName() + "' at line "
-                        //            + cu.getLineNumber(node.getStartPosition()) );
-
-                         
-                        
-                        return true;
-                    }*/
                     
                     public boolean visit(MethodInvocation node) {
                        
@@ -699,8 +634,6 @@ public class TestsuiteParser {
                             }
                         }
                         
-                    //     System.out.println("MethodInvocation: " + node.getName() + " at line "
-                    //            + cu.getLineNumber(node.getStartPosition()) + " with arguments " + node.arguments() + " exp " + node.getExpression());
                         
                         List params = node.arguments();
                         for(Object s : params) {
@@ -763,7 +696,6 @@ public class TestsuiteParser {
                             mInfo.params.add(arg);
                             mInfo.isResolvedParam.add(resolved);
                             
-                        //    System.out.println("with param : " + arg);
                         }
                         
                         methodInvocations.add(mInfo);
@@ -785,7 +717,6 @@ public class TestsuiteParser {
         }
     }
     
-    //read file content into a string
     private static String readFileToString(String filePath) throws IOException {
         StringBuilder fileData = new StringBuilder();
         BufferedReader reader = new BufferedReader(new FileReader(filePath));
