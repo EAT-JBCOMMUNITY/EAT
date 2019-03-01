@@ -194,7 +194,7 @@ public class DependencyTreeMethods {
 
                         artifacts.add(art);
                     }
-                    
+
                     line = br.readLine();
                 }
 
@@ -395,7 +395,7 @@ public class DependencyTreeMethods {
 
             for (Artifact ar : artifacts) {
                 if (ar.type.contains("jar")) {
-                        testsuiteArtifactsPaths.add(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//") + "/" + ar.groupId + "/" + ar.version + "/" + ar.groupId + "-" + ar.version + ".jar");
+                    testsuiteArtifactsPaths.add(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//") + "/" + ar.groupId + "/" + ar.version + "/" + ar.groupId + "-" + ar.version + ".jar");
                     DependencyTreeMethods.listJarPackages(repoPath + "/" + ar.artifactId.replaceAll("\\.", "//") + "/" + ar.groupId + "/" + ar.version + "/" + ar.groupId + "-" + ar.version + ".jar", jarPackages);
                 }
             }
@@ -410,7 +410,6 @@ public class DependencyTreeMethods {
         HashSet<String> packages = new HashSet<String>();
 
         HashMap<String, String> jarPackages = DependencyTreeMethods.listPackages();
-
 
         for (String jc : jarPackages.keySet()) {
             if (jc.lastIndexOf(".") != -1) {
@@ -439,7 +438,7 @@ public class DependencyTreeMethods {
 
         return testClasses;
     }
-    
+
     private static HashMap<String, ArrayList<Class[]>> listClasses(String path) {
         HashMap<String, ArrayList<Class[]>> classes = new HashMap<>();
 
@@ -447,8 +446,8 @@ public class DependencyTreeMethods {
             if (path != null) {
                 String dir = path.replaceAll(".jar", "");
                 dir = dir.replaceAll("//", "/");
-            
-                ArrayList<String> commands=new ArrayList<String>();
+
+                ArrayList<String> commands = new ArrayList<String>();
                 commands.add("mkdir");
                 commands.add("-m777");
                 commands.add(dir);
@@ -456,31 +455,30 @@ public class DependencyTreeMethods {
                 Process p = pb.start();
                 while (p.isAlive());
                 p.destroy();
-                
-            
+
                 try {
                     JarExtract.jarExtract(Paths.get(path), Paths.get(dir));
-                }catch (Exception e) {
-                //    System.out.println(dir + " already exists ...");
+                } catch (Exception e) {
+                    //    System.out.println(dir + " already exists ...");
                 }
-                
-                if(!Files.exists(Paths.get(dir+"/jarClasses.txt"))) {
-                    commands=new ArrayList<String>();
+
+                if (!Files.exists(Paths.get(dir + "/jarClasses.txt"))) {
+                    commands = new ArrayList<String>();
                     commands.add("bash");
                     commands.add("-c");
                     commands.add("cd " + dir + " ; find -name '*.class' > jarClasses.txt ; chmod 777 jarClasses.txt");
                     pb = new ProcessBuilder(commands);
                     p = pb.start();
                     while (p.isAlive());
-                    p.destroy(); 
+                    p.destroy();
                 }
 
                 classes.putAll(getParsedJarClasses(dir + "/jarClasses.txt"));
-       
+
             }
         } catch (Exception e) {
             System.out.println(path + " is not available.");
-        //    e.printStackTrace();
+            //    e.printStackTrace();
         } finally {
             return classes;
         }
@@ -556,7 +554,7 @@ public class DependencyTreeMethods {
                 while (allEntries.hasMoreElements()) {
                     JarEntry entry = (JarEntry) allEntries.nextElement();
                     String name = entry.getName();
-                    
+
                     if (name.contains(".class") && !name.contains("$")) {
                         name = name.substring(0, name.lastIndexOf(".class"));
                         name = name.replaceAll("/", ".");
@@ -597,10 +595,10 @@ public class DependencyTreeMethods {
                 Enumeration allEntries = jarFile.entries();
                 while (allEntries.hasMoreElements()) {
                     JarEntry entry = (JarEntry) allEntries.nextElement();
-                    
+
                     String name = entry.getName();
-                    
-                    if(entry.isDirectory() || !name.endsWith(".class")){
+
+                    if (entry.isDirectory() || !name.endsWith(".class")) {
                         continue;
                     }
 
@@ -609,11 +607,10 @@ public class DependencyTreeMethods {
                         name2 = name2.substring(0, name.lastIndexOf(".class"));
                         name2 = name2.replaceAll("/", ".");
                         name2 = name2.replaceAll("-", ".");
-                        
+
                         try {
                             Class clas = cl.loadClass(name);
 
-                            
                             HashMap<String, String[]> allMethods = new HashMap<>();
 
                             for (Class<?> c = clas; c != null; c = c.getSuperclass()) {
@@ -634,7 +631,7 @@ public class DependencyTreeMethods {
 
                             classMethods.put(name, allMethods);
                         } catch (Exception ex) {
-                        //        ex.printStackTrace();
+                            //        ex.printStackTrace();
                         }
                     }
 
@@ -647,7 +644,7 @@ public class DependencyTreeMethods {
             return classMethods;
         }
     }
-    
+
     private static HashMap<String, HashMap<String, String[]>> listClassMethods2(String path) {
         HashMap<String, HashMap<String, String[]>> classMethods = new HashMap<>();
 
@@ -655,8 +652,8 @@ public class DependencyTreeMethods {
             if (path != null) {
                 String dir = path.replaceAll(".jar", "");
                 dir = dir.replaceAll("//", "/");
-            
-                ArrayList<String> commands=new ArrayList<String>();
+
+                ArrayList<String> commands = new ArrayList<String>();
                 commands.add("mkdir");
                 commands.add("-m777");
                 commands.add(dir);
@@ -664,67 +661,64 @@ public class DependencyTreeMethods {
                 Process p = pb.start();
                 while (p.isAlive());
                 p.destroy();
-                
-            
+
                 try {
                     JarExtract.jarExtract(Paths.get(path), Paths.get(dir));
-                }catch (Exception e) {
-                //    System.out.println(dir + " already exists ...");
+                } catch (Exception e) {
+                    //    System.out.println(dir + " already exists ...");
                 }
-                
-                if(!Files.exists(Paths.get(dir+"/jarMethods.txt"))) {
-                    commands=new ArrayList<String>();
+
+                if (!Files.exists(Paths.get(dir + "/jarMethods.txt"))) {
+                    commands = new ArrayList<String>();
                     commands.add("bash");
                     commands.add("-c");
                     commands.add("cd " + dir + " ; find -name '*.class' | xargs javap -p > jarMethods.txt ; chmod 777 jarMethods.txt");
                     pb = new ProcessBuilder(commands);
                     p = pb.start();
                     while (p.isAlive());
-                    p.destroy(); 
+                    p.destroy();
                 }
 
                 classMethods.putAll(getParsedJarMethods(dir + "/jarMethods.txt"));
-       
+
             }
         } catch (Exception e) {
-                e.printStackTrace();
+            e.printStackTrace();
             System.out.println(path + " is not available.");
-        //    e.printStackTrace();
+            //    e.printStackTrace();
         } finally {
             return classMethods;
         }
     }
-    
+
     private static HashMap<String, ArrayList<Class[]>> getParsedJarClasses(String file) {
         HashMap<String, ArrayList<Class[]>> classes = new HashMap<>();
-        
+
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
 
-        
             String line = br.readLine();
 
             while (line != null) {
                 line = line.replaceAll(".class", "");
-                line = line.replaceAll("/", ".");    
-                classes.put(line.replaceFirst("..", ""),null);
+                line = line.replaceAll("/", ".");
+                classes.put(line.replaceFirst("..", ""), null);
                 line = br.readLine();
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println("getParsedJarClasses : problem with file " + file);
-        //    e.printStackTrace();
+            //    e.printStackTrace();
         }
-        
+
         return classes;
     }
-    
+
     private static HashMap<String, HashMap<String, String[]>> getParsedJarMethods(String file) {
         HashMap<String, HashMap<String, String[]>> classMethods = new HashMap<>();
-        
+
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
 
-        
             String line = br.readLine();
             String className = "";
             HashMap<String, String[]> methods = null;
@@ -737,110 +731,117 @@ public class DependencyTreeMethods {
                 String[] extensions = null;
                 String[] extensions2 = null;
                 String template = "";
-                if(record && !line.contains("private ") && !line.contains("}") && !line.contains("class ") && !line.contains("interface ")){
-                    if(line.contains(")")) {
-                        line = line.substring(0,line.lastIndexOf(")"));
-                        params = line.substring(line.indexOf("(")+1).split(", ");
+                if (record && !line.contains("private ") && !line.contains("}") && !line.contains("class ") && !line.contains("interface ")) {
+                    if (line.contains(")")) {
+                        line = line.substring(0, line.lastIndexOf(")"));
+                        params = line.substring(line.indexOf("(") + 1).split(", ");
                         line = line.substring(0, line.indexOf("("));
-                    }else if(line.contains("(")){
-                         line = line.substring(0, line.indexOf("("));
-                    }else
+                    } else if (line.contains("(")) {
+                        line = line.substring(0, line.indexOf("("));
+                    } else {
                         line = line.replaceAll(";", "");
-                    methodName = line.substring(line.lastIndexOf(" ")+1);
+                    }
+                    methodName = line.substring(line.lastIndexOf(" ") + 1);
                     methods.put(methodName, params);
-                 
+
                     returnType = line.substring(0, line.lastIndexOf(methodName));
-                    
-                    if(returnType.contains("<"))
-                        returnType = returnType.substring(0,returnType.indexOf("<"));
-                    if(returnType.trim().contains(" ")) {
+
+                    if (returnType.contains("<")) {
+                        returnType = returnType.substring(0, returnType.indexOf("<"));
+                    }
+                    if (returnType.trim().contains(" ")) {
                         returnType = returnType.trim();
                         returnType = returnType.substring(returnType.lastIndexOf(" "));
                     }
-                    if(returnType.contains("["))
-                        returnType = returnType.substring(0,returnType.indexOf("["));
-                    if(returnType.contains("."))
-                        returnType = returnType.substring(returnType.lastIndexOf(".")+1);
-                    if(returnType.trim().equals("T")) {
+                    if (returnType.contains("[")) {
+                        returnType = returnType.substring(0, returnType.indexOf("["));
+                    }
+                    if (returnType.contains(".")) {
+                        returnType = returnType.substring(returnType.lastIndexOf(".") + 1);
+                    }
+                    if (returnType.trim().equals("T")) {
                         returnType = template;
                     }
-                    
-                    methods.put(methodName +"_Return_Type", new String[]{returnType});
-                    
+
+                    methods.put(methodName + "_Return_Type", new String[]{returnType});
+
                 }
-                
-                if((line.contains("class ") || line.contains("interface ")) && line.contains("{")) {
+
+                if ((line.contains("class ") || line.contains("interface ")) && line.contains("{")) {
                     record = true;
                     template = "";
-                    if(line.contains("class "))
-                        className = line.substring(line.indexOf("class")+6);
-                    
-                    if(line.contains("interface "))
-                        className = line.substring(line.indexOf("interface")+10);
-                    
-                    if(className.contains("extends")){
-                        String extension = className.substring(className.lastIndexOf("extends")+8);
+                    if (line.contains("class ")) {
+                        className = line.substring(line.indexOf("class") + 6);
+                    }
+
+                    if (line.contains("interface ")) {
+                        className = line.substring(line.indexOf("interface") + 10);
+                    }
+
+                    if (className.contains("extends")) {
+                        String extension = className.substring(className.lastIndexOf("extends") + 8);
                         extension = extension.replaceAll("\\{", "");
-                        if(extension.contains("implements")){
+                        if (extension.contains("implements")) {
                             extension = extension.substring(0, extension.indexOf(" implements"));
                         }
                         extension = extension.trim();
                         extensions = extension.split(",");
-                        for(int i=0; i<extensions.length; i++) {
-                            if(extensions[i].contains("<")){
-                                extensions[i]=extensions[i].substring(0, extensions[i].indexOf("<"));
-                            }else if(!extensions[i].contains("<") && extensions[i].contains(">")){
-                                extensions[i]=null;
+                        for (int i = 0; i < extensions.length; i++) {
+                            if (extensions[i].contains("<")) {
+                                extensions[i] = extensions[i].substring(0, extensions[i].indexOf("<"));
+                            } else if (!extensions[i].contains("<") && extensions[i].contains(">")) {
+                                extensions[i] = null;
                             }
                         }
                     }
-                    if(className.contains("implements")){
-                        String extension2 = className.substring(className.lastIndexOf("implements")+11);
+                    if (className.contains("implements")) {
+                        String extension2 = className.substring(className.lastIndexOf("implements") + 11);
                         extension2 = extension2.replaceAll("\\{", "");
                         extension2 = extension2.trim();
                         extensions2 = extension2.split(",");
-                        for(int i=0; i<extensions2.length; i++) {
-                            if(extensions2[i].contains("<"))
-                                extensions2[i]=extensions2[i].substring(0, extensions2[i].indexOf("<"));
-                            else if(!extensions2[i].contains("<") && extensions2[i].contains(">")){
-                                extensions2[i]=null;
+                        for (int i = 0; i < extensions2.length; i++) {
+                            if (extensions2[i].contains("<")) {
+                                extensions2[i] = extensions2[i].substring(0, extensions2[i].indexOf("<"));
+                            } else if (!extensions2[i].contains("<") && extensions2[i].contains(">")) {
+                                extensions2[i] = null;
                             }
                         }
                     }
-                    
-                    if(className.contains(" "))
-                        className = className.substring(0,className.indexOf(" "));
-                    if(className.contains("<")) {
-                        template = className.substring(className.indexOf("<")+1);
-                        template = template.replaceAll(">", "");
-                        className = className.substring(0,className.indexOf("<"));
+
+                    if (className.contains(" ")) {
+                        className = className.substring(0, className.indexOf(" "));
                     }
-                    
+                    if (className.contains("<")) {
+                        template = className.substring(className.indexOf("<") + 1);
+                        template = template.replaceAll(">", "");
+                        className = className.substring(0, className.indexOf("<"));
+                    }
+
                     methods = new HashMap<>();
-                    
-                    if(extensions!=null && extensions2!=null){
+
+                    if (extensions != null && extensions2 != null) {
                         String[] both = Arrays.copyOf(extensions, extensions.length + extensions2.length);
                         System.arraycopy(extensions2, 0, both, extensions.length, extensions2.length);
                         methods.put(className + "_Extensions", both);
-                    }else if(extensions!=null){
+                    } else if (extensions != null) {
                         methods.put(className + "_Extensions", extensions);
-                    }else if(extensions2!=null){
+                    } else if (extensions2 != null) {
                         methods.put(className + "_Extensions", extensions2);
                     }
-                }else if(line.contains("}")) {
+                } else if (line.contains("}")) {
                     record = false;
-                    classMethods.put(className,methods);
+                    classMethods.put(className, methods);
                 }
                 line = br.readLine();
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println("getParsedJarMethods : problem with file " + file);
-        //    e.printStackTrace();
+            //    e.printStackTrace();
         }
-        
+
         return classMethods;
     }
-    
+
     public static HashSet<String> getDataClasses(String path) {
         HashSet<String> testClasses = new HashSet<>();
 
@@ -893,7 +894,7 @@ public class DependencyTreeMethods {
                         for (Class c2 : clas2.getInterfaces()) {
                             parseInterfaces(c2, name, classMethods);
                         }
-                        
+
                         classMethods.put(name, allMethods2);
                     } catch (Exception ex) {
                         //    ex.printStackTrace();
