@@ -14,13 +14,17 @@ import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.TypeDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -247,6 +251,7 @@ public class JavaClassParser {
                                                         if (lastPart.contains(ver)) {
                                                             if (!(ver.equals(lastPart) && isSnapshot)) {
                                                                 if ((verRelease3 == 0 || verRelease1 < verRelease3)) {
+                                                                    copyWithStreams(file, new File(basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName), false);
                                                                     String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
                                                                     String extesnion = readTestLibrariesFromFile(f, testLibraries, searchString, basedir + "/" + dest.fileBaseDir + "/");
                                                                     readInternalPackagesAndClasses(dest);
@@ -266,7 +271,7 @@ public class JavaClassParser {
                                                                     ps.packageName = TestsuiteParser.packageName;
                                                                     testData.put(dest.packageName.replaceAll("/", ".") + "." + dest.fileName.replace(".java", ""), ps);
                                                                 } else if (verRelease1 == verRelease3) {
-                                                                    procedure0(dest, server, basedir, versionOrderDir, verRelease1, verRelease3, subVersionsMax, versionRelease, isSnapshot, searchString);
+                                                                    procedure0(file, dest, server, basedir, versionOrderDir, verRelease1, verRelease3, subVersionsMax, versionRelease, isSnapshot, searchString);
                                                                 }
                                                             }
                                                         }
@@ -274,6 +279,7 @@ public class JavaClassParser {
                                                 } else {
                                                     if (!(verRelease1 == verRelease2 && isSnapshot)) {
                                                         if ((verRelease3 == 0 || verRelease1 < verRelease3)) {
+                                                            copyWithStreams(file, new File(basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName), false);
                                                             String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
                                                             String extesnion = readTestLibrariesFromFile(f, testLibraries, searchString, basedir + "/" + dest.fileBaseDir + "/");
                                                             readInternalPackagesAndClasses(dest);
@@ -293,7 +299,7 @@ public class JavaClassParser {
                                                             ps.packageName = TestsuiteParser.packageName;
                                                             testData.put(dest.packageName.replaceAll("/", ".") + "." + dest.fileName.replace(".java", ""), ps);
                                                         } else if (verRelease1 == verRelease3) {
-                                                            procedure0(dest, server, basedir, versionOrderDir, verRelease1, verRelease3, subVersionsMax, versionRelease, isSnapshot, searchString);
+                                                            procedure0(file, dest, server, basedir, versionOrderDir, verRelease1, verRelease3, subVersionsMax, versionRelease, isSnapshot, searchString);
                                                         }
                                                     }
                                                 }
@@ -306,6 +312,7 @@ public class JavaClassParser {
                                 if (!(verRelease1 == verRelease2 && isSnapshot)) {
                                     if (verRelease3 == 0 || verRelease1 < verRelease3) {
                                         if (verRelease1 != verRelease2 || !isSnapshot) {
+                                            copyWithStreams(file, new File(basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName), false);
                                             String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
                                             String extesnion = readTestLibrariesFromFile(f, testLibraries, searchString, basedir + "/" + dest.fileBaseDir + "/");
                                             readInternalPackagesAndClasses(dest);
@@ -326,11 +333,12 @@ public class JavaClassParser {
                                             testData.put(dest.packageName.replaceAll("/", ".") + "." + dest.fileName.replace(".java", ""), ps);
                                         }
                                     } else if (verRelease1 == verRelease3) {
-                                        procedure0(dest, server, basedir, versionOrderDir, verRelease1, verRelease3, subVersionsMax, versionRelease, isSnapshot, searchString);
+                                        procedure0(file, dest, server, basedir, versionOrderDir, verRelease1, verRelease3, subVersionsMax, versionRelease, isSnapshot, searchString);
                                     }
                                 }
                             }
                         } else {
+                            copyWithStreams(file, new File(basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName), false);
                             String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
                             String extesnion = readTestLibrariesFromFile(f, testLibraries, searchString, basedir + "/" + dest.fileBaseDir + "/");
                             readInternalPackagesAndClasses(dest);
@@ -361,7 +369,7 @@ public class JavaClassParser {
         }
     }
 
-    private static void procedure0(FileData dest, String server, String basedir, String versionOrderDir, int verRelease1, int verRelease3, String[] subVersionsMax, String[] versionRelease, boolean isSnapshot, String searchString) throws IOException, ClassNotFoundException {
+    private static void procedure0(File file, FileData dest, String server, String basedir, String versionOrderDir, int verRelease1, int verRelease3, String[] subVersionsMax, String[] versionRelease, boolean isSnapshot, String searchString) throws IOException, ClassNotFoundException {
         if (verRelease1 == verRelease3) {
 
             String[] vf = new String[2];
@@ -390,6 +398,7 @@ public class JavaClassParser {
                             if (!lastPart.matches("[0-9]+")) {
                                 for (String ver : versions) {
                                     if (lastPart.contains(ver) && !(ver.equals(lastPart) && isSnapshot)) {
+                                        copyWithStreams(file, new File(basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName), false);
                                         String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
                                         String extesnion = readTestLibrariesFromFile(f, testLibraries, searchString, basedir + "/" + dest.fileBaseDir + "/");
                                         readInternalPackagesAndClasses(dest);
@@ -416,6 +425,7 @@ public class JavaClassParser {
                 }
             } else if (verRelease1 <= verRelease3) {
                 if (!(verRelease1 == verRelease3 && isSnapshot)) {
+                    copyWithStreams(file, new File(basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName), false);
                     String f = basedir + "/" + dest.fileBaseDir + "/" + dest.packageName + "/" + dest.fileName;
                     String extesnion = readTestLibrariesFromFile(f, testLibraries, searchString, basedir + "/" + dest.fileBaseDir + "/");
                     readInternalPackagesAndClasses(dest);
@@ -627,6 +637,43 @@ public class JavaClassParser {
         }
 
         return result;
+    }
+    
+    private static void ensureTargetDirectoryExists(File aTargetDir) {
+        if (!aTargetDir.exists()) {
+            aTargetDir.mkdirs();
+        }
+    }
+    
+    private static void copyWithStreams(File aSourceFile, File aTargetFile, boolean aAppend) {
+        ensureTargetDirectoryExists(aTargetFile.getParentFile());
+        InputStream inStream = null;
+        OutputStream outStream = null;
+        try {
+            try {
+                byte[] bucket = new byte[32 * 1024];
+                inStream = new BufferedInputStream(new FileInputStream(aSourceFile));
+                outStream = new BufferedOutputStream(new FileOutputStream(aTargetFile, aAppend));
+                int bytesRead = 0;
+                while (bytesRead != -1) {
+                    bytesRead = inStream.read(bucket); //-1, 0, or more
+                    if (bytesRead > 0) {
+                        outStream.write(bucket, 0, bytesRead);
+                    }
+                }
+            } finally {
+                if (inStream != null) {
+                    inStream.close();
+                }
+                if (outStream != null) {
+                    outStream.close();
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 }
 
