@@ -72,10 +72,9 @@ public class DependencyTree {
 
             HashMap<String, HashMap<String, String>> fields = DependencyTreeMethods.listFields();
 
+            HashMap<String, ArrayList<String>> usedLibraries = JavaClassParser.testLibraryUsage();
             HashMap<String, HashMap<String, String[]>> localMethods = JavaClassParser.getInternalClassMethods();
             HashMap<String, HashMap<String, String>> localFields = JavaClassParser.getInternalClassFields();
-
-            HashMap<String, ArrayList<String>> usedLibraries = JavaClassParser.testLibraryUsage();
             HashMap<String, HashSet<String>> localClasses = JavaClassParser.getInternalPackagesAndClasses();
             HashMap<String, ArrayList<String>> internalClasses = JavaClassParser.getInternalClasses();
             HashMap<String, ParsedTests> testData = JavaClassParser.getTestData();
