@@ -1,12 +1,14 @@
 #!/bin/bash
 
-set -e
+set -eo pipefail
 
 readonly JBOSS_VERSION_CODE=${1}
 readonly SMODE=${2}
 
 readonly NAME_PREFIX=${NAME_PREFIX:-'jboss-eap'}
 readonly SETTINGS_XML=${SETTINGS_XML:-"$(pwd)/settings.xml"}
+
+set -u
 
 usage() {
   local script_name=$(basename ${0})
@@ -75,11 +77,15 @@ fi
 
 if [ -e "${SETTINGS_XML}" ]; then
   readonly SETTINGS_XML_OPTION="-s ${SETTINGS_XML}"
+else
+  readonly SETTINGS_XML_OPTION=''
 fi
 
 readonly MAVEN_LOCAL_REPOSITORY=${MAVEN_LOCAL_REPOSITORY:-"$(pwd)/maven-local-repository"}
 if [ -d "${MAVEN_LOCAL_REPOSITORY}" ]; then
   readonly MAVEN_LOCAL_REPOSITORY_OPTION="-Dmaven.repo.local=${MAVEN_LOCAL_REPOSITORY}"
+else
+  readonly MAVEN_LOCAL_REPOSITORY_OPTION=''
 fi
 
 readonly JBOSS_VERSION=${JBOSS_VERSION:-$(assertJBossASVersion "${NAME_PREFIX}" "${MAVEN_LOCAL_REPOSITORY}")}
@@ -108,6 +114,7 @@ if [ -d "${MAVEN_HOME}/bin" ]; then
   export PATH="${MAVEN_HOME}/bin:${PATH}"
 fi
 
+export MAVEN_OPTS=${MAVEN_OPTS:-''}
 export MAVEN_OPTS="${MAVEN_OPTS} -Dmaven.wagon.http.pool=false"
 export MAVEN_OPTS="${MAVEN_OPTS} -Dmaven.wagon.httpconnectionManager.maxPerRoute=3"
 export MAVEN_OPTS="${MAVEN_OPTS} -Xmx1024m -Xms512m -XX:MaxPermSize=256m"
