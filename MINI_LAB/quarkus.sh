@@ -1,8 +1,8 @@
 #!/bin/sh
 
 
-cd ./Dockerfiles/quartus
-docker build -t docker.io/eat . > outputQuartus.txt
+cd ./Dockerfiles/quarkus
+docker build -t docker.io/eat . > outputQuarkus.txt
 
 sudo docker stop $(sudo docker ps -a -q)
 sudo docker rm $(sudo docker ps -a -q)
