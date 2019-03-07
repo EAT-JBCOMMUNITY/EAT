@@ -230,8 +230,8 @@ MOJO DOCUMENTATION
 [Eap Additional Testsuite Mojo Document](https://mojo.redhat.com/docs/DOC-1063426)
 
 
-EAT with PROTEAN/QUARKUS
-------------------------
+EAT with PROTEAN/QUARKUS DOCUMENTATION
+--------------------------------------
 [Eap Additional Testsuite with Protean/Quarkus](https://mojo.redhat.com/docs/DOC-1191712)
  
  
