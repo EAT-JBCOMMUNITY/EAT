@@ -228,6 +228,11 @@ FUTURE DEVELOPMENT
 MOJO DOCUMENTATION
 ------------------
 [Eap Additional Testsuite Mojo Document](https://mojo.redhat.com/docs/DOC-1063426)
+
+
+EAT with PROTEAN/QUARKUS
+------------------------
+[Eap Additional Testsuite with Protean/Quarkus](https://mojo.redhat.com/docs/DOC-1191712)
  
  
 EAP-ADDITIONAL-TESTSUITE PRESENTATION
