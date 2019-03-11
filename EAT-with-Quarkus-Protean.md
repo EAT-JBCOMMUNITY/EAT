@@ -17,11 +17,7 @@ How to test EAT with Protean/Quarkus
  
 1. Build Protean/Quarkus in order to produce the products of the built in the maven repo.
 2. export GRAALVM_HOME=.../graalvm-ce-1.0.0-rc11-linux-amd64/graalvm-ce-1.0.0-rc11 (path to GraalVM)
-3. ./Maven/apache-maven-3.5.3/bin/mvn clean install -Dprotean -Dmodule=basic -Dno-native -DJBOSS_VERSION=branch-version (for the non-native mode) 
-
-or
-
-  ./Maven/apache-maven-3.5.3/bin/mvn clean install -Dprotean -Dmodule=basic -Dnative -DJBOSS_VERSION=branch-version (for the native mode)
+3. ./Maven/apache-maven-3.5.3/bin/mvn clean install -Dprotean -Dmodule=basic -Dno-native -DJBOSS_VERSION=branch-version (for the non-native mode) or ./Maven/apache-maven-3.5.3/bin/mvn clean install -Dprotean -Dmodule=basic -Dnative -DJBOSS_VERSION=branch-version (for the native mode)
 
  
 
