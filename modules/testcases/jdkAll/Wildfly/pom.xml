@@ -60,6 +60,11 @@
                     <scope>compile</scope>
                 </dependency>
                 <dependency>
+                    <groupId>org.wildfly.core</groupId>
+                    <artifactId>wildfly-core-testsuite-shared</artifactId>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
                     <groupId>org.jboss.arquillian.junit</groupId>
                     <artifactId>arquillian-junit-container</artifactId>
                 </dependency>
@@ -458,6 +463,11 @@
                 <dependency>
                     <groupId>org.wildfly</groupId>
                     <artifactId>wildfly-testsuite-shared</artifactId>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.wildfly.core</groupId>
+                    <artifactId>wildfly-core-testsuite-shared</artifactId>
                     <scope>compile</scope>
                 </dependency>
                 <dependency>
