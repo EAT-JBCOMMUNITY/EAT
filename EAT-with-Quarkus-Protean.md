@@ -26,6 +26,7 @@ Note : In general JBOSS_VERSION = PROTEAN_VERSION . In case of the master branch
 Testing with the master version :
 ---------------------------------
 export PROTEAN_VERSION = 999-SNAPSHOT
+
 ./Maven/apache-maven-3.5.3/bin/mvn clean install -Dprotean -Dmodule=basic -Dnative -DJBOSS_VERSION=999.0.0-SNAPSHOT
 
  
@@ -33,6 +34,7 @@ export PROTEAN_VERSION = 999-SNAPSHOT
 Testing with 0.11.0 version :
 -----------------------------
 export PROTEAN_VERSION = 0.11.0
+
 ./Maven/apache-maven-3.5.3/bin/mvn clean install -Dprotean -Dmodule=basic -Dnative -DJBOSS_VERSION=0.11.0
 
  
@@ -40,6 +42,7 @@ export PROTEAN_VERSION = 0.11.0
 Testing with 0.10.0 version :
 -----------------------------
 export PROTEAN_VERSION = 0.10.0
+
 ./Maven/apache-maven-3.5.3/bin/mvn clean install -Dprotean -Dmodule=basic -Dnative -DJBOSS_VERSION=0.10.0
 
  
@@ -47,6 +50,7 @@ export PROTEAN_VERSION = 0.10.0
 Testing with 0.9.1 version :
 ----------------------------
 export PROTEAN_VERSION = 0.9.1
+
 ./Maven/apache-maven-3.5.3/bin/mvn clean install -Dprotean -Dmodule=basic -Dnative -DJBOSS_VERSION=0.9.1
 
 
