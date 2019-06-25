@@ -280,11 +280,39 @@
 		        <updatePolicy>never</updatePolicy>
 		    </snapshots>
 		</repository>
+		<repository>
+		    <id>jboss-product-repository-eap6-https</id>
+		    <name>JBoss Internal Product Repository</name>
+		    <url>$EAP6REPO</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</repository>
 	    </repositories>
 
 	    <pluginRepositories>
 		<pluginRepository>
 		    <id>jboss-product-repository-eap6</id>
+		    <name>JBoss Internal Product Repository</name>
+		    <url>$EAP6REPO</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</pluginRepository>
+		<pluginRepository>
+		    <id>jboss-product-repository-eap6-https</id>
 		    <name>JBoss Internal Product Repository</name>
 		    <url>$EAP6REPO</url>
 		    <layout>default</layout>
@@ -327,11 +355,39 @@
 		        <updatePolicy>never</updatePolicy>
 		    </snapshots>
 		</repository>
+		<repository>
+		    <id>jboss-product-repository-eap6-https</id>
+		    <name>JBoss Internal Product Repository</name>
+		    <url>$EAP6REPO</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</repository>
 	    </repositories>
 
 	    <pluginRepositories>
 		<pluginRepository>
 		    <id>jboss-product-repository-eap6</id>
+		    <name>JBoss Internal Product Repository</name>
+		    <url>$EAP6REPO</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</pluginRepository>
+		<pluginRepository>
+		    <id>jboss-product-repository-eap6-https</id>
 		    <name>JBoss Internal Product Repository</name>
 		    <url>$EAP6REPO</url>
 		    <layout>default</layout>
@@ -374,11 +430,39 @@
 		        <updatePolicy>never</updatePolicy>
 		    </snapshots>
 		</repository>
+		<repository>
+		    <id>jboss-product-repository-eap6-https</id>
+		    <name>JBoss Internal Product Repository</name>
+		    <url>$EAP6REPO</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</repository>
 	    </repositories>
 
 	    <pluginRepositories>
 		<pluginRepository>
 		    <id>jboss-product-repository-eap6</id>
+		    <name>JBoss Internal Product Repository</name>
+		    <url>$EAP6REPO</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</pluginRepository>
+		<pluginRepository>
+		    <id>jboss-product-repository-eap6-https</id>
 		    <name>JBoss Internal Product Repository</name>
 		    <url>$EAP6REPO</url>
 		    <layout>default</layout>
@@ -421,11 +505,39 @@
 		        <updatePolicy>never</updatePolicy>
 		    </snapshots>
 		</repository>
+		<repository>
+		    <id>jboss-product-repository-eap6-https</id>
+		    <name>JBoss Internal Product Repository</name>
+		    <url>$EAP6REPO</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</repository>
 	    </repositories>
 
 	    <pluginRepositories>
 		<pluginRepository>
 		    <id>jboss-product-repository-eap6</id>
+		    <name>JBoss Internal Product Repository</name>
+		    <url>$EAP6REPO</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</pluginRepository>
+		<pluginRepository>
+		    <id>jboss-product-repository-eap6-https</id>
 		    <name>JBoss Internal Product Repository</name>
 		    <url>$EAP6REPO</url>
 		    <layout>default</layout>
