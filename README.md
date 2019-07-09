@@ -27,6 +27,7 @@ Testing EAP
 1. Make sure that JBOSS_FOLDER environment variable is set with the path to your JBOSS EAP directory.
 2. Make sure that JBOSS_VERSION environment variable is set with the version of JBOSS EAP Server.
 3. Build and run the additional testsuite activating the EAP profile (-Deap).
+4. If you want to use http add -Dmaven.repository.protocol=http (Section : Using HTTPS below)
 
 
 Testing Wildfly
@@ -34,6 +35,7 @@ Testing Wildfly
 1. Make sure that JBOSS_FOLDER environment variable is set with the path to your WILDFLY directory.
 2. Make sure that JBOSS_VERSION environment variable is set with the version of WILDFLY Server.
 3. Build and run the additional testsuite activating the WILDFLY profile (-Dwildfly).
+4. If you want to use http add -Dmaven.repository.protocol=http (Section : Using HTTPS below)
 
 
 Testing EAP or Wildfly with specific JDK version
@@ -42,6 +44,16 @@ Testing EAP or Wildfly with specific JDK version
 2. Make sure that JBOSS_VERSION environment variable is set with the version of JBOSS EAP OR WILDFLY Server.
 3. Make sure that JAVA_HOME is pointing to the jdk of desired version.
 4. Build and run the additional testsuite activating the EAP or WILDFLY specific jdk version profile (-Deap-jdk8, -Dwildfly-jdk8).
+5. If you want to use http add -Dmaven.repository.protocol=http (Section : Using HTTPS below)
+
+
+Using HTTPS
+-----------
+After changing from HTTP to HTTPS, the maven repositories for Eap may not host a valid public SSL certificate, which will lead to maven failed to build the project. There are 3 options to fix that if it happens:
+
+1. Specify the -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true in the maven build command line to bypass the SSL certificates check (This is suitable for local workstation case)
+2. Specify -Dmaven.repository.protocol=http to switch back to HTTP
+3. Import the server certificate into your local trusted store.
 
 
 ADVANTAGES 
