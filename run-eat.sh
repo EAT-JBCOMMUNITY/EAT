@@ -6,7 +6,10 @@ readonly JBOSS_VERSION_CODE=${1}
 readonly SMODE=${2}
 
 readonly NAME_PREFIX=${NAME_PREFIX:-'jboss-eap'}
-readonly SETTINGS_XML=${SETTINGS_XML:-"$(pwd)/settings.xml"}
+readonly SETTINGS_XML=${SETTINGS_XML-"$(pwd)/settings.xml"}
+readonly EAT_EXTRA_OPTS=${EAT_EXTRA_OPTS-''}
+
+readonly MAVEN_CACHE_SERVER=${MAVEN_CACHE_SERVER:-$(hostname)}
 
 set -u
 
@@ -24,7 +27,7 @@ usage() {
   echo '- JBOSS_VERSION, set the version used for labelling jar dependencies associate to the AS version.'
   echo '- NAME_PREFIX, default to 'jboss-eap' if not specified.'
   echo '- MAVEN_LOCAL_REPOSITORY, path to a local mave repository to use for dependencies.'
-  echo '- SETTINGS_XML, path to custom settings.xml, default to ./settings.xml'
+  echo '- SETTINGS_XML, path to custom settings.xml, default to ./settings.xml; Ignored if set to an empty value'
 }
 
 assertJBossASVersion() {
@@ -77,6 +80,10 @@ fi
 
 if [ -e "${SETTINGS_XML}" ]; then
   readonly SETTINGS_XML_OPTION="-s ${SETTINGS_XML}"
+   # see https://projects.engineering.redhat.com/browse/SET-126
+  sed -i  "${SETTINGS_XML}" \
+      -e "s;MAVEN_CACHE_SERVER;${MAVEN_CACHE_SERVER};"
+
 else
   readonly SETTINGS_XML_OPTION=''
 fi
@@ -122,5 +129,6 @@ export MAVEN_OPTS="${MAVEN_OPTS} -Xmx1024m -Xms512m -XX:MaxPermSize=256m"
 #
 # Run EAT
 #
-echo "Runing EAT on JBoss server: ${JBOSS_FOLDER}"
-mvn clean install -D${JBOSS_VERSION_CODE} ${SMODE_CONFIG} ${SETTINGS_XML_OPTION} ${MAVEN_LOCAL_REPOSITORY_OPTION}
+echo "Runing EAT on JBoss server: ${JBOSS_FOLDER}  ${EAT_EXTRA_OPTS}"
+mvn clean install -D${JBOSS_VERSION_CODE} ${SMODE_CONFIG} ${SETTINGS_XML_OPTION} ${MAVEN_LOCAL_REPOSITORY_OPTION} ${EAT_EXTRA_OPTS}
+
