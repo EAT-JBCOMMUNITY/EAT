@@ -300,3 +300,5 @@ Also, many thanks to the University of Peloponnese (Department of Informatics an
 # License 
 * [GNU Lesser General Public License Version 2.1](http://www.gnu.org/licenses/lgpl-2.1-standalone.html) ([GPL Cooperation Commitment](https://github.com/gplcc/gplcc/blob/master/Project/COMMITMENT))
 
+# Note
+* 02-10-2019 : Clarification - Commits of user root (with invalid e-mail) were sent by user panossot .
