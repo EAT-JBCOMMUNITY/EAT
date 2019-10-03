@@ -1,7 +1,7 @@
 # EAP ADDITIONAL TESTSUITE SINGLE TO MULTIPLE VERSION TESTS
 -----------------------------------------------
 
-Someone can develop a single test anywhere, not just in Single Version Test Inclusion. If he/she adds it in the SingleVersionTestInlcusionFolder he/she can follow the method described below, or mention the branch were the test is added as single version and someone will help with the multiple version inclusion.
+Someone can develop a single test anywhere, not just in Single Version Test Inclusion. If he/she adds it in the SingleVersionTestInlcusionFolder he/she can follow the method described below, or mention the branch where the test is added as single version and someone will help with the multiple version inclusion.
 
 
 
