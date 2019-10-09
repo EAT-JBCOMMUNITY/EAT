@@ -358,6 +358,20 @@
             </modules>
         </profile>
 
+        <profile>
+            <id>releases25</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>0.23.2</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark</module>
+            </modules>
+        </profile>
+
     </profiles>
 
 </project>
