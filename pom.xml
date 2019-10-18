@@ -55,12 +55,12 @@
         <dependency>
             <groupId>org.jboss.eap.additional.testsuite</groupId>
             <artifactId>eap-additional-testsuite-source-distribution</artifactId>
-            <version>2.9.0.Final</version>
+            <version>2.9.1.Final</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.eap.additional.testsuite</groupId>
             <artifactId>eap-additional-testsuite-annotations</artifactId>
-            <version>2.9.0.Final</version>
+            <version>2.9.1.Final</version>
         </dependency>
     </dependencies>
 
@@ -130,7 +130,6 @@
     </pluginRepositories>
 
     <profiles>
-         
         <profile>
             <id>wildfly.release-17.0.0.Final.testsuite</id>
             <activation>
@@ -142,6 +141,7 @@
 
             <properties>
 		<serverDir2>WildflyRelease-17.0.0.Final</serverDir2>
+                <activemodules>basic,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,manualmode,messaging,security,server,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
 
@@ -156,6 +156,7 @@
 
             <properties>
 		<serverDir2>WildflyRelease-17.0.0.Final</serverDir2>
+                <activemodules>logging,management,ws</activemodules>
 	    </properties>
         </profile>
 
@@ -170,6 +171,7 @@
 
             <properties>
 		<serverDir2>WildflyRelease-13.0.0.Final</serverDir2>
+                <activemodules>basic,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,manualmode,messaging,security,server,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
 
@@ -184,6 +186,7 @@
 
             <properties>
 		<serverDir2>WildflyRelease-13.0.0.Final</serverDir2>
+                <activemodules>logging,management,ws</activemodules>
 	    </properties>
         </profile>
 
@@ -198,6 +201,7 @@
 
             <properties>
 		<serverDir2>Wildfly</serverDir2>
+                <activemodules>basic,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,manualmode,remoting,messaging,security,server,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
 
@@ -212,6 +216,7 @@
 
             <properties>
 		<serverDir2>Wildfly</serverDir2>
+                <activemodules>logging,management,ws</activemodules>
 	    </properties>
         </profile>
 
@@ -226,6 +231,7 @@
 
             <properties>
 		<serverDir2>Wildfly-Unmerged</serverDir2>
+                <activemodules>basic</activemodules>
 	    </properties>
         </profile>
 
@@ -240,6 +246,7 @@
 
             <properties>
 		<serverDir2>WildflyRelease-10.1.0.Final</serverDir2>
+                <activemodules>basic,jaxrs,clustering,domain,logging,management,messaging,security,server,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
 
@@ -254,6 +261,7 @@
 
             <properties>
 		<serverDir2>WildflyRelease-10.1.0.Final</serverDir2>
+                <activemodules>logging,management,ws</activemodules>
 	    </properties>
         </profile>
 
@@ -329,6 +337,7 @@
 
             <properties>
 		<serverDir2>Eap64x</serverDir2>
+                <activemodules>logging,management,ws</activemodules>
 	    </properties>
         </profile>
 
@@ -404,6 +413,7 @@
 
             <properties>
 		<serverDir2>Eap64x</serverDir2>
+                <activemodules>basic,core,jaxrs,clustering,logging,management,messaging,security,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
 
@@ -479,6 +489,7 @@
 
             <properties>
 		<serverDir2>Eap64x-Proposed</serverDir2>
+                <activemodules>logging,management,ws</activemodules>
 	    </properties>
         </profile>
 
@@ -554,6 +565,7 @@
 
             <properties>
 		<serverDir2>Eap64x-Proposed</serverDir2>
+                <activemodules>basic,core,jaxrs,clustering,logging,management,messaging,security,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
 
@@ -601,6 +613,7 @@
 
             <properties>
 		<serverDir2>Eap63x</serverDir2>
+                <activemodules>logging,management,ws</activemodules>
 	    </properties>
         </profile>
 
@@ -648,6 +661,7 @@
 
             <properties>
 		<serverDir2>Eap63x</serverDir2>
+                <activemodules>basic,jaxrs,clustering,logging,management,messaging,security,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
 
@@ -695,6 +709,7 @@
 
             <properties>
 		<serverDir2>Eap62x</serverDir2>
+                <activemodules>logging,management,ws</activemodules>
 	    </properties>
         </profile>
 
@@ -742,6 +757,7 @@
 
             <properties>
 		<serverDir2>Eap62x</serverDir2>
+                <activemodules>basic,jaxrs,clustering,logging,management,messaging,security,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
 
@@ -789,6 +805,7 @@
 
             <properties>
 		<serverDir2>Eap61x</serverDir2>
+                <activemodules>basic,jaxrs,clustering,logging,management,messaging,security,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
 
@@ -836,6 +853,7 @@
 
             <properties>
 		<serverDir2>Eap7</serverDir2>
+                <activemodules>logging,management,ws</activemodules>
 	    </properties>
         </profile>
 
@@ -883,6 +901,7 @@
 
             <properties>
 		<serverDir2>Eap7</serverDir2>
+                <activemodules>basic,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,messaging,remoting,security,server,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
 
@@ -930,6 +949,7 @@
 
             <properties>
 		<serverDir2>Eap71x</serverDir2>
+                <activemodules>logging,management,ws</activemodules>
 	    </properties>
         </profile>
 
@@ -1005,6 +1025,7 @@
 
             <properties>
 		<serverDir2>Eap71x</serverDir2>
+                <activemodules>basic,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,manualmode,messaging,security,server,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
 
@@ -1052,6 +1073,7 @@
 
             <properties>
 		<serverDir2>Eap72x</serverDir2>
+                <activemodules>basic,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,manualmode,remoting,messaging,security,server,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
 
@@ -1099,6 +1121,7 @@
 
             <properties>
 		<serverDir2>Eap72x</serverDir2>
+                <activemodules>logging,management,ws</activemodules>
 	    </properties>
         </profile>
 
@@ -1146,6 +1169,7 @@
 
             <properties>
 		<serverDir2>Eap71x-Proposed</serverDir2>
+                <activemodules>logging,management,ws</activemodules>
 	    </properties>
         </profile>
 
@@ -1221,6 +1245,7 @@
 
             <properties>
 		<serverDir2>Eap71x-Proposed</serverDir2>
+                <activemodules>basic,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,manualmode,messaging,security,server,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
 
@@ -1268,6 +1293,7 @@
 
             <properties>
 		<serverDir2>Eap72x-Proposed</serverDir2>
+                <activemodules>logging,management,ws</activemodules>
 	    </properties>
         </profile>
 
@@ -1315,6 +1341,7 @@
 
             <properties>
 		<serverDir2>Eap72x-Proposed</serverDir2>
+                <activemodules>basic,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,manualmode,remoting,messaging,security,server,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
 
@@ -1362,6 +1389,7 @@
 
             <properties>
 		<serverDir2>Eap7.1.0.Beta</serverDir2>
+                <activemodules>basic,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,messaging,security,server,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
 
@@ -1409,6 +1437,7 @@
 
             <properties>
 		<serverDir2>Eap70x</serverDir2>
+                <activemodules>basic,core,jaxrs,jpa,clustering,domain_management,logging,management,messaging,security,server,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
 
@@ -1456,6 +1485,7 @@
 
             <properties>
 		<serverDir2>Eap70x</serverDir2>
+                <activemodules>logging,management,ws</activemodules>
 	    </properties>
         </profile>
 
@@ -1503,6 +1533,7 @@
 
             <properties>
 		<serverDir2>Eap70x-Proposed</serverDir2>
+                <activemodules>basic,core,jaxrs,jpa,clustering,domain_management,logging,management,messaging,security,server,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
 
@@ -1550,6 +1581,7 @@
 
             <properties>
 		<serverDir2>Eap70x-Proposed</serverDir2>
+                <activemodules>logging,management,ws</activemodules>
 	    </properties>
         </profile>
 
@@ -1598,6 +1630,7 @@
 
             <properties>
 		<serverDir2>Protean</serverDir2>
+                <activemodules>basic</activemodules>
 	    </properties>
         </profile>
 
@@ -1637,6 +1670,9 @@
 		                       <argument>${PM_FEATURES}</argument>
 		                       <argument>${DISABLE_SNAPSHOT_VERSIONS}</argument>
                                        <argument>${JBOSS_GIT_DIR}</argument>
+                                       <argument>modules/testcases</argument>
+                                       <argument>src/main/java</argument>
+                                       <argument>${activemodules}</argument>
 				   </arguments>
 				</configuration>
 			    </execution>
@@ -1659,6 +1695,9 @@
 		                       <argument></argument>
 		                       <argument></argument>
                                        <argument>${JBOSS_GIT_DIR}</argument>
+                                       <argument>modules/testcases</argument>
+                                       <argument>src/main/java</argument>
+                                       <argument>${activemodules}</argument>
 				   </arguments>
 				</configuration>
 			    </execution>
