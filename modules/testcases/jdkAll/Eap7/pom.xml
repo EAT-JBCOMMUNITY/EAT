@@ -415,6 +415,18 @@
 		    <artifactId>axis2-transport-jms</artifactId>
 		    <version>1.7.9</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.easytesting</groupId>
+		    <artifactId>fest-assert</artifactId>
+		    <version>1.4</version>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>fluent-hc</artifactId>
+		    <version>4.5.4</version>
+		    <scope>test</scope>
+		</dependency>
             </dependencies>
         </profile>
 
@@ -805,6 +817,18 @@
 		    <groupId>org.apache.axis2</groupId>
 		    <artifactId>axis2-transport-jms</artifactId>
 		    <version>1.7.9</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.easytesting</groupId>
+		    <artifactId>fest-assert</artifactId>
+		    <version>1.4</version>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>fluent-hc</artifactId>
+		    <version>4.5.4</version>
+		    <scope>test</scope>
 		</dependency>
             </dependencies>
         </profile>
