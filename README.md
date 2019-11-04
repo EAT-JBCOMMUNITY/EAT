@@ -4,7 +4,8 @@
 --------------------------------------------------------------------------------
 ## A PROJECT UNDER THE ΙΔΕΑ STATEMENT
 --------------------------------------
-An additional JBOSS testsuite in order to facilitate QE.
+
+An additional JBOSS testsuite in order to facilitate Qualtity Testing.
 
 Write your tests once and run them against any version of EAP and WILDFLY application server.
 
