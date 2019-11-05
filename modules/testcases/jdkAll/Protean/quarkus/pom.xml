@@ -400,6 +400,62 @@
             </modules>
         </profile>
 
+        <profile>
+            <id>releases28</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>0.26.0</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>releases29</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>0.27.0</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>releases30</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>0.28.0</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>releases31</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>1.0</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark</module>
+            </modules>
+        </profile>
+
     </profiles>
 
 </project>
