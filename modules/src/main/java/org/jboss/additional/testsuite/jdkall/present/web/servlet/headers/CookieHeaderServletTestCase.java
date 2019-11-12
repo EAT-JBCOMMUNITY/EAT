@@ -102,7 +102,7 @@ public class CookieHeaderServletTestCase {
 
     }
     
-    @Test
+    @ATTest({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/web/src/main/java","modules/testcases/jdkAll/Wildfly/web/src/main/java","modules/testcases/jdkAll/Eap72x/web/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/web/src/main/java","modules/testcases/jdkAll/Eap7/web/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/web/src/main/java","modules/testcases/jdkAll/Eap71x/web/src/main/java"})
     @OperateOnDeployment(DEPLOYMENT2)
     public void cookieHeaderCommaSeparatorTest(@ArquillianResource URL url2) throws Exception {
         URL testURL = new URL(url2.toString() + "cookieHeaderServlet2");
