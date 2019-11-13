@@ -33,7 +33,7 @@
             <activation>
                 <property>
                     <name>QUARKUS_VERSION</name>
-                    <value>999-SNAPSHOT</value>
+                    <value>${QUARKUS_VERSION}</value>
                 </property>
             </activation>
 
@@ -43,7 +43,7 @@
                         <groupId>io.quarkus</groupId>
                         <artifactId>quarkus-build-parent</artifactId>
                         <type>pom</type>
-                        <version>999-SNAPSHOT</version>
+                        <version>${QUARKUS_VERSION}</version>
                         <scope>import</scope>
                     </dependency>
                 </dependencies>
