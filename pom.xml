@@ -191,6 +191,21 @@
         </profile>
 
         <profile>
+            <id>openliberty.testsuite</id>
+            <activation>
+                <property>
+                    <name>openliberty</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <properties>
+		<serverDir2>OpenLiberty</serverDir2>
+                <activemodules>basic,jaxrs</activemodules>
+	    </properties>
+        </profile>
+
+        <profile>
             <id>wildfly.testsuite</id>
             <activation>
                 <property>

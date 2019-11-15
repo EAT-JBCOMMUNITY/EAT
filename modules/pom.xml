@@ -1284,6 +1284,21 @@
         </profile>
 
         <profile>
+            <id>openliberty.testsuite</id>
+            <activation>
+                <property>
+                    <name>openliberty</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <modules>
+                <module>testcases/jdkAll/OpenLiberty</module>
+            </modules>
+
+        </profile>
+
+        <profile>
             <id>wildfly.testsuite</id>
             <activation>
                 <property>
