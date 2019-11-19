@@ -416,6 +416,11 @@
 		    <version>1.7.9</version>
 		</dependency>
 		<dependency>
+		    <groupId>io.netty</groupId>
+		    <artifactId>netty-all</artifactId>
+		    <version>5.0.0.Alpha2</version>
+		</dependency>
+		<dependency>
 		    <groupId>org.easytesting</groupId>
 		    <artifactId>fest-assert</artifactId>
 		    <version>1.4</version>
@@ -807,6 +812,11 @@
 		    <groupId>org.apache.axis2</groupId>
 		    <artifactId>axis2-jaxws</artifactId>
 		    <version>1.7.8</version>
+		</dependency>
+		<dependency>
+		    <groupId>io.netty</groupId>
+		    <artifactId>netty-all</artifactId>
+		    <version>5.0.0.Alpha2</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.jboss.util</groupId>
