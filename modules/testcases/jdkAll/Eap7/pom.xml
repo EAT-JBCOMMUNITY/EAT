@@ -961,6 +961,19 @@
         </profile>
 
         <profile>
+            <id>manualmodeActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>manualmode</value>
+                </property>
+            </activation>
+            <modules>
+                <module>manualmode</module>
+            </modules>
+        </profile>
+
+        <profile>
             <id>managementActivate</id>
             <activation>
                 <property>
@@ -1082,6 +1095,7 @@
 		<module>domain</module>
 		<module>domain_management</module>
 		<module>logging</module>
+                <module>manualmode</module>
 		<module>management</module>
 		<module>messaging</module>
                 <module>remoting</module>
