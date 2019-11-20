@@ -7,6 +7,12 @@
     <!--
      *  ΙΔΕΑ : THE JBOSS TESTSUITE TO DEVELOP TESTS AGAINST INFINITE NUMBER OF JBOSS SERVERS
     -->
+
+    <parent>
+        <groupId>org.jboss</groupId>
+	<artifactId>openliberty-additional-testsuite-jaxrs</artifactId>
+	<version>1.0.3.Final</version>
+    </parent>
      
     <groupId>org.jboss</groupId>
     <artifactId>openliberty-additional-testsuite-jaxrs-configuration</artifactId>
@@ -18,7 +24,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <app.name>LibertyProject</app.name>
+        <app.name>LibertyJaxrs</app.name>
         <testServerHttpPort>9080</testServerHttpPort>
         <testServerHttpsPort>9443</testServerHttpsPort>
         <package.file>${project.build.directory}/${app.name}.zip</package.file>
@@ -34,7 +40,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- tag::arquillian-bom[] -->
             <dependency>
                 <groupId>org.jboss.arquillian</groupId>
                 <artifactId>arquillian-bom</artifactId>
@@ -42,8 +47,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- end::arquillian-bom[] -->
-
         </dependencies>
     </dependencyManagement>
 
@@ -161,9 +164,10 @@
 							<goal>stop-server</goal>
 						</goals>
 					</execution>
+                                        <execution> <id>install-liberty-server</id> <phase>compile</phase> <goals> <goal>install-server</goal> </goals> </execution>
 					<execution>
 						<id>create-server</id>
-						<phase>prepare-package</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>install-server</goal>
 							<goal>create-server</goal>
@@ -171,32 +175,33 @@
 					</execution>
 					<execution>
 						<id>install-apps</id>
-						<phase>package</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>install-apps</goal>
 						</goals>
 					</execution>
 					<execution>
 						<id>package-server</id>
-						<phase>package</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>package-server</goal>
 						</goals>
 					</execution>
 					<execution>
 						<id>test-start-server</id>
-						<phase>pre-integration-test</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>test-start-server</goal>
 						</goals>
 					</execution>
 					<execution>
 						<id>test-stop-server</id>
-						<phase>post-integration-test</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>test-stop-server</goal>
 						</goals>
 					</execution>
+                                        <execution> <id>configure arquillian</id> <phase>compile</phase> <goals> <goal>configure-arquillian</goal> </goals> </execution>
 				</executions>
 			</plugin>
 		</plugins>
