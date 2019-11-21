@@ -165,7 +165,7 @@
 	        </property>
 	    </activation>
             <modules>
-                <!--module>basic</module-->
+                <module>basic</module>
 		<module>jaxrs</module>
             </modules>
         </profile>
@@ -192,7 +192,13 @@
 							<goal>stop-server</goal>
 						</goals>
 					</execution>
-                                        <execution> <id>install-liberty-server</id> <phase>compile</phase> <goals> <goal>install-server</goal> </goals> </execution>
+                                        <execution> 
+                                            <id>install-liberty-server</id> 
+                                            <phase>compile</phase> 
+                                            <goals> 
+                                                <goal>install-server</goal> 
+                                            </goals> 
+                                        </execution>
 					<execution>
 						<id>create-server</id>
 						<phase>compile</phase>
@@ -229,7 +235,13 @@
 							<goal>test-stop-server</goal>
 						</goals>
 					</execution>
-                                        <execution> <id>configure arquillian</id> <phase>compile</phase> <goals> <goal>configure-arquillian</goal> </goals> </execution>
+                                        <execution> 
+                                            <id>configure arquillian</id> 
+                                            <phase>compile</phase> 
+                                            <goals> 
+                                                <goal>configure-arquillian</goal> 
+                                            </goals> 
+                                        </execution>
 				</executions>
 			</plugin>
 		</plugins>
