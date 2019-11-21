@@ -192,13 +192,6 @@
 							<goal>stop-server</goal>
 						</goals>
 					</execution>
-                                        <execution> 
-                                            <id>install-liberty-server</id> 
-                                            <phase>compile</phase> 
-                                            <goals> 
-                                                <goal>install-server</goal> 
-                                            </goals> 
-                                        </execution>
 					<execution>
 						<id>create-server</id>
 						<phase>compile</phase>
@@ -212,27 +205,6 @@
 						<phase>compile</phase>
 						<goals>
 							<goal>install-apps</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>package-server</id>
-						<phase>compile</phase>
-						<goals>
-							<goal>package-server</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>test-start-server</id>
-						<phase>compile</phase>
-						<goals>
-							<goal>test-start-server</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>test-stop-server</id>
-						<phase>compile</phase>
-						<goals>
-							<goal>test-stop-server</goal>
 						</goals>
 					</execution>
                                         <execution> 
