@@ -51,6 +51,12 @@ Testing EAP or Wildfly with specific JDK version
 6. If you would like/need to disable snapshot versions add -DDISABLE_SNAPSHOT_VERSIONS=true
 
 
+Testing with Open Liberty
+-------------------------
+1. export OPENLIBERTY_VERSION='the version of OpenLiberty features-bom you would like to use'
+2. mvn clean install -Dopenliberty
+
+
 Using HTTPS
 -----------
 After changing from HTTP to HTTPS, the maven repositories for Eap may not host a valid public SSL certificate, which will lead to maven failed to build the project. There are 3 options to fix that if it happens:
