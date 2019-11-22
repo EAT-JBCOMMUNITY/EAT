@@ -271,6 +271,25 @@ public class SecurityDeserializationTestCase {
 
     }
 
+    @ATTest({"modules/testcases/jdkAll/Wildfly/security/src/main/java#19.0.0.Final","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java#7.2.7","modules/testcases/jdkAll/Eap72x/security/src/main/java#7.2.7","modules/testcases/jdkAll/Eap7/security/src/main/java#7.3.1"})
+    public void testSecuirtyDatabind12() throws Exception {
+
+        final String JSON = aposToQuotes(
+                "{'v':['org.apache.log4j.receivers.db.DriverManagerConnectionSource']}"
+                 );
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enableDefaultTyping();
+
+        try {
+            PolyWrapper sc = mapper.readValue(JSON, PolyWrapper.class);
+            fail("Should not be able to deserialize because of security prevention.");
+        }catch(JsonMappingException e){
+            assertTrue("Fail because of security issues...",e.getMessage().contains("prevented for security reasons"));
+        }
+
+    }
+
     static class SerializedClass {
 
         public int id;
