@@ -85,22 +85,118 @@
                 <dependency>
                     <groupId>org.jboss.spec.javax.servlet</groupId>
                     <artifactId>jboss-servlet-api_3.1_spec</artifactId>
+		</dependency>
+		<dependency>
+    		    <groupId>javax.validation</groupId>
+    		    <artifactId>validation-api</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>javax.jms</groupId>
+		    <artifactId>javax.jms-api</artifactId>
+		    <version>2.0.1</version>
+		</dependency>    
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+                    <version>6.0.18.Final</version>
+		</dependency>
+                <dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-batch-jberet</artifactId>
+		    <version>18.0.1.Final</version>
+		</dependency>
+                <dependency>
+		    <groupId>org.wildfly.core</groupId>
+		    <artifactId>wildfly-logging</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>javax.batch</groupId>
+		    <artifactId>javax.batch-api</artifactId>
+		    <version>1.0.1</version>
+		</dependency>
+                <dependency>
+		    <groupId>org.jboss.ejb3</groupId>
+		    <artifactId>jboss-ejb3-ext-api</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-jaxrs</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-annotations</artifactId>
+		</dependency>
+                <dependency>
+                    <groupId>com.fasterxml.jackson.datatype</groupId>
+                    <artifactId>jackson-datatype-jdk8</artifactId>
                 </dependency>
-                <!--dependency>
-                    <groupId>org.hibernate</groupId>
-                    <artifactId>hibernate-search-analyzers</artifactId>
-                    <version>4.5.3.Final</version>
-                    <exclusions>
-			<exclusion>
-			    <groupId>org.apache.lucene</groupId>
-			    <artifactId>lucene-analyzers</artifactId>
-			</exclusion>
-                        <exclusion>
-			    <groupId>org.apache.solr</groupId>
-			    <artifactId>solr-analysis-extras</artifactId>
-			</exclusion>
-		    </exclusions> 
-                </dependency-->
+                <dependency>
+                    <groupId>com.fasterxml.jackson.datatype</groupId>
+                    <artifactId>jackson-datatype-jsr310</artifactId>
+                </dependency>
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-ext</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-client</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>javax.ws.rs</groupId>
+		    <artifactId>javax.ws.rs-api</artifactId>
+		    <version>2.1.1</version>
+		</dependency>
+                <dependency>
+		    <groupId>org.jboss</groupId>
+		    <artifactId>jboss-ejb-client</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>log4j</groupId>
+		    <artifactId>log4j</artifactId>
+		    <version>1.2.17</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.logging</groupId>
+		    <artifactId>jboss-logging</artifactId>
+		    <version>3.4.1.Final</version>
+		</dependency>
+                <dependency>
+		    <groupId>org.jboss.eap</groupId>
+		    <artifactId>wildfly-jaxrs</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>org.jboss.eap</groupId>
+		    <artifactId>wildfly-ejb3</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>org.jboss.eap</groupId>
+		    <artifactId>wildfly-messaging-activemq</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>org.jboss.eap</groupId>
+		    <artifactId>wildfly-messaging</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>joda-time</groupId>
+		    <artifactId>joda-time</artifactId>
+		</dependency>
+                <dependency>
+                    <groupId>org.apache.activemq</groupId>
+                    <artifactId>artemis-core-client</artifactId>
+                </dependency>
                 <dependency>
                     <groupId>org.jboss.osgi.metadata</groupId>
                     <artifactId>jbosgi-metadata</artifactId>
@@ -134,6 +230,16 @@
                 <dependency>
 		    <groupId>org.apache.axis2</groupId>
 		    <artifactId>axis2-transport-jms</artifactId>
+		    <version>1.7.9</version>
+		</dependency>
+                <dependency>
+		    <groupId>org.apache.axis2</groupId>
+		    <artifactId>axis2-adb</artifactId>
+		    <version>1.7.9</version>
+		</dependency>
+                <dependency>
+		    <groupId>org.apache.axis2</groupId>
+		    <artifactId>axis2-transport-local</artifactId>
 		    <version>1.7.9</version>
 		</dependency>
                 <dependency>
@@ -171,7 +277,6 @@
                 <dependency>
 		    <groupId>io.netty</groupId>
 		    <artifactId>netty-all</artifactId>
-		    <version>5.0.0.Alpha2</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.easytesting</groupId>
@@ -253,21 +358,117 @@
                 <dependency>
                     <groupId>org.jboss.spec.javax.servlet</groupId>
                     <artifactId>jboss-servlet-api_3.1_spec</artifactId>
+		</dependency>
+		<dependency>
+    		    <groupId>javax.validation</groupId>
+    		    <artifactId>validation-api</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>javax.jms</groupId>
+		    <artifactId>javax.jms-api</artifactId>
+		    <version>2.0.1</version>
+		</dependency>    
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+                    <version>6.0.18.Final</version>
+		</dependency>
+                <dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-batch-jberet</artifactId>
+		    <version>18.0.1.Final</version>
+		</dependency>
+                <dependency>
+		    <groupId>org.wildfly.core</groupId>
+		    <artifactId>wildfly-logging</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>javax.batch</groupId>
+		    <artifactId>javax.batch-api</artifactId>
+		    <version>1.0.1</version>
+		</dependency>
+                <dependency>
+		    <groupId>org.jboss.ejb3</groupId>
+		    <artifactId>jboss-ejb3-ext-api</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-jaxrs</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-annotations</artifactId>
+		</dependency>
+                <dependency>
+                    <groupId>com.fasterxml.jackson.datatype</groupId>
+                    <artifactId>jackson-datatype-jdk8</artifactId>
                 </dependency>
                 <dependency>
-                    <groupId>org.hibernate</groupId>
-                    <artifactId>hibernate-search-analyzers</artifactId>
-                    <version>4.5.3.Final</version>
-                    <exclusions>
-			<exclusion>
-			    <groupId>org.apache.lucene</groupId>
-			    <artifactId>lucene-analyzers</artifactId>
-			</exclusion>
-                        <exclusion>
-			    <groupId>org.apache.solr</groupId>
-			    <artifactId>solr-analysis-extras</artifactId>
-			</exclusion>
-		    </exclusions> 
+                    <groupId>com.fasterxml.jackson.datatype</groupId>
+                    <artifactId>jackson-datatype-jsr310</artifactId>
+                </dependency>
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-ext</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-client</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>javax.ws.rs</groupId>
+		    <artifactId>javax.ws.rs-api</artifactId>
+		    <version>2.1.1</version>
+		</dependency>
+                <dependency>
+		    <groupId>org.jboss</groupId>
+		    <artifactId>jboss-ejb-client</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>log4j</groupId>
+		    <artifactId>log4j</artifactId>
+		    <version>1.2.17</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.logging</groupId>
+		    <artifactId>jboss-logging</artifactId>
+		    <version>3.4.1.Final</version>
+		</dependency>
+                <dependency>
+		    <groupId>org.jboss.eap</groupId>
+		    <artifactId>wildfly-jaxrs</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>org.jboss.eap</groupId>
+		    <artifactId>wildfly-ejb3</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>org.jboss.eap</groupId>
+		    <artifactId>wildfly-messaging-activemq</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>org.jboss.eap</groupId>
+		    <artifactId>wildfly-messaging</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>joda-time</groupId>
+		    <artifactId>joda-time</artifactId>
+		</dependency>
+                <dependency>
+                    <groupId>org.apache.activemq</groupId>
+                    <artifactId>artemis-core-client</artifactId>
                 </dependency>
                 <dependency>
                     <groupId>org.jboss.osgi.metadata</groupId>
@@ -305,6 +506,16 @@
 		    <version>1.7.9</version>
 		</dependency>
                 <dependency>
+		    <groupId>org.apache.axis2</groupId>
+		    <artifactId>axis2-adb</artifactId>
+		    <version>1.7.9</version>
+		</dependency>
+                <dependency>
+		    <groupId>org.apache.axis2</groupId>
+		    <artifactId>axis2-transport-local</artifactId>
+		    <version>1.7.9</version>
+		</dependency>
+                <dependency>
                     <groupId>org.jboss.remotingjmx</groupId>
                     <artifactId>remoting-jmx</artifactId>
                     <exclusions>
@@ -339,7 +550,6 @@
                 <dependency>
 		    <groupId>io.netty</groupId>
 		    <artifactId>netty-all</artifactId>
-		    <version>5.0.0.Alpha2</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.easytesting</groupId>
