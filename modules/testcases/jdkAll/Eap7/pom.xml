@@ -188,6 +188,11 @@
 		    <artifactId>jbossws-cxf-client</artifactId>
 		</dependency>
                 <dependency>
+		    <groupId>log4j</groupId>
+		    <artifactId>apache-log4j-extras</artifactId>
+		    <version>1.2.17</version>
+		</dependency>
+                <dependency>
 		    <groupId>io.undertow</groupId>
 		    <artifactId>undertow-servlet</artifactId>
 		    <exclusions>
@@ -598,6 +603,11 @@
                 <dependency>
 		    <groupId>org.jboss.ws.cxf</groupId>
 		    <artifactId>jbossws-cxf-client</artifactId>
+		</dependency>
+                <dependency>
+		    <groupId>log4j</groupId>
+		    <artifactId>apache-log4j-extras</artifactId>
+		    <version>1.2.17</version>
 		</dependency>
                 <dependency>
 		    <groupId>io.undertow</groupId>
