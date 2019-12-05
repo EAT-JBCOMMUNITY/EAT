@@ -412,6 +412,11 @@
 		    <artifactId>netty-all</artifactId>
 		    <version>5.0.0.Alpha2</version>
 		</dependency>
+		<dependency>
+		    <groupId>commons-configuration</groupId>
+		    <artifactId>commons-configuration</artifactId>
+		    <version>1.10</version>
+		</dependency>
                 <dependency>
 		    <groupId>org.easytesting</groupId>
 		    <artifactId>fest-assert</artifactId>
@@ -819,6 +824,11 @@
 		    <groupId>io.netty</groupId>
 		    <artifactId>netty-all</artifactId>
 		    <version>5.0.0.Alpha2</version>
+		</dependency>
+                <dependency>
+		    <groupId>commons-configuration</groupId>
+		    <artifactId>commons-configuration</artifactId>
+		    <version>1.10</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.easytesting</groupId>
