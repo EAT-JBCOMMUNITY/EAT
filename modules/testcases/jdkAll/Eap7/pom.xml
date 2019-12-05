@@ -425,6 +425,11 @@
 		    <artifactId>netty-all</artifactId>
 		    <version>5.0.0.Alpha2</version>
 		</dependency>
+                <dependency>
+		    <groupId>commons-configuration</groupId>
+		    <artifactId>commons-configuration</artifactId>
+		    <version>1.10</version>
+		</dependency>
 		<dependency>
 		    <groupId>org.easytesting</groupId>
 		    <artifactId>fest-assert</artifactId>
@@ -837,6 +842,11 @@
 		    <groupId>org.apache.axis2</groupId>
 		    <artifactId>axis2-transport-jms</artifactId>
 		    <version>1.7.9</version>
+		</dependency>
+                <dependency>
+		    <groupId>commons-configuration</groupId>
+		    <artifactId>commons-configuration</artifactId>
+		    <version>1.10</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.easytesting</groupId>
