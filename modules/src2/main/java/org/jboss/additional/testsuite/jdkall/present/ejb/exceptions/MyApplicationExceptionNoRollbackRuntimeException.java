@@ -8,6 +8,7 @@ import javax.ejb.ApplicationException;
  *
  */
 @EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java", "modules/testcases/jdkAll/Eap72x/ejb/src/main/java", "modules/testcases/jdkAll/Eap72x-Proposed/ejb/main/java","modules/testcases/jdkAll/Eap7/ejb/src/main/java"})
+@ApplicationException(rollback = false)
 public class MyApplicationExceptionNoRollbackRuntimeException extends RuntimeException {
     /**
      *
