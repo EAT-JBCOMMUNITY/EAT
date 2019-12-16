@@ -4,6 +4,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 
 
 import javax.ejb.EJB;
+import javax.ejb.EJBException;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 
@@ -45,7 +46,7 @@ public class ClientExceptionTestCase {
 	try {
 	    bean.hello();
 	} catch(Exception ex) {
-	    if(ex.getCause() instanceof MyApplicationExceptionNoRollbackRuntimeException)
+	    if(ex instanceof EJBException == false)
                 fail("Exception should be different...");
 	} 
     }
