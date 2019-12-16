@@ -526,6 +526,20 @@
             </modules>
         </profile>
 
+        <profile>
+            <id>releases37</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>1.1.0.CR1</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark</module>
+            </modules>
+        </profile>
+
     </profiles>
 
 </project>
