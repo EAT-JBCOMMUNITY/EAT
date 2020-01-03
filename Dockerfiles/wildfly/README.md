@@ -10,8 +10,8 @@ In order for run EAT using docker to test Wildfly Server Images, please, follow 
 
 
 
-# RUN EAT with OPENSHIFT (update is needed)
--------------------------------------------
+# RUN EAT with OPENSHIFT (Additional instructions should be added relevant to the ones above)
+---------------------------------------------------------------------------------------------
 
 In order for run EAT Wildfly with Openshift, please, follow the next steps ...
 
