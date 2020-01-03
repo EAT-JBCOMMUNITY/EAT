@@ -5,8 +5,9 @@ In order for run EAT using docker to test Wildfly Server Images, please, follow 
 
 1. Create the image for the Wildfly Server : e.g. docker build -t docker.io/wildflyserver -f DockerfileWildflyImage .
 2. Run the container attaching two volumes : e.g. docker run --name=ywildflyserver -v DataVolume1:/wildfly/master -v DataVolume2:/home/user/.m2 docker.io/wildflyserver
-3. Create the image for EAT : e.g. docker build -t docker.io/wildflyeat -f DockerfileEat .
-4. Run the container with the same two volumes attached, specifying the server version and the path to the server distribution : e.g. docker run --name=wildflyeat -v DataVolume1:/wildfly/master -v DataVolume2:/home/user/.m2 -e JBOSS_FOLDER=/wildfly/master/dist/target/wildfly-19.0.0.Beta1-SNAPSHOT -e JBOSS_VERSION=19.0.0.Beta1-SNAPSHOT docker.io/wildflyeat 
+3. Stop the server container if needed.
+4. Create the image for EAT : e.g. docker build -t docker.io/wildflyeat -f DockerfileEat .
+5. Run the container with the same two volumes attached, specifying the server version and the path to the server distribution : e.g. docker run --name=wildflyeat -v DataVolume1:/wildfly/master -v DataVolume2:/home/user/.m2 -e JBOSS_FOLDER=/wildfly/master/dist/target/wildfly-19.0.0.Beta1-SNAPSHOT -e JBOSS_VERSION=19.0.0.Beta1-SNAPSHOT docker.io/wildflyeat 
 
 
 
