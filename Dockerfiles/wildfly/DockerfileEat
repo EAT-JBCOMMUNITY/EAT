@@ -51,5 +51,6 @@ WORKDIR "/eat/master"
 
 ENV JBOSS_VERSION=$JBOSS_VERSION
 ENV JBOSS_FOLDER=$JBOSS_FOLDER
+ENV JBOSS_FOLDER2=$JBOSS_FOLDER2
 
 CMD ["mvn", "clean", "install", "-Dwildfly", "-Dstandalone", "-s", "/usr/share/settings-eatwildfly.xml"]
