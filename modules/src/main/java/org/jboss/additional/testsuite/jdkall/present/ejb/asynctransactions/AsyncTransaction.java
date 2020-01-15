@@ -24,10 +24,10 @@ public class AsyncTransaction implements CallerSingleton {
         try {
             asyncSingleton.doAsyncAction();
             asyncSingleton.doAsyncAction();
-            asyncSingleton.doAsyncAction();
-            asyncSingleton.doAsyncAction();
-            asyncSingleton.doAsyncAction();
-            asyncSingleton.doAsyncAction();
+         //   asyncSingleton.doAsyncAction();
+         //   asyncSingleton.doAsyncAction();
+         //   asyncSingleton.doAsyncAction();
+         //   asyncSingleton.doAsyncAction();
         }catch(Exception e) {
             throw e;
         }
