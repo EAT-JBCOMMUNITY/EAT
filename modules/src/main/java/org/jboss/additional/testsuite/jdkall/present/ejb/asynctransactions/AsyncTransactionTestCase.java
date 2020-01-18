@@ -52,7 +52,7 @@ public class AsyncTransactionTestCase {
             Thread.sleep(5000);
             System.setOut(ServerLogSetupTask.oldOut);
             String output = new String(ServerLogSetupTask.baos.toByteArray());
-            Assert.assertFalse(output, output.contains("ERROR [org.jboss.as.ejb3.invocation]"));
+            Assert.assertFalse(output, output.contains("ERROR"));
         } catch(Exception e) {
             e.printStackTrace();
         } finally {
