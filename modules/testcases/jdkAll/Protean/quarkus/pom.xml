@@ -554,6 +554,20 @@
             </modules>
         </profile>
 
+       <profile>
+            <id>releases39</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>1.2.0.CR2</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark</module>
+            </modules>
+        </profile>
+
     </profiles>
 
 </project>
