@@ -45,6 +45,7 @@ public class ClientExceptionTestCase {
     public void checkException() {
 	try {
 	    bean.hello();
+            fail("Exception should have been through already...");
 	} catch(Exception ex) {
 	    if(ex instanceof EJBException == false)
                 fail("Exception should be different...");
