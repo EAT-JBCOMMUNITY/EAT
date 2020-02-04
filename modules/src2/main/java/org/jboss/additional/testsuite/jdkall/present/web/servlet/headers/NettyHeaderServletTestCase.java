@@ -38,6 +38,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 import org.junit.runner.RunWith;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import org.junit.Test;
 
 import java.net.URL;
@@ -68,6 +69,7 @@ public class NettyHeaderServletTestCase {
         HttpHeaders headers = request.headers();
         try {
             headers.set("Transfer-Encoding ", "chunked");
+            fail("Should not go here...");
         }catch(Exception e){
             assertTrue("Header should be prohibited", e.getMessage().contains("a header name cannot contain the following prohibited characters"));
         }
