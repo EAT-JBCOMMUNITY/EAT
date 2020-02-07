@@ -19,6 +19,7 @@ cd remoteSrc
 git clone $GITHUB_REPO
 cd ..
 cp -R ./remoteSrc/$SUBDIR ./modules/src/main/java
+cp -R ./remoteSrc/$SUBDIR ./modules/src2/main/java
 
 
 
