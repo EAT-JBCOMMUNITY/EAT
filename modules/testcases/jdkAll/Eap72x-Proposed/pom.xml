@@ -753,6 +753,19 @@
         </profile>
 
         <profile>
+            <id>othersActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>others</value>
+                </property>
+            </activation>
+            <modules>
+                <module>others</module>
+            </modules>
+        </profile>
+
+        <profile>
             <id>remotingActivate</id>
             <activation>
                 <property>
@@ -850,6 +863,7 @@
 		<module>management</module>
                 <module>manualmode</module>
 		<module>messaging</module>
+                <module>others</module>
                 <module>remoting</module>
 		<module>security</module>
 		<module>server</module>
