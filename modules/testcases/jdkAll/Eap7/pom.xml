@@ -423,7 +423,6 @@
 		<dependency>
 		    <groupId>io.netty</groupId>
 		    <artifactId>netty-all</artifactId>
-		    <version>5.0.0.Alpha2</version>
 		</dependency>
                 <dependency>
 		    <groupId>commons-configuration</groupId>
@@ -836,7 +835,6 @@
 		<dependency>
 		    <groupId>io.netty</groupId>
 		    <artifactId>netty-all</artifactId>
-		    <version>5.0.0.Alpha2</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.jboss.util</groupId>
