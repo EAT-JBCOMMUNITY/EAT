@@ -94,6 +94,20 @@
             </snapshots>
         </repository>
 	<repository>
+            <id>jboss-public-repository-group2</id>
+            <name>JBoss Public Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/repositories/public/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+        </repository>
+	<repository>
 		<id>repository.spring.maven.libs</id>
 		<name>Spring Framework Maven  Repository</name>
 		<url>https://repo.spring.io/libs-milestone/</url>
