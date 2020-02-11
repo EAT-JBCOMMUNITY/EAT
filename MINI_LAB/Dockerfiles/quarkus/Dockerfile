@@ -38,11 +38,11 @@ ENV GLIBC_VERSION=2.27-r0
 
 RUN dnf -y install gcc && dnf -y install zlib-devel && dnf -y install glibc-devel.i686 glibc.i686
 
-ENV GRAAL_VERSION 19.0.2
+ENV GRAAL_VERSION 19.3.1
 ENV GRAAL_HOME /usr/lib/jvm/vm-$GRAAL_VERSION
 ENV PATH $GRAAL_HOME/graalvm-ce-$GRAAL_VERSION/bin:$PATH
 
-RUN mkdir -p $GRAAL_HOME &&  wget --no-check-certificate https://www.dropbox.com/s/n0q7ek0xbma6nel/graal.tar?dl=0 -O $GRAAL_HOME/graalvm-ce-$GRAAL_VERSION-linux-amd64.tar 
+RUN mkdir -p $GRAAL_HOME &&  wget --no-check-certificate https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-19.3.1/graalvm-ce-java8-linux-amd64-$GRAAL_VERSION.tar.gz -O $GRAAL_HOME/graalvm-ce-$GRAAL_VERSION-linux-amd64.tar 
 
 
 RUN tar xvf $GRAAL_HOME/graalvm-ce-$GRAAL_VERSION-linux-amd64.tar -C $GRAAL_HOME \
