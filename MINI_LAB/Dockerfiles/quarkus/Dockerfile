@@ -42,7 +42,7 @@ ENV GRAAL_VERSION 19.3.1
 ENV GRAAL_HOME /usr/lib/jvm/vm-$GRAAL_VERSION
 ENV PATH $GRAAL_HOME/graalvm-ce-$GRAAL_VERSION/bin:$PATH
 
-RUN mkdir -p $GRAAL_HOME &&  wget --no-check-certificate https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-19.3.1/graalvm-ce-java8-linux-amd64-$GRAAL_VERSION.tar.gz -O $GRAAL_HOME/graalvm-ce-$GRAAL_VERSION-linux-amd64.tar 
+RUN mkdir -p $GRAAL_HOME &&  wget --no-check-certificate https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-$GRAAL_VERSION/graalvm-ce-java8-linux-amd64-$GRAAL_VERSION.tar.gz -O $GRAAL_HOME/graalvm-ce-$GRAAL_VERSION-linux-amd64.tar 
 
 
 RUN tar xvf $GRAAL_HOME/graalvm-ce-$GRAAL_VERSION-linux-amd64.tar -C $GRAAL_HOME \
