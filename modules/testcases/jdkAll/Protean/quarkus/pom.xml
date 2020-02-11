@@ -582,6 +582,20 @@
             </modules>
         </profile>
 
+        <profile>
+            <id>releases41</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>1.3.0.Alpha1</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark</module>
+            </modules>
+        </profile>
+
     </profiles>
 
 </project>
