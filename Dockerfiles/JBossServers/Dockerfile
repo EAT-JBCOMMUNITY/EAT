@@ -4,10 +4,6 @@ MAINTAINER Panagiotis Sotiropoulos <psotirop@redhat.com>
 
 LABEL description="A container for running EAT in isolation"
 
-ENV JAVA_VERSION 8u171
-ENV BUILD_VERSION b11
-ENV UUID 512cd62ec5174c3487ac17c61aaa89e8
-
 # Upgrading system
 RUN dnf -y upgrade
 RUN dnf -y install wget
