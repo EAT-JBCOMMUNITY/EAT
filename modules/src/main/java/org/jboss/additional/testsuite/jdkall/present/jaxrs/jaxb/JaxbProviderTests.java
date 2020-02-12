@@ -72,7 +72,7 @@ public class JaxbProviderTests {
     }
 
     @Test
-    public void testJaxRsWithNoApplication() throws Exception {
+    public void testJaxRs() throws Exception {
         String result = performCall("rest/jaxb");
         Assert.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><jaxbModel><first>John</first><last>Citizen</last></jaxbModel>", result);
     }
