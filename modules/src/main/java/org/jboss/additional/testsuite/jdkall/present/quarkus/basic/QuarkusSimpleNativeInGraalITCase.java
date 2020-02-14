@@ -24,10 +24,10 @@ package org.jboss.additional.testsuite.jdkall.present.quarkus.basic;
 
 
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
-import io.quarkus.test.junit.SubstrateTest;
+import io.quarkus.test.junit.NativeImageTest;
 
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Protean/quarkus/protean/test-configurations2/src/test/java#0.10.0*0.12.0","modules/testcases/jdkAll/Protean/quarkus/quark/test-configurations/src/test/java#0.13.0*1.3.0.Alpha1"})
-@SubstrateTest
-public class QuarkusSimpleInGraalITCase extends QuarkusSimpleTestCase{
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Protean/quarkus/quark/test-configurations/src/test/java#1.3.0.Alpha2*999.1.0"})
+@NativeImageTest
+public class QuarkusSimpleNativeInGraalITCase extends QuarkusSimpleTestCase{
 
 }
