@@ -2,6 +2,7 @@ java.util.logging
 java.rmi
 java.sql
 java.util
+java.time
 java.util.stream
 java.lang.annotation
 javax.sql
