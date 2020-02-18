@@ -13,9 +13,44 @@
     
     <dependencies>
         <dependency>
+            <groupId>org.eclipse.core</groupId>
+            <artifactId>resources</artifactId>
+            <version>3.3.0-v20070604</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jdt</groupId>
+            <artifactId>core</artifactId>
+            <version>3.3.0-v_771</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.eclipse.core</groupId>
+                    <artifactId>resources</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.logging</groupId>
+            <artifactId>jboss-logging-annotations</artifactId>
+            <version>2.2.1.Final</version>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.logging</groupId>
+            <artifactId>jboss-logging-processor</artifactId>
+            <version>2.2.1.Final</version>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
             <groupId>com.github.javaparser</groupId>
             <artifactId>javaparser-core</artifactId>
             <version>3.6.16</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8</version>
         </dependency>
     </dependencies>
 
