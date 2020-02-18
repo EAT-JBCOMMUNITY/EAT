@@ -14,8 +14,8 @@
     <dependencies>
         <dependency>
             <groupId>org.eclipse.core</groupId>
-            <artifactId>resources</artifactId>
-            <version>3.3.0-v20070604</version>
+            <artifactId>org.eclipse.core.resources</artifactId>
+            <version>3.7.100</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jdt</groupId>
@@ -27,20 +27,6 @@
                     <artifactId>resources</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.logging</groupId>
-            <artifactId>jboss-logging-annotations</artifactId>
-            <version>2.2.1.Final</version>
-            <scope>provided</scope>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.logging</groupId>
-            <artifactId>jboss-logging-processor</artifactId>
-            <version>2.2.1.Final</version>
-            <scope>provided</scope>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>com.github.javaparser</groupId>
