@@ -18,7 +18,10 @@
     <packaging>pom</packaging>
     <name>wildfly additional testsuite: infinispan</name>
     
-
+    <modules>
+        <module>test-configurations</module>
+    </modules>
+         
     <build>
         <plugins>  
 
