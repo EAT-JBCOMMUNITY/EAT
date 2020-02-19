@@ -957,6 +957,19 @@
         </profile>
 
         <profile>
+            <id>infinispanActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>infinispan</value>
+                </property>
+            </activation>
+            <modules>
+                <module>infinispan</module>
+            </modules>
+        </profile>
+
+        <profile>
             <id>domainActivate</id>
             <activation>
                 <property>
@@ -1153,6 +1166,7 @@
 		<module>jaxrs</module>
                 <module>jpa</module>
 		<module>clustering</module>
+                <module>infinispan</module>
 		<module>domain</module>
 		<module>domain_management</module>
 		<module>logging</module>
