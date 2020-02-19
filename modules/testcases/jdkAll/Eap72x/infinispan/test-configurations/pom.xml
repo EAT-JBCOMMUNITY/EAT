@@ -47,7 +47,7 @@
 
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
-                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEap7</additionalClasspathElement>
+                        <jboss.server.config.file.name>standalone-ha.xml</jboss.server.config.file.name>
                     </additionalClasspathElements>
 
                 </configuration>
