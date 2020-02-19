@@ -42,7 +42,7 @@
                     <failIfNoTests>false</failIfNoTests>
 
                     <systemPropertyVariables>
-                        <arquillian.launch>infinispan-all</arquillian.launch>
+                        <jboss.server.config.file.name>standalone-ha.xml</jboss.server.config.file.name>
                     </systemPropertyVariables>
 
                     <!-- Arquillian's config files. -->
