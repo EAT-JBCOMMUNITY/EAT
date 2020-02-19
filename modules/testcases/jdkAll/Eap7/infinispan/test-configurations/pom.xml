@@ -22,6 +22,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
 	<standalone.conf>${basedir}/../src/test/config/standaloneEap7/standalone-ha.xml</standalone.conf>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
+        <server>eap7</server>
     </properties>
         
     <build>
@@ -85,6 +86,13 @@
                                 <ant antfile="${jboss.modules.dir}/src/test/scripts/clean-deployments.xml">
 	                            <property name="serverDir" value="/${jboss.modules.dir}/servers" />
 	                            <target name="clean-deployments"/>
+	                        </ant>
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/basic-build.xml">
+	                            <property name="workspace" value="/${jboss.modules.dir}" />
+                                    <property name="server" value="${server}" />
+                                    <property name="dist" value="jbossas" />
+	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
+	                            <target name="build-basic-check"/>
 	                        </ant>
 	                    </target>
 	                </configuration>
