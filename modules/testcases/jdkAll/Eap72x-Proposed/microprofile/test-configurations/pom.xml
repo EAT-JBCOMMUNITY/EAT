@@ -87,7 +87,7 @@
                                     <property name="server" value="${server}" />
                                     <property name="dist" value="jbossas" />
 	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
-	                            <target name="build-microprofile-check"/>
+	                            <target name="build-basic-check"/>
 	                        </ant>
 	                    </target>
 	                </configuration>
