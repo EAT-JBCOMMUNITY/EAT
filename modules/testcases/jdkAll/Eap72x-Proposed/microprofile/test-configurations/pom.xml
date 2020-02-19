@@ -82,7 +82,7 @@
 	                            <property name="serverDir" value="/${jboss.modules.dir}/servers" />
 	                            <target name="clean-deployments"/>
 	                        </ant>
-	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/microprofile-build.xml">
+	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/basic-build.xml">
 	                            <property name="workspace" value="/${jboss.modules.dir}" />
                                     <property name="server" value="${server}" />
                                     <property name="dist" value="jbossas" />
