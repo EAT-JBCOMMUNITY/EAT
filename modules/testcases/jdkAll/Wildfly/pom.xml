@@ -1044,6 +1044,19 @@
         </profile>
 
         <profile>
+            <id>microprofileActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>microprofile</value>
+                </property>
+            </activation>
+            <modules>
+                <module>microprofile</module>
+            </modules>
+        </profile>
+
+        <profile>
             <id>othersActivate</id>
             <activation>
                 <property>
@@ -1155,6 +1168,7 @@
 		<module>management</module>
                 <module>manualmode</module>
 		<module>messaging</module>
+                <module>microprofile</module>
                 <module>others</module>
                 <module>remoting</module>
 		<module>security</module>
