@@ -266,7 +266,8 @@ FUTURE DEVELOPMENT
 9. Create a subcategory for a collection of components.
 10. Show how it can test multi-versioned software with multiple components that are dynamically updated in real time using component chains. 
 11. Use arquillian cube for container testing. 
-12. NEXT GENERATION AT STRUCTURES : The tests/methods (that may use features/dependencies from a provisioning tool/dependency-feature analyzer) should be independent modules that will have dependencies (metadata could be used) on libraries and other methods (which may also use some features/dependencies from the provisioning tool/dependency-feature analyzer and which could have their own dependencies). The tool should compose the appropriate test cases and distribute them to the appropriate subcategories in accordance with the available features/dependencies. The dependencies could also be defined automatically when using a dependency-feature analyzer. This way the annotations for enabling the tests could be automated (and become non mandatory in some cases).
+12. Make dependencies fully dynamic
+13. NEXT GENERATION AT STRUCTURES : The tests/methods (that may use features/dependencies from a provisioning tool/dependency-feature analyzer) should be independent modules that will have dependencies (metadata could be used) on libraries and other methods (which may also use some features/dependencies from the provisioning tool/dependency-feature analyzer and which could have their own dependencies). The tool should compose the appropriate test cases and distribute them to the appropriate subcategories in accordance with the available features/dependencies. The dependencies could also be defined automatically when using a dependency-feature analyzer. This way the annotations for enabling the tests could be automated (and become non mandatory in some cases).
 
 
 MOJO DOCUMENTATION
