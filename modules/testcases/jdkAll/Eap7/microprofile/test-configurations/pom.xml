@@ -23,6 +23,14 @@
         <server>eap7</server>
     </properties>
         
+    <dependencies>
+        <dependency>
+	    <groupId>io.smallrye</groupId>
+	    <artifactId>smallrye-config</artifactId>
+	</dependency>
+    </dependencies>
+
+
     <build>
 
         <!--
