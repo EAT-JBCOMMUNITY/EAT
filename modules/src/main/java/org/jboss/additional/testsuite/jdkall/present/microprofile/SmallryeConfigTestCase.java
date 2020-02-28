@@ -37,7 +37,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(Arquillian.class)
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/microprofile/src/main/java#20.0.0.Beta1","modules/testcases/jdkAll/Eap72x/microprofile/src/main/java#7.2.7","modules/testcases/jdkAll/Eap72x-Proposed/microprofile/src/main/java#7.2.7","modules/testcases/jdkAll/Eap7/microprofile/src/main/java#7.3.0"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/microprofile/src/main/java#20.0.0.Beta2","modules/testcases/jdkAll/Eap72x/microprofile/src/main/java#7.2.8","modules/testcases/jdkAll/Eap72x-Proposed/microprofile/src/main/java#7.2.8","modules/testcases/jdkAll/Eap7/microprofile/src/main/java#7.3.1"})
 public class SmallryeConfigTestCase {
 
     @Deployment
