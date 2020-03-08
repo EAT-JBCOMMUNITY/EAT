@@ -49,8 +49,9 @@ WORKDIR "/eat/master"
 
 ENV JBOSS_VERSION=$JBOSS_VERSION
 ENV JBOSS_FOLDER=$JBOSS_FOLDER
+ENV EAT_MODULES=$EAT_MODULES
 
-CMD ["mvn", "clean", "install", "-Dwildfly", "-Dstandalone", "-s", "/usr/share/settings-eatwildfly.xml"]
+CMD mvn clean install -Dwildfly -Dstandalone -Dmodule=${EAT_MODULES} -s /usr/share/settings-eatwildfly.xml
 
 
 
