@@ -2,7 +2,7 @@ FROM docker.io/fedora
 
 MAINTAINER Panagiotis Sotiropoulos <psotirop@redhat.com>
 
-LABEL description="A container for running Wildfly Server"
+LABEL description="A container for running EAP Server"
 
 ADD ./settings-eateap.xml /usr/share
 
