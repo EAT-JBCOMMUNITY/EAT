@@ -20,7 +20,7 @@ In order for run EAT Wildfly with Openshift, please, follow the next steps ...
 3. Push the tagged image to some repo : docker push docker.io/jboss/eat:wildfly1700B1
 4. In Openshift create a project : e.g. eat
 5. Get started with your project using 'Deploy Image'. e.g. choose image name and refer to the image uploaded at the repo in the previous step
-6. Set the environment variables JBOSS_VERSION='the version of the server', JBOSS_FOLDER=/wildfly/master/dist/target/wildfly-'the version of the server' and EAT_MODULES=all (basic, jaxrs, ejb, domain, etc)
+6. Set the environment variables JBOSS_VERSION='the version of the server', JBOSS_FOLDER=/wildfly/master/dist/target/wildfly-'the version of the server' and EAT_MODULES=(basic, jaxrs, ejb, domain, etc) if a specific eat module should be tested (if not set, all modules are tested)
 7. Push the Deploy button and check EAT Wildfly running in Openshift (e.g. using the Logs)
 
 
