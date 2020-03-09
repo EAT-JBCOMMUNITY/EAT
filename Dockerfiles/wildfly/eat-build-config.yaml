@@ -1,0 +1,37 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  creationTimestamp: '2020-03-05T10:52:07Z'
+  name: eat-build
+  namespace: eat
+  resourceVersion: '46008527'
+  selfLink: /apis/build.openshift.io/v1/namespaces/eat/buildconfigs/eat-build
+  uid: 5bcb2663-5ecf-11ea-9527-0022195774a4
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    pushSecret:
+      name: eat
+    to:
+      kind: DockerImage
+      name: 'docker.io/group/eat:serverimage'
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    contextDir: Dockerfiles/wildfly
+    git:
+      ref: master
+      uri: 'https://github.com/jboss-set/eap-additional-testsuite.git'
+    type: Git
+  strategy:
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+    type: Docker
+  successfulBuildsHistoryLimit: 5
+  triggers:
+    - type: ConfigChange
+status:
+  lastVersion: 24
+
