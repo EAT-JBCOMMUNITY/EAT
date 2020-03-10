@@ -24,10 +24,10 @@ In order for run EAT Wildfly with Openshift, please, follow the next steps ...
 7. Push the Deploy button and check EAT Wildfly running in Openshift (e.g. using the Logs)
 
 
-Run EAT Wildfly with Openshift, using config files (an example of such a build config is included at the current dir) :
+Run EAT Wildfly with Openshift, using config files :
 
-1. Create a build config that builds an image from the current dir's Dockerfile and uploads it at some registry (e.g. https://index.docker.io/v1/). Probably the creation of a secret in order to push to the registry will be needed.
-2. Create a deployment/pod that runs the image (setting the needed env variables described above as command arguments).
+1. Create a build config that builds an image from the current dir's Dockerfile and uploads it at some registry (e.g. https://index.docker.io/v1/). Probably the creation of a secret in order to push to the registry will be needed. (an example of such a build config is included at the current dir)
+2. Create a deployment/pod or job that runs the image. The env variables should be passed as args of the command in the deployment/job config (an example of deployment-config and job-config is included at the current dir).
 
 
 In case the dependencies cannot be downloaded because of misconfiguration of openshift and for testing perposes the DockerfileLayer dirs can be used :
