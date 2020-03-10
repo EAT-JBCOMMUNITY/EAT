@@ -1,0 +1,88 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  creationTimestamp: '2020-03-10T10:19:09Z'
+  generation: 3
+  name: eat-run-ejb
+  namespace: eat
+  resourceVersion: '47620709'
+  selfLink: /apis/apps.openshift.io/v1/namespaces/eat/deploymentconfigs/eat-run-ejb
+  uid: 94e0b985-62b8-11ea-9524-0022195774a4
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    app: run-eat
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: run-eat
+    spec:
+      containers:
+        - args:
+            - clean
+            - install
+            - '-Dwildfly'
+            - '-Dstandalone'
+            - >-
+              -DJBOSS_FOLDER=/wildfly/master/dist/target/wildfly-20.0.0.Beta1-SNAPSHOT
+            - '-DJBOSS_VERSION=20.0.0.Beta1-SNAPSHOT'
+            - '-Dmodule=ejb'
+            - '-s'
+            - /usr/share/settings-eatwildfly.xml
+          command:
+            - mvn
+          env:
+            - name: JBOSS_FOLDER
+              value: /wildfly/master/dist/target/wildfly-20.0.0.Beta1-SNAPSHOT
+            - name: JBOSS_VERSION
+              value: 20.0.0.Beta1-SNAPSHOT
+          image: 'docker.io/panossotos/eat:wildfly2000B1'
+          imagePullPolicy: IfNotPresent
+          name: run-eat
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+    - type: ConfigChange
+status:
+  availableReplicas: 0
+  conditions:
+    - lastTransitionTime: '2020-03-10T10:19:15Z'
+      lastUpdateTime: '2020-03-10T10:19:15Z'
+      message: replication controller "eat-run-ejb-1" successfully rolled out
+      reason: NewReplicationControllerAvailable
+      status: 'True'
+      type: Progressing
+    - lastTransitionTime: '2020-03-10T11:47:06Z'
+      lastUpdateTime: '2020-03-10T11:47:06Z'
+      message: Deployment config does not have minimum availability.
+      status: 'False'
+      type: Available
+  details:
+    causes:
+      - type: ConfigChange
+    message: config change
+  latestVersion: 1
+  observedGeneration: 3
+  replicas: 1
+  unavailableReplicas: 1
+  updatedReplicas: 1
+
