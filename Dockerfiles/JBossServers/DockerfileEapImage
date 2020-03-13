@@ -43,6 +43,8 @@ ARG GITHUB_USERNAME
 ARG GITHUB_PASSWORD
 ARG EAP_BRANCH
 
+ADD repository /home/user/.m2/repository
+
 RUN pwd && mkdir -p eap && cd eap && git clone https://$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/jbossas/jboss-eap7.git master -b $EAP_BRANCH && cd master && ls -la && mvn clean install -DskipTests -Denforcer.skip -Dmaven.repository.protocol=http -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -s "/usr/share/settings-eateap.xml"  && chmod -R 777 /home/user/.m2 && chmod -R 777 /eap/master/dist 
 
 CMD /eap/master/dist/target/jboss-eap*/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0
