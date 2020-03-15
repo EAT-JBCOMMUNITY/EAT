@@ -21,6 +21,6 @@ In order for run EAT using docker to test EAP Server Images, please, follow the 
 5. Push the tagged image to some repo : docker push docker.io/jboss/eat:eap7x
 6. In Openshift create a project : e.g. eat
 7. Get started with your project using 'Deploy Image'. e.g. choose image name and refer to the image uploaded at the repo in the previous step
-8. Set the environment variables JBOSS_VERSION='the version of the server' , JBOSS_FOLDER=/eap/dist/target/jboss-eap-'the version of the server' and SERVER_CODE='code of the server used with eat, eg eap72x'
+8. Set the environment variables JBOSS_VERSION='the version of the server' , JBOSS_FOLDER=/eap/master/dist/target/jboss-eap-'usually the major.minor version of the server' and SERVER_CODE='code of the server used with eat, eg eap72x'
 9. Push the Deploy button and check EAT EAP running in Openshift (e.g. using the Logs)
 
