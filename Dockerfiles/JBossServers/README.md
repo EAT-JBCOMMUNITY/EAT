@@ -13,6 +13,14 @@ In order for run EAT using docker to test EAP Server Images, please, follow the 
 # RUN EAT with OPENSHIFT (Additional instructions should be added relevant to the ones above)
 ---------------------------------------------------------------------------------------------
 
+Run EAT for EAP with Openshift, using config files :
+
+1. Create an image of eat for some eap version as described above and upload it at some registry.
+2. Create a deployment/pod or job that runs the image. The env variables should be passed as args of the command in the deployment/job config (an example of deployment-config and job-config is included at the current dir).
+
+
+or
+
 
 1. Use Dockerfile in DockerfileLayer1 dir to create image docker.io/eateap : docker build -t docker.io/eateap .
 2. Add in the container of this image the eap dist and the maven repo artifacts that are needed for EAT 

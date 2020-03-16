@@ -1,14 +1,14 @@
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
-  creationTimestamp: '2020-03-10T10:19:09Z'
-  generation: 3
+  creationTimestamp: '2020-03-15T13:47:07Z'
+  generation: 9
   name: eat-run-ejb
   namespace: eat
-  resourceVersion: '47620709'
+  resourceVersion: '51035340'
   selfLink: /apis/apps.openshift.io/v1/namespaces/eat/deploymentconfigs/eat-run-ejb
 spec:
-  replicas: 1
+  replicas: 0
   revisionHistoryLimit: 10
   selector:
     app: run-eat
@@ -32,17 +32,17 @@ spec:
         - args:
             - clean
             - install
-            - '-Dwildfly'
+            - '-Deap72x'
             - '-Dstandalone'
-            - >-
-              -DJBOSS_FOLDER=/wildfly/master/dist/target/wildfly-20.0.0.Beta1-SNAPSHOT
-            - '-DJBOSS_VERSION=20.0.0.Beta1-SNAPSHOT'
+            - '-Denforcer.skip'
+            - '-DJBOSS_FOLDER=/eap/master/dist/target/jboss-eap-7.2'
+            - '-DJBOSS_VERSION=7.2.7.GA-redhat-SNAPSHOT'
             - '-Dmodule=ejb'
             - '-s'
-            - /usr/share/settings-eatwildfly.xml
+            - /usr/share/settings-eateap.xml
           command:
             - mvn
-          image: 'docker.io/panossotos/eat:wildfly2000B1'
+          image: 'docker.io/panossotos/eat:eateap727'
           imagePullPolicy: IfNotPresent
           name: run-eat
           resources: {}
