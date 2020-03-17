@@ -1,0 +1,18 @@
+FROM docker.io/eapimage
+
+MAINTAINER Panagiotis Sotiropoulos <psotirop@redhat.com>
+
+LABEL description="A container for running EAT in isolation"
+
+RUN mkdir eat && cd eat && git clone https://github.com/jboss-set/eap-additional-testsuite.git master
+
+RUN chmod -R 777 /home/user/.m2 && chmod -R 777 /eat/master 
+
+WORKDIR "/eat/master"
+
+ENV JBOSS_VERSION=$JBOSS_VERSION
+ENV JBOSS_FOLDER=$JBOSS_FOLDER
+ENV JBOSS_FOLDER2=$JBOSS_FOLDER2
+ENV EATCODE=$EATCODE
+
+CMD mvn clean install -D$EATCODE -Dstandalone -s /usr/share/settings-eateap.xml
