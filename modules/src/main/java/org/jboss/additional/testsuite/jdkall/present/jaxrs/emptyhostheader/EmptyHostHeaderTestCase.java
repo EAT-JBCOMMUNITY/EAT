@@ -50,7 +50,7 @@ import java.util.stream.Collectors;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#19.0.0.Beta1", "modules/testcases/jdkAll/Eap72x/jaxrs/src/main/java#7.2.6", "modules/testcases/jdkAll/Eap72x-Proposed/jaxrs/src/main/java#7.2.6", "modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java"})
+@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#20.0.0.Beta1", "modules/testcases/jdkAll/Eap72x/jaxrs/src/main/java#7.2.7", "modules/testcases/jdkAll/Eap72x-Proposed/jaxrs/src/main/java#7.2.7", "modules/testcases/jdkAll/Eap7/jaxrs/src/main/java"})
 public class EmptyHostHeaderTestCase {
 
     private static Logger log = Logger.getLogger(EmptyHostHeaderTestCase.class.getName());
