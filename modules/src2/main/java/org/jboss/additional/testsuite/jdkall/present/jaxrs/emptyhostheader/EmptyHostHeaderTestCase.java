@@ -78,7 +78,11 @@ public class EmptyHostHeaderTestCase {
                 Assert.assertNotNull(response);
                 Assert.assertTrue(response.contains("HTTP/1.1 200 OK"));
                 Assert.assertTrue(response.contains("uriInfo: http://127.0.0.1:8080" + uri));
+            }catch(Exception e) {
+                Assert.fail("Printwriter could not be created");
             }
+        }catch(Exception ex) {
+            Assert.fail("Socket could not be created");
         }
     }
 
