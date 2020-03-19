@@ -282,7 +282,7 @@ EAT with PROTEAN/QUARKUS DOCUMENTATION
  
 EAP-ADDITIONAL-TESTSUITE PRESENTATION
 -------------------------------------
-[Eap Additional Testsuite Presentation](https://drive.google.com/file/d/1nQfPqdYmzL9JPUTu2X2BaUpB37zrG63W/view?usp=sharing)
+[Eap Additional Testsuite Presentation](https://drive.google.com/file/d/1NoHSTLrxM3yIVMYJEqlK69SOsR4bFYOk/view?usp=sharing)
 
 [EAT JAM](https://drive.google.com/file/d/1-ugHTfziwxa2UhgH4Qu6Do78Ol2uxTpw/view?usp=sharing)
 
