@@ -282,9 +282,9 @@ EAT with PROTEAN/QUARKUS DOCUMENTATION
  
 EAP-ADDITIONAL-TESTSUITE PRESENTATION
 -------------------------------------
-[Eap Additional Testsuite Presentation](http://redhat.slides.com/panossot/eap-wildfly-additional-testsuite-5?token=cJjcvl_r)
+[Eap Additional Testsuite Presentation](https://drive.google.com/file/d/1nQfPqdYmzL9JPUTu2X2BaUpB37zrG63W/view?usp=sharing)
 
-[EAT JAM](https://redhat.slides.com/panossot/eap-wildfly-additional-testsuite-5-8-11?token=p6VY95LJ)
+[EAT JAM](https://drive.google.com/file/d/1-ugHTfziwxa2UhgH4Qu6Do78Ol2uxTpw/view?usp=sharing)
 
 
 EAP-ADDITIONAL-TESTSUITE VIDEO PRESENTATION
