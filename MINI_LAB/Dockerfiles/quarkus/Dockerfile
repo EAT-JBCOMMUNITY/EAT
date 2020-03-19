@@ -40,18 +40,14 @@ RUN dnf -y install gcc && dnf -y install zlib-devel && dnf -y install glibc-deve
 
 ENV GRAAL_VERSION 19.3.1
 ENV GRAAL_HOME /usr/lib/jvm/vm-$GRAAL_VERSION
-ENV PATH $GRAAL_HOME/graalvm-ce-$GRAAL_VERSION/bin:$PATH
+ENV PATH $GRAAL_HOME/graalvm-ce-java8-$GRAAL_VERSION/bin:$PATH
 
 RUN mkdir -p $GRAAL_HOME &&  wget --no-check-certificate https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-$GRAAL_VERSION/graalvm-ce-java8-linux-amd64-$GRAAL_VERSION.tar.gz -O $GRAAL_HOME/graalvm-ce-$GRAAL_VERSION-linux-amd64.tar 
 
 
 RUN tar xvf $GRAAL_HOME/graalvm-ce-$GRAAL_VERSION-linux-amd64.tar -C $GRAAL_HOME \
-     && rm "$GRAAL_HOME/graalvm-ce-$GRAAL_VERSION-linux-amd64.tar"
+     && rm "$GRAAL_HOME/graalvm-ce-$GRAAL_VERSION-linux-amd64.tar" && ls -la $GRAAL_HOME/graalvm-ce-java8-$GRAAL_VERSION/bin && cd $GRAAL_HOME/graalvm-ce-java8-$GRAAL_VERSION/bin && sudo ./gu install native-image
 
-ENV GRAALVM_HOME $GRAAL_HOME/graalvm-ce-$GRAAL_VERSION
+ENV GRAALVM_HOME $GRAAL_HOME/graalvm-ce-java8-$GRAAL_VERSION
 
 RUN mkdir protean && cd protean && git clone https://github.com/quarkusio/quarkus.git master && cd master && ls -la && mvn clean install -DskipTests --fail-never && export QUARKUS_VERSION=999-SNAPSHOT &&  JBOSS_VERSION=999.0.0-SNAPSHOT && export JBOSS_VERSION=$JBOSS_VERSION && mkdir EAT && cd EAT && git clone https://github.com/jboss-set/eap-additional-testsuite.git && cd eap-additional-testsuite && export NATIVE=-Dnative && ./run-quarkus.sh
-
-
-
-
