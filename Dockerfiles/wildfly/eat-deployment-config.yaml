@@ -11,7 +11,7 @@ spec:
   replicas: 1
   revisionHistoryLimit: 10
   selector:
-    app: run-eat
+    app: run-eat-ejb
   strategy:
     activeDeadlineSeconds: 21600
     resources: {}
@@ -26,7 +26,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        app: run-eat
+        app: run-eat-ejb
     spec:
       containers:
         - args:
@@ -45,7 +45,7 @@ spec:
           image: 'docker.io/panossotos/eat:wildfly2000B1'
           workingDir: /eat/master
           imagePullPolicy: IfNotPresent
-          name: run-eat
+          name: run-eat-ejb
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
