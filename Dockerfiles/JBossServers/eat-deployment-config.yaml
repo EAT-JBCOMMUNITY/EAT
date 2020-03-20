@@ -43,6 +43,7 @@ spec:
           command:
             - mvn
           image: 'docker.io/panossotos/eat:eateap727'
+          workingDir: /eat/master
           imagePullPolicy: IfNotPresent
           name: run-eat
           resources: {}
