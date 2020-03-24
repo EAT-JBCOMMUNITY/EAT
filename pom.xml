@@ -112,6 +112,7 @@
 		<name>Spring Framework Maven  Repository</name>
 		<url>https://repo.spring.io/libs-milestone/</url>
 	</repository>
+	<!-- Addition of other repositories -->
     </repositories>
 
     <pluginRepositories>
