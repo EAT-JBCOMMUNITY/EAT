@@ -1683,7 +1683,7 @@
 			<executions>
 			    <execution>
 		                <id>java-sources</id>
-			        <phase>test</phase>
+			        <phase>generate-sources</phase>
 			        <goals>
 				    <goal>java</goal>
 			        </goals>
@@ -1708,7 +1708,7 @@
 			    </execution>
 		            <execution>
 		                <id>configs</id>
-			        <phase>test</phase>
+			        <phase>generate-sources</phase>
 			        <goals>
 				    <goal>java</goal>
 			        </goals>
