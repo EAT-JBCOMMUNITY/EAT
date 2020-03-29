@@ -1665,6 +1665,108 @@
         </profile>
 
         <profile>
+            <id>allSources</id>
+             <activation>
+		<property>
+		    <name>!dSources</name>
+		</property>
+	     </activation>
+
+            <build>
+		<plugins>
+		     <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-antrun-plugin</artifactId>
+			<executions>
+		            <execution>
+		                <id>prepare</id>
+				<inherited>false</inherited>
+				<phase>generate-sources</phase>
+			        <configuration>
+				    <target name="command">
+				        <exec executable="/bin/bash" osfamily="unix">
+					    <arg value="cloneRemoteTests.sh" />
+					</exec>      
+				    </target>
+			        </configuration>
+				<goals>
+				    <goal>run</goal>
+				</goals>
+		            </execution>
+                            <execution>
+			        <id>copy-src</id>
+			        <phase>generate-sources</phase>
+			        <goals>
+			            <goal>run</goal>
+			        </goals>
+			        <configuration>
+				    <tasks>
+					<copy todir="${project.build.directory}/../modules/srcPool" failonerror="false" overwrite="true">
+					    <fileset dir="${project.build.directory}/../modules/src">
+		                                <include name="**/*"/>
+		                            </fileset>
+					</copy>
+				    </tasks>
+			        </configuration>
+			    </execution>
+			</executions>
+		    </plugin>
+                 </plugins>
+	      </build>
+        </profile>
+
+        <profile>
+            <id>Dynamic Sources</id>
+             <activation>
+		<property>
+		    <name>dSources</name>
+		</property>
+	     </activation>
+
+            <build>
+		<plugins>
+		     <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-antrun-plugin</artifactId>
+			<executions>
+		            <execution>
+		                <id>prepare</id>
+				<inherited>false</inherited>
+				<phase>generate-sources</phase>
+			        <configuration>
+				    <target name="command">
+				        <exec executable="/bin/bash" osfamily="unix">
+					    <arg value="cloneRemoteTests.sh" />
+					</exec>      
+				    </target>
+			        </configuration>
+				<goals>
+				    <goal>run</goal>
+				</goals>
+		            </execution>
+                            <execution>
+			        <id>copy-src</id>
+			        <phase>generate-sources</phase>
+			        <goals>
+			            <goal>run</goal>
+			        </goals>
+			        <configuration>
+				    <tasks>
+					<copy todir="${project.build.directory}/../modules/srcPool" failonerror="false" overwrite="true">
+					    <fileset dir="${project.build.directory}/../modules/src2">
+		                                <include name="**/*"/>
+		                            </fileset>
+					</copy>
+				    </tasks>
+			        </configuration>
+			    </execution>
+			</executions>
+		    </plugin>
+                 </plugins>
+	      </build>
+        </profile>
+
+        <profile>
 
 	     <id>distribution</id>
              <activation>
@@ -1739,10 +1841,10 @@
         </profile>
 
         <profile>
-            <id>allSources</id>
+            <id>Clean Sources</id>
              <activation>
 		<property>
-		    <name>!dSources</name>
+		    <name>clean-all</name>
 		</property>
 	     </activation>
 
@@ -1766,103 +1868,6 @@
                                             <fileset dir="${basedir}/modules/srcPool/main/java"/>
 					</delete>
 				    </target>
-			        </configuration>
-			    </execution>
-		            <execution>
-		                <id>prepare</id>
-				<inherited>false</inherited>
-				<phase>generate-resources</phase>
-			        <configuration>
-				    <target name="command">
-				        <exec executable="/bin/bash" osfamily="unix">
-					    <arg value="cloneRemoteTests.sh" />
-					</exec>      
-				    </target>
-			        </configuration>
-				<goals>
-				    <goal>run</goal>
-				</goals>
-		            </execution>
-                            <execution>
-			        <id>copy-src</id>
-			        <phase>process-test-resources</phase>
-			        <goals>
-			            <goal>run</goal>
-			        </goals>
-			        <configuration>
-				    <tasks>
-					<copy todir="${project.build.directory}/../modules/srcPool" failonerror="false" overwrite="true">
-					    <fileset dir="${project.build.directory}/../modules/src">
-		                                <include name="**/*"/>
-		                            </fileset>
-					</copy>
-				    </tasks>
-			        </configuration>
-			    </execution>
-			</executions>
-		    </plugin>
-                 </plugins>
-	      </build>
-        </profile>
-
-        <profile>
-            <id>Dynamic Sources</id>
-             <activation>
-		<property>
-		    <name>dSources</name>
-		</property>
-	     </activation>
-
-            <build>
-		<plugins>
-		     <plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-antrun-plugin</artifactId>
-			<executions>
-			    <execution>
-			        <id>clear previous sources</id>
-			        <phase>process-test-resources</phase>
-			        <goals>
-			            <goal>run</goal>
-			        </goals>
-			        <configuration>
-			            <target name="clean" description="clean">
-					<delete includeEmptyDirs="true" failonerror="false">
-					    <fileset dir="${basedir}/modules/testcases" includes="**/**/${serverDir2}/**/src/main/java/"/>
-                                            <fileset dir="${basedir}/modules/srcPool/main/java"/>
-					</delete>
-				    </target>
-			        </configuration>
-			    </execution>
-		            <execution>
-		                <id>prepare</id>
-				<inherited>false</inherited>
-				<phase>generate-resources</phase>
-			        <configuration>
-				    <target name="command">
-				        <exec executable="/bin/bash" osfamily="unix">
-					    <arg value="cloneRemoteTests.sh" />
-					</exec>      
-				    </target>
-			        </configuration>
-				<goals>
-				    <goal>run</goal>
-				</goals>
-		            </execution>
-                            <execution>
-			        <id>copy-src</id>
-			        <phase>process-test-resources</phase>
-			        <goals>
-			            <goal>run</goal>
-			        </goals>
-			        <configuration>
-				    <tasks>
-					<copy todir="${project.build.directory}/../modules/srcPool" failonerror="false" overwrite="true">
-					    <fileset dir="${project.build.directory}/../modules/src2">
-		                                <include name="**/*"/>
-		                            </fileset>
-					</copy>
-				    </tasks>
 			        </configuration>
 			    </execution>
 			</executions>
