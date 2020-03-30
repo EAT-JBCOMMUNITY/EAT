@@ -363,6 +363,42 @@ public class SecurityDeserializationTestCase {
         }
     }
 
+    @EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#20.0.0.Beta1","modules/testcases/jdkAll/Eap72x/jaxrs/src/main/java#7.2.9","modules/testcases/jdkAll/Eap72x-Proposed/jaxrs/src/main/java#7.2.9","modules/testcases/jdkAll/Eap7/jaxrs/src/main/java#7.3.2"})
+    public void testSecuirtyDatabind21() throws Exception {
+
+        final String JSON = aposToQuotes(
+                "{'v':['org.apache.aries.transaction.jms.internal.XaPooledConnectionFactory']}"
+                 );
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enableDefaultTyping();
+
+        try {
+            PolyWrapper sc = mapper.readValue(JSON, PolyWrapper.class);
+            fail("Should not be able to deserialize because of security prevention.");
+        }catch(JsonMappingException e){
+            assertTrue("Fail because of security issues...",e.getMessage().contains("prevented for security reasons"));
+        }
+    }
+
+    @EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#20.0.0.Beta1","modules/testcases/jdkAll/Eap72x/jaxrs/src/main/java#7.2.9","modules/testcases/jdkAll/Eap72x-Proposed/jaxrs/src/main/java#7.2.9","modules/testcases/jdkAll/Eap7/jaxrs/src/main/java#7.3.2"})
+    public void testSecuirtyDatabind22() throws Exception {
+
+        final String JSON = aposToQuotes(
+                "{'v':['com.caucho.config.types.ResourceRef']}"
+                 );
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enableDefaultTyping();
+
+        try {
+            PolyWrapper sc = mapper.readValue(JSON, PolyWrapper.class);
+            fail("Should not be able to deserialize because of security prevention.");
+        }catch(JsonMappingException e){
+            assertTrue("Fail because of security issues...",e.getMessage().contains("prevented for security reasons"));
+        }
+    }
+
     static class SerializedClass {
 
         public int id;
