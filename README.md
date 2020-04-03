@@ -278,6 +278,11 @@ MOJO DOCUMENTATION
 EAT with PROTEAN/QUARKUS DOCUMENTATION
 --------------------------------------
 [Eap Additional Testsuite with Protean/Quarkus](https://mojo.redhat.com/docs/DOC-1191712)
+
+
+EAT with OPENSHIFT
+-------------------
+[Eap with Openshift](https://drive.google.com/file/d/1sxPClIQXZSsyF18U74IOnNdycKorwXTv/view?usp=sharing)
  
  
 EAP-ADDITIONAL-TESTSUITE PRESENTATION
