@@ -1,4 +1,4 @@
-FROM docker.io/fedora
+FROM docker.io/centos
 
 MAINTAINER Panagiotis Sotiropoulos <psotirop@redhat.com>
 
@@ -8,6 +8,7 @@ LABEL description="A container for running EAT in isolation"
 RUN dnf -y upgrade
 RUN dnf -y install wget
 RUN dnf install -y git
+RUN dnf install -y sudo
 
 # Downloading Java
 RUN wget --no-check-certificate "https://www.dropbox.com/s/vm819mraxwidxqh/jdk-8u191-linux-x64.rpm?dl=0" -O /tmp/jdk-8-linux-x64.rpm && cd /tmp && dnf -y --allowerasing install findutils && rpm -Uhv jdk-8-linux-x64.rpm
