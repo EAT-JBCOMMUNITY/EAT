@@ -282,7 +282,7 @@ EAT with PROTEAN/QUARKUS DOCUMENTATION
 
 EAT with OPENSHIFT
 -------------------
-[Eap with Openshift](https://drive.google.com/file/d/1sxPClIQXZSsyF18U74IOnNdycKorwXTv/view?usp=sharing)
+[EAT with Openshift](https://drive.google.com/file/d/1sxPClIQXZSsyF18U74IOnNdycKorwXTv/view?usp=sharing)
  
  
 EAP-ADDITIONAL-TESTSUITE PRESENTATION
