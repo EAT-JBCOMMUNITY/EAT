@@ -364,7 +364,7 @@ public class SecurityDeserializationTestCase {
         }
     }
 
-    @ATTest({"modules/testcases/jdkAll/Wildfly/security/src/main/java#20.0.0.Final","modules/testcases/jdkAll/Eap72x/security/src/main/java#7.2.9","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java#7.2.9","modules/testcases/jdkAll/Eap7/security/src/main/java#7.3.2"})
+    //@TTest({"modules/testcases/jdkAll/Wildfly/security/src/main/java#20.0.0.Final","modules/testcases/jdkAll/Eap72x/security/src/main/java#7.2.9","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java#7.2.9","modules/testcases/jdkAll/Eap7/security/src/main/java#7.3.2"})
     public void testSecuirtyDatabind21() throws Exception {
 
         final String JSON = aposToQuotes(
@@ -382,7 +382,7 @@ public class SecurityDeserializationTestCase {
         }
     }
 
-    @ATTest({"modules/testcases/jdkAll/Wildfly/security/src/main/java#20.0.0.Final","modules/testcases/jdkAll/Eap72x/security/src/main/java#7.2.9","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java#7.2.9","modules/testcases/jdkAll/Eap7/security/src/main/java#7.3.2"})
+    //@TTest({"modules/testcases/jdkAll/Wildfly/security/src/main/java#20.0.0.Final","modules/testcases/jdkAll/Eap72x/security/src/main/java#7.2.9","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java#7.2.9","modules/testcases/jdkAll/Eap7/security/src/main/java#7.3.2"})
     public void testSecuirtyDatabind22() throws Exception {
 
         final String JSON = aposToQuotes(
