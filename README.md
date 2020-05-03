@@ -54,7 +54,7 @@ Testing EAP or Wildfly with specific JDK version
 Testing with Open Liberty
 -------------------------
 1. export OPENLIBERTY_VERSION='the version of OpenLiberty features-bom you would like to use'
-2. mvn clean install -Dopenliberty
+2. mvn clean install -Dopenliberty (It should be executed with appropriate apache maven version, e.g. 3.5.3 works)
 
 
 Using HTTPS
