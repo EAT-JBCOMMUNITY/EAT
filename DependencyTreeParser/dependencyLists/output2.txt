@@ -3,3 +3,4 @@ org.jboss.osgi.metadata:jbosgi-metadata:jar:2.2.0.Final
 org.apache.openjpa:openjpa:jar:3.0.0
 org.easytesting:fest-assert:jar:1.4
 org.apache.httpcomponents:fluent-hc:jar:4.5.4
+org.slf4j:slf4j-ext:jar:1.7.25
