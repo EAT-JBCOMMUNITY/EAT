@@ -23,3 +23,8 @@ This subdirectory is used for finding the packages that are used / loaded by the
 11. Then go to this current DependencyTreeParser directory and execute : mvn clean install (This command will display all the packages being used/loaded in the maven repo)
 
 ** During step 1, in case the server bom-pom.xml, produced in component-matrix-builder/target path of the server, should be used, it should be firstly modified to a pom.xml file with all dependencies outside the <dependencymanagement> block (excluding the dependencies that are not available at the remote repos). Then, using this pom, we produce the output.txt file using the command : mvn dependency:tree > output.txt
+  
+** java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
