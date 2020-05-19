@@ -1,0 +1,6 @@
+jaxrs, 2.1
+jaxb, 2.2
+jsonp, 1.1
+cdi, 2.0
+localConnector, 1.0
+servlet, 4.0
