@@ -178,7 +178,7 @@ Please, **go to the Server Level** (e.g. [Wildfly Server Level](https://github.c
 2. The sources to be processed should be the ones linked to modules/src/main/java directory.
 
 
-EAP-ADDITIONAL-TESTSUITE INTEGRATED INSIDE THE SERVERS (HOW TO USE)  - AVAILABLE SOON
+EAT INTEGRATED INSIDE THE SERVERS (HOW TO USE)  - AVAILABLE SOON
 -------------------------------------------------------------------------------------
 1. Send your PR containing the test to EAT.
 2. Before sending the server PR inform the server that you would like to include a specific PR of EAT, adding the following lines in git-sub-modules/git-sub-module.sh : 
@@ -286,28 +286,28 @@ EAT with OPENSHIFT
 [EAT with Openshift](https://drive.google.com/file/d/1sxPClIQXZSsyF18U74IOnNdycKorwXTv/view?usp=sharing)
  
  
-EAP-ADDITIONAL-TESTSUITE PRESENTATION
+EAT PRESENTATION
 -------------------------------------
 [Eap Additional Testsuite Presentation](https://drive.google.com/file/d/1NoHSTLrxM3yIVMYJEqlK69SOsR4bFYOk/view?usp=sharing)
 
 [EAT JAM](https://drive.google.com/file/d/1-ugHTfziwxa2UhgH4Qu6Do78Ol2uxTpw/view?usp=sharing)
 
 
-EAP-ADDITIONAL-TESTSUITE VIDEO PRESENTATION
+EAT VIDEO PRESENTATION
 -------------------------------------------
 [Eap Additional Testsuite Video](https://bluejeans.com/s/A_Ih7)
 
 [Eap Additional Testsuite Quick Presentation](https://drive.google.com/open?id=1bkgdVZ8AWDwkG4XSDr0s3tX1zKKLtoQp)
 
 
-EAP-ADDITIONAL-TESTSUITE WORKSHOP
+EAT WORKSHOP
 ---------------------------------
 [Eap Additional Testsuite Workshop](https://www.dropbox.com/s/bebhyd1iz7cg1i2/EAT_WORKSHOP.odt?dl=0)
 
 [Eap Additional Testsuite Workshop (Download)](https://drive.google.com/file/d/1iRT_FoRxj2tOcIPD42mUQpqcbDxuczCy/view?usp=sharing)
 
 
-EAP-ADDITIONAL-TESTSUITE as a COLLABORATION PROJECT
+EAT as a COLLABORATION PROJECT
 ---------------------------------------------------
 Many thanks to Carlo de Wolf for his ideas and help and for including EAT under the JBoss-SET umbrella.
 Also, many thanks to the University of Peloponnese (Department of Informatics and Telecommunications) for the theory of AT Structures.
