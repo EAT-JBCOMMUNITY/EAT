@@ -33,7 +33,7 @@ RUN mkdir fasterxml && cd fasterxml && git clone https://github.com/panossot/jac
 && ls -la  && sed -i "s/<version.com.fasterxml.jackson.databind>2.9.9.3/<version.com.fasterxml.jackson.databind>$FXML_VERSION/g" ./pom.xml \
 && mvn clean install -DskipTests \
 && tmp=$(ls -d $(pwd)/dist/target/wildfly-* | sed -e '/.jar/d') && JBOSS_VERSION=$(basename "${tmp}" | sed -e 's/wildfly-//' | sed -e 's/-for-validation//') && export JBOSS_VERSION=$JBOSS_VERSION && JBOSS_FOLDER="$(pwd)/dist/target/wildfly-${JBOSS_VERSION}" && export JBOSS_FOLDER=$JBOSS_FOLDER  \
-&& mkdir EAT && cd EAT && git clone https://github.com/panossot/eap-additional-testsuite.git -b simulation master && cd master && mvn clean install -Dwildfly -Dstandalone -DJBOSS_VERSION=$JBOSS_VERSION -DJBOSS_FOLDER=$JBOSS_FOLDER
+&& mkdir EAT && cd EAT && git clone https://github.com/panossot/EAT.git -b simulation master && cd master && mvn clean install -Dwildfly -Dstandalone -DJBOSS_VERSION=$JBOSS_VERSION -DJBOSS_FOLDER=$JBOSS_FOLDER
 
 
 

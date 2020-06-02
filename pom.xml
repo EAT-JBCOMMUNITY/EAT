@@ -16,13 +16,13 @@
     </parent>
 
     <groupId>org.jboss</groupId>
-    <artifactId>eap-additional-testsuite</artifactId>
+    <artifactId>EAT</artifactId>
     <packaging>pom</packaging>
     <version>1.0.3.Final</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>The testsuite to write your tests once and test them against any version of the jboss server.</description>
-    <url>https://github.com/jboss-set/eap-additional-testsuite</url>
+    <url>https://github.com/EAT-JBCOMMUNITY/EAT</url>
 
     <licenses>
         <license>
@@ -42,9 +42,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git@github.com:jboss-set/eap-additional-testsuite.git</connection>
-        <developerConnection>scm:git:git@github.com:jboss-set/eap-additional-testsuite.git</developerConnection>
-        <url>https://github.com/jboss-set/eap-additional-testsuite</url>
+        <connection>scm:git:git@github.com:EAT-JBCOMMUNITY/EAT.git</connection>
+        <developerConnection>scm:git:git@github.com:EAT-JBCOMMUNITY/EAT.git</developerConnection>
+        <url>https://github.com/EAT-JBCOMMUNITY/EAT</url>
     </scm>
 
     <modules>
@@ -54,12 +54,12 @@
     <dependencies>
         <dependency>
             <groupId>org.jboss.eap.additional.testsuite</groupId>
-            <artifactId>eap-additional-testsuite-source-distribution</artifactId>
+            <artifactId>EAT-source-distribution</artifactId>
             <version>2.9.2.Final</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.eap.additional.testsuite</groupId>
-            <artifactId>eap-additional-testsuite-annotations</artifactId>
+            <artifactId>EAT-annotations</artifactId>
             <version>2.9.2.Final</version>
         </dependency>
     </dependencies>

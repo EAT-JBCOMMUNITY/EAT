@@ -10,7 +10,7 @@
 
     <parent>
         <groupId>org.jboss</groupId>
-        <artifactId>eap-additional-testsuite-modules</artifactId>
+        <artifactId>EAT-modules</artifactId>
         <version>1.0.3.Final</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>

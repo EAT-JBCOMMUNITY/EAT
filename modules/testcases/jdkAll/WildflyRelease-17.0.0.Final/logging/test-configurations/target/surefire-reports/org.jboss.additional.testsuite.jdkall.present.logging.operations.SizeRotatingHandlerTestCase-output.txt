@@ -1,4 +1,4 @@
-[0m12:34:14,238 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/loukas/Desktop/server/wildfly/EAT/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/standalone/data/content/a9/bfd2996889183e2149badec821562d74e8134b/content
+[0m12:34:14,238 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/loukas/Desktop/server/wildfly/EAT/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/a9/bfd2996889183e2149badec821562d74e8134b/content
 [0m[0m12:34:14,244 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0027: Starting deployment of "default-logging.war" (runtime-name: "default-logging.war")
 [0m[33m12:34:14,494 WARN  [org.jboss.weld.deployer] (MSC service thread 1-4) WFLYWELD0013: Deployment default-logging.war contains CDI annotations but no bean archive was found (no beans.xml or class with bean defining annotations was present).
 [0m[0m12:34:14,529 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 68) WFLYUT0021: Registered web context: '/default-logging' for server 'default-server'
@@ -108,6 +108,6 @@
 [0m[0m12:34:15,146 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-3) SizeRotatingHandlerTestCase - This is new message
 [0m[0m12:34:15,197 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 68) WFLYUT0022: Unregistered web context: '/default-logging' from server 'default-server'
 [0m[0m12:34:15,250 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0028: Stopped deployment default-logging.war (runtime-name: default-logging.war) in 56ms
-[0m[0m12:34:15,270 INFO  [org.jboss.as.repository] (management-handler-thread - 2) WFLYDR0002: Content removed from location /home/loukas/Desktop/server/wildfly/EAT/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/standalone/data/content/a9/bfd2996889183e2149badec821562d74e8134b/content
+[0m[0m12:34:15,270 INFO  [org.jboss.as.repository] (management-handler-thread - 2) WFLYDR0002: Content removed from location /home/loukas/Desktop/server/wildfly/EAT/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/a9/bfd2996889183e2149badec821562d74e8134b/content
 [0m[0m12:34:15,270 INFO  [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0009: Undeployed "default-logging.war" (runtime-name: "default-logging.war")
 [0m

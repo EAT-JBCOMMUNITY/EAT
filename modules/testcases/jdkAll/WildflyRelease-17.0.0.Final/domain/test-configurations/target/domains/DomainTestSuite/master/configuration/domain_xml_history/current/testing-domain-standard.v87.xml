@@ -730,7 +730,7 @@
     </socket-binding-groups>
     <deployments>
         <deployment name="test.war" runtime-name="test.war">
-            <fs-exploded path="/home/loukas/Desktop/server/wildfly/EAT/eap-additional-testsuite/modules/testcases/jdkAll/WildflyRelease-17.0.0.Final/domain/test-configurations/target/deployments/DeploymentManagementTestCase/exploded/test.war"/>
+            <fs-exploded path="/home/loukas/Desktop/server/wildfly/EAT/EAT/modules/testcases/jdkAll/WildflyRelease-17.0.0.Final/domain/test-configurations/target/deployments/DeploymentManagementTestCase/exploded/test.war"/>
         </deployment>
     </deployments>
     <server-groups>

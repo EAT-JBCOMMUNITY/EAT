@@ -49,9 +49,9 @@ assertFalse("Running a basic arquillian test ... ", false);
 
 And then
 
-1. export MultipleVersionsFilePath="the path to the file you would like to distribute" e.g.  ./eap-additional-testsuite/SingleVersionTestInclusion/wildfly/src/test/java/org/server/test/BasicTest.java
-2. export MultipleVersionsDestination="the path to the modules/src dir of the eat you use" e.g. ./eap-additional-testsuite/modules/src/main/java
-3. execute the code in eap-additional-testsuite/SingleVersionTestInclusion/OneToManyVersions
+1. export MultipleVersionsFilePath="the path to the file you would like to distribute" e.g.  ./EAT/SingleVersionTestInclusion/wildfly/src/test/java/org/server/test/BasicTest.java
+2. export MultipleVersionsDestination="the path to the modules/src dir of the eat you use" e.g. ./EAT/modules/src/main/java
+3. execute the code in EAT/SingleVersionTestInclusion/OneToManyVersions
 
 
 # License 

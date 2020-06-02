@@ -40,7 +40,7 @@ ENV PATH=$PATH:/usr/share/maven/bin/
 
 RUN mkdir -p /home/user/.m2/repository
 
-RUN mkdir eat && cd eat && git clone https://github.com/jboss-set/eap-additional-testsuite.git master
+RUN mkdir eat && cd eat && git clone https://github.com/EAT-JBCOMMUNITY/EAT.git master
 
 RUN chmod -R 777 /home/user/.m2 && chmod -R 777 /eat/master 
 

@@ -35,7 +35,7 @@ ENV MAVEN_HOME /usr/share/maven
 
 ENV PATH=$PATH:/usr/share/maven/bin/
 
-RUN mkdir EAT && cd EAT && git clone https://github.com/jboss-set/eap-additional-testsuite.git master
+RUN mkdir EAT && cd EAT && git clone https://github.com/EAT-JBCOMMUNITY/EAT.git master
 
 WORKDIR "/EAT/master"
 

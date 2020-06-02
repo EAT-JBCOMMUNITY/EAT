@@ -11,7 +11,7 @@ Write your tests once and run them against any version of EAP and WILDFLY applic
 
 
 
-In order to synchronize the dependency versions of eap-additional-testsuite with the component versions of the equivalent server you can run the additional-testsuite using -Dstandalone or -Dserver-integration property.
+In order to synchronize the dependency versions of EAT with the component versions of the equivalent server you can run the additional-testsuite using -Dstandalone or -Dserver-integration property.
 
 Standalone Mode
 ---------------
@@ -115,7 +115,7 @@ HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (ECLIPSE, IntelliJ IDEA, NET
 
 HOW TO PROCESS THE SOURCES INSIDE AN IDE
 ----------------------------------------
-In order to process the eap-additional-testsuite sources, please, after following the steps of the section **"HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (ECLIPSE, IntelliJ IDEA, NETBEANS)"** (activating the equivalent server profile and the standalone profile, etc), proceed to the following actions depending on the way of processing and the IDE that you choose :
+In order to process the EAT sources, please, after following the steps of the section **"HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (ECLIPSE, IntelliJ IDEA, NETBEANS)"** (activating the equivalent server profile and the standalone profile, etc), proceed to the following actions depending on the way of processing and the IDE that you choose :
 
 **1st WAY OF PROCESSING (This way applies for all the IDEs)**
 
@@ -125,10 +125,10 @@ In order to process the eap-additional-testsuite sources, please, after followin
 
 **2nd WAY OF PROCESSING**
 
-Please, **go to the Server Level** (e.g. [Wildfly Server Level](https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/testcases/jdkAll/Wildfly)) and follow the actions depending on the IDE:
+Please, **go to the Server Level** (e.g. [Wildfly Server Level](https://github.com/EAT-JBCOMMUNITY/EAT/tree/master/modules/testcases/jdkAll/Wildfly)) and follow the actions depending on the IDE:
 
 * **Eclipse :** 
-  * Go to the Server Level Project -> Properties -> Java Build Path. Under the Source Tab click the Link Source Button. Linked folder location should be "PATH_TO_PROJECT/eap-additional-testsuite/modules/src/main/java" and "Update exclusion filters in other source folders to solve nesting" should be chosen. Apply the changes. The sources should be, now, visible in your IDE to process. 
+  * Go to the Server Level Project -> Properties -> Java Build Path. Under the Source Tab click the Link Source Button. Linked folder location should be "PATH_TO_PROJECT/EAT/modules/src/main/java" and "Update exclusion filters in other source folders to solve nesting" should be chosen. Apply the changes. The sources should be, now, visible in your IDE to process. 
   * The .project file should look like :
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -168,23 +168,23 @@ Please, **go to the Server Level** (e.g. [Wildfly Server Level](https://github.c
 </classpathentry>
 ```
 
-* **IntelliJ IDEA :** Go to the Server Level Project -> Project Structure -> Sources, remove the current context root and add "PATH_TO_PROJECT/eap-additional-testsuite/modules/src/main/java" as the context root. Apply the changes. The sources should be, now, visible in your IDE to process under "java" directory. 
+* **IntelliJ IDEA :** Go to the Server Level Project -> Project Structure -> Sources, remove the current context root and add "PATH_TO_PROJECT/EAT/modules/src/main/java" as the context root. Apply the changes. The sources should be, now, visible in your IDE to process under "java" directory. 
 
 * **Netbeans :** The sources should be visible in your IDE to process.
 
 **Important note :** 
 
-1. If the sources are to be modified or extended, the working directory of the run/build configuration should be set to the eap-additional-testsuite parent directory, in order that any changes in the sources would be propagated to the specific server sources.
+1. If the sources are to be modified or extended, the working directory of the run/build configuration should be set to the EAT parent directory, in order that any changes in the sources would be propagated to the specific server sources.
 2. The sources to be processed should be the ones linked to modules/src/main/java directory.
 
 
 EAP-ADDITIONAL-TESTSUITE INTEGRATED INSIDE THE SERVERS (HOW TO USE)  - AVAILABLE SOON
 -------------------------------------------------------------------------------------
-1. Send your PR containing the test to eap-additional-testsuite.
-2. Before sending the server PR inform the server that you would like to include a specific PR of eap-additional-testsuite, adding the following lines in git-sub-modules/git-sub-module.sh : 
+1. Send your PR containing the test to EAT.
+2. Before sending the server PR inform the server that you would like to include a specific PR of EAT, adding the following lines in git-sub-modules/git-sub-module.sh : 
     - git submodule update --init --remote
-    - cd ../testsuite/addtional-testsuite/eap-additional-testsuite/
-    - git fetch origin refs/pull/8/head && git checkout FETCH_HEAD (declare that you would like to include PR 8 of eap-additional-testsuite)
+    - cd ../testsuite/addtional-testsuite/EAT/
+    - git fetch origin refs/pull/8/head && git checkout FETCH_HEAD (declare that you would like to include PR 8 of EAT)
 3. Commit the changes on the server and send the server PR.
 4. The specific PR of the test will be tested along with the server PR.
 
@@ -193,13 +193,13 @@ EXAMPLE OF USAGE
 -----------------
 Supposing that we would like to add Mtom TestCase for Wildfly (master) and Eap 7 (7.x) Servers in Eap Additional Testsuite, we would follow the steps bellow :
 
-1. Add the source code of the test in [modules/src/main directory](https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/src/main/java/org/jboss/additional/testsuite/jdkall/present/web/mtom) (both for Wildfly and Eap7 - write your code once) and annotate all the classes used in the test with the @EapAdditionalTestsuite annotation, specifing the locations of the Servers that the classes will be distributed to, as a String Array attribute (e.g. [@EapAdditionalTestsuite Example](https://github.com/jboss-set/eap-additional-testsuite/blob/master/modules/src/main/java/org/jboss/additional/testsuite/jdkall/present/web/mtom/MtomTestCase.java#L50)).
+1. Add the source code of the test in [modules/src/main directory](https://github.com/EAT-JBCOMMUNITY/EAT/tree/master/modules/src/main/java/org/jboss/additional/testsuite/jdkall/present/web/mtom) (both for Wildfly and Eap7 - write your code once) and annotate all the classes used in the test with the @EapAdditionalTestsuite annotation, specifing the locations of the Servers that the classes will be distributed to, as a String Array attribute (e.g. [@EapAdditionalTestsuite Example](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/src/main/java/org/jboss/additional/testsuite/jdkall/present/web/mtom/MtomTestCase.java#L50)).
 
-2. Add the resources in [Wildfy Mtom recource directory](https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/testcases/jdkAll/Wildfly/web/test-configurations/src/test/resources) (for Wildfly) and  [Eap7 Mtom recource directory](https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/testcases/jdkAll/Eap7/web/test-configurations/src/test/resources) (for Eap7)
+2. Add the resources in [Wildfy Mtom recource directory](https://github.com/EAT-JBCOMMUNITY/EAT/tree/master/modules/testcases/jdkAll/Wildfly/web/test-configurations/src/test/resources) (for Wildfly) and  [Eap7 Mtom recource directory](https://github.com/EAT-JBCOMMUNITY/EAT/tree/master/modules/testcases/jdkAll/Eap7/web/test-configurations/src/test/resources) (for Eap7)
 
-3. Add any additional dependencies in [Wildfy pom](https://github.com/jboss-set/eap-additional-testsuite/blob/master/modules/testcases/jdkAll/Wildfly/pom.xml)  (for Wildfly) and [Eap7 pom](https://github.com/jboss-set/eap-additional-testsuite/blob/master/modules/testcases/jdkAll/Eap7/pom.xml) (for Eap7)
+3. Add any additional dependencies in [Wildfy pom](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Wildfly/pom.xml)  (for Wildfly) and [Eap7 pom](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Eap7/pom.xml) (for Eap7)
 
-4. Enable the Mtom TestCase in [Wildfy Web Configuration pom](https://github.com/jboss-set/eap-additional-testsuite/blob/master/modules/testcases/jdkAll/Wildfly/web/test-configurations/pom.xml) (for Wildfly) and [Eap7 Web Configuration pom](https://github.com/jboss-set/eap-additional-testsuite/blob/master/modules/testcases/jdkAll/Eap7/web/test-configurations/pom.xml) (for Eap7)
+4. Enable the Mtom TestCase in [Wildfy Web Configuration pom](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Wildfly/web/test-configurations/pom.xml) (for Wildfly) and [Eap7 Web Configuration pom](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Eap7/web/test-configurations/pom.xml) (for Eap7)
 
 5. Build the Eap Additional Testsuite for Wildfy and Eap7 (having set the equivalent JBOSS_FOLDER and JBOSS_VERSION environment variables) :
     - mvn clean install -Dwildfly -Dstandalone (for Wildfly)
@@ -218,13 +218,13 @@ I NEED ASSISTANCE TO ADD A NEW TEST
 -----------------------------------
 If any assistance is needed to add a new test in Eap Additional Testsuite, please add it to the following directories, denoting the versions of the servers within the tests should be tested (eg EAP 7.1.1.DR1, etc) :
 
-1. https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/src/main/java/org/jboss/additional/testsuite/jdkall/IwantToAddAnewTest
-2. https://github.com/jboss-set/eap-additional-testsuite/tree/master/modules/src/main/java/org/jboss/additional/testsuite/jdk8/IwantToAddAnewTest
+1. https://github.com/EAT-JBCOMMUNITY/EAT/tree/master/modules/src/main/java/org/jboss/additional/testsuite/jdkall/IwantToAddAnewTest
+2. https://github.com/EAT-JBCOMMUNITY/EAT/tree/master/modules/src/main/java/org/jboss/additional/testsuite/jdk8/IwantToAddAnewTest
 
 
 ADD A SINGLE VERSION TEST WHICH WILL BE TESTED FOR MULTIPLE VERSIONS
 --------------------------------------------------------------------
-For people not familiar with EAT, they can add a single version test (as usual) here : https://github.com/jboss-set/eap-additional-testsuite/tree/master/SingleVersionTestInclusion , commenting where this should be included (servers, server-versions, etc). 
+For people not familiar with EAT, they can add a single version test (as usual) here : https://github.com/EAT-JBCOMMUNITY/EAT/tree/master/SingleVersionTestInclusion , commenting where this should be included (servers, server-versions, etc). 
 e.g.
 
 /**

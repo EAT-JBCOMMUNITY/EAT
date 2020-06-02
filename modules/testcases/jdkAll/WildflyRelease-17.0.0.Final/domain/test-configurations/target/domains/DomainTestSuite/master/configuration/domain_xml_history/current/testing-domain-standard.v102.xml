@@ -733,7 +733,7 @@
             <content sha1="fea6166c0ca0c17df7ce9bf207b49e19637ce76f"/>
         </deployment>
         <deployment name="test.war.v2" runtime-name="test.war">
-            <fs-exploded path="/home/loukas/Desktop/server/wildfly/EAT/eap-additional-testsuite/modules/testcases/jdkAll/WildflyRelease-17.0.0.Final/domain/test-configurations/target/deployments/DeploymentManagementTestCase/exploded/test.war"/>
+            <fs-exploded path="/home/loukas/Desktop/server/wildfly/EAT/EAT/modules/testcases/jdkAll/WildflyRelease-17.0.0.Final/domain/test-configurations/target/deployments/DeploymentManagementTestCase/exploded/test.war"/>
         </deployment>
     </deployments>
     <server-groups>

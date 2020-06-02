@@ -1,7 +1,7 @@
 # EAP ADDITIONAL TESTSUITE SINGLE VERSION TESTS
 -----------------------------------------------
 
-For those who would like to add a test in Eap Additional Testsuite, quickly, in the same way a common test is added in the regular-existing repositories, he/she could add the test here (SingleVersionTestInclusion directory) commenting the versions of the server he/she would like to test. Then the test will be added along with the other eap-additional-testsuite sources in order to enable multiversion testing.
+For those who would like to add a test in Eap Additional Testsuite, quickly, in the same way a common test is added in the regular-existing repositories, he/she could add the test here (SingleVersionTestInclusion directory) commenting the versions of the server he/she would like to test. Then the test will be added along with the other EAT sources in order to enable multiversion testing.
 
 1. cd SingleVersionTestInclusion
 2. Go to eap or wildfly directory depending where you would like to add the testcase
