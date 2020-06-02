@@ -1,4 +1,4 @@
-[0m12:39:42,370 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/loukas/Desktop/server/wildfly/EAT/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/standalone/data/content/d9/1425984248958ee20fba40c5cd5c195d60b180/content
+[0m12:39:42,370 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/loukas/Desktop/server/wildfly/EAT/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/d9/1425984248958ee20fba40c5cd5c195d60b180/content
 [0m[0m12:39:42,373 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "test.war" (runtime-name: "test.war")
 [0m[0m12:39:42,580 INFO  [org.jboss.weld.deployer] (MSC service thread 1-4) WFLYWELD0003: Processing weld deployment test.war
 [0m[0m12:39:42,600 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-4) WFLYEJB0473: JNDI bindings for session bean named 'AsyncSingleton' in deployment unit 'deployment "test.war"' are as follows:
@@ -76,7 +76,7 @@
 	ejb:/test/AsyncBean!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBeanCancelRemoteInterface
 
 [0mWARNING: An illegal reflective access operation has occurred
-WARNING: Illegal reflective access by org.jboss.invocation.proxy.AbstractProxyFactory$1 (jar:file:/home/loukas/Desktop/server/wildfly/EAT/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/modules/system/layers/base/org/jboss/invocation/main/jboss-invocation-1.5.2.Final.jar!/) to method java.lang.Object.clone()
+WARNING: Illegal reflective access by org.jboss.invocation.proxy.AbstractProxyFactory$1 (jar:file:/home/loukas/Desktop/server/wildfly/EAT/EAT/modules/servers/wildfly/build/target/jbossas/modules/system/layers/base/org/jboss/invocation/main/jboss-invocation-1.5.2.Final.jar!/) to method java.lang.Object.clone()
 WARNING: Please consider reporting this to the maintainers of org.jboss.invocation.proxy.AbstractProxyFactory$1
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
 WARNING: All illegal access operations will be denied in a future release
@@ -84,7 +84,7 @@ WARNING: All illegal access operations will be denied in a future release
 [0m[0m12:39:43,089 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "test.war" (runtime-name : "test.war")
 [0m[0m12:39:43,132 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 27) WFLYUT0022: Unregistered web context: '/test' from server 'default-server'
 [0m[0m12:39:43,177 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0028: Stopped deployment test.war (runtime-name: test.war) in 50ms
-[0m[0m12:39:43,194 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/loukas/Desktop/server/wildfly/EAT/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/standalone/data/content/d9/1425984248958ee20fba40c5cd5c195d60b180/content
+[0m[0m12:39:43,194 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/loukas/Desktop/server/wildfly/EAT/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/d9/1425984248958ee20fba40c5cd5c195d60b180/content
 [0m[0m12:39:43,195 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "test.war" (runtime-name: "test.war")
 [0m[0m12:39:43,208 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0272: Suspending server
 [0m[0m12:39:43,210 INFO  [org.jboss.as.ejb3] (management-handler-thread - 1) WFLYEJB0493: EJB subsystem suspension complete

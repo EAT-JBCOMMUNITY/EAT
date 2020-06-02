@@ -15,7 +15,7 @@ This subdirectory is used for finding the packages that are used / loaded by the
 3. export ExternalDependencyPath=path to the another file listing the external dependencies / testsuite dependencies that are already downloaded in the local repo (line format : new.artifact:new.id:jar:new.version). In order to download apriori the local testsuite dependencies, the -DnoDistribution parameter of EAT can be used.
 4. export ExcludedDependenciesPath=path to the another file listing the excluded libraries (parend dir of library) that we know that are not provided by the server dependency lists (line format : org.jboss.eap.additional.testsuite.annotations)
 5. export MavenRepoPath=path to the local maven repository
-6. export BaseDir=the path to the eap-additional-testsuite dir
+6. export BaseDir=the path to the EAT dir
 7. export SourcePath=the path to the dir of sources
 8. export Server=the server name of the test subset that is aimed to be used
 9. export Version=the version of the server that will be tested

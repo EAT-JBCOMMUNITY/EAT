@@ -3,7 +3,7 @@ JAVA_OPTS already set in environment; overriding default settings with values: -
 
   JBoss Bootstrap Environment
 
-  JBOSS_HOME: /home/panos/RC/EATLast/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas
+  JBOSS_HOME: /home/panos/RC/EATLast/EAT/modules/servers/wildfly/build/target/jbossas
 
   JAVA: /opt/jdk1.8.0_141/bin/java
 
@@ -40,14 +40,14 @@ JAVA_OPTS already set in environment; overriding default settings with values: -
 [0m[0m10:02:29,729 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-8) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
 [0m[0m10:02:29,795 INFO  [org.jboss.as.ejb3] (MSC service thread 1-1) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 128 (per class), which is derived from thread worker pool sizing.
 [0m[0m10:02:29,796 INFO  [org.jboss.as.ejb3] (MSC service thread 1-6) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 32 (per class), which is derived from the number of CPUs on this host.
-[0m[0m10:02:29,802 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 61) WFLYUT0014: Creating file handler for path '/home/panos/RC/EATLast/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+[0m[0m10:02:29,802 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 61) WFLYUT0014: Creating file handler for path '/home/panos/RC/EATLast/EAT/modules/servers/wildfly/build/target/jbossas/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
 [0m[0m10:02:29,810 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0012: Started server default-server.
 [0m[0m10:02:29,812 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0018: Host default-host starting
 [0m[0m10:02:29,877 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
 [0m[0m10:02:29,996 INFO  [org.jboss.as.ejb3] (MSC service thread 1-5) WFLYEJB0493: EJB subsystem suspension complete
 [0m[0m10:02:30,012 INFO  [org.jboss.as.patching] (MSC service thread 1-2) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
-[0m[33m10:02:30,028 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-4) WFLYDM0111: Keystore /home/panos/RC/EATLast/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
-[0m[0m10:02:30,035 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-4) WFLYDS0013: Started FileSystemDeploymentService for directory /home/panos/RC/EATLast/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/standalone/deployments
+[0m[33m10:02:30,028 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-4) WFLYDM0111: Keystore /home/panos/RC/EATLast/EAT/modules/servers/wildfly/build/target/jbossas/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+[0m[0m10:02:30,035 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-4) WFLYDS0013: Started FileSystemDeploymentService for directory /home/panos/RC/EATLast/EAT/modules/servers/wildfly/build/target/jbossas/standalone/deployments
 [0m[0m10:02:30,044 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0027: Starting deployment of "server.jar" (runtime-name: "server.jar")
 [0m[0m10:02:30,059 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
 [0m[0m10:02:30,308 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443

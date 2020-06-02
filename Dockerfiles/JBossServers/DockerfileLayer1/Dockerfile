@@ -32,7 +32,7 @@ RUN curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binar
 ENV MAVEN_HOME /usr/share/maven
 
 
-RUN mkdir eat && cd eat && git clone https://github.com/jboss-set/eap-additional-testsuite.git master
+RUN mkdir eat && cd eat && git clone https://github.com/EAT-JBCOMMUNITY/EAT.git master
 
 RUN mkdir -p /home/user/.m2 && mkdir -p /eap/dist
 

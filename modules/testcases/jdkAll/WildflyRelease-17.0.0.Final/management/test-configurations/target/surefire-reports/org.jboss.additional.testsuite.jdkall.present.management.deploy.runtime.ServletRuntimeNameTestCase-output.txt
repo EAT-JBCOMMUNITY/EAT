@@ -1,4 +1,4 @@
-[0m12:35:38,431 INFO  [org.jboss.as.repository] (management-handler-thread - 3) WFLYDR0001: Content added at location /home/loukas/Desktop/server/wildfly/EAT/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/standalone/data/content/23/aee07d35867191288b6cf2dc6d2b7c22f98e93/content
+[0m12:35:38,431 INFO  [org.jboss.as.repository] (management-handler-thread - 3) WFLYDR0001: Content added at location /home/loukas/Desktop/server/wildfly/EAT/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/23/aee07d35867191288b6cf2dc6d2b7c22f98e93/content
 [0m[0m12:35:38,436 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "test7-test.ear" (runtime-name: "nooma-nooma7.ear")
 [0m[0m12:35:38,446 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0207: Starting subdeployment (runtime-name: "servlet.war")
 [0m[0m12:35:38,566 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 15) WFLYUT0021: Registered web context: '/servlet' for server 'default-server'
@@ -6,7 +6,7 @@
 [0m[0m12:35:38,653 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 15) WFLYUT0022: Unregistered web context: '/servlet' from server 'default-server'
 [0m[0m12:35:38,670 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0208: Stopped subdeployment (runtime-name: servlet.war) in 17ms
 [0m[0m12:35:38,671 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0028: Stopped deployment test7-test.ear (runtime-name: nooma-nooma7.ear) in 18ms
-[0m[0m12:35:38,680 INFO  [org.jboss.as.repository] (management-handler-thread - 3) WFLYDR0002: Content removed from location /home/loukas/Desktop/server/wildfly/EAT/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/standalone/data/content/23/aee07d35867191288b6cf2dc6d2b7c22f98e93/content
+[0m[0m12:35:38,680 INFO  [org.jboss.as.repository] (management-handler-thread - 3) WFLYDR0002: Content removed from location /home/loukas/Desktop/server/wildfly/EAT/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/23/aee07d35867191288b6cf2dc6d2b7c22f98e93/content
 [0m[0m12:35:38,680 INFO  [org.jboss.as.server] (management-handler-thread - 3) WFLYSRV0009: Undeployed "test7-test.ear" (runtime-name: "nooma-nooma7.ear")
 [0m[0m12:35:38,691 INFO  [org.jboss.as.server] (management-handler-thread - 3) WFLYSRV0272: Suspending server
 [0m[0m12:35:38,693 INFO  [org.jboss.as.ejb3] (management-handler-thread - 3) WFLYEJB0493: EJB subsystem suspension complete

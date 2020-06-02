@@ -1,4 +1,4 @@
-[0m14:05:54,442 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/loukas/Desktop/server/wildfly/EAT/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/standalone/data/content/8d/6a62a772f37bfb5cd593f2d2203a6940747748/content
+[0m14:05:54,442 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/loukas/Desktop/server/wildfly/EAT/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/8d/6a62a772f37bfb5cd593f2d2203a6940747748/content
 [0m[0m14:05:54,501 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0027: Starting deployment of "test.war" (runtime-name: "test.war")
 [0m[33m14:05:55,574 WARN  [org.jboss.weld.deployer] (MSC service thread 1-6) WFLYWELD0013: Deployment test.war contains CDI annotations but no bean archive was found (no beans.xml or class with bean defining annotations was present).
 [0m[0m14:05:55,656 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-8) ISPN000128: Infinispan version: Infinispan 'Infinity Minus ONE +2' 9.4.14.Final
@@ -13,6 +13,6 @@ WARNING: Use --illegal-access=warn to enable warnings of further illegal reflect
 WARNING: All illegal access operations will be denied in a future release
 [0m14:05:56,842 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 41) WFLYUT0022: Unregistered web context: '/test' from server 'default-server'
 [0m[0m14:05:56,890 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0028: Stopped deployment test.war (runtime-name: test.war) in 52ms
-[0m[0m14:05:56,910 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/loukas/Desktop/server/wildfly/EAT/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/standalone/data/content/8d/6a62a772f37bfb5cd593f2d2203a6940747748/content
+[0m[0m14:05:56,910 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/loukas/Desktop/server/wildfly/EAT/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/8d/6a62a772f37bfb5cd593f2d2203a6940747748/content
 [0m[0m14:05:56,911 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "test.war" (runtime-name: "test.war")
 [0m

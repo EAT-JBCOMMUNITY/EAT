@@ -1,7 +1,7 @@
-[0m12:37:36,998 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/loukas/Desktop/server/wildfly/EAT/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/standalone/data/content/7d/a532096224b9676a9dc75f18f49e250f7b044e/content
+[0m12:37:36,998 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/loukas/Desktop/server/wildfly/EAT/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/7d/a532096224b9676a9dc75f18f49e250f7b044e/content
 [0m[0m12:37:37,002 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "securityRoles.war" (runtime-name: "securityRoles.war")
 [0mWARNING: An illegal reflective access operation has occurred
-WARNING: Illegal reflective access by org.jboss.invocation.proxy.AbstractProxyFactory$1 (jar:file:/home/loukas/Desktop/server/wildfly/EAT/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/modules/system/layers/base/org/jboss/invocation/main/jboss-invocation-1.5.2.Final.jar!/) to method java.lang.Object.clone()
+WARNING: Illegal reflective access by org.jboss.invocation.proxy.AbstractProxyFactory$1 (jar:file:/home/loukas/Desktop/server/wildfly/EAT/EAT/modules/servers/wildfly/build/target/jbossas/modules/system/layers/base/org/jboss/invocation/main/jboss-invocation-1.5.2.Final.jar!/) to method java.lang.Object.clone()
 WARNING: Please consider reporting this to the maintainers of org.jboss.invocation.proxy.AbstractProxyFactory$1
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
 WARNING: All illegal access operations will be denied in a future release
@@ -48,7 +48,7 @@ WARNING: All illegal access operations will be denied in a future release
 [0m[0m12:37:37,833 INFO  [stdout] (Thread-1 (ActiveMQ-client-global-threads)) Received message : Hello AS 7 !
 [0m[0m12:37:38,842 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 4) WFLYUT0022: Unregistered web context: '/securityRoles' from server 'default-server'
 [0m[0m12:37:38,961 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0028: Stopped deployment securityRoles.war (runtime-name: securityRoles.war) in 123ms
-[0m[0m12:37:38,976 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/loukas/Desktop/server/wildfly/EAT/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/standalone/data/content/7d/a532096224b9676a9dc75f18f49e250f7b044e/content
+[0m[0m12:37:38,976 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/loukas/Desktop/server/wildfly/EAT/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/7d/a532096224b9676a9dc75f18f49e250f7b044e/content
 [0m[0m12:37:38,977 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "securityRoles.war" (runtime-name: "securityRoles.war")
 [0m[0m12:37:39,020 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0272: Suspending server
 [0m[0m12:37:39,024 INFO  [org.jboss.as.ejb3] (management-handler-thread - 1) WFLYEJB0493: EJB subsystem suspension complete

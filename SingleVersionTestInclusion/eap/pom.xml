@@ -16,7 +16,7 @@
     </parent>
 
     <groupId>org.jboss</groupId>
-    <artifactId>eap-additional-testsuite-single-version</artifactId>
+    <artifactId>EAT-single-version</artifactId>
     <version>1.0.3.Final</version>
 
     <name>eap additional testsuite: additional testsuite for eap single version tests</name>

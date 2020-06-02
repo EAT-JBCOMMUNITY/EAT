@@ -1,4 +1,4 @@
-[0m12:38:19,314 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/loukas/Desktop/server/wildfly/EAT/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/standalone/data/content/ff/65fda6ebb087418d8b1805d868e6cbd44c22c7/content
+[0m12:38:19,314 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/loukas/Desktop/server/wildfly/EAT/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/ff/65fda6ebb087418d8b1805d868e6cbd44c22c7/content
 [0m[0m12:38:19,324 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0027: Starting deployment of "test.ear" (runtime-name: "test.ear")
 [0m[0m12:38:19,445 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0207: Starting subdeployment (runtime-name: "test.war")
 [0m[0m12:38:19,445 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0207: Starting subdeployment (runtime-name: "ejb.jar")
@@ -16,7 +16,7 @@
 
 [0m[0m12:38:20,030 INFO  [org.jboss.weld.Version] (MSC service thread 1-5) WELD-000900: 3.1.1 (Final)
 [0mWARNING: An illegal reflective access operation has occurred
-WARNING: Illegal reflective access by org.jboss.invocation.proxy.AbstractProxyFactory$1 (jar:file:/home/loukas/Desktop/server/wildfly/EAT/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/modules/system/layers/base/org/jboss/invocation/main/jboss-invocation-1.5.2.Final.jar!/) to method java.lang.Object.clone()
+WARNING: Illegal reflective access by org.jboss.invocation.proxy.AbstractProxyFactory$1 (jar:file:/home/loukas/Desktop/server/wildfly/EAT/EAT/modules/servers/wildfly/build/target/jbossas/modules/system/layers/base/org/jboss/invocation/main/jboss-invocation-1.5.2.Final.jar!/) to method java.lang.Object.clone()
 WARNING: Please consider reporting this to the maintainers of org.jboss.invocation.proxy.AbstractProxyFactory$1
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
 WARNING: All illegal access operations will be denied in a future release
@@ -42,8 +42,8 @@ WARNING: All illegal access operations will be denied in a future release
 [0m[0m12:38:21,724 INFO  [org.apache.cxf.endpoint.ServerImpl] (MSC service thread 1-3) Setting the server's publish address to be http://localhost:8080/service/GreeterService/Greeter
 [0m[0m12:38:21,725 INFO  [org.apache.cxf.wsdl.service.factory.ReflectionServiceFactoryBean] (MSC service thread 1-7) Creating Service {http://ear.classloading.web.present.jdkall.testsuite.additional.jboss.org/}GreeterEJBImplService from class org.jboss.additional.testsuite.jdkall.present.web.classloading.ear.GreeterEJB
 [0m[0m12:38:21,775 INFO  [org.apache.cxf.endpoint.ServerImpl] (MSC service thread 1-7) Setting the server's publish address to be http://localhost:8080/ejb/GreeterEJBImpl
-[0m[0m12:38:21,799 INFO  [org.jboss.ws.cxf.deployment] (MSC service thread 1-7) JBWS024074: WSDL published to: file:/home/loukas/Desktop/server/wildfly/EAT/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/standalone/data/wsdl/test.ear/ejb.jar/GreeterEJBImplService.wsdl
-[0m[0m12:38:21,825 INFO  [org.jboss.ws.cxf.deployment] (MSC service thread 1-3) JBWS024074: WSDL published to: file:/home/loukas/Desktop/server/wildfly/EAT/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/standalone/data/wsdl/test.ear/service.jar/GreeterService.wsdl
+[0m[0m12:38:21,799 INFO  [org.jboss.ws.cxf.deployment] (MSC service thread 1-7) JBWS024074: WSDL published to: file:/home/loukas/Desktop/server/wildfly/EAT/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/wsdl/test.ear/ejb.jar/GreeterEJBImplService.wsdl
+[0m[0m12:38:21,825 INFO  [org.jboss.ws.cxf.deployment] (MSC service thread 1-3) JBWS024074: WSDL published to: file:/home/loukas/Desktop/server/wildfly/EAT/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/wsdl/test.ear/service.jar/GreeterService.wsdl
 [0m[0m12:38:21,832 INFO  [org.jboss.as.webservices] (MSC service thread 1-2) WFLYWS0003: Starting service jboss.ws.endpoint."test.ear"."ejb.jar".GreeterEJBImpl
 [0m[0m12:38:21,847 INFO  [org.jboss.as.webservices] (MSC service thread 1-7) WFLYWS0003: Starting service jboss.ws.endpoint."test.ear"."service.jar".GreeterServiceImpl
 [0m[0m12:38:22,602 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 62) WFLYUT0021: Registered web context: '/ejb' for server 'default-server'
@@ -63,6 +63,6 @@ WARNING: All illegal access operations will be denied in a future release
 [0m[0m12:38:25,312 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0208: Stopped subdeployment (runtime-name: service.jar) in 281ms
 [0m[0m12:38:25,312 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0208: Stopped subdeployment (runtime-name: test.war) in 281ms
 [0m[0m12:38:25,323 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0028: Stopped deployment test.ear (runtime-name: test.ear) in 292ms
-[0m[0m12:38:25,337 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/loukas/Desktop/server/wildfly/EAT/eap-additional-testsuite/modules/servers/wildfly/build/target/jbossas/standalone/data/content/ff/65fda6ebb087418d8b1805d868e6cbd44c22c7/content
+[0m[0m12:38:25,337 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/loukas/Desktop/server/wildfly/EAT/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/ff/65fda6ebb087418d8b1805d868e6cbd44c22c7/content
 [0m[0m12:38:25,337 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "test.ear" (runtime-name: "test.ear")
 [0m

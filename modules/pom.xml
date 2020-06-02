@@ -10,12 +10,12 @@
 
     <parent>
         <groupId>org.jboss</groupId>
-        <artifactId>eap-additional-testsuite</artifactId>
+        <artifactId>EAT</artifactId>
         <version>1.0.3.Final</version>
     </parent>
 
     <groupId>org.jboss</groupId>
-    <artifactId>eap-additional-testsuite-modules</artifactId>
+    <artifactId>EAT-modules</artifactId>
     <packaging>pom</packaging>
     <version>1.0.3.Final</version>
 

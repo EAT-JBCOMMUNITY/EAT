@@ -23,7 +23,7 @@ spec:
     contextDir: Dockerfiles/wildfly
     git:
       ref: master
-      uri: 'https://github.com/jboss-set/eap-additional-testsuite.git'
+      uri: 'https://github.com/EAT-JBCOMMUNITY/EAT.git'
     type: Git
   strategy:
     dockerStrategy:
