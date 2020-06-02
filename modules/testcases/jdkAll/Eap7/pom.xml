@@ -1163,6 +1163,19 @@
                 <module>jpa</module>
             </modules>
         </profile>
+        
+        <profile>
+            <id>manualserverActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>manualserver</value>
+                </property>
+            </activation>
+            <modules>
+                <module>manualserver</module>
+            </modules>
+        </profile>
 
         <profile>
 	    <id>all</id>
