@@ -1,5 +1,5 @@
-# EAP ADDITIONAL TESTSUITE
---------------------------
+# EAT
+-----
 ## THE JBOSS TESTSUITE TO DEVELOP TESTS AGAINST INFINITE NUMBER OF JBOSS SERVERS
 --------------------------------------------------------------------------------
 ## A PROJECT UNDER THE ΙΔΕΑ STATEMENT
