@@ -26,7 +26,7 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
 import org.jboss.ejb3.annotation.SecurityDomain;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * This is here as just a hack to be able to set the security domain of a deployment.

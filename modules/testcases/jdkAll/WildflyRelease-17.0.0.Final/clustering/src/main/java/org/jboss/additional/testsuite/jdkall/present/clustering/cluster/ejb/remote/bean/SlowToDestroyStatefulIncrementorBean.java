@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.PreDestroy;
 import javax.ejb.Remote;
 import javax.ejb.Stateful;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @Stateful
 @Remote(Incrementor.class)

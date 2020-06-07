@@ -22,7 +22,7 @@
 
 package org.jboss.additional.testsuite.jdkall.present.ejb.client.outbound.connection;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Jaikiran Pai

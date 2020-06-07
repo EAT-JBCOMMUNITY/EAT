@@ -22,7 +22,7 @@
 
 package org.jboss.additional.testsuite.jdkall.present.security.web;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -22,7 +22,7 @@
 
 package org.jboss.additional.testsuite.jdkall.present.messaging.jms.deployment;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 import javax.management.MBeanServer;
 import javax.management.MalformedObjectNameException;

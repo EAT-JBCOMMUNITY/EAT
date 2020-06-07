@@ -50,7 +50,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.*;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author <a href="mailto:pkremens@redhat.com">Petr Kremensky</a>

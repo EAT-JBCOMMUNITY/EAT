@@ -38,7 +38,7 @@ import org.jboss.additional.testsuite.jdkall.present.clustering.cluster.ejb.remo
 import org.jboss.additional.testsuite.jdkall.present.clustering.cluster.ejb.EJBDirectory;
 import org.jboss.additional.testsuite.jdkall.present.clustering.cluster.ejb.RemoteEJBDirectory;
 import org.jboss.as.test.shared.TimeoutUtil;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

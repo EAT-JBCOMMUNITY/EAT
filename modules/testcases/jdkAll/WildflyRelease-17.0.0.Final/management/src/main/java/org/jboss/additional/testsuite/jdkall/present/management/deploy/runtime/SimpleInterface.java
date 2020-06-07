@@ -24,7 +24,7 @@ package org.jboss.additional.testsuite.jdkall.present.management.deploy.runtime;
 import java.rmi.RemoteException;
 
 import javax.ejb.EJBObject;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Stuart Douglas

@@ -26,7 +26,7 @@ import java.awt.Image;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 //Service Endpoint Interface
 @WebService

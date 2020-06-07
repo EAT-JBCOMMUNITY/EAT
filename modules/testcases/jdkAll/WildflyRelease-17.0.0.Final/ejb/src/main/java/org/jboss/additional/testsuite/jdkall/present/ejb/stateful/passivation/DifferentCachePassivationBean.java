@@ -22,7 +22,7 @@
 
 package org.jboss.additional.testsuite.jdkall.present.ejb.stateful.passivation;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.jboss.ejb3.annotation.Cache;
 
 import javax.ejb.Local;

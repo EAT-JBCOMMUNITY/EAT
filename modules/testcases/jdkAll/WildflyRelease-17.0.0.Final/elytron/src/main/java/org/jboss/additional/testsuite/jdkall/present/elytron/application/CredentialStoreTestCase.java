@@ -52,7 +52,7 @@ import org.wildfly.test.security.common.elytron.ConfigurableElement;
 import org.wildfly.test.security.common.elytron.CredentialReference;
 import org.wildfly.test.security.common.elytron.Path;
 import org.wildfly.test.security.common.elytron.SimpleCredentialStore;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Tests credential store (CS) implementation in Elytron. This test case uses existing CS keystore prepared in testsuite module

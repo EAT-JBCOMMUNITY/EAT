@@ -48,7 +48,7 @@ import org.wildfly.test.security.common.elytron.TrustManager;
 import static org.jboss.as.test.integration.security.common.SecurityTestConstants.KEYSTORE_PASSWORD;
 import static org.jboss.additional.testsuite.jdkall.present.elytron.audit.AbstractAuditLogTestCase.setEventListenerOfApplicationDomain;
 import static org.jboss.additional.testsuite.jdkall.present.elytron.audit.AbstractSyslogAuditLogTestCase.setupAndStartSyslogServer;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Class for particular settings for 'syslog-audit-log' Elytron subsystem resource that communicates over TLS protocol. Tests

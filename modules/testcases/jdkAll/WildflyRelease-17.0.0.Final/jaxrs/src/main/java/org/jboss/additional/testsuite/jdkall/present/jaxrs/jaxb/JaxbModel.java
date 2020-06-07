@@ -22,7 +22,7 @@
 package org.jboss.additional.testsuite.jdkall.present.jaxrs.jaxb;
 
 import javax.xml.bind.annotation.XmlRootElement;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Stuart Douglas

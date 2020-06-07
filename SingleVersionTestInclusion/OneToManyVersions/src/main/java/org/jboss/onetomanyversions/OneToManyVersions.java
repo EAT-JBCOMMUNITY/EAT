@@ -57,7 +57,7 @@ public class OneToManyVersions {
         String annotation = "@EAT({" + annotationparam + "})";
         List<String> list = Files.readAllLines(new File(fileName).toPath(), Charset.defaultCharset());
         list.add(linenum, annotation);
-        list.add(packagenum, "import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;");
+        list.add(packagenum, "import org.jboss.eap.additional.testsuite.annotations.EAT;");
 
         Path dir = Paths.get(destination+"/"+packageName);
         Path out = Paths.get(destination+"/"+packageName+"/"+fileName.substring(fileName.lastIndexOf("/")));

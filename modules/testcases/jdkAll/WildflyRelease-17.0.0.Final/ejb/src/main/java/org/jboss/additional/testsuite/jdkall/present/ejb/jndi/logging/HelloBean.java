@@ -1,6 +1,6 @@
 package org.jboss.additional.testsuite.jdkall.present.ejb.jndi.logging;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 import javax.ejb.Remote;
 import javax.ejb.Stateless;

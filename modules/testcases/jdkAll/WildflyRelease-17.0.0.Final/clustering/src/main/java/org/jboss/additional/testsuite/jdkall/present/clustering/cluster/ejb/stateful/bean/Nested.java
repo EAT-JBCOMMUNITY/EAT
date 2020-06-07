@@ -23,7 +23,7 @@
 package org.jboss.additional.testsuite.jdkall.present.clustering.cluster.ejb.stateful.bean;
 
 import javax.ejb.Local;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Paul Ferraro

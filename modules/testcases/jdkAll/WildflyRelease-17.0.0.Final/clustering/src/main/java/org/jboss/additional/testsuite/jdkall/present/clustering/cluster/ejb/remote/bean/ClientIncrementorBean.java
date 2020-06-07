@@ -28,7 +28,7 @@ import javax.naming.NamingException;
 
 import org.jboss.additional.testsuite.jdkall.present.clustering.cluster.ejb.EJBDirectory;
 import org.jboss.additional.testsuite.jdkall.present.clustering.cluster.ejb.RemoteEJBDirectory;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @Stateful(passivationCapable = false)
 @Remote(Incrementor.class)

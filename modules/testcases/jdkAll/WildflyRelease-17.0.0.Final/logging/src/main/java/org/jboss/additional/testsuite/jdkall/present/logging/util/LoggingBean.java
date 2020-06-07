@@ -22,7 +22,7 @@
 
 package org.jboss.additional.testsuite.jdkall.present.logging.util;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.jboss.logging.Logger;
 
 /**

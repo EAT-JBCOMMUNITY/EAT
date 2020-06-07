@@ -30,7 +30,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.jboss.as.test.shared.TimeoutUtil;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Jan Martiska
