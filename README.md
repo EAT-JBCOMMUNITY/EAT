@@ -271,6 +271,13 @@ FUTURE DEVELOPMENT
 14. NEXT GENERATION AT STRUCTURES : The tests/methods (that may use features/dependencies from a provisioning tool/dependency-feature analyzer) should be independent modules that will have dependencies (metadata could be used) on libraries and other methods (which may also use some features/dependencies from the provisioning tool/dependency-feature analyzer and which could have their own dependencies). The tool should compose the appropriate test cases and distribute them to the appropriate subcategories in accordance with the available features/dependencies. The dependencies could also be defined automatically when using a dependency-feature analyzer. This way the annotations for enabling the tests could be automated (and become non mandatory in some cases).
 
 
+OTHER ADDITIONAL FUNCTIONS
+----------------------------
+- Test based software dynamic creation
+- Cloud Software Testing
+- ...
+
+
 MOJO DOCUMENTATION
 ------------------
 [Eap Additional Testsuite Mojo Document](https://mojo.redhat.com/docs/DOC-1063426)
