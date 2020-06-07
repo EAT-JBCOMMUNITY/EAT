@@ -27,7 +27,7 @@ import javax.annotation.Resource;
 import javax.ejb.RemoteHome;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Stuart Douglas

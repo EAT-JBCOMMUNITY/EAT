@@ -21,7 +21,7 @@
  */
 package org.jboss.additional.testsuite.jdkall.present.weld.alternative;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Stuart Douglas

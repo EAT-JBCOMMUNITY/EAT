@@ -22,7 +22,7 @@ import org.junit.runner.RunWith;
 
 import javax.ws.rs.NotFoundException;
 import java.util.concurrent.atomic.AtomicLong;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 
 /**

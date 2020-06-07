@@ -36,7 +36,7 @@ import javax.ejb.Stateless;
 import java.security.AccessController;
 import java.util.Set;
 import java.util.TreeSet;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Tomas Hofman (thofman@redhat.com)

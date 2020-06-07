@@ -23,7 +23,7 @@ package org.jboss.additional.testsuite.jdkall.present.management.deploy.runtime.
 
 
 import javax.ejb.Stateless;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 
 /**

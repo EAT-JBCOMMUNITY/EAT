@@ -22,7 +22,7 @@
 
 package org.jboss.additional.testsuite.jdkall.present.quarkus.basic;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 import org.junit.jupiter.api.Test;
 

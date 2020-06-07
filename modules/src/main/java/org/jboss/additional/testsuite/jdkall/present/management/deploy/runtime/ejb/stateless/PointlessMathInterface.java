@@ -22,7 +22,7 @@
 
 package org.jboss.additional.testsuite.jdkall.present.management.deploy.runtime.ejb.stateless;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author baranowb

@@ -26,7 +26,7 @@ import javax.ejb.Remote;
 import javax.ejb.Stateful;
 
 import org.infinispan.statetransfer.OutdatedTopologyException;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Implementation of {@link Incrementor} which always throws a {@link RuntimeException}: an Infinispan's {@link OutdatedTopologyException}.

@@ -47,7 +47,7 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.additional.testsuite.jdkall.present.messaging.jms.context.auxiliary.TransactedMDB;
 import org.jboss.additional.testsuite.jdkall.present.messaging.jms.context.auxiliary.TransactedMessageProducer;
 import org.jboss.as.test.shared.TimeoutUtil;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;

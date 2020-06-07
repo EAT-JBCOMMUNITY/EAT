@@ -23,7 +23,7 @@ package org.jboss.additional.testsuite.jdkall.present.elytron.ejb;
 
 import java.security.Principal;
 import javax.ejb.Local;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * The local interface to the simple WhoAmI bean.

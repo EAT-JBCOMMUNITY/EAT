@@ -25,7 +25,7 @@ package org.jboss.additional.testsuite.jdkall.present.clustering.cluster.ejb.sta
 import javax.ejb.EJB;
 import javax.ejb.Stateful;
 import javax.interceptor.Interceptors;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Paul Ferraro

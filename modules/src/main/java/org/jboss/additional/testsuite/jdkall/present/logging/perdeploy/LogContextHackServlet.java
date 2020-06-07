@@ -34,7 +34,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.jboss.as.logging.LoggingExtension;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.jboss.logmanager.ClassLoaderLogContextSelector;
 import org.jboss.logmanager.ThreadLocalLogContextSelector;
 

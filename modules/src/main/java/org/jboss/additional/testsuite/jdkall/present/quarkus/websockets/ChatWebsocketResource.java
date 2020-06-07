@@ -22,7 +22,7 @@
 
 package org.jboss.additional.testsuite.jdkall.present.quarkus.websockets;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

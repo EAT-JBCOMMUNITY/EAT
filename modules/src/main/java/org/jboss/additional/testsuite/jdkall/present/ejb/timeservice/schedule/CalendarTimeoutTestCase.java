@@ -27,7 +27,7 @@ import java.util.GregorianCalendar;
 import java.util.TimeZone;
 import javax.ejb.ScheduleExpression;
 import org.jboss.as.ejb3.timerservice.schedule.CalendarBasedTimeout;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.jboss.eap.additional.testsuite.annotations.ATTest;
 import org.jboss.eap.additional.testsuite.annotations.ATFeature;
 import org.junit.Assert;

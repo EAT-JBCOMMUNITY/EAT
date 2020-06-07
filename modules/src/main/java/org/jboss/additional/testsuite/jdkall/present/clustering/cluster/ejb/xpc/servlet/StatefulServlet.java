@@ -42,7 +42,7 @@ import org.jboss.additional.testsuite.jdkall.present.clustering.cluster.ejb.xpc.
 import org.jboss.additional.testsuite.jdkall.present.clustering.cluster.ejb.xpc.bean.StatefulBean;
 import org.jboss.additional.testsuite.jdkall.present.clustering.ejb.LocalEJBDirectory;
 import org.jboss.logging.Logger;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Paul Ferraro

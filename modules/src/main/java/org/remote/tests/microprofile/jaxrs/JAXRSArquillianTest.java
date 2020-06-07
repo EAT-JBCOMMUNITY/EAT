@@ -35,7 +35,7 @@ import static org.fest.assertions.Assertions.assertThat;
 /**
  * @author Bob McWhirter
  */
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @EAT({"modules/testcases/jdkAll/Wildfly/basic/src/main/java","modules/testcases/jdkAll/Eap7/basic/src/main/java","modules/testcases/jdkAll/Eap72x/basic/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/basic/src/main/java","modules/testcases/jdkAll/master/thorntail/src/main/java"})
 @RunWith(Arquillian.class)

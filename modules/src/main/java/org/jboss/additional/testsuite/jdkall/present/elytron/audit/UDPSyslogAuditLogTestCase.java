@@ -35,7 +35,7 @@ import org.wildfly.test.security.common.elytron.SyslogAuditLog;
 
 import static org.productivity.java.syslog4j.SyslogConstants.UDP;
 import static org.jboss.additional.testsuite.jdkall.present.elytron.audit.AbstractAuditLogTestCase.setEventListenerOfApplicationDomain;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Class for particular settings for 'syslog-audit-log' Elytron subsystem resource that communicates over UDP protocol.

@@ -37,7 +37,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
 @RunAsClient

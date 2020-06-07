@@ -13,7 +13,7 @@ import org.jboss.additional.testsuite.jdkall.past.eap_7.clustering.EJBClientCont
 import org.jboss.additional.testsuite.jdkall.past.eap_7.clustering.cluster.ClusterAbstractTestCase;
 import org.jboss.additional.testsuite.jdkall.past.eap_7.clustering.cluster.provider.bean.ServiceProviderRetriever;
 import org.jboss.additional.testsuite.jdkall.past.eap_7.clustering.cluster.provider.bean.ServiceProviderRetrieverBean;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.jboss.additional.testsuite.jdkall.past.eap_7.clustering.ejb.EJBDirectory;
 import org.jboss.additional.testsuite.jdkall.past.eap_7.clustering.ejb.RemoteEJBDirectory;
 import org.jboss.ejb.client.ContextSelector;

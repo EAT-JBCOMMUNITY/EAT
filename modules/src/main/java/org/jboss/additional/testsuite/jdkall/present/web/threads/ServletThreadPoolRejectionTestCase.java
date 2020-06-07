@@ -43,7 +43,7 @@ import java.util.concurrent.TimeUnit;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import org.jboss.as.threads.ManagedJBossThreadPoolExecutorService;
 import org.jboss.as.threads.TimeSpec;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.jboss.threads.JBossThreadPoolExecutorReuseIdleThreads;
 import static org.junit.Assert.assertEquals;
 

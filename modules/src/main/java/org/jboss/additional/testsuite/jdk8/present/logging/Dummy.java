@@ -1,6 +1,6 @@
 package org.jboss.additional.testsuite.jdk8.present.logging;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>

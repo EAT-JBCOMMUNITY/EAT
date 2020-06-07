@@ -38,7 +38,7 @@ import org.jboss.as.clustering.msc.ServiceContainerHelper;
 import org.jboss.as.server.CurrentServiceContainer;
 import org.jboss.msc.service.ServiceName;
 import org.jboss.msc.service.ServiceRegistry;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * EJB that establishes a stable topology.

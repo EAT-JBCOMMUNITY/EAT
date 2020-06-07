@@ -37,7 +37,7 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Assert;
 import org.junit.runner.RunWith;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.hibernate.jmx.StatisticsService;
 import org.jboss.eap.additional.testsuite.annotations.ATTest;
 import org.junit.Test;

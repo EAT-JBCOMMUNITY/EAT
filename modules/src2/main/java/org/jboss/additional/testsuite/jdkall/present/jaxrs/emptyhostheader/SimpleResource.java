@@ -21,7 +21,7 @@
  */
 package org.jboss.additional.testsuite.jdkall.present.jaxrs.emptyhostheader;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.jboss.logging.Logger;
 
 import javax.ws.rs.GET;

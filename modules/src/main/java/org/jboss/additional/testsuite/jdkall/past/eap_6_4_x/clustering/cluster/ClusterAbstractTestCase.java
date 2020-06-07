@@ -31,7 +31,7 @@ import org.jboss.additional.testsuite.jdkall.past.eap_6_4_x.clustering.NodeUtil;
 import org.jboss.logging.Logger;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Base cluster test that ensures the custom containers are already running.

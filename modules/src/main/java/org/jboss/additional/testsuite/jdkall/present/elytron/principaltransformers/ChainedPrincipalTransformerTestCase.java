@@ -42,7 +42,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wildfly.test.security.common.elytron.PropertyFileBasedDomain;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Test case for 'chained-principal-transformer' Elytron subsystem resource. This test cases uses also

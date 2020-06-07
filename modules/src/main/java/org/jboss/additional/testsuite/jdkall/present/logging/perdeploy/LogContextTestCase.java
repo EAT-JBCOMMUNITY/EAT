@@ -40,7 +40,7 @@ import org.jboss.additional.testsuite.jdkall.present.logging.util.AbstractLoggin
 import org.jboss.additional.testsuite.jdkall.present.logging.util.LoggingBean;
 import org.jboss.as.test.integration.management.base.AbstractMgmtServerSetupTask;
 import org.jboss.dmr.ModelNode;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.jboss.osgi.metadata.ManifestBuilder;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.Asset;

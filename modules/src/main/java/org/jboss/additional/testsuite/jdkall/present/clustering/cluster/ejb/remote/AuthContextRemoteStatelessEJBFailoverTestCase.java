@@ -40,7 +40,7 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.wildfly.security.auth.client.AuthenticationConfiguration;
 import org.wildfly.security.auth.client.AuthenticationContext;
 import org.wildfly.security.auth.client.MatchRule;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Validates failover behavior of a remotely accessed secure @Stateless EJB.

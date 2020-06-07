@@ -33,7 +33,7 @@ import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.additional.testsuite.jdkall.present.clustering.ClusteringTestConstants;
 import org.jboss.additional.testsuite.jdkall.present.clustering.NodeUtil;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.jboss.logging.Logger;
 import org.junit.After;
 import org.junit.Before;

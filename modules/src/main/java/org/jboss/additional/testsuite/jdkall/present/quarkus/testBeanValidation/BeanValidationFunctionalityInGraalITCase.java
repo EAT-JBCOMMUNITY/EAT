@@ -1,7 +1,7 @@
 package org.jboss.additional.testsuite.jdkall.present.quarkus.testBeanValidation;
 
 import org.jboss.shamrock.test.junit.SubstrateTest;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Test various Bean Validation operations running in SubstrateVM

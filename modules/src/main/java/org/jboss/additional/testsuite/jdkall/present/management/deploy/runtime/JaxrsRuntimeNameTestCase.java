@@ -52,7 +52,7 @@ import static org.junit.Assert.assertThat;
 
 import org.jboss.as.controller.operations.common.Util;
 import org.jboss.as.jaxrs.JaxrsDeploymentDefinition;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
 @RunAsClient

@@ -27,7 +27,7 @@ import javax.inject.Named;
 
 import org.jboss.logging.Logger;
 import org.wildfly.security.auth.server.SecurityDomain;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Jan Martiska

@@ -25,7 +25,7 @@ package org.jboss.additional.testsuite.jdkall.past.jpa.hibernate.secondlevelcach
 import javax.persistence.Entity;
 import org.hibernate.annotations.Cache;
 import static org.hibernate.annotations.CacheConcurrencyStrategy.TRANSACTIONAL;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 
 /**

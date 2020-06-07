@@ -38,7 +38,7 @@ import org.jboss.as.test.integration.management.util.CLITestUtil;
 import org.jboss.additional.testsuite.jdkall.present.shared.TestSuiteEnvironment;
 import org.jboss.dmr.ModelNode;
 import org.jboss.dmr.Property;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.junit.AfterClass;
 import org.junit.Test;
 import org.junit.Ignore;

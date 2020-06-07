@@ -46,7 +46,7 @@ import static org.jboss.additional.testsuite.jdkall.present.elytron.realmmappers
 import static org.jboss.additional.testsuite.jdkall.present.elytron.realmmappers.RealmMapperServerSetupTask.USER_IN_REALM1_WITH_REALM;
 import static org.jboss.additional.testsuite.jdkall.present.elytron.realmmappers.RealmMapperServerSetupTask.USER_IN_REALM1_WITH_REALM_AND_SUFFIX;
 import static org.jboss.additional.testsuite.jdkall.present.elytron.realmmappers.RealmMapperServerSetupTask.USER_IN_REALM3;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Test case for 'simple-regex-realm-mapper' Elytron subsystem resource.

@@ -25,7 +25,7 @@ import javax.annotation.security.DeclareRoles;
 import javax.servlet.annotation.HttpConstraint;
 import javax.servlet.annotation.ServletSecurity;
 import javax.servlet.annotation.WebServlet;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Protected version of {@link SimpleServlet}. Only {@value #ALLOWED_ROLE} role has access right.

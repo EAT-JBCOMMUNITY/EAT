@@ -25,7 +25,7 @@ import java.security.Principal;
 
 import javax.annotation.Resource;
 import javax.ejb.SessionContext;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author <a href="mailto:cdewolf@redhat.com">Carlo de Wolf</a>

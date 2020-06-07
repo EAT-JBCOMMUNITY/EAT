@@ -21,7 +21,7 @@
  */
 package org.jboss.additional.testsuite.jdkall.present.jaxrs.packaging.war;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
 
 /**

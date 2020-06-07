@@ -37,7 +37,7 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.additional.testsuite.jdkall.present.messaging.jms.context.transactionscoped.auxiliary.AppScopedBean;
 import org.jboss.additional.testsuite.jdkall.present.messaging.jms.context.transactionscoped.auxiliary.ThreadLauncher;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;

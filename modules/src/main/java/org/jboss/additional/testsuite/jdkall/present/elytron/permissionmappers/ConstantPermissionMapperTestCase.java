@@ -75,7 +75,7 @@ import org.wildfly.test.security.common.elytron.SimpleSecurityDomain.SecurityDom
 import org.wildfly.test.security.common.elytron.UndertowDomainMapper;
 import org.wildfly.test.security.servlets.CheckIdentityPermissionServlet;
 import org.wildfly.transaction.client.RemoteTransactionPermission;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Test for "constant-permission-mapper" Elytron resource. It tests if the defined permissions are correctly mapped to users.

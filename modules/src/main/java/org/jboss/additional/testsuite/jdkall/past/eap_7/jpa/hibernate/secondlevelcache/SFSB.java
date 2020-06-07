@@ -38,7 +38,7 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.engine.transaction.jta.platform.internal.JBossAppServerJtaPlatform;
 import org.hibernate.internal.util.config.ConfigurationHelper;
 import org.hibernate.resource.transaction.spi.TransactionStatus;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Madhumita Sadhukhan

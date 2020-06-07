@@ -25,7 +25,7 @@ import org.apache.commons.io.FileUtils;
 import org.jboss.as.test.integration.domain.management.util.DomainTestSupport;
 import org.jboss.additional.testsuite.jdkall.present.domain.suites.CLITestSuite;
 import org.jboss.as.test.integration.management.base.AbstractCliTestBase;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

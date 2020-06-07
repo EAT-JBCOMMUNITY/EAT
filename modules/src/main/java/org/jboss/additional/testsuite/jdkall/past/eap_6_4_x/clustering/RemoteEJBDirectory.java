@@ -26,7 +26,7 @@ import java.util.Properties;
 
 import javax.naming.Context;
 import javax.naming.NamingException;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Paul Ferraro

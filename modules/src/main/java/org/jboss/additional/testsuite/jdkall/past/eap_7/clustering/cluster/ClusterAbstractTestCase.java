@@ -34,7 +34,7 @@ import org.jboss.additional.testsuite.jdkall.past.eap_7.clustering.ClusteringTes
 import org.jboss.additional.testsuite.jdkall.past.eap_7.clustering.NodeUtil;
 import org.jboss.as.web.session.RoutingSupport;
 import org.jboss.as.web.session.SimpleRoutingSupport;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.jboss.logging.Logger;
 import org.junit.After;
 import org.junit.Before;

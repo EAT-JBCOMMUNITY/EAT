@@ -27,7 +27,7 @@ import java.io.Serializable;
 import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Employee entity class

@@ -26,7 +26,7 @@ import javax.ejb.EJBHome;
 import javax.ejb.SessionBean;
 import javax.naming.NamingException;
 import javax.transaction.UserTransaction;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * EJB lookup helper

@@ -63,7 +63,7 @@ import org.wildfly.test.security.common.elytron.SimpleKeyStore;
 import org.wildfly.test.security.common.elytron.SimpleServerSslContext;
 import org.wildfly.test.security.common.elytron.SimpleTrustManager;
 import org.wildfly.test.security.common.elytron.UndertowSslContext;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Smoke test for two way SSL connection with Undertow HTTPS listener backed by Elytron server-ssl-context

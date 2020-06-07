@@ -27,7 +27,7 @@ import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
 import org.wildfly.clustering.marshalling.Externalizer;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * {@link Externalizer} for {@link Counter}.

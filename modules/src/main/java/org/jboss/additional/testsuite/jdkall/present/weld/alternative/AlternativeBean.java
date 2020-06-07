@@ -22,7 +22,7 @@
 package org.jboss.additional.testsuite.jdkall.present.weld.alternative;
 
 import javax.enterprise.inject.Alternative;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Stuart Douglas

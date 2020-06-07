@@ -24,7 +24,7 @@ package org.jboss.additional.testsuite.jdkall.present.clustering;
 import org.jboss.arquillian.container.test.api.ContainerController;
 import org.jboss.arquillian.container.test.api.Deployer;
 import org.jboss.logging.Logger;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Utility class to start and stop containers and/or deployments.

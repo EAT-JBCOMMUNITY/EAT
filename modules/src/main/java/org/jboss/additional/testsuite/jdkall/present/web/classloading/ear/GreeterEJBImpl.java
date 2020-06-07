@@ -22,7 +22,7 @@
 
 package org.jboss.additional.testsuite.jdkall.present.web.classloading.ear;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
