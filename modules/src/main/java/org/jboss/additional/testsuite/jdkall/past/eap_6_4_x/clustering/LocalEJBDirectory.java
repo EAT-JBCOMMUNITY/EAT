@@ -25,7 +25,7 @@ package org.jboss.additional.testsuite.jdkall.past.eap_6_4_x.clustering;
 import java.util.Properties;
 
 import javax.naming.NamingException;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Paul Ferraro

@@ -25,7 +25,7 @@ package org.jboss.additional.testsuite.jdkall.present.clustering.cluster.ejb.xpc
 import javax.ejb.Remove;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Interface to see if that helps avoid the

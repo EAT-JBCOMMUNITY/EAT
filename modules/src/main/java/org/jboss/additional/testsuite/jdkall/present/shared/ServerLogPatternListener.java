@@ -23,7 +23,7 @@
 package org.jboss.additional.testsuite.jdkall.present.shared;
 
 import org.apache.commons.io.input.TailerListenerAdapter;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 import java.util.Arrays;
 import java.util.List;

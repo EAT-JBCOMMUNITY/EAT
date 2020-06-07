@@ -82,7 +82,7 @@ import org.wildfly.test.security.common.elytron.SimpleSecurityDomain;
 import org.wildfly.test.security.common.elytron.SimpleSecurityDomain.SecurityDomainRealm;
 import org.wildfly.test.security.common.other.SimpleRemotingConnector;
 import org.wildfly.test.security.common.other.SimpleSocketBinding;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Elytron OTP SASL mechanism tests which use Naming + JMS client. The server setup adds for each tested SASL configuration

@@ -38,7 +38,7 @@ import static javax.servlet.http.HttpServletResponse.SC_OK;
 import static javax.servlet.http.HttpServletResponse.SC_UNAUTHORIZED;
 import static org.junit.Assert.assertTrue;
 import static org.jboss.additional.testsuite.jdkall.present.elytron.audit.AbstractAuditLogTestCase.SUCCESSFUL_AUTH_EVENT;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Abstract class for Elytron Audit Logging tests. Tests are placed here as well as a couple of syslog-specific helper methods.

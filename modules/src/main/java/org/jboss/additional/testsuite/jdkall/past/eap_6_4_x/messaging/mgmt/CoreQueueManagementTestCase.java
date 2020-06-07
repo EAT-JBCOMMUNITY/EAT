@@ -48,7 +48,7 @@ import org.jboss.as.arquillian.container.ManagementClient;
 import org.jboss.as.test.shared.TestSuiteEnvironment;
 import org.jboss.dmr.ModelNode;
 import org.jboss.dmr.ModelType;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

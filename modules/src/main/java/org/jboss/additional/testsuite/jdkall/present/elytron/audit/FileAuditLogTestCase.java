@@ -48,7 +48,7 @@ import static org.jboss.as.test.shared.CliUtils.asAbsolutePath;
 import static org.junit.Assert.assertTrue;
 import static org.jboss.additional.testsuite.jdkall.present.elytron.audit.AbstractAuditLogTestCase.SD_WITHOUT_LOGIN_PERMISSION;
 import static org.jboss.additional.testsuite.jdkall.present.elytron.audit.AbstractAuditLogTestCase.setEventListenerOfApplicationDomain;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Test case for 'file-audit-log' Elytron subsystem resource.

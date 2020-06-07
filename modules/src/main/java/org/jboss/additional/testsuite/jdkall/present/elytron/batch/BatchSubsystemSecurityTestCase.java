@@ -70,7 +70,7 @@ import org.wildfly.test.security.common.elytron.EJBApplicationSecurityDomainMapp
 import org.wildfly.test.security.common.elytron.PermissionRef;
 import org.wildfly.test.security.common.elytron.PropertyFileBasedDomain;
 import org.wildfly.test.security.common.elytron.SimplePermissionMapper;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * This is for testing the BatchPermission from batch-jberet subsystem.

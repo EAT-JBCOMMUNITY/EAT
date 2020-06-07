@@ -37,7 +37,7 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Assert;
 import org.junit.runner.RunWith;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import com.mchange.v2.c3p0.jacksonTest.ComboPooledDataSource;
 import org.jboss.eap.additional.testsuite.annotations.ATTest;
 import org.junit.Test;

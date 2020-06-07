@@ -11,7 +11,7 @@ import javax.ejb.Stateless;
 
 import org.wildfly.clustering.group.Node;
 import org.wildfly.clustering.provider.ServiceProviderRegistration;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @Stateless
 @Remote(ServiceProviderRetriever.class)

@@ -22,7 +22,7 @@
 package org.jboss.additional.testsuite.jdkall.present.elytron.ejb;
 
 import javax.ejb.Local;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Interface for the bean used as the entry point to verify EJB3 security behaviour.

@@ -1,6 +1,6 @@
 package org.jboss.additional.testsuite.jdkall.present.server;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -22,7 +22,7 @@
 package org.jboss.additional.testsuite.jdkall.present.web.security.identity.propagation.deployment;
 
 import org.jboss.additional.testsuite.jdkall.present.web.security.identity.propagation.IdentityPropagationAuthenticationTestCase;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;

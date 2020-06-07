@@ -24,7 +24,7 @@ import javax.naming.NamingException;
 import org.jboss.additional.testsuite.jdkall.present.ejb.remote.stateful.CounterBean;
 import org.jboss.additional.testsuite.jdkall.present.ejb.remote.stateless.CalculatorBean;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;

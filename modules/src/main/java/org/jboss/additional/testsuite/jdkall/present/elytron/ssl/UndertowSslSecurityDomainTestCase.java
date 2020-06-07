@@ -69,7 +69,7 @@ import org.wildfly.test.security.common.elytron.SimpleTrustManager;
 import org.wildfly.test.security.common.elytron.X500AttributePrincipalDecoder;
 import org.wildfly.test.security.common.elytron.UndertowSslContext;
 import org.wildfly.test.security.common.elytron.UserWithRoles;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Smoke tests for certificate based authentication using Elytron server-ssl-context, security domain,

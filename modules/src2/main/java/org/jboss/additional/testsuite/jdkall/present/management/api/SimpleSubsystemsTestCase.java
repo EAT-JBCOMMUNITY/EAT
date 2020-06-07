@@ -32,7 +32,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static org.jboss.as.test.integration.management.util.ModelUtil.createOpNode;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.jboss.eap.additional.testsuite.annotations.ATTest;
 import static org.junit.Assert.assertTrue;
 

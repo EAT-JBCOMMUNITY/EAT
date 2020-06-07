@@ -54,12 +54,12 @@
     <dependencies>
         <dependency>
             <groupId>org.jboss.eap.additional.testsuite</groupId>
-            <artifactId>EAT-source-distribution</artifactId>
+            <artifactId>eap-additional-testsuite-source-distribution</artifactId>
             <version>3.0.0.Final</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.eap.additional.testsuite</groupId>
-            <artifactId>EAT-annotations</artifactId>
+            <artifactId>eap-additional-testsuite-annotations</artifactId>
             <version>3.0.0.Final</version>
         </dependency>
     </dependencies>

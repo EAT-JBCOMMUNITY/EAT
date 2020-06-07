@@ -23,7 +23,7 @@ package org.jboss.additional.testsuite.jdkall.past.eap_6_4_x.management.cli;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 import java.io.File;
 import org.junit.Assert;

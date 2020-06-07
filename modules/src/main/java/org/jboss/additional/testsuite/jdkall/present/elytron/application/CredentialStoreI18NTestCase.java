@@ -40,7 +40,7 @@ import org.wildfly.test.security.common.elytron.Path;
 import org.wildfly.test.security.common.elytron.SimpleCredentialStore;
 
 import static org.junit.Assert.assertEquals;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Tests credential store (CS) implementation in Elytron. This testcase uses several scenarios:

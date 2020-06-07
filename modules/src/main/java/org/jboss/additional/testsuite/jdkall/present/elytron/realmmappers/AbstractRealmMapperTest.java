@@ -32,7 +32,7 @@ import org.jboss.shrinkwrap.api.asset.StringAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import static org.jboss.additional.testsuite.jdkall.present.elytron.realmmappers.RealmMapperServerSetupTask.SECURITY_DOMAIN_REFERENCE;
 import org.wildfly.test.security.servlets.SecuredPrincipalPrintingServlet;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  *

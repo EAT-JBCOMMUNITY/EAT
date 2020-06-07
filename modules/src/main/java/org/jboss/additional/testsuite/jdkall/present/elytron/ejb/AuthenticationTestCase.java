@@ -69,7 +69,7 @@ import org.jboss.additional.testsuite.jdkall.present.elytron.ejb.authentication.
 import org.jboss.additional.testsuite.jdkall.present.elytron.ejb.base.WhoAmIBean;
 import org.wildfly.test.security.common.elytron.EjbElytronDomainSetup;
 import org.wildfly.test.security.common.elytron.ElytronDomainSetup;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Test case to hold the authentication scenarios, these range from calling a servlet which calls a bean to calling a bean which

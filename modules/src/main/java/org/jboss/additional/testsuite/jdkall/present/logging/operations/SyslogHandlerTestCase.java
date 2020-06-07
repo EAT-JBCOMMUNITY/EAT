@@ -66,7 +66,7 @@ import org.jboss.additional.testsuite.jdkall.present.logging.util.LoggingServlet
 import org.jboss.as.test.integration.security.common.Utils;
 import org.jboss.as.test.shared.TimeoutUtil;
 import org.jboss.dmr.ModelNode;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.jboss.logging.Logger;
 import org.jboss.logging.Logger.Level;
 import org.jboss.osgi.metadata.ManifestBuilder;

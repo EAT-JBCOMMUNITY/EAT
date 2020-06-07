@@ -23,7 +23,7 @@
 package org.jboss.additional.testsuite.jdkall.present.ejb.async;
 
 import javax.ejb.Remote;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Ondrej Chaloupka

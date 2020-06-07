@@ -7,7 +7,7 @@ import org.jboss.as.controller.client.helpers.ClientConstants;
 import org.jboss.as.test.integration.management.util.ServerReload;
 import org.jboss.as.test.integration.security.common.CoreUtils;
 import org.jboss.dmr.ModelNode;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

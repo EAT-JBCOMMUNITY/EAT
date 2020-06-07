@@ -23,7 +23,7 @@
 package org.jboss.additional.testsuite.jdkall.present.clustering.cluster.web.externalizer;
 
 import java.util.concurrent.atomic.AtomicInteger;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Non-serializable counter, to be externalized via {@link CounterExternalizer}.

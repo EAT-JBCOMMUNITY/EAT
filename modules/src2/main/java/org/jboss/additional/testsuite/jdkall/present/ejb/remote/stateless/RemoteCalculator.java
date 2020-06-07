@@ -16,7 +16,7 @@
  */
 package org.jboss.additional.testsuite.jdkall.present.ejb.remote.stateless;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Jaikiran Pai

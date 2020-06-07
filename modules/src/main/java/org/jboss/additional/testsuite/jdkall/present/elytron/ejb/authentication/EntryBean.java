@@ -25,7 +25,7 @@ import javax.ejb.Stateless;
 
 import org.jboss.additional.testsuite.jdkall.present.elytron.ejb.Entry;
 import org.jboss.ejb3.annotation.SecurityDomain;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Concrete implementation to allow deployment of bean.

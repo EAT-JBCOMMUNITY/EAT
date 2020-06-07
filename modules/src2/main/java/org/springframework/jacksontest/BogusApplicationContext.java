@@ -22,7 +22,7 @@
 
 package org.springframework.jacksontest;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

@@ -23,7 +23,7 @@
 package org.jboss.additional.testsuite.jdkall.present.core.jca;
 
 import java.io.IOException;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.as.test.integration.management.base.AbstractCliTestBase;

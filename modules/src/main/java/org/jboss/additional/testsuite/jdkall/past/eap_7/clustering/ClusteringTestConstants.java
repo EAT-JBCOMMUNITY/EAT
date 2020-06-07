@@ -22,7 +22,7 @@
 package org.jboss.additional.testsuite.jdkall.past.eap_7.clustering;
 
 import org.jboss.as.test.shared.TimeoutUtil;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Test constants statically imported used across the clustering tests.

@@ -40,7 +40,7 @@ import org.jboss.as.test.integration.security.common.servlets.RolePrintingServle
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import static org.junit.Assert.fail;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Abstract class for Role Mapper related test cases.

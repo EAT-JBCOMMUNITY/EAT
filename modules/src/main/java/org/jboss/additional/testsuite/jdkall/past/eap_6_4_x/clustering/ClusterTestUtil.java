@@ -21,7 +21,7 @@
  */
 package org.jboss.additional.testsuite.jdkall.past.eap_6_4_x.clustering;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Utility class for cluster test.

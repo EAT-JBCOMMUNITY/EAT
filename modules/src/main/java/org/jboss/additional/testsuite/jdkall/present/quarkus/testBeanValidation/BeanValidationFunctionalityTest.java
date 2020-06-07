@@ -7,7 +7,7 @@ import org.jboss.shamrock.test.junit.ShamrockTest;
 import org.junit.jupiter.api.Test;
 
 import io.restassured.RestAssured;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Test various Bean Validation operations running in Shamrock

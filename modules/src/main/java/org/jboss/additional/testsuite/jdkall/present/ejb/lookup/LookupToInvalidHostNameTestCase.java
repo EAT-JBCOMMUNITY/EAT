@@ -25,7 +25,7 @@ import java.util.Properties;
 import javax.naming.CommunicationException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;

@@ -58,7 +58,7 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 import org.junit.Ignore;
 import org.junit.runner.RunWith;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Test case for Elytron Aggregate Realm.

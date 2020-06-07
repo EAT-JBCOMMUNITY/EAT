@@ -23,7 +23,7 @@
 package org.jboss.additional.testsuite.jdkall.present.management.deploy.runtime.ejb.singleton.timer;
 
 import javax.ejb.Remote;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author baranowb

@@ -22,7 +22,7 @@
 package org.jboss.additional.testsuite.jdkall.past.eap_6_4_x.clustering;
 
 import java.util.Set;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Tomas Hofman (thofman@redhat.com)
