@@ -55,7 +55,7 @@ import org.junit.BeforeClass;
  * @author Radoslav Husar
  * @version Jul 2013
  */
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap70x/clustering/src/main/java","modules/testcases/jdkAll/Eap70x-Proposed/clustering/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap70x/clustering/src/main/java","modules/testcases/jdkAll/Eap70x-Proposed/clustering/src/main/java"})
 public abstract class ClusterAbstractTestCase implements ClusteringTestConstants {
 
     protected static final Logger log = Logger.getLogger(ClusterAbstractTestCase.class);

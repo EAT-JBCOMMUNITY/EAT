@@ -35,7 +35,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
  * @author Paul Ferraro
  *
  */
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap70x/clustering/src/main/java","modules/testcases/jdkAll/Eap70x-Proposed/clustering/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap70x/clustering/src/main/java","modules/testcases/jdkAll/Eap70x-Proposed/clustering/src/main/java"})
 public abstract class AbstractEJBDirectory implements EJBDirectory {
     private final Context context;
 

@@ -28,7 +28,7 @@ import static org.junit.Assert.fail;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Wildfly/remoting/src/main/java#16.0.0.Beta1", "modules/testcases/jdkAll/Eap72x/remoting/src/main/java#7.2.3", "modules/testcases/jdkAll/Eap72x-Proposed/remoting/src/main/java#7.2.3"})
+@EAT({"modules/testcases/jdkAll/Wildfly/remoting/src/main/java#16.0.0.Beta1", "modules/testcases/jdkAll/Eap72x/remoting/src/main/java#7.2.3", "modules/testcases/jdkAll/Eap72x-Proposed/remoting/src/main/java#7.2.3"})
 public class JMXRemotingMemoryLeakTestCase {
 
     private final Logger log = Logger.getLogger(JMXRemotingMemoryLeakTestCase.class);

@@ -51,7 +51,7 @@ public class JavaClassParser {
         String versionOrderDir = System.getProperty("VersionOrderDir");
         String disableSnapshotVersions = System.getProperty("DisableSnapshotVersions");
 
-        HashMap<String, ArrayList<String>> testLibraries = fileProcessing(basedir, sourcePath, server, version, versionOrderDir, "@EapAdditionalTestsuite", disableSnapshotVersions);
+        HashMap<String, ArrayList<String>> testLibraries = fileProcessing(basedir, sourcePath, server, version, versionOrderDir, "@EAT", disableSnapshotVersions);
 
         return testLibraries;
     }
@@ -205,7 +205,7 @@ public class JavaClassParser {
                 if (file.isDirectory()) {
                     fileProcessing(basedir, file.getAbsolutePath(), server, version, versionOrderDir, searchString, disableSnapshotVersions);
                 } else {
-                    ArrayList<FileData> output = checkFileForAnnotation(file.getAbsolutePath(), "@EapAdditionalTestsuite", server);
+                    ArrayList<FileData> output = checkFileForAnnotation(file.getAbsolutePath(), "@EAT", server);
                     for (FileData dest : output) {
                         if (dest.minVersion != null) {
                             boolean isSnapshot = false;

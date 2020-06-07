@@ -43,7 +43,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/security/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/security/src/main/java"})
 public class SecurityDeserialization2TestCase {
 
     private static final String ARCHIVE_NAME = "SecurityDeserialization2TestCase";

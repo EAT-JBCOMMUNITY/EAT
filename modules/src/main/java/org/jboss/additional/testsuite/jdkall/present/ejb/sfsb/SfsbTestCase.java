@@ -45,7 +45,7 @@ import java.net.URL;
 
 @RunAsClient
 @RunWith(Arquillian.class)
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap7/ejb/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap7/ejb/src/main/java"})
 public class SfsbTestCase {
 
     public static final String DEPLOYMENT = "sfsbServlet.war";
