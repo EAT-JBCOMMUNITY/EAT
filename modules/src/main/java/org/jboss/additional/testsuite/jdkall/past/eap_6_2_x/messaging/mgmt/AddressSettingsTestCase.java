@@ -36,7 +36,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap62x/messaging/src/main/java","modules/testcases/jdkAll/Eap61x/messaging/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap62x/messaging/src/main/java","modules/testcases/jdkAll/Eap61x/messaging/src/main/java"})
 public class AddressSettingsTestCase extends ContainerResourceMgmtTestBase {
 
     private static final ModelNode address = new ModelNode();

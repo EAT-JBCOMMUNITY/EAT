@@ -68,7 +68,7 @@ import org.junit.runner.RunWith;
  */
 @RunAsClient()
 @RunWith(Arquillian.class)
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap64x/messaging/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/messaging/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap64x/messaging/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/messaging/src/main/java"})
 public class HornetQServerManagementTestCase {
 
     private static HornetQConnectionFactory connectionFactory;

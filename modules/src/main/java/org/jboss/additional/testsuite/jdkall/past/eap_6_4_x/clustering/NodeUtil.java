@@ -32,7 +32,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
  * @author Radoslav Husar
  * @version Oct 2012
  */
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap64x/clustering/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap63x/clustering/src/main/java","modules/testcases/jdkAll/Eap62x/clustering/src/main/java","modules/testcases/jdkAll/Eap61x/clustering/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap64x/clustering/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap63x/clustering/src/main/java","modules/testcases/jdkAll/Eap62x/clustering/src/main/java","modules/testcases/jdkAll/Eap61x/clustering/src/main/java"})
 public final class NodeUtil {
 
     private static final Logger log = Logger.getLogger(NodeUtil.class);

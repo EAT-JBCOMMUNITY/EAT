@@ -29,7 +29,7 @@ import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
  * @author Radoslav Husar
  * @version September 2012
  */
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap64x/clustering/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap63x/clustering/src/main/java","modules/testcases/jdkAll/Eap62x/clustering/src/main/java","modules/testcases/jdkAll/Eap61x/clustering/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap64x/clustering/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap63x/clustering/src/main/java","modules/testcases/jdkAll/Eap62x/clustering/src/main/java","modules/testcases/jdkAll/Eap61x/clustering/src/main/java"})
 public class ClusterTestUtil {
 
     public static void waitForReplication(int millis) {

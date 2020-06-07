@@ -26,7 +26,7 @@ import javax.jws.WebService;
 import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
 
 @WebService
-@EapAdditionalTestsuite({"modules/testcases/jdk8/Wildfly/ws/src/main/java","modules/testcases/jdk8/Eap7/ws/src/main/java","modules/testcases/jdk8/Eap71x/ws/src/main/java","modules/testcases/jdk8/Eap70x/ws/src/main/java","modules/testcases/jdk8/Eap70x-Proposed/ws/src/main/java","modules/testcases/jdk8/WildflyRelease-10.1.0.Final/ws/src/main/java"})
+@EAT({"modules/testcases/jdk8/Wildfly/ws/src/main/java","modules/testcases/jdk8/Eap7/ws/src/main/java","modules/testcases/jdk8/Eap71x/ws/src/main/java","modules/testcases/jdk8/Eap70x/ws/src/main/java","modules/testcases/jdk8/Eap70x-Proposed/ws/src/main/java","modules/testcases/jdk8/WildflyRelease-10.1.0.Final/ws/src/main/java"})
 public interface GreeterSEI extends DefaultInterface {
 
     default public String sayHello() {

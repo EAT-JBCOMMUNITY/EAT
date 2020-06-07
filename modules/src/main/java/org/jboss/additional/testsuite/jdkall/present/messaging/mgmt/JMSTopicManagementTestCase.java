@@ -65,7 +65,7 @@ import org.junit.runner.RunWith;
  */
 @RunAsClient()
 @RunWith(Arquillian.class)
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap70x/messaging/src/main/java","modules/testcases/jdkAll/Eap70x-Proposed/messaging/src/main/java","modules/testcases/jdkAll/WildflyRelease-10.1.0.Final/messaging/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap70x/messaging/src/main/java","modules/testcases/jdkAll/Eap70x-Proposed/messaging/src/main/java","modules/testcases/jdkAll/WildflyRelease-10.1.0.Final/messaging/src/main/java"})
 public class JMSTopicManagementTestCase {
 
     private static final String EXPORTED_PREFIX = "java:jboss/exported/";

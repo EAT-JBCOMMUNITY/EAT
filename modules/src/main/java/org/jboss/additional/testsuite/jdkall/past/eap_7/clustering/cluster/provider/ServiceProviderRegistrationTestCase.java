@@ -27,7 +27,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EapAdditionalTestsuite({"modules/testcases/jdkAll/Eap70x/clustering/src/main/java","modules/testcases/jdkAll/Eap70x-Proposed/clustering/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap70x/clustering/src/main/java","modules/testcases/jdkAll/Eap70x-Proposed/clustering/src/main/java"})
 public class ServiceProviderRegistrationTestCase extends ClusterAbstractTestCase {
     private static final Logger log = Logger.getLogger(ServiceProviderRegistrationTestCase.class);
     private static final String MODULE_NAME = "service-provider-registration";

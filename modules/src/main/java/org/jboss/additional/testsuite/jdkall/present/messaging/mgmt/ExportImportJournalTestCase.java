@@ -63,7 +63,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-//@eapAdditionalTestsuite({"modules/testcases/jdkAll/WildflyRelease-10.1.0.Final/messaging/src/main/java"})
+//@EAT({"modules/testcases/jdkAll/WildflyRelease-10.1.0.Final/messaging/src/main/java"})
 public class ExportImportJournalTestCase {
 
     protected final String jmsQueueName = "ExportImportJournalTestCase-Queue";

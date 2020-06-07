@@ -54,7 +54,7 @@ public class OneToManyVersions {
             System.out.println(fd.get(i).fileName + " " + fd.get(i).server + " " + fd.get(i).module + " " + fd.get(i).minVersion + " " + fd.get(i).maxVersion + " " + fd.get(i).packageName);
         }
 
-        String annotation = "@EapAdditionalTestsuite({" + annotationparam + "})";
+        String annotation = "@EAT({" + annotationparam + "})";
         List<String> list = Files.readAllLines(new File(fileName).toPath(), Charset.defaultCharset());
         list.add(linenum, annotation);
         list.add(packagenum, "import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;");
