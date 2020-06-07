@@ -23,7 +23,7 @@
 package org.jboss.additional.testsuite.jdkall.present.manualmode.logging;
 
 import org.apache.log4j.Logger;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

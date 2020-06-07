@@ -23,7 +23,7 @@ package org.jboss.additional.testsuite.jdkall.present.management.deploy.runtime.
 
 
 import javax.ejb.Stateful;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 import org.jboss.logging.Logger;
 

@@ -38,7 +38,7 @@ import javax.servlet.http.HttpSession;
 
 import org.jboss.additional.testsuite.jdkall.present.clustering.cluster.ejb.stateful.bean.Incrementor;
 import org.jboss.additional.testsuite.jdkall.present.clustering.ejb.LocalEJBDirectory;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Paul Ferraro

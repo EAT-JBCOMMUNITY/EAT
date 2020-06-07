@@ -22,7 +22,7 @@
 
 package org.apache.ibatis.datasource.jndi;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 import java.util.Properties;
 import javax.xml.bind.annotation.XmlRootElement;

@@ -26,7 +26,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.ejb.Stateful;
 import javax.inject.Inject;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Paul Ferraro

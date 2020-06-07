@@ -19,7 +19,7 @@
 
 package org.jboss.additional.testsuite.jdkall.present.logging.misc.log;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>

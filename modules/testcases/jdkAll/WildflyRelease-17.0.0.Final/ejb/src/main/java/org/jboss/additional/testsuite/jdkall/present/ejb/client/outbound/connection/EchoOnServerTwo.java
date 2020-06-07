@@ -24,7 +24,7 @@ package org.jboss.additional.testsuite.jdkall.present.ejb.client.outbound.connec
 
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Jaikiran Pai

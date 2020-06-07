@@ -22,7 +22,7 @@
 
 package org.jboss.additional.testsuite.jdkall.present.clustering.cluster.ejb.remote;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Validates failover behavior of a remotely accessed secure @Stateless EJB using a thread authentication context.

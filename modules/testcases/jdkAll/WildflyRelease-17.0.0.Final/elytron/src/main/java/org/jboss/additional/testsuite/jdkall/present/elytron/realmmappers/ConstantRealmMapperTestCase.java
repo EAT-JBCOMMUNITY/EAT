@@ -43,7 +43,7 @@ import static org.jboss.additional.testsuite.jdkall.present.elytron.realmmappers
 import static org.jboss.additional.testsuite.jdkall.present.elytron.realmmappers.RealmMapperServerSetupTask.REALM2;
 import static org.jboss.additional.testsuite.jdkall.present.elytron.realmmappers.RealmMapperServerSetupTask.USER_IN_DEFAULT_REALM;
 import static org.jboss.additional.testsuite.jdkall.present.elytron.realmmappers.RealmMapperServerSetupTask.USER_IN_REALM1;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Test case for 'constant-realm-mapper' Elytron subsystem resource.

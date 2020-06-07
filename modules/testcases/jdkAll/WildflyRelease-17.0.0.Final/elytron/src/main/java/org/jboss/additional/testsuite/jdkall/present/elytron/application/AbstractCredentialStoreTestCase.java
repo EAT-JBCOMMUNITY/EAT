@@ -58,7 +58,7 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.wildfly.test.security.servlets.ReadCredentialServlet;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Abstract parent for Elytron Credential store test cases. It provides a deployment with {@link ReadCredentialServlet} and

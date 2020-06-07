@@ -3,7 +3,7 @@ package  org.jboss.additional.testsuite.jdkall.present.shared;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.util.function.Supplier;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 import org.junit.Assume;
 

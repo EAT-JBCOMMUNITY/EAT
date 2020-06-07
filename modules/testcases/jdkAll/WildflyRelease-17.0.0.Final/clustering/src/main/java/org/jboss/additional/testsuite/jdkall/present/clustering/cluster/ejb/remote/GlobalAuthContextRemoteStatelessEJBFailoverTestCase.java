@@ -27,7 +27,7 @@ import java.util.function.UnaryOperator;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.wildfly.security.auth.client.AuthenticationContext;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Validates failover behavior of a remotely accessed secure @Stateless EJB using a global authentication context.

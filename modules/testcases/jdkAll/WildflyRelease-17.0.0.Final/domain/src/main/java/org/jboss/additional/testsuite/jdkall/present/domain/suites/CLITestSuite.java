@@ -36,7 +36,7 @@ import org.jboss.additional.testsuite.jdkall.present.domain.management.cli.Clone
 import org.jboss.additional.testsuite.jdkall.present.domain.management.cli.RolloutPlanTestCase;
 import org.jboss.as.test.integration.domain.management.util.DomainLifecycleUtil;
 import org.jboss.as.test.integration.domain.management.util.DomainTestSupport;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;

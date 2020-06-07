@@ -54,7 +54,7 @@ import org.wildfly.test.security.common.elytron.SimpleSecurityDomain;
 import org.wildfly.test.security.common.elytron.SimpleSecurityDomain.SecurityDomainRealm;
 import org.wildfly.test.security.common.elytron.UndertowDomainMapper;
 import org.wildfly.test.security.servlets.SecuredPrincipalPrintingServlet;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Test for "constant-principal-decoder" Elytron resource. It tests if it's correctly used for authentication and remains valid

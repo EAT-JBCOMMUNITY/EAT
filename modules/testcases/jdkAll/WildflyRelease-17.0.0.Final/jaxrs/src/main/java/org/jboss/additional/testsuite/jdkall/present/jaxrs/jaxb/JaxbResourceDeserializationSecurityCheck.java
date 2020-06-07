@@ -38,7 +38,7 @@ import javax.ws.rs.core.Response;
 import org.apache.ibatis.datasource.jndi.JndiDataSourceFactory;
 import org.hibernate.jmx.StatisticsService;
 import org.apache.openjpa.ee.JNDIManagedRuntime;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @Path("jaxb")
 @Produces({"application/json"})

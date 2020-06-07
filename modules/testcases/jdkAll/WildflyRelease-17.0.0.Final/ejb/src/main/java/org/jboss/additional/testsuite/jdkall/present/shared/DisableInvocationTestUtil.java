@@ -1,6 +1,6 @@
 package  org.jboss.additional.testsuite.jdkall.present.shared;
 
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Kabir Khan

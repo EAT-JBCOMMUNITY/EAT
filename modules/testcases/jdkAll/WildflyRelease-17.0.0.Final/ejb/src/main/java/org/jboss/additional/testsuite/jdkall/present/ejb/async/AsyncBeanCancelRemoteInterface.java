@@ -24,7 +24,7 @@ package org.jboss.additional.testsuite.jdkall.present.ejb.async;
 
 import java.util.concurrent.Future;
 import javax.ejb.Remote;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Remote interface for testing cancel method asynchronously.

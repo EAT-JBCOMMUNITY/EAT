@@ -22,7 +22,7 @@
 package org.jboss.additional.testsuite.jdkall.present.clustering.cluster.ejb.stateful.bean;
 
 import java.io.Serializable;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Stuart Douglas

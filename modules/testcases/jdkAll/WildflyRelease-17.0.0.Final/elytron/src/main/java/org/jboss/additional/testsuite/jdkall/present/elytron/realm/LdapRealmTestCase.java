@@ -69,7 +69,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import static org.junit.Assert.fail;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.jboss.eap.additional.testsuite.annotations.EapAdditionalTestsuite;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * Smoke test for Elytron Ldap Realm. It tests only basic functionality of Ldap Realm. <br>
