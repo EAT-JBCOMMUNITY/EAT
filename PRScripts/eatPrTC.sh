@@ -40,6 +40,6 @@
  echo %EatPrNums%
 
  cd eat
- cd eap-additional-testsuite
+ cd EAT
  git log -n 10
  ./Maven/apache-maven-3.3.9/bin/mvn clean install -Dwildfly -Dstandalone -DdSources -Djdk8

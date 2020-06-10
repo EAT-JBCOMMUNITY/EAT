@@ -12,8 +12,8 @@
  eatPr=%teamcity.build.branch%
  mkdir -p eat
  cd eat
- git clone https://github.com/jboss-set/eap-additional-testsuite.git
- cd eap-additional-testsuite
+ git clone https://github.com/panossot/EAT.git
+ cd EAT
 
  if [[ $eatPr == *"pull"* ]]; then
      eatPrNum=$(echo $eatPr | cut -d'/' -f2); 
@@ -26,7 +26,7 @@
 
      set +e
 
- commits1=$(curl -s -n https://api.github.com/repos/jboss-set/eap-additional-testsuite/pulls?state=open);
+ commits1=$(curl -s -n https://api.github.com/repos/panossot/EAT/pulls?state=open);
  echo $commits1
  prs=$(echo $commits1 | grep -Po '"number":.*?[^\\]",');
  commits=$(echo $commits1 | grep -Po '"statuses_url":.*?[^\\]",');
@@ -62,7 +62,7 @@
 
              if [[ $PR == $eatPrNum ]]; then
 
-             sprs=$(curl -s -n https://api.github.com/repos/jboss-set/eap-additional-testsuite/issues/$PR);
+             sprs=$(curl -s -n https://api.github.com/repos/panossot/EAT/issues/$PR);
              echo ;
              spr=$(echo $sprs | grep -Po '"body":.*?[^\\]",');
 
