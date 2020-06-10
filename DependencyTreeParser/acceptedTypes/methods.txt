@@ -23,6 +23,6 @@ put
 format
 equals
 withApplicationDomains
-
-
+getName
+getModifiers
 
