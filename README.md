@@ -278,40 +278,16 @@ OTHER ADDITIONAL FUNCTIONS
 - ...
 
 
-MOJO DOCUMENTATION
-------------------
-[Eap Additional Testsuite Mojo Document](https://mojo.redhat.com/docs/DOC-1063426)
-
-
-EAT with PROTEAN/QUARKUS DOCUMENTATION
---------------------------------------
-[Eap Additional Testsuite with Protean/Quarkus](https://mojo.redhat.com/docs/DOC-1191712)
-
-
 EAT with OPENSHIFT
 -------------------
-[EAT with Openshift](https://drive.google.com/file/d/1sxPClIQXZSsyF18U74IOnNdycKorwXTv/view?usp=sharing)
+[EAT with Openshift](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/Dockerfiles/wildfly/README.md#run-eat-with-openshift-additional-instructions-should-be-added-relevant-to-the-ones-above)
  
  
-EAT PRESENTATION
--------------------------------------
-[Eap Additional Testsuite Presentation](https://drive.google.com/file/d/1NoHSTLrxM3yIVMYJEqlK69SOsR4bFYOk/view?usp=sharing)
-
-[EAT JAM](https://drive.google.com/file/d/1-ugHTfziwxa2UhgH4Qu6Do78Ol2uxTpw/view?usp=sharing)
-
-
-EAT VIDEO PRESENTATION
--------------------------------------------
-[Eap Additional Testsuite Video](https://bluejeans.com/s/A_Ih7)
-
-[Eap Additional Testsuite Quick Presentation](https://drive.google.com/open?id=1bkgdVZ8AWDwkG4XSDr0s3tX1zKKLtoQp)
-
-
 EAT WORKSHOP
 ---------------------------------
-[Eap Additional Testsuite Workshop](https://www.dropbox.com/s/bebhyd1iz7cg1i2/EAT_WORKSHOP.odt?dl=0)
+[EAT Workshop](https://www.dropbox.com/s/bebhyd1iz7cg1i2/EAT_WORKSHOP.odt?dl=0)
 
-[Eap Additional Testsuite Workshop (Download)](https://drive.google.com/file/d/1iRT_FoRxj2tOcIPD42mUQpqcbDxuczCy/view?usp=sharing)
+[EAT Workshop (Download)](https://drive.google.com/file/d/1iRT_FoRxj2tOcIPD42mUQpqcbDxuczCy/view?usp=sharing)
 
 
 EAT as a COLLABORATION PROJECT
@@ -321,5 +297,3 @@ Many thanks to the University of Peloponnese (Department of Informatics and Tele
 # License 
 * [GNU Lesser General Public License Version 2.1](http://www.gnu.org/licenses/lgpl-2.1-standalone.html) ([GPL Cooperation Commitment](https://github.com/gplcc/gplcc/blob/master/Project/COMMITMENT))
 
-# Note
-* 02-10-2019 : Clarification - Commits of user root (with invalid e-mail) were sent by user panossot .
