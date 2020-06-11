@@ -1723,6 +1723,7 @@ public class DependencyTree {
             HashSet<String> foundArray = new HashSet<>();
             HashSet<String> notfoundArray = new HashSet<>();
             for (String s : usedLibraries.keySet()) {
+                s=s.replace(".*","");
                 if (allPackages.contains(s) || internalPackagesAndClasses.keySet().contains(s)) {
                     found++;
                     foundArray.add(s);
