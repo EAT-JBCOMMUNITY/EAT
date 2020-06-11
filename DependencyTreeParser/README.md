@@ -20,7 +20,9 @@ This subdirectory is used for finding the packages that are used / loaded by the
 8. export Server=the server name of the test subset that is aimed to be used
 9. export Version=the version of the server that will be tested
 10. export VersionOrderDir=versionOrder
-11. Then go to this current DependencyTreeParser directory and execute : mvn clean install (This command will display all the packages being used/loaded in the maven repo)
+11. export AcceptedTypesFilePath=the path to DependencyTreeParser/acceptedTypes dir
+12. export CoreDir=the path to the dir of wildfly-core sources
+13. Then go to this current DependencyTreeParser directory and execute : mvn clean install (This command will display all the packages being used/loaded in the maven repo)
 
 ** During step 1, in case the server bom-pom.xml, produced in component-matrix-builder/target path of the server, should be used, it should be firstly modified to a pom.xml file with all dependencies outside the <dependencymanagement> block (excluding the dependencies that are not available at the remote repos). Then, using this pom, we produce the output.txt file using the command : mvn dependency:tree > output.txt
   
