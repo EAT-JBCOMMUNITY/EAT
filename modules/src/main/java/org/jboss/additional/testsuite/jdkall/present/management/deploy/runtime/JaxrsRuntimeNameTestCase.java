@@ -52,6 +52,7 @@ import static org.junit.Assert.assertThat;
 
 import org.jboss.as.controller.operations.common.Util;
 import org.jboss.as.jaxrs.JaxrsDeploymentDefinition;
+import org.jboss.as.jaxrs.JaxrsDeploymentDefinition.SHOW_RESOURCES;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
@@ -94,7 +95,7 @@ public class JaxrsRuntimeNameTestCase extends AbstractRuntimeTestCase {
         result = controllerClient.execute(readResource);
         assertThat("Failed to list resources: " + result, Operations.isSuccessfulOutcome(result), is(true));
 
-        readResource = Util.createOperation(JaxrsDeploymentDefinition.SHOW_RESOURCES, subsystemAddress);
+        readResource = Util.createOperation(SHOW_RESOURCES, subsystemAddress);
         result = controllerClient.execute(readResource);
         assertThat("Failed to list resources: " + result, Operations.isSuccessfulOutcome(result), is(true));
         List<ModelNode> jaxrsResources = Operations.readResult(result).asList();
