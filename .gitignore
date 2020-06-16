@@ -11,8 +11,6 @@ profiles.xml
 modules/testcases/**/security/test-configurations/securityRoles.war
 modules/testcases/jdkAll/**/ejb/test2-configurations/output.txt
 modules/testcases/jdkAll/**/ejb/test2-configurations/output2.txt
-modules/testcases/jdk8/**/
-modules/testcases/jdkAll/**/
 
 
 #dirs
@@ -20,6 +18,10 @@ target
 remoteSrc
 src/test/config
 modules/testcases/**/src/
+modules/testcases/jdk8/**/
+modules/testcases/jdkAll/**/
+modules/testcases/jdk8/**/target
+modules/testcases/jdkAll/**/target
 
 .idea
 .settings

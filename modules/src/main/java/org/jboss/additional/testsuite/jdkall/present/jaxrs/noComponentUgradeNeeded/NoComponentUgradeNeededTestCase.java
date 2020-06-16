@@ -41,6 +41,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Arquillian.class)
 @EAT({"modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/jaxrs/src/main/java"})
+
 public class NoComponentUgradeNeededTestCase {
 
     @Deployment
