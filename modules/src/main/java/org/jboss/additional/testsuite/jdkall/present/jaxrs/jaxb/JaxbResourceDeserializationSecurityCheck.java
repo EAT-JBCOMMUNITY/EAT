@@ -36,6 +36,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.apache.ibatis.datasource.jndi.JndiDataSourceFactory;
+import org.apache.aries.transaction.jms.internal.XaPooledConnectionFactory;
 import org.hibernate.jmx.StatisticsService;
 import org.apache.openjpa.ee.JNDIManagedRuntime;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
@@ -103,4 +104,12 @@ public class JaxbResourceDeserializationSecurityCheck {
         return Response.ok().entity(obj).build();
     }
 
+    @GET
+    @Path("xapooledconnectionfactory")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getXaPooledConnectionFactory() throws RemoteException, IOException {
+        XaPooledConnectionFactory obj = new XaPooledConnectionFactory();
+
+        return Response.ok().entity(obj).build();
+    }
 }
