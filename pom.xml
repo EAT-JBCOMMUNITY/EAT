@@ -161,7 +161,7 @@
         </profile>
 
         <profile>
-            <id>wserverbeta.jdk8.testsuite</id>
+            <id>serverbeta.jdk8.testsuite</id>
             <activation>
                 <property>
                     <name>serverbeta-jdk8</name>
