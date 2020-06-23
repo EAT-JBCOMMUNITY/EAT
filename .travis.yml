@@ -15,10 +15,10 @@ script:
   - java -version
   - mkdir wildfly
   - cd wildfly
-  -  wget --no-check-certificate 'https://www.dropbox.com/s/71fxmf6raxinqfa/wildfly-17.0.0.Final.zip?dl=0' -O wildfly.zip
+  -  wget --no-check-certificate 'https://www.dropbox.com/s/6pjqtmmgzmruwdp/wildfly-20.0.0.Final.zip?dl=0' -O wildfly.zip
   - unzip wildfly.zip
   - cd wildfly-*
   - export JBOSS_FOLDER=$PWD
-  - export JBOSS_VERSION=17.0.0.Final
+  - export JBOSS_VERSION=20.0.0.Final
   - cd ../..
-  - mvn clean install -q -Dwildfly-release-17.0.0.Final -Dwildfly-release-17.0.0.Final-jdk8 -Dstandalone
+  - mvn clean install -q -Dwildfly-release-20.0.0.Final -Dwildfly-release-20.0.0.Final-jdk8 -Dstandalone
