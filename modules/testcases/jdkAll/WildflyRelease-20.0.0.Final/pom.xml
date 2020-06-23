@@ -459,7 +459,6 @@
 		    <groupId>org.picketbox</groupId>
 		    <artifactId>picketbox</artifactId>
 		    <version>5.0.3.Final</version>
-		    <type>pom</type>
 		</dependency>
             </dependencies>
         </profile>
@@ -893,7 +892,6 @@
 		    <groupId>org.picketbox</groupId>
 		    <artifactId>picketbox</artifactId>
 		    <version>5.0.3.Final</version>
-		    <type>pom</type>
 		</dependency>
             </dependencies>
 
