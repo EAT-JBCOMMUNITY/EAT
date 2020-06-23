@@ -444,8 +444,17 @@
 		    <artifactId>slf4j-ext</artifactId>
 		    <version>1.7.25</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-jmx</artifactId>
+		    <version>3.5.6-Final</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.ibatis</groupId>
+		    <artifactId>ibatis-core</artifactId>
+		    <version>3.0</version>
+		</dependency>
             </dependencies>
-
         </profile>
 
         <profile>
