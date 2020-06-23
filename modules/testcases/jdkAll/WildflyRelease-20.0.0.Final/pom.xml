@@ -210,6 +210,7 @@
 		<dependency>
 		    <groupId>org.codehaus.jackson</groupId>
 		    <artifactId>jackson-core-asl</artifactId>
+		    <version>1.9.13</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.hibernate</groupId>
@@ -454,6 +455,11 @@
 		    <artifactId>ibatis-core</artifactId>
 		    <version>3.0</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.picketbox</groupId>
+		    <artifactId>picketbox</artifactId>
+		    <version>5.0.3.Final</version>
+		</dependency>
             </dependencies>
         </profile>
 
@@ -647,6 +653,7 @@
 		<dependency>
 		    <groupId>org.codehaus.jackson</groupId>
 		    <artifactId>jackson-core-asl</artifactId>
+		    <version>1.9.13</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.hibernate</groupId>
@@ -880,6 +887,11 @@
 		    <groupId>org.slf4j</groupId>
 		    <artifactId>slf4j-ext</artifactId>
 		    <version>1.7.25</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.picketbox</groupId>
+		    <artifactId>picketbox</artifactId>
+		    <version>5.0.3.Final</version>
 		</dependency>
             </dependencies>
 
