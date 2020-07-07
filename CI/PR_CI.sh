@@ -3,22 +3,35 @@
 set -e
 
 #Parameters
-WILDFLY=$WILDFLY
+SERVER=$SERVER
 EAT=$EAT
 EAT_PR=$EAT_PR
 
 if [ "$1" == "-v" ]; then
-	echo "Wildfly: "$WILDFLY
-	echo "EAT:     "$EAT
-	echo "EAT_PR:  "$EAT_PR
+	echo "SERVER:        "$SERVER
+	echo "EAT:           "$EAT
+	echo "EAT_PR:        "$EAT_PR
 	exit 0
 fi
 
-if [ -z "$WILDFLY" ]; then
-	echo "Define Wildlfy server (github)"
+if [ "$1" == "-wildfly" ]; then
+	SERVER="https://github.com/wildfly/wildfly"
+	EAT="https://github.com/EAT-JBCOMMUNITY/EAT"
+	
+	echo "SERVER:        "$SERVER
+	echo "EAT:           "$EAT
+	echo "EAT_PR:        "$EAT_PR
+	echo ""
+	
+	echo "Building: Latest Wildfly + EAT"
+	echo ""
+fi
+
+if [ -z "$SERVER" ]; then
+	echo "Define server (github)"
 	echo ""
 	echo "Example"
-	echo "export WILDFLY=..."
+	echo "export SERVER=..."
 	exit 1;
 fi
 
@@ -30,15 +43,17 @@ if [ -z "$EAT" ]; then
 	exit 1;
 fi
 
-if [ -z "$EAT_PR" ]; then
-	echo "Define Pull Request number"
-	echo ""
-	echo "Example"
-	echo "export EAT_PR=1"
-	exit 1;
+if [ "$1" == "-wildfly" ]; then
+	if [ -z "$EAT_PR" ]; then
+		echo "Define Pull Request number"
+		echo ""
+		echo "Example"
+		echo "export EAT_PR=1"
+		exit 1;
+	fi
 fi
 
-#Check PR status
+#Check EAT PR status
 prs=$(curl -s -n https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/pulls?state=open);
 aa=$(echo $prs | grep -Po '"number":.*?[^\\],');
 arr+=( $(echo $aa | grep -Po '[0-9]*')) ;
@@ -55,14 +70,15 @@ done
 
 if [ $pr_found == false ]; then
 	echo "Pull Request not found."
+	exit 1;
 fi
 
 #Run CI
 mkdir server
 cd server
 
-git clone $WILDFLY
-cd wildfly
+git clone $SERVER
+cd *
 
 mkdir eat
 cd eat
@@ -76,4 +92,11 @@ git checkout FETCH_HEAD;
 
 echo "Merging Done!"
 echo ""
-# echo "Starting Build"
+
+#Build Server
+echo "Building..."
+cd ../../
+mvn clean install -DskipTests
+
+
+
