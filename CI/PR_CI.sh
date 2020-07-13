@@ -6,6 +6,9 @@ set -e
 SERVER=$SERVER
 EAT=$EAT
 EAT_PR=$EAT_PR
+SERVER_PR=$SERVER_PR
+
+server_pr_set=false
 
 if [ "$1" == "-v" ]; then
 	echo "SERVER:        "$SERVER
@@ -15,6 +18,14 @@ if [ "$1" == "-v" ]; then
 fi
 
 if [ "$1" == "-wildfly" ]; then
+	if [ -z "$EAT_PR" ]; then
+		echo "Define Pull Request number"
+		echo ""
+		echo "Example"
+		echo "export EAT_PR=1"
+		exit 1;
+	fi
+	
 	SERVER="https://github.com/wildfly/wildfly"
 	EAT="https://github.com/EAT-JBCOMMUNITY/EAT"
 	
@@ -43,14 +54,8 @@ if [ -z "$EAT" ]; then
 	exit 1;
 fi
 
-if [ "$1" == "-wildfly" ]; then
-	if [ -z "$EAT_PR" ]; then
-		echo "Define Pull Request number"
-		echo ""
-		echo "Example"
-		echo "export EAT_PR=1"
-		exit 1;
-	fi
+if [ -z "$SERVER_PR" ]; then
+	server_pr_set=true
 fi
 
 #Check EAT PR status
@@ -58,17 +63,17 @@ prs=$(curl -s -n https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/pulls?state=op
 aa=$(echo $prs | grep -Po '"number":.*?[^\\],');
 arr+=( $(echo $aa | grep -Po '[0-9]*')) ;
 
-pr_found=false
+eat_pr_found=false
 
 for i in "${arr[@]}"
 do
 	if [ $i == $EAT_PR ]; then
-		pr_found=true;
+		eat_pr_found=true;
 		break
 	fi
 done
 
-if [ $pr_found == false ]; then
+if [ $eat_pr_found == false ]; then
 	echo "Pull Request not found."
 	exit 1;
 fi
@@ -79,6 +84,12 @@ cd server
 
 git clone $SERVER
 cd *
+
+#Merge server's PR if found
+if [ $server_pr_set == true ]; then
+	git fetch origin +refs/pull/$SERVER_PR/merge;
+	git checkout FETCH_HEAD;
+fi
 
 mkdir eat
 cd eat
