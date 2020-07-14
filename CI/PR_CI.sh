@@ -59,13 +59,13 @@ if [ -z "$SERVER_PR" ]; then
 fi
 
 #Check EAT PR status
-prs=$(curl -s -n https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/pulls?state=open);
-aa=$(echo $prs | grep -Po '"number":.*?[^\\],');
-arr+=( $(echo $aa | grep -Po '[0-9]*')) ;
+eat_prs_get=$(curl -s -n https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/pulls?state=open);
+eat_prs_number=$(echo $eat_prs_get | grep -Po '"number":.*?[^\\],');
+eat_arr+=( $(echo $eat_prs_number | grep -Po '[0-9]*')) ;
 
 eat_pr_found=false
 
-for i in "${arr[@]}"
+for i in "${eat_arr[@]}"
 do
 	if [ $i == $EAT_PR ]; then
 		eat_pr_found=true;
@@ -87,8 +87,26 @@ cd *
 
 #Merge server's PR if found
 if [ $server_pr_set == true ]; then
-	git fetch origin +refs/pull/$SERVER_PR/merge;
-	git checkout FETCH_HEAD;
+
+	#Check Server PR status
+	server_prs_get=$(curl -s -n https://api.github.com/repos/wildfly/wildfly/pulls?state=open);
+	server_prs_number=$(echo $server_prs_get | grep -Po '"number":.*?[^\\],');
+	server_arr+=( $(echo $server_prs_number | grep -Po '[0-9]*')) ;
+
+	server_pr_found=false
+
+	for i in "${server_arr[@]}"
+	do
+		if [ $i == $SERVER_PR ]; then
+			server_pr_found=true;
+			break
+		fi
+	done
+
+	if [ $server_pr_found == true ]; then
+		git fetch origin +refs/pull/$SERVER_PR/merge;
+		git checkout FETCH_HEAD;
+	fi	
 fi
 
 mkdir eat
