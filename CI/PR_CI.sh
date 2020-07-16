@@ -142,9 +142,25 @@ cd eat
 cd EAT
 
 if [ $EAT_PR == "ALL" ] || [ $EAT_PR == "all" ]; then
-
+	#Read file
+	mapfile -t checked_arr < checked_PRs.txt
+	
 	for i in "${eat_arr[@]}"
 	do
+		checked==false
+		
+		for j in "${checked_arr[@]}"
+		do
+			if [ $i == $j ]; then
+				checked==true
+				break
+			fi
+		done
+		
+		if [ $checked==true ]; then
+			continue
+		fi
+		
 		git fetch origin +refs/pull/$i/merge;
 		git checkout FETCH_HEAD;
 		
@@ -152,6 +168,8 @@ if [ $EAT_PR == "ALL" ] || [ $EAT_PR == "all" ]; then
 		echo ""
 		
 		mvn clean install -Dwildfly -Dstandalone
+		
+		$i >> checked_PRs.txt
 	done
 else
 	mvn clean install -Dwildfly -Dstandalone
