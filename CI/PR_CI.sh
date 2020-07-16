@@ -65,17 +65,19 @@ eat_arr+=( $(echo $eat_prs_number | grep -Po '[0-9]*')) ;
 
 eat_pr_found=false
 
-for i in "${eat_arr[@]}"
-do
-	if [ $i == $EAT_PR ]; then
-		eat_pr_found=true;
-		break
-	fi
-done
+if [ $EAT_PR != "ALL" ] && [ $EAT_PR != "all" ]; then
+	for i in "${eat_arr[@]}"
+	do
+		if [ $i == $EAT_PR ]; then
+			eat_pr_found=true;
+			break
+		fi
+	done
 
-if [ $eat_pr_found == false ]; then
-	echo "Pull Request not found."
-	exit 1;
+	if [ $eat_pr_found == false ]; then
+		echo "Pull Request not found."
+		exit 1;
+	fi
 fi
 
 #Run CI
@@ -116,11 +118,13 @@ git clone $EAT
 cd EAT
 
 #Merge PR
-git fetch origin +refs/pull/$EAT_PR/merge;
-git checkout FETCH_HEAD;
-
-echo "Merging Done!"
-echo ""
+if [ $EAT_PR != "ALL" ] && [ $EAT_PR != "all" ]; then
+	git fetch origin +refs/pull/$EAT_PR/merge;
+	git checkout FETCH_HEAD;
+	
+	echo "Merging Done!"
+	echo ""
+fi
 
 #Build Server
 echo "Building..."
@@ -137,4 +141,18 @@ export JBOSS_FOLDER=$PWD/dist/target/wildfly-$JBOSS_VERSION/
 cd eat
 cd EAT
 
-mvn clean install -Dwildfly -Dstandalone
+if [ $EAT_PR == "ALL" ] || [ $EAT_PR == "all" ]; then
+
+	for i in "${eat_arr[@]}"
+	do
+		git fetch origin +refs/pull/$i/merge;
+		git checkout FETCH_HEAD;
+		
+		echo "Merging Done!"
+		echo ""
+		
+		mvn clean install -Dwildfly -Dstandalone
+	done
+else
+	mvn clean install -Dwildfly -Dstandalone
+fi
