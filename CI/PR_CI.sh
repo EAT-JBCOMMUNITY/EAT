@@ -12,8 +12,9 @@ server_pr_set=false
 
 if [ "$1" == "-v" ]; then
 	echo "SERVER:        "$SERVER
+	echo "SERVER_PR:     "$SERVER_PR
 	echo "EAT:           "$EAT
-	echo "EAT_PR:        "$EAT_PR
+	echo "EAT_PR:        "$EAT_PR	
 	exit 0
 fi
 
@@ -30,6 +31,7 @@ if [ "$1" == "-wildfly" ]; then
 	EAT="https://github.com/EAT-JBCOMMUNITY/EAT"
 	
 	echo "SERVER:        "$SERVER
+	echo "SERVER_PR:     "$SERVER_PR
 	echo "EAT:           "$EAT
 	echo "EAT_PR:        "$EAT_PR
 	echo ""
@@ -54,7 +56,7 @@ if [ -z "$EAT" ]; then
 	exit 1;
 fi
 
-if [ -z "$SERVER_PR" ]; then
+if ! [ -z "$SERVER_PR" ] && [ "$SERVER_PR" -gt 0 ]; then
 	server_pr_set=true
 fi
 
@@ -108,6 +110,9 @@ if [ $server_pr_set == true ]; then
 	if [ $server_pr_found == true ]; then
 		git fetch origin +refs/pull/$SERVER_PR/merge;
 		git checkout FETCH_HEAD;
+		
+		echo "Server: Merging Done"
+		echo ""
 	fi	
 fi
 
@@ -122,7 +127,7 @@ if [ $EAT_PR != "ALL" ] && [ $EAT_PR != "all" ]; then
 	git fetch origin +refs/pull/$EAT_PR/merge;
 	git checkout FETCH_HEAD;
 	
-	echo "Merging Done!"
+	echo "EAT: Merging Done"
 	echo ""
 fi
 
@@ -164,7 +169,7 @@ if [ $EAT_PR == "ALL" ] || [ $EAT_PR == "all" ]; then
 		git fetch origin +refs/pull/$i/merge;
 		git checkout FETCH_HEAD;
 		
-		echo "Merging Done!"
+		echo "EAT: Merging Done!"
 		echo ""
 		
 		mvn clean install -Dwildfly -Dstandalone
