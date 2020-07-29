@@ -10,6 +10,20 @@ SERVER_PR=$SERVER_PR
 
 server_pr_set=false
 
+eat_file="eat_path.txt"
+server_file="server_path.txt"
+
+if ! [ -r $eat_file ]; then
+	>> $eat_file
+fi
+
+if ! [ -r $server_file ]; then
+	>> $server_file
+fi
+
+eat_path=$(sed '1q;d' $eat_file)
+server_path=$(sed '1q;d' $server_file)
+
 if [ "$1" == "-v" ]; then
 	echo "SERVER:        "$SERVER
 	echo "SERVER_PR:     "$SERVER_PR
@@ -88,6 +102,8 @@ cd server
 
 git clone $SERVER
 cd *
+
+
 
 #Merge server's PR if found
 if [ $server_pr_set == true ]; then
