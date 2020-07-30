@@ -15,7 +15,15 @@ EAT=$EAT
 EAT_PR=$EAT_PR
 SERVER_PR=$SERVER_PR
 
+if [ -z "$test_category" ]; then
+    test_category=wildfly
+fi
+
 server_pr_set=false
+
+if [ -z "$server_build" ]; then
+    server_build=true
+fi
 
 eat_file="eat_path.txt"
 server_file="server_path.txt"
@@ -39,13 +47,6 @@ if [ "$1" == "-v" ]; then
 fi
 
 if [ "$1" == "-wildfly" ]; then
-	if [ -z "$EAT_PR" ]; then
-		echo "Define Pull Request number"
-		echo ""
-		echo "Example"
-		echo "export EAT_PR=1"
-		exit 1;
-	fi
 	
 	SERVER="https://github.com/wildfly/wildfly"
 	EAT="https://github.com/EAT-JBCOMMUNITY/EAT"
@@ -98,7 +99,6 @@ if [ $EAT_PR != "ALL" ] && [ $EAT_PR != "all" ]; then
 
 	if [ $eat_pr_found == false ]; then
 		echo "Pull Request not found."
-		exit 1;
 	fi
 fi
 
@@ -156,7 +156,7 @@ else
 fi
 
 #Merge PR
-if [ $EAT_PR != "ALL" ] && [ $EAT_PR != "all" ]; then
+if [ $EAT_PR != "ALL" ] && [ $EAT_PR != "all" ] && [ $eat_pr_found != false ]; then
 	git fetch origin +refs/pull/$EAT_PR/merge;
 	git checkout FETCH_HEAD;
 	
@@ -166,36 +166,43 @@ fi
 
 #Build Server
 echo "Building..."
-cd ../../
-mvn clean install -DskipTests
+cd $server_path
+
+if [ $server_build == true ]; then
+    mvn clean install -DskipTests
+fi
 
 server_pom=$(<pom.xml)
 version=$(echo $server_pom | grep -Po '<version>[0-9]*\.[0-9]*\.[0-9]*\.[a-zA-Z0-9-]*<\/version>');
 version=$(echo $version | grep -Po '[0-9]*\.[0-9]*\.[0-9]*\.[a-zA-Z0-9-]*');
 
-export JBOSS_VERSION=$version
-export JBOSS_FOLDER=$PWD/dist/target/wildfly-$JBOSS_VERSION/
+if [ -z "$JBOSS_VERSION" ]; then
+    export JBOSS_VERSION=$version
+fi
+if [ -z "$JBOSS_FOLDER" ]; then
+    export JBOSS_FOLDER=$PWD/dist/target/wildfly-$JBOSS_VERSION/
+fi
 
-cd eat
-cd EAT
+cd $eat_path
 
 if [ $EAT_PR == "ALL" ] || [ $EAT_PR == "all" ]; then
+	>> checked_PRs.txt
 	#Read file
 	mapfile -t checked_arr < checked_PRs.txt
 	
 	for i in "${eat_arr[@]}"
 	do
-		checked==false
+		checked=false
 		
 		for j in "${checked_arr[@]}"
 		do
 			if [ $i == $j ]; then
-				checked==true
+				checked=true
 				break
 			fi
 		done
 		
-		if [ $checked==true ]; then
+		if [ $checked == true ]; then
 			continue
 		fi
 		
@@ -205,10 +212,10 @@ if [ $EAT_PR == "ALL" ] || [ $EAT_PR == "all" ]; then
 		echo "EAT: Merging Done!"
 		echo ""
 		
-		mvn clean install -Dwildfly -Dstandalone
+		mvn clean install -D$test_category -Dstandalone
 		
 		$i >> checked_PRs.txt
 	done
 else
-	mvn clean install -Dwildfly -Dstandalone
+	mvn clean install -D$test_category -Dstandalone
 fi
