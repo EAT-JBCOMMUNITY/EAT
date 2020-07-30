@@ -2,6 +2,13 @@
 
 set -e
 
+printVariables() {
+	echo "SERVER:        "$SERVER
+	echo "SERVER_PR:     "$SERVER_PR
+	echo "EAT:           "$EAT
+	echo "EAT_PR:        "$EAT_PR	
+}
+
 #Parameters
 SERVER=$SERVER
 EAT=$EAT
@@ -13,22 +20,21 @@ server_pr_set=false
 eat_file="eat_path.txt"
 server_file="server_path.txt"
 
-if ! [ -r $eat_file ]; then
-	>> $eat_file
-fi
-
 if ! [ -r $server_file ]; then
 	>> $server_file
 fi
-
-eat_path=$(sed '1q;d' $eat_file)
 server_path=$(sed '1q;d' $server_file)
 
+if ! [ -r $eat_file ]; then
+	>> $eat_file
+fi
+eat_path=$(sed '1q;d' $eat_file)
+
+eat_file=$(realpath $eat_file)
+server_file=$(realpath $server_file)
+
 if [ "$1" == "-v" ]; then
-	echo "SERVER:        "$SERVER
-	echo "SERVER_PR:     "$SERVER_PR
-	echo "EAT:           "$EAT
-	echo "EAT_PR:        "$EAT_PR	
+	printVariables
 	exit 0
 fi
 
@@ -97,13 +103,17 @@ if [ $EAT_PR != "ALL" ] && [ $EAT_PR != "all" ]; then
 fi
 
 #Run CI
-mkdir server
-cd server
+if [ -z "$server_path" ]; then
+	mkdir server
+	cd server
 
-git clone $SERVER
-cd *
-
-
+	git clone $SERVER
+	cd *
+	echo "$PWD" > $server_file	
+else
+	cd $server_path
+	echo $PWD
+fi
 
 #Merge server's PR if found
 if [ $server_pr_set == true ]; then
@@ -132,11 +142,18 @@ if [ $server_pr_set == true ]; then
 	fi	
 fi
 
-mkdir eat
-cd eat
+if [ -z "$eat_path" ]; then
+	mkdir eat
+	cd eat
 
-git clone $EAT
-cd EAT
+	git clone $EAT
+	cd EAT
+	echo "$PWD" > $eat_file
+	
+else
+	cd $eat_path
+	echo $PWD
+fi
 
 #Merge PR
 if [ $EAT_PR != "ALL" ] && [ $EAT_PR != "all" ]; then
