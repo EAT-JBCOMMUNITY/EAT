@@ -186,8 +186,14 @@ fi
 cd $eat_path
 
 if [ $EAT_PR == "ALL" ] || [ $EAT_PR == "all" ]; then
-	>> checked_PRs.txt
-	#Read file
+
+	checked_prs_file="checked_PRs.txt"
+	
+	if ! [ -r $checked_prs_file ]; then
+		>> $checked_prs_file
+	fi
+	
+	#Read file lines to array
 	mapfile -t checked_arr < checked_PRs.txt
 	
 	for i in "${eat_arr[@]}"
@@ -214,7 +220,7 @@ if [ $EAT_PR == "ALL" ] || [ $EAT_PR == "all" ]; then
 		
 		mvn clean install -D$test_category -Dstandalone
 		
-		$i >> checked_PRs.txt
+		echo $i >> checked_PRs.txt
 	done
 else
 	mvn clean install -D$test_category -Dstandalone
