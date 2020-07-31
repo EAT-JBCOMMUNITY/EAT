@@ -115,6 +115,8 @@ else
 	echo $PWD
 fi
 
+server_path=$(sed '1q;d' $server_file)
+
 #Merge server's PR if found
 if [ $server_pr_set == true ]; then
 
@@ -154,6 +156,8 @@ else
 	cd $eat_path
 	echo $PWD
 fi
+
+eat_path=$(sed '1q;d' $eat_file)
 
 #Merge PR
 if [ $EAT_PR != "ALL" ] && [ $EAT_PR != "all" ] && [ $eat_pr_found != false ]; then
