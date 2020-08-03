@@ -21,8 +21,8 @@ fi
 
 server_pr_set=false
 
-if [ -z "$server_build" ]; then
-    server_build=true
+if [ -z "$SERVER_BUILD" ]; then
+    SERVER_BUILD=true
 fi
 
 eat_file="eat_path.txt"
@@ -172,7 +172,7 @@ fi
 echo "Building..."
 cd $server_path
 
-if [ $server_build == true ]; then
+if [ $SERVER_BUILD == true ]; then
     mvn clean install -DskipTests
 fi
 
