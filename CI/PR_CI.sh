@@ -15,8 +15,8 @@ EAT=$EAT
 EAT_PR=$EAT_PR
 SERVER_PR=$SERVER_PR
 
-if [ -z "$test_category" ]; then
-    test_category=wildfly
+if [ -z "$TEST_CATEGORY" ]; then
+    TEST_CATEGORY=wildfly
 fi
 
 server_pr_set=false
@@ -222,10 +222,10 @@ if [ $EAT_PR == "ALL" ] || [ $EAT_PR == "all" ]; then
 		echo "EAT: Merging Done!"
 		echo ""
 		
-		mvn clean install -D$test_category -Dstandalone
+		mvn clean install -D$TEST_CATEGORY -Dstandalone
 		
 		echo $i >> checked_PRs.txt
 	done
 else
-	mvn clean install -D$test_category -Dstandalone
+	mvn clean install -D$TEST_CATEGORY -Dstandalone
 fi
