@@ -6,7 +6,7 @@ printVariables() {
 	echo "SERVER:        "$SERVER
 	echo "SERVER_PR:     "$SERVER_PR
 	echo "EAT:           "$EAT
-	echo "EAT_PR:        "$EAT_PR	
+	echo "EAT_PR:        "$EAT_PR
 }
 
 #Parameters
@@ -55,14 +55,10 @@ if [ "$1" == "-v" ]; then
 fi
 
 if [ "$1" == "-wildfly" ]; then
-	
 	SERVER="https://github.com/wildfly/wildfly"
 	EAT="https://github.com/EAT-JBCOMMUNITY/EAT"
 	
-	echo "SERVER:        "$SERVER
-	echo "SERVER_PR:     "$SERVER_PR
-	echo "EAT:           "$EAT
-	echo "EAT_PR:        "$EAT_PR
+	printVariables
 	echo ""
 	
 	echo "Building: Latest Wildfly + EAT"
