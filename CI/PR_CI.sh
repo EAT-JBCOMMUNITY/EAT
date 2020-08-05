@@ -232,10 +232,60 @@ if [ $EAT_PR == "ALL" ] || [ $EAT_PR == "all" ]; then
 		echo "EAT: Merging Done!"
 		echo ""
 		
-		mvn clean install -D$TEST_CATEGORY -Dstandalone
+		#Get PR's description
+		prs=$(curl -s -n https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/pulls/$i)
+		prs=$(echo $prs | grep -Po '"body":.*?[^\\]",');
+		prs=$(echo $prs | grep -Po '\[.*\]');
+
+		echo "spr--> "$prs
+		 
+		while IFS=";" read -ra description_lines
+		do
+			spr_found=false
+			for i in "${description_lines[@]}"; do
+				
+				if [[ $i == *"SPR"* ]]; then
+					spr_found=true
+				
+					i=$(echo $i | grep -Po '\[.*\]');
+			  		#i=${i#*SPR}
+			  		#echo "array data: "$i
+
+			  		org=$(echo $i | grep -Po 'org:[^,]*');
+			  		org=$(echo $org | grep -Po '[^:]*$');
+			  		#echo "org: "$org
+			  		
+			  		repo=$(echo $i | grep -Po 'repo:[^,]*');
+			  		repo=$(echo $repo | grep -Po '[^:]*$');
+			  		#echo "repo: "$repo
+			  		
+			  		branch=$(echo $i | grep -Po 'branch:[^\]]*');
+			  		branch=$(echo $branch | grep -Po '[^:]*$');
+			  		#echo "branch: "$branch
+			  		
+			  		pr=$(echo $i | grep -Po 'PR:[^\]]*');
+			  		pr=$(echo $pr | grep -Po '[^:]*$');
+			  		#echo "pr: "$pr
+			  		
+			  		cd $server_path
+			  		git clone "https://github.com/"$org"/"$repo
+			  		git checkout $branch
+			  		git fetch origin +refs/pull/$pr/merge;
+					git checkout FETCH_HEAD;
+					
+					cd $eat_path
+					mvn clean install -D$TEST_CATEGORY -Dstandalone
+				fi	
+			done
+		done <<< $prs
 		
+		if [ $spr_found == true ]; then
+			mvn clean install -D$TEST_CATEGORY -Dstandalone
+		fi
+
 		echo $i >> checked_PRs.txt
 	done
 else
 	mvn clean install -D$TEST_CATEGORY -Dstandalone
 fi
+
