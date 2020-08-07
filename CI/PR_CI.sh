@@ -136,6 +136,7 @@ if [ $server_pr_set == true ]; then
 	done
 
 	if [ $server_pr_found == true ]; then
+	        git checkout .;
 		git fetch origin +refs/pull/$SERVER_PR/merge;
 		git checkout FETCH_HEAD;
 		git pull --rebase origin master;
@@ -162,6 +163,7 @@ eat_path=$(sed '1q;d' $eat_file)
 
 #Merge PR
 if [ $EAT_PR != "ALL" ] && [ $EAT_PR != "all" ] && [ $eat_pr_found != false ]; then
+        git checkout .;
 	git fetch origin +refs/pull/$EAT_PR/merge;
 	git checkout FETCH_HEAD;
 	git pull --rebase origin master;
@@ -218,8 +220,10 @@ if [ $EAT_PR == "ALL" ] || [ $EAT_PR == "all" ]; then
 			continue
 		fi
 		
+		git checkout .;
 		git fetch origin +refs/pull/$i/merge;
 		git checkout FETCH_HEAD;
+		git pull --rebase origin master;
 		
 		echo "EAT: Merging Done!"
 		echo ""
