@@ -12,7 +12,6 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
-import  org.hibernate.internal.util.xml.XMLHelper;
 import static org.junit.Assert.fail;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,20 +37,6 @@ public class SaxParserTestCase {
     @Test
     public void testSaxParser() throws Exception {
         SAXReader reader = new SAXReader();
-        reader.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
-        reader.setFeature("http://xml.org/sax/features/external-general-entities", false);
-        reader.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
-        try {
-            Document d = reader.read(new StringReader(txt));
-        } catch (Exception e) {
-            fail("external entity");
-        }
-    }
-
-    @Test
-    public void testSaxParserHHH() throws Exception {
-        XMLHelper xh = new XMLHelper();
-        SAXReader reader = xh.createSAXReader(null, null);
         reader.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
         reader.setFeature("http://xml.org/sax/features/external-general-entities", false);
         reader.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
