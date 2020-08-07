@@ -20,9 +20,9 @@
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
 
-<!-- @EAT({"modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/domain/test-configurations/src/test/resources/domain-configs","modules/testcases/jdkAll/WildflyRelease-17.0.0.Final/domain/test-configurations/src/test/resources/domain-configs","modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/domain/test-configurations/src/test/resources/domain-configs","modules/testcases/jdkAll/WildflyRelease-10.1.0.Final/domain/test-configurations/src/test/resources/domain-configs","modules/testcases/jdkAll/Wildfly/domain/test-configurations/src/test/resources/domain-configs","modules/testcases/jdkAll/ServerBeta/domain/test-configurations/src/test/resources/domain-configs","modules/testcases/jdkAll/Eap71x/domain/test-configurations/src/test/resources/domain-configs","modules/testcases/jdkAll/Eap71x-Proposed/domain/test-configurations/src/test/resources/domain-configs","modules/testcases/jdkAll/Eap72x/domain/test-configurations/src/test/resources/domain-configs","modules/testcases/jdkAll/Eap72x-Proposed/domain/test-configurations/src/test/resources/domain-configs","modules/testcases/jdkAll/Eap7/domain/test-configurations/src/test/resources/domain-configs"}) -->
+<!-- @EAT({"modules/testcases/jdkAll/Wildfly/domain/test-configurations/src/test/resources/domain-configs#21.0.0"}) -->
 
-<domain xmlns="urn:jboss:domain:5.0">
+<domain xmlns="urn:jboss:domain:14.0">
 
     <extensions>
         <extension module="org.jboss.as.clustering.infinispan"/>
@@ -46,6 +46,7 @@
         <extension module="org.jboss.as.webservices"/>
         <extension module="org.wildfly.extension.io"/>
         <extension module="org.wildfly.extension.messaging-activemq"/>
+        <extension module="org.wildfly.extension.microprofile.config-smallrye"/>
         <extension module="org.wildfly.extension.security.manager"/>
         <extension module="org.wildfly.extension.undertow"/>
     </extensions>
@@ -78,7 +79,7 @@
                 <worker name="default" />
                 <buffer-pool name="default" />
             </subsystem>
-            <subsystem xmlns="urn:jboss:domain:undertow:1.2">
+            <subsystem xmlns="urn:jboss:domain:undertow:6.0">
                 <buffer-cache name="default" />
                 <server name="default-server">
                     <http-listener name="default" socket-binding="http"/>
@@ -100,7 +101,7 @@
                 <worker name="default" />
                 <buffer-pool name="default" />
             </subsystem>
-            <subsystem xmlns="urn:jboss:domain:undertow:1.2">
+            <subsystem xmlns="urn:jboss:domain:undertow:6.0">
                 <buffer-cache name="default" />
                 <server name="default-server">
                     <http-listener name="default" socket-binding="http"/>
@@ -251,6 +252,7 @@
                     <smtp-server outbound-socket-binding-ref="mail-smtp"/>
                 </mail-session>
             </subsystem>
+            <subsystem xmlns="urn:wildfly:microprofile-config-smallrye:1.0"/>
             <subsystem xmlns="urn:jboss:domain:naming:1.0"/>
             <subsystem xmlns="urn:jboss:domain:security-manager:1.0">
                 <deployment-permissions>
@@ -337,7 +339,7 @@
             <subsystem xmlns="urn:jboss:domain:messaging-activemq:1.0">
                 <server name="default"
                         persistence-enabled="false">
-                    <journal file-size="102400"/>
+                    <journal file-size="1024" />
                     <security-setting name="#">
                         <role name="guest" send="true" consume="true" create-non-durable-queue="true" delete-non-durable-queue="true"/>
                     </security-setting>
@@ -377,7 +379,7 @@
                 <worker name="default"/>
                 <buffer-pool name="default"/>
             </subsystem>
-            <subsystem xmlns="urn:jboss:domain:undertow:2.0">
+            <subsystem xmlns="urn:jboss:domain:undertow:6.0">
                 <buffer-cache name="default" />
                 <server name="default-server">
                     <http-listener name="default" socket-binding="http"/>
@@ -409,9 +411,6 @@
                     <file relative-to="jboss.server.log.dir" path="server.log"/>
                     <suffix value=".yyyy-MM-dd"/>
                 </periodic-rotating-file-handler>
-                <logger category="org.jboss.as.controller">
-                    <level name="TRACE"/>
-                </logger>
                 <root-logger>
                     <level name="INFO"/>
                     <handlers>
@@ -462,6 +461,11 @@
                 <cache-container name="web" aliases="standard-session-cache" default-cache="local-web" module="org.wildfly.clustering.web.infinispan">
                     <local-cache name="local-web" batching="true">
                         <file-store passivation="false" purge="false"/>
+                    </local-cache>
+                </cache-container>
+                <cache-container name="ejb" default-cache="local" module="org.wildfly.clustering.ejb.infinispan">
+                    <local-cache name="local" batching="true">
+                        <file-store passivation="true" purge="false"/>
                     </local-cache>
                 </cache-container>
                 <cache-container name="hibernate" default-cache="local-query" module="org.hibernate.infinispan">
@@ -519,6 +523,7 @@
                     <smtp-server outbound-socket-binding-ref="mail-smtp"/>
                 </mail-session>
             </subsystem>
+            <subsystem xmlns="urn:wildfly:microprofile-config-smallrye:1.0"/>
             <subsystem xmlns="urn:jboss:domain:naming:1.0"/>
             <subsystem xmlns="urn:jboss:domain:security-manager:1.0">
                 <deployment-permissions>
@@ -605,7 +610,7 @@
             <subsystem xmlns="urn:jboss:domain:messaging-activemq:1.0">
                 <server name="default"
                         persistence-enabled="false">
-                    <journal file-size="102400"/>
+                    <journal file-size="1024" />
                     <security-setting name="#">
                         <role name="guest" send="true" consume="true" create-non-durable-queue="true" delete-non-durable-queue="true"/>
                     </security-setting>
@@ -754,14 +759,17 @@
         </server-group>
 
         <server-group name="ignored-profile" profile="ignored">
+            <jvm name="default" />
             <socket-binding-group ref="standard-sockets"/>
         </server-group>
 
         <server-group name="ignored-sockets" profile="default">
+            <jvm name="default" />
             <socket-binding-group ref="ignored"/>
         </server-group>
 
         <server-group name="minimal" profile="minimal">
+            <jvm name="default" />
             <socket-binding-group ref="standard-sockets"/>
         </server-group>
 
