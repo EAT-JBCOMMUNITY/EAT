@@ -220,7 +220,6 @@ if [ $EAT_PR == "ALL" ] || [ $EAT_PR == "all" ]; then
 		
 		git fetch origin +refs/pull/$i/merge;
 		git checkout FETCH_HEAD;
-		git pull --rebase origin master;
 		
 		echo "EAT: Merging Done!"
 		echo ""
