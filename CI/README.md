@@ -17,7 +17,7 @@ Parameters:
 </tr>
 <tr>
 <td>SERVER_BRANCH</td>
-<td>The branch name of the server to be used</td>
+<td>The branch name of the server to be used. Default: master</td>
 </tr>
 <tr>
 <td>EAT</td>
@@ -29,7 +29,7 @@ Parameters:
 </tr>
 <tr>
 <td>EAT_BRANCH</td>
-<td>The branch name of EAT to be used</td>
+<td>The branch name of EAT to be used. Default: master</td>
 </tr>
 <tr>
 <td>TEST_CATEGORY</td>
