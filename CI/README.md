@@ -16,12 +16,20 @@ Parameters:
 <td>Pull Request of the server to merge and test</td>
 </tr>
 <tr>
+<td>SERVER_BRANCH</td>
+<td>The branch name of the server to be used</td>
+</tr>
+<tr>
 <td>EAT</td>
 <td>EAT (github url)</td>
 </tr>
 <tr>
 <td>EAT_PR</td>
 <td>Pull Request of the EAT to merge and test</td>
+</tr>
+<tr>
+<td>EAT_BRANCH</td>
+<td>The branch name of EAT to be used</td>
 </tr>
 <tr>
 <td>TEST_CATEGORY</td>
