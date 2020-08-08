@@ -25,6 +25,14 @@ if [ -z "$SERVER_BUILD" ]; then
     SERVER_BUILD=true
 fi
 
+if [ -z "$EAT_BRANCH" ]; then
+    EAT_BRANCH=master
+fi
+
+if [ -z "$SERVER_BRANCH" ]; then
+    SERVER_BRANCH=master
+fi
+
 eat_file="eat_path.txt"
 server_file="server_path.txt"
 
@@ -107,7 +115,7 @@ if [ -z "$server_path" ]; then
 	mkdir server
 	cd server
 
-	git clone $SERVER
+	git clone $SERVER -b $SERVER_BRANCH
 	cd *
 	echo "$PWD" > $server_file	
 else
@@ -139,7 +147,7 @@ if [ $server_pr_set == true ]; then
 	        git checkout .;
 		git fetch origin +refs/pull/$SERVER_PR/merge;
 		git checkout FETCH_HEAD;
-		git pull --rebase origin master;
+		git pull --rebase origin $SERVER_BRANCH;
 		
 		echo "Server: Merging Done"
 		echo ""
@@ -150,7 +158,7 @@ if [ -z "$eat_path" ]; then
 	mkdir eat
 	cd eat
 
-	git clone $EAT
+	git clone $EAT -b $EAT_BRANCH
 	cd EAT
 	echo "$PWD" > $eat_file
 	
@@ -166,7 +174,7 @@ if [ $EAT_PR != "ALL" ] && [ $EAT_PR != "all" ] && [ $eat_pr_found != false ]; t
         git checkout .;
 	git fetch origin +refs/pull/$EAT_PR/merge;
 	git checkout FETCH_HEAD;
-	git pull --rebase origin master;
+	git pull --rebase origin $EAT_BRANCH;
 	
 	echo "EAT: Merging Done"
 	echo ""
@@ -223,7 +231,7 @@ if [ $EAT_PR == "ALL" ] || [ $EAT_PR == "all" ]; then
 		git checkout .;
 		git fetch origin +refs/pull/$i/merge;
 		git checkout FETCH_HEAD;
-		git pull --rebase origin master;
+		git pull --rebase origin $EAT_BRANCH;
 		
 		echo "EAT: Merging Done!"
 		echo ""
