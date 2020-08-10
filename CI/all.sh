@@ -113,5 +113,5 @@ do
 	fi
 	'
 	
-	echo $i >> checked_PRs.txt
+	echo $pr_num >> checked_PRs.txt
 done
