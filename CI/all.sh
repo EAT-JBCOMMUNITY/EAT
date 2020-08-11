@@ -16,6 +16,16 @@ fi
 #Read file lines to array
 mapfile -t checked_arr < checked_PRs.txt
 
+echo "All PRs to be checked:"
+echo ""
+
+for pr_num in "${eat_arr[@]}"
+do
+	echo $pr_num" "
+done
+
+echo ""
+
 for pr_num in "${eat_arr[@]}"
 do
 	checked=false
@@ -31,14 +41,10 @@ do
 		continue
 	fi
 	
-	echo $pr_num
-	
 	mkdir $pr_num
 	cd $pr_num
 	
-	mkdir eat
-	
-	: '
+	mkdir "eat"
 	cd eat 
 	
 	git clone "https://github.com/EAT-JBCOMMUNITY/EAT/"
@@ -48,70 +54,65 @@ do
 	git checkout FETCH_HEAD;	
 	
 	cd ../../
-	'
 	
 	#Get PR's description
 	prs=$(curl -s -n https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/pulls/$pr_num)
 	prs=$(echo $prs | grep -Po '"body":.*?[^\\]",');
-	prs=$(echo $prs | grep -Po '\[.*\]');
-
-	echo "spr--> "$prs
-	 
-	while IFS=";" read -ra description_lines
-	do
-		spr_found=false
-		for i in "${description_lines[@]}"; do
-			
-			if [[ $i == *"SPR"* ]]; then
-				spr_found=true
-			
-				i=$(echo $i | grep -Po '\[.*\]');
-		  		#i=${i#*SPR}
-		  		#echo "array data: "$i
-
-		  		org=$(echo $i | grep -Po 'org:[^,]*');
-		  		org=$(echo $org | grep -Po '[^:]*$');
-		  		#echo "org: "$org
-		  		
-		  		repo=$(echo $i | grep -Po 'repo:[^,]*');
-		  		repo=$(echo $repo | grep -Po '[^:]*$');
-		  		#echo "repo: "$repo
-		  		
-		  		branch=$(echo $i | grep -Po 'branch:[^,]*');
-		  		branch=$(echo $branch | grep -Po '[^:]*$');
-		  		#echo "branch: "$branch
-		  		
-		  		pr=$(echo $i | grep -Po 'PR:[^\]]*');
-		  		pr=$(echo $pr | grep -Po '[^:]*$');
-		  		#echo "pr: "$pr
-		  		echo $org $repo $branch $pr
-		  		
-		  		mkdir "server-"$pr
-		  		cd "server-"$pr
-
-				: '
-		  		git clone "https://github.com/"$org"/"$repo
-		  		cd *
-		  		git checkout $branch
-		  		git fetch origin +refs/pull/$pr/merge;
-				git checkout FETCH_HEAD;
+	
+	if prs=$(echo $prs | grep -Po '\[.*\]'); then
+	
+		while IFS=";" read -ra description_lines
+		do
+			spr_found=false
+			for i in "${description_lines[@]}"; do
 				
+				if [[ $i == *"SPR"* ]]; then
+					spr_found=true
+				
+					i=$(echo $i | grep -Po '\[.*\]');
 
-				mvn clean install -D$TEST_CATEGORY -Dstandalone
-				'
-				cd ../
-			fi	
-		done
-	done <<< $prs
-	
+			  		org=$(echo $i | grep -Po 'org:[^,]*');
+			  		org=$(echo $org | grep -Po '[^:]*$');
+			  		
+			  		repo=$(echo $i | grep -Po 'repo:[^,]*');
+			  		repo=$(echo $repo | grep -Po '[^:]*$');
+			  		
+			  		branch=$(echo $i | grep -Po 'branch:[^,]*');
+			  		branch=$(echo $branch | grep -Po '[^:]*$');
+			  		
+			  		pr=$(echo $i | grep -Po 'PR:[^\]]*');
+			  		pr=$(echo $pr | grep -Po '[^:]*$');
+			  		
+			  		echo "SPR Data: "$org $repo $branch $pr
+			  		
+			  		mkdir "server-"$pr
+			  		cd "server-"$pr
+
+			  		git clone "https://github.com/"$org"/"$repo
+			  		cd *
+			  		git checkout $branch
+			  		git fetch origin +refs/pull/$pr/merge;
+					git checkout FETCH_HEAD;
+					
+					mvn clean install -DskipTests
+					
+					cd ../../
+					
+					cd eat/*
+					mvn clean install -Dwildfly -Dstandalone
+					cd ../../
+				fi	
+			done
+		done <<< $prs
+	fi
+		
 	cd ../
-	
 	: '
 	#No SPR
 	if [ $spr_found == false ]; then
 		mvn clean install -D$TEST_CATEGORY -Dstandalone
 	fi
 	'
-	
-	echo $pr_num >> checked_PRs.txt
+	echo $pr_num >> checked_PRs.txt	
 done
+
