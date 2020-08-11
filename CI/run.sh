@@ -16,6 +16,8 @@ elif [ "$1" == "-wildfly" ]; then
 	echo ""
 	
 	./pr.sh
+elif [ "$1" == "-all" ]; then
+	./all.sh
 else 
 	./pr.sh
 fi
