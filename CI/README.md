@@ -47,16 +47,16 @@ $ export SERVER=https://github.com/wildfly/wildfly
 $ export SERVER_PR=13456
 $ export EAT=https://github.com/EAT-JBCOMMUNITY/EAT
 $ export EAT_PR=29
-$ ./PR_CI.sh
+$ ./run.sh
 ```
 
 Extra options 
 - Display parameters with values
 ```
-$ ./PR_CI.sh -v
+$ ./run.sh -v
 ```
 
 - Run all Pull Requests of EAT on the given server
 ```
-$ ./PR_CI.sh -all
+$ ./run.sh -all
 ```
