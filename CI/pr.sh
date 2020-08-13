@@ -2,24 +2,9 @@
 
 set -e
 
-printVariables() {
-	echo "SERVER:        "$SERVER
-	echo "SERVER_PR:     "$SERVER_PR
-	echo "EAT:           "$EAT
-	echo "EAT_PR:        "$EAT_PR	
-}
-
-#Parameters
-SERVER=$SERVER
-EAT=$EAT
-EAT_PR=$EAT_PR
-SERVER_PR=$SERVER_PR
-
 if [ -z "$TEST_CATEGORY" ]; then
     TEST_CATEGORY=wildfly
 fi
-
-server_pr_set=false
 
 if [ -z "$SERVER_BUILD" ]; then
     SERVER_BUILD=true
@@ -49,26 +34,6 @@ eat_path=$(sed '1q;d' $eat_file)
 eat_file=$(realpath $eat_file)
 server_file=$(realpath $server_file)
 
-if [ "$1" == "-v" ]; then
-	printVariables
-	exit 0
-fi
-
-if [ "$1" == "-wildfly" ]; then
-	
-	SERVER="https://github.com/wildfly/wildfly"
-	EAT="https://github.com/EAT-JBCOMMUNITY/EAT"
-	
-	echo "SERVER:        "$SERVER
-	echo "SERVER_PR:     "$SERVER_PR
-	echo "EAT:           "$EAT
-	echo "EAT_PR:        "$EAT_PR
-	echo ""
-	
-	echo "Building: Latest Wildfly + EAT"
-	echo ""
-fi
-
 if [ -z "$SERVER" ]; then
 	echo "Define server (github)"
 	echo ""
@@ -85,6 +50,7 @@ if [ -z "$EAT" ]; then
 	exit 1;
 fi
 
+server_pr_set=false
 if ! [ -z "$SERVER_PR" ] && [ "$SERVER_PR" -gt 0 ]; then
 	server_pr_set=true
 fi
@@ -96,18 +62,16 @@ eat_arr+=( $(echo $eat_prs_number | grep -Po '[0-9]*')) ;
 
 eat_pr_found=false
 
-if [ $EAT_PR != "ALL" ] && [ $EAT_PR != "all" ]; then
-	for i in "${eat_arr[@]}"
-	do
-		if [ $i == $EAT_PR ]; then
-			eat_pr_found=true;
-			break
-		fi
-	done
-
-	if [ $eat_pr_found == false ]; then
-		echo "Pull Request not found."
+for i in "${eat_arr[@]}"
+do
+	if [ $i == $EAT_PR ]; then
+		eat_pr_found=true;
+		break
 	fi
+done
+
+if [ $eat_pr_found == false ]; then
+	echo "Pull Request not found."
 fi
 
 #Run CI
@@ -170,18 +134,18 @@ fi
 eat_path=$(sed '1q;d' $eat_file)
 
 #Merge PR
-if [ $EAT_PR != "ALL" ] && [ $EAT_PR != "all" ] && [ $eat_pr_found != false ]; then
+if [ $eat_pr_found == true ]; then
         git checkout .;
 	git fetch origin +refs/pull/$EAT_PR/merge;
 	git checkout FETCH_HEAD;
 	git pull --rebase origin $EAT_BRANCH;
 	
-	echo "EAT: Merging Done"
+	echo "Testsuite: Merging Done"
 	echo ""
 fi
 
-#Build Server
-echo "Building..."
+#Building
+echo "Server: Building ..."
 cd $server_path
 
 if [ $SERVER_BUILD == true ]; then
@@ -201,45 +165,5 @@ fi
 
 cd $eat_path
 
-if [ $EAT_PR == "ALL" ] || [ $EAT_PR == "all" ]; then
-
-	checked_prs_file="checked_PRs.txt"
-	
-	if ! [ -r $checked_prs_file ]; then
-		>> $checked_prs_file
-	fi
-	
-	#Read file lines to array
-	mapfile -t checked_arr < checked_PRs.txt
-	
-	for i in "${eat_arr[@]}"
-	do
-		checked=false
-		
-		for j in "${checked_arr[@]}"
-		do
-			if [ $i == $j ]; then
-				checked=true
-				break
-			fi
-		done
-		
-		if [ $checked == true ]; then
-			continue
-		fi
-		
-		git checkout .;
-		git fetch origin +refs/pull/$i/merge;
-		git checkout FETCH_HEAD;
-		git pull --rebase origin $EAT_BRANCH;
-		
-		echo "EAT: Merging Done!"
-		echo ""
-		
-		mvn clean install -D$TEST_CATEGORY -Dstandalone
-		
-		echo $i >> checked_PRs.txt
-	done
-else
-	mvn clean install -D$TEST_CATEGORY -Dstandalone
-fi
+echo "Testsuite: Building ..."
+mvn clean install -D$TEST_CATEGORY -Dstandalone
