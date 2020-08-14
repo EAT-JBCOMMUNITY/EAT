@@ -50,8 +50,10 @@ do
 	git clone "https://github.com/EAT-JBCOMMUNITY/EAT/"
 	cd *
 	
+	git checkout .;
 	git fetch origin +refs/pull/$pr_num/merge;
 	git checkout FETCH_HEAD;	
+	git pull --rebase origin master;
 	
 	cd ../../
 	
@@ -93,6 +95,7 @@ do
 			  		git checkout $branch
 			  		git fetch origin +refs/pull/$pr/merge;
 					git checkout FETCH_HEAD;
+					git pull --rebase origin $branch;
 					
 					mvn clean install -DskipTests
 					
