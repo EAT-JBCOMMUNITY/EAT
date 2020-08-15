@@ -99,6 +99,12 @@ do
 					
 					mvn clean install -DskipTests
 					
+					server_pom=$(<pom.xml)
+					version=$(echo $server_pom | grep -Po '<version>[0-9]*\.[0-9]*\.[0-9]*\.[a-zA-Z0-9-]*<\/version>');
+					version=$(echo $version | grep -Po '[0-9]*\.[0-9]*\.[0-9]*\.[a-zA-Z0-9-]*');
+					export JBOSS_VERSION=$version
+					export JBOSS_FOLDER=$PWD/dist/target/wildfly-$JBOSS_VERSION/
+					
 					cd ../../
 					
 					cd eat/*
