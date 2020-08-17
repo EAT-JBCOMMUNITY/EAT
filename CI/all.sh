@@ -27,6 +27,13 @@ if [ "$1" == "reset" ]; then
 	done
 fi
 
+if [ "$1" == "comment" ]; then
+	if [ -z "$GITHUB_TOKEN" ]; then
+	    echo "Authentication failed: Github Access Token Not Found"
+	    exit 1;
+	fi
+fi
+
 #Read file lines to array
 mapfile -t to_check_arr < $to_check_prs_file
 mapfile -t checked_arr < $checked_prs_file
@@ -115,8 +122,24 @@ do
 					#Maven return code
 					if [ "$?" -eq 0 ] ; then
 						#OK
+						if [ "$1" == "comment" ]; then
+							comment=$(
+							curl -s --request POST 'https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/issues/'$pr_num'/comments' \
+							--header 'Content-Type: application/json' \
+							--header 'Authorization: token '$GITHUB_TOKEN \
+							--data '{"body": "Build Success"}'
+							)
+						fi
 					else
 						#NOT OK
+						if [ "$1" == "comment" ]; then
+							comment=$(
+							curl -s --request POST 'https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/issues/'$pr_num'/comments' \
+							--header 'Content-Type: application/json' \
+							--header 'Authorization: token '$GITHUB_TOKEN \
+							--data '{"body": "Build Failed"}'
+							)
+						fi
 					fi
 
 					cd ../../
