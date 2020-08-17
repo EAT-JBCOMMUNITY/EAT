@@ -111,6 +111,14 @@ do
 					
 					cd eat/*
 					mvn clean install -Dwildfly -Dstandalone
+					
+					#Maven return code
+					if [ "$?" -eq 0 ] ; then
+						#OK
+					else
+						#NOT OK
+					fi
+
 					cd ../../
 				fi	
 			done
