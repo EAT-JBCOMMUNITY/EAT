@@ -17,7 +17,7 @@ elif [ "$1" == "-wildfly" ]; then
 	
 	./pr.sh
 elif [ "$1" == "-all" ]; then
-	./all.sh
+	./all.sh $2
 else 
 	./pr.sh
 fi

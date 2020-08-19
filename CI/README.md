@@ -56,7 +56,25 @@ Extra options
 $ ./run.sh -v
 ```
 
-- Run all Pull Requests of EAT on the given server
+- Run all Pull Requests of EAT on the given server  
+If you run **-all** for first time you have to fill **to_check_PRs.txt**
+```
+$ ./run.sh -all reset
+```
+CI will test all PRs inside **to_check_PRs.txt**  
+You can also remove or add PRs manually
 ```
 $ ./run.sh -all
+```
+
+- Comment results on Pull Request (Github)  
+  
+*CI needs access to your Github account to comment*  
+Settings -> Developer Settings -> Personal access tokens -> Generate new token
+```
+$ export GITHUB_TOKEN=generated token from Github
+```
+Run CI with comment option
+```
+$ ./run.sh -all comment
 ```
