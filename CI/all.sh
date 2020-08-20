@@ -34,6 +34,14 @@ if [ "$1" == "comment" ]; then
 	fi
 fi
 
+if [ -z "$PROGRAM" ]; then
+	echo "Define program (github)"
+	echo ""
+	echo "Example"
+	echo "export PROGRAM=..."
+	exit 1;
+fi
+
 #Read file lines to array
 mapfile -t to_check_arr < $to_check_prs_file
 mapfile -t checked_arr < $checked_prs_file
@@ -70,12 +78,13 @@ do
 	prs=$(curl -s -n https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/pulls/$pr_num)
 	prs=$(echo $prs | grep -Po '"body":.*?[^\\]",');
 	
+	spr_found=false
 	if prs=$(echo $prs | grep -Po '\[.*\]'); then
 	
 		while IFS=";" read -ra description_lines
 		do
-			spr_found=false
-			for i in "${description_lines[@]}"; do
+			for i in "${description_lines[@]}";
+			do
 				
 				if [[ $i == *"SPR"* ]]; then
 					spr_found=true
@@ -147,14 +156,32 @@ do
 			done
 		done <<< $prs
 	fi
-		
-	cd ../
-	: '
+
 	#No SPR
 	if [ $spr_found == false ]; then
-		mvn clean install -D$TEST_CATEGORY -Dstandalone
+		mkdir "server-"
+  		cd "server-"
+
+  		git clone $PROGRAM
+  		cd *
+  		git checkout master
+		
+		mvn clean install -DskipTests
+		
+		server_pom=$(<pom.xml)
+		version=$(echo $server_pom | grep -Po '<version>[0-9]*\.[0-9]*\.[0-9]*\.[a-zA-Z0-9-]*<\/version>');
+		version=$(echo $version | grep -Po '[0-9]*\.[0-9]*\.[0-9]*\.[a-zA-Z0-9-]*');
+		export JBOSS_VERSION=$version
+		export JBOSS_FOLDER=$PWD/dist/target/wildfly-$JBOSS_VERSION/
+		
+		cd ../../
+		
+		cd eat/*
+		mvn clean install -Dwildfly -Dstandalone
 	fi
-	'
+	
+	cd ../
+	
 	echo $pr_num >> checked_PRs.txt	
 done
 
