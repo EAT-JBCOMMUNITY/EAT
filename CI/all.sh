@@ -159,8 +159,10 @@ do
 
 	#No SPR
 	if [ $spr_found == false ]; then
-		mkdir "server-"
-  		cd "server-"
+		echo "SPR not found, loading default server"
+		
+		mkdir "server"
+  		cd "server"
 
   		git clone $PROGRAM
   		cd *
@@ -178,6 +180,8 @@ do
 		
 		cd eat/*
 		mvn clean install -Dwildfly -Dstandalone
+		
+		cd ../../
 	fi
 	
 	cd ../
