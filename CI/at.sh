@@ -1,0 +1,174 @@
+#!/bin/bash
+
+#set -e
+
+if [ -z "$TEST_CATEGORY" ]; then
+    TEST_CATEGORY=master
+fi
+
+if [ -z "$PROGRAM_BUILD" ]; then
+    PROGRAM_BUILD=true
+fi
+
+if [ -z "$AT_BRANCH" ]; then
+    AT_BRANCH=master
+fi
+
+if [ -z "$PROGRAM_BRANCH" ]; then
+    PROGRAM_BRANCH=master
+fi
+
+at_file="at_path.txt"
+program_file="program_path.txt"
+
+if ! [ -r $program_file ]; then
+	>> $program_file
+fi
+program_path=$(sed '1q;d' $program_file)
+
+if ! [ -r $at_file ]; then
+	>> $at_file
+fi
+at_path=$(sed '1q;d' $at_file)
+
+at_file=$(realpath $at_file)
+program_file=$(realpath $program_file)
+
+if [ -z "$PROGRAM" ]; then
+	echo "Define program (github)"
+	echo ""
+	echo "Example"
+	echo "export PROGRAM=..."
+	exit 1;
+fi
+
+if [ -z "$AT" ]; then
+	echo "Define AT (github)"
+	echo ""
+	echo "Example"
+	echo "export AT=..."
+	exit 1;
+fi
+
+program_pr_set=false
+if ! [ -z "$PROGRAM_PR" ] && [ "$PROGRAM_PR" -gt 0 ]; then
+	program_pr_set=true
+fi
+
+#Check AT PR status
+repo=$(echo $AT | grep -Po 'com\/.*\.git')
+repo=$(echo "${repo:4:${#repo}}")
+repo=$(echo "${repo:0:${#repo}-4}")
+at_prs_get=$(curl -s -n "https://api.github.com/repos/$repo/pulls?state=open");
+at_prs_number=$(echo $at_prs_get | grep -Po '"number":.*?[^\\],');
+at_arr+=( $(echo $at_prs_number | grep -Po '[0-9]*')) ;
+at_pr_found=false
+
+for i in "${at_arr[@]}"
+do
+	if [ $i == $AT_PR ]; then
+		at_pr_found=true;
+		break
+	fi
+done
+
+if [ $at_pr_found == false ]; then
+	echo "Pull Request not found."
+fi
+
+#Run CI
+if [ -z "$program_path" ]; then
+	mkdir program
+	cd program
+
+	git clone $PROGRAM -b $PROGRAM_BRANCH
+	cd *
+	echo "$PWD" > $program_file	
+else
+	cd $program_path
+	echo $PWD
+fi
+
+program_path=$(sed '1q;d' $program_file)
+
+#Merge program's PR if found
+if [ $program_pr_set == true ]; then
+
+	#Check program PR status
+	repo=$(echo $PROGRAM | grep -Po 'com\/.*\.git')
+	repo=$(echo "${repo:4:${#repo}}")
+	repo=$(echo "${repo:0:${#repo}-4}")
+	program_prs_get=$(curl -s -n "https://api.github.com/repos/$repo/pulls?state=open");
+	program_prs_number=$(echo $program_prs_get | grep -Po '"number":.*?[^\\],');
+	program_arr+=( $(echo $program_prs_number | grep -Po '[0-9]*')) ;
+
+	program_pr_found=false
+
+	for i in "${program_arr[@]}"
+	do
+		if [ $i == $PROGRAM_PR ]; then
+			program_pr_found=true;
+			break
+		fi
+	done
+
+	if [ $program_pr_found == true ]; then
+	        git checkout .;
+		git fetch origin +refs/pull/$PROGRAM_PR/merge;
+		git checkout FETCH_HEAD;
+		git pull --rebase origin $PROGRAM_BRANCH;
+		
+		echo "Server: Merging Done"
+		echo ""
+	fi	
+fi
+
+if [ -z "$at_path" ]; then
+	mkdir at
+	cd at
+
+	git clone $AT -b $AT_BRANCH
+	cd *
+	echo "$PWD" > $at_file
+	
+else
+	cd $at_path
+	echo $PWD
+fi
+
+at_path=$(sed '1q;d' $at_file)
+
+#Merge PR
+if [ $at_pr_found == true ]; then
+        git checkout .;
+	git fetch origin +refs/pull/$AT_PR/merge;
+	git checkout FETCH_HEAD;
+	git pull --rebase origin $AT_BRANCH;
+	
+	echo "Testsuite: Merging Done"
+	echo ""
+fi
+
+#Building
+echo "Program: Building ..."
+cd $program_path
+
+if [ $PROGRAM_BUILD == true ]; then
+    mvn clean install -DskipTests
+fi
+
+program_pom=$(<pom.xml)
+version=$(echo $program_pom | grep -Po '<version>[a-zA-Z0-9-]*<\/version>');
+version=$(echo $version | cut -d' ' -f1);
+version=$(echo $version | grep -Po '>.*<\/')
+version=$(echo "${version:1:${#version}}")
+version=$(echo "${version:0:${#version}-2}")
+
+if [ -z "$JBOSS_VERSION" ]; then
+    export JBOSS_VERSION=$version
+fi
+
+cd $at_path
+
+echo "Testsuite: Building ..."
+mvn clean install -D$TEST_CATEGORY
