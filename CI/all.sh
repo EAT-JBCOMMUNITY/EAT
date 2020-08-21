@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+#set -e
 
 if [ -z "$AT" ]; then
 	echo "Define AT (github)"
@@ -194,6 +194,29 @@ do
 		
 		cd at/*
 		mvn clean install -Dwildfly -Dstandalone
+		
+		#Maven return code
+		if [ "$?" -eq 0 ] ; then
+			#OK
+			if [ "$1" == "comment" ]; then
+				comment=$(
+				curl -s --request POST 'https://api.github.com/repos/'$org_at'/'$repo_at'/issues/'$pr_num'/comments' \
+				--header 'Content-Type: application/json' \
+				--header 'Authorization: token '$GITHUB_TOKEN \
+				--data '{"body": "Build Success"}'
+			        )
+			fi
+		else
+			#NOT OK
+			if [ "$1" == "comment" ]; then
+				comment=$(
+				curl -s --request POST 'https://api.github.com/repos/'$org_at'/'$repo_at'/issues/'$pr_num'/comments' \
+				--header 'Content-Type: application/json' \
+				--header 'Authorization: token '$GITHUB_TOKEN \
+				--data '{"body": "Build Failed"}'
+				)
+			fi
+		fi
 		
 		cd ../../
 	fi
