@@ -18,6 +18,8 @@ elif [ "$1" == "-wildfly" ]; then
 	./pr.sh
 elif [ "$1" == "-all" ]; then
 	./all.sh $2
+elif [ "$1" == "-at" ]; then
+	./at.sh
 else 
 	./pr.sh
 fi
