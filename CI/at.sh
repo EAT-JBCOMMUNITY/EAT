@@ -56,10 +56,10 @@ if ! [ -z "$PROGRAM_PR" ] && [ "$PROGRAM_PR" -gt 0 ]; then
 fi
 
 #Check AT PR status
-repo=$(echo $AT | grep -Po 'com\/.*\.git')
-repo=$(echo "${repo:4:${#repo}}")
-repo=$(echo "${repo:0:${#repo}-4}")
-at_prs_get=$(curl -s -n "https://api.github.com/repos/$repo/pulls?state=open");
+url_at_arr+=($(echo $AT | grep -Po '[^\/]+'))
+org_at=${url_at_arr[2]}
+repo_at=$(echo ${url_at_arr[3]} | grep -Po '^[^.]+')
+at_prs_get=$(curl -s -n "https://api.github.com/repos/$org_at/$repo_at/pulls?state=open");
 at_prs_number=$(echo $at_prs_get | grep -Po '"number":.*?[^\\],');
 at_arr+=( $(echo $at_prs_number | grep -Po '[0-9]*')) ;
 at_pr_found=false
@@ -95,10 +95,10 @@ program_path=$(sed '1q;d' $program_file)
 if [ $program_pr_set == true ]; then
 
 	#Check program PR status
-	repo=$(echo $PROGRAM | grep -Po 'com\/.*\.git')
-	repo=$(echo "${repo:4:${#repo}}")
-	repo=$(echo "${repo:0:${#repo}-4}")
-	program_prs_get=$(curl -s -n "https://api.github.com/repos/$repo/pulls?state=open");
+	url_prog_arr+=($(echo $PROGRAM | grep -Po '[^\/]+'))
+	org_prog=${url_prog_arr[2]}
+	repo_prog=$(echo ${url_prog_arr[3]} | grep -Po '^[^.]+')
+	program_prs_get=$(curl -s -n "https://api.github.com/repos/$org_prog/$repo_prog/pulls?state=open");
 	program_prs_number=$(echo $program_prs_get | grep -Po '"number":.*?[^\\],');
 	program_arr+=( $(echo $program_prs_number | grep -Po '[0-9]*')) ;
 
