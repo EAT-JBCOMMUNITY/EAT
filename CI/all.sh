@@ -2,6 +2,28 @@
 
 set -e
 
+if [ -z "$AT" ]; then
+	echo "Define AT (github)"
+	echo ""
+	echo "Example"
+	echo "export AT=..."
+	exit 1;
+fi
+
+if [ -z "$PROGRAM" ]; then
+	echo "Define program (github)"
+	echo ""
+	echo "Example"
+	echo "export PROGRAM=..."
+	exit 1;
+fi
+
+#Split git url
+url_arr+=($(echo $AT | grep -Po '[^\/]+'))
+org_at=${url_arr[2]}
+repo_at=$(echo ${url_arr[3]} | grep -Po '^[^.]+')
+
+#Create files
 to_check_prs_file="to_check_PRs.txt"
 checked_prs_file="checked_PRs.txt"
 
@@ -17,7 +39,7 @@ if [ "$1" == "reset" ]; then
 	> $to_check_prs_file
 
 	#Get all Testsuite PRs
-	eat_prs_get=$(curl -s -n https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/pulls?state=open);
+	eat_prs_get=$(curl -s -n https://api.github.com/repos/$org_at/$repo_at/pulls?state=open);
 	eat_prs_number=$(echo $eat_prs_get | grep -Po '"number":.*?[^\\],');
 	eat_arr+=($(echo $eat_prs_number | grep -Po '[0-9]*')) ;
 	
@@ -32,14 +54,6 @@ if [ "$1" == "comment" ]; then
 	    echo "Authentication failed: Github Access Token Not Found"
 	    exit 1;
 	fi
-fi
-
-if [ -z "$PROGRAM" ]; then
-	echo "Define program (github)"
-	echo ""
-	echo "Example"
-	echo "export PROGRAM=..."
-	exit 1;
 fi
 
 #Read file lines to array
@@ -64,7 +78,7 @@ do
 	mkdir "eat"
 	cd eat 
 	
-	git clone "https://github.com/EAT-JBCOMMUNITY/EAT/"
+	git clone "https://github.com/$org_at/$repo_at/"
 	cd *
 	
 	git checkout .;
@@ -75,7 +89,7 @@ do
 	cd ../../
 	
 	#Get PR's description
-	prs=$(curl -s -n https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/pulls/$pr_num)
+	prs=$(curl -s -n https://api.github.com/repos/$org_at/$repo_at/pulls/$pr_num)
 	prs=$(echo $prs | grep -Po '"body":.*?[^\\]",');
 	
 	spr_found=false
@@ -133,7 +147,7 @@ do
 						#OK
 						if [ "$1" == "comment" ]; then
 							comment=$(
-							curl -s --request POST 'https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/issues/'$pr_num'/comments' \
+							curl -s --request POST 'https://api.github.com/repos/'$org_at'/'$repo_at'/issues/'$pr_num'/comments' \
 							--header 'Content-Type: application/json' \
 							--header 'Authorization: token '$GITHUB_TOKEN \
 							--data '{"body": "Build Success"}'
@@ -143,7 +157,7 @@ do
 						#NOT OK
 						if [ "$1" == "comment" ]; then
 							comment=$(
-							curl -s --request POST 'https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/issues/'$pr_num'/comments' \
+							curl -s --request POST 'https://api.github.com/repos/'$org_at'/'$repo_at'/issues/'$pr_num'/comments' \
 							--header 'Content-Type: application/json' \
 							--header 'Authorization: token '$GITHUB_TOKEN \
 							--data '{"body": "Build Failed"}'
