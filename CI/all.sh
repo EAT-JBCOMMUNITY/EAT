@@ -39,11 +39,11 @@ if [ "$1" == "reset" ]; then
 	> $to_check_prs_file
 
 	#Get all Testsuite PRs
-	eat_prs_get=$(curl -s -n https://api.github.com/repos/$org_at/$repo_at/pulls?state=open);
-	eat_prs_number=$(echo $eat_prs_get | grep -Po '"number":.*?[^\\],');
-	eat_arr+=($(echo $eat_prs_number | grep -Po '[0-9]*')) ;
+	at_prs_get=$(curl -s -n https://api.github.com/repos/$org_at/$repo_at/pulls?state=open);
+	at_prs_number=$(echo $at_prs_get | grep -Po '"number":.*?[^\\],');
+	at_arr+=($(echo $at_prs_number | grep -Po '[0-9]*')) ;
 	
-	for pr_num in "${eat_arr[@]}"
+	for pr_num in "${at_arr[@]}"
 	do
 		echo $pr_num >> $to_check_prs_file
 	done
@@ -75,8 +75,8 @@ do
 	mkdir $pr_num
 	cd $pr_num
 	
-	mkdir "eat"
-	cd eat 
+	mkdir "at"
+	cd at 
 	
 	git clone "https://github.com/$org_at/$repo_at/"
 	cd *
@@ -119,8 +119,8 @@ do
 			  		
 			  		echo "SPR Data: "$org $repo $branch $pr
 			  		
-			  		mkdir "server-"$pr
-			  		cd "server-"$pr
+			  		mkdir "program-"$pr
+			  		cd "program-"$pr
 
 			  		git clone "https://github.com/"$org"/"$repo
 			  		cd *
@@ -139,7 +139,7 @@ do
 					
 					cd ../../
 					
-					cd eat/*
+					cd at/*
 					mvn clean install -Dwildfly -Dstandalone
 					
 					#Maven return code
@@ -175,8 +175,8 @@ do
 	if [ $spr_found == false ]; then
 		echo "SPR not found, loading default server"
 		
-		mkdir "server"
-  		cd "server"
+		mkdir "program"
+  		cd program
 
   		git clone $PROGRAM
   		cd *
@@ -192,7 +192,7 @@ do
 		
 		cd ../../
 		
-		cd eat/*
+		cd at/*
 		mvn clean install -Dwildfly -Dstandalone
 		
 		cd ../../
