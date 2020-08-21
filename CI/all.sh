@@ -2,6 +2,28 @@
 
 set -e
 
+if [ -z "$AT" ]; then
+	echo "Define AT (github)"
+	echo ""
+	echo "Example"
+	echo "export AT=..."
+	exit 1;
+fi
+
+if [ -z "$PROGRAM" ]; then
+	echo "Define program (github)"
+	echo ""
+	echo "Example"
+	echo "export PROGRAM=..."
+	exit 1;
+fi
+
+#Split git url
+url_arr+=($(echo $AT | grep -Po '[^\/]+'))
+org_at=${url_arr[2]}
+repo_at=$(echo ${url_arr[3]} | grep -Po '^[^.]+')
+
+#Create files
 to_check_prs_file="to_check_PRs.txt"
 checked_prs_file="checked_PRs.txt"
 
@@ -17,11 +39,11 @@ if [ "$1" == "reset" ]; then
 	> $to_check_prs_file
 
 	#Get all Testsuite PRs
-	eat_prs_get=$(curl -s -n https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/pulls?state=open);
-	eat_prs_number=$(echo $eat_prs_get | grep -Po '"number":.*?[^\\],');
-	eat_arr+=($(echo $eat_prs_number | grep -Po '[0-9]*')) ;
+	at_prs_get=$(curl -s -n https://api.github.com/repos/$org_at/$repo_at/pulls?state=open);
+	at_prs_number=$(echo $at_prs_get | grep -Po '"number":.*?[^\\],');
+	at_arr+=($(echo $at_prs_number | grep -Po '[0-9]*')) ;
 	
-	for pr_num in "${eat_arr[@]}"
+	for pr_num in "${at_arr[@]}"
 	do
 		echo $pr_num >> $to_check_prs_file
 	done
@@ -53,10 +75,10 @@ do
 	mkdir $pr_num
 	cd $pr_num
 	
-	mkdir "eat"
-	cd eat 
+	mkdir "at"
+	cd at 
 	
-	git clone "https://github.com/EAT-JBCOMMUNITY/EAT/"
+	git clone "https://github.com/$org_at/$repo_at/"
 	cd *
 	
 	git checkout .;
@@ -67,15 +89,16 @@ do
 	cd ../../
 	
 	#Get PR's description
-	prs=$(curl -s -n https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/pulls/$pr_num)
+	prs=$(curl -s -n https://api.github.com/repos/$org_at/$repo_at/pulls/$pr_num)
 	prs=$(echo $prs | grep -Po '"body":.*?[^\\]",');
 	
+	spr_found=false
 	if prs=$(echo $prs | grep -Po '\[.*\]'); then
 	
 		while IFS=";" read -ra description_lines
 		do
-			spr_found=false
-			for i in "${description_lines[@]}"; do
+			for i in "${description_lines[@]}";
+			do
 				
 				if [[ $i == *"SPR"* ]]; then
 					spr_found=true
@@ -96,8 +119,8 @@ do
 			  		
 			  		echo "SPR Data: "$org $repo $branch $pr
 			  		
-			  		mkdir "server-"$pr
-			  		cd "server-"$pr
+			  		mkdir "program-"$pr
+			  		cd "program-"$pr
 
 			  		git clone "https://github.com/"$org"/"$repo
 			  		cd *
@@ -116,7 +139,7 @@ do
 					
 					cd ../../
 					
-					cd eat/*
+					cd at/*
 					mvn clean install -Dwildfly -Dstandalone
 					
 					#Maven return code
@@ -124,7 +147,7 @@ do
 						#OK
 						if [ "$1" == "comment" ]; then
 							comment=$(
-							curl -s --request POST 'https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/issues/'$pr_num'/comments' \
+							curl -s --request POST 'https://api.github.com/repos/'$org_at'/'$repo_at'/issues/'$pr_num'/comments' \
 							--header 'Content-Type: application/json' \
 							--header 'Authorization: token '$GITHUB_TOKEN \
 							--data '{"body": "Build Success"}'
@@ -134,7 +157,7 @@ do
 						#NOT OK
 						if [ "$1" == "comment" ]; then
 							comment=$(
-							curl -s --request POST 'https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/issues/'$pr_num'/comments' \
+							curl -s --request POST 'https://api.github.com/repos/'$org_at'/'$repo_at'/issues/'$pr_num'/comments' \
 							--header 'Content-Type: application/json' \
 							--header 'Authorization: token '$GITHUB_TOKEN \
 							--data '{"body": "Build Failed"}'
@@ -147,14 +170,36 @@ do
 			done
 		done <<< $prs
 	fi
-		
-	cd ../
-	: '
+
 	#No SPR
 	if [ $spr_found == false ]; then
-		mvn clean install -D$TEST_CATEGORY -Dstandalone
+		echo "SPR not found, loading default server"
+		
+		mkdir "program"
+  		cd program
+
+  		git clone $PROGRAM
+  		cd *
+  		git checkout master
+		
+		mvn clean install -DskipTests
+		
+		server_pom=$(<pom.xml)
+		version=$(echo $server_pom | grep -Po '<version>[0-9]*\.[0-9]*\.[0-9]*\.[a-zA-Z0-9-]*<\/version>');
+		version=$(echo $version | grep -Po '[0-9]*\.[0-9]*\.[0-9]*\.[a-zA-Z0-9-]*');
+		export JBOSS_VERSION=$version
+		export JBOSS_FOLDER=$PWD/dist/target/wildfly-$JBOSS_VERSION/
+		
+		cd ../../
+		
+		cd at/*
+		mvn clean install -Dwildfly -Dstandalone
+		
+		cd ../../
 	fi
-	'
+	
+	cd ../
+	
 	echo $pr_num >> checked_PRs.txt	
 done
 
