@@ -56,6 +56,8 @@ if [ "$1" == "comment" ]; then
 	fi
 	
 	function comment {
+		datetime=$(date '+%Y-%m-%d %H:%M:%S')
+		
 		if [ "$1" == true ]; then
 	 		body="Build Success" 
 		else
@@ -67,7 +69,7 @@ if [ "$1" == "comment" ]; then
 			curl -s --request POST 'https://api.github.com/repos/'$org_at'/'$repo_at'/issues/'$pr_num'/comments' \
 			--header 'Content-Type: application/json' \
 			--header 'Authorization: token '$GITHUB_TOKEN \
-			--data '{"body": "'$body'"}'
+			--data '{"body": "'$body', '$datetime'"}'
 			)
 	}
 fi
