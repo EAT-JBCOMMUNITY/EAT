@@ -43,5 +43,7 @@ do
 	
 	checked_eat_prs=("${eat_arr[@]}");
 	checked_eat_prs_uts=("${eat_prs_utime[@]}");
+	
 	sleep $SLEEP_TIME
+	
 done
