@@ -54,6 +54,22 @@ if [ "$1" == "comment" ]; then
 	    echo "Authentication failed: Github Access Token Not Found"
 	    exit 1;
 	fi
+	
+	function comment {
+		if [ "$1" == true ]; then
+	 		body="Build Success" 
+		else
+			body="Build Failed" 
+		fi
+
+		echo $body"--->"$datetime
+		comment=$(
+			curl -s --request POST 'https://api.github.com/repos/'$org_at'/'$repo_at'/issues/'$pr_num'/comments' \
+			--header 'Content-Type: application/json' \
+			--header 'Authorization: token '$GITHUB_TOKEN \
+			--data '{"body": "'$body'"}'
+			)
+	}
 fi
 
 #Read file lines to array
@@ -146,22 +162,12 @@ do
 					if [ "$?" -eq 0 ] ; then
 						#OK
 						if [ "$1" == "comment" ]; then
-							comment=$(
-							curl -s --request POST 'https://api.github.com/repos/'$org_at'/'$repo_at'/issues/'$pr_num'/comments' \
-							--header 'Content-Type: application/json' \
-							--header 'Authorization: token '$GITHUB_TOKEN \
-							--data '{"body": "Build Success"}'
-							)
+							comment true
 						fi
 					else
 						#NOT OK
 						if [ "$1" == "comment" ]; then
-							comment=$(
-							curl -s --request POST 'https://api.github.com/repos/'$org_at'/'$repo_at'/issues/'$pr_num'/comments' \
-							--header 'Content-Type: application/json' \
-							--header 'Authorization: token '$GITHUB_TOKEN \
-							--data '{"body": "Build Failed"}'
-							)
+							comment false
 						fi
 					fi
 
@@ -199,22 +205,12 @@ do
 		if [ "$?" -eq 0 ] ; then
 			#OK
 			if [ "$1" == "comment" ]; then
-				comment=$(
-				curl -s --request POST 'https://api.github.com/repos/'$org_at'/'$repo_at'/issues/'$pr_num'/comments' \
-				--header 'Content-Type: application/json' \
-				--header 'Authorization: token '$GITHUB_TOKEN \
-				--data '{"body": "Build Success"}'
-			        )
+				comment true
 			fi
 		else
 			#NOT OK
 			if [ "$1" == "comment" ]; then
-				comment=$(
-				curl -s --request POST 'https://api.github.com/repos/'$org_at'/'$repo_at'/issues/'$pr_num'/comments' \
-				--header 'Content-Type: application/json' \
-				--header 'Authorization: token '$GITHUB_TOKEN \
-				--data '{"body": "Build Failed"}'
-				)
+				comment false
 			fi
 		fi
 		
