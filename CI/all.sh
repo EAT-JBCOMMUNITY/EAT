@@ -56,20 +56,24 @@ if [ "$1" == "comment" ]; then
 	fi
 	
 	function comment {
-		datetime=$(date '+%Y-%m-%d %H:%M:%S')
 		
 		if [ "$1" == true ]; then
-	 		body="Build Success" 
+	 		body+="Build Success" 
 		else
-			body="Build Failed" 
+			body+="Build Failed" 
+		fi
+		
+		body+=", "$(date '+%Y-%m-%d %H:%M:%S')
+		
+		if ! [ -z "$2" ]; then
+	 		body+=", $2"
 		fi
 
-		echo $body"--->"$datetime
 		comment=$(
 			curl -s --request POST 'https://api.github.com/repos/'$org_at'/'$repo_at'/issues/'$pr_num'/comments' \
 			--header 'Content-Type: application/json' \
 			--header 'Authorization: token '$GITHUB_TOKEN \
-			--data '{"body": "'$body', '$datetime'"}'
+			--data '{"body": "'$body'"}'
 			)
 	}
 fi
@@ -124,6 +128,8 @@ do
 			
 				i=$(echo $i | grep -Po '\[.*\]');
 				
+				spr_counter=$(echo "${i:5:${#i}}")
+
 		  		org=$(echo $i | grep -Po 'org:[^,]*');
 		  		org=$(echo $org | grep -Po '[^:]*$');
 		  		
@@ -165,12 +171,12 @@ do
 				if [ "$?" -eq 0 ] ; then
 					#OK
 					if [ "$1" == "comment" ]; then
-						comment true
+						comment true "SPR:"$spr_counter
 					fi
 				else
 					#NOT OK
 					if [ "$1" == "comment" ]; then
-						comment false
+						comment false "SPR:"$spr_counter
 					fi
 				fi
 
