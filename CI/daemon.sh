@@ -21,13 +21,16 @@ do
         eat_prs_utime=(${eat_prs_utime_temp//,/ })
         
         k=0;
+        u=0;
 	for pr_num in "${eat_arr[@]}"
 	do
 	        if [ ${#checked_eat_prs[@]} -gt 0 ] && [ ${#checked_eat_prs[@]} -ge $k ]; then
 		    if [ "$pr_num" -gt "${checked_eat_prs[$k]}" ]; then
+		        u=$((u+1));
 		        echo $(date) ... New pr : $pr_num 
 		    elif [ "$pr_num" -eq "${checked_eat_prs[$k]}" ]; then
-		        uts=$(echo ${eat_prs_utime[$k]}  | tr -cd [:digit:]);
+		        n=$((k+u));
+		        uts=$(echo ${eat_prs_utime[$n]}  | tr -cd [:digit:]);
 		        uts_ckecked=$(echo ${checked_eat_prs_uts[$k]}  | tr -cd [:digit:]);
 		        if [ "$uts" -gt "$uts_ckecked" ]; then
 		            echo $(date) ... Updated pr : $pr_num 
