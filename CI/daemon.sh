@@ -25,7 +25,6 @@ do
 	do
 	        if [ ${#checked_eat_prs[@]} -gt 0 ] && [ ${#checked_eat_prs[@]} -ge $k ]; then
 		    while [ "$pr_num" -gt "${checked_eat_prs[$k]}" ]; do
-		        k=$((k+1));
 		        echo $(date) ... New pr : $pr_num 
 		    done
 		    if [ "$pr_num" -eq "${checked_eat_prs[$k]}" ]; then
