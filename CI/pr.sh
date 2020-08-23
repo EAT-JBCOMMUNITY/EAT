@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+#set -e
 
 if [ -z "$TEST_CATEGORY" ]; then
     TEST_CATEGORY=wildfly
