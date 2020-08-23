@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+#set -e
 
 if [ -z "$AT" ]; then
 	echo "Define AT (github)"
@@ -54,6 +54,28 @@ if [ "$1" == "comment" ]; then
 	    echo "Authentication failed: Github Access Token Not Found"
 	    exit 1;
 	fi
+	
+	function comment {
+		
+		if [ "$1" == true ]; then
+	 		body+="Build Success" 
+		else
+			body+="Build Failed" 
+		fi
+		
+		body+=", "$(date '+%Y-%m-%d %H:%M:%S')
+		
+		if ! [ -z "$2" ]; then
+	 		body+=", $2"
+		fi
+
+		comment=$(
+			curl -s --request POST 'https://api.github.com/repos/'$org_at'/'$repo_at'/issues/'$pr_num'/comments' \
+			--header 'Content-Type: application/json' \
+			--header 'Authorization: token '$GITHUB_TOKEN \
+			--data '{"body": "'$body'"}'
+			)
+	}
 fi
 
 #Read file lines to array
@@ -95,80 +117,72 @@ do
 	spr_found=false
 	if prs=$(echo $prs | grep -Po '\[.*\]'); then
 	
-		while IFS=";" read -ra description_lines
+		#Split lines into an array
+		IFS=";" read -ra description_lines <<< $prs
+		
+		for i in "${description_lines[@]}";
 		do
-			for i in "${description_lines[@]}";
-			do
+			
+			if [[ $i == *"SPR"* ]]; then
+				spr_found=true
+			
+				i=$(echo $i | grep -Po '\[.*\]');
 				
-				if [[ $i == *"SPR"* ]]; then
-					spr_found=true
+				spr_counter=$(echo "${i:5:${#i}}")
+
+		  		org=$(echo $i | grep -Po 'org:[^,]*');
+		  		org=$(echo $org | grep -Po '[^:]*$');
+		  		
+		  		repo=$(echo $i | grep -Po 'repo:[^,]*');
+		  		repo=$(echo $repo | grep -Po '[^:]*$');
+		  		
+		  		branch=$(echo $i | grep -Po 'branch:[^,]*');
+		  		branch=$(echo $branch | grep -Po '[^:]*$');
+		  		
+		  		pr=$(echo $i | grep -Po 'PR:[^\]]*');
+		  		pr=$(echo $pr | grep -Po '[^:]*$');
+		  		
+		  		echo "SPR Data: "$org $repo $branch $pr
+		  		
+		  		mkdir "program-"$pr
+		  		cd "program-"$pr
+
+		  		git clone "https://github.com/"$org"/"$repo
+		  		cd *
+		  		git checkout $branch
+		  		git fetch origin +refs/pull/$pr/merge;
+				git checkout FETCH_HEAD;
+				git pull --rebase origin $branch;
 				
-					i=$(echo $i | grep -Po '\[.*\]');
-
-			  		org=$(echo $i | grep -Po 'org:[^,]*');
-			  		org=$(echo $org | grep -Po '[^:]*$');
-			  		
-			  		repo=$(echo $i | grep -Po 'repo:[^,]*');
-			  		repo=$(echo $repo | grep -Po '[^:]*$');
-			  		
-			  		branch=$(echo $i | grep -Po 'branch:[^,]*');
-			  		branch=$(echo $branch | grep -Po '[^:]*$');
-			  		
-			  		pr=$(echo $i | grep -Po 'PR:[^\]]*');
-			  		pr=$(echo $pr | grep -Po '[^:]*$');
-			  		
-			  		echo "SPR Data: "$org $repo $branch $pr
-			  		
-			  		mkdir "program-"$pr
-			  		cd "program-"$pr
-
-			  		git clone "https://github.com/"$org"/"$repo
-			  		cd *
-			  		git checkout $branch
-			  		git fetch origin +refs/pull/$pr/merge;
-					git checkout FETCH_HEAD;
-					git pull --rebase origin $branch;
-					
-					mvn clean install -DskipTests
-					
-					server_pom=$(<pom.xml)
-					version=$(echo $server_pom | grep -Po '<version>[0-9]*\.[0-9]*\.[0-9]*\.[a-zA-Z0-9-]*<\/version>');
-					version=$(echo $version | grep -Po '[0-9]*\.[0-9]*\.[0-9]*\.[a-zA-Z0-9-]*');
-					export JBOSS_VERSION=$version
-					export JBOSS_FOLDER=$PWD/dist/target/wildfly-$JBOSS_VERSION/
-					
-					cd ../../
-					
-					cd at/*
-					mvn clean install -Dwildfly -Dstandalone
-					
-					#Maven return code
-					if [ "$?" -eq 0 ] ; then
-						#OK
-						if [ "$1" == "comment" ]; then
-							comment=$(
-							curl -s --request POST 'https://api.github.com/repos/'$org_at'/'$repo_at'/issues/'$pr_num'/comments' \
-							--header 'Content-Type: application/json' \
-							--header 'Authorization: token '$GITHUB_TOKEN \
-							--data '{"body": "Build Success"}'
-							)
-						fi
-					else
-						#NOT OK
-						if [ "$1" == "comment" ]; then
-							comment=$(
-							curl -s --request POST 'https://api.github.com/repos/'$org_at'/'$repo_at'/issues/'$pr_num'/comments' \
-							--header 'Content-Type: application/json' \
-							--header 'Authorization: token '$GITHUB_TOKEN \
-							--data '{"body": "Build Failed"}'
-							)
-						fi
+				mvn clean install -DskipTests
+				
+				server_pom=$(<pom.xml)
+				version=$(echo $server_pom | grep -Po '<version>[0-9]*\.[0-9]*\.[0-9]*\.[a-zA-Z0-9-]*<\/version>');
+				version=$(echo $version | grep -Po '[0-9]*\.[0-9]*\.[0-9]*\.[a-zA-Z0-9-]*');
+				export JBOSS_VERSION=$version
+				export JBOSS_FOLDER=$PWD/dist/target/wildfly-$JBOSS_VERSION/
+				
+				cd ../../
+				
+				cd at/*
+				mvn clean install -Dwildfly -Dstandalone
+				
+				#Maven return code
+				if [ "$?" -eq 0 ] ; then
+					#OK
+					if [ "$1" == "comment" ]; then
+						comment true "SPR:"$spr_counter
 					fi
+				else
+					#NOT OK
+					if [ "$1" == "comment" ]; then
+						comment false "SPR:"$spr_counter
+					fi
+				fi
 
-					cd ../../
-				fi	
-			done
-		done <<< $prs
+				cd ../../
+			fi	
+		done
 	fi
 
 	#No SPR
@@ -194,6 +208,19 @@ do
 		
 		cd at/*
 		mvn clean install -Dwildfly -Dstandalone
+		
+		#Maven return code
+		if [ "$?" -eq 0 ] ; then
+			#OK
+			if [ "$1" == "comment" ]; then
+				comment true
+			fi
+		else
+			#NOT OK
+			if [ "$1" == "comment" ]; then
+				comment false
+			fi
+		fi
 		
 		cd ../../
 	fi
