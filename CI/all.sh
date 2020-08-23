@@ -70,11 +70,12 @@ if [ "$1" == "comment" ]; then
 		fi
 
 		comment=$(
-			curl -s --request POST 'https://api.github.com/repos/'$org_at'/'$repo_at'/issues/'$pr_num'/comments' \
+			curl -s --request POST "https://api.github.com/repos/$org_at/$repo_at/issues/$pr_num/comments" \
 			--header 'Content-Type: application/json' \
 			--header 'Authorization: token '$GITHUB_TOKEN \
-			--data '{"body": "'$body'"}'
+			--data '{"body": "'"$body"'"}'
 			)
+
 	}
 fi
 
