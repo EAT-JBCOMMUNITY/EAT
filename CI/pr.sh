@@ -80,7 +80,9 @@ if [ -z "$server_path" ]; then
 	cd server
 
 	git clone $SERVER -b $SERVER_BRANCH
-	cd *
+	url_arr+=($(echo $SERVER | grep -Po '[^\/]+'));
+	repo=$(echo ${url_arr[3]} | grep -Po '^[^.]+');
+	cd $repo;
 	echo "$PWD" > $server_file	
 else
 	cd $server_path
