@@ -56,7 +56,7 @@ if [ "$1" == "comment" ]; then
 	fi
 	
 	function comment {
-		
+		body=""
 		if [ "$1" == true ]; then
 	 		body+="Build Success" 
 		else
