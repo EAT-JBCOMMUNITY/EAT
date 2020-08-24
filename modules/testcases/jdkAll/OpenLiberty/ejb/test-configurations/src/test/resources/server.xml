@@ -1,0 +1,17 @@
+<server description="new server">
+
+  <featureManager>
+
+    <!-- Enable the following features to run tests with Arquillian managed container -->
+    <!-- tag::localConnector[] -->
+    <feature>localConnector-1.0</feature>
+    <feature>ejb-3.2</feature>
+    <!-- end::localConnector[] -->
+    <!-- tag::Servlet[] -->
+    <feature>servlet-4.0</feature>
+    <!-- end::Servlet[] -->
+  </featureManager>
+
+  <httpEndpoint id="defaultHttpEndpoint" httpPort="9080" httpsPort="9443" />
+  <webApplication location="guide-arquillian-managed.war" context-root="/"/>
+</server>
