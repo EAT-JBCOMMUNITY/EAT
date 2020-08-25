@@ -1,0 +1,3 @@
+localConnector, 1.0
+servlet, 4.0
+ejb, 3.2
