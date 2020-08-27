@@ -7,6 +7,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
@@ -24,6 +26,7 @@ public class PanelMain extends JPanel{
     private final String[] options = {"Specific Pull Request", "All Pull Requests"};
     private JButton start;
     private JRadioButton rb_pr, rb_all;
+    private JTextField at_field, program_field;
     
     public PanelMain(){
         setLayout(new FlowLayout(FlowLayout.LEADING, 10, 20));
@@ -39,7 +42,7 @@ public class PanelMain extends JPanel{
         rb_all = new JRadioButton(options[1]);    
         rb_pr.setBounds(75,50,100,30);    
         rb_all.setBounds(75,100,100,30);   
-        rb_pr.setSelected(true);
+        rb_all.setSelected(true);
         
         ButtonGroup bg = new ButtonGroup();    
         bg.add(rb_pr);
@@ -60,6 +63,7 @@ public class PanelMain extends JPanel{
         JPanel group_1 = new JPanel();
         group_1.setLayout(new BorderLayout());
         group_1.add(new JLabel("SERVER"), BorderLayout.WEST);
+        
         group_1.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
         inputs_pr.add(group_1);
         inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
@@ -120,24 +124,24 @@ public class PanelMain extends JPanel{
       
         JPanel group_9 = new JPanel();
         group_9.setLayout(new BorderLayout());
-        group_9.add(new JLabel("EAT"), BorderLayout.WEST);
-        JTextField eat_field = new JTextField(FIELD_SIZE);
-        eat_field.setMaximumSize(eat_field.getPreferredSize());
-        group_9.add(eat_field, BorderLayout.EAST);
+        group_9.add(new JLabel("AT"), BorderLayout.WEST);
+        at_field = new JTextField(FIELD_SIZE);
+        group_9.add(at_field, BorderLayout.EAST);
         inputs_all.add(group_9);
         inputs_all.add(Box.createRigidArea(new Dimension(0, 5)));
          
         JPanel group_10 = new JPanel();
         group_10.setLayout(new BorderLayout());
-        group_10.add(new JLabel("SERVER"), BorderLayout.WEST);
-        group_10.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
+        group_10.add(new JLabel("PROGRAM"), BorderLayout.WEST);
+        program_field = new JTextField(FIELD_SIZE);
+        group_10.add(program_field, BorderLayout.EAST);
         inputs_all.add(group_10);
         
         inputs_all.add(Box.createRigidArea(new Dimension(0, group_1.getPreferredSize().height*8)));
         inputs.add(inputs_all, "all");
         
         //Show PR card
-        cl.show(inputs, "pr");
+        cl.show(inputs, "all");
         
         left_panel.add(inputs);
         
@@ -166,6 +170,7 @@ public class PanelMain extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 cl.show(inputs, "pr");
+                
             }
         });
         
@@ -175,5 +180,21 @@ public class PanelMain extends JPanel{
                 cl.show(inputs, "all");
             }
         });
+    }
+    
+    public void addActionListener(ActionListener lis) {
+        start.addActionListener(lis);
+    }
+    
+    public Map getParameters() {
+        Map<String, String> map = new HashMap<>();
+        
+        if(rb_pr.isSelected()) {
+        
+        }else{
+            map.put("AT", at_field.getText());
+            map.put("PROGRAM", program_field.getText());
+        }
+        return map;
     }
 }
