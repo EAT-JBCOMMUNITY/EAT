@@ -1,9 +1,12 @@
 package ciui;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
@@ -18,11 +21,13 @@ import javax.swing.JTextField;
 public class PanelMain extends JPanel{
     
     private final int FIELD_SIZE=15;
-    private String[] options = {"Specific Pull Request", "All Pull Requests"};
+    private final String[] options = {"Specific Pull Request", "All Pull Requests"};
     private JButton start;
+    private JRadioButton rb_pr, rb_all;
     
     public PanelMain(){
-        setLayout(new FlowLayout(FlowLayout.CENTER, 10, 20));
+        setLayout(new FlowLayout(FlowLayout.LEADING, 10, 20));
+        //setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         
         JPanel left_panel = new JPanel();
         left_panel.setLayout(new BoxLayout(left_panel, BoxLayout.Y_AXIS));
@@ -30,83 +35,116 @@ public class PanelMain extends JPanel{
         
         JPanel radio_panel = new JPanel();
         
-        JRadioButton r1 = new JRadioButton(options[0]);
-        JRadioButton r2 = new JRadioButton(options[1]);    
-        r1.setBounds(75,50,100,30);    
-        r2.setBounds(75,100,100,30);   
-        r1.setSelected(true);
+        rb_pr = new JRadioButton(options[0]);
+        rb_all = new JRadioButton(options[1]);    
+        rb_pr.setBounds(75,50,100,30);    
+        rb_all.setBounds(75,100,100,30);   
+        rb_pr.setSelected(true);
         
         ButtonGroup bg = new ButtonGroup();    
-        bg.add(r1);
-        bg.add(r2);    
+        bg.add(rb_pr);
+        bg.add(rb_all);    
         
-        radio_panel.add(r1);
-        radio_panel.add(r2);
+        radio_panel.add(rb_pr);
+        radio_panel.add(rb_all);
         
         left_panel.add(radio_panel);
         
         JPanel inputs = new JPanel();
-        inputs.setLayout(new BoxLayout(inputs, BoxLayout.Y_AXIS));
+        CardLayout cl = new CardLayout();
+        inputs.setLayout(cl);
+        
+        JPanel inputs_pr = new JPanel();
+        inputs_pr.setLayout(new BoxLayout(inputs_pr, BoxLayout.Y_AXIS));
       
         JPanel group_1 = new JPanel();
         group_1.setLayout(new BorderLayout());
         group_1.add(new JLabel("SERVER"), BorderLayout.WEST);
         group_1.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
-        inputs.add(group_1);
-        inputs.add(Box.createRigidArea(new Dimension(0, 5)));
+        inputs_pr.add(group_1);
+        inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
          
         JPanel group_2 = new JPanel();
         group_2.setLayout(new BorderLayout());
         group_2.add(new JLabel("SERVER_PR"), BorderLayout.WEST);
         group_2.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
-        inputs.add(group_2);
-        inputs.add(Box.createRigidArea(new Dimension(0, 5)));
+        inputs_pr.add(group_2);
+        inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
         
         JPanel group_3 = new JPanel();
         group_3.setLayout(new BorderLayout());
         group_3.add(new JLabel("SERVER_BRANCH"), BorderLayout.WEST);
         group_3.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
-        inputs.add(group_3);
-        inputs.add(Box.createRigidArea(new Dimension(0, 5)));
+        inputs_pr.add(group_3);
+        inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
         
         JPanel group_4 = new JPanel();
         group_4.setLayout(new BorderLayout());
         group_4.add(new JLabel("EAT"), BorderLayout.WEST);
         group_4.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
-        inputs.add(group_4);
-        inputs.add(Box.createRigidArea(new Dimension(0, 5)));
+        inputs_pr.add(group_4);
+        inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
         
         JPanel group_5 = new JPanel();
         group_5.setLayout(new BorderLayout());
         group_5.add(new JLabel("EAT_PR"), BorderLayout.WEST);
         group_5.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
-        inputs.add(group_5);
-        inputs.add(Box.createRigidArea(new Dimension(0, 5)));
+        inputs_pr.add(group_5);
+        inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
         
         JPanel group_6 = new JPanel();
         group_6.setLayout(new BorderLayout());
         group_6.add(new JLabel("EAT_BRANCH"), BorderLayout.WEST);
         group_6.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
-        inputs.add(group_6);
-        inputs.add(Box.createRigidArea(new Dimension(0, 5)));
+        inputs_pr.add(group_6);
+        inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
         
         JPanel group_7 = new JPanel();
         group_7.setLayout(new BorderLayout());
         group_7.add(new JLabel("TEST_CATEGORY"), BorderLayout.WEST);
         group_7.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
-        inputs.add(group_7);
-        inputs.add(Box.createRigidArea(new Dimension(0, 5)));
+        inputs_pr.add(group_7);
+        inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
         
         JPanel group_8 = new JPanel();
         group_8.setLayout(new BorderLayout());
         group_8.add(new JLabel("SERVER_BUILD"), BorderLayout.WEST);
         group_8.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
-        inputs.add(group_8);
+        inputs_pr.add(group_8);
+       
+        
+        inputs.add(inputs_pr, "pr");
+
+        JPanel inputs_all = new JPanel();
+        inputs_all.setLayout(new BoxLayout(inputs_all, BoxLayout.Y_AXIS));
+      
+        JPanel group_9 = new JPanel();
+        group_9.setLayout(new BorderLayout());
+        group_9.add(new JLabel("EAT"), BorderLayout.WEST);
+        JTextField eat_field = new JTextField(FIELD_SIZE);
+        eat_field.setMaximumSize(eat_field.getPreferredSize());
+        group_9.add(eat_field, BorderLayout.EAST);
+        inputs_all.add(group_9);
+        inputs_all.add(Box.createRigidArea(new Dimension(0, 5)));
+         
+        JPanel group_10 = new JPanel();
+        group_10.setLayout(new BorderLayout());
+        group_10.add(new JLabel("SERVER"), BorderLayout.WEST);
+        group_10.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
+        inputs_all.add(group_10);
+        
+        inputs_all.add(Box.createRigidArea(new Dimension(0, group_1.getPreferredSize().height*8)));
+        inputs.add(inputs_all, "all");
+        
+        //Show PR card
+        cl.show(inputs, "pr");
         
         left_panel.add(inputs);
+        
+        add(left_panel);
 
         JPanel right_panel = new JPanel();
-        right_panel.setLayout(new BoxLayout(right_panel, BoxLayout.PAGE_AXIS));
+        right_panel.setLayout(new BoxLayout(right_panel, BoxLayout.Y_AXIS));
         right_panel.setPreferredSize(new Dimension(300, 300));
         
         start = new JButton("Start");
@@ -121,7 +159,21 @@ public class PanelMain extends JPanel{
         output_log.setLineWrap(true);
         right_panel.add(output_log);
 
-        add(left_panel);
         add(right_panel);
+        
+        //Listeners
+        rb_pr.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cl.show(inputs, "pr");
+            }
+        });
+        
+        rb_all.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cl.show(inputs, "all");
+            }
+        });
     }
 }

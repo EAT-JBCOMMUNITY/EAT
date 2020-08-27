@@ -10,11 +10,10 @@ public class Window extends JFrame{
     private CardLayout cl = new CardLayout();
     
     public Window() {
-        
         setTitle("CIUI");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(new Dimension(1000, 700));
-        setMinimumSize(new Dimension(700, 500));
+        setSize(new Dimension(700, 500));
+        setResizable(false);
         setLayout(cl);
         
         //Close button event
@@ -29,6 +28,7 @@ public class Window extends JFrame{
     
     public void setPanel(String name) {
         cl.show(this.getContentPane(), name);
+        this.pack();
         this.setVisible(true);
     }
 }
