@@ -1,15 +1,17 @@
 package ciui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import javax.swing.JPanel;
+import java.util.Map;
 
 
 public class Controller {
    
-    Window window;
-    JPanel panel_main;
+    private Window window;
+    private PanelMain panel_main;
     
     public Controller() {
         window = new Window();
@@ -19,13 +21,29 @@ public class Controller {
     }
     
     public void open_window() {
-        window.setPanel("Menu"); 
-        System.out.println("Running");
+        window.setPanel("Menu");
+        
+        panel_main.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                run_ci(panel_main.getParameters());
+            }
+        });
     }
     
-    public void run_ci() {
+    public void run_ci(Map<String, String> param_map) {
         try {
-            Process p = new ProcessBuilder("bash", "-c", "echo $pwd").start();
+            String command;
+            command = "./run.sh -all";
+            
+            ProcessBuilder pb = new ProcessBuilder("/bin/bash", "-c", command);
+            
+            //Export parameters to process
+            for(Map.Entry<String, String> entry : param_map.entrySet()) {
+                pb.environment().put(entry.getKey(), entry.getValue());
+            }
+            
+            Process p = pb.start();
        
             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
             StringBuilder builder = new StringBuilder();

@@ -7,6 +7,5 @@ public class Main {
         
         Controller controller = new Controller();
         controller.open_window();
-        //controller.run_ci();
     }
 }
