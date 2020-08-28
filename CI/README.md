@@ -48,7 +48,7 @@ $ export PROGRAM=https://github.com/wildfly/wildfly
 $ export PROGRAM_PR=13456
 $ export AT=https://github.com/EAT-JBCOMMUNITY/EAT
 $ export AT_PR=29
-$ ./run.sh
+$ ./run.sh (for the config above pr.sh params used need some renaming)
 ```
 
 Extra options 
