@@ -1,52 +1,53 @@
-EAT CI (Unix Based)
+AT CI (Unix Based)
 ===================
 
 ### How it works
+*The CI scripts could be used from the users in order to test their commits with EAT or inside containers on servers in order form an EAT - CI architecture*
 
 First of all you have to set the parameters in your terminal
 
 Parameters:
 <table>
 <tr>
-<td>SERVER</td>
-<td>The server to test EAT (github url)</td>
+<td>PROGRAM</td>
+<td>The program to test AT (github url)</td>
 </tr>
 <tr>
-<td>SERVER_PR</td>
-<td>Pull Request of the server to merge and test</td>
+<td>PROGRAM_PR</td>
+<td>Pull Request of the program to merge and test</td>
 </tr>
 <tr>
-<td>SERVER_BRANCH</td>
-<td>The branch name of the server to be used. Default: master</td>
+<td>PROGRAM_BRANCH</td>
+<td>The branch name of the program to be used. Default: master</td>
 </tr>
 <tr>
-<td>EAT</td>
-<td>EAT (github url)</td>
+<td>AT</td>
+<td>AT (github url)</td>
 </tr>
 <tr>
-<td>EAT_PR</td>
-<td>Pull Request of the EAT to merge and test</td>
+<td>AT_PR</td>
+<td>Pull Request of the AT to merge and test</td>
 </tr>
 <tr>
-<td>EAT_BRANCH</td>
-<td>The branch name of EAT to be used. Default: master</td>
+<td>AT_BRANCH</td>
+<td>The branch name of AT to be used. Default: master</td>
 </tr>
 <tr>
 <td>TEST_CATEGORY</td>
 <td>Category of tests. Default: wildfly</td>
 </tr>
 <tr>
-<td>SERVER_BUILD</td>
-<td>Build the server. Values: true, false. Default: true</td>
+<td>PROGRAM_BUILD</td>
+<td>Build the program. Values: true, false. Default: true</td>
 </tr>
 </table>
 
 e.g.
 ```
-$ export SERVER=https://github.com/wildfly/wildfly
-$ export SERVER_PR=13456
-$ export EAT=https://github.com/EAT-JBCOMMUNITY/EAT
-$ export EAT_PR=29
+$ export PROGRAM=https://github.com/wildfly/wildfly
+$ export PROGRAM_PR=13456
+$ export AT=https://github.com/EAT-JBCOMMUNITY/EAT
+$ export AT_PR=29
 $ ./run.sh
 ```
 
@@ -56,7 +57,7 @@ Extra options
 $ ./run.sh -v
 ```
 
-- Run all Pull Requests of EAT on the given server  
+- Run all Pull Requests of AT on the given program  
 If you run **-all** for first time you have to fill **to_check_PRs.txt**
 ```
 $ ./run.sh -all reset
