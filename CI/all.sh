@@ -129,7 +129,7 @@ do
 			
 				i=$(echo $i | grep -Po '\[.*\]');
 				
-				spr_counter=$(echo "${i:5:${#i}}")
+				spr_counter=$(echo "${i:5:1}")
 
 		  		org=$(echo $i | grep -Po 'org:[^,]*');
 		  		org=$(echo $org | grep -Po '[^:]*$');
