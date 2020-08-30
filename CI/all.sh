@@ -49,7 +49,7 @@ if [ "$1" == "reset" ]; then
 	done
 fi
 
-if [ "$1" == "comment" ]; then
+if [ "$1" == "comment" ] || [ "$2" == "comment" ]; then
 	if [ -z "$GITHUB_TOKEN" ]; then
 	    echo "Authentication failed: Github Access Token Not Found"
 	    exit 1;
@@ -171,12 +171,12 @@ do
 				#Maven return code
 				if [ "$?" -eq 0 ] ; then
 					#OK
-					if [ "$1" == "comment" ]; then
+					if [ "$1" == "comment" ] || [ "$2" == "comment" ]; then
 						comment true "SPR:"$spr_counter
 					fi
 				else
 					#NOT OK
-					if [ "$1" == "comment" ]; then
+					if [ "$1" == "comment" ] || [ "$2" == "comment" ]; then
 						comment false "SPR:"$spr_counter
 					fi
 				fi
@@ -213,12 +213,12 @@ do
 		#Maven return code
 		if [ "$?" -eq 0 ] ; then
 			#OK
-			if [ "$1" == "comment" ]; then
+			if [ "$1" == "comment" ] || [ "$2" == "comment" ]; then
 				comment true
 			fi
 		else
 			#NOT OK
-			if [ "$1" == "comment" ]; then
+			if [ "$1" == "comment" ] || [ "$2" == "comment" ]; then
 				comment false
 			fi
 		fi
