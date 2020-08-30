@@ -6,141 +6,148 @@ if [ -z "$TEST_CATEGORY" ]; then
     TEST_CATEGORY=wildfly
 fi
 
-if [ -z "$SERVER_BUILD" ]; then
-    SERVER_BUILD=true
+if [ -z "$PROGRAM_BUILD" ]; then
+    PROGRAM_BUILD=true
 fi
 
-if [ -z "$EAT_BRANCH" ]; then
-    EAT_BRANCH=master
+if [ -z "$AT_BRANCH" ]; then
+    AT_BRANCH=master
 fi
 
-if [ -z "$SERVER_BRANCH" ]; then
-    SERVER_BRANCH=master
+if [ -z "$PROGRAM_BRANCH" ]; then
+    PROGRAM_BRANCH=master
 fi
 
-eat_file="eat_path.txt"
-server_file="server_path.txt"
+at_file="at_path.txt"
+program_file="program_path.txt"
 
-if ! [ -r $server_file ]; then
-	>> $server_file
+if ! [ -r $program_file ]; then
+	>> $program_file
 fi
-server_path=$(sed '1q;d' $server_file)
+program_path=$(sed '1q;d' $program_file)
 
-if ! [ -r $eat_file ]; then
-	>> $eat_file
+if ! [ -r $at_file ]; then
+	>> $at_file
 fi
-eat_path=$(sed '1q;d' $eat_file)
+at_path=$(sed '1q;d' $at_file)
 
-eat_file=$(realpath $eat_file)
-server_file=$(realpath $server_file)
+at_file=$(realpath $at_file)
+program_file=$(realpath $program_file)
 
-if [ -z "$SERVER" ]; then
-	echo "Define server (github)"
+if [ -z "$PROGRAM" ]; then
+	echo "Define program (github)"
 	echo ""
 	echo "Example"
-	echo "export SERVER=..."
+	echo "export PROGRAM=..."
 	exit 1;
 fi
 
-if [ -z "$EAT" ]; then
-	echo "Define EAT (github)"
+if [ -z "$AT" ]; then
+	echo "Define AT (github)"
 	echo ""
 	echo "Example"
-	echo "export EAT=..."
+	echo "export AT=..."
 	exit 1;
 fi
 
-server_pr_set=false
-if ! [ -z "$SERVER_PR" ] && [ "$SERVER_PR" -gt 0 ]; then
-	server_pr_set=true
+program_pr_set=false
+if ! [ -z "$PROGRAM_PR" ] && [ "$PROGRAM_PR" -gt 0 ]; then
+	program_pr_set=true
 fi
 
-#Check EAT PR status
-eat_prs_get=$(curl -s -n https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/pulls?state=open);
-eat_prs_number=$(echo $eat_prs_get | grep -Po '"number":.*?[^\\],');
-eat_arr+=( $(echo $eat_prs_number | grep -Po '[0-9]*')) ;
+#Check AT PR status
+url_at_arr+=($(echo $AT | grep -Po '[^\/]+'))
+org_at=${url_at_arr[2]}
+repo_at=$(echo ${url_at_arr[3]} | grep -Po '^[^.]+')
+at_prs_get=$(curl -s -n "https://api.github.com/repos/$org_at/$repo_at/pulls?state=open");
+at_prs_number=$(echo $at_prs_get | grep -Po '"number":.*?[^\\],');
+at_arr+=( $(echo $at_prs_number | grep -Po '[0-9]*')) ;
 
-eat_pr_found=false
+at_pr_found=false
 
-for i in "${eat_arr[@]}"
+for i in "${at_arr[@]}"
 do
-	if [ $i == $EAT_PR ]; then
-		eat_pr_found=true;
+	if [ $i == $AT_PR ]; then
+		at_pr_found=true;
 		break
 	fi
 done
 
-if [ $eat_pr_found == false ]; then
+if [ $at_pr_found == false ]; then
 	echo "Pull Request not found."
 fi
 
 #Run CI
-if [ -z "$server_path" ]; then
-	mkdir server
-	cd server
+if [ -z "$program_path" ]; then
+	mkdir program
+	cd program
 
-	git clone $SERVER -b $SERVER_BRANCH
-	url_arr+=($(echo $SERVER | grep -Po '[^\/]+'));
+	git clone $PROGRAM -b $PROGRAM_BRANCH
+	url_arr+=($(echo $PROGRAM | grep -Po '[^\/]+'));
 	repo=$(echo ${url_arr[3]} | grep -Po '^[^.]+');
 	cd $repo;
-	echo "$PWD" > $server_file	
+	echo "$PWD" > $program_file	
 else
-	cd $server_path
+	cd $program_path
 	echo $PWD
 fi
 
-server_path=$(sed '1q;d' $server_file)
+program_path=$(sed '1q;d' $program_file)
 
-#Merge server's PR if found
-if [ $server_pr_set == true ]; then
+url_prog_arr+=($(echo $PROGRAM | grep -Po '[^\/]+'))
+org_prog=${url_prog_arr[2]}
+repo_prog=$(echo ${url_prog_arr[3]} | grep -Po '^[^.]+')
+
+#Merge program's PR if found
+if [ $program_pr_set == true ]; then
 
 	#Check Server PR status
-	server_prs_get=$(curl -s -n https://api.github.com/repos/wildfly/wildfly/pulls?state=open);
-	server_prs_number=$(echo $server_prs_get | grep -Po '"number":.*?[^\\],');
-	server_arr+=( $(echo $server_prs_number | grep -Po '[0-9]*')) ;
+	program_prs_get=$(curl -s -n "https://api.github.com/repos/$org_prog/$repo_prog/pulls?state=open");
+	program_prs_number=$(echo $program_prs_get | grep -Po '"number":.*?[^\\],');
+	program_arr+=( $(echo $program_prs_number | grep -Po '[0-9]*')) ;
 
-	server_pr_found=false
+	program_pr_found=false
 
-	for i in "${server_arr[@]}"
+	for i in "${program_arr[@]}"
 	do
-		if [ $i == $SERVER_PR ]; then
-			server_pr_found=true;
+		if [ $i == $PROGRAM_PR ]; then
+			program_pr_found=true;
 			break
 		fi
 	done
 
-	if [ $server_pr_found == true ]; then
+	if [ $program_pr_found == true ]; then
 	        git checkout .;
-		git fetch origin +refs/pull/$SERVER_PR/merge;
+		git fetch origin +refs/pull/$PROGRAM_PR/merge;
 		git checkout FETCH_HEAD;
-		git pull --rebase origin $SERVER_BRANCH;
+		git pull --rebase origin $PROGRAM_BRANCH;
 		
 		echo "Server: Merging Done"
 		echo ""
 	fi	
 fi
 
-if [ -z "$eat_path" ]; then
-	mkdir eat
-	cd eat
+if [ -z "$at_path" ]; then
+	mkdir at
+	cd at
 
-	git clone $EAT -b $EAT_BRANCH
-	cd EAT
-	echo "$PWD" > $eat_file
+	git clone $AT -b $AT_BRANCH
+	cd $repo_at
+	echo "$PWD" > $at_file
 	
 else
-	cd $eat_path
+	cd $at_path
 	echo $PWD
 fi
 
-eat_path=$(sed '1q;d' $eat_file)
+at_path=$(sed '1q;d' $at_file)
 
 #Merge PR
-if [ $eat_pr_found == true ]; then
+if [ $at_pr_found == true ]; then
         git checkout .;
-	git fetch origin +refs/pull/$EAT_PR/merge;
+	git fetch origin +refs/pull/$AT_PR/merge;
 	git checkout FETCH_HEAD;
-	git pull --rebase origin $EAT_BRANCH;
+	git pull --rebase origin $AT_BRANCH;
 	
 	echo "Testsuite: Merging Done"
 	echo ""
@@ -148,24 +155,24 @@ fi
 
 #Building
 echo "Server: Building ..."
-cd $server_path
+cd $program_path
 
-if [ $SERVER_BUILD == true ]; then
+if [ $PROGRAM_BUILD == true ]; then
     mvn clean install -DskipTests
 fi
 
-server_pom=$(<pom.xml)
-version=$(echo $server_pom | grep -Po '<version>[0-9]*\.[0-9]*\.[0-9]*\.[a-zA-Z0-9-]*<\/version>');
+program_pom=$(<pom.xml)
+version=$(echo $program_pom | grep -Po '<version>[0-9]*\.[0-9]*\.[0-9]*\.[a-zA-Z0-9-]*<\/version>');
 version=$(echo $version | grep -Po '[0-9]*\.[0-9]*\.[0-9]*\.[a-zA-Z0-9-]*');
 
 if [ -z "$JBOSS_VERSION" ]; then
     export JBOSS_VERSION=$version
 fi
 if [ -z "$JBOSS_FOLDER" ]; then
-    export JBOSS_FOLDER=$PWD/dist/target/wildfly-$JBOSS_VERSION/
+    export JBOSS_FOLDER=$PWD/dist/target/$repo_prog-$JBOSS_VERSION/
 fi
 
-cd $eat_path
+cd $at_path
 
 echo "Testsuite: Building ..."
 mvn clean install -D$TEST_CATEGORY -Dstandalone
