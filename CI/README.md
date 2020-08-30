@@ -78,6 +78,8 @@ $ export GITHUB_TOKEN=generated token from Github
 Run CI with comment option
 ```
 $ ./run.sh -all comment
+or
+$ ./run.sh -all reset comment
 ```
 
 Customizing the at scripts
