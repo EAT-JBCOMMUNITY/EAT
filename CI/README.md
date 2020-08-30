@@ -48,7 +48,7 @@ $ export PROGRAM=https://github.com/wildfly/wildfly
 $ export PROGRAM_PR=13456
 $ export AT=https://github.com/EAT-JBCOMMUNITY/EAT
 $ export AT_PR=29
-$ ./run.sh (for the config above pr.sh params used need some renaming)
+$ ./run.sh
 ```
 
 Extra options 
@@ -79,3 +79,14 @@ Run CI with comment option
 ```
 $ ./run.sh -all comment
 ```
+
+Customizing the at scripts
+```
+In case some AT needs specific ci script customization the at.sh script could be used/customized
+
+e.g.
+$ export PROGRAM=https://github.com/jbossas/jboss-threads.git
+$ export AT=export AT=https://github.com/panossot/JBTAT.git
+$ ./run.sh -at
+```
+
