@@ -12,6 +12,7 @@ public class Controller {
    
     private Window window;
     private PanelMain panel_main;
+    private String output_line;
     
     public Controller() {
         window = new Window();
@@ -44,21 +45,24 @@ public class Controller {
             }
             
             Process p = pb.start();
-       
-            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            StringBuilder builder = new StringBuilder();
-            String line = null;
-            while((line = reader.readLine()) != null) {
-               
-               builder.append(line);
-               //builder.append(System.getProperty("line.separator"));
-            }
             
-            String result = builder.toString();
-            System.out.println(result);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            
+            Thread live_output = new Thread() {
+                public void run() {
+                    try {
+                        while((output_line = reader.readLine()) != null) {
+                            panel_main.appendOutputLog(output_line+System.getProperty("line.separator"));
+                        } 
+                    }catch(IOException e) {
+                    
+                    }
+                }  
+            };
+            live_output.start();
             
         }catch(IOException e) {
-            e.printStackTrace();
+            
         }
     }
 }
