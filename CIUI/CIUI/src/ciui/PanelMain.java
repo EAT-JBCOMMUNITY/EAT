@@ -27,6 +27,7 @@ public class PanelMain extends JPanel{
     private JButton start;
     private JRadioButton rb_pr, rb_all;
     private JTextField at_field, program_field;
+    private JTextArea output_log;
     
     public PanelMain(){
         setLayout(new FlowLayout(FlowLayout.LEADING, 10, 20));
@@ -159,7 +160,7 @@ public class PanelMain extends JPanel{
         
         right_panel.add(Box.createRigidArea(new Dimension(0, 10)));
         
-        JTextArea output_log = new JTextArea(5, 10);
+        output_log = new JTextArea(5, 10);
         output_log.setLineWrap(true);
         right_panel.add(output_log);
 
@@ -196,5 +197,9 @@ public class PanelMain extends JPanel{
             map.put("PROGRAM", program_field.getText());
         }
         return map;
+    }
+    
+    public void appendOutputLog(String text) {
+        output_log.setText(output_log.getText()+text);
     }
 }
