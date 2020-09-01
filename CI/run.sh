@@ -6,8 +6,8 @@ if [ "$1" == "-v" ]; then
 	./v.sh
 	
 elif [ "$1" == "-wildfly" ]; then
-	export SERVER="https://github.com/wildfly/wildfly"
-	export EAT="https://github.com/EAT-JBCOMMUNITY/EAT"
+	export PROGRAM="https://github.com/wildfly/wildfly"
+	export AT="https://github.com/EAT-JBCOMMUNITY/EAT"
 	
 	./v.sh
 	echo ""
