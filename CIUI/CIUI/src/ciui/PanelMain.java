@@ -16,8 +16,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 
 
 public class PanelMain extends JPanel{
@@ -162,7 +164,10 @@ public class PanelMain extends JPanel{
         
         output_log = new JTextArea(5, 10);
         output_log.setLineWrap(true);
-        right_panel.add(output_log);
+        output_log.setEditable(false);
+        JScrollPane scroll = new JScrollPane(output_log);
+        scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        right_panel.add(scroll);
 
         add(right_panel);
         
