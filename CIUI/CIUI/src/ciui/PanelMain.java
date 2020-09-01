@@ -147,21 +147,20 @@ public class PanelMain extends JPanel{
         cl.show(inputs, "all");
         
         left_panel.add(inputs);
+        left_panel.add(Box.createRigidArea(new Dimension(0, 32)));
         
         add(left_panel);
 
-        JPanel right_panel = new JPanel();
-        right_panel.setLayout(new BoxLayout(right_panel, BoxLayout.Y_AXIS));
-        right_panel.setPreferredSize(new Dimension(300, 300));
-        
         start = new JButton("Start");
         start.setMinimumSize(new Dimension(300, 30));
         start.setMaximumSize(new Dimension(300, 30));
         start.setAlignmentX(Component.CENTER_ALIGNMENT);
-        right_panel.add(start);
+        left_panel.add(start);
         
-        right_panel.add(Box.createRigidArea(new Dimension(0, 10)));
-        
+        JPanel right_panel = new JPanel();
+        right_panel.setLayout(new BoxLayout(right_panel, BoxLayout.Y_AXIS));
+        right_panel.setPreferredSize(new Dimension(300, 300));
+            
         output_log = new JTextArea(5, 10);
         output_log.setLineWrap(true);
         output_log.setEditable(false);
