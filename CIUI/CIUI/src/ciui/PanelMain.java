@@ -2,9 +2,11 @@ package ciui;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
@@ -41,6 +43,7 @@ public class PanelMain extends JPanel{
         JPanel label_panel = new JPanel();
         label_panel.setLayout(new BorderLayout());
         msg_label = new JLabel();
+        msg_label.setFont(new Font("Helvetica", Font.PLAIN, 14));
         label_panel.add(msg_label);
         left_panel.add(label_panel);
          
@@ -206,6 +209,16 @@ public class PanelMain extends JPanel{
             map.put("PROGRAM", program_field.getText());
         }
         return map;
+    }
+    
+    public void successMessage(String text) {
+        msg_label.setForeground(new Color(13,169,13));
+        msg_label.setText(text);
+    }
+    
+    public void failureMessage(String text) {
+        msg_label.setForeground(Color.RED);
+        msg_label.setText(text);
     }
     
     public void appendOutputLog(String text) {
