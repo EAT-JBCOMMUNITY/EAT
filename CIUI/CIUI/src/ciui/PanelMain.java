@@ -26,6 +26,7 @@ public class PanelMain extends JPanel{
     
     private final int FIELD_SIZE=15;
     private final String[] options = {"Specific Pull Request", "All Pull Requests"};
+    private JLabel msg_label;
     private JButton start;
     private JRadioButton rb_pr, rb_all;
     private JTextField at_field, program_field;
@@ -33,12 +34,16 @@ public class PanelMain extends JPanel{
     
     public PanelMain(){
         setLayout(new FlowLayout(FlowLayout.LEADING, 10, 20));
-        //setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         
         JPanel left_panel = new JPanel();
         left_panel.setLayout(new BoxLayout(left_panel, BoxLayout.Y_AXIS));
         
-        
+        JPanel label_panel = new JPanel();
+        label_panel.setLayout(new BorderLayout());
+        msg_label = new JLabel();
+        label_panel.add(msg_label);
+        left_panel.add(label_panel);
+         
         JPanel radio_panel = new JPanel();
         
         rb_pr = new JRadioButton(options[0]);
