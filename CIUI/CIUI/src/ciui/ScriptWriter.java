@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 
 public class ScriptWriter {
@@ -14,10 +15,20 @@ public class ScriptWriter {
     
     public ScriptWriter() {
         sb = new StringBuilder();
+        sb.append("#!/bin/bash\n\n");
     }
     
-    public void parseData() {
-        /* TODO parse data to string*/
+    public void parseData(Map<String, String> param_map) {
+        for(Map.Entry<String, String> entry : param_map.entrySet()) {
+                sb.append("export ");
+                sb.append(entry.getKey());
+                sb.append("=");
+                sb.append(entry.getValue());
+                sb.append("\n");
+        }
+        
+        //Add run command
+        sb.append("./run.sh ");
     }
     
     public void createFile() {
