@@ -12,7 +12,7 @@ elif [ "$1" == "-wildfly" ]; then
 	./v.sh
 	echo ""
 	
-	echo "Building: Latest Wildfly + EAT"
+	echo "Testing: Latest Wildfly + EAT"
 	echo ""
 	
 	./pr.sh
@@ -35,13 +35,13 @@ elif [ "$1" == "-activemq" ]; then
 	
 	echo ""
 	
-	echo "Building: Latest Apache ActiveMQ + ActiveMQ AT"
+	echo "Testing: Latest Apache ActiveMQ + ActiveMQ AT"
 	echo ""
 	cd ..
 	./pr.sh
 elif [ "$1" == "-activemq-artemis" ]; then
-        mkdir activemqdir
-        cd activemqdir
+        mkdir activemq-artemis
+        cd activemq-artemis
 	export PROGRAM="https://github.com/apache/activemq-artemis"
 	export AT="https://github.com/panossot/ArtemisActivemqAT"
 	wget https://raw.githubusercontent.com/apache/activemq-artemis/master/pom.xml
@@ -54,13 +54,13 @@ elif [ "$1" == "-activemq-artemis" ]; then
 	
 	echo ""
 	
-	echo "Building: Latest Apache Artemis ActiveMQ + Artemis ActiveMQ AT"
+	echo "Testing: Latest Apache Artemis ActiveMQ + Artemis ActiveMQ AT"
 	echo ""
 	cd ..
 	./pr.sh
 elif [ "$1" == "-jboss-threads" ]; then
-        mkdir activemqdir
-        cd activemqdir
+        mkdir jboss-threads
+        cd jboss-threads
 	export PROGRAM="https://github.com/jbossas/jboss-threads"
 	export AT="https://github.com/panossot/JBTAT"
 	wget https://raw.githubusercontent.com/jbossas/jboss-threads/master/pom.xml
@@ -73,14 +73,14 @@ elif [ "$1" == "-jboss-threads" ]; then
 	
 	echo ""
 	
-	echo "Building: Latest JBoss Threads + JBoss Threads AT"
+	echo "Testing: Latest JBoss Threads + JBoss Threads AT"
 	echo "JDK 9 should be used"
 	echo ""
 	cd ..
 	./pr.sh
 elif [ "$1" == "-jboss-modules" ]; then
-        mkdir activemqdir
-        cd activemqdir
+        mkdir jboss-module
+        cd jboss-module
 	export PROGRAM="https://github.com/jboss-modules/jboss-modules"
 	export AT="https://github.com/panossot/JBossModulesAT"
 	export PROGRAM_BRANCH=1.x
@@ -94,7 +94,25 @@ elif [ "$1" == "-jboss-modules" ]; then
 	
 	echo ""
 	
-	echo "Building: Latest JBoss Modules + JBoss Modules AT"
+	echo "Testing: Latest JBoss Modules + JBoss Modules AT"
+	echo "JDK 9 should be used"
+	echo ""
+	cd ..
+	./pr.sh
+elif [ "$1" == "-openliberty" ]; then
+        mkdir openliberty
+        cd openliberty
+	export PROGRAM="https://github.com/OpenLiberty/open-liberty"
+	export AT="https://github.com/panossot/OAT"
+	wget https://raw.githubusercontent.com/panossot/OAT/master/features.txt
+	export FEATURE_LIST=$PWD/features.txt
+	export PROGRAM_BUILD=false
+	export OPENLIBERTY_VERSION=RELEASE
+	export TEST_CATEGORY=openliberty
+	
+	echo ""
+	
+	echo "Testing: Latest Open Liberty release + Open Liberty AT"
 	echo "JDK 9 should be used"
 	echo ""
 	cd ..
