@@ -81,6 +81,24 @@ $ ./run.sh -all comment
 or
 $ ./run.sh -all reset comment
 ```
+Run CI using menu options
+```
+Test Wildfly
+$ ./run.sh -wildfly
+
+Test ActiveMQ
+$ ./run.sh -activemq
+
+Test Artemis Activemq
+$ ./run.sh -activemq-artemis
+
+Test JBoss Threads
+$ ./run.sh -jboss-threads
+
+Test JBoss Modules
+$ ./run.sh -jboss-modules
+```
+
 
 Customizing the at scripts
 ```
