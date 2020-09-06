@@ -113,7 +113,6 @@ elif [ "$1" == "-openliberty" ]; then
 	echo ""
 	
 	echo "Testing: Latest Open Liberty release + Open Liberty AT"
-	echo "JDK 9 should be used"
 	echo ""
 	cd ..
 	./pr.sh
