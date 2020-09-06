@@ -3,7 +3,6 @@ package ciui;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 
 
@@ -18,7 +17,7 @@ public class ScriptWriter {
         sb.append("#!/bin/bash\n\n");
     }
     
-    public void parseData(Map<String, String> param_map) {
+    public void parseData(Map<String, String> param_map, Commands command) {
         for(Map.Entry<String, String> entry : param_map.entrySet()) {
                 sb.append("export ");
                 sb.append(entry.getKey());
@@ -26,9 +25,11 @@ public class ScriptWriter {
                 sb.append(entry.getValue());
                 sb.append("\n");
         }
+        sb.append("\n");
         
         //Add run command
         sb.append("./run.sh ");
+        sb.append(command.getCommand());
     }
     
     public void createFile() {

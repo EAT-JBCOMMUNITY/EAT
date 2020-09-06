@@ -211,6 +211,17 @@ public class PanelMain extends JPanel{
         return map;
     }
     
+    public Commands getCommand() {
+        Commands command = null;
+        
+        if(rb_pr.isSelected()) {
+            
+        }else{
+            command = Commands.ALL;
+        }
+        return command;
+    }
+    
     public void successMessage(String text) {
         msg_label.setForeground(new Color(13,169,13));
         msg_label.setText(text);
