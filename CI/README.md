@@ -97,6 +97,9 @@ $ ./run.sh -jboss-threads
 
 Test JBoss Modules
 $ ./run.sh -jboss-modules
+
+Test Open Liberty
+$ ./run.sh -openliberty
 ```
 
 
