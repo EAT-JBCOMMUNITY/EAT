@@ -73,7 +73,7 @@ public class PanelMain extends JPanel{
       
         JPanel group_1 = new JPanel();
         group_1.setLayout(new BorderLayout());
-        group_1.add(new JLabel("SERVER"), BorderLayout.WEST);
+        group_1.add(new JLabel("PROGRAM"), BorderLayout.WEST);
         
         group_1.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
         inputs_pr.add(group_1);
@@ -81,35 +81,35 @@ public class PanelMain extends JPanel{
          
         JPanel group_2 = new JPanel();
         group_2.setLayout(new BorderLayout());
-        group_2.add(new JLabel("SERVER_PR"), BorderLayout.WEST);
+        group_2.add(new JLabel("PROGRAM_PR"), BorderLayout.WEST);
         group_2.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
         inputs_pr.add(group_2);
         inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
         
         JPanel group_3 = new JPanel();
         group_3.setLayout(new BorderLayout());
-        group_3.add(new JLabel("SERVER_BRANCH"), BorderLayout.WEST);
+        group_3.add(new JLabel("PROGRAM_BRANCH"), BorderLayout.WEST);
         group_3.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
         inputs_pr.add(group_3);
         inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
         
         JPanel group_4 = new JPanel();
         group_4.setLayout(new BorderLayout());
-        group_4.add(new JLabel("EAT"), BorderLayout.WEST);
+        group_4.add(new JLabel("AT"), BorderLayout.WEST);
         group_4.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
         inputs_pr.add(group_4);
         inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
         
         JPanel group_5 = new JPanel();
         group_5.setLayout(new BorderLayout());
-        group_5.add(new JLabel("EAT_PR"), BorderLayout.WEST);
+        group_5.add(new JLabel("AT_PR"), BorderLayout.WEST);
         group_5.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
         inputs_pr.add(group_5);
         inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
         
         JPanel group_6 = new JPanel();
         group_6.setLayout(new BorderLayout());
-        group_6.add(new JLabel("EAT_BRANCH"), BorderLayout.WEST);
+        group_6.add(new JLabel("AT_BRANCH"), BorderLayout.WEST);
         group_6.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
         inputs_pr.add(group_6);
         inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
@@ -123,7 +123,7 @@ public class PanelMain extends JPanel{
         
         JPanel group_8 = new JPanel();
         group_8.setLayout(new BorderLayout());
-        group_8.add(new JLabel("SERVER_BUILD"), BorderLayout.WEST);
+        group_8.add(new JLabel("PROGRAM_BUILD"), BorderLayout.WEST);
         group_8.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
         inputs_pr.add(group_8);
        
