@@ -33,9 +33,14 @@ public class ScriptWriter {
     }
     
     public void createFile() {
-        try {
-            //Creating the file
+        try {          
             file = new File("gen.sh");
+            
+            //Delete existing file
+            if(file.exists())
+                file.delete();
+            
+            //Creating the file
             file.createNewFile();
             
             //Start writing
