@@ -2,6 +2,7 @@ package ciui;
 
 
 public enum Commands {
+    AT("-at"),
     ALL("-all");
     
     private String command;
