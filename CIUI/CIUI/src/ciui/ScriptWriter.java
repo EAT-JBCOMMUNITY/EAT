@@ -45,8 +45,9 @@ public class ScriptWriter {
             //Releasing resources
             fw.close();
             
-            //Set it read only
+            //Set it read only and executable
             file.setReadOnly();
+            file.setExecutable(true);
             
         }catch(IOException e) {
         
