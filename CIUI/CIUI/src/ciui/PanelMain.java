@@ -15,6 +15,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -31,8 +32,10 @@ public class PanelMain extends JPanel{
     private JLabel msg_label;
     private JButton start;
     private JRadioButton rb_pr, rb_all;
-    private JTextField at_field, program_field;
+    private JTextField program_field, program_pr_field, program_branch_field, at_field, at_pr_field, at_branch_field, at_test_category_field;
+    private JTextField program_all_field, at_all_field;
     private JTextArea output_log;
+    private JComboBox program_build_combo;
     
     public PanelMain(){
         setLayout(new FlowLayout(FlowLayout.LEADING, 10, 20));
@@ -53,11 +56,11 @@ public class PanelMain extends JPanel{
         rb_all = new JRadioButton(options[1]);    
         rb_pr.setBounds(75,50,100,30);    
         rb_all.setBounds(75,100,100,30);   
-        rb_all.setSelected(true);
+        rb_pr.setSelected(true);
         
         ButtonGroup bg = new ButtonGroup();    
         bg.add(rb_pr);
-        bg.add(rb_all);    
+        bg.add(rb_all);
         
         radio_panel.add(rb_pr);
         radio_panel.add(rb_all);
@@ -74,57 +77,67 @@ public class PanelMain extends JPanel{
         JPanel group_1 = new JPanel();
         group_1.setLayout(new BorderLayout());
         group_1.add(new JLabel("PROGRAM"), BorderLayout.WEST);
-        
-        group_1.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
+        program_field = new JTextField(FIELD_SIZE);
+        group_1.add(program_field, BorderLayout.EAST);
         inputs_pr.add(group_1);
         inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
          
         JPanel group_2 = new JPanel();
         group_2.setLayout(new BorderLayout());
         group_2.add(new JLabel("PROGRAM_PR"), BorderLayout.WEST);
-        group_2.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
+        program_pr_field = new JTextField(FIELD_SIZE);
+        group_2.add(program_pr_field, BorderLayout.EAST);
         inputs_pr.add(group_2);
         inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
         
         JPanel group_3 = new JPanel();
         group_3.setLayout(new BorderLayout());
         group_3.add(new JLabel("PROGRAM_BRANCH"), BorderLayout.WEST);
-        group_3.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
+        program_branch_field = new JTextField(FIELD_SIZE);
+        group_3.add(program_branch_field, BorderLayout.EAST);
         inputs_pr.add(group_3);
         inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
         
         JPanel group_4 = new JPanel();
         group_4.setLayout(new BorderLayout());
         group_4.add(new JLabel("AT"), BorderLayout.WEST);
-        group_4.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
+        at_field = new JTextField(FIELD_SIZE);
+        group_4.add(at_field, BorderLayout.EAST);
         inputs_pr.add(group_4);
         inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
         
         JPanel group_5 = new JPanel();
         group_5.setLayout(new BorderLayout());
         group_5.add(new JLabel("AT_PR"), BorderLayout.WEST);
-        group_5.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
+        at_pr_field = new JTextField(FIELD_SIZE);
+        group_5.add(at_pr_field, BorderLayout.EAST);
         inputs_pr.add(group_5);
         inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
         
         JPanel group_6 = new JPanel();
         group_6.setLayout(new BorderLayout());
         group_6.add(new JLabel("AT_BRANCH"), BorderLayout.WEST);
-        group_6.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
+        at_branch_field = new JTextField(FIELD_SIZE);
+        group_6.add(at_branch_field, BorderLayout.EAST);
         inputs_pr.add(group_6);
         inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
         
         JPanel group_7 = new JPanel();
         group_7.setLayout(new BorderLayout());
         group_7.add(new JLabel("TEST_CATEGORY"), BorderLayout.WEST);
-        group_7.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
+        at_test_category_field = new JTextField(FIELD_SIZE);
+        group_7.add(at_test_category_field, BorderLayout.EAST);
         inputs_pr.add(group_7);
         inputs_pr.add(Box.createRigidArea(new Dimension(0, 5)));
         
         JPanel group_8 = new JPanel();
         group_8.setLayout(new BorderLayout());
         group_8.add(new JLabel("PROGRAM_BUILD"), BorderLayout.WEST);
-        group_8.add(new JTextField(FIELD_SIZE), BorderLayout.EAST);
+        program_build_combo = new JComboBox();
+        program_build_combo.addItem("true");
+        program_build_combo.addItem("false");
+        program_build_combo.setPreferredSize(program_field.getPreferredSize());
+        group_8.add(program_build_combo, BorderLayout.EAST);
         inputs_pr.add(group_8);
        
         
@@ -132,27 +145,28 @@ public class PanelMain extends JPanel{
 
         JPanel inputs_all = new JPanel();
         inputs_all.setLayout(new BoxLayout(inputs_all, BoxLayout.Y_AXIS));
-      
+         
         JPanel group_9 = new JPanel();
         group_9.setLayout(new BorderLayout());
-        group_9.add(new JLabel("AT"), BorderLayout.WEST);
-        at_field = new JTextField(FIELD_SIZE);
-        group_9.add(at_field, BorderLayout.EAST);
+        group_9.add(new JLabel("PROGRAM"), BorderLayout.WEST);
+        program_all_field = new JTextField(FIELD_SIZE);
+        group_9.add(program_all_field, BorderLayout.EAST);
         inputs_all.add(group_9);
         inputs_all.add(Box.createRigidArea(new Dimension(0, 5)));
-         
+        
         JPanel group_10 = new JPanel();
         group_10.setLayout(new BorderLayout());
-        group_10.add(new JLabel("PROGRAM"), BorderLayout.WEST);
-        program_field = new JTextField(FIELD_SIZE);
-        group_10.add(program_field, BorderLayout.EAST);
+        group_10.add(new JLabel("AT"), BorderLayout.WEST);
+        at_all_field = new JTextField(FIELD_SIZE);
+        group_10.add(at_all_field, BorderLayout.EAST);
         inputs_all.add(group_10);
+        inputs_all.add(Box.createRigidArea(new Dimension(0, 5)));
         
         inputs_all.add(Box.createRigidArea(new Dimension(0, group_1.getPreferredSize().height*8)));
         inputs.add(inputs_all, "all");
         
         //Show PR card
-        cl.show(inputs, "all");
+        cl.show(inputs, "pr");
         
         left_panel.add(inputs);
         left_panel.add(Box.createRigidArea(new Dimension(0, 32)));
@@ -182,8 +196,7 @@ public class PanelMain extends JPanel{
         rb_pr.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cl.show(inputs, "pr");
-                
+                cl.show(inputs, "pr");  
             }
         });
         
@@ -203,10 +216,17 @@ public class PanelMain extends JPanel{
         Map<String, String> map = new HashMap<>();
         
         if(rb_pr.isSelected()) {
-        
-        }else{
-            map.put("AT", at_field.getText());
             map.put("PROGRAM", program_field.getText());
+            map.put("PROGRAM_PR", program_pr_field.getText());
+            map.put("PROGRAM_BRANCH", program_branch_field.getText());
+            map.put("AT", at_field.getText());
+            map.put("AT_PR", at_pr_field.getText());
+            map.put("AT_BRANCH", at_branch_field.getText());
+            map.put("TEST_CATEGORY", at_test_category_field.getText());
+            map.put("PROGRAM_BUILD", program_build_combo.getSelectedItem().toString());
+        }else{
+            map.put("PROGRAM", program_all_field.getText());
+            map.put("AT", at_all_field.getText());
         }
         return map;
     }
@@ -215,7 +235,7 @@ public class PanelMain extends JPanel{
         Commands command = null;
         
         if(rb_pr.isSelected()) {
-            
+            command = Commands.AT;
         }else{
             command = Commands.ALL;
         }
