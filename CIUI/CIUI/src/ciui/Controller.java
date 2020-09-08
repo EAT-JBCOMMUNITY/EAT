@@ -27,23 +27,21 @@ public class Controller {
         panel_main.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                run_ci(panel_main.getParameters());
+                Map param_map = panel_main.getParameters();
+                Commands command = panel_main.getCommand();
+                ScriptWriter sw = new ScriptWriter();
+                sw.parseData(param_map, command);
+                sw.createFile();
+                run_ci();
             }
         });
     }
     
-    public void run_ci(Map<String, String> param_map) {
+    private void run_ci() {
         try {
-            String command;
-            command = "./run.sh -all";
+            String command = "./gen.sh";
             
             ProcessBuilder pb = new ProcessBuilder("/bin/bash", "-c", command);
-            
-            //Export parameters to process
-            for(Map.Entry<String, String> entry : param_map.entrySet()) {
-                pb.environment().put(entry.getKey(), entry.getValue());
-            }
-            
             Process p = pb.start();
             
             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));

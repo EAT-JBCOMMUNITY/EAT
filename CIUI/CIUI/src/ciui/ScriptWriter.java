@@ -13,11 +13,12 @@ public class ScriptWriter {
     private StringBuilder sb;
     
     public ScriptWriter() {
-        sb = new StringBuilder();
-        sb.append("#!/bin/bash\n\n");
+        file = new File("gen.sh");
+        sb = new StringBuilder(); 
     }
     
     public void parseData(Map<String, String> param_map, Commands command) {
+        sb.append("#!/bin/bash\n\n");
         for(Map.Entry<String, String> entry : param_map.entrySet()) {
                 sb.append("export ");
                 sb.append(entry.getKey());
@@ -27,15 +28,21 @@ public class ScriptWriter {
         }
         sb.append("\n");
         
+        String path = file.getAbsolutePath();
+        String[] parts = path.split("CIUI");
+        path = parts[0];
+        
         //Add run command
+        sb.append("cd ");
+        sb.append(path);
+        sb.append("CI");
+        sb.append("\n");
         sb.append("./run.sh ");
         sb.append(command.getCommand());
     }
     
     public void createFile() {
-        try {          
-            file = new File("gen.sh");
-            
+        try {
             //Delete existing file
             if(file.exists())
                 file.delete();
