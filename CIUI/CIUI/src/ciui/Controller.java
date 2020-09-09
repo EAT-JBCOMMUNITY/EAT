@@ -12,6 +12,7 @@ public class Controller {
    
     private Window window;
     private PanelMain panel_main;
+    private String output_line;
     
     public Controller() {
         window = new Window();
@@ -26,39 +27,40 @@ public class Controller {
         panel_main.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                run_ci(panel_main.getParameters());
+                Map param_map = panel_main.getParameters();
+                Commands command = panel_main.getCommand();
+                ScriptWriter sw = new ScriptWriter();
+                sw.parseData(param_map, command);
+                sw.createFile();
+                run_ci();
             }
         });
     }
     
-    public void run_ci(Map<String, String> param_map) {
+    private void run_ci() {
         try {
-            String command;
-            command = "./run.sh -all";
+            String command = "./gen.sh";
             
             ProcessBuilder pb = new ProcessBuilder("/bin/bash", "-c", command);
-            
-            //Export parameters to process
-            for(Map.Entry<String, String> entry : param_map.entrySet()) {
-                pb.environment().put(entry.getKey(), entry.getValue());
-            }
-            
             Process p = pb.start();
-       
-            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            StringBuilder builder = new StringBuilder();
-            String line = null;
-            while((line = reader.readLine()) != null) {
-               
-               builder.append(line);
-               //builder.append(System.getProperty("line.separator"));
-            }
             
-            String result = builder.toString();
-            System.out.println(result);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            
+            Thread live_output = new Thread() {
+                public void run() {
+                    try {
+                        while((output_line = reader.readLine()) != null) {
+                            panel_main.appendOutputLog(output_line+System.getProperty("line.separator"));
+                        } 
+                    }catch(IOException e) {
+                    
+                    }
+                }  
+            };
+            live_output.start();
             
         }catch(IOException e) {
-            e.printStackTrace();
+            
         }
     }
 }
