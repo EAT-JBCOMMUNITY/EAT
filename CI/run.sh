@@ -2,6 +2,9 @@
 
 set -e
 
+rm -f program_path.txt
+rm -f at_path.txt
+
 if [ "$1" == "-v" ]; then
 	./v.sh
 	
