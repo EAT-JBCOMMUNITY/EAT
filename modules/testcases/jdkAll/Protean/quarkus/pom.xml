@@ -903,6 +903,62 @@
                 <module>quark</module>
             </modules>
         </profile>
+        
+        <profile>
+            <id>releases64</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>1.7.2.Final</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark</module>
+            </modules>
+        </profile>
+        
+        <profile>
+            <id>releases65</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>1.7.3.Final</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>releases66</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>1.8.0.CR1</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark</module>
+            </modules>
+        </profile>
+        
+        <profile>
+            <id>releases67</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>1.8.0.Final</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark</module>
+            </modules>
+        </profile>
     </profiles>
 
 </project>
