@@ -9,6 +9,7 @@ public enum Commands {
     JBOSS_MODULES("-jboss-modules"),
     JBOSS_THREADS("-jboss-threads"),
     OPENLIBERTY("-openliberty"),
+    SPRINGBOOT("-springboot"),
     V("-v"),
     WILDFLY("-wildfly");
     
