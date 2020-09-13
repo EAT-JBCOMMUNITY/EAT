@@ -24,7 +24,7 @@ elif [ "$1" == "-all" ]; then
 elif [ "$1" == "-at" ]; then
 	./at.sh
 elif [ "$1" == "-activemq" ]; then
-        mkdir activemqdir
+        mkdir -p activemqdir
         cd activemqdir
 	export PROGRAM="https://github.com/apache/activemq"
 	export AT="https://github.com/panossot/ActivemqAT"
@@ -43,7 +43,7 @@ elif [ "$1" == "-activemq" ]; then
 	cd ..
 	./pr.sh
 elif [ "$1" == "-activemq-artemis" ]; then
-        mkdir activemq-artemis
+        mkdir -p activemq-artemis
         cd activemq-artemis
 	export PROGRAM="https://github.com/apache/activemq-artemis"
 	export AT="https://github.com/panossot/ArtemisActivemqAT"
@@ -62,7 +62,7 @@ elif [ "$1" == "-activemq-artemis" ]; then
 	cd ..
 	./pr.sh
 elif [ "$1" == "-jboss-threads" ]; then
-        mkdir jboss-threads
+        mkdir -p jboss-threads
         cd jboss-threads
 	export PROGRAM="https://github.com/jbossas/jboss-threads"
 	export AT="https://github.com/panossot/JBTAT"
@@ -82,7 +82,7 @@ elif [ "$1" == "-jboss-threads" ]; then
 	cd ..
 	./pr.sh
 elif [ "$1" == "-jboss-modules" ]; then
-        mkdir jboss-module
+        mkdir -p jboss-module
         cd jboss-module
 	export PROGRAM="https://github.com/jboss-modules/jboss-modules"
 	export AT="https://github.com/panossot/JBossModulesAT"
@@ -103,7 +103,7 @@ elif [ "$1" == "-jboss-modules" ]; then
 	cd ..
 	./pr.sh
 elif [ "$1" == "-openliberty" ]; then
-        mkdir openliberty
+        mkdir -p openliberty
         cd openliberty
 	export PROGRAM="https://github.com/OpenLiberty/open-liberty"
 	export AT="https://github.com/panossot/OAT"
