@@ -100,9 +100,11 @@ $ ./run.sh -jboss-modules
 
 Test Open Liberty
 $ ./run.sh -openliberty
+
+Test Spring Boot
+(Please make sure that the dependencies needed are available in the local repository)
+$ ./run.sh -springboot
 ```
-
-
 Customizing the at scripts
 ```
 In case some AT needs specific ci script customization the at.sh script could be used/customized
