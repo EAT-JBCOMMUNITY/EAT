@@ -119,6 +119,35 @@ elif [ "$1" == "-openliberty" ]; then
 	echo ""
 	cd ..
 	./pr.sh
+elif [ "$1" == "-springboot" ]; then
+        mkdir -p springboot
+        cd springboot
+	export PROGRAM="https://github.com/spring-projects/spring-boot"
+	export AT="https://github.com/panossot/SpringBootAT"
+	wget https://raw.githubusercontent.com/spring-projects/spring-boot/master/gradle.properties
+	version=$(grep -m1 'version=' ./gradle.properties | tail -n1);
+	version=$(echo $version | grep -Po '=.*');
+        version=$(echo "${version:1:${#version}}");
+        version=$(echo "${version:0:${#version}}");
+	export SPRINGBOOT_BRANCH_VERSION=$version
+	wget https://raw.githubusercontent.com/spring-projects/spring-boot/master/buildSrc/build.gradle
+	version=$(grep -m1 'spring-core:' ./build.gradle | tail -n1);
+	version=$(echo $version | grep -Po ':.*\"');
+        version=$(echo "${version:13:${#version}}");
+        version=$(echo "${version:0:${#version}-1}");
+        export SPRINGFRAMEWORK_BRANCH_VERSION=$version
+	
+	export PROGRAM_BUILD=false
+	export OPENLIBERTY_VERSION=RELEASE
+	export TEST_CATEGORY=master
+	export ADDITIONAL_PARAMS=-Dmaven.repo.local=$HOME/.m2/repository # Please modify accordingly ...
+	echo ""
+	
+	echo "Testing: Latest Spring Boot release + Spring Boot AT"
+	echo "The needed dependencies should be available at the maven repo defined in ADDITIONAL_PARAMS environment variable"
+	echo ""
+	cd ..
+	./gradle-at.sh
 else 
 	./pr.sh
 fi
