@@ -13,27 +13,29 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.ButtonGroup;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.ScrollPaneConstants;
 
 
 public class PanelMain extends JPanel{
     
     private final int FIELD_SIZE=15;
-    private final String[] options = {"Specific Pull Request", "All Pull Requests", "Menu"};
+    private final String[] options = {"Specific Pull Request", "All Pull Requests"};
     private JLabel msg_label;
     private JButton start;
-    private JRadioButton rb_pr, rb_all, menu;
+    private JRadioButton rb_pr, rb_all;
     private JTextField program_field, program_pr_field, program_branch_field, at_field, at_pr_field, at_branch_field, at_test_category_field;
-    private JTextField program_all_field, at_all_field, menu_option_field;
+    private JTextField program_all_field, at_all_field;
     private JTextArea output_log;
     private JComboBox program_build_combo;
     
@@ -41,36 +43,30 @@ public class PanelMain extends JPanel{
         setLayout(new FlowLayout(FlowLayout.LEADING, 10, 20));
         
         JPanel left_panel = new JPanel();
-        left_panel.setLayout(new BoxLayout(left_panel, BoxLayout.Y_AXIS));
+        left_panel.setLayout(new FlowLayout(FlowLayout.LEADING, 10, 20));
+        DefaultListModel list_model = new DefaultListModel<>();
+        for(String option : options){
+            list_model.addElement(option);
+        }
+
+        JList list = new JList<>(list_model);
+        list.setVisibleRowCount(15);
+        list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        JScrollPane list_scrollpane = new JScrollPane(list);
+        left_panel.add(list_scrollpane);
+        add(left_panel);
+        
+        JPanel middle_panel = new JPanel();
+        middle_panel.setLayout(new BoxLayout(middle_panel, BoxLayout.Y_AXIS));
         
         JPanel label_panel = new JPanel();
         label_panel.setLayout(new BorderLayout());
         msg_label = new JLabel();
         msg_label.setFont(new Font("Helvetica", Font.PLAIN, 14));
         label_panel.add(msg_label);
-        left_panel.add(label_panel);
-         
-        JPanel radio_panel = new JPanel();
-        
-        rb_pr = new JRadioButton(options[0]);
-        rb_all = new JRadioButton(options[1]);    
-        menu = new JRadioButton(options[2]);    
-        rb_pr.setBounds(75,50,100,30);    
-        rb_all.setBounds(75,100,100,30);   
-        menu.setBounds(75,150,100,30);   
-        menu.setSelected(true);
-        
-        ButtonGroup bg = new ButtonGroup();    
-        bg.add(rb_pr);
-        bg.add(rb_all);
-        bg.add(menu);
-        
-        radio_panel.add(rb_pr);
-        radio_panel.add(rb_all);
-        radio_panel.add(menu);
-        
-        left_panel.add(radio_panel);
-        
+        middle_panel.add(label_panel);
+
         JPanel inputs = new JPanel();
         CardLayout cl = new CardLayout();
         inputs.setLayout(cl);
@@ -96,7 +92,7 @@ public class PanelMain extends JPanel{
         
         JPanel group_3 = new JPanel();
         group_3.setLayout(new BorderLayout());
-        group_3.add(new JLabel("PROGRAM_BRANCH"), BorderLayout.WEST);
+        group_3.add(new JLabel("PROGRAM_BRANCH "), BorderLayout.WEST);
         program_branch_field = new JTextField(FIELD_SIZE);
         group_3.add(program_branch_field, BorderLayout.EAST);
         inputs_pr.add(group_3);
@@ -169,33 +165,19 @@ public class PanelMain extends JPanel{
         inputs_all.add(Box.createRigidArea(new Dimension(0, group_1.getPreferredSize().height*8)));
         inputs.add(inputs_all, "all");
         
-        JPanel menuPanel = new JPanel();
-        menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.Y_AXIS));
-         
-        JPanel group_11 = new JPanel();
-        group_11.setLayout(new BorderLayout());
-        group_11.add(new JLabel("MENU_OPTION"), BorderLayout.WEST);
-        menu_option_field = new JTextField(FIELD_SIZE);
-        group_11.add(menu_option_field, BorderLayout.EAST);
-        menuPanel.add(group_11);
-        menuPanel.add(Box.createRigidArea(new Dimension(0, 5)));
-        
-        menuPanel.add(Box.createRigidArea(new Dimension(0, group_1.getPreferredSize().height*9)));
-        inputs.add(menuPanel, "menu");
-        
         //Show PR card
-        cl.show(inputs, "menu");
+        cl.show(inputs, "pr");
         
-        left_panel.add(inputs);
-        left_panel.add(Box.createRigidArea(new Dimension(0, 32)));
+        middle_panel.add(inputs);
+        middle_panel.add(Box.createRigidArea(new Dimension(0, 32)));
         
-        add(left_panel);
+        add(middle_panel);
 
         start = new JButton("Start");
         start.setMinimumSize(new Dimension(300, 30));
         start.setMaximumSize(new Dimension(300, 30));
         start.setAlignmentX(Component.CENTER_ALIGNMENT);
-        left_panel.add(start);
+        middle_panel.add(start);
         
         JPanel right_panel = new JPanel();
         right_panel.setLayout(new BoxLayout(right_panel, BoxLayout.Y_AXIS));
@@ -209,28 +191,6 @@ public class PanelMain extends JPanel{
         right_panel.add(scroll);
 
         add(right_panel);
-        
-        //Listeners
-        rb_pr.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cl.show(inputs, "pr");  
-            }
-        });
-        
-        rb_all.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cl.show(inputs, "all");
-            }
-        });
-        
-        menu.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cl.show(inputs, "menu");
-            }
-        });
     }
     
     public void addActionListener(ActionListener lis) {
@@ -249,8 +209,6 @@ public class PanelMain extends JPanel{
             map.put("AT_BRANCH", at_branch_field.getText());
             map.put("TEST_CATEGORY", at_test_category_field.getText());
             map.put("PROGRAM_BUILD", program_build_combo.getSelectedItem().toString());
-        }else if(menu.isSelected()){
-            map.put("MENU_OPTION", menu_option_field.getText());
         }else{
             map.put("PROGRAM", program_all_field.getText());
             map.put("AT", at_all_field.getText());
@@ -259,14 +217,12 @@ public class PanelMain extends JPanel{
     }
     
     public Commands getCommand() {
-        Commands command = new Commands();
+        Commands command = null;
         
         if(rb_pr.isSelected()) {
-            command.setCommand("-at");
-        }else if(menu.isSelected()){
-            command.setCommand(menu_option_field.getText());
+            command = Commands.AT;
         }else{
-            command.setCommand("-all");
+            command = Commands.ALL;
         }
         return command;
     }
