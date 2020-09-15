@@ -40,7 +40,7 @@ public class PanelMain extends JPanel{
     private JComboBox program_build_combo;
     
     public PanelMain(){
-        setLayout(new FlowLayout(FlowLayout.LEADING, 10, 20));
+        setLayout(new FlowLayout(FlowLayout.LEADING, 10, 10));
         
         JPanel left_panel = new JPanel();
         left_panel.setLayout(new FlowLayout(FlowLayout.LEADING, 10, 20));
