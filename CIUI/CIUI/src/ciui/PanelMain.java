@@ -7,7 +7,6 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,12 +18,13 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 
 public class PanelMain extends JPanel{
@@ -33,7 +33,7 @@ public class PanelMain extends JPanel{
     private final String[] options = {"Specific Pull Request", "All Pull Requests"};
     private JLabel msg_label;
     private JButton start;
-    private JRadioButton rb_pr, rb_all;
+    private JList list;
     private JTextField program_field, program_pr_field, program_branch_field, at_field, at_pr_field, at_branch_field, at_test_category_field;
     private JTextField program_all_field, at_all_field;
     private JTextArea output_log;
@@ -49,9 +49,10 @@ public class PanelMain extends JPanel{
             list_model.addElement(option);
         }
 
-        JList list = new JList<>(list_model);
+        list = new JList<>(list_model);
         list.setVisibleRowCount(15);
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        list.setSelectedIndex(0);
         
         JScrollPane list_scrollpane = new JScrollPane(list);
         left_panel.add(list_scrollpane);
@@ -140,7 +141,6 @@ public class PanelMain extends JPanel{
         group_8.add(program_build_combo, BorderLayout.EAST);
         inputs_pr.add(group_8);
        
-        
         inputs.add(inputs_pr, "pr");
 
         JPanel inputs_all = new JPanel();
@@ -191,6 +191,24 @@ public class PanelMain extends JPanel{
         right_panel.add(scroll);
 
         add(right_panel);
+        
+        //List listener
+        list.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if (e.getValueIsAdjusting() == false) {
+                    switch ((String)list.getSelectedValue()) {
+                        case "Specific Pull Request":
+                            cl.show(inputs, "pr");
+                            break;
+                        case "All Pull Requests":
+                            cl.show(inputs, "all");
+                            break;
+                        default:
+                    }
+                }
+            }
+        });
     }
     
     public void addActionListener(ActionListener lis) {
@@ -200,30 +218,40 @@ public class PanelMain extends JPanel{
     public Map getParameters() {
         Map<String, String> map = new HashMap<>();
         
-        if(rb_pr.isSelected()) {
-            map.put("PROGRAM", program_field.getText());
-            map.put("PROGRAM_PR", program_pr_field.getText());
-            map.put("PROGRAM_BRANCH", program_branch_field.getText());
-            map.put("AT", at_field.getText());
-            map.put("AT_PR", at_pr_field.getText());
-            map.put("AT_BRANCH", at_branch_field.getText());
-            map.put("TEST_CATEGORY", at_test_category_field.getText());
-            map.put("PROGRAM_BUILD", program_build_combo.getSelectedItem().toString());
-        }else{
-            map.put("PROGRAM", program_all_field.getText());
-            map.put("AT", at_all_field.getText());
+        switch ((String)list.getSelectedValue()) {
+            case "Specific Pull Request":
+                map.put("PROGRAM", program_field.getText());
+                map.put("PROGRAM_PR", program_pr_field.getText());
+                map.put("PROGRAM_BRANCH", program_branch_field.getText());
+                map.put("AT", at_field.getText());
+                map.put("AT_PR", at_pr_field.getText());
+                map.put("AT_BRANCH", at_branch_field.getText());
+                map.put("TEST_CATEGORY", at_test_category_field.getText());
+                map.put("PROGRAM_BUILD", program_build_combo.getSelectedItem().toString());
+                break;
+            case "All Pull Requests":
+                map.put("PROGRAM", program_all_field.getText());
+                map.put("AT", at_all_field.getText());
+                break;
+            default:
         }
+        
         return map;
     }
     
     public Commands getCommand() {
         Commands command = null;
         
-        if(rb_pr.isSelected()) {
-            command = Commands.AT;
-        }else{
-            command = Commands.ALL;
+        switch ((String)list.getSelectedValue()) {
+            case "Specific Pull Request":
+                command = Commands.AT;
+                break;
+            case "All Pull Requests":
+                command = Commands.ALL;
+                break;
+            default:
         }
+       
         return command;
     }
     
