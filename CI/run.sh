@@ -137,7 +137,7 @@ elif [ "$1" == "-springboot" ]; then
         version=$(echo "${version:0:${#version}-1}");
         export SPRINGFRAMEWORK_BRANCH_VERSION=$version
 	
-	export PROGRAM_BUILD=false
+	export PROGRAM_BUILD=true
 	export TEST_CATEGORY=master
 	export ADDITIONAL_PARAMS=-Dmaven.repo.local=$HOME/.m2/repository # Please modify accordingly ...
 	echo ""
