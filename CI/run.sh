@@ -7,7 +7,13 @@ rm -f at_path.txt
 
 if [ "$1" == "-v" ]; then
 	./v.sh
+elif [ "$1" == "-clear" ]; then
+	echo ""
 	
+	echo "Clearing the workspace from previous builds..."
+	echo ""
+	
+	./clear.sh	
 elif [ "$1" == "-wildfly" ]; then
 	export PROGRAM="https://github.com/wildfly/wildfly"
 	export AT="https://github.com/EAT-JBCOMMUNITY/EAT"
