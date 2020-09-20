@@ -28,12 +28,12 @@ import javax.swing.ScrollPaneConstants;
 public class PanelMain extends JPanel{
     
     private final int FIELD_SIZE=15;
-    private final String[] options = {"Specific Pull Request", "All Pull Requests"};
+    private final String[] options = {"Specific Pull Request", "All Pull Requests", "Menu"};
     private JLabel msg_label;
     private JButton start;
-    private JRadioButton rb_pr, rb_all;
+    private JRadioButton rb_pr, rb_all, menu;
     private JTextField program_field, program_pr_field, program_branch_field, at_field, at_pr_field, at_branch_field, at_test_category_field;
-    private JTextField program_all_field, at_all_field;
+    private JTextField program_all_field, at_all_field, menu_option_field;
     private JTextArea output_log;
     private JComboBox program_build_combo;
     
@@ -54,16 +54,20 @@ public class PanelMain extends JPanel{
         
         rb_pr = new JRadioButton(options[0]);
         rb_all = new JRadioButton(options[1]);    
+        menu = new JRadioButton(options[2]);    
         rb_pr.setBounds(75,50,100,30);    
         rb_all.setBounds(75,100,100,30);   
-        rb_pr.setSelected(true);
+        menu.setBounds(75,150,100,30);   
+        menu.setSelected(true);
         
         ButtonGroup bg = new ButtonGroup();    
         bg.add(rb_pr);
         bg.add(rb_all);
+        bg.add(menu);
         
         radio_panel.add(rb_pr);
         radio_panel.add(rb_all);
+        radio_panel.add(menu);
         
         left_panel.add(radio_panel);
         
@@ -165,8 +169,22 @@ public class PanelMain extends JPanel{
         inputs_all.add(Box.createRigidArea(new Dimension(0, group_1.getPreferredSize().height*8)));
         inputs.add(inputs_all, "all");
         
+        JPanel menuPanel = new JPanel();
+        menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.Y_AXIS));
+         
+        JPanel group_11 = new JPanel();
+        group_11.setLayout(new BorderLayout());
+        group_11.add(new JLabel("MENU_OPTION"), BorderLayout.WEST);
+        menu_option_field = new JTextField(FIELD_SIZE);
+        group_11.add(menu_option_field, BorderLayout.EAST);
+        menuPanel.add(group_11);
+        menuPanel.add(Box.createRigidArea(new Dimension(0, 5)));
+        
+        menuPanel.add(Box.createRigidArea(new Dimension(0, group_1.getPreferredSize().height*9)));
+        inputs.add(menuPanel, "menu");
+        
         //Show PR card
-        cl.show(inputs, "pr");
+        cl.show(inputs, "menu");
         
         left_panel.add(inputs);
         left_panel.add(Box.createRigidArea(new Dimension(0, 32)));
@@ -206,6 +224,13 @@ public class PanelMain extends JPanel{
                 cl.show(inputs, "all");
             }
         });
+        
+        menu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cl.show(inputs, "menu");
+            }
+        });
     }
     
     public void addActionListener(ActionListener lis) {
@@ -224,6 +249,8 @@ public class PanelMain extends JPanel{
             map.put("AT_BRANCH", at_branch_field.getText());
             map.put("TEST_CATEGORY", at_test_category_field.getText());
             map.put("PROGRAM_BUILD", program_build_combo.getSelectedItem().toString());
+        }else if(menu.isSelected()){
+            map.put("MENU_OPTION", menu_option_field.getText());
         }else{
             map.put("PROGRAM", program_all_field.getText());
             map.put("AT", at_all_field.getText());
@@ -232,12 +259,14 @@ public class PanelMain extends JPanel{
     }
     
     public Commands getCommand() {
-        Commands command = null;
+        Commands command = new Commands();
         
         if(rb_pr.isSelected()) {
-            command = Commands.AT;
+            command.setCommand("-at");
+        }else if(menu.isSelected()){
+            command.setCommand(menu_option_field.getText());
         }else{
-            command = Commands.ALL;
+            command.setCommand("-all");
         }
         return command;
     }

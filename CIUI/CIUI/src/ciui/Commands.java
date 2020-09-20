@@ -1,17 +1,21 @@
 package ciui;
 
 
-public enum Commands {
-    AT("-at"),
-    ALL("-all");
+public class Commands {
     
     private String command;
     
-    Commands(String command) {
+    public Commands(){};
+    
+    public Commands(String command) {
         this.command = command;
     }
     
     public String getCommand() {
         return command;
+    }
+    
+    public void setCommand(String command) {
+        this.command = command;
     }
 }
