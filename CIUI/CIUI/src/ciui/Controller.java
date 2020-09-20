@@ -41,6 +41,7 @@ public class Controller {
         try {
             String command = "./gen.sh";
             
+            panel_main.appendOutputLog("Build has started ..." + System.getProperty("line.separator"));
             ProcessBuilder pb = new ProcessBuilder("/bin/bash", "-c", command);
             Process p = pb.start();
             
@@ -49,9 +50,12 @@ public class Controller {
             Thread live_output = new Thread() {
                 public void run() {
                     try {
-                        while((output_line = reader.readLine()) != null) {
+                        while((output_line = reader.readLine()) != null || p.isAlive()) {
                             panel_main.appendOutputLog(output_line+System.getProperty("line.separator"));
                         } 
+                        panel_main.appendOutputLog("Build has finished ... Check log for output details ..." + System.getProperty("line.separator"));
+            
+                        p.destroy();
                     }catch(IOException e) {
                     
                     }
