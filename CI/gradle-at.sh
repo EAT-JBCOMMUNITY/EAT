@@ -131,7 +131,7 @@ if [ -z "$at_path" ]; then
 	cd at
 
 	git clone $AT -b $AT_BRANCH
-	cd *
+	cd $repo_at
 	echo "$PWD" > $at_file
 	
 else
