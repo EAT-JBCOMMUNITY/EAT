@@ -82,7 +82,10 @@ if [ -z "$program_path" ]; then
 	cd program
 
 	git clone $PROGRAM -b $PROGRAM_BRANCH
-	cd *
+	url_arr+=($(echo $PROGRAM | grep -Po '[^\/]+'));
+        repo=$(echo ${url_arr[3]} | grep -Po '^[^.]+');
+        cd $repo;
+
 	echo "$PWD" > $program_file	
 else
 	cd $program_path
