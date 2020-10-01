@@ -30,8 +30,8 @@ import javax.swing.event.ListSelectionListener;
 public class PanelMain extends JPanel{
     
     private final int FIELD_SIZE=15;
-    private final String[] options = {"Specific Pull Request", "All Pull Requests"};
-    private JLabel msg_label;
+    private final String[] options = {"Specific Pull Request", "All Pull Requests", "-activemq", "-activemq-artemis", "-jboss-modules", "-jboss-threads", "-openliberty", "-springboot"};
+    private JLabel msg_label, fixed_command_label;
     private JButton start;
     private JList list;
     private JTextField program_field, program_pr_field, program_branch_field, at_field, at_pr_field, at_branch_field, at_test_category_field;
@@ -165,6 +165,12 @@ public class PanelMain extends JPanel{
         inputs_all.add(Box.createRigidArea(new Dimension(0, group_1.getPreferredSize().height*8)));
         inputs.add(inputs_all, "all");
         
+        JPanel inputs_fixed = new JPanel();
+        inputs_fixed.setLayout(new BoxLayout(inputs_fixed, BoxLayout.Y_AXIS));
+        fixed_command_label = new JLabel();
+        inputs_fixed.add(fixed_command_label);
+        
+        inputs.add(inputs_fixed, "fixed");
         //Show PR card
         cl.show(inputs, "pr");
         
@@ -205,6 +211,9 @@ public class PanelMain extends JPanel{
                             cl.show(inputs, "all");
                             break;
                         default:
+                            fixed_command_label.setText("Execute: "+(String)list.getSelectedValue());
+                            cl.show(inputs, "fixed");
+                            break;
                     }
                 }
             }
@@ -248,6 +257,27 @@ public class PanelMain extends JPanel{
                 break;
             case "All Pull Requests":
                 command = Commands.ALL;
+                break;
+            case "-activemq":
+                command = Commands.ACTIVEMQ;
+                break;
+            case "-activemq-artemis":
+                command = Commands.ACTIVEMQ_ARTEMIS;
+                break;
+            case "-jboss-modules":
+                command = Commands.JBOSS_MODULES;
+                break;
+            case "-jboss-threads":
+                command = Commands.JBOSS_THREADS;
+                break;
+            case "-openliberty":
+                command = Commands.OPENLIBERTY;
+                break;
+            case "-springboot":
+                command = Commands.SPRINGBOOT;
+                break;
+            case "-wildfly":
+                command = Commands.WILDFLY;
                 break;
             default:
         }
