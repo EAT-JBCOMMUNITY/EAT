@@ -1,21 +1,25 @@
 package ciui;
 
 
-public class Commands {
+public enum Commands {
+    ACTIVEMQ("-activemq"),
+    ACTIVEMQ_ARTEMIS("-activemq-artemis"),
+    ALL("-all"),
+    AT("-at"),
+    JBOSS_MODULES("-jboss-modules"),
+    JBOSS_THREADS("-jboss-threads"),
+    OPENLIBERTY("-openliberty"),
+    SPRINGBOOT("-springboot"),
+    V("-v"),
+    WILDFLY("-wildfly");
     
     private String command;
     
-    public Commands(){};
-    
-    public Commands(String command) {
+    Commands(String command) {
         this.command = command;
     }
     
     public String getCommand() {
         return command;
-    }
-    
-    public void setCommand(String command) {
-        this.command = command;
     }
 }
