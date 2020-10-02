@@ -122,7 +122,7 @@ if [ $program_pr_set == true ]; then
 		git checkout FETCH_HEAD;
 		git pull --rebase origin $PROGRAM_BRANCH;
 		
-		echo "Server: Merging Done"
+		echo "Program: Merging Done"
 		echo ""
 	fi	
 fi
@@ -154,7 +154,7 @@ if [ $at_pr_found == true ]; then
 fi
 
 #Building
-echo "Server: Building ..."
+echo "Program: Building ..."
 cd $program_path
 
 if [ $PROGRAM_BUILD == true ]; then
