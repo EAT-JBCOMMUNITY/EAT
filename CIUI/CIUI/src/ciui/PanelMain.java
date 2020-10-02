@@ -30,7 +30,7 @@ import javax.swing.event.ListSelectionListener;
 public class PanelMain extends JPanel{
     
     private final int FIELD_SIZE=15;
-    private final String[] options = {"Specific Pull Request", "All Pull Requests", "-activemq", "-activemq-artemis", "-jboss-modules", "-jboss-threads", "-openliberty", "-springboot"};
+    private final String[] options = {"Specific Pull Request", "All Pull Requests", "-activemq", "-activemq-artemis", "-jboss-modules", "-jboss-threads", "-openliberty", "-springboot", "-wildfly"};
     private JLabel msg_label, fixed_command_label;
     private JButton start;
     private JList list;
