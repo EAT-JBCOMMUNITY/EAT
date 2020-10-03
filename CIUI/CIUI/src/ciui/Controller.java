@@ -43,6 +43,7 @@ public class Controller {
             
             panel_main.appendOutputLog("Build has started ..." + System.getProperty("line.separator"));
             ProcessBuilder pb = new ProcessBuilder("/bin/bash", "-c", command);
+            pb.redirectErrorStream(true);
             Process p = pb.start();
             
             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
