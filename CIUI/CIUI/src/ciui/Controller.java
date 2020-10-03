@@ -55,7 +55,7 @@ public class Controller {
                             if((output_line = reader.readLine()) != null)
                                 panel_main.appendOutputLog(output_line+System.getProperty("line.separator"));
                         } 
-                        panel_main.appendOutputLog("Build has finished ... Check log for output details ..." + System.getProperty("line.separator"));
+                        panel_main.appendOutputLog("Execution has finished ... Check log for output details ..." + System.getProperty("line.separator"));
             
                         p.destroy();
                     }catch(IOException e) {
