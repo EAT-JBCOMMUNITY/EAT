@@ -266,7 +266,7 @@ public class PanelMain extends JPanel{
                 break;
             case "-clear":
                 command = Commands.CLEAR;
-                clearOutputLog() 
+                clearOutputLog();
                 break;
             case "-jboss-modules":
                 command = Commands.JBOSS_MODULES;
