@@ -2,7 +2,7 @@
 
 
 cd ./Dockerfiles/quarkus
-docker build -t docker.io/eat . > outputQuarkus.txt
+docker build -t docker.io/eat --ulimit nofile=5000:5000 . > outputQuarkus.txt
 
 sudo docker stop $(sudo docker ps -a -q)
 sudo docker rm $(sudo docker ps -a -q)
