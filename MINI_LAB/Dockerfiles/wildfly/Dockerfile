@@ -29,6 +29,8 @@ ENV MAVEN_HOME /usr/share/maven
 
 ENV PATH=$PATH:/usr/share/maven/bin/
 
+ADD repository /home/user/.m2/repository
+
 RUN mkdir wildfly && cd wildfly && git clone https://github.com/wildfly/wildfly.git master && cd master && ls -la && mvn clean install -DskipTests -Denforcer.skip -s "/usr/share/settings-eatwildfly.xml" && tmp=$(ls -d $(pwd)/dist/target/wildfly-* | sed -e '/.jar/d') && JBOSS_VERSION=$(basename "${tmp}" | sed -e 's/wildfly-//' | sed -e 's/-for-validation//') && export JBOSS_VERSION=$JBOSS_VERSION && JBOSS_FOLDER="$(pwd)/dist/target/wildfly-${JBOSS_VERSION}" && export JBOSS_FOLDER=$JBOSS_FOLDER  && mkdir EAT && cd EAT && git clone https://github.com/EAT-JBCOMMUNITY/EAT.git master && cd master && mvn clean install -Dwildfly -Dstandalone -DJBOSS_VERSION=$JBOSS_VERSION -DJBOSS_FOLDER=$JBOSS_FOLDER -Denforcer.skip -s "/usr/share/settings-eatwildfly.xml"
 
 

@@ -26,6 +26,8 @@ ENV MAVEN_HOME /usr/share/maven
 
 ENV PATH=$PATH:/usr/share/maven/bin/
 
+ADD repository /home/user/.m2/repository
+
 RUN mkdir fasterxml && cd fasterxml && git clone https://github.com/panossot/jackson-databind.git -b simulation master && \
 cd master && mvn clean install -DskipTests && \
 FXML_VERSION="$(mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version|grep -Ev '(^\[|Download\w+:)')" && export FXML_VERSION=$(echo ${FXML_VERSION} | awk -F" " '{print $NF}') && echo $FXML_VERSION && \
