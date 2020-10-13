@@ -174,4 +174,4 @@ fi
 cd $at_path
 
 echo "Testsuite: Building ..."
-mvn clean install -D$TEST_CATEGORY
+mvn clean install -D$TEST_CATEGORY $ADDITIONAL_PARAMS
