@@ -2,6 +2,10 @@
 
 #set -e
 
+if [ -z "$TEST_CATEGORY" ]; then
+    TEST_CATEGORY=wildfly
+fi
+
 if [ -z "$AT" ]; then
 	echo "Define AT (github)"
 	echo ""
@@ -166,7 +170,7 @@ do
 				cd ../../
 				
 				cd at/*
-				mvn clean install -Dwildfly -Dstandalone
+				mvn clean install -D$TEST_CATEGORY -Dstandalone $ADDITIONAL_PARAMS
 				
 				#Maven return code
 				if [ "$?" -eq 0 ] ; then
@@ -208,7 +212,7 @@ do
 		cd ../../
 		
 		cd at/*
-		mvn clean install -Dwildfly -Dstandalone
+		mvn clean install -D$TEST_CATEGORY -Dstandalone $ADDITIONAL_PARAMS
 		
 		#Maven return code
 		if [ "$?" -eq 0 ] ; then
