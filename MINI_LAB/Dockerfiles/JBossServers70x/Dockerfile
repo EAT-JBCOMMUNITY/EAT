@@ -34,6 +34,8 @@ ENV MAVEN_HOME /usr/share/maven
 
 ENV PATH=$PATH:/usr/share/maven/bin/
 
+ADD repository /home/user/.m2/repository
+
 RUN mkdir eap7 && cd eap7 && git clone https://$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/jbossas/jboss-eap7.git --branch 7.0.x && cd jboss-eap7 && ls -la && mvn clean install -Dmaven.repository.protocol=http && export JBOSS_VERSION=$(ls -d dist/target/jboss-eap-* | sed -e 's/^.*jboss-eap-//' | head -1) && export JBOSS_FOLDER="$(pwd)/dist/target/jboss-eap-${JBOSS_VERSION}" && mkdir EAT && cd EAT && git clone https://github.com/EAT-JBCOMMUNITY/EAT.git master && cd master && mvn clean install -Deap70x -Dmaven.test.failure.ignore=true -Dstandalone -Dmaven.repository.protocol=http
 
 
