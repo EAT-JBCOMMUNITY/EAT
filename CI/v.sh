@@ -2,7 +2,7 @@
 
 set -e
 
-echo "SERVER:        "$SERVER
-echo "SERVER_PR:     "$SERVER_PR
-echo "EAT:           "$EAT
-echo "EAT_PR:        "$EAT_PR
+echo "PROGRAM:        "$PROGRAM
+echo "PROGRAM_PR:     "$PROGRAM_PR
+echo "AT:           "$AT
+echo "AT_PR:        "$AT_PR
