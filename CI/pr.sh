@@ -175,4 +175,4 @@ fi
 cd $at_path
 
 echo "Testsuite: Building ..."
-mvn clean install -D$TEST_CATEGORY -Dstandalone
+mvn clean install -D$TEST_CATEGORY -Dstandalone $ADDITIONAL_PARAMS
