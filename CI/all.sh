@@ -159,7 +159,7 @@ do
 				git checkout FETCH_HEAD;
 				git pull --rebase origin $branch;
 				
-				mvn clean install -DskipTests
+				mvn clean install -DskipTests $ADDITIONAL_PARAMS
 				
 				server_pom=$(<pom.xml)
 				version=$(echo $server_pom | grep -Po '<version>[0-9]*\.[0-9]*\.[0-9]*\.[a-zA-Z0-9-]*<\/version>');
@@ -201,7 +201,7 @@ do
   		cd *
   		git checkout master
 		
-		mvn clean install -DskipTests
+		mvn clean install -DskipTests $ADDITIONAL_PARAMS
 		
 		server_pom=$(<pom.xml)
 		version=$(echo $server_pom | grep -Po '<version>[0-9]*\.[0-9]*\.[0-9]*\.[a-zA-Z0-9-]*<\/version>');
