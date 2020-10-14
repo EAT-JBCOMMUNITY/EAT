@@ -157,7 +157,7 @@ echo "Program: Building ..."
 cd $program_path
 
 if [ $PROGRAM_BUILD == true ]; then
-    mvn clean install -DskipTests
+    mvn clean install -DskipTests $ADDITIONAL_PARAMS
 fi
 
 program_pom=$(<pom.xml)
