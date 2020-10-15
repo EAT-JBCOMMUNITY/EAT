@@ -115,3 +115,9 @@ $ export AT=export AT=https://github.com/panossot/JBTAT.git
 $ ./run.sh -at
 ```
 
+Executing AT CI in a container
+```
+1. sudo docker build -t docker.io/atci --ulimit nofile=5000:5000 .
+2. sudo docker run --name atci -e TEST_CATEGORY=(e.g. wildfly,openliberty,etc) --ulimit nofile=5000:5000 docker.io/atci
+```
+
