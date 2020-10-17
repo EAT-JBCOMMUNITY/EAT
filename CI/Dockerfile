@@ -42,6 +42,7 @@ RUN cd /home/user && ./clear.sh
 WORKDIR "/home/user"
 
 ENV AT_PR=$AT_PR 
+ENV PROGRAM_PR=$PROGRAM_PR
 ENV TEST_CATEGORY=$TEST_CATEGORY
 ENV ADDITIONAL_PARAMS="-s /home/user/settings-at.xml"
 
