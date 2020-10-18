@@ -40,6 +40,10 @@ Parameters:
 <td>PROGRAM_BUILD</td>
 <td>Build the program. Values: true, false. Default: true</td>
 </tr>
+<tr>
+<td>GITHUB_TOKEN</td>
+<td>Token used in order to send the result messages, as a comment, to the pr tested.</td>
+</tr>
 </table>
 
 e.g.
