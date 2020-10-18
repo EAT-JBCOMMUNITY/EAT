@@ -175,4 +175,38 @@ fi
 cd $at_path
 
 echo "Testsuite: Building ..."
-mvn clean install -D$TEST_CATEGORY -Dstandalone $ADDITIONAL_PARAMS
+
+if ! [ -z "$GITHUB_TOKEN" ] && ! [ -z "$AT_PR" ]; then
+	
+	function comment {
+		body=""
+		if [ "$1" == true ]; then
+	 		body+="Build Success" 
+		else
+			body+="Build Failed" 
+		fi
+		
+		body+=", "$(date '+%Y-%m-%d %H:%M:%S')
+
+		comment=$(
+			curl -s --request POST "https://api.github.com/repos/$org_at/$repo_at/issues/$AT_PR/comments" \
+			--header 'Content-Type: application/json' \
+			--header 'Authorization: token '$GITHUB_TOKEN \
+			--data '{"body": "'"$body"'"}'
+			)
+
+	}
+	
+	mvn clean install -D$TEST_CATEGORY -Dstandalone $ADDITIONAL_PARAMS
+	
+	#Maven return code
+	if [ "$?" -eq 0 ] ; then
+		#OK
+		comment true
+	else
+		#NOT OK
+		comment false 
+	fi
+else
+	mvn clean install -D$TEST_CATEGORY -Dstandalone $ADDITIONAL_PARAMS
+fi
