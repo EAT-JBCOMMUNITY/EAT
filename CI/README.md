@@ -122,6 +122,6 @@ $ ./run.sh -at
 Executing AT CI in a container
 ```
 1. sudo docker build -t docker.io/atci --ulimit nofile=5000:5000 .
-2. sudo docker run --name atci -e TEST_CATEGORY=(e.g. wildfly,openliberty,etc) (-e AT_PR=75) (-e PROGRAM_PR=100) (-e GITHUB_TOKEN=the AT github token, used to send the result message to the PR tested) --ulimit nofile=5000:5000 docker.io/atci
+2. sudo docker run --name atci -e TEST_CATEGORY=(e.g. wildfly,openliberty,etc) (-e AT_PR=75) (-e PROGRAM_PR=100) (-p 80:80 -e GITHUB_TOKEN=the AT github token, used to send the result message to the PR tested) --ulimit nofile=5000:5000 docker.io/atci
 ```
 
