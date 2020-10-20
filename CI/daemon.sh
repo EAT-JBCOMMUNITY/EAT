@@ -6,8 +6,10 @@ checked_eat_prs=();
 checked_eat_prs_uts=();
 
 if [ -z "$SLEEP_TIME" ]; then
-    export SLEEP_TIME=60
+    export SLEEP_TIME=10
 fi
+
+c=0;
 
 while true
 do
@@ -28,14 +30,17 @@ do
 		    if [ "$pr_num" -gt "${checked_eat_prs[$k]}" ]; then
 		        u=$((u+1));
 		        echo $(date) ... New pr : $pr_num 
+		        docker run --rm --name atci_$pr_num -e TEST_CATEGORY=wildfly -e AT_PR=$pr_num -e GITHUB_TOKEN=$GITHUB_TOKEN  --ulimit nofile=5000:5000 docker.io/atci > output_$pr_num.txt &
 		    elif [ "$pr_num" -eq "${checked_eat_prs[$k]}" ]; then
 		        n=$((k+u));
 		        uts=$(echo ${eat_prs_utime[$n]}  | tr -cd [:digit:]);
 		        uts_ckecked=$(echo ${checked_eat_prs_uts[$k]}  | tr -cd [:digit:]);
 		        if [ "$uts" -gt "$uts_ckecked" ]; then
-		            echo $(date) ... Updated pr : $pr_num 
+		            echo $(date) ... Updated pr : $pr_num
+		            docker run --rm --name atci_${pr_num}_${c} -e TEST_CATEGORY=wildfly -e AT_PR=$pr_num -e GITHUB_TOKEN=$GITHUB_TOKEN  --ulimit nofile=5000:5000 docker.io/atci > output_${pr_num}_${c}.txt &
 		        fi
 		        k=$((k+1));
+		        c=$((c+1));
 		    else
 		    	break;
 		    fi
