@@ -37,7 +37,7 @@ do
 		        uts_ckecked=$(echo ${checked_eat_prs_uts[$k]}  | tr -cd [:digit:]);
 		        if [ "$uts" -gt "$uts_ckecked" ]; then
 		            echo $(date) ... Updated pr : $pr_num
-		            docker run --rm --name atci_${pr_num}_${c} -e TEST_CATEGORY=wildfly -e AT_PR=$pr_num -e GITHUB_TOKEN=$GITHUB_TOKEN  --ulimit nofile=5000:5000 docker.io/atci > output_${pr_num}_${c}.txt &
+		        #    docker run --rm --name atci_${pr_num}_${c} -e TEST_CATEGORY=wildfly -e AT_PR=$pr_num -e GITHUB_TOKEN=$GITHUB_TOKEN  --ulimit nofile=5000:5000 docker.io/atci > output_${pr_num}_${c}.txt &
 		        fi
 		        k=$((k+1));
 		        c=$((c+1));
