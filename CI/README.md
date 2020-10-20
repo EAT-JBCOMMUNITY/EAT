@@ -131,5 +131,6 @@ This daemon is implemented for checking the jboss servers (CI). Similar daemons 
 Also, multiple daemons can be used in parallel (e.g. using pr filtering) from different servers.
 
 Command to execute:
+$ export GITHUB_TOKEN=the AT github token
 $ sudo ./daemon.sh
 ```
