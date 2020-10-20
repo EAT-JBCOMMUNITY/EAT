@@ -127,7 +127,7 @@ $ sudo docker run --name atci -e TEST_CATEGORY=(e.g. wildfly,openliberty,etc) (-
 
 The AT CI Servers (daemons)
 ```
-This daemon is implenented for checking the jboss servers (CI). Similar daemons can be used for any program.
+This daemon is implemented for checking the jboss servers (CI). Similar daemons can be used for any program.
 Also, multiple daemons can be used in parallel (e.g. using pr filtering) from different servers.
 
 Command to execute:
