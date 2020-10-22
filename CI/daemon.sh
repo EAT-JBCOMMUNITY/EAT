@@ -25,7 +25,7 @@ do
         k=0;
         u=0;
 	for pr_num in "${eat_arr[@]}"
-	do
+	do      #Additional filters could be added here (e.g. pr,version filters for running at different AT servers)
 	        if [ ${#checked_eat_prs[@]} -gt 0 ] && [ ${#checked_eat_prs[@]} -ge $k ]; then
 		    if [ "$pr_num" -gt "${checked_eat_prs[$k]}" ]; then
 		        u=$((u+1));
