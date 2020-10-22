@@ -29,6 +29,8 @@ elif [ "$1" == "-all" ]; then
 	./all.sh $2 $3
 elif [ "$1" == "-at" ]; then
 	./at.sh
+elif [ "$1" == "-pr" ]; then
+	./pr.sh
 elif [ "$1" == "-activemq" ]; then
         mkdir -p activemqdir
         cd activemqdir
