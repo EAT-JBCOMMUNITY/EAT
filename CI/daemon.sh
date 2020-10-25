@@ -30,7 +30,7 @@ do
 		    if [ "$pr_num" -gt "${checked_eat_prs[$k]}" ]; then
 		        u=$((u+1));
 		        echo $(date) ... New pr : $pr_num 
-		        docker run --rm --name atci_$pr_num -e TEST_PROGRAM=wildfly -e AT_PR=$pr_num -e GITHUB_TOKEN=$GITHUB_TOKEN -v $HOME/.m2/repository:/home/user/.m2/repository --ulimit nofile=5000:5000 docker.io/atci > output_$pr_num.txt &
+		        docker run --rm --name atci_$pr_num -e TEST_PROGRAM=wildfly -e AT_PR=$pr_num -e GITHUB_TOKEN=$GITHUB_TOKEN -v $HOME/.m2/repository:/home/user/.m2/repository --privileged=true --ulimit nofile=5000:5000 docker.io/atci > output_$pr_num.txt &
 		    elif [ "$pr_num" -eq "${checked_eat_prs[$k]}" ]; then
 		        n=$((k+u));
 		        uts=$(echo ${eat_prs_utime[$n]}  | tr -cd [:digit:]);
