@@ -122,6 +122,7 @@ $ ./run.sh -at
 Executing AT CI in a container
 ```
 $ sudo docker build -t docker.io/atci --ulimit nofile=5000:5000 .
+$ ./program_build_on_change.sh
 $ sudo docker run --name atci -e TEST_PROGRAM=(e.g. wildfly,openliberty,etc) (-e TEST_CATEGORY=the category of the AT that will be used to test the program) (-e AT_PR=75) (-e AT=the AT github url to be used) (-e PROGRAM_PR=100) (-e GITHUB_TOKEN=the AT github token, used to send the result message to the PR tested) (-e PROGRAM=the program github url to be tested) (-e PROGRAM_BRANCH=the branch of the program to be tested) (-v $HOME/.m2/repository:/home/user/.m2/repository) --ulimit nofile=5000:5000 docker.io/atci
 ```
 
@@ -133,5 +134,6 @@ Also, multiple daemons can be used in parallel (e.g. using pr filtering) from di
 Commands to execute:
 $ sudo docker build -t docker.io/atci --ulimit nofile=5000:5000 .
 $ export GITHUB_TOKEN=the AT github token
+$ ./program_build_on_change.sh
 $ sudo ./daemon.sh
 ```
