@@ -125,6 +125,13 @@ $ sudo docker build -t docker.io/atci --ulimit nofile=5000:5000 .
 $ sudo docker run --name atci -e TEST_PROGRAM=(e.g. wildfly,openliberty,etc) (-e TEST_CATEGORY=the category of the AT that will be used to test the program) (-e AT_PR=75) (-e AT=the AT github url to be used) (-e PROGRAM_PR=100) (-e GITHUB_TOKEN=the AT github token, used to send the result message to the PR tested) (-e PROGRAM=the program github url to be tested) (-e PROGRAM_BRANCH=the branch of the program to be tested) (-e PROGRAM_BUILD=true/false) (-e JBOSS_FOLDER=the path to the dist directory to be used) (-e JBOSS_VERSION=the version of the server which is used) (-v $HOME/.m2/repository:/home/user/.m2/repository --privileged=true) --ulimit nofile=5000:5000 docker.io/atci
 ```
 
+Using AT CI in a container in order to execute the tests in various environments
+```
+1. Modify the at-ci Dockerfile in order to be executed in various environments (e.g. centos, fedora, etc) using various jdks and other libraries/packages installed.
+2. Follow the instructions described in the section "Executing AT CI in a container".
+```
+
+
 The AT CI Servers (daemons)
 ```
 This daemon is implemented for checking the jboss servers (CI). Similar daemons can be used for any program.
