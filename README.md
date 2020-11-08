@@ -283,7 +283,7 @@ EAT with OPENSHIFT
 [EAT with Openshift](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/Dockerfiles/wildfly/README.md#run-eat-with-openshift-additional-instructions-should-be-added-relevant-to-the-ones-above)
  
  
-USING EAT TO TEST APPLICATIONS ON VARIOUS OPENSHIFT CLUSTERS
+USING EAT TO TEST APPLICATIONS ON VARIOUS KUBERNETES/OPENSHIFT CLUSTERS
 -------------------------------------------------------------
 - Make the applications on cluster available by exposing the endpoints of the specific cluster.
 - Distribute only the tests for the specific cluster to be tested.
