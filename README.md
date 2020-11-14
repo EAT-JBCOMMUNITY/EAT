@@ -289,7 +289,7 @@ USING EAT TO TEST APPLICATIONS ON VARIOUS KUBERNETES/OPENSHIFT CLUSTERS
 - Distribute only the tests for the specific cluster to be tested.
 - Excecute the tests.
 
-HOW TO TEST APPLICATION ON VARIOUS KUBERNETES/OPENSHIFT CLUSTERS
+HOW TO TEST APPLICATIONS ON VARIOUS KUBERNETES/OPENSHIFT CLUSTERS
 ------------------------------------------------------------------
 - export OPENKUBECLUSTER=(OpenKube-1,OpenKube-2,etc) to the cluster on which the app is deployed
 - export KUBENDPOINTURL=(the endpoing url of the cluster to be tested)
