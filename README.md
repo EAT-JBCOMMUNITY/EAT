@@ -284,11 +284,19 @@ EAT with OPENSHIFT
  
  
 USING EAT TO TEST APPLICATIONS ON VARIOUS KUBERNETES/OPENSHIFT CLUSTERS
--------------------------------------------------------------
+-----------------------------------------------------------------------
 - Make the applications on cluster available by exposing the endpoints of the specific cluster.
 - Distribute only the tests for the specific cluster to be tested.
 - Excecute the tests.
- 
+
+HOW TO TEST APPLICATION ON VARIOUS KUBERNETES/OPENSHIFT CLUSTERS
+------------------------------------------------------------------
+export OPENKUBECLUSTER=(OpenKube-1,OpenKube-2,etc) to the cluster on which the app is deployed
+export KUBENDPOINTURL=(the endpoing url of the cluster to be tested)
+run : mvn clean install -Dopenkube
+clean distributed resources for the cluster in case another cluster is to be tested : mvn clean install -Dopenkube -Dclean-all
+
+
 EAT WORKSHOP
 ---------------------------------
 [EAT Workshop](https://www.dropbox.com/s/bebhyd1iz7cg1i2/EAT_WORKSHOP.odt?dl=0)
