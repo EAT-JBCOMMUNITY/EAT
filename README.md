@@ -291,10 +291,10 @@ USING EAT TO TEST APPLICATIONS ON VARIOUS KUBERNETES/OPENSHIFT CLUSTERS
 
 HOW TO TEST APPLICATION ON VARIOUS KUBERNETES/OPENSHIFT CLUSTERS
 ------------------------------------------------------------------
-export OPENKUBECLUSTER=(OpenKube-1,OpenKube-2,etc) to the cluster on which the app is deployed
-export KUBENDPOINTURL=(the endpoing url of the cluster to be tested)
-run : mvn clean install -Dopenkube
-clean distributed resources for the cluster in case another cluster is to be tested : mvn clean install -Dopenkube -Dclean-all
+- export OPENKUBECLUSTER=(OpenKube-1,OpenKube-2,etc) to the cluster on which the app is deployed
+- export KUBENDPOINTURL=(the endpoing url of the cluster to be tested)
+- run : mvn clean install -Dopenkube
+- clean distributed resources for the cluster in case another cluster is to be tested : mvn clean install -Dopenkube -Dclean-all
 
 
 EAT WORKSHOP
