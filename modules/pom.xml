@@ -1629,6 +1629,22 @@
         </profile>
 
         <profile>
+            <id>openkube.testsuite</id>
+            <activation>
+                <property>
+                    <name>openkube</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <modules>
+                <module>testcases/jdkAll/OpenKube-1</module>
+                <module>testcases/jdkAll/OpenKube-2</module>
+            </modules>
+
+        </profile>
+
+        <profile>
             <id>wildfly.testsuite</id>
             <activation>
                 <property>
