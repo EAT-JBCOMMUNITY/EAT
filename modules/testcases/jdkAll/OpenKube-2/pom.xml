@@ -22,10 +22,19 @@
 
     <name>openkube additional testsuite: additional testsuite for openkube</name>
 
-    <!--dependencies>
+    <dependencies>
         <dependency>
-        </dependency>
-    </dependencies-->
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <version>4.12</version>
+	    <scope>test</scope>
+	</dependency>
+	<dependency>
+	    <groupId>org.jboss.logging</groupId>
+	    <artifactId>jboss-logging</artifactId>
+	    <version>3.4.1.Final</version>
+	</dependency>
+    </dependencies>
 
     <modules>
 	<module>jaxrs</module>
