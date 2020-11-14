@@ -42,7 +42,7 @@ import org.jboss.util.Base64;
 /**
  * @author <a href="mailto:cdewolf@redhat.com">Carlo de Wolf</a>
  */
-@EAT({"modules/testcases/jdkAll/OpenLiberty/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/OpenLiberty/jaxrs/src/main/java","modules/testcases/jdkAll/OpenKube-1/jaxrs/src/main/java","modules/testcases/jdkAll/OpenKube-2/jaxrs/src/main/java"})
 public class HttpRequest {
 
     private static String execute(final Callable<String> task, final long timeout, final TimeUnit unit) throws TimeoutException, IOException {

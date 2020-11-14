@@ -71,7 +71,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  * @author rob@iharder.net
  * @version 2.1
  */
- @EAT({"modules/testcases/jdkAll/OpenLiberty/jaxrs/src/main/java"})
+ @EAT({"modules/testcases/jdkAll/OpenLiberty/jaxrs/src/main/java","modules/testcases/jdkAll/OpenKube-1/jaxrs/src/main/java","modules/testcases/jdkAll/OpenKube-2/jaxrs/src/main/java"})
 public class Base64
 {
    // provide logging
