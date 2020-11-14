@@ -7,6 +7,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
+/**
+** The current test case tests the app https://github.com/EAT-JBCOMMUNITY/app deployed on a server on various openkube clusters.
+** These clusters should be made available in order for the app to be tested, e.g. via exposing the KUBENDPOINTURL.
+**/
 @EAT({"modules/testcases/jdkAll/OpenKube-1/jaxrs/src/main/java","modules/testcases/jdkAll/OpenKube-2/jaxrs/src/main/java"})
 public class OpenkubeRestclientTestCase {
 
