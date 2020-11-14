@@ -296,6 +296,21 @@
         </profile>
 
         <profile>
+            <id>openkube.testsuite</id>
+            <activation>
+                <property>
+                    <name>openkube</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <properties>
+		<serverDir2>Openkube</serverDir2>
+                <activemodules>basic,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,manualmode,remoting,messaging,security,server,web,weld,ejb</activemodules>
+	    </properties>
+        </profile>
+
+        <profile>
             <id>wildfly.jdk8.testsuite</id>
             <activation>
                 <property>
