@@ -413,9 +413,9 @@
 		    <version>1.7.8</version>
 		</dependency>
                 <dependency>
-		    <groupId>org.jboss.util</groupId>
-		    <artifactId>com.springsource.org.jboss.util</artifactId>
-		    <version>2.2.13.GA</version>
+		    <groupId>org.jboss</groupId>
+		    <artifactId>jboss-common-core</artifactId>
+		    <version>2.5.0.Final</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.apache.axis2</groupId>
@@ -823,9 +823,9 @@
 		    <version>1.7.8</version>
 		</dependency>
                 <dependency>
-		    <groupId>org.jboss.util</groupId>
-		    <artifactId>com.springsource.org.jboss.util</artifactId>
-		    <version>2.2.13.GA</version>
+		    <groupId>org.jboss</groupId>
+		    <artifactId>jboss-common-core</artifactId>
+		    <version>2.5.0.Final</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.apache.axis2</groupId>
