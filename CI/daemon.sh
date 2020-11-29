@@ -18,7 +18,7 @@ eat_prs_get=$(curl -s -n https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/pulls?
 eat_prs_number=$(echo $eat_prs_get | grep -Po '"number":.*?[^\\],');
 eat_arr+=($(echo $eat_prs_number | grep -Po '[0-9]*')) ;
 x1=$(grep -A 3  '"body":' <<< $eat_prs_get);
-eeat_prs_utime=();
+eat_prs_utime=();
        
         k=0;
         u=0;
