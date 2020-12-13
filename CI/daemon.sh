@@ -28,6 +28,7 @@ do      #Additional filters could be added here (e.g. pr,version filters for run
        push_times=$(curl -s -n https://api.github.com/repos/EAT-JBCOMMUNITY/EAT/pulls/$pr_num --header 'Authorization: token '$GITHUB_TOKEN);
        x1=$(grep -A 0  '"updated_at":' <<< $push_times);
        x1=${x1%,*--*};
+       x1=${x1%,*--*};
        eat_prs_utime[${#eat_prs_utime[@]}]=$x1
 
        if [ ${#checked_eat_prs[@]} -gt 0 ] && [ ${#checked_eat_prs[@]} -ge $k ]; then
