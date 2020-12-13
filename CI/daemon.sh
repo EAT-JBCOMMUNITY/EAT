@@ -43,7 +43,7 @@ do      #Additional filters could be added here (e.g. pr,version filters for run
        if [ "$uts" -gt "$uts_ckecked" ]; then
            #echo $(date) ... Updated pr : $pr_num
            #This needs some attention
-           #docker run --rm --name atci_$pr_num -e TEST_PROGRAM=wildfly -e AT_PR=$pr_num -e GITHUB_TOKEN=$GITHUB_TOKEN -v $HOME/.m2/repository:/home/user/.m2/repository --privileged=true --ulimit nofile=5000:5000 docker.io/atci > output_$pr_num.txt &
+           docker run --rm --name atci_$pr_num -e TEST_PROGRAM=wildfly -e AT_PR=$pr_num -e GITHUB_TOKEN=$GITHUB_TOKEN -v $HOME/.m2/repository:/home/user/.m2/repository --privileged=true --ulimit nofile=5000:5000 docker.io/atci > output_$pr_num.txt &
        fi
        k=$((k+1));
        c=$((c+1));
