@@ -1127,6 +1127,48 @@
                 <module>quark</module>
             </modules>
         </profile>
+        
+        <profile>
+            <id>releases80</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>1.10.4.Final</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark</module>
+            </modules>
+        </profile>
+        
+        <profile>
+            <id>releases81</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>1.10.5.Final</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark</module>
+            </modules>
+        </profile>
+        
+        <profile>
+            <id>releases82</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>1.11.0.Beta1</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark</module>
+            </modules>
+        </profile>
     </profiles>
 
 </project>
