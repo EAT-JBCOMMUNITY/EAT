@@ -37,7 +37,7 @@ do      #Additional filters could be added here (e.g. pr,version filters for run
        c2=$((c2+1));
        c2=$((c2 % 32000));
        echo $(date) ... New pr : $pr_num
-       docker run --rm --name atci_${pr_num}_${c2} -e TEST_PROGRAM=wildfly -e AT_PR=$pr_num -e GITHUB_TOKEN=$GITHUB_TOKEN -v $HOME/.m2/repository:/home/user/.m2/repository --privileged=true --ulimit nofile=5000:5000 docker.io/atci > output_$pr_num.txt &
+       docker run --rm --name atci_${pr_num}_${c2} -e TEST_PROGRAM=wildfly -e AT_PR=$pr_num -e GITHUB_TOKEN=$GITHUB_TOKEN -v $HOME/.m2/repository:/home/user/.m2/repository --privileged=true --ulimit nofile=5000:5000 docker.io/atci > output_${pr_num}_${c2}.txt &
    elif [ "$pr_num" -eq "${checked_eat_prs[$k]}" ]; then
        n=$((k+u));
        uts=$(echo ${eat_prs_utime[$n]}  | tr -cd [:digit:]);
@@ -46,7 +46,7 @@ do      #Additional filters could be added here (e.g. pr,version filters for run
            echo $(date) ... Updated pr : $pr_num
            c2=$((c2+1));
            c2=$((c2 % 32000));
-           docker run --rm --name atci_${pr_num}_${c2} -e TEST_PROGRAM=wildfly -e AT_PR=$pr_num -e GITHUB_TOKEN=$GITHUB_TOKEN -v $HOME/.m2/repository:/home/user/.m2/repository --privileged=true --ulimit nofile=5000:5000 docker.io/atci > output_$pr_num.txt &
+           docker run --rm --name atci_${pr_num}_${c2} -e TEST_PROGRAM=wildfly -e AT_PR=$pr_num -e GITHUB_TOKEN=$GITHUB_TOKEN -v $HOME/.m2/repository:/home/user/.m2/repository --privileged=true --ulimit nofile=5000:5000 docker.io/atci > output_${pr_num}_${c2}.txt &
        fi
        k=$((k+1));
        c=$((c+1));
