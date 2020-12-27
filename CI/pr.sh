@@ -181,9 +181,9 @@ if ! [ -z "$GITHUB_TOKEN" ] && ! [ -z "$AT_PR" ]; then
 	function comment {
 		body=""
 		if [ "$1" == true ]; then
-	 		body+="Build Success" 
+	 		body+="Build Success for $TEST_CATEGORY" 
 		else
-			body+="Build Failed" 
+			body+="Build Failed for $TEST_CATEGORY" 
 		fi
 		
 		body+=", "$(date '+%Y-%m-%d %H:%M:%S')
