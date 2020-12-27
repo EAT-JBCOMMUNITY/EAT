@@ -138,7 +138,8 @@ This daemon is implemented for checking the jboss servers (CI). Similar daemons 
 Also, multiple daemons can be used in parallel (e.g. using pr or program version filtering) from different servers.
 
 Commands to execute (with administrator privileges):
-$ docker build -t docker.io/atci --ulimit nofile=5000:5000 .
+$ export IMAGE="docker.io/atci" (or any other name)
+$ docker build -t $IMAGE --ulimit nofile=5000:5000 .
 $ export GITHUB_TOKEN=the AT github token
 $ ./daemon.sh
 ```
