@@ -125,13 +125,15 @@ In order to process the EAT sources, please, after following the steps of the se
 
 **2nd WAY OF PROCESSING**
 
-Please, **go to the Server Level** (e.g. [Wildfly Server Level](https://github.com/EAT-JBCOMMUNITY/EAT/tree/master/modules/testcases/jdkAll/Wildfly)) and follow the actions depending on the IDE:
-
 * **Eclipse :** 
   * Load the parent, modules and specific server layeres.
   * Activate the specific server testuite profile at the parent and modules level and the standalone profile at the server lever
   * Define the maven build configuration and run the testsuite (including the JBOSS_FOLDER and JBOSS_VERSION variables).
+  * Please make sure that the project sources hava a recognized type (e.g. java)
+  * When projecing the sources in the server directory, before running the testsuite, please move them to the modules level (or else they will be overriden by the distribution)
   
+Please, **go to the Server Level** (e.g. [Wildfly Server Level](https://github.com/EAT-JBCOMMUNITY/EAT/tree/master/modules/testcases/jdkAll/Wildfly)) and follow the actions depending on the IDE:
+
 * **IntelliJ IDEA :** Go to the Server Level Project -> Project Structure -> Sources, remove the current context root and add "PATH_TO_PROJECT/EAT/modules/src/main/java" as the context root. Apply the changes. The sources should be, now, visible in your IDE to process under "java" directory. 
 
 * **Netbeans :** The sources should be visible in your IDE to process.
