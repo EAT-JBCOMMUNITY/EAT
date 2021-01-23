@@ -1,0 +1,56 @@
+FROM docker.io/centos
+
+MAINTAINER Panagiotis Sotiropoulos <psotirop@redhat.com>
+
+LABEL description="A container for running EAT in isolation"
+
+# Upgrading system
+RUN dnf -y upgrade
+RUN dnf -y install wget
+RUN dnf install -y git
+RUN dnf install -y sudo
+
+# Downloading Java
+RUN wget --no-check-certificate "https://www.dropbox.com/s/vm819mraxwidxqh/jdk-8u191-linux-x64.rpm?dl=0" -O /tmp/jdk-8-linux-x64.rpm && cd /tmp && dnf -y --allowerasing install findutils && rpm -Uhv jdk-8-linux-x64.rpm
+
+RUN rm /tmp/jdk-8-linux-x64.rpm 
+
+RUN alternatives --install /usr/bin/java jar /usr/java/latest/bin/java 200000
+RUN alternatives --install /usr/bin/javaws javaws /usr/java/latest/bin/javaws 200000
+RUN alternatives --install /usr/bin/javac javac /usr/java/latest/bin/javac 200000
+
+ENV JAVA_HOME /usr/java/latest
+
+# Add JDK bin dir to PATH
+ENV PATH=$PATH:/usr/java/latest/bin/
+
+ENV MAVEN_VERSION 3.5.3
+
+RUN curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share \
+  && mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven \
+  && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
+
+ENV MAVEN_HOME /usr/share/maven
+
+ENV PATH=$PATH:/usr/share/maven/bin/
+
+ENV GLIBC_VERSION=2.27-r0
+
+
+RUN dnf -y install gcc && dnf -y install zlib-devel && dnf -y install glibc-devel.i686 glibc.i686
+
+ENV GRAAL_VERSION 20.1.0
+ENV GRAAL_HOME /usr/lib/jvm/vm-$GRAAL_VERSION
+ENV PATH $GRAAL_HOME/graalvm-ce-java8-$GRAAL_VERSION/bin:$PATH
+
+RUN mkdir -p $GRAAL_HOME &&  wget --no-check-certificate https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-$GRAAL_VERSION/graalvm-ce-java8-linux-amd64-$GRAAL_VERSION.tar.gz -O $GRAAL_HOME/graalvm-ce-$GRAAL_VERSION-linux-amd64.tar 
+
+
+RUN tar xvf $GRAAL_HOME/graalvm-ce-$GRAAL_VERSION-linux-amd64.tar -C $GRAAL_HOME \
+     && rm "$GRAAL_HOME/graalvm-ce-$GRAAL_VERSION-linux-amd64.tar" && ls -la $GRAAL_HOME/graalvm-ce-java8-$GRAAL_VERSION/bin && cd $GRAAL_HOME/graalvm-ce-java8-$GRAAL_VERSION/bin && sudo ./gu install native-image
+
+ENV GRAALVM_HOME $GRAAL_HOME/graalvm-ce-java8-$GRAAL_VERSION
+
+ADD repository /home/user/.m2/repository
+
+RUN mkdir protean && cd protean && git clone https://github.com/quarkusio/quarkus.git master && cd master && ls -la && export MAVEN_OPTS="-Xmx1563m" && ./mvnw clean install -DskipTests -DskipITs -DskipDocs && export QUARKUS_VERSION=999-SNAPSHOT &&  JBOSS_VERSION=999.0.0-SNAPSHOT && export JBOSS_VERSION=$JBOSS_VERSION && mkdir EAT && cd EAT && git clone https://github.com/EAT-JBCOMMUNITY/EAT.git && cd EAT && export NATIVE=-Dnative && ./run-quarkus.sh
