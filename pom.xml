@@ -107,11 +107,6 @@
                 <updatePolicy>never</updatePolicy>
             </snapshots>
         </repository>
-	<repository>
-		<id>repository.spring.maven.libs</id>
-		<name>Spring Framework Maven  Repository</name>
-		<url>https://repo.spring.io/libs-milestone/</url>
-	</repository>
 	<!-- Addition of other repositories -->
     </repositories>
 
@@ -145,6 +140,22 @@
     </pluginRepositories>
 
     <profiles>
+        <profile>
+            <id>springtests</id>
+            <activation>
+                <property>
+                    <name>!disableSpringTests</name>
+                </property>
+            </activation>
+
+            <repositories>
+		<repository>
+			<id>repository.spring.maven.libs</id>
+			<name>Spring Framework Maven  Repository</name>
+			<url>https://repo.spring.io/libs-milestone/</url>
+		</repository>
+	    </repositories>
+        </profile>
     	<profile>
             <id>serverbeta.testsuite</id>
             <activation>
