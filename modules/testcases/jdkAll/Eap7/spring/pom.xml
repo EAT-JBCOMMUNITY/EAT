@@ -19,9 +19,9 @@
     <name>eap7 additional testsuite: spring</name>
 
 
-     <!--modules>
+     <modules>
          <module>test-configurations</module>
-     </modules-->
+     </modules>
 
      <build>
         <plugins>  
