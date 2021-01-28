@@ -1178,6 +1178,19 @@
         </profile>
 
         <profile>
+            <id>springActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>spring</value>
+                </property>
+            </activation>
+            <modules>
+                <module>spring</module>
+            </modules>
+        </profile>
+
+        <profile>
 	    <id>all</id>
 	    <activation>
 	        <property>
@@ -1204,6 +1217,7 @@
                 <module>remoting</module>
 		<module>security</module>
 		<module>server</module>
+                <module>spring</module>
 		<module>web</module>
 		<module>weld</module> 
             </modules>
