@@ -7,7 +7,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
  
 @SpringBootApplication
-@EAT({"modules/testcases/jdkAll/Wildfly/spring/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Wildfly/spring/src/main/java#23.0.0"})
 public class ExampleApplication extends SpringBootServletInitializer {
     private static Class<ExampleApplication> applicationClass = ExampleApplication.class;
 
