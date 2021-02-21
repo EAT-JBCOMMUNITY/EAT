@@ -18,10 +18,19 @@
     <packaging>pom</packaging>
     <name>wildfly additional testsuite: spring</name>
 
-            
-    <modules>
-        <module>test-configurations</module>
-    </modules>
+    <profiles>
+        <profile>
+            <id>springtests</id>
+            <activation>
+                <property>
+                    <name>!disableSpringTests</name>
+                </property>
+            </activation>       
+	    <modules>
+		<module>test-configurations</module>
+	    </modules>
+        </profile>
+    </profiles>
 
     <dependencies>
 	<dependency>
