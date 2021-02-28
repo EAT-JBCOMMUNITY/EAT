@@ -54,6 +54,14 @@
 	    </dependencies>
 
         </profile>
+	<profile>
+            <id>b-profile</id>
+            <activation>
+                <property>
+                    <name>b</name>
+                </property>
+            </activation>       
+	</profile>
     </profiles>
 
     <build>
