@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding='UTF-8' ?>
 <!-- @EAT({"modules/testcases/jdkAll/Eap70x/domain_management/src/test/config/standaloneEap7#7.0.4*7.0.20","modules/testcases/jdkAll/Eap70x-Proposed/domain_management/src/test/config/standaloneEap7#7.0.4*7.0.20"}) -->
 <server xmlns="urn:jboss:domain:4.1">
     <extensions>
