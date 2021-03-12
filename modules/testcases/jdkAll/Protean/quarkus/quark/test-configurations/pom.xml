@@ -174,12 +174,12 @@
                     <plugin>
                         <groupId>io.quarkus</groupId>
                         <artifactId>quarkus-maven-plugin</artifactId>
-                        <version>1.12.0.Final</version>
+                        <version>${protean.version}</version>
                         <executions>
                             <execution>
                                 <id>native-image</id>
                                 <goals>
-                                    <goal>native-image</goal>
+                                    <goal>build</goal>
                                 </goals>
                                 <configuration>
                                     <enableHttpUrlHandler>true</enableHttpUrlHandler>
