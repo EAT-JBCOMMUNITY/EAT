@@ -39,7 +39,7 @@ ENV GLIBC_VERSION=2.27-r0
 
 RUN dnf -y install gcc && dnf -y install zlib-devel && dnf -y install glibc-devel.i686 glibc.i686
 
-ENV GRAAL_VERSION 21.0.0
+ENV GRAAL_VERSION 21.0.0.2
 ENV GRAAL_HOME /usr/lib/jvm/vm-$GRAAL_VERSION
 ENV PATH $GRAAL_HOME/graalvm-ce-java8-$GRAAL_VERSION/bin:$PATH
 
