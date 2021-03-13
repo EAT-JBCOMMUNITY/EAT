@@ -5,5 +5,6 @@ sed -i 's/${QUARKUS_VERSION}/'"${QUARKUS_VERSION}"'/g' ./modules/testcases/jdkAl
 sed -i 's/${QUARKUS_VERSION}/'"${QUARKUS_VERSION}"'/g' ./modules/testcases/jdkAll/Protean/pom.xml
 ./Maven/apache-maven-3.5.3/bin/mvn clean install -Dquarkus "${NATIVE}" -DJBOSS_VERSION=${JBOSS_VERSION} -Dquarkus-project-discovery=false -Dquarkus-cp-cache=false -Dquarkus-workspace-discovery=false -Dquarkus-classpath-cache=false
 sed -i 's/<version>'"${QUARKUS_VERSION}"'<\/version>/<version>${QUARKUS_VERSION}<\/version>/g' ./modules/testcases/jdkAll/Protean/quarkus/quark/test-configurations/pom.xml
+sed -i 's/<version>'"${QUARKUS_VERSION}"'<\/version>/<version>${QUARKUS_VERSION}<\/version>/g' ./modules/testcases/jdkAll/Protean/quarkus/quark2/test-configurations/pom.xml
 sed -i 's/'"${QUARKUS_VERSION}"'/${QUARKUS_VERSION}/g' ./modules/testcases/jdkAll/Protean/pom.xml
 
