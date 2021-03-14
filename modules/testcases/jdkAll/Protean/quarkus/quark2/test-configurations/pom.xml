@@ -186,7 +186,7 @@
                                 </goals>
 				<configuration>
 		                    <noDeps>true</noDeps>
-		                    <skip>true</skip>
+		                    <skip>${skipITs}</skip>
 		                </configuration>
                             </execution>
                         </executions>
