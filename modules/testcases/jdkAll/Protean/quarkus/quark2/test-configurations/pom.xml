@@ -22,7 +22,7 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        
+        <skipITs>true</skipITs>
     </properties>
     
 
@@ -148,6 +148,9 @@
                     <name>native</name>
                 </property>
             </activation>
+            <properties>
+                <quarkus.package.type>native</quarkus.package.type>
+            </properties>
             <build>
 
                 <plugins>
@@ -163,8 +166,9 @@
                                 <configuration>
                                   
                                     <argLine>-Duser.language=en</argLine>
+                                    <skipITs>${skipITs}</skipITs>
                                     <systemProperties>
-                                        <native.image.path>${project.build.directory}/${project.build.finalName}</native.image.path>
+                                        <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
                                     </systemProperties>
                                 </configuration>
                             </execution>
@@ -180,7 +184,10 @@
                                 <goals>
                                     <goal>build</goal>
                                 </goals>
-				    
+				<configuration>
+		                    <noDeps>true</noDeps>
+		                    <skip>true</skip>
+		                </configuration>
                             </execution>
                         </executions>
                     </plugin>
