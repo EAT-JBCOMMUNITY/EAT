@@ -164,7 +164,7 @@
                                   
                                     <argLine>-Duser.language=en</argLine>
                                     <systemProperties>
-                                        <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
+                                        <native.image.path>${project.build.directory}/${project.build.finalName}</native.image.path>
                                     </systemProperties>
                                 </configuration>
                             </execution>
@@ -180,6 +180,7 @@
                                 <goals>
                                     <goal>build</goal>
                                 </goals>
+				    
                             </execution>
                         </executions>
                     </plugin>
