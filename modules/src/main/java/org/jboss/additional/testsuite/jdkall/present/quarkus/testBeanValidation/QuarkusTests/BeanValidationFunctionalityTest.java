@@ -10,12 +10,13 @@ import org.junit.jupiter.api.Test;
 
 import io.restassured.RestAssured;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
+import org.jboss.eap.additional.testsuite.annotations.ATTest;
 
 /**
  * Test various Bean Validation operations running in Shamrock
  */
 
-@EAT({"modules/testcases/jdkAll/Protean/quarkus/protean/test-configurations2/src/test/java#0.10.0*0.12.1","modules/testcases/jdkAll/Protean/quarkus/quark/test-configurations/src/test/java#0.13.0*999.0.1"})
+@EAT({"modules/testcases/jdkAll/Protean/quarkus/protean/test-configurations2/src/test/java#0.10.0*0.12.1","modules/testcases/jdkAll/Protean/quarkus/quark/test-configurations/src/test/java#0.13.0*999.0.1","modules/testcases/jdkAll/Protean/quarkus/quark2/test-configurations/src/test/java#999.0.0"})
 @QuarkusTest
 public class BeanValidationFunctionalityTest {
 
@@ -35,7 +36,7 @@ public class BeanValidationFunctionalityTest {
                 .body(is(expected.toString()));
     }
 
-    @Test
+    @ATTest({"modules/testcases/jdkAll/Protean/quarkus/protean/test-configurations2/src/test/java#0.10.0*0.12.1","modules/testcases/jdkAll/Protean/quarkus/quark/test-configurations/src/test/java#0.13.0*999.0.1"})
     public void testCustomClassLevelConstraint() throws Exception {
         StringBuilder expected = new StringBuilder();
         expected.append("failed:  (invalid MyOtherBean)").append("\n");
