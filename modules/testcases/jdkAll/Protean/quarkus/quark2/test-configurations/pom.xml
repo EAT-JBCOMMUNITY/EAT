@@ -16,7 +16,7 @@
 
     <groupId>io.quarkus</groupId>
     <artifactId>quarkus-integration-test-hibernate-validator</artifactId>
-    <name>quarkus : configuration</name>
+    <name>quarkus2 : configuration</name>
     <version>${QUARKUS_VERSION}</version>    
         
     <properties>
@@ -140,7 +140,7 @@
 
 
         
-     <!--profiles>
+     <profiles>
         <profile>
             <id>native-image</id>
             <activation>
@@ -190,7 +190,7 @@
                 </plugins>
             </build>
         </profile>
-    </profiles-->
+    </profiles>
 
 </project>
 
