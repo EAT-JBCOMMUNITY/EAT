@@ -176,13 +176,10 @@
                         <version>${protean.version}</version>
                         <executions>
                             <execution>
-                                <id>native-image</id>
+                                <id>build</id>
                                 <goals>
-                                    <goal>native-image</goal>
+                                    <goal>build</goal>
                                 </goals>
-                                <configuration>
-                                    <enableHttpUrlHandler>true</enableHttpUrlHandler>
-                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
