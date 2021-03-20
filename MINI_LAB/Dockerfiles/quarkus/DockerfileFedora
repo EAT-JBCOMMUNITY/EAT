@@ -1,4 +1,4 @@
-FROM docker.io/centos
+FROM docker.io/fedora
 
 MAINTAINER Panagiotis Sotiropoulos <psotirop@redhat.com>
 
