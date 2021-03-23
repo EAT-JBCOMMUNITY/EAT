@@ -3,7 +3,7 @@
 ## THE JBOSS TESTSUITE TO DEVELOP TESTS AGAINST INFINITE NUMBER OF JBOSS SERVERS
 --------------------------------------------------------------------------------
 ## A PROJECT UNDER THE ΙΔΕΑ STATEMENT
---------------------------------------
+-------------------------------------
 
 An additional JBOSS testsuite in order to facilitate Qualtity Testing.
 
