@@ -134,7 +134,7 @@ In order to process the EAT sources, please, after following the steps of the se
   
 Please, **go to the Server Level** (e.g. [Wildfly Server Level](https://github.com/EAT-JBCOMMUNITY/EAT/tree/master/modules/testcases/jdkAll/Wildfly)) and follow the actions depending on the IDE:
 
-* **IntelliJ IDEA :** Go to the Server Level Project -> Project Structure -> Sources, remove the current context root and add "PATH_TO_PROJECT/EAT/modules/src/main/java" as the context root. Apply the changes. The sources should be, now, visible in your IDE to process under "java" directory. 
+* **IntelliJ IDEA :** Go to the Server Level Project -> Project Structure -> Sources, remove the current content root and add "PATH_TO_PROJECT/EAT/modules/src/main/java" as the content root. Apply the changes. The sources should be, now, visible in your IDE to process under "java" directory. 
 
 * **Netbeans :** The sources should be visible in your IDE to process.
 
