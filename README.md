@@ -241,7 +241,6 @@ OTHER ADDITIONAL FUNCTIONS
 ----------------------------
 - Test based software dynamic creation
 - Cloud Software Testing
-- ...
 
 
 EAT with OPENSHIFT
