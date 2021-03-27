@@ -1338,6 +1338,34 @@
             </modules>
         </profile>
         
+        <profile>
+            <id>releases95</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>1.13.0.CR1</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+        
+        <profile>
+            <id>releases96</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>1.13.0.Final</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+        
     </profiles>
 
 </project>
