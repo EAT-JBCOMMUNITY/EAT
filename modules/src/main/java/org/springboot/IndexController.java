@@ -4,6 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
+/** 
+author : Somnath Musib
+**/
 
 @EAT({"modules/testcases/jdkAll/Wildfly/spring/src/main/java"})
 @Controller

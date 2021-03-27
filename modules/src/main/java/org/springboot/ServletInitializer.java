@@ -4,6 +4,9 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
+/** 
+author : Somnath Musib
+**/
 
 @EAT({"modules/testcases/jdkAll/Wildfly/spring/src/main/java"})
 public class ServletInitializer extends SpringBootServletInitializer {
