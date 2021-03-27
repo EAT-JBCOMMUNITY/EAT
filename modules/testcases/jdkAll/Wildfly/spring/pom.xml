@@ -18,6 +18,7 @@
     <packaging>pom</packaging>
     <name>wildfly additional testsuite: spring</name>
 
+
     <profiles>
         <profile>
             <id>springtests</id>
@@ -29,26 +30,64 @@
 	    <modules>
 		<module>test-configurations</module>
 	    </modules>
-		
+
+	     <dependencyManagement>
+		        <dependencies>
+		            <dependency>
+		                <groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-parent</artifactId>
+				<version>2.2.4.RELEASE</version>
+		                <type>pom</type>
+		                <scope>import</scope>
+		            </dependency>
+		        </dependencies>
+	     </dependencyManagement>
+
 	    <dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<version>2.4.2</version>
-			<exclusions>
-			    <exclusion>
-			       <groupId>org.springframework.boot</groupId>
-			       <artifactId>spring-boot-starter-tomcat</artifactId>
-			    </exclusion>
-			    <exclusion>
-				<artifactId>logback-classic</artifactId>
-				<groupId>ch.qos.logback</groupId>
-			    </exclusion>
-			    <exclusion>
-				<artifactId>log4j-over-slf4j</artifactId>
-				<groupId>org.slf4j</groupId>
-			    </exclusion>
-			</exclusions>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+		    <exclusions>
+			<exclusion>
+			    <artifactId>logback-classic</artifactId>
+			    <groupId>ch.qos.logback</groupId>
+			</exclusion>
+			<exclusion>
+			    <artifactId>log4j-over-slf4j</artifactId>
+			    <groupId>org.slf4j</groupId>
+			</exclusion>
+		    </exclusions>
+			</dependency>
+
+			<dependency>
+			    <groupId>org.springframework.boot</groupId>
+			    <artifactId>spring-boot-starter-web</artifactId>
+			    <exclusions>
+			<exclusion>
+			    <artifactId>logback-classic</artifactId>
+			    <groupId>ch.qos.logback</groupId>
+			</exclusion>
+			<exclusion>
+			    <artifactId>log4j-over-slf4j</artifactId>
+			    <groupId>org.slf4j</groupId>
+			</exclusion>
+		    </exclusions>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-tomcat</artifactId>
+		    <scope>provided</scope>
+		    <exclusions>
+			<exclusion>
+			    <artifactId>logback-classic</artifactId>
+			    <groupId>ch.qos.logback</groupId>
+			</exclusion>
+			<exclusion>
+			    <artifactId>log4j-over-slf4j</artifactId>
+			    <groupId>org.slf4j</groupId>
+			</exclusion>
+		    </exclusions>
 		</dependency>
 
 	    </dependencies>
@@ -86,6 +125,11 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-maven-plugin</artifactId>
+	    </plugin>
 
         </plugins>
     </build>
