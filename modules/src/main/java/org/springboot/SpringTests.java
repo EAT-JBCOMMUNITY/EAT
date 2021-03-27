@@ -1,10 +1,10 @@
 package org.springboot;
 
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.Scanner;
+import javax.swing.text.html.HTMLDocument;
+import javax.swing.text.html.HTMLEditorKit;
+import javax.swing.text.html.parser.ParserDelegator;
+import java.io.InputStreamReader;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
@@ -25,7 +25,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 @RunAsClient
 public class SpringTests {
 
-    private final static String WARNAME = "arquillian-managed.war";
+    private final static String WARNAME = "testspring2.war";
 
     @Deployment(testable = false)
     public static Archive<?> deploy() {
@@ -39,7 +39,13 @@ public class SpringTests {
 
     @Test
     public void testSpring() throws Exception {
-       
+        HTMLEditorKit htmlKit = new HTMLEditorKit();
+        HTMLDocument htmlDoc = (HTMLDocument) htmlKit.createDefaultDocument();
+        HTMLEditorKit.Parser parser = new ParserDelegator();
+        parser.parse(new InputStreamReader(new URL("http://"+url.getHost()+":"+url.getPort()+url.getPath().substring(0, url.getPath().length()-2)).openStream()), htmlDoc.getReader(0), true);
+
+        Assert.assertEquals("Spring Boot Wildfly", htmlDoc.getProperty("title"));
+
     }
 
 }
