@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 
-@EAT({"modules/testcases/jdkAll/Wildfly/spring/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Wildfly/spring/buildapp-dir/src/main/java"})
 @SpringBootApplication
 public class ExampleApplication {
 
