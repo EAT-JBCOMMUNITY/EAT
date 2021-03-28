@@ -8,7 +8,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 author : Somnath Musib
 **/
 
-@EAT({"modules/testcases/jdkAll/Wildfly/spring/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Wildfly/spring/buildapp-dir/src/main/java"})
 public class ServletInitializer extends SpringBootServletInitializer {
 
     @Override
