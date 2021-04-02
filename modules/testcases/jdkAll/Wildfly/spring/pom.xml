@@ -18,7 +18,22 @@
     <packaging>pom</packaging>
     <name>wildfly additional testsuite: spring</name>
 
+
     <profiles>
+        <profile>
+            <id>b-profile</id>
+            <activation>
+                <property>
+                    <name>b</name>
+                </property>
+            </activation>    
+	
+            <modules>
+		<module>buildapp-dir</module>
+	    </modules>
+
+        </profile>
+
         <profile>
             <id>springtests</id>
             <activation>
@@ -29,39 +44,9 @@
 	    <modules>
 		<module>test-configurations</module>
 	    </modules>
-		
-	    <dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<version>2.4.2</version>
-			<exclusions>
-			    <exclusion>
-			       <groupId>org.springframework.boot</groupId>
-			       <artifactId>spring-boot-starter-tomcat</artifactId>
-			    </exclusion>
-			    <exclusion>
-				<artifactId>logback-classic</artifactId>
-				<groupId>ch.qos.logback</groupId>
-			    </exclusion>
-			    <exclusion>
-				<artifactId>log4j-over-slf4j</artifactId>
-				<groupId>org.slf4j</groupId>
-			    </exclusion>
-			</exclusions>
-		</dependency>
-
-	    </dependencies>
 
         </profile>
-	<profile>
-            <id>b-profile</id>
-            <activation>
-                <property>
-                    <name>b</name>
-                </property>
-            </activation>       
-	</profile>
+
     </profiles>
 
     <build>
@@ -86,7 +71,6 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
     </build>
 
