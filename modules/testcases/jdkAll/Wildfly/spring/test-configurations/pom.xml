@@ -94,6 +94,12 @@
                                     <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/testspring.war" />
 	                            <target name="copy-file"/>
 	                        </ant>
+				<ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
+	                            <property name="fileName" value="testspring.war" />
+                                    <property name="filePath" value="${jboss.modules.dir}/servers/${server}/build/target/jbossas/standalone/deployments" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/testspring2.war" />
+	                            <target name="copy-file"/>
+	                        </ant>
 	                    </target>
 	                </configuration>
 	            </execution>
