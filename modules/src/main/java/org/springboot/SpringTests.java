@@ -25,7 +25,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 @RunAsClient
 public class SpringTests {
 
-    private final static String WARNAME = "testspring2.war";
+    private final static String WARNAME = "buildapp1.war";
 
     @Deployment(testable = false)
     public static Archive<?> deploy() {
@@ -42,9 +42,9 @@ public class SpringTests {
         HTMLEditorKit htmlKit = new HTMLEditorKit();
         HTMLDocument htmlDoc = (HTMLDocument) htmlKit.createDefaultDocument();
         HTMLEditorKit.Parser parser = new ParserDelegator();
-        parser.parse(new InputStreamReader(new URL("http://"+url.getHost()+":"+url.getPort()+url.getPath().substring(0, url.getPath().length()-2)).openStream()), htmlDoc.getReader(0), true);
+        parser.parse(new InputStreamReader(new URL("http://"+url.getHost()+":"+url.getPort()+"/additional-testsuite-spring-buildapp1-2.4.4").openStream()), htmlDoc.getReader(0), true);
 
-        Assert.assertEquals("Spring Boot Wildfly", htmlDoc.getProperty("title"));
+        Assert.assertEquals("Spring Boot Test", htmlDoc.getProperty("title"));
 
     }
 

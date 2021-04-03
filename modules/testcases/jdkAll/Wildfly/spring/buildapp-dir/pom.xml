@@ -14,7 +14,7 @@
         <version>2.4.4</version>
     </parent>
 
-    <artifactId>wildfly-additional-testsuite-spring-buildapp</artifactId>
+    <artifactId>additional-testsuite-spring-buildapp1</artifactId>
     <packaging>war</packaging>
     <name>wildfly additional testsuite: spring build app</name>
 
