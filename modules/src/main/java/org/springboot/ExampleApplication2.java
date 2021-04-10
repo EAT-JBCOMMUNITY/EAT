@@ -7,10 +7,10 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 
-@EAT({"modules/testcases/jdkAll/Wildfly/spring/buildapp-dir2/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Wildfly/spring/buildapp2-dir/src/main/java"})
 @SpringBootApplication
 public class ExampleApplication2 extends SpringBootServletInitializer {
-    private static Class<ExampleApplication> applicationClass = ExampleApplication2.class;
+    private static Class<ExampleApplication2> applicationClass = ExampleApplication2.class;
 
     public static void main(String[] args) {
         SpringApplication.run(applicationClass, args);

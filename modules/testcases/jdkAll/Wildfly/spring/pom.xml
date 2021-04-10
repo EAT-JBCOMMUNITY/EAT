@@ -30,6 +30,7 @@
 	
             <modules>
 		<module>buildapp-dir</module>
+                <module>buildapp2-dir</module>
 	    </modules>
 
         </profile>
