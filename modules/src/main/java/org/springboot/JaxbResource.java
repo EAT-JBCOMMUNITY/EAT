@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RestController
-@EAT({"modules/testcases/jdkAll/Wildfly/spring/buildapp-dir2/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Wildfly/spring/buildapp2-dir/src/main/java"})
 public class JaxbResource {
     @RequestMapping("/restspring/{resource}")
     String Resource(@PathVariable String resource) {
