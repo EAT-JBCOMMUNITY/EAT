@@ -1366,6 +1366,34 @@
             </modules>
         </profile>
         
+        <profile>
+            <id>releases97</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>1.13.1.Final</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+        
+        <profile>
+            <id>releases98</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>1.13.2.Final</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+        
     </profiles>
 
 </project>
