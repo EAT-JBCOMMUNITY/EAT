@@ -1394,6 +1394,20 @@
             </modules>
         </profile>
         
+        <profile>
+            <id>releases99</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>12.0.0.Alpha1</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+        
     </profiles>
 
 </project>
