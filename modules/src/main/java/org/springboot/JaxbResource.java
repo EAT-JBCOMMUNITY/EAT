@@ -1,4 +1,4 @@
-package org.springboot;
+package org.spring.testspring;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
