@@ -35,7 +35,7 @@ public class JaxbProviderTests {
     private URL url;
 
     private String performCall(String urlPattern) throws Exception {
-        return HttpRequestCommands.get(url.toString().replace("arquillian-managed","testspring2") + urlPattern, 10, TimeUnit.SECONDS);
+        return HttpRequestCommands.get(url.toString().replace("arquillian-managed","additional-testsuite-spring-buildapp2-2.4.4") + urlPattern, 10, TimeUnit.SECONDS);
     }
 
     @Test

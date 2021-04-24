@@ -20,7 +20,7 @@ import org.junit.runner.RunWith;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 
-@EAT({"modules/testcases/jdkAll/Wildfly/spring/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Wildfly/spring/src/main/java#23.0.0","modules/testcases/jdkAll/ServerBeta/spring/src/main/java#21.0.0","modules/testcases/jdkAll/Eap7/spring/src/main/java#7.3.5"})
 @RunWith(Arquillian.class)
 @RunAsClient
 public class SpringTests {
