@@ -341,12 +341,6 @@
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-ejb3</artifactId>
 		</dependency>
-		<!-- This is required for the JmsTestCase which uses CLI -->
-		<dependency>
-		    <groupId>org.wildfly</groupId>
-		    <artifactId>wildfly-messaging-activemq</artifactId>
-		    <version>$JBOSS_VERSION</version>
-		</dependency>
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-pojo</artifactId>
@@ -774,12 +768,6 @@
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-ejb3</artifactId>
-		</dependency>
-		<!-- This is required for the JmsTestCase which uses CLI -->
-		<dependency>
-		    <groupId>org.wildfly</groupId>
-		    <artifactId>wildfly-messaging-activemq</artifactId>
-		    <version>$JBOSS_VERSION</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly</groupId>
