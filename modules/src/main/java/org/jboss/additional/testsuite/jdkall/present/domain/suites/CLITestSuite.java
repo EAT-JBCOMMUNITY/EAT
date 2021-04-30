@@ -48,7 +48,6 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        JmsTestCase.class,
         DeployAllServerGroupsTestCase.class,
         DeploySingleServerGroupTestCase.class,
         DomainDeploymentOverlayTestCase.class,
