@@ -275,6 +275,7 @@
                 <dependency>
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-ext</artifactId>
+		    <version>1.7.25</version>
                 </dependency>
                 <dependency>
 		    <groupId>org.jboss.spec.javax.annotation</groupId>
@@ -344,6 +345,7 @@
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-messaging-activemq</artifactId>
+		    <version>$JBOSS_VERSION<version>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly</groupId>
@@ -447,6 +449,7 @@
 		<dependency>
 		    <groupId>org.slf4j</groupId>
 		    <artifactId>slf4j-ext</artifactId>
+		    <version>1.7.25</version>
 		</dependency>
             </dependencies>
 
@@ -776,6 +779,7 @@
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-messaging-activemq</artifactId>
+		    <version>$JBOSS_VERSION<version>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly</groupId>
