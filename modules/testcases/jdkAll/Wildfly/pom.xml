@@ -345,7 +345,7 @@
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-messaging-activemq</artifactId>
-		    <version>$JBOSS_VERSION<version>
+		    <version>$JBOSS_VERSION</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly</groupId>
@@ -779,7 +779,7 @@
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-messaging-activemq</artifactId>
-		    <version>$JBOSS_VERSION<version>
+		    <version>$JBOSS_VERSION</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly</groupId>
