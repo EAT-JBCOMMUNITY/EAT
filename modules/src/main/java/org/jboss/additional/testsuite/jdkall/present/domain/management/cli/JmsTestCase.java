@@ -81,7 +81,7 @@ public class JmsTestCase extends AbstractCliTestBase {
         assertFalse(ls.contains("testJmsQueue"));
 
         // create queue
-        cli.sendLine("jms-queue add --profile=" + profileName + " --queue-address=testJmsQueue --entries=testJmsQueue");
+        cli.sendLine("/profile=" + profileName + "/subsystem=messaging-activemq/server=default/jms-queue=testJmsQueue:add(entries=[testJmsQueue])");
 
         // check it is listed
         cli.sendLine("cd /profile=" + profileName + "/subsystem=messaging-activemq/server=default/jms-queue");
@@ -93,7 +93,7 @@ public class JmsTestCase extends AbstractCliTestBase {
     private void testRemoveJmsQueue() throws Exception {
 
         // create queue
-        cli.sendLine("jms-queue remove --profile=" + profileName + " --queue-address=testJmsQueue");
+        cli.sendLine("/profile=" + profileName + "/subsystem=messaging-activemq/server=default/jms-queue=testJmsQueue:remove()");
 
         // check it is listed
         cli.sendLine("cd /profile=" + profileName + "/subsystem=messaging-activemq/server=default/jms-queue");
@@ -111,7 +111,8 @@ public class JmsTestCase extends AbstractCliTestBase {
         assertFalse(ls.contains("testJmsTopic"));
 
         // create topic
-        cli.sendLine("jms-topic add --profile=" + profileName + " --topic-address=testJmsTopic --entries=testJmsTopic");
+        cli.sendLine("cli.sendLine("/profile=" + profileName + "/subsystem=messaging-activemq/server=default/jms-topic=testJmsTopic:add(entries=[testJmsTopic])");
+");
 
         // check it is listed
         cli.sendLine("cd /profile=" + profileName + "/subsystem=messaging-activemq/server=default/jms-topic");
@@ -123,7 +124,7 @@ public class JmsTestCase extends AbstractCliTestBase {
     private void testRemoveJmsTopic() throws Exception {
 
         // create queue
-        cli.sendLine("jms-topic remove --profile=" + profileName + " --topic-address=testJmsTopic");
+        cli.sendLine("/profile=" + profileName + "/subsystem=messaging-activemq/server=default/jms-topic=testJmsTopic:remove()");
 
         // check it is listed
         cli.sendLine("cd /profile=" + profileName + "/subsystem=messaging-activemq/server=default/jms-topic");
