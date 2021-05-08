@@ -111,7 +111,7 @@ public class JmsTestCase extends AbstractCliTestBase {
         assertFalse(ls.contains("testJmsTopic"));
 
         // create topic
-        cli.sendLine("cli.sendLine("/profile=" + profileName + "/subsystem=messaging-activemq/server=default/jms-topic=testJmsTopic:add(entries=[testJmsTopic])");
+        cli.sendLine("/profile=" + profileName + "/subsystem=messaging-activemq/server=default/jms-topic=testJmsTopic:add(entries=[testJmsTopic])");
 
         // check it is listed
         cli.sendLine("cd /profile=" + profileName + "/subsystem=messaging-activemq/server=default/jms-topic");
