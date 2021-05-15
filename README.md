@@ -30,7 +30,7 @@ Testing EAP
 3. Build and run the additional testsuite activating the EAP profile (-Deap -Dstandalone).
 4. If you want to use http add -Dmaven.repository.protocol=http (Section : Using HTTPS below)
 5. If you would like/need to disable snapshot versions add -DDISABLE_SNAPSHOT_VERSIONS=true
-6. Sometimes enforcer rules or checkstyle need to be skipped adding -Denforcer.skip -Dcheckstyle.skip
+6. Sometimes enforcer rules need to be skipped adding -Denforcer.skip
 
 
 Testing Wildfly
@@ -40,7 +40,7 @@ Testing Wildfly
 3. Build and run the additional testsuite activating the WILDFLY profile (-Dwildfly -Dstandalone).
 4. If you want to use http add -Dmaven.repository.protocol=http (Section : Using HTTPS below)
 5. If you would like/need to disable snapshot versions add -DDISABLE_SNAPSHOT_VERSIONS=true
-6. Sometimes enforcer rules or checkstyle need to be skipped adding -Denforcer.skip -Dcheckstyle.skip
+6. Sometimes enforcer rules need to be skipped adding -Denforcer.skip
 
 
 Testing EAP or Wildfly with specific JDK version
