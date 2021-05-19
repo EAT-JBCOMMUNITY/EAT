@@ -1399,7 +1399,49 @@
             <activation>
                 <property>
                     <name>JBOSS_VERSION</name>
-                    <value>12.0.0.Alpha1</value>
+                    <value>1.13.3.Final</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+        
+        <profile>
+            <id>releases100</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>1.13.4.Final</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+        
+        <profile>
+            <id>releases101</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>2.0.0.Alpha1</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+        
+        <profile>
+            <id>releases102</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>2.0.0.Alpha2</value>
                 </property>
             </activation>
     
