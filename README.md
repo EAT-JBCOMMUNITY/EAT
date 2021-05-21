@@ -31,6 +31,7 @@ Testing EAP
 4. If you want to use http add -Dmaven.repository.protocol=http (Section : Using HTTPS below)
 5. If you would like/need to disable snapshot versions add -DDISABLE_SNAPSHOT_VERSIONS=true
 6. Sometimes enforcer rules need to be skipped adding -Denforcer.skip
+7. Optional parameter : -Dmaven.wagon.http.ssl.ignore.validity.dates=true
 
 
 Testing Wildfly
@@ -41,6 +42,8 @@ Testing Wildfly
 4. If you want to use http add -Dmaven.repository.protocol=http (Section : Using HTTPS below)
 5. If you would like/need to disable snapshot versions add -DDISABLE_SNAPSHOT_VERSIONS=true
 6. Sometimes enforcer rules need to be skipped adding -Denforcer.skip
+7. Optional parameter : -Dmaven.wagon.http.ssl.ignore.validity.dates=true
+
 
 
 Testing EAP or Wildfly with specific JDK version
