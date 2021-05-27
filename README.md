@@ -82,6 +82,7 @@ ADVANTAGES
 7. Addition of tests with possible future features that are not at the moment available.
 8. It makes possible to push a testcase of a fix regarding a specific component of the server, without the component version to have been updated at the server pom.
 9. Ability to merge tests from remote testsuites.
+10. Serves as a pool of tested features programs can be built with.
 
  
 MOTIVATION
