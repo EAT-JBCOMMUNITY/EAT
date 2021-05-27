@@ -23,7 +23,7 @@
 
     <properties>
         <standaloneConfiguration>${basedir}/configs/serverconfigs/standalone.xml</standaloneConfiguration>
-        <JBOSS_VERSION>JBOSS_VERSION</JBOSS_VERSION>
+        <JBOSS_VERSION>23.0.2.Final</JBOSS_VERSION>
         <JBOSS_FOLDER>JBOSS_FOLDER</JBOSS_FOLDER>
     </properties>
         
