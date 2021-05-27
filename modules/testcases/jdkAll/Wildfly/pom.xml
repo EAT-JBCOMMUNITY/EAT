@@ -447,6 +447,11 @@
 		    <artifactId>slf4j-ext</artifactId>
 		    <version>1.7.25</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.mock-server</groupId>
+		    <artifactId>mockserver-netty</artifactId>
+		    <version>5.8.1</version>
+		</dependency>
             </dependencies>
 
         </profile>
@@ -875,6 +880,11 @@
 		<dependency>
 		    <groupId>org.slf4j</groupId>
 		    <artifactId>slf4j-ext</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.mock-server</groupId>
+		    <artifactId>mockserver-netty</artifactId>
+		    <version>5.8.1</version>
 		</dependency>
             </dependencies>
 
