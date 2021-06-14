@@ -47,7 +47,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 @Stateless
 @Remote(TopologyChangeListener.class)
 @Listener(sync = false)
-@EAT({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Wildfly/clustering/src/main/java#9.0.0*13.0.0","modules/testcases/jdkAll/WildflyRelease-10.1.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java","modules/testcases/jdkAll/Eap7.1.0.Beta/clustering/src/main/java","modules/testcases/jdkAll/Eap70x/clustering/src/main/java","modules/testcases/jdkAll/Eap70x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap72x/clustering/src/main/java#7.2.0.CD12*7.2.0.Beta","modules/testcases/jdkAll/Eap72x-Proposed/clustering/src/main/java#7.2.0.CD12*7.2.0.Beta"})
+@EAT({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Wildfly/clustering/src/main/java#9.0.0*13.0.0","modules/testcases/jdkAll/WildflyRelease-10.1.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java","modules/testcases/jdkAll/Eap7.1.0.Beta/clustering/src/main/java","modules/testcases/jdkAll/Eap70x/clustering/src/main/java","modules/testcases/jdkAll/Eap70x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap72x/clustering/src/main/java#7.2.0.CD12*7.2.0.Beta","modules/testcases/jdkAll/Eap72x-Proposed/clustering/src/main/java#7.2.0.CD12*7.2.0.Beta"})
 public class TopologyChangeListenerBean implements TopologyChangeListener {
 
     @Override
