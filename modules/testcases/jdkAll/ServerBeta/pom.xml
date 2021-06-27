@@ -1183,6 +1183,19 @@
             </modules>
         </profile>
 
+	<profile>
+            <id>jmxActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>jmx</value>
+                </property>
+            </activation>
+            <modules>
+                <module>jmx</module>
+            </modules>
+        </profile>
+
         <profile>
 	    <id>all</id>
 	    <activation>
@@ -1195,6 +1208,7 @@
 		<module>core</module>
 		<module>elytron</module>
 		<module>jaxrs</module>
+		<module>jmx</module>
                 <module>jpa</module>
 		<module>clustering</module>
                 <module>infinispan</module>
