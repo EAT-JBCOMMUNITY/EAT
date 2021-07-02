@@ -1427,6 +1427,48 @@
             <activation>
                 <property>
                     <name>JBOSS_VERSION</name>
+                    <value>1.13.5.Final</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>releases102</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>1.13.6.Final</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>releases103</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>1.13.7.Final</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>releases104</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
                     <value>2.0.0.Alpha1</value>
                 </property>
             </activation>
@@ -1437,11 +1479,81 @@
         </profile>
         
         <profile>
-            <id>releases102</id>
+            <id>releases105</id>
             <activation>
                 <property>
                     <name>JBOSS_VERSION</name>
                     <value>2.0.0.Alpha2</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>releases106</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>2.0.0.Alpha3</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>releases107</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>2.0.0.CR1</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>releases108</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>2.0.0.CR2</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>releases109</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>2.0.0.CR3</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>releases110</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>2.0.0.Final</value>
                 </property>
             </activation>
     
