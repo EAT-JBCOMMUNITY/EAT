@@ -452,6 +452,12 @@
 		    <artifactId>mockserver-netty</artifactId>
 		    <version>5.8.1</version>
 		</dependency>
+                <dependency>
+		    <groupId>org.jboss.logging</groupId>
+		    <artifactId>jboss-logging-annotations</artifactId>
+		    <scope>provided</scope>
+		    <optional>true</optional>
+		</dependency>
             </dependencies>
 
         </profile>
@@ -885,6 +891,12 @@
 		    <groupId>org.mock-server</groupId>
 		    <artifactId>mockserver-netty</artifactId>
 		    <version>5.8.1</version>
+		</dependency>
+                <dependency>
+		    <groupId>org.jboss.logging</groupId>
+		    <artifactId>jboss-logging-annotations</artifactId>
+		    <scope>provided</scope>
+		    <optional>true</optional>
 		</dependency>
             </dependencies>
 
