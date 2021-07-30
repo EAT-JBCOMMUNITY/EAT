@@ -24,7 +24,6 @@ package org.jboss.as.security.vault;
 
 import static org.jboss.logging.annotations.Message.NONE;
 
-import org.jboss.as.server.services.security.VaultReaderException;
 import org.jboss.logging.BasicLogger;
 import org.jboss.logging.Logger;
 import org.jboss.logging.annotations.Cause;
@@ -53,7 +52,7 @@ interface VaultLogger extends BasicLogger {
      * @return the exception
      */
     @Message(id = 7, value = "Runtime Exception:")
-    RuntimeException runtimeException(@Cause Throwable e);
+    Exception runtimeException(@Cause Throwable e);
 
     /**
      * Create a {@link SecurityException}
