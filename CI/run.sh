@@ -18,6 +18,7 @@ elif [ "$1" == "-wildfly" ]; then
 	export PROGRAM="https://github.com/wildfly/wildfly"
 	export AT="https://github.com/EAT-JBCOMMUNITY/EAT"
 	export ADDITIONAL_PARAMS=-Denforcer.skip
+	export PROGRAM_BRANCH="main"
 	
 	./v.sh
 	echo ""
