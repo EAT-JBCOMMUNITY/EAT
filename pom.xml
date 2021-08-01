@@ -1803,7 +1803,7 @@
 			        <configuration>
 				    <tasks>
 					<copy todir="${project.build.directory}/../modules/srcPool" failonerror="false" overwrite="true">
-					    <fileset dir="${project.build.directory}/../modules/src">
+					    <fileset dir="${project.build.directory}/../modules/src1">
 		                                <include name="**/*"/>
 		                            </fileset>
 					</copy>
@@ -1904,7 +1904,7 @@
 		                       <argument>${DISABLE_SNAPSHOT_VERSIONS}</argument>
                                        <argument>${JBOSS_GIT_DIR}</argument>
                                        <argument>modules/testcases</argument>
-                                       <argument>src/main/java</argument>
+                                       <argument>src1/main/java</argument>
                                        <argument>${activemodules}</argument>
 				   </arguments>
 				</configuration>
@@ -1929,7 +1929,7 @@
 		                       <argument></argument>
                                        <argument>${JBOSS_GIT_DIR}</argument>
                                        <argument>modules/testcases</argument>
-                                       <argument>src/main/java</argument>
+                                       <argument>src1/main/java</argument>
                                        <argument>${activemodules}</argument>
 				   </arguments>
 				</configuration>
