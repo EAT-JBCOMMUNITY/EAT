@@ -1,0 +1,99 @@
+apply plugin: 'java'
+
+group = 'org.jboss'
+version = '1.0.3.Final'
+description = "org.jboss:EAT"
+
+dependencies {
+    implementation "org.jboss.eap.additional.testsuite:eap-additional-testsuite-source-distribution:3.0.0.Final"
+    implementation "org.jboss.eap.additional.testsuite:eap-additional-testsuite-annotations:3.0.0.Final"
+    implementation project(':modules')
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name "JBoss Public Repository Group"
+        url "https://repository.jboss.org/nexus/content/groups/public/"
+    }
+    maven {
+        name "JBoss Public Repository Group"
+        url "https://repository.jboss.org/nexus/content/repositories/public/"
+    }
+    gradlePluginPortal()
+}
+
+
+def activemodules="basic,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,manualmode,remoting,messaging,security,server,web,weld,ejb,jmx,spring"
+def serverDir2="Wildfly"
+def rootPath=System.getProperty("user.dir")
+
+
+task copyToSrcPool {
+    copy {
+        from "modules/src1"
+        into "modules/srcPool"
+    }
+}
+
+task copyToSrcPool2 {
+    copy {
+        from "modules/src2"
+        into "modules/srcPool"
+    }
+}
+
+task distributeSources(type: JavaExec) {
+  classpath = files('eap-additional-testsuite-source-distribution-3.0.0.Final.jar','eap-additional-testsuite-annotations-3.0.0.Final.jar')
+  main = "org.jboss.eap.additional.testsuite.source.distribution.AdditionalTestsuiteDistributeSources"
+  args rootPath, rootPath + "/modules/srcPool/main/java", serverDir2, "$System.env.JBOSS_VERSION", "versionOrder", "$System.env.DISABLE_TESTS", "$System.env.FEATURE_LIST", "$System.env.PM_FEATURES", "$System.env.DISABLE_SNAPSHOT_VERSIONS", "$System.env.JBOSS_GIT_DIR", "modules/testcases", "src/main/java", activemodules
+}
+
+task distributeConfigs(type: JavaExec) {
+  classpath = files('eap-additional-testsuite-source-distribution-3.0.0.Final.jar','eap-additional-testsuite-annotations-3.0.0.Final.jar')
+  main = "org.jboss.eap.additional.testsuite.source.distribution.AdditionalTestsuiteDistributeSources"
+  args rootPath, rootPath + "/modules/srcPool/config", serverDir2, "$System.env.JBOSS_VERSION", "versionOrder", "", "", "", "", "$System.env.JBOSS_GIT_DIR", "modules/testcases", "src/main/java", activemodules
+}
+
+if(!System.hasProperty('disableSpringTests')){
+
+    repositories{
+        maven { url "https://repo.spring.io/snapshot"}
+        maven { url "https://repo.spring.io/milestone"}
+    }
+
+}
+
+if (project.hasProperty('wildfly')){
+
+    serverDir2="Wildfly"
+    activemodules="basic,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,manualmode,remoting,messaging,security,server,web,weld,ejb,jmx,spring"
+
+}
+else if(project.hasProperty('wildfly-jdk8')){
+
+    serverDir2 = "Wildfly"
+    activemodules = "logging,management,ws"
+
+}
+
+if(project.hasProperty('dSources')){
+
+    compileJava.dependsOn(copyToSrcPool)
+
+}
+else{
+
+    compileJava.dependsOn(copyToSrcPool2)
+
+}
+if(!project.hasProperty('noDistribution')){
+
+    compileJava.dependsOn(distributeConfigs).dependsOn(distributeSources)
+
+}
+if(project.hasProperty('cleanAll')){
+
+    //compileJava.dependsOn(distributeConfigs).dependsOn(distributeSources)
+
+}

@@ -1,0 +1,6 @@
+rootProject.name = 'EAT'
+
+include ':modules'
+include ':modules:testcases:jdkAll:Wildfly'
+include ':modules:testcases:jdkAll:Wildfly:basic'
+include ':modules:testcases:jdkAll:Wildfly:basic:test-configurations'
