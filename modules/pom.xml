@@ -53,12 +53,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -107,12 +107,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -155,12 +155,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -202,12 +202,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -250,12 +250,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -298,12 +298,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -345,12 +345,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -393,12 +393,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -441,12 +441,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -489,12 +489,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -538,12 +538,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -592,12 +592,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -646,12 +646,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -700,12 +700,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -754,12 +754,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -808,12 +808,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -862,12 +862,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -916,12 +916,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -964,12 +964,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -1012,12 +1012,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -1060,12 +1060,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -1108,12 +1108,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -1156,12 +1156,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -1204,12 +1204,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -1252,12 +1252,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -1301,12 +1301,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -1349,12 +1349,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -1397,12 +1397,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -1445,12 +1445,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -1493,12 +1493,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -1541,12 +1541,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -1589,12 +1589,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -1637,12 +1637,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -1716,12 +1716,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -1764,12 +1764,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
@@ -1812,12 +1812,12 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER}" />
                                             <target name="copy-server-dir"/>
                                         </ant>
-                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
                                             <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas2" />
                                             <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
                                             <target name="copy-server-dir-no-fail"/>
