@@ -48,7 +48,7 @@ elif [ "$1" == "-activemq" ]; then
 	
 	echo "Testing: Latest Apache ActiveMQ + ActiveMQ AT"
 	echo ""
-	cd ..
+	cd ".."
 	./pr.sh
 elif [ "$1" == "-activemq-artemis" ]; then
         mkdir -p activemq-artemis
@@ -67,7 +67,7 @@ elif [ "$1" == "-activemq-artemis" ]; then
 	
 	echo "Testing: Latest Apache Artemis ActiveMQ + Artemis ActiveMQ AT"
 	echo ""
-	cd ..
+	cd ".."
 	./pr.sh
 elif [ "$1" == "-jboss-threads" ]; then
         mkdir -p jboss-threads
@@ -87,7 +87,7 @@ elif [ "$1" == "-jboss-threads" ]; then
 	echo "Testing: Latest JBoss Threads + JBoss Threads AT"
 	echo "JDK 9 should be used"
 	echo ""
-	cd ..
+	cd ".."
 	./pr.sh
 elif [ "$1" == "-jboss-modules" ]; then
         mkdir -p jboss-module
@@ -108,7 +108,7 @@ elif [ "$1" == "-jboss-modules" ]; then
 	echo "Testing: Latest JBoss Modules + JBoss Modules AT"
 	echo "JDK 9 should be used"
 	echo ""
-	cd ..
+	cd ".."
 	./pr.sh
 elif [ "$1" == "-openliberty" ]; then
         mkdir -p openliberty
@@ -125,7 +125,7 @@ elif [ "$1" == "-openliberty" ]; then
 	
 	echo "Testing: Latest Open Liberty release + Open Liberty AT"
 	echo ""
-	cd ..
+	cd ".."
 	./pr.sh
 elif [ "$1" == "-springboot" ]; then
         mkdir -p springboot
@@ -153,7 +153,7 @@ elif [ "$1" == "-springboot" ]; then
 	echo "Testing: Latest Spring Boot release + Spring Boot AT"
 	echo "The needed dependencies should be available at the maven repo defined in ADDITIONAL_PARAMS environment variable"
 	echo ""
-	cd ..
+	cd ".."
 	./gradle-at.sh
 else 
 	./pr.sh
