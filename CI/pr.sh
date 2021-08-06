@@ -67,7 +67,7 @@ at_pr_found=false
 
 for i in "${at_arr[@]}"
 do
-	if [ $i == $AT_PR ]; then
+	if [[ $i == $AT_PR ]]; then
 		at_pr_found=true;
 		break
 	fi
