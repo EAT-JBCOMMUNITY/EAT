@@ -4,9 +4,9 @@ apply from: "./../../dependencies.gradle"
 group = 'org.jboss'
 version = '1.0.3.Final'
 
-description = "wildfly additional testsuite test configurations: additional testsuite test configurations for wildfly"
+description = "wildfly additional testsuite: manualserver : configuration"
 
-if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="basic") || (project.getProperty('moduleName')=="all"))){
+if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="manualserver")){
 
 task deleteFiles(type: Delete) {
     delete fileTree(project.buildDir.toString() + '/../../../../../../server/wildfly/build/target/jbossas/standalone/deployments') {
@@ -14,13 +14,12 @@ task deleteFiles(type: Delete) {
     }
 }
 
-
 task resourcecopy(type: Copy) {
-        from project.buildDir.toString() + '/../../../../../../src1/resources/image.png'
-        into project.buildDir.toString() + '/../src/test/resources'
+        from project.buildDir.toString() + '/../../../../../../src1/resources/ejbStartup.ear'
+        into project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/deployments'
     }
 
-compileJava.dependsOn(deleteFiles).dependsOn(resourcecopy)
+compileJava.dependsOn(resourcecopy).dependsOn(deleteFiles)
 
 sourceSets {
     test {
@@ -41,5 +40,3 @@ test {
 }
 
 }
-
-

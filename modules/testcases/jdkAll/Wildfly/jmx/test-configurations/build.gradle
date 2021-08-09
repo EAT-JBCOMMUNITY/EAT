@@ -6,21 +6,16 @@ version = '1.0.3.Final'
 
 description = "wildfly additional testsuite test configurations: additional testsuite test configurations for wildfly"
 
-if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="basic") || (project.getProperty('moduleName')=="all"))){
+if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="jmx") || (project.getProperty('moduleName')=="all"))){
 
 task deleteFiles(type: Delete) {
-    delete fileTree(project.buildDir.toString() + '/../../../../../../server/wildfly/build/target/jbossas/standalone/deployments') {
+    delete fileTree(project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/deployments') {
         include '**/**'
     }
 }
 
 
-task resourcecopy(type: Copy) {
-        from project.buildDir.toString() + '/../../../../../../src1/resources/image.png'
-        into project.buildDir.toString() + '/../src/test/resources'
-    }
-
-compileJava.dependsOn(deleteFiles).dependsOn(resourcecopy)
+compileJava.dependsOn(deleteFiles)
 
 sourceSets {
     test {
@@ -41,5 +36,4 @@ test {
 }
 
 }
-
 

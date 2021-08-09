@@ -7,180 +7,179 @@ version = '1.0.3.Final'
 
 description = "wildfly additional testsuite: additional testsuite for wildfly"
 
-if(System.hasProperty('module') && (System.getProperty('module')=="basic")){
+if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="basic")){
 
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:basic')
     }
 
-    test{
-        jvmArgs '-XX:MaxPermSize=256m'
-    }
-
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="core")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="core")){
 
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:core')
     }
 
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="ejb")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="ejb")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:ejb')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="elytron")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="elytron")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:elytron')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="clustering")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="clustering")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:clustering')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="infinispan")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="infinispan")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:infinispan')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="domain")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="domain")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:domain')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="domain_management")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="domain_management")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:domain_management')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="jaxrs")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="jaxrs")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:jaxrs')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="logging")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="logging")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:logging')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="management")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="management")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:management')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="manualmode")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="manualmode")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:manualmode')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="messaging")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="messaging")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:messaging')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="microprofile")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="microprofile")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:microprofile')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="others")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="others")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:others')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="remoting")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="remoting")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:remoting')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="security")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="security")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:security')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="server")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="server")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:server')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="web")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="web")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:web')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="weld")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="weld")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:weld')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="jpa")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="jpa")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:jpa')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="manualserver")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="manualserver")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:manualserver')
     }
     
 }
-else if(System.hasProperty('module') && (System.getProperty('module')=="spring")){
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="spring")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:spring')
     }
     
 }
-else{
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="all")){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:Wildfly:basic')
-/*        implementation project(':modules:testcases:jdkAll:Wildfly:core')
+        implementation project(':modules:testcases:jdkAll:Wildfly:core')
         implementation project(':modules:testcases:jdkAll:Wildfly:elytron')
+        implementation project(':modules:testcases:jdkAll:Wildfly:jpa')
+        implementation project(':modules:testcases:jdkAll:Wildfly:jmx')
         implementation project(':modules:testcases:jdkAll:Wildfly:jaxrs')
         implementation project(':modules:testcases:jdkAll:Wildfly:clustering')
         implementation project(':modules:testcases:jdkAll:Wildfly:infinispan')
+        implementation project(':modules:testcases:jdkAll:Wildfly:logging')
         implementation project(':modules:testcases:jdkAll:Wildfly:domain')
         implementation project(':modules:testcases:jdkAll:Wildfly:domain_management')
         implementation project(':modules:testcases:jdkAll:Wildfly:management')
@@ -194,7 +193,7 @@ else{
         implementation project(':modules:testcases:jdkAll:Wildfly:spring')
         implementation project(':modules:testcases:jdkAll:Wildfly:web')
         implementation project(':modules:testcases:jdkAll:Wildfly:weld')
-        implementation project(':modules:testcases:jdkAll:Wildfly:ejb')*/
+        implementation project(':modules:testcases:jdkAll:Wildfly:ejb')
     }
 
 }

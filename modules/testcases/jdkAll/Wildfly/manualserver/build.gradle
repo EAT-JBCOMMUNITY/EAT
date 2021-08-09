@@ -1,0 +1,18 @@
+apply plugin: 'java'
+apply from: "./../dependencies.gradle"
+
+group = 'org.jboss'
+version = '1.0.3.Final'
+
+description = "wildfly additional testsuite: manualserver"
+
+if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="manualserver")){
+
+dependencies {
+    implementation project(':modules:testcases:jdkAll:Wildfly:manualserver:test-configurations')
+}
+
+}
+
+
+

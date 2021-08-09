@@ -7,6 +7,10 @@ version = '1.0.3.Final'
 description = "wildfly additional testsuite: additional testsuite for wildfly"
 
 
-dependencies{
-    implementation project(':modules:testcases:jdkAll:Wildfly:basic:test-configurations')
+if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="basic") || (project.getProperty('moduleName')=="all"))){
+
+    dependencies{
+        implementation project(':modules:testcases:jdkAll:Wildfly:basic:test-configurations')
+    }
+
 }

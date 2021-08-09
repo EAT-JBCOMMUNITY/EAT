@@ -24,6 +24,7 @@ package org.jboss.as.security.vault;
 
 import static org.jboss.logging.annotations.Message.NONE;
 
+import org.jboss.as.server.services.security.VaultReaderException;
 import org.jboss.logging.BasicLogger;
 import org.jboss.logging.Logger;
 import org.jboss.logging.annotations.Cause;
@@ -68,7 +69,7 @@ interface VaultLogger extends BasicLogger {
      * @return {@link org.jboss.as.server.services.security.VaultReaderException}
      */
     @Message(id = 17, value = "Vault Reader Exception:")
-    Exception vaultReaderException(@Cause Throwable t);
+    VaultReaderException vaultReaderException(@Cause Throwable t);
 
     /**
      * Create a {@link SecurityException} to indicate that the vault is not initialized
