@@ -141,6 +141,20 @@
 
     <profiles>
         <profile>
+            <id>android.testsuite</id>
+            <activation>
+                <property>
+                    <name>android</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <properties>
+		<serverDir2>Android</serverDir2>
+                <activemodules>androidproject1</activemodules>
+	    </properties>
+        </profile>
+        <profile>
             <id>springtests</id>
             <activation>
                 <property>
