@@ -6,11 +6,17 @@ version = '1.0.3.Final'
 
 description = "wildfly additional testsuite: clustering"
 
-if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="clustering") || (project.getProperty('moduleName')=="all"))){
+if(project.hasProperty('moduleName') && project.hasProperty('includemvnredirections') && ((project.getProperty('moduleName')=="clustering") || (project.getProperty('moduleName')=="all"))){
 
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:clustering:test-configurations')
+       // implementation project(':modules:testcases:jdkAll:Wildfly:clustering:test-configurations')
     }
 
+    task runClusteringWithMvn(type: Exec) {
+        workingDir project.buildDir.toString() + "/../"
+        commandLine "mvn", "clean", "install", "-Dwildfly", "-Dstandalone", "-Dmodule=clustering"
+    }
+
+    compileJava.dependsOn(runClusteringWithMvn)
 }
 

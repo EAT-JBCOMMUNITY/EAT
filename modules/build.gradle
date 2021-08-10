@@ -11,8 +11,6 @@ description = "eap additional testsuite: eap additional testsuite modules"
 
 if (project.hasProperty('wildfly')){
 
-    println "WILDFLY"
-
     copy {
         from "$System.env.JBOSS_FOLDER"
         into project.buildDir.toString() + "/../servers/wildfly/build/target/jbossas"

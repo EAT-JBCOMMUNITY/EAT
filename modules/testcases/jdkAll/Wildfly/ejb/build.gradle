@@ -11,6 +11,7 @@ if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="ej
 dependencies {
     implementation project(':modules:testcases:jdkAll:Wildfly:ejb:test-configurations')
     implementation project(':modules:testcases:jdkAll:Wildfly:ejb:test2-configurations')
+    implementation project(':modules:testcases:jdkAll:Wildfly:ejb:test3-configurations')
 }
 
 }
