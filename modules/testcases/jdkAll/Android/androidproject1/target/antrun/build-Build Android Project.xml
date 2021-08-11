@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="Build Android Project"  >
+<target name="Build Android Project">
+  <exec failonerror="true" dir="/home/panagiotis/myeat/EAT/modules/testcases/jdkAll/Android/androidproject1/AndroidProject" executable="./gradlew">
+    <arg line="build"/>
+  </exec>
+</target>
+</project>
