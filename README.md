@@ -62,6 +62,12 @@ Testing with Open Liberty
 2. mvn clean install -Dopenliberty (It should be executed with appropriate apache maven version, e.g. 3.5.3 works)
 
 
+Building multi-versioned Android projects
+-----------------------------------------
+1. export ANDROID_HOME='path to the Sdk'
+2. mvn clean install -Dandroid
+
+
 Using HTTPS
 -----------
 After changing from HTTP to HTTPS, the maven repositories for Eap may not host a valid public SSL certificate, which will lead to maven failed to build the project. There are 3 options to fix that if it happens:
