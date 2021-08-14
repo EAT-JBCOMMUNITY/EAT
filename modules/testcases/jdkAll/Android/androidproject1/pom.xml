@@ -23,22 +23,22 @@
 		<plugin>  
 		 <artifactId>maven-antrun-plugin</artifactId>  
 		   <executions>  
-		     <execution>  
-		       <phase>install</phase>  
-		       <configuration>  
-			 <tasks name="Build Android Project">    
-			   <exec  
-			     dir="${basedir}/AndroidProject"  
-			     executable="./gradlew"  
-			     failonerror="true">  
-			     <arg line="build"/>  
-			   </exec>  
-			</tasks>  
-		       </configuration>  
-		       <goals>  
-			 <goal>run</goal>  
-		       </goals>  
-		     </execution>  
+		     	<execution>  
+					<phase>install</phase>  
+					<configuration>  
+						<tasks name="Build Android Project">    
+						<exec  
+							dir="${basedir}/AndroidProject"  
+							executable="./gradlew"  
+							failonerror="true">  
+							<arg line="build"/>  
+						</exec>  
+						</tasks>  
+					</configuration>  
+					<goals>  
+						<goal>run</goal>  
+					</goals>  
+				</execution>  
 		   </executions>  
 		</plugin>
 
