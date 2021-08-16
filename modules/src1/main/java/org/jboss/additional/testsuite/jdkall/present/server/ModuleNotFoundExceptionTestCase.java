@@ -40,7 +40,7 @@ import static org.junit.Assert.assertFalse;
 @EAT({"modules/testcases/jdkAll/WildflyRelease-10.1.0.Final/server/src/main/java#11.0.0-Final","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/server/src/main/java","modules/testcases/jdkAll/Wildfly/server/src/main/java#11.0.0-Alpha1","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/server/src/main/java","modules/testcases/jdkAll/Eap72x/server/src/main/java","modules/testcases/jdkAll/Eap7/server/src/main/java"})
 public class ModuleNotFoundExceptionTestCase {
     
-    private final String serverLogPath = "target/surefire-reports/org.jboss.additional.testsuite.jdkall.present.server.ModuleNotFoundExceptionTestCase-output.txt";
+    private final String serverLogPath = "../../../../../servers/wildfly/build/target/jbossas/standalone/log/server.log";
 
     @Deployment
     public static Archive<?> getDeployment() {
@@ -56,7 +56,7 @@ public class ModuleNotFoundExceptionTestCase {
         FileInputStream inputStream = new FileInputStream(path + "/" + serverLogPath);
         try {
             String everything = IOUtils.toString(inputStream);
-            assertFalse("Testing ModuleNotFoundException", everything.contains("ERROR"));
+            assertFalse("Testing ModuleNotFoundException", everything.contains("ModuleNotFoundException"));
         } finally {
             inputStream.close();
         }
