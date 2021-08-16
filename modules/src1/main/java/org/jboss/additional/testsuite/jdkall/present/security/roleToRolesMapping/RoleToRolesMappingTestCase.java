@@ -57,11 +57,11 @@ import org.junit.runner.RunWith;
 @EAT({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/security/src/main/java","modules/testcases/jdkAll/Eap72x/security/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java","modules/testcases/jdkAll/Eap7/security/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/security/src/main/java","modules/testcases/jdkAll/Eap71x/security/src/main/java","modules/testcases/jdkAll/Eap7.1.0.Beta/security/src/main/java","modules/testcases/jdkAll/Eap70x/security/src/main/java","modules/testcases/jdkAll/Eap70x-Proposed/security/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/security/src/main/java","modules/testcases/jdkAll/Wildfly/security/src/main/java","modules/testcases/jdkAll/ServerBeta/security/src/main/java","modules/testcases/jdkAll/WildflyRelease-17.0.0.Final/security/src/main/java","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/security/src/main/java","modules/testcases/jdkAll/Wildfly-Unmerged/security/src/main/java","modules/testcases/jdkAll/Eap64x/security/src/main/java","modules/testcases/jdkAll/Eap64x-Proposed/security/src/main/java"})
 public class RoleToRolesMappingTestCase {
 
-    private final String serverLogPath = "surefire-reports/org.jboss.additional.testsuite.jdkall.present.security.roleToRolesMapping.RoleToRolesMappingTestCase-output.txt";
+    private final String serverLogPath = "../../../../../servers/wildfly/build/target/jbossas/standalone/log/server.log";
 
     @Deployment
     public static WebArchive deployment() {
-        WebArchive war = ShrinkWrap.create(WebArchive.class,"securityRoles.war");
+        WebArchive war = ShrinkWrap.create(WebArchive.class,"securityRoles2.war");
         war.addClasses(JMSClientServlet.class);
         war.addClasses(MDBSample.class);
         war.addAsResource("application-users.properties");
@@ -102,9 +102,9 @@ public class RoleToRolesMappingTestCase {
             
             Thread.sleep(1000);
             
-            String path = this.getClass().getClassLoader().getResource("").getPath();
+            String path = new File("").getAbsolutePath();
 
-            FileInputStream inputStream = new FileInputStream(path + "../" + serverLogPath);
+            FileInputStream inputStream = new FileInputStream(path + "/" + serverLogPath);
             try {
                 String everything = IOUtils.toString(inputStream);
                 assertFalse("Autorization has failed ... ", everything.contains("MessageMDBSample is not allowed"));
