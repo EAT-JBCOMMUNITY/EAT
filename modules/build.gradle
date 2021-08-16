@@ -1,0 +1,35 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+group = 'org.jboss'
+version = '1.0.3.Final'
+
+description = "eap additional testsuite: eap additional testsuite modules"
+
+if (project.hasProperty('wildfly')){
+
+    copy {
+        from "$System.env.JBOSS_FOLDER"
+        into project.buildDir.toString() + "/../servers/wildfly/build/target/jbossas"
+    }
+
+    dependencies{
+        implementation project(':modules:testcases:jdkAll:Wildfly')
+    }
+
+}
+else if (project.hasProperty('wildfly-jdk8')){
+    
+    copy {
+        from "$System.env.JBOSS_FOLDER"
+        into project.buildDir.toString() + "/../servers/wildfly/build/target/jbossas"
+    }
+
+    dependencies{
+        implementation project(':modules:testcases:jdkAll:Wildfly')
+    }
+
+}
