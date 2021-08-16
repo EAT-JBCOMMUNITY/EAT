@@ -68,7 +68,7 @@ interface VaultLogger extends BasicLogger {
      * @return {@link org.jboss.as.server.services.security.VaultReaderException}
      */
     @Message(id = 17, value = "Vault Reader Exception:")
-    VaultReaderException vaultReaderException(@Cause Throwable t);
+    Exception vaultReaderException(@Cause Throwable t);
 
     /**
      * Create a {@link SecurityException} to indicate that the vault is not initialized
