@@ -3,6 +3,7 @@ package org.jboss.additional.testsuite.jdkall.present.ejb.spec;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import java.io.FileInputStream;
+import java.io.File;
 import org.apache.commons.io.IOUtils;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
