@@ -13,6 +13,16 @@
         </configuration>
     </container>
 
+    <container qualifier="gradlejboss">
+        <configuration>
+            <property name="javaVmArguments">-Djboss.inst=${basedir}/../../../../../servers/wildfly/build/target/jbossas -Dtest.bind.address=${node0:127.0.0.1}</property>
+            <property name="serverConfig">${jboss.server.config.file.name:standalone.xml}</property>
+            <property name="allowConnectingToRunningServer">true</property>
+            <property name="managementAddress">${node0:127.0.0.1}</property>
+            <property name="managementPort">${as.managementPort:9990}</property>
+        </configuration>
+    </container>
+
     <group qualifier="outbound">
 
 	    <container qualifier="jbossas-non-clustered" mode="custom" managed="false">
