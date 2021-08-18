@@ -9,7 +9,6 @@ repositories {
 }
 
 if (project.hasProperty('standalone')){
-println "WILDFLY-sub"
     dependencies {
         implementation platform("org.wildfly:wildfly-parent:$System.env.JBOSS_VERSION")
     implementation platform("org.springframework.boot:spring-boot-starter-parent:2.4.4")
