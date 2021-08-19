@@ -115,6 +115,13 @@ e.g. mvn -Dmaven.surefire.debug="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,
 5. Debug the specific test which is errorous.
 
 
+BUILD WITH GRADLE
+------------------
+1. Make sure that JBOSS_FOLDER environment variable is set with the path to your JBOSS EAP directory.
+2. Make sure that JBOSS_VERSION environment variable is set with the version of JBOSS EAP Server.
+3. From parent directory execute : gradle test -Pwildfly -Pstandalone -PmoduleName=all -Pincludemvnredirections
+
+
 HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (ECLIPSE, IntelliJ IDEA, NETBEANS)
 --------------------------------------------------------------
 1. Before starting the IDE, go to your IDE directory and export JBOSS_FOLDER and JBOSS_VERSION environment variables at file /etc/environment and execute the command "source /etc/environment".
