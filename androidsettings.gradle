@@ -1,0 +1,6 @@
+rootProject.name = 'EAT'
+
+include ':modules'
+include ':modules:testcases:jdkAll:Android'
+include ':modules:testcases:jdkAll:Android:androidproject1'
+
