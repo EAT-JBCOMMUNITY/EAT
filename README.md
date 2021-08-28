@@ -65,7 +65,9 @@ Testing with Open Liberty
 Building multi-versioned Android projects
 -----------------------------------------
 1. export ANDROID_HOME='path to the Sdk'
-2. mvn clean install -Dandroid
+2. export JBOSS_VERSION=...e.g. 1.0.0
+3. mvn clean install -Dandroid
+or gradle test -Pandroid -c androidsettings.gradle
 
 
 Using HTTPS
