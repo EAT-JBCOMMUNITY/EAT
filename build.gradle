@@ -29,18 +29,6 @@ def serverDir2="Wildfly"
 def rootPath=System.getProperty("user.dir")
 
 
-task distributeSources(type: JavaExec) {
-  classpath = files('eap-additional-testsuite-source-distribution-3.0.0.Final.jar','eap-additional-testsuite-annotations-3.0.0.Final.jar')
-  main = "org.jboss.eap.additional.testsuite.source.distribution.AdditionalTestsuiteDistributeSources"
-  args rootPath, rootPath + "/modules/srcPool/main/java", serverDir2, "$System.env.JBOSS_VERSION", "versionOrder", "$System.env.DISABLE_TESTS", "$System.env.FEATURE_LIST", "$System.env.PM_FEATURES", "$System.env.DISABLE_SNAPSHOT_VERSIONS", "$System.env.JBOSS_GIT_DIR", "modules/testcases", "src/main/java", activemodules
-}
-
-task distributeConfigs(type: JavaExec) {
-  classpath = files('eap-additional-testsuite-source-distribution-3.0.0.Final.jar','eap-additional-testsuite-annotations-3.0.0.Final.jar')
-  main = "org.jboss.eap.additional.testsuite.source.distribution.AdditionalTestsuiteDistributeSources"
-  args rootPath, rootPath + "/modules/srcPool/config", serverDir2, "$System.env.JBOSS_VERSION", "versionOrder", "", "", "", "", "$System.env.JBOSS_GIT_DIR", "modules/testcases", "src/main/java", activemodules
-}
-
 if(!System.hasProperty('disableSpringTests')){
 
     repositories{
@@ -60,6 +48,12 @@ else if(project.hasProperty('wildfly-jdk8')){
 
     serverDir2 = "Wildfly"
     activemodules = "logging,management,ws"
+
+}
+else if(project.hasProperty('android')){
+
+    serverDir2 = "Android"
+    activemodules = "androidproject1"
 
 }
 
@@ -86,13 +80,30 @@ else{
     compileJava.dependsOn(copyToSrcPool2)
 
 }
+
+if(project.hasProperty('cleanAll')){
+
+    task deleteFiles(type: Delete) {
+	  
+	}
+    compileJava.dependsOn(delete)
+
+}
+
+task distributeSources(type: JavaExec) {
+  classpath = files('eap-additional-testsuite-source-distribution-3.0.0.Final.jar','eap-additional-testsuite-annotations-3.0.0.Final.jar')
+  main = "org.jboss.eap.additional.testsuite.source.distribution.AdditionalTestsuiteDistributeSources"
+  args rootPath, rootPath + "/modules/srcPool/main/java", serverDir2, "$System.env.JBOSS_VERSION", "versionOrder", "$System.env.DISABLE_TESTS", "$System.env.FEATURE_LIST", "$System.env.PM_FEATURES", "$System.env.DISABLE_SNAPSHOT_VERSIONS", "$System.env.JBOSS_GIT_DIR", "modules/testcases", "src/main/java", activemodules
+}
+
+task distributeConfigs(type: JavaExec) {
+  classpath = files('eap-additional-testsuite-source-distribution-3.0.0.Final.jar','eap-additional-testsuite-annotations-3.0.0.Final.jar')
+  main = "org.jboss.eap.additional.testsuite.source.distribution.AdditionalTestsuiteDistributeSources"
+  args rootPath, rootPath + "/modules/srcPool/config", serverDir2, "$System.env.JBOSS_VERSION", "versionOrder", "", "", "", "", "$System.env.JBOSS_GIT_DIR", "modules/testcases", "src/main/java", activemodules
+}
+
 if(!project.hasProperty('noDistribution')){
 
     compileJava.dependsOn(distributeConfigs).dependsOn(distributeSources)
-
-}
-if(project.hasProperty('cleanAll')){
-
-    //compileJava.dependsOn(distributeConfigs).dependsOn(distributeSources)
 
 }

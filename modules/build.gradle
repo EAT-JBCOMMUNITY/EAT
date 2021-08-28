@@ -32,4 +32,10 @@ else if (project.hasProperty('wildfly-jdk8')){
         implementation project(':modules:testcases:jdkAll:Wildfly')
     }
 
+}else if (project.hasProperty('android')){
+    
+    dependencies{
+        implementation project(':modules:testcases:jdkAll:Android')
+    }
+
 }
