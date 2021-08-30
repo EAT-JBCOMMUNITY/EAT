@@ -24,7 +24,7 @@ public class Spec2TestCase {
         private static final String DEPLOYMENT = ARCHIVE_NAME + ".jar";
         private static final String DEPLOYMENT2 = ARCHIVE_NAME2 + ".jar";
         private final String serverLogPath = "../../../../../servers/wildfly/build/target/jbossas/standalone/log/server.log";
-        private final String serverLogPath2 = "../../../../../servers/eap/build/target/jbossas/standalone/log/server.log";
+        private final String serverLogPath2 = "../../../../../servers/eap7/build/target/jbossas/standalone/log/server.log";
 
         @Deployment(name = DEPLOYMENT)
         public static Archive<?> deploy() {
