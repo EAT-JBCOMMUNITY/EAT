@@ -23,7 +23,7 @@ import org.junit.runner.RunWith;
 public class WeldBeanDiscoveryTest {
 
     private final String serverLogPath = "../../../../../servers/wildfly/build/target/jbossas/standalone/log/server.log";
-    private final String serverLogPath2 = "../../../../../servers/eap/build/target/jbossas/standalone/log/server.log";
+    private final String serverLogPath2 = "../../../../../servers/eap7/build/target/jbossas/standalone/log/server.log";
     
     @Deployment
     public static Archive<?> deploy() {

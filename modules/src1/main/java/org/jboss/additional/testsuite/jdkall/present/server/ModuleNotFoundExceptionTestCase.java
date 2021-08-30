@@ -41,7 +41,7 @@ import static org.junit.Assert.assertFalse;
 public class ModuleNotFoundExceptionTestCase {
     
     private final String serverLogPath = "../../../../../servers/wildfly/build/target/jbossas/standalone/log/server.log";
-    private final String serverLogPath2 = "../../../../../servers/eap/build/target/jbossas/standalone/log/server.log";
+    private final String serverLogPath2 = "../../../../../servers/eap7/build/target/jbossas/standalone/log/server.log";
 
     @Deployment
     public static Archive<?> getDeployment() {
