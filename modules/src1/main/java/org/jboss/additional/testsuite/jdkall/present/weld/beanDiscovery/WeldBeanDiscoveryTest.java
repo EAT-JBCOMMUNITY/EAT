@@ -23,6 +23,7 @@ import org.junit.runner.RunWith;
 public class WeldBeanDiscoveryTest {
 
     private final String serverLogPath = "../../../../../servers/wildfly/build/target/jbossas/standalone/log/server.log";
+    private final String serverLogPath2 = "../../../../../servers/eap/build/target/jbossas/standalone/log/server.log";
     
     @Deployment
     public static Archive<?> deploy() {
@@ -32,9 +33,13 @@ public class WeldBeanDiscoveryTest {
 
     @Test
     public void testServerStart() throws FileNotFoundException, IOException {
-        String path = new File("").getAbsolutePath();
+        String path = new File("").getAbsolutePath() + "/" + serverLogPath;
+        File serverlogfile = new File(path);
+        if(!serverlogfile.exists()) {
+            path = new File("").getAbsolutePath() + "/" + serverLogPath2;
+        }
 
-        FileInputStream inputStream = new FileInputStream(path + "/" + serverLogPath);
+        FileInputStream inputStream = new FileInputStream(path);
         try {
             String everything = IOUtils.toString(inputStream);
             assertFalse("Testing DeploymentException: WELD-001408", everything.contains("DeploymentException: WELD-001408"));

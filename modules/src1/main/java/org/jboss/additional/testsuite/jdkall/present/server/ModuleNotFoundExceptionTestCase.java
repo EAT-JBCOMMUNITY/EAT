@@ -41,6 +41,7 @@ import static org.junit.Assert.assertFalse;
 public class ModuleNotFoundExceptionTestCase {
     
     private final String serverLogPath = "../../../../../servers/wildfly/build/target/jbossas/standalone/log/server.log";
+    private final String serverLogPath2 = "../../../../../servers/eap/build/target/jbossas/standalone/log/server.log";
 
     @Deployment
     public static Archive<?> getDeployment() {
@@ -51,9 +52,13 @@ public class ModuleNotFoundExceptionTestCase {
 
     @Test
     public void testServerStart() throws Exception {
-        String path = new File("").getAbsolutePath();
+        String path = new File("").getAbsolutePath() + "/" + serverLogPath;
+        File serverlogfile = new File(path);
+        if(!serverlogfile.exists()) {
+            path = new File("").getAbsolutePath() + "/" + serverLogPath2;
+        }
 
-        FileInputStream inputStream = new FileInputStream(path + "/" + serverLogPath);
+        FileInputStream inputStream = new FileInputStream(path);
         try {
             String everything = IOUtils.toString(inputStream);
             assertFalse("Testing ModuleNotFoundException", everything.contains("ModuleNotFoundException"));

@@ -58,6 +58,7 @@ import org.junit.runner.RunWith;
 public class RoleToRolesMappingTestCase {
 
     private final String serverLogPath = "../../../../../servers/wildfly/build/target/jbossas/standalone/log/server.log";
+    private final String serverLogPath2 = "../../../../../servers/eap/build/target/jbossas/standalone/log/server.log";
 
     @Deployment
     public static WebArchive deployment() {
@@ -102,9 +103,13 @@ public class RoleToRolesMappingTestCase {
             
             Thread.sleep(1000);
             
-            String path = new File("").getAbsolutePath();
+            String path = new File("").getAbsolutePath() + "/" + serverLogPath;
+            File serverlogfile = new File(path);
+            if(!serverlogfile.exists()) {
+                path = new File("").getAbsolutePath() + "/" + serverLogPath2;
+            }
 
-            FileInputStream inputStream = new FileInputStream(path + "/" + serverLogPath);
+            FileInputStream inputStream = new FileInputStream(path);
             try {
                 String everything = IOUtils.toString(inputStream);
                 assertFalse("Autorization has failed ... ", everything.contains("MessageMDBSample is not allowed"));
