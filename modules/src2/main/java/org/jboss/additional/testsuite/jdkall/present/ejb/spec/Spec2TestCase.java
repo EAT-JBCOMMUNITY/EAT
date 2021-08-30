@@ -24,6 +24,7 @@ public class Spec2TestCase {
         private static final String DEPLOYMENT = ARCHIVE_NAME + ".jar";
         private static final String DEPLOYMENT2 = ARCHIVE_NAME2 + ".jar";
         private final String serverLogPath = "../../../../../servers/wildfly/build/target/jbossas/standalone/log/server.log";
+        private final String serverLogPath2 = "../../../../../servers/eap/build/target/jbossas/standalone/log/server.log";
 
         @Deployment(name = DEPLOYMENT)
         public static Archive<?> deploy() {
@@ -48,9 +49,13 @@ public class Spec2TestCase {
     }
 
     private void checkLog() throws Exception {
-        String path = new File("").getAbsolutePath();
+        String path = new File("").getAbsolutePath() + "/" + serverLogPath;
+        File serverlogfile = new File(path);
+        if(!serverlogfile.exists()) {
+            path = new File("").getAbsolutePath() + "/" + serverLogPath2;
+        }
 
-        FileInputStream inputStream = new FileInputStream(path + "/" + serverLogPath);
+        FileInputStream inputStream = new FileInputStream(path);
         try {
             String everything = IOUtils.toString(inputStream);
             assertFalse("SessionBeans should have only one of the following types : Stateful, Stateless, Singleton", everything.contains("SessionBeans should have only one of the following types : Stateful, Stateless, Singleton"));
