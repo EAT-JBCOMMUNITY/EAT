@@ -64,6 +64,8 @@ elif [ "$1" == "-activemq-artemis" ]; then
 	export PROGRAM_BRANCH="main"
 	export TEST_CATEGORY=master
 	
+	./v.sh
+	
 	echo ""
 	
 	echo "Testing: Latest Apache Artemis ActiveMQ + Artemis ActiveMQ AT"
