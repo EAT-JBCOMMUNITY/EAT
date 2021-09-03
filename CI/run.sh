@@ -36,7 +36,6 @@ elif [ "$1" == "-activemq" ]; then
         cd activemqdir
 	export PROGRAM="https://github.com/apache/activemq"
 	export AT="https://github.com/panossot/ActivemqAT"
-	export PROGRAM_BRANCH="main"
 	wget https://raw.githubusercontent.com/apache/activemq/master/pom.xml
 	version=$(grep -m2 '<version>' ./pom.xml | tail -n1);
 	version=$(echo $version | grep -Po '>.*<\/');
@@ -62,6 +61,7 @@ elif [ "$1" == "-activemq-artemis" ]; then
         version=$(echo "${version:1:${#version}}");
         version=$(echo "${version:0:${#version}-2}");
 	export ACTIVEMQ_BRANCH_VERSION=$version
+	export PROGRAM_BRANCH="main"
 	export TEST_CATEGORY=master
 	
 	echo ""
