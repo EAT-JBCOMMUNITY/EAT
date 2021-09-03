@@ -55,7 +55,7 @@ elif [ "$1" == "-activemq-artemis" ]; then
         cd activemq-artemis
 	export PROGRAM="https://github.com/apache/activemq-artemis"
 	export AT="https://github.com/panossot/ArtemisActivemqAT"
-	wget https://raw.githubusercontent.com/apache/activemq-artemis/master/pom.xml
+	wget https://raw.githubusercontent.com/apache/activemq-artemis/main/pom.xml
 	version=$(grep -m1 '<version>' ./pom.xml | tail -n1);
 	version=$(echo $version | grep -Po '>.*<\/');
         version=$(echo "${version:1:${#version}}");
