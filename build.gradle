@@ -56,6 +56,11 @@ else if(project.hasProperty('android')){
     activemodules = "androidproject1"
 
 }
+else if(project.hasProperty('serverbeta')){
+
+    serverDir2="ServerBeta"
+    activemodules="basic,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,manualmode,remoting,messaging,security,server,web,weld,ejb,jmx,spring"
+}
 
 if(!project.hasProperty('dSources')){
 
