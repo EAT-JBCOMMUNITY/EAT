@@ -6,7 +6,7 @@ version = '1.0.3.Final'
 
 description = "wildfly additional testsuite: elytron : configuration"
 
-if(project.hasProperty('moduleName') && project.hasProperty('includemvnredirections') && ((project.getProperty('moduleName')=="elytron") || (project.getProperty('moduleName')=="all"))){
+if(project.hasProperty('moduleName') && project.getProperty('maintenance')=="false" && project.hasProperty('includemvnredirections') && ((project.getProperty('moduleName')=="elytron") || (project.getProperty('moduleName')=="all"))){
 
 dependencies{
     implementation group: 'org.codehaus.mojo', name: 'keytool-api-1.7', version: '1.4'
