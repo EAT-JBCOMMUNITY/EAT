@@ -38,4 +38,10 @@ else if (project.hasProperty('wildfly-jdk8')){
         implementation project(':modules:testcases:jdkAll:Android')
     }
 
+}else if (project.hasProperty('serverbeta')){
+    
+    dependencies{
+        implementation project(':modules:testcases:jdkAll:ServerBeta')
+    }
+
 }
