@@ -6,7 +6,7 @@ version = '1.0.3.Final'
 
 description = "wildfly additional testsuite: ejb : configuration-2"
 
-if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="ejb") || (project.getProperty('moduleName')=="all"))){
+if(project.hasProperty('moduleName') && project.getProperty('maintenance')=="false" && ((project.getProperty('moduleName')=="ejb") || (project.getProperty('moduleName')=="all"))){
 
 task deleteFiles(type: Delete) {
     delete fileTree(project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/deployments') {
