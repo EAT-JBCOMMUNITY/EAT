@@ -6,7 +6,7 @@ version = '1.0.3.Final'
 
 description = "wildfly additional testsuite: security"
 
-if(project.hasProperty('moduleName') && project.getProperty('maintenance')=="false" && ((project.getProperty('moduleName')=="security") || (project.getProperty('moduleName')=="all"))){
+if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="security") || (project.getProperty('moduleName')=="all"))){
 
 dependencies {
     implementation project(':modules:testcases:jdkAll:Wildfly:security:test-configurations')
