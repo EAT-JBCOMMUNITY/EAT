@@ -6,7 +6,7 @@ version = '1.0.3.Final'
 
 description = "wildfly additional testsuite: logging"
 
-if(project.hasProperty('moduleName') && project.getProperty('maintenance')=="false" && ((project.getProperty('moduleName')=="logging") || (project.getProperty('moduleName')=="all"))){
+if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="logging") || (project.getProperty('moduleName')=="all"))){
 
 dependencies {
     implementation project(':modules:testcases:jdkAll:Wildfly:logging:test-configurations')

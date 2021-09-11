@@ -6,7 +6,7 @@ version = '1.0.3.Final'
 
 description = "wildfly additional testsuite: manualmode"
 
-if(project.hasProperty('moduleName') && project.getProperty('maintenance')=="false" && ((project.getProperty('moduleName')=="manualmode") || (project.getProperty('moduleName')=="all"))){
+if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="manualmode") || (project.getProperty('moduleName')=="all"))){
 
 dependencies {      
     implementation project(':modules:testcases:jdkAll:Wildfly:manualmode:test-configurations')
