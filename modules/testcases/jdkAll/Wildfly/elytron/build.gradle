@@ -6,7 +6,7 @@ version = '1.0.3.Final'
 
 description = "wildfly additional testsuite: elytron"
 
-if(project.hasProperty('moduleName') && project.hasProperty('maintenance') && project.hasProperty('includemvnredirections') && ((project.getProperty('moduleName')=="elytron") || (project.getProperty('moduleName')=="all"))){
+if(project.hasProperty('moduleName') && project.hasProperty('includemvnredirections') && ((project.getProperty('moduleName')=="elytron") || (project.getProperty('moduleName')=="all"))){
 
 dependencies {
   //  implementation project(':modules:testcases:jdkAll:Wildfly:elytron:test-configurations')
