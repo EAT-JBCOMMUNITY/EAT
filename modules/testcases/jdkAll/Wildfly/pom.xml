@@ -1242,7 +1242,7 @@
 		<module>security</module>
 		<module>server</module>
                 <module>spring</module>
-		<!--module>web</module-->
+		<module>web</module>
 		<module>weld</module>
                 <module>ejb</module>
             </modules>
