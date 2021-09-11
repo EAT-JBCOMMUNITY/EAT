@@ -157,7 +157,7 @@
                 <configuration>
                     <offline>true</offline>
                     <scripts>
-                        <script>modify-elytron-config.cli</script>
+                        <script>modify-elytron-config2.cli</script>
                     </scripts>
                     <jboss-home>${jboss.modules.dir}/servers/${server}/build/target/jbossas</jboss-home>
                     <stdout>${project.build.directory}/wildfly-plugin.log</stdout>
