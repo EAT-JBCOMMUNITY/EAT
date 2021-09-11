@@ -36,6 +36,9 @@
         <extension module="org.wildfly.extension.security.manager"/>
         <extension module="org.wildfly.extension.undertow"/>
     </extensions>
+    <system-properties>
+        <property name="io.undertow.legacy.cookie.COMMA_IS_SEPARATOR" value="true"/>
+    </system-properties>
     <management>
         <audit-log>
             <formatters>
