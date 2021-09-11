@@ -1222,29 +1222,29 @@
 	        </property>
 	    </activation>
             <modules>
-                <!--module>basic</module-->
+                <module>basic</module>
 		<module>core</module>
 		<!--module>elytron</module-->
 		<module>jaxrs</module>
-                <!--module>jpa</module>
+                <module>jpa</module>
 		<module>jmx</module>
-		<module>clustering</module-->
+		<module>clustering</module>
                 <module>infinispan</module>
-		<!--module>domain</module>
-		<module>domain_management</module>
-		<module>logging</module>
+		<!--module>domain</module-->
+		<!--module>domain_management</module-->
+		<!--module>logging</module-->
 		<module>management</module>
                 <module>manualmode</module>
-		<module>messaging</module-->
+		<module>messaging</module>
                 <module>microprofile</module>
                 <module>others</module>
                 <module>remoting</module>
-		<!--module>security</module-->
+		<module>security</module>
 		<module>server</module>
-                <!--module>spring</module>
-		<module>web</module-->
+                <module>spring</module>
+		<!--module>web</module-->
 		<module>weld</module>
-                <!--module>ejb</module-->
+                <module>ejb</module>
             </modules>
         </profile>
 
