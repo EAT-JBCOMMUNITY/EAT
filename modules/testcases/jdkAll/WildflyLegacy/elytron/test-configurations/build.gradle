@@ -1,0 +1,43 @@
+apply plugin: 'java'
+apply from: "./../../dependencies.gradle"
+
+group = 'org.jboss'
+version = '1.0.3.Final'
+
+description = "wildfly additional testsuite: elytron : configuration"
+
+if(project.hasProperty('moduleName') && project.hasProperty('includemvnredirections') && ((project.getProperty('moduleName')=="elytron") || (project.getProperty('moduleName')=="all"))){
+
+dependencies{
+    implementation group: 'org.codehaus.mojo', name: 'keytool-api-1.7', version: '1.4'
+}
+
+task deleteFiles(type: Delete) {
+    delete fileTree(project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/deployments') {
+        include '**/**'
+    }
+}
+
+compileJava.dependsOn(deleteFiles)
+/*
+sourceSets {
+    test {
+      java {
+          srcDirs '../src'
+      }
+      resources {
+          srcDir 'src'
+      }
+    }
+}
+
+test {
+    systemProperty "jboss.server.config.file.name", 'standalone-full.xml'
+    systemProperty "jboss.dist", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
+    systemProperty "jbosshome", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
+    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src1/config/arqWildfly') 
+    systemProperty "arquillian.launch", "gradlejboss"
+    environment 'JBOSS_HOME', "$System.env.JBOSS_FOLDER"
+}
+*/
+}

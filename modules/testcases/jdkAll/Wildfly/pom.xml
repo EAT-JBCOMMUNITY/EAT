@@ -260,8 +260,21 @@
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
-		    <artifactId>resteasy-jaxrs</artifactId>
+		    <artifactId>resteasy-core-spi</artifactId>
 		</dependency>
+                <dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-client</artifactId>
+		</dependency>
+                <dependency>
+                    <groupId>org.jboss.resteasy</groupId>
+                    <artifactId>resteasy-client-api</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.jboss.resteasy</groupId>
+                    <artifactId>resteasy-core</artifactId>
+                    <scope>test</scope>
+                </dependency>
 		<dependency>
                     <groupId>org.wildfly</groupId>
                     <artifactId>wildfly-jaxrs</artifactId>
@@ -698,8 +711,21 @@
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
-		    <artifactId>resteasy-jaxrs</artifactId>
+		    <artifactId>resteasy-core-spi</artifactId>
 		</dependency>
+                <dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-client</artifactId>
+		</dependency>
+                <dependency>
+                    <groupId>org.jboss.resteasy</groupId>
+                    <artifactId>resteasy-client-api</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.jboss.resteasy</groupId>
+                    <artifactId>resteasy-core</artifactId>
+                    <scope>test</scope>
+                </dependency> 
 		<dependency>
                     <groupId>org.wildfly</groupId>
                     <artifactId>wildfly-jaxrs</artifactId>
