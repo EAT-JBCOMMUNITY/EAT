@@ -1,0 +1,200 @@
+apply plugin: 'java'
+apply from: "dependencies.gradle"
+
+
+group = 'org.jboss'
+version = '1.0.3.Final'
+
+description = "ServerBeta additional testsuite: additional testsuite for ServerBeta"
+if(project.hasProperty('ServerBeta')) {
+	if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="basic")){
+
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:basic')
+	    }
+
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="core")){
+
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:core')
+	    }
+
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="ejb")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:ejb')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="elytron")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:elytron')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="clustering")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:clustering')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="infinispan")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:infinispan')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="domain")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:domain')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="domain_management")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:domain_management')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="jaxrs")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:jaxrs')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="logging")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:logging')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="management")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:management')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="manualmode")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:manualmode')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="messaging")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:messaging')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="microprofile")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:microprofile')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="others")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:others')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="remoting")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:remoting')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="security")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:security')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="server")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:server')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="web")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:web')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="weld")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:weld')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="jpa")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:jpa')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="manualserver")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:manualserver')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="spring")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:spring')
+	    }
+	    
+	}
+	else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="all")){
+	    
+	    dependencies{
+		implementation project(':modules:testcases:jdkAll:ServerBeta:basic')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:core')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:elytron')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:jpa')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:jmx')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:jaxrs')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:clustering')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:infinispan')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:logging')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:domain')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:domain_management')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:management')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:manualmode')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:messaging')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:microprofile')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:others')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:remoting')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:security')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:server')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:spring')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:web')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:weld')
+		implementation project(':modules:testcases:jdkAll:ServerBeta:ejb')
+	    }
+
+	}
+}
