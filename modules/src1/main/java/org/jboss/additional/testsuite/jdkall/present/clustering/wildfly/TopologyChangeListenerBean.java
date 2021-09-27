@@ -27,28 +27,28 @@ import java.util.stream.Stream;
 
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 import org.infinispan.Cache;
 import org.infinispan.distribution.DistributionManager;
 import org.infinispan.distribution.LocalizedCacheTopology;
+import org.infinispan.manager.EmbeddedCacheManager;
 import org.infinispan.notifications.Listener;
 import org.infinispan.notifications.cachelistener.annotation.TopologyChanged;
 import org.infinispan.notifications.cachelistener.event.TopologyChangedEvent;
-import org.jboss.as.server.CurrentServiceContainer;
 import org.jboss.logging.Logger;
-import org.jboss.msc.service.ServiceName;
-import org.wildfly.clustering.infinispan.spi.InfinispanCacheRequirement;
-import org.wildfly.clustering.service.PassiveServiceSupplier;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
- * EJB that establishes a stable topology.
+ * Jakarta Enterprise Beans that establishes a stable topology.
  * @author Paul Ferraro
  */
 @Stateless
 @Remote(TopologyChangeListener.class)
 @Listener(sync = false)
-@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/ServerBeta/clustering/src/main/java#14.0.0","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Eap72x/clustering/src/main/java#7.2.0.CD14","modules/testcases/jdkAll/Eap72x-Proposed/clustering/src/main/java#7.2.0.CD14","modules/testcases/jdkAll/Eap7/clustering/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Wildfly/clustering/src/main/java#25.0.0.Final"})
 public class TopologyChangeListenerBean implements TopologyChangeListener {
 
     private static final Logger logger = Logger.getLogger(TopologyChangeListenerBean.class);
@@ -56,10 +56,9 @@ public class TopologyChangeListenerBean implements TopologyChangeListener {
     @Override
     public void establishTopology(String containerName, String cacheName, long timeout, String... nodes) throws InterruptedException {
         Set<String> expectedMembers = Stream.of(nodes).sorted().collect(Collectors.toSet());
-        ServiceName name = ServiceName.parse(InfinispanCacheRequirement.CACHE.resolve(containerName, cacheName));
-        Cache<?, ?> cache = new PassiveServiceSupplier<Cache<?, ?>>(CurrentServiceContainer.getServiceContainer(), name).get();
+        Cache<?, ?> cache = findCache(containerName, cacheName);
         if (cache == null) {
-            throw new IllegalStateException(String.format("Cache %s not found", name));
+            throw new IllegalStateException(String.format("Cache %s.%s not found", containerName, cacheName));
         }
         cache.addListener(this);
         try {
@@ -84,6 +83,20 @@ public class TopologyChangeListenerBean implements TopologyChangeListener {
             }
         } finally {
             cache.removeListener(this);
+        }
+    }
+
+    private static Cache<?, ?> findCache(String containerName, String cacheName) {
+        try {
+            Context context = new InitialContext();
+            try {
+                EmbeddedCacheManager manager = (EmbeddedCacheManager) context.lookup("java:jboss/infinispan/container/" + containerName);
+                return manager.cacheExists(cacheName) ? manager.getCache(cacheName) : null;
+            } finally {
+                context.close();
+            }
+        } catch (NamingException e) {
+            return null;
         }
     }
 
