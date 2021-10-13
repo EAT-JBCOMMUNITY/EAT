@@ -2,10 +2,10 @@
 
 
 cd ./Dockerfiles/quarkus
-docker build -t docker.io/eat -f DockerfileFedora --ulimit nofile=5000:5000 . > outputQuarkusF.txt
+podman build -t docker.io/eat -f DockerfileFedora --ulimit nofile=5000:5000 . > outputQuarkusF.txt
 
-sudo docker stop $(sudo docker ps -a -q)
-sudo docker rm $(sudo docker ps -a -q)
-sudo docker image rm docker.io/eat -f
+sudo podman stop $(sudo docker ps -a -q)
+sudo podman rm $(sudo docker ps -a -q)
+sudo podman image rm docker.io/eat -f
 
 
