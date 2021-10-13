@@ -977,6 +977,20 @@
 		        <updatePolicy>never</updatePolicy>
 		    </snapshots>
 		</repository>
+		<repository>
+		    <id>jboss-eap-7.4-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>https://download.devel.redhat.com/brewroot/repos/jb-eap-7.4-maven-build/latest/maven/</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</repository>
 	    </repositories>
 
 	    <pluginRepositories>
@@ -984,6 +998,20 @@
 		    <id>jboss-eap-7.3-product-repository</id>
 		    <name>JBoss Product Repository</name>
 		    <url>https://download.devel.redhat.com/brewroot/repos/jb-eap-7.3-maven-build/latest/maven/</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</pluginRepository>
+		<pluginRepository>
+		    <id>jboss-eap-7.4-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>https://download.devel.redhat.com/brewroot/repos/jb-eap-7.4-maven-build/latest/maven/</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1025,6 +1053,20 @@
 		        <updatePolicy>never</updatePolicy>
 		    </snapshots>
 		</repository>
+		<repository>
+            <id>jboss-eap-7.4-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>https://download.devel.redhat.com/brewroot/repos/jb-eap-7.4-maven-build/latest/maven/</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</repository>
 	    </repositories>
 
 	    <pluginRepositories>
@@ -1032,6 +1074,20 @@
             <id>jboss-eap-7.3-product-repository</id>
 		    <name>JBoss Product Repository</name>
 		    <url>https://download.devel.redhat.com/brewroot/repos/jb-eap-7.3-maven-build/latest/maven/</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</pluginRepository>
+		<pluginRepository>
+            <id>jboss-eap-7.4-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>https://download.devel.redhat.com/brewroot/repos/jb-eap-7.4-maven-build/latest/maven/</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
