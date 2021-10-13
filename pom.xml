@@ -977,11 +977,39 @@
 		        <updatePolicy>never</updatePolicy>
 		    </snapshots>
 		</repository>
+		<repository>
+		    <id>jboss-eap-7.4-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>$EAP7REPO</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</repository>
 	    </repositories>
 
 	    <pluginRepositories>
 		<pluginRepository>
 		    <id>jboss-eap-7.3-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>$EAP7REPO</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</pluginRepository>
+		<pluginRepository>
+		    <id>jboss-eap-7.4-product-repository</id>
 		    <name>JBoss Product Repository</name>
 		    <url>$EAP7REPO</url>
 		    <layout>default</layout>
@@ -1025,11 +1053,39 @@
 		        <updatePolicy>never</updatePolicy>
 		    </snapshots>
 		</repository>
+		<repository>
+            <id>jboss-eap-7.4-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>$EAP7REPO</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</repository>
 	    </repositories>
 
 	    <pluginRepositories>
 		<pluginRepository>
             <id>jboss-eap-7.3-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>$EAP7REPO</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</pluginRepository>
+		<pluginRepository>
+            <id>jboss-eap-7.4-product-repository</id>
 		    <name>JBoss Product Repository</name>
 		    <url>$EAP7REPO</url>
 		    <layout>default</layout>
