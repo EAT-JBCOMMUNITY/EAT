@@ -335,6 +335,20 @@
         </profile>
 
         <profile>
+            <id>build.testsuite</id>
+            <activation>
+                <property>
+                    <name>build</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <properties>
+		<serverDir2>Build</serverDir2>
+	    	</properties>
+        </profile>
+
+        <profile>
             <id>openliberty.testsuite</id>
             <activation>
                 <property>

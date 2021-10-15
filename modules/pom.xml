@@ -1866,6 +1866,20 @@
 
         </profile>
 
+        <profile>
+            <id>build.testsuite</id>
+            <activation>
+                <property>
+                    <name>build</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <modules>
+                <module>testcases/jdkAll/Build</module>
+            </modules>
+        </profile>
+
     </profiles>
 
 
