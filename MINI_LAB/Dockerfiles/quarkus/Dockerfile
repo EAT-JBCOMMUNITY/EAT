@@ -47,4 +47,4 @@ ENV GRAALVM_HOME $GRAAL_HOME/graalvm-ce-java8-$GRAAL_VERSION
 
 ADD repository /home/user/.m2/repository
 
-RUN mkdir protean && cd protean && git clone https://github.com/quarkusio/quarkus.git master && cd master && ls -la && export MAVEN_OPTS="-Xmx1563m" && ./mvnw clean install -DskipTests -DskipITs -DskipDocs && export QUARKUS_VERSION=999-SNAPSHOT &&  JBOSS_VERSION=999.0.0-SNAPSHOT && export JBOSS_VERSION=$JBOSS_VERSION && mkdir EAT && cd EAT && git clone https://github.com/EAT-JBCOMMUNITY/EAT.git && cd EAT && export NATIVE=-Dnative && ./run-quarkus.sh
+RUN mkdir protean && cd protean && git clone https://github.com/quarkusio/quarkus.git master && cd master && ls -la && export MAVEN_OPTS="-Xmx3000m" && ./mvnw clean install -DskipTests -DskipITs -DskipDocs && export QUARKUS_VERSION=999-SNAPSHOT &&  JBOSS_VERSION=999.0.0-SNAPSHOT && export JBOSS_VERSION=$JBOSS_VERSION && mkdir EAT && cd EAT && git clone https://github.com/EAT-JBCOMMUNITY/EAT.git && cd EAT && export NATIVE=-Dnative && ./run-quarkus.sh
