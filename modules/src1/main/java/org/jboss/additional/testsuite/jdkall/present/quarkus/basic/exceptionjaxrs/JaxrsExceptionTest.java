@@ -25,7 +25,7 @@ public class JaxrsExceptionTest {
     public void JaxrsExceptionInfo() throws InterruptedException {
         try {
             Client client = (ResteasyClient) ResteasyClientBuilder.newClient();
-            Builder req = client.target("/jaxrsexception/exception/1").req();
+            Builder req = client.target("/jaxrsexception/exception/1").request();
             String outcome = req.get(String.class);
             Assert.fail("Should not reach this point ... " + outcome);
         } catch (NotFoundException e) {
