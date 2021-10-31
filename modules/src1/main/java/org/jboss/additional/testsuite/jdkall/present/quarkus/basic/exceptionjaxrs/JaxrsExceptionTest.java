@@ -2,6 +2,7 @@ package org.jboss.additional.testsuite.jdkall.present.quarkus.exceptionjaxrs;
 
 import io.restassured.RestAssured;
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.not;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
@@ -20,7 +21,7 @@ public class JaxrsExceptionTest {
         RestAssured.when()
                 .get("/jaxrsexception/exception/1")
                 .then()
-                .body(!containsString("Unable to extract parameter from http req: javax.ws.rs.PathParam(\"id\") value is '1' for public"));
+                .body(not(containsString("Unable to extract parameter from http req: javax.ws.rs.PathParam(\"id\") value is '1' for public")));
     }
 
 }
