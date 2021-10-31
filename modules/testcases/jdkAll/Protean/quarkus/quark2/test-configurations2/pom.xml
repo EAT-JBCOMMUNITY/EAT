@@ -15,7 +15,7 @@
     </parent>
 
     <groupId>io.quarkus</groupId>
-    <artifactId>quarkus-integration-test-hibernate-validator</artifactId>
+    <artifactId>quarkus-integration-test-j</artifactId>
     <name>quarkus2 : configuration</name>
     <version>${QUARKUS_VERSION}</version>    
         
