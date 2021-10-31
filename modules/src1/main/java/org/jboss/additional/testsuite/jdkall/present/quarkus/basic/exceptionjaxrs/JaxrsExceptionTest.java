@@ -17,7 +17,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  * Test various Bean Validation operations running in Shamrock
  */
 
-@EAT({"modules/testcases/jdkAll/Protean/quarkus/quark2/test-configurations/src/test/java#999.0.0"})
+@EAT({"modules/testcases/jdkAll/Protean/quarkus/quark2/test-configurations2/src/test/java#999.0.0"})
 @QuarkusTest
 public class JaxrsExceptionTest {
 
