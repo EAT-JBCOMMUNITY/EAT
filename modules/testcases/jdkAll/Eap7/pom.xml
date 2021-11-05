@@ -43,13 +43,7 @@
                         <artifactId>jboss-eap-parent</artifactId>
                         <type>pom</type>
                         <version>${JBOSS_VERSION}</version>
-                        <scope>import</scope>
-			<exclusions>
-			    <exclusion>
-				<groupId>net.minidev</groupId>
-				<artifactId>json-smart</artifactId>
-			    </exclusion>
-			</exclusions>
+                        <scope>import</scope>	
                     </dependency>
                 </dependencies>
             </dependencyManagement>
