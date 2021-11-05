@@ -282,6 +282,7 @@
 		<dependency>
 		    <groupId>org.jboss.ironjacamar</groupId>
 		    <artifactId>ironjacamar-core-impl</artifactId>
+	            <version>1.5.2.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.ironjacamar</groupId>
