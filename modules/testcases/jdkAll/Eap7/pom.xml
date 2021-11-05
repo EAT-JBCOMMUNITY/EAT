@@ -282,12 +282,12 @@
 		<dependency>
 		    <groupId>org.jboss.ironjacamar</groupId>
 		    <artifactId>ironjacamar-core-impl</artifactId>
-	            <version>1.5.2.Final</version>
+	            <optional>true</optional>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.ironjacamar</groupId>
 		    <artifactId>ironjacamar-jdbc</artifactId>
-		    <version>1.4.38.Final</version>
+		    <optional>true</optional>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
