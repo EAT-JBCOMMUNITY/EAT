@@ -285,7 +285,7 @@
 	            <exclusions>
 			<exclusion>  
 			  <groupId>org.jboss.ironjacamar</groupId>
-			  <artifactId>Pironjacamar-api</artifactId>
+			  <artifactId>ironjacamar-api</artifactId>
 			</exclusion>
 		      </exclusions> 
 		</dependency>
@@ -295,7 +295,7 @@
 		    <exclusions>
 			<exclusion> 
 			  <groupId>org.jboss.ironjacamar</groupId>
-			  <artifactId>Pironjacamar-api</artifactId>
+			  <artifactId>ironjacamar-api</artifactId>
 			</exclusion>
 		      </exclusions> 
 		</dependency>
