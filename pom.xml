@@ -1070,7 +1070,7 @@
 		<repository>
             <id>jboss-eap-7.4-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP7REPO</url>
+		    <url>http://download.devel.redhat.com/brewroot/repos/jb-eap-7.4-maven-build/latest/maven/</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
