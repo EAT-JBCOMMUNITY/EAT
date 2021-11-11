@@ -1045,7 +1045,7 @@
         </profile>
 
         <profile>
-            <id>eap7.testsuite</id>
+            <id>eap7+.testsuite</id>
             <activation>
                 <property>
                     <name>eap7</name>
