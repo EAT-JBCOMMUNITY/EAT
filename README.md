@@ -102,14 +102,14 @@ HOW TO DEBUG (for testable deployments and non-marked as @RunAsClient tests)
 ---------------------------------------
 1. Start the server (that you have defined in JBOSS_FOLDER) with the --debug 'port' option.
 2. Connect the Debugger to the Remote VM inside the server using some IDE.
-3. Activate the equivalent debug profile at your IDE (eg eap7.testsuite).
+3. Activate the equivalent debug profile at your IDE (eg eap7+.testsuite).
 4. Set your breakpoints.
 5. And then start the debugging executing the specific test which is errorous.
 
 
 HOW TO DEBUG (for non-testable deployments and marked as @RunAsClient tests)
 ---------------------------------------
-1. Activate the equivalent debug profile at your IDE (eg eap7.testsuite).
+1. Activate the equivalent debug profile at your IDE (eg eap7+.testsuite).
 2. Set your breakpoints.
 3. Run your tests from command line adding -Dmaven.surefire.debug="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8787 -Xnoagent -Djava.compiler=NONE" property. 
 e.g. mvn -Dmaven.surefire.debug="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8787 -Xnoagent -Djava.compiler=NONE" test -Dwildfly -Dstandalone
@@ -180,17 +180,17 @@ EXAMPLE OF USAGE
 -----------------
 Supposing that we would like to add Mtom TestCase for Wildfly (master) and Eap 7 (7.x) Servers in Eap Additional Testsuite, we would follow the steps bellow :
 
-1. Add the source code of the test in [modules/src/main directory](https://github.com/EAT-JBCOMMUNITY/EAT/tree/master/modules/src/main/java/org/jboss/additional/testsuite/jdkall/present/web/mtom) (both for Wildfly and Eap7 - write your code once) and annotate all the classes used in the test with the @EAT annotation, specifing the locations of the Servers that the classes will be distributed to, as a String Array attribute (e.g. [@EAT Example](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/src/main/java/org/jboss/additional/testsuite/jdkall/present/web/mtom/MtomTestCase.java#L50)).
+1. Add the source code of the test in [modules/src/main directory](https://github.com/EAT-JBCOMMUNITY/EAT/tree/master/modules/src/main/java/org/jboss/additional/testsuite/jdkall/present/web/mtom) (both for Wildfly and Eap7+ - write your code once) and annotate all the classes used in the test with the @EAT annotation, specifing the locations of the Servers that the classes will be distributed to, as a String Array attribute (e.g. [@EAT Example](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/src/main/java/org/jboss/additional/testsuite/jdkall/present/web/mtom/MtomTestCase.java#L50)).
 
-2. Add the resources in [Wildfy Mtom recource directory](https://github.com/EAT-JBCOMMUNITY/EAT/tree/master/modules/testcases/jdkAll/Wildfly/web/test-configurations/src/test/resources) (for Wildfly) and  [Eap7 Mtom recource directory](https://github.com/EAT-JBCOMMUNITY/EAT/tree/master/modules/testcases/jdkAll/Eap7/web/test-configurations/src/test/resources) (for Eap7)
+2. Add the resources in [Wildfy Mtom recource directory](https://github.com/EAT-JBCOMMUNITY/EAT/tree/master/modules/testcases/jdkAll/Wildfly/web/test-configurations/src/test/resources) (for Wildfly) and  [Eap7+ Mtom recource directory](https://github.com/EAT-JBCOMMUNITY/EAT/tree/master/modules/testcases/jdkAll/Eap7/web/test-configurations/src/test/resources) (for Eap7+)
 
-3. Add any additional dependencies in [Wildfy pom](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Wildfly/pom.xml)  (for Wildfly) and [Eap7 pom](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Eap7/pom.xml) (for Eap7)
+3. Add any additional dependencies in [Wildfy pom](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Wildfly/pom.xml)  (for Wildfly) and [Eap7+ pom](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Eap7/pom.xml) (for Eap7+)
 
-4. Enable the Mtom TestCase in [Wildfy Web Configuration pom](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Wildfly/web/test-configurations/pom.xml) (for Wildfly) and [Eap7 Web Configuration pom](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Eap7/web/test-configurations/pom.xml) (for Eap7)
+4. Enable the Mtom TestCase in [Wildfy Web Configuration pom](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Wildfly/web/test-configurations/pom.xml) (for Wildfly) and [Eap7+ Web Configuration pom](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Eap7/web/test-configurations/pom.xml) (for Eap7+)
 
 5. Build the Eap Additional Testsuite for Wildfy and Eap7 (having set the equivalent JBOSS_FOLDER and JBOSS_VERSION environment variables) :
     - mvn clean install -Dwildfly -Dstandalone (for Wildfly)
-    - mvn clean install -Deap7 -Dstandalone (for Eap7)
+    - mvn clean install -Deap7+ -Dstandalone (for Eap7+)
     
  
 OTHER FEATURES
