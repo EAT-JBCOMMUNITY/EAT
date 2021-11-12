@@ -1048,7 +1048,7 @@
             <id>eap7+.testsuite</id>
             <activation>
                 <property>
-                    <name>eap7</name>
+                    <name>eap7+</name>
                     <value>true</value>
                 </property>
             </activation>
