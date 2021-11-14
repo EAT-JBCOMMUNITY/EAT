@@ -1,0 +1,142 @@
+org/jboss/additional/testsuite/jdkall/present/elytron/sasl/OtpSaslTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.sasl.OtpSaslTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.sasl.OtpSaslTestCase$1
+ org.jboss.additional.testsuite.jdkall.present.elytron.sasl.OtpSaslTestCase$ServerSetup
+ org.jboss.additional.testsuite.jdkall.present.elytron.sasl.OtpSaslTestCase$ServerSetup$OtpLdapConf
+org/jboss/additional/testsuite/jdkall/present/elytron/rolemappers/AbstractRoleMapperTest.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.rolemappers.AbstractRoleMapperTest
+org/jboss/additional/testsuite/jdkall/present/elytron/realmmappers/AbstractRealmMapperTest.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.realmmappers.AbstractRealmMapperTest
+org/jboss/additional/testsuite/jdkall/present/elytron/application/CredentialStoreTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.application.CredentialStoreTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.application.CredentialStoreTestCase$ElytronSetup
+org/jboss/additional/testsuite/jdkall/present/elytron/realmmappers/MappedRegexRealmMapperTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.realmmappers.MappedRegexRealmMapperTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.realmmappers.MappedRegexRealmMapperTestCase$SetupTask
+org/jboss/additional/testsuite/jdkall/present/elytron/ssl/UndertowTwoWaySslTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.ssl.UndertowTwoWaySslTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.ssl.UndertowTwoWaySslTestCase$ElytronSslContextInUndertowSetupTask
+org/jboss/additional/testsuite/jdkall/present/elytron/batch/LongRunningBatchlet.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.batch.LongRunningBatchlet
+org/jboss/additional/testsuite/jdkall/present/elytron/rolemappers/ConstantRoleMapperTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.rolemappers.ConstantRoleMapperTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.rolemappers.ConstantRoleMapperTestCase$ServerSetup
+ org.jboss.additional.testsuite.jdkall.present.elytron.rolemappers.ConstantRoleMapperTestCase$ServerSetup$ConstantRoleMappers
+org/jboss/additional/testsuite/jdkall/present/elytron/ejb/authentication/WhoAmIBean.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.ejb.authentication.WhoAmIBean
+org/jboss/additional/testsuite/jdkall/present/elytron/audit/AbstractSyslogAuditLogTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.audit.AbstractSyslogAuditLogTestCase
+org/jboss/additional/testsuite/jdkall/present/elytron/rolemappers/LogicalRoleMapperTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.rolemappers.LogicalRoleMapperTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.rolemappers.LogicalRoleMapperTestCase$ServerSetup
+ org.jboss.additional.testsuite.jdkall.present.elytron.rolemappers.LogicalRoleMapperTestCase$ServerSetup$LogicalRoleMappers
+org/jboss/additional/testsuite/jdkall/present/elytron/audit/TLSSyslogAuditLogTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.audit.TLSSyslogAuditLogTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.audit.TLSSyslogAuditLogTestCase$SyslogAuditLogSetupTask
+org/jboss/additional/testsuite/jdkall/present/elytron/realm/LdapRealmTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.realm.LdapRealmTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.realm.LdapRealmTestCase$LDAPServerSetupTask
+ org.jboss.additional.testsuite.jdkall.present.elytron.realm.LdapRealmTestCase$SetupTask
+org/jboss/additional/testsuite/jdkall/present/elytron/ejb/base/WhoAmIBean.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.ejb.base.WhoAmIBean
+org/jboss/additional/testsuite/jdkall/present/elytron/audit/AbstractAuditLogTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.audit.AbstractAuditLogTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.audit.AbstractAuditLogTestCase$SecurityDomainSetupTask
+org/jboss/additional/testsuite/jdkall/present/elytron/sasl/AnonymousSaslMechTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.sasl.AnonymousSaslMechTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.sasl.AnonymousSaslMechTestCase$ServerSetup
+org/jboss/additional/testsuite/jdkall/present/elytron/roledecoders/SimpleRoleDecoderTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.roledecoders.SimpleRoleDecoderTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.roledecoders.SimpleRoleDecoderTestCase$SetupTask
+org/jboss/additional/testsuite/jdkall/present/elytron/ejb/Entry.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.ejb.Entry
+org/jboss/additional/testsuite/jdkall/present/elytron/principaldecoders/ConstantPrincipalDecoderTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.principaldecoders.ConstantPrincipalDecoderTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.principaldecoders.ConstantPrincipalDecoderTestCase$ServerSetup
+org/jboss/additional/testsuite/jdkall/present/elytron/principaltransformers/RegexPrincipalTransformerTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.principaltransformers.RegexPrincipalTransformerTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.principaltransformers.RegexPrincipalTransformerTestCase$SetupTask
+org/jboss/additional/testsuite/jdkall/present/elytron/rolemappers/AddSuffixRoleMapperTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.rolemappers.AddSuffixRoleMapperTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.rolemappers.AddSuffixRoleMapperTestCase$ServerSetup
+ org.jboss.additional.testsuite.jdkall.present.elytron.rolemappers.AddSuffixRoleMapperTestCase$ServerSetup$AddSuffixRoleMappers
+org/jboss/additional/testsuite/jdkall/present/elytron/sasl/DefaultSaslConfigTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.sasl.DefaultSaslConfigTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.sasl.DefaultSaslConfigTestCase$ServerSetup
+org/jboss/additional/testsuite/jdkall/present/elytron/application/BasicAuthnTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.application.BasicAuthnTestCase
+org/jboss/additional/testsuite/jdkall/present/elytron/batch/IdentityBatchlet.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.batch.IdentityBatchlet
+org/jboss/additional/testsuite/jdkall/present/elytron/principaltransformers/ConstantPrincipalTransformerTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.principaltransformers.ConstantPrincipalTransformerTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.principaltransformers.ConstantPrincipalTransformerTestCase$SetupTask
+org/jboss/additional/testsuite/jdkall/present/elytron/batch/BatchSubsystemSecurityTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.batch.BatchSubsystemSecurityTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.batch.BatchSubsystemSecurityTestCase$ActivateBatchSecurityDomainSetupTask
+ org.jboss.additional.testsuite.jdkall.present.elytron.batch.BatchSubsystemSecurityTestCase$CreateBatchSecurityDomainSetupTask
+org/jboss/additional/testsuite/jdkall/present/elytron/permissionmappers/ConstantPermissionMapperTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.permissionmappers.ConstantPermissionMapperTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.permissionmappers.ConstantPermissionMapperTestCase$ServerSetup
+org/jboss/additional/testsuite/jdkall/present/elytron/rolemappers/AggregateRoleMapperTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.rolemappers.AggregateRoleMapperTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.rolemappers.AggregateRoleMapperTestCase$ServerSetup
+ org.jboss.additional.testsuite.jdkall.present.elytron.rolemappers.AggregateRoleMapperTestCase$ServerSetup$AggregateRoleMappers
+org/jboss/additional/testsuite/jdkall/present/elytron/ssl/UndertowTwoWaySslNeedClientAuthTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.ssl.UndertowTwoWaySslNeedClientAuthTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.ssl.UndertowTwoWaySslNeedClientAuthTestCase$ElytronSslContextInUndertowSetupTask
+org/jboss/additional/testsuite/jdkall/present/elytron/realmmappers/RealmMapperServerSetupTask.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.realmmappers.RealmMapperServerSetupTask
+org/jboss/additional/testsuite/jdkall/present/elytron/rolemappers/AddPrefixRoleMapperTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.rolemappers.AddPrefixRoleMapperTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.rolemappers.AddPrefixRoleMapperTestCase$ServerSetup
+ org.jboss.additional.testsuite.jdkall.present.elytron.rolemappers.AddPrefixRoleMapperTestCase$ServerSetup$AddPrefixRoleMappers
+org/jboss/additional/testsuite/jdkall/present/elytron/batch/FailingBatchlet.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.batch.FailingBatchlet
+org/jboss/additional/testsuite/jdkall/present/elytron/realmmappers/SimpleRegexRealmMapperTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.realmmappers.SimpleRegexRealmMapperTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.realmmappers.SimpleRegexRealmMapperTestCase$SetupTask
+org/jboss/additional/testsuite/jdkall/present/elytron/ejb/AuthenticationTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.ejb.AuthenticationTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.ejb.AuthenticationTestCase$1
+ org.jboss.additional.testsuite.jdkall.present.elytron.ejb.AuthenticationTestCase$EjbSecurityDomainSetup
+org/jboss/additional/testsuite/jdkall/present/elytron/application/CredentialStoreI18NTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.application.CredentialStoreI18NTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.application.CredentialStoreI18NTestCase$ElytronSetup
+org/jboss/additional/testsuite/jdkall/present/elytron/ejb/base/EntryBean.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.ejb.base.EntryBean
+org/jboss/additional/testsuite/jdkall/present/elytron/rolemappers/RoleMapperSetupUtils.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.rolemappers.RoleMapperSetupUtils
+org/jboss/additional/testsuite/jdkall/present/elytron/realmmappers/ConstantRealmMapperTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.realmmappers.ConstantRealmMapperTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.realmmappers.ConstantRealmMapperTestCase$SetupTask
+org/jboss/additional/testsuite/jdkall/present/elytron/ejb/authentication/EntryBean.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.ejb.authentication.EntryBean
+org/jboss/additional/testsuite/jdkall/present/elytron/audit/UDPSyslogAuditLogTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.audit.UDPSyslogAuditLogTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.audit.UDPSyslogAuditLogTestCase$SyslogAuditLogSetupTask
+org/jboss/additional/testsuite/jdkall/present/elytron/sasl/AbstractSaslTestBase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.sasl.AbstractSaslTestBase
+ org.jboss.additional.testsuite.jdkall.present.elytron.sasl.AbstractSaslTestBase$JmsSetup
+org/jboss/additional/testsuite/jdkall/present/elytron/batch/SecurityDomainSettingEJB.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.batch.SecurityDomainSettingEJB
+org/jboss/additional/testsuite/jdkall/present/elytron/principaltransformers/RegexValidatingPrincipalTransformerTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.principaltransformers.RegexValidatingPrincipalTransformerTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.principaltransformers.RegexValidatingPrincipalTransformerTestCase$SetupTask
+org/jboss/additional/testsuite/jdkall/present/elytron/ejb/WhoAmI.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.ejb.WhoAmI
+org/jboss/additional/testsuite/jdkall/present/elytron/principaltransformers/ChainedPrincipalTransformerTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.principaltransformers.ChainedPrincipalTransformerTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.principaltransformers.ChainedPrincipalTransformerTestCase$SetupTask
+org/jboss/additional/testsuite/jdkall/present/elytron/application/AbstractCredentialStoreTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.application.AbstractCredentialStoreTestCase
+org/jboss/additional/testsuite/jdkall/present/elytron/audit/FileAuditLogTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.audit.FileAuditLogTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.audit.FileAuditLogTestCase$FileAuditLogSetupTask
+org/jboss/additional/testsuite/jdkall/present/elytron/audit/TCPSyslogAuditLogTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.audit.TCPSyslogAuditLogTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.audit.TCPSyslogAuditLogTestCase$SyslogAuditLogSetupTask
+org/jboss/additional/testsuite/jdkall/present/elytron/realm/AggregateRealmTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.realm.AggregateRealmTestCase
+ org.jboss.additional.testsuite.jdkall.present.elytron.realm.AggregateRealmTestCase$SetupTask
+org/jboss/additional/testsuite/jdkall/present/elytron/ejb/WhoAmIServlet.java
+ org.jboss.additional.testsuite.jdkall.present.elytron.ejb.WhoAmIServlet

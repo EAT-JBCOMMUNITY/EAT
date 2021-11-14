@@ -1,0 +1,15 @@
+org/jboss/additional/testsuite/jdkall/present/core/jca/DatasourcesActiveCountTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.core.jca.DatasourcesActiveCountTestCase
+org/jboss/additional/testsuite/jdkall/present/core/marshalling/Foo.java
+ org.jboss.additional.testsuite.jdkall.present.core.marshalling.Foo
+org/jboss/additional/testsuite/jdkall/present/core/deployment/ZipSlipTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.core.deployment.ZipSlipTestCase
+org/jboss/additional/testsuite/jdkall/present/core/marshalling/Bar.java
+ org.jboss.additional.testsuite.jdkall.present.core.marshalling.Bar
+org/jboss/additional/testsuite/jdkall/present/core/marshalling/MarshallingTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.core.marshalling.MarshallingTestCase
+ org.jboss.additional.testsuite.jdkall.present.core.marshalling.MarshallingTestCase$SerializableWithNonSerializableChildWithNoPublicConstructor
+ org.jboss.additional.testsuite.jdkall.present.core.marshalling.MarshallingTestCase$TestNotSerializableNoDefaultConstructor
+ org.jboss.additional.testsuite.jdkall.present.core.marshalling.MarshallingTestCase$TestNotSerializableNoDefaultConstructorInterface
+org/jboss/additional/testsuite/jdkall/present/core/jca/workmanager/AddSecondWorkmanagerTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.core.jca.workmanager.AddSecondWorkmanagerTestCase

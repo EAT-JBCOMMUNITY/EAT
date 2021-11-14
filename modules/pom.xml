@@ -950,7 +950,7 @@
             </build>
 
             <modules>
-                <module>testcases/jdk8/Eap7</module>
+                <module>testcases/jdk8/Eap7+</module>
             </modules>
 
         </profile>
@@ -1335,7 +1335,7 @@
             </build>
 
             <modules>
-                <module>testcases/jdkAll/Eap7</module>
+                <module>testcases/jdkAll/Eap7+</module>
             </modules>
             
         </profile>

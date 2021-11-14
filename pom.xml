@@ -969,10 +969,10 @@
         </profile>
 
         <profile>
-            <id>eap7.jdk8.testsuite</id>
+            <id>eap7+.jdk8.testsuite</id>
             <activation>
                 <property>
-                    <name>eap7-jdk8</name>
+                    <name>eap7+-jdk8</name>
                     <value>true</value>
                 </property>
             </activation>
@@ -1039,7 +1039,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir2>Eap7</serverDir2>
+		<serverDir2>Eap7+</serverDir2>
                 <activemodules>logging,management,ws</activemodules>
 	    </properties>
         </profile>
@@ -1115,7 +1115,7 @@
 	    </pluginRepositories>
 
             <properties>
-		<serverDir2>Eap7</serverDir2>
+		<serverDir2>Eap7+</serverDir2>
                 <activemodules>basic,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,messaging,remoting,security,server,web,weld,ejb</activemodules>
 	    </properties>
         </profile>

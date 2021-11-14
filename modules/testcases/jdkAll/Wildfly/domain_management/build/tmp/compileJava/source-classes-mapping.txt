@@ -1,0 +1,2 @@
+org/jboss/additional/testsuite/jdkall/present/domain_management/audit/AuditLoggerTestCase.java
+ org.jboss.additional.testsuite.jdkall.present.domain_management.audit.AuditLoggerTestCase

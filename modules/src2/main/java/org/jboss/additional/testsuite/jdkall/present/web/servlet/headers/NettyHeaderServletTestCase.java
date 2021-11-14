@@ -46,7 +46,7 @@ import java.net.URL;
 
 @RunAsClient
 @RunWith(Arquillian.class)
-@EAT({"modules/testcases/jdkAll/Wildfly/web/src/main/java#19.0.0","modules/testcases/jdkAll/Eap72x-Proposed/web/src/main/java#7.2.5","modules/testcases/jdkAll/Eap72x/web/src/main/java#7.2.5","modules/testcases/jdkAll/Eap7/web/src/main/java#7.3.0.CD18"})
+@EAT({"modules/testcases/jdkAll/Wildfly/web/src/main/java#19.0.0","modules/testcases/jdkAll/Eap72x-Proposed/web/src/main/java#7.2.5","modules/testcases/jdkAll/Eap72x/web/src/main/java#7.2.5","modules/testcases/jdkAll/Eap7+/web/src/main/java#7.3.0.CD18"})
 public class NettyHeaderServletTestCase {
 
     public static final String DEPLOYMENT = "cookieHeaderServlet.war";
