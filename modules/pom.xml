@@ -908,10 +908,10 @@
         </profile>
 
         <profile>
-            <id>eap7.jdk8.testsuite</id>
+            <id>eap7+.jdk8.testsuite</id>
             <activation>
                 <property>
-                    <name>eap7-jdk8</name>
+                    <name>eap7+-jdk8</name>
                     <value>true</value>
                 </property>
             </activation>
@@ -950,7 +950,7 @@
             </build>
 
             <modules>
-                <module>testcases/jdk8/Eap7</module>
+                <module>testcases/jdk8/Eap7Plus</module>
             </modules>
 
         </profile>
@@ -1335,7 +1335,7 @@
             </build>
 
             <modules>
-                <module>testcases/jdkAll/Eap7</module>
+                <module>testcases/jdkAll/Eap7Plus</module>
             </modules>
             
         </profile>
