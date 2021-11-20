@@ -96,6 +96,7 @@ elif [ "$1" == "-jboss-modules" ]; then
 	export PROGRAM="https://github.com/jboss-modules/jboss-modules"
 	export AT="https://github.com/panossot/JBossModulesAT"
 	export PROGRAM_BRANCH=1.x
+	export ADDITIONAL_PARAMS=-Denforcer.skip
 	wget https://raw.githubusercontent.com/jboss-modules/jboss-modules/$PROGRAM_BRANCH/pom.xml
 	version=$(grep -m1 '<version>' ./pom.xml | tail -n1);
 	version=$(echo $version | grep -Po '>.*<\/');
