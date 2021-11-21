@@ -10,7 +10,7 @@ if [ -z "${SERVER_POM_CONFIG}" ]; then
   exit 2
 fi
 
-cp ${SERVER_POM_CONFIG} ./modules/testcases/jdkAll/${SERVER_DIR_NAME}
+cp ${SERVER_POM_CONFIG} ./modules/testcases/jdkAll/${SERVER_DIR_NAME}/pom.xml
 
 if [ -z "${SERVER_CONFIG_DIR_DEST}" ]; then
   echo "No SERVER_CONFIG_DIR_DEST has been defined."
@@ -22,6 +22,7 @@ if [ -z "${SERVER_CONFIG_DIR_TOCOPY}" ]; then
   exit 3
 fi
 
-rm -f ${SERVER_CONFIG_DIR_DEST}
+rm -rf ${SERVER_CONFIG_DIR_DEST}
 
-cp ${SERVER_CONFIG_DIR_TOCOPY} ${SERVER_CONFIG_DIR_DEST}
+mkdir -p ${SERVER_CONFIG_DIR_DEST}
+cp -r ${SERVER_CONFIG_DIR_TOCOPY} ${SERVER_CONFIG_DIR_DEST}
