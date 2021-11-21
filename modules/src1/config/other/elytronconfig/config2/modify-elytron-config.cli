@@ -1,4 +1,4 @@
-#@EAT({"modules/testcases/jdkAll/Wildfly/elytron/test-configurations#25.0.0"}
+#@EAT({"modules/testcases/jdkAll/Wildfly/elytron/test-configurations#25.0.0","modules/testcases/jdkAll/Eap7Plus/elytron/test-configurations#7.4.9"}
 embed-server --admin-only=true --server-config=standalone-full.xml
 
 /subsystem=datasources/data-source=ExampleDS:undefine-attribute(name=password)
