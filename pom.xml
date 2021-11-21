@@ -1853,7 +1853,7 @@
             <id>allSources</id>
              <activation>
 		<property>
-		    <name>!dSources</name>
+		    <name>!manualSources</name>
 		</property>
 	     </activation>
 
