@@ -18,11 +18,15 @@ public class Main {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         String userHomeDir = System.getProperty("user.home");
+        //Define the repo to check/process the tests
         String originUrl = "https://github.com/wildfly/wildfly.git";
         String dir = userHomeDir + "/test";
         String outputdir = userHomeDir + "/test/output";
+        //Define the tags to check/process the tests (versions should be in descending order)
         String tags = "25.0.1.Final,25.0.0.Final,25.0.0.Beta1,24.0.1.Final,24.0.0.Final,24.0.0.Beta1,23.0.2.Final,23.0.1.Final,23.0.0.Final,23.0.0.Beta1";
+        // The directory where the tests exist withing the cloned branch
         String testdir = "testsuite";
+        // Annotation addition to be done ... (comment of the version range available at the end of each processed file)
         String annotation = "@EAT({\"modules/testcases/jdkAll/Wildfly/server/src/main/java\"})";
         Main.cloneRepos(originUrl, dir, tags);
         Main.processFiles(dir, tags, testdir, outputdir, annotation);
