@@ -18,68 +18,71 @@ public class Main {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         String userHomeDir = System.getProperty("user.home");
-        //Define the repo to check/process the tests
         String originUrl = "https://github.com/wildfly/wildfly.git";
         String dir = userHomeDir + "/test";
         String outputdir = userHomeDir + "/test/output";
-        //Define the tags to check/process the tests (versions should be in descending order)
         String tags = "25.0.1.Final,25.0.0.Final,25.0.0.Beta1,24.0.1.Final,24.0.0.Final,24.0.0.Beta1,23.0.2.Final,23.0.1.Final,23.0.0.Final,23.0.0.Beta1";
         String testdir = "testsuite";
-        // Annotation addition to be done ... (comment of the version range available at the end of each processed file)
         String annotation = "@EAT({\"modules/testcases/jdkAll/Wildfly/server/src/main/java\"})";
-        Main.cloneRepos(originUrl,dir,tags);
+        Main.cloneRepos(originUrl, dir, tags);
         Main.processFiles(dir, tags, testdir, outputdir, annotation);
     }
 
     private static void processFiles(String dir, String tags, String testdir, String outputdir, String annotation) throws IOException {
         String[] stringTags = tags.split(",");
-        File path = new File(dir + "/" + stringTags[0] + "/" + testdir);
-        int tag = 0;
 
-        Main.fetchFiles(path, tags, tag, annotation, outputdir, testdir, dir);
+        for (int tag = 0; tag < stringTags.length; tag++) {
+            File path = new File(dir + "/" + stringTags[tag] + "/" + testdir);
+            Main.fetchFiles(path, tags, tag, annotation, outputdir, testdir, dir);
+        }
     }
 
     public static void fetchFiles(File dir, String tags, int tag, String annotation, String outputdir, String testdir, String initdir) throws IOException {
+
+        String[] stringTags = Arrays.copyOfRange(tags.split(","), tag, tags.split(",").length);
 
         if (dir.isDirectory()) {
             for (File file1 : dir.listFiles()) {
                 fetchFiles(file1, tags, tag, annotation, outputdir, testdir, initdir);
             }
         } else if (dir.isFile() && dir.getName().endsWith(".java") && !processedFiles.contains(dir.getName())) {
+            tag = 0;
             processedFiles.add(dir.getName());
-            String[] stringTags = tags.split(",");
+
             String lastTag = stringTags[tag];
             String firstTag = stringTags[tag];
+            File existent = null;
             for (String tagName : stringTags) {
                 if (!FileUtils.contentEquals(new File(dir.toString().replaceAll(stringTags[tag], lastTag)), new File(dir.toString().replaceAll(stringTags[tag], tagName)))) {
-                    System.out.println(dir.toString().replaceAll(stringTags[tag], tagName));
                     File n = new File(dir.toString().replaceAll(stringTags[tag], firstTag));
                     File d = new File(dir.toString().replaceAll(stringTags[tag], firstTag).replaceAll(initdir, outputdir));
                     Files.createDirectories(d.toPath().getParent());
-                    Files.copy(n.toPath(), d.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                    Files.write(d.toPath(), String.valueOf("//#" + firstTag + "*" + lastTag).getBytes(), StandardOpenOption.APPEND);
-                    lastTag = tagName;
+                    if (n.exists()) {
+                        existent = n;
+                    } else {
+                        Files.copy(existent.toPath(), d.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                        Files.write(d.toPath(), String.valueOf("//#" + firstTag + "*" + lastTag).getBytes(), StandardOpenOption.APPEND);
+                        break;
+                    }
                     firstTag = tagName;
                     if (tagName.compareTo(stringTags[stringTags.length - 1]) == 0) {
-                        System.out.println(dir.toString().replaceAll(stringTags[tag], tagName));
                         n = new File(dir.toString().replaceAll(stringTags[tag], firstTag));
                         d = new File(dir.toString().replaceAll(stringTags[tag], firstTag).replaceAll(initdir, outputdir));
-                        if(n.exists()){
-                        Files.createDirectories(d.toPath().getParent());
-                        Files.copy(n.toPath(), d.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                        Files.write(d.toPath(), String.valueOf("//#" + firstTag).getBytes(), StandardOpenOption.APPEND);
+                        if (n.exists()) {
+                            Files.createDirectories(d.toPath().getParent());
+                            Files.copy(n.toPath(), d.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                            Files.write(d.toPath(), String.valueOf("//#" + firstTag + "*" + lastTag).getBytes(), StandardOpenOption.APPEND);
                         }
                     }
                 } else {
                     firstTag = tagName;
                     if (tagName.compareTo(stringTags[stringTags.length - 1]) == 0) {
-                        System.out.println(dir.toString().replaceAll(stringTags[tag], tagName));
                         File n = new File(dir.toString().replaceAll(stringTags[tag], firstTag));
                         File d = new File(dir.toString().replaceAll(stringTags[tag], firstTag).replaceAll(initdir, outputdir));
-                        if(n.exists()){
-                        Files.createDirectories(d.toPath().getParent());
-                        Files.copy(n.toPath(), d.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                        Files.write(d.toPath(), String.valueOf("//#" + firstTag).getBytes(), StandardOpenOption.APPEND);
+                        if (n.exists()) {
+                            Files.createDirectories(d.toPath().getParent());
+                            Files.copy(n.toPath(), d.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                            Files.write(d.toPath(), String.valueOf("//#" + firstTag + "*" + lastTag).getBytes(), StandardOpenOption.APPEND);
                         }
                     }
                 }
