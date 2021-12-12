@@ -8,13 +8,14 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Objects;
 import org.apache.commons.io.FileUtils;
 
 public class Main {
 
-    private static HashSet<String> processedFiles = new HashSet();
+    private static HashMap<String,String> processedFiles = new HashMap();
 
     public static void main(String[] args) throws IOException, InterruptedException {
         String userHomeDir = System.getProperty("user.home");
@@ -49,9 +50,8 @@ public class Main {
             for (File file1 : dir.listFiles()) {
                 fetchFiles(file1, tags, tag, annotation, outputdir, testdir, initdir);
             }
-        } else if (dir.isFile() && dir.getName().endsWith(".java") && !processedFiles.contains(dir.getName())) {
+        } else if (dir.isFile() && dir.getName().endsWith(".java") && (processedFiles.get(dir.getName())==null || Arrays.asList(stringTags).contains(processedFiles.get(dir.getName())))) {
             tag = 0;
-            processedFiles.add(dir.getName());
 
             String lastTag = stringTags[tag];
             String firstTag = stringTags[tag];
@@ -59,23 +59,31 @@ public class Main {
             for (String tagName : stringTags) {
                 if (!FileUtils.contentEquals(new File(dir.toString().replaceAll(stringTags[tag], lastTag)), new File(dir.toString().replaceAll(stringTags[tag], tagName)))) {
                     File n = new File(dir.toString().replaceAll(stringTags[tag], firstTag));
-                    File d = new File(dir.toString().replaceAll(stringTags[tag], firstTag).replaceAll(initdir, outputdir));
-                    Files.createDirectories(d.toPath().getParent());
+                    File n1 = new File(dir.toString().replaceAll(stringTags[tag], tagName));
                     if (n.exists()) {
                         existent = n;
-                    } else {
+                    }
+                    if(n.exists() && ! n1.exists()){
+                        File d = new File(dir.toString().replaceAll(stringTags[tag], firstTag).replaceAll(initdir, outputdir));
+                        Files.createDirectories(d.toPath().getParent());
                         Files.copy(existent.toPath(), d.toPath(), StandardCopyOption.REPLACE_EXISTING);
                         Files.write(d.toPath(), String.valueOf("//#" + firstTag + "*" + lastTag).getBytes(), StandardOpenOption.APPEND);
+                        processedFiles.put(dir.getName(),lastTag);
                         break;
                     }
                     firstTag = tagName;
                     if (tagName.compareTo(stringTags[stringTags.length - 1]) == 0) {
+                        firstTag = tagName;
+                        File d = new File(dir.toString().replaceAll(stringTags[tag], firstTag).replaceAll(initdir, outputdir));
+                        Files.createDirectories(d.toPath().getParent());
                         n = new File(dir.toString().replaceAll(stringTags[tag], firstTag));
                         d = new File(dir.toString().replaceAll(stringTags[tag], firstTag).replaceAll(initdir, outputdir));
                         if (n.exists()) {
                             Files.createDirectories(d.toPath().getParent());
                             Files.copy(n.toPath(), d.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                            System.out.println("==***=== " + n + firstTag);
                             Files.write(d.toPath(), String.valueOf("//#" + firstTag + "*" + lastTag).getBytes(), StandardOpenOption.APPEND);
+                            processedFiles.put(dir.getName(),lastTag);
                         }
                     }
                 } else {
@@ -87,6 +95,7 @@ public class Main {
                             Files.createDirectories(d.toPath().getParent());
                             Files.copy(n.toPath(), d.toPath(), StandardCopyOption.REPLACE_EXISTING);
                             Files.write(d.toPath(), String.valueOf("//#" + firstTag + "*" + lastTag).getBytes(), StandardOpenOption.APPEND);
+                            processedFiles.put(dir.getName(),lastTag);
                         }
                     }
                 }
