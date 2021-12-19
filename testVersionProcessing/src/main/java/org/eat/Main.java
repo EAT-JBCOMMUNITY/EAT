@@ -1,6 +1,9 @@
 package org.eat;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -9,7 +12,6 @@ import java.nio.file.StandardCopyOption;
 import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Objects;
 import org.apache.commons.io.FileUtils;
 
@@ -134,5 +136,29 @@ public class Main {
             System.out.println(String.format("runCommand " + Arrays.toString(command) + " returned %d", exit));
 
         }
+    }
+
+    private int findEatAdditionPosition(String file, String findString) {
+        BufferedReader br = null;
+        String input = null;
+        int i = 0;
+        try {
+            br = new BufferedReader(new FileReader(file));
+        } catch (FileNotFoundException e1) {
+            e1.printStackTrace();
+        }
+        try {
+            while ((input = br.readLine()) != null) {
+                String[] firstname = input.split(" ");
+                if (input.contains(findString) == true) {
+                    return i;
+                }
+                i++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        return -1;
     }
 }
