@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -12,12 +13,13 @@ import java.nio.file.StandardCopyOption;
 import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Objects;
 import org.apache.commons.io.FileUtils;
 
 public class Main {
 
-    private static HashMap<String,String> processedFiles = new HashMap();
+    private static HashMap<String, String> processedFiles = new HashMap();
 
     public static void main(String[] args) throws IOException, InterruptedException {
         String userHomeDir = System.getProperty("user.home");
@@ -30,7 +32,7 @@ public class Main {
         // The directory where the tests exist withing the cloned branch
         String testdir = "testsuite";
         // Annotation addition to be done ... (comment of the version range available at the end of each processed file)
-        String annotation = "@EAT({\"modules/testcases/jdkAll/Wildfly/server/src/main/java\"})";
+        String annotation = "@EAT({\"modules/testcases/jdkAll/Wildfly/server/src/main/java";
         Main.cloneRepos(originUrl, dir, tags);
         Main.processFiles(dir, tags, testdir, outputdir, annotation);
     }
@@ -52,7 +54,7 @@ public class Main {
             for (File file1 : dir.listFiles()) {
                 fetchFiles(file1, tags, tag, annotation, outputdir, testdir, initdir);
             }
-        } else if (dir.isFile() && dir.getName().endsWith(".java") && (processedFiles.get(dir.getName())==null || Arrays.asList(stringTags).contains(processedFiles.get(dir.getName())))) {
+        } else if (dir.isFile() && dir.getName().endsWith(".java") && (processedFiles.get(dir.getName()) == null || Arrays.asList(stringTags).contains(processedFiles.get(dir.getName())))) {
             tag = 0;
 
             String lastTag = stringTags[tag];
@@ -65,12 +67,13 @@ public class Main {
                     if (n.exists()) {
                         existent = n;
                     }
-                    if(n.exists() && ! n1.exists()){
+                    if (n.exists() && !n1.exists()) {
                         File d = new File(dir.toString().replaceAll(stringTags[tag], firstTag).replaceAll(initdir, outputdir));
                         Files.createDirectories(d.toPath().getParent());
                         Files.copy(existent.toPath(), d.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                        Files.write(d.toPath(), String.valueOf("//#" + firstTag + "*" + lastTag).getBytes(), StandardOpenOption.APPEND);
-                        processedFiles.put(dir.getName(),lastTag);
+                        addEatAnnotation(d, String.valueOf(annotation + "#" + firstTag + "*" + lastTag + "\"})"));
+                        //  Files.write(d.toPath(), String.valueOf("//#" + firstTag + "*" + lastTag).getBytes(), StandardOpenOption.APPEND);
+                        processedFiles.put(dir.getName(), lastTag);
                         break;
                     }
                     firstTag = tagName;
@@ -83,9 +86,9 @@ public class Main {
                         if (n.exists()) {
                             Files.createDirectories(d.toPath().getParent());
                             Files.copy(n.toPath(), d.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                            System.out.println("==***=== " + n + firstTag);
-                            Files.write(d.toPath(), String.valueOf("//#" + firstTag + "*" + lastTag).getBytes(), StandardOpenOption.APPEND);
-                            processedFiles.put(dir.getName(),lastTag);
+                            addEatAnnotation(d, String.valueOf(annotation + "#" + firstTag + "*" + lastTag + "\"})"));
+                            //    Files.write(d.toPath(), String.valueOf("//#" + firstTag + "*" + lastTag).getBytes(), StandardOpenOption.APPEND);
+                            processedFiles.put(dir.getName(), lastTag);
                         }
                     }
                 } else {
@@ -96,8 +99,9 @@ public class Main {
                         if (n.exists()) {
                             Files.createDirectories(d.toPath().getParent());
                             Files.copy(n.toPath(), d.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                            Files.write(d.toPath(), String.valueOf("//#" + firstTag + "*" + lastTag).getBytes(), StandardOpenOption.APPEND);
-                            processedFiles.put(dir.getName(),lastTag);
+                            addEatAnnotation(d, String.valueOf(annotation + "#" + firstTag + "*" + lastTag + "\"})"));
+                            //    Files.write(d.toPath(), String.valueOf("//#" + firstTag + "*" + lastTag).getBytes(), StandardOpenOption.APPEND);
+                            processedFiles.put(dir.getName(), lastTag);
                         }
                     }
                 }
@@ -138,7 +142,7 @@ public class Main {
         }
     }
 
-    private int findEatAdditionPosition(String file, String findString) {
+    private static int findEatAdditionPosition(String file, String findString) {
         BufferedReader br = null;
         String input = null;
         int i = 0;
@@ -158,7 +162,40 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+
         return -1;
+    }
+
+    private static void addEatAnnotation(File file, String eatcontext) throws IOException {
+        String content = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
+
+        int lineStartIndex1 = content.indexOf("public class");
+        if (lineStartIndex1 == -1) {
+            lineStartIndex1 = content.indexOf("class");
+        }
+        int lineStartIndex2 = content.indexOf("interface");
+        if (lineStartIndex2 == -1) {
+            lineStartIndex2 = content.indexOf("interface");
+        }
+
+        int lineStartIndex = 0;
+        if (lineStartIndex2 == -1 && lineStartIndex1 != -1) {
+            lineStartIndex = lineStartIndex1;
+        } else if (lineStartIndex1 == -1 && lineStartIndex2 != -1) {
+            lineStartIndex = lineStartIndex2;
+        } else if (lineStartIndex1 < lineStartIndex2) {
+            lineStartIndex = lineStartIndex1;
+        } else if (lineStartIndex2 < lineStartIndex1) {
+            lineStartIndex = lineStartIndex2;
+        }
+
+        if (lineStartIndex == 0) {
+            lineStartIndex = content.indexOf("public enum");
+        }
+
+        if (lineStartIndex != -1) {
+            content = content.substring(0, lineStartIndex - 1) + "\n" + eatcontext + "\n" + content.substring(lineStartIndex);
+            Files.write(file.toPath(), content.getBytes(), StandardOpenOption.WRITE);
+        }
     }
 }
