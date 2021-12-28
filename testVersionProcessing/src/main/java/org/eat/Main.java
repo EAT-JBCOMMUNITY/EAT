@@ -169,6 +169,7 @@ public class Main {
     private static void addEatAnnotation(File file, String eatcontext) throws IOException {
         String content = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
 
+        int packageIndex = content.indexOf("import");
         int lineStartIndex1 = content.indexOf("public class");
         if (lineStartIndex1 == -1) {
             lineStartIndex1 = content.indexOf("class");
@@ -195,6 +196,9 @@ public class Main {
 
         if (lineStartIndex != -1) {
             content = content.substring(0, lineStartIndex - 1) + "\n" + eatcontext + "\n" + content.substring(lineStartIndex);
+            if(packageIndex != -1) {
+                content = content.substring(0, packageIndex-1) + "\nimport org.jboss.eap.additional.testsuite.annotations.EAT;\n" + content.substring(packageIndex);
+            }
             Files.write(file.toPath(), content.getBytes(), StandardOpenOption.WRITE);
         }
     }
