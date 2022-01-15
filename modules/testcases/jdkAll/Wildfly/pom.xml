@@ -423,6 +423,7 @@
 		<dependency>
 		    <groupId>io.netty</groupId>
 		    <artifactId>netty-all</artifactId>
+		    <version>RELEASE</version>
 		</dependency>
 		<dependency>
 		    <groupId>commons-configuration</groupId>
@@ -858,6 +859,7 @@
 		<dependency>
 		    <groupId>io.netty</groupId>
 		    <artifactId>netty-all</artifactId>
+		    <version>RELEASE</version>
 		</dependency>
 		<dependency>
 		    <groupId>commons-configuration</groupId>
