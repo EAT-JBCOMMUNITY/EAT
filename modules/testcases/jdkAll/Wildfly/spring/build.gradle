@@ -13,7 +13,7 @@ if(System.hasProperty('b')){
     implementation project(':modules:testcases:jdkAll:Wildfly:spring:buildapp2-dir')
 }
 if(System.hasProperty('disableSpringTests') && (System.getProperty('disableSpringTests')=="false")){
-    implementation project(':modules:testcases:jdkAll:Wildfly:manualserver:test-configurations')
+    implementation project(':modules:testcases:jdkAll:Wildfly:spring:test-configurations')
 }
 
 }
