@@ -1,14 +1,14 @@
-FROM docker.io/centos
+FROM docker.io/centos:centos7
 
 MAINTAINER Panagiotis Sotiropoulos <psotirop@redhat.com>
 
 LABEL description="A container for running EAT in isolation"
 
 # Upgrading system
-RUN dnf -y upgrade
-RUN dnf -y install wget
-RUN dnf install -y git
-RUN dnf install -y sudo
+RUN yum -y upgrade
+RUN yum -y install wget
+RUN yum install -y git
+RUN yum install -y sudo
 
 # Downloading Java
 RUN curl -O https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_linux-x64_bin.tar.gz && tar zxvf openjdk-11.0.1_linux-x64_bin.tar.gz && mv jdk-11* /usr/local/
@@ -31,7 +31,7 @@ ENV PATH=$PATH:/usr/share/maven/bin/
 ENV GLIBC_VERSION=2.27-r0
 
 
-RUN dnf -y install gcc && dnf -y install zlib-devel && dnf -y install glibc-devel.i686 glibc.i686
+RUN yum -y install gcc && yum -y install zlib-devel && yum -y install glibc-devel.i686 glibc.i686
 
 ENV GRAAL_VERSION 21.0.0.2
 ENV GRAAL_HOME /usr/lib/jvm/vm-$GRAAL_VERSION
