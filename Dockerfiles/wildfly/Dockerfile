@@ -7,10 +7,10 @@ LABEL description="A container for running EAT in isolation"
 ADD ./settings-eatwildfly.xml /usr/share
 
 # Upgrading system
-RUN dnf -y upgrade
-RUN dnf -y install wget
-RUN dnf install -y git
-RUN dnf install -y sudo
+RUN yum -y upgrade
+RUN yum -y install wget
+RUN yum install -y git
+RUN yum install -y sudo
 
 # Downloading Java
 RUN wget --no-check-certificate "https://www.dropbox.com/s/vm819mraxwidxqh/jdk-8u191-linux-x64.rpm?dl=0" -O /tmp/jdk-8-linux-x64.rpm && cd /tmp && dnf -y --allowerasing install findutils && rpm -Uhv jdk-8-linux-x64.rpm
