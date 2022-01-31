@@ -1,13 +1,13 @@
-FROM docker.io/centos
+FROM docker.io/centos:centos7
 
 MAINTAINER Panagiotis Sotiropoulos <psotirop@redhat.com>
 
 LABEL description="A container for running EAT in isolation"
 
 # Upgrading system
-RUN dnf -y upgrade
-RUN dnf install -y git
-RUN dnf install -y sudo
+RUN yum -y upgrade
+RUN yum install -y git
+RUN yum install -y sudo
 
 # Downloading Java
 RUN curl -O https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_linux-x64_bin.tar.gz && tar zxvf openjdk-11.0.1_linux-x64_bin.tar.gz && mv jdk-11* /usr/local/
