@@ -1,4 +1,4 @@
-FROM docker.io/centos
+FROM docker.io/centos:centos7
 
 MAINTAINER Panagiotis Sotiropoulos <psotirop@redhat.com>
 
