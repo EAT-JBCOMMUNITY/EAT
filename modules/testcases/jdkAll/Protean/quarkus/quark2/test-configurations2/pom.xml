@@ -117,6 +117,7 @@
                 <dependency>
                     <groupId>io.quarkus</groupId>
                     <artifactId>quarkus-undertow-websockets</artifactId>
+		    <version>2.7.0.Final</version>
                 </dependency>
 
 		<!-- EL implementation -->
