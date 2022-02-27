@@ -16,11 +16,11 @@
     </parent>
 
     <groupId>org.jboss</groupId>
-    <artifactId>build-additional-testsuite</artifactId>
+    <artifactId>rpm-additional-testsuite</artifactId>
     <packaging>pom</packaging>
     <version>1.0.3.Final</version>
 
-    <name>build additional testsuite: additional testsuite for building</name>
+    <name>rpm additional testsuite: additional testsuite for building</name>
 
 
 </project>
