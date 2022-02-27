@@ -20,7 +20,7 @@
     <packaging>pom</packaging>
     <version>1.0.3.Final</version>
 
-    <name>rpm additional testsuite: additional testsuite for building</name>
+    <name>rpm additional testsuite: additional testsuite for rpms</name>
 
 
 </project>
