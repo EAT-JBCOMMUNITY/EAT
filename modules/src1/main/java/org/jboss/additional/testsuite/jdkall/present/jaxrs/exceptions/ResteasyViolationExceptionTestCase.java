@@ -36,7 +36,7 @@ import org.junit.runner.RunWith;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
-@EAT({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdk11/Wildfly/jaxrs/src/main/java","modules/testcases/jdk11/Eap7Plus/jaxrs/src/main/java"})
 public class ResteasyViolationExceptionTestCase {
 
     private final static String WARNAME = "ResteasyViolationExceptionTestCase.war";
