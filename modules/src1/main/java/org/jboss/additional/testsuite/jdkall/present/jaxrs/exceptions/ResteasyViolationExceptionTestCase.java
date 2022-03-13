@@ -26,7 +26,6 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.OperateOnDeployment;
 import org.jboss.arquillian.junit.Arquillian;
 
-import org.jboss.resteasy.api.validation.ResteasyViolationException;
 import org.jboss.resteasy.plugins.validation.SimpleViolationsContainer;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
@@ -44,7 +43,7 @@ public class ResteasyViolationExceptionTestCase {
     @Deployment(name = "war")
     public static Archive<?> createWar() {
         WebArchive war = ShrinkWrap.create(WebArchive.class,WARNAME);
-        war.addClasses(ResteasyViolationExceptionTestCase.class);
+        war.addClasses(ResteasyViolationExceptionTestCase.class,ResteasyViolationExceptionImpl.class,ConstraintTypeUtil11.class,ConstraintType.class);
         return war;
     }
 
@@ -53,7 +52,7 @@ public class ResteasyViolationExceptionTestCase {
     public void testViolationException() throws Exception {
         ExecutorService executor = Executors.newFixedThreadPool(10);
         AtomicBoolean run = new AtomicBoolean(true);
-        AtomicReference<ResteasyViolationException> exceptionToUse = new AtomicReference<>();
+        AtomicReference<ResteasyViolationExceptionImpl> exceptionToUse = new AtomicReference<>();
 
         List<Future<Boolean>> runnerResults = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -67,7 +66,7 @@ public class ResteasyViolationExceptionTestCase {
             violations.add(new DummyConstraintViolation());
             final SimpleViolationsContainer container = new SimpleViolationsContainer(violations);
             final List<MediaType> accept = new ArrayList<>();
-            ResteasyViolationException violationException = new ResteasyViolationException(container, accept);
+            ResteasyViolationExceptionImpl violationException = new ResteasyViolationExceptionImpl(container, accept);
             exceptionToUse.set(violationException);
             try {
                 Thread.sleep(5);
@@ -92,11 +91,11 @@ public class ResteasyViolationExceptionTestCase {
 
     static class ExceptionToStringCaller implements Callable<Boolean> {
 
-        final AtomicReference<ResteasyViolationException> exceptionToUse;
+        final AtomicReference<ResteasyViolationExceptionImpl> exceptionToUse;
         final AtomicBoolean run;
 
         ExceptionToStringCaller(AtomicBoolean run,
-                AtomicReference<ResteasyViolationException> exceptionToUse) {
+                AtomicReference<ResteasyViolationExceptionImpl> exceptionToUse) {
             this.run = run;
             this.exceptionToUse = exceptionToUse;
         }

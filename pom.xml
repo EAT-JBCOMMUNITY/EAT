@@ -410,6 +410,21 @@
         </profile>
 
         <profile>
+            <id>wildfly.jdk11.testsuite</id>
+            <activation>
+                <property>
+                    <name>wildfly-jdk11</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <properties>
+		<serverDir2>Wildfly</serverDir2>
+                <activemodules>jaxrs</activemodules>
+	    </properties>
+        </profile>
+
+        <profile>
             <id>wildfly.unmerged.testsuite</id>
             <activation>
                 <property>
@@ -1041,6 +1056,82 @@
             <properties>
 		<serverDir2>Eap7Plus</serverDir2>
                 <activemodules>logging,management,ws</activemodules>
+	    </properties>
+        </profile>
+        
+        <profile>
+            <id>eap7+.jdk11.testsuite</id>
+            <activation>
+                <property>
+                    <name>eap7+-jdk11</name>
+                    <value>true</value>
+                </property>
+            </activation>
+	    <repositories>
+		<repository>
+		    <id>jboss-eap-7.3-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>$EAP7REPO</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</repository>
+		<repository>
+		    <id>jboss-eap-7.4-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>$EAP7REPO</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</repository>
+	    </repositories>
+
+	    <pluginRepositories>
+		<pluginRepository>
+		    <id>jboss-eap-7.3-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>$EAP7REPO</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</pluginRepository>
+		<pluginRepository>
+		    <id>jboss-eap-7.4-product-repository</id>
+		    <name>JBoss Product Repository</name>
+		    <url>$EAP7REPO</url>
+		    <layout>default</layout>
+		    <releases>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </releases>
+		    <snapshots>
+		        <enabled>false</enabled>
+		        <updatePolicy>never</updatePolicy>
+		    </snapshots>
+		</pluginRepository>
+	    </pluginRepositories>
+
+            <properties>
+		<serverDir2>Eap7Plus</serverDir2>
+                <activemodules>jaxrs</activemodules>
 	    </properties>
         </profile>
 
