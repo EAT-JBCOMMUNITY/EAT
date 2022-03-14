@@ -25,7 +25,8 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.OperateOnDeployment;
 import org.jboss.arquillian.junit.Arquillian;
-
+import org.jboss.resteasy.api.validation.ConstraintType;
+import org.jboss.resteasy.spi.validation.ConstraintTypeUtil;
 import org.jboss.resteasy.plugins.validation.SimpleViolationsContainer;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
@@ -43,7 +44,7 @@ public class ResteasyViolationExceptionTestCase {
     @Deployment(name = "war")
     public static Archive<?> createWar() {
         WebArchive war = ShrinkWrap.create(WebArchive.class,WARNAME);
-        war.addClasses(ResteasyViolationExceptionTestCase.class,ResteasyViolationExceptionImpl.class,ConstraintTypeUtil11.class,ConstraintType.class);
+        war.addClasses(ResteasyViolationExceptionTestCase.class,ResteasyViolationExceptionImpl.class,ConstraintTypeUtil11.class,ConstraintType.class,ConstraintTypeUtil.class);
         return war;
     }
 
