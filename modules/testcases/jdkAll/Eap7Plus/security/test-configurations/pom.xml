@@ -98,6 +98,31 @@
 	        </executions>
 	    </plugin>
 
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>2.0.1.Final</version>
+                <executions>
+                    <execution>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>execute-commands</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <offline>true</offline>
+                    <scripts>
+                        <script>modify-security-config.cli</script>
+                    </scripts>
+                    <jboss-home>${jboss.modules.dir}/servers/${server}/build/target/jbossas</jboss-home>
+                    <stdout>${project.build.directory}/wildfly-plugin.log</stdout>
+                    <system-properties>
+                        <public.ip>127.0.0.1</public.ip>
+                        <management.ip>127.0.0.1</management.ip>
+                    </system-properties>
+                </configuration>
+            </plugin>
         </plugins>
 	
     </build>
