@@ -26,7 +26,7 @@
     <target name="build-basic" description="Replaces server configurations">
         <echo message="Copying standalone file : ${standaloneConfiguration} needed for the specific test"/>
         <chmod file="${workspace}/servers/${server}/build/target/${dist}/bin/standalone.sh" perm="777"/>
-        <copy file="${standaloneConfiguration}" todir="${workspace}/servers/${server}/build/target/${dist}/standalone/configuration" overwrite="true" />
+        <copy file="${standaloneConfiguration}" todir="${workspace}/servers/${server}/build/target/${dist}/standalone/configuration" overwrite="true" failonerror="false" />
         <replace token= "${node0:127.0.0.1}" value="${node0}" dir="${workspace}/servers/${server}/build/target/${dist}/standalone/configuration">                                 
             <include name="*.xml"/>
         </replace>
