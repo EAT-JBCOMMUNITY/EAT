@@ -83,6 +83,35 @@
 	            </execution>
 	        </executions>
 	    </plugin>
+
+            <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-antrun-plugin</artifactId>
+	        <executions>
+	            <execution>
+	                <id>build-jaxrs-config</id>
+	                <phase>process-test-resources</phase>
+	                <goals>
+	                    <goal>run</goal>
+	                </goals>
+	                <configuration>
+	                    <target>
+                                <ant antfile="${jboss.modules.dir}/src1/test/scripts/clean-deployments.xml">
+	                            <property name="serverDir" value="/${jboss.modules.dir}/servers" />
+	                            <target name="clean-deployments"/>
+	                        </ant>
+	                        <ant antfile="${jboss.modules.dir}/src1/test/scripts/basic-build.xml">
+	                            <property name="workspace" value="/${jboss.modules.dir}" />
+                                    <property name="server" value="${server}" />
+                                    <property name="dist" value="jbossas" />
+	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
+	                            <target name="build-basic-check"/>
+	                        </ant>
+	                    </target>
+	                </configuration>
+	            </execution>
+	        </executions>
+	    </plugin>
         </plugins> 
 		            
     </build>
