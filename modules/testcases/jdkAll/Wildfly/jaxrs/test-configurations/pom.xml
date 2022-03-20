@@ -18,7 +18,9 @@
     <name>wildfly additional testsuite: jaxrs : configuration</name>
             
     <properties>
+        <standalone.conf>${basedir}/../src/test/config/standaloneWildfly/standalone.xml</standalone.conf>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
+        <server>wildfly</server>
     </properties>
         
     <build>
