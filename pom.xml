@@ -374,7 +374,7 @@
 
             <properties>
 		<serverDir2>Wildfly</serverDir2>
-                <activemodules>basic,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,manualmode,remoting,messaging,security,server,web,weld,ejb</activemodules>
+                <activemodules>basic,batch,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,manualmode,remoting,messaging,security,server,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
 
@@ -1207,7 +1207,7 @@
 
             <properties>
 		<serverDir2>Eap7Plus</serverDir2>
-                <activemodules>basic,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,messaging,remoting,security,server,web,weld,ejb</activemodules>
+                <activemodules>basic,batch,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,messaging,remoting,security,server,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
 
