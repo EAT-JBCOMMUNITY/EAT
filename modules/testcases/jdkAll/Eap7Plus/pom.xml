@@ -935,6 +935,19 @@
         </profile>
 
         <profile>
+            <id>batchActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>batch</value>
+                </property>
+            </activation>
+            <modules>
+                <module>batch</module>
+            </modules>
+        </profile>
+
+        <profile>
             <id>coreActivate</id>
             <activation>
                 <property>
@@ -1229,6 +1242,7 @@
 	    </activation>
             <modules>
                 <module>basic</module>
+                <module>batch</module>
 		<module>core</module>
 		<module>ejb</module>
 		<module>elytron</module>
