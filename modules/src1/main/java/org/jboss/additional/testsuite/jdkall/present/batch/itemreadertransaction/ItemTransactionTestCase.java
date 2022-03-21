@@ -21,11 +21,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Wildfly/batch/src/main/java#27.0.0", "modules/testcases/jdkAll/Eap7Plus/batch/src/main/java#7.4.4"})
+@EAT({"modules/testcases/jdkAll/Wildfly/batch/src/main/java#27.0.0", "modules/testcases/jdkAll/Eap7Plus/batch/src/main/java#7.4.5"})
 public class ItemTransactionTestCase {
 
     public static final String JOB_NAME = "itemreadertransaction";
@@ -37,7 +38,8 @@ public class ItemTransactionTestCase {
     @Deployment
     public static WebArchive getDeployment() {
         WebArchive war = ShrinkWrap.create(WebArchive.class, ARCHIVE_NAME + ".war");
-        war.addClasses(ItemTransactionTestCase.class, ItemreaderProcessor.class, ItemreaderReader.class, ItemwriterWriter.class, StepScopedBean.class);
+        war.addClasses(ItemTransactionTestCase.class, ItemreaderProcessor.class, ItemreaderReader.class, ItemwriterWriter.class, StepScopedBean.class, TailerListenerAdapter.class);
+        war.addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
         war.addAsWebInfResource(JOB_NAME + ".xml", "classes/META-INF/batch-jobs/" + JOB_NAME + ".xml");
         return war;
     }
