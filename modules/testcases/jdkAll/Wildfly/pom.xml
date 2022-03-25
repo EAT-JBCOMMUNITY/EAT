@@ -474,6 +474,19 @@
 		    <scope>provided</scope>
 		    <optional>true</optional>
 		</dependency>
+		<dependency>
+		    <groupId>org.codehaus.plexus</groupId>
+		    <artifactId>plexus-utils</artifactId>
+		    <version>3.4.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly.core</groupId>
+		    <artifactId>wildfly-elytron-integration</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly.core</groupId>
+		    <artifactId>wildfly-cli</artifactId>
+		</dependency>
             </dependencies>
 
         </profile>
@@ -1375,6 +1388,19 @@
 		    <artifactId>resteasy-validator-provider-11</artifactId>
 		    <version>3.6.3.Final</version>
 	        </dependency>
+	        <dependency>
+		    <groupId>org.codehaus.plexus</groupId>
+		    <artifactId>plexus-utils</artifactId>
+		    <version>3.4.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly.core</groupId>
+		    <artifactId>wildfly-elytron-integration</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly.core</groupId>
+		    <artifactId>wildfly-cli</artifactId>
+		</dependency>
             </dependencies>
 
         </profile>
