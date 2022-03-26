@@ -1739,7 +1739,6 @@
 	    </activation>
             <modules>
                 <module>basic</module>
-                <module>batch</module>
 		<module>core</module>
 		<module>elytron</module>
 		<module>jaxrs</module>
@@ -1761,6 +1760,7 @@
                 <module>spring</module>
 		<module>web</module>
 		<module>weld</module>
+		<module>batch</module>
                 <module>ejb</module>
             </modules>
         </profile>
