@@ -28,9 +28,6 @@ import org.junit.runner.RunWith;
 @EAT({"modules/testcases/jdkAll/Wildfly/security/src/main/java#27.0.0", "modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.4.4"})
 public class BasicAuthenticationTestCase {
 
-    private static final String serveridentityPath = "../../../../../servers/wildfly/build/target/jbossas/standalone/configuration/fs-realm-users";
-    private static final String serveridentityPath2 = "../../../../../servers/eap7/build/target/jbossas/standalone/configuration/fs-realm-users";
-
     @Deployment
     public static WebArchive deployment() {
         WebArchive war = ShrinkWrap.create(WebArchive.class, "basicauth.war");
