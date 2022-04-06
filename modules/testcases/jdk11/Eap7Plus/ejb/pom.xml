@@ -14,9 +14,9 @@
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>eap7-additional-testsuite-jaxrs-jdk11</artifactId>
+    <artifactId>eap7-additional-testsuite-ejb-jdk11</artifactId>
     <packaging>pom</packaging>
-    <name>Eap7 additional testsuite jdk11: jaxrs</name>
+    <name>Eap7 additional testsuite jdk11: ejb</name>
 
             
     <modules>

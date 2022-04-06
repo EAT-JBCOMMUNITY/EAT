@@ -953,6 +953,58 @@
                 <module>jaxrs</module>
             </modules>
         </profile>
+        
+        <profile>
+            <id>ejbActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>ejb</value>
+                </property>
+            </activation>
+            <modules>
+                <module>ejb</module>
+            </modules>
+        </profile>
+        
+        <profile>
+            <id>managementActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>management</value>
+                </property>
+            </activation>
+            <modules>
+                <module>management</module>
+            </modules>
+        </profile>
+        
+        <profile>
+            <id>securityActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>security</value>
+                </property>
+            </activation>
+            <modules>
+                <module>security</module>
+            </modules>
+        </profile>
+        
+        <profile>
+            <id>serverActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>server</value>
+                </property>
+            </activation>
+            <modules>
+                <module>server</module>
+            </modules>
+        </profile>
 
         <profile>
 	    <id>all</id>
@@ -963,6 +1015,10 @@
 	    </activation>
             <modules>
 		<module>jaxrs</module>
+		<module>ejb</module>
+		<module>management</module>
+		<module>security</module>
+		<module>server</module>
             </modules>
         </profile>
     
