@@ -487,6 +487,16 @@
 		    <groupId>org.wildfly.core</groupId>
 		    <artifactId>wildfly-cli</artifactId>
 		</dependency>
+		<dependency>
+		    <groupId>org.eclipse</groupId>
+		    <artifactId>yasson</artifactId>
+		    <version>2.0.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>javax.json.bind</groupId>
+		    <artifactId>javax.json.bind-api</artifactId>
+		    <version>1.0</version>
+		</dependency>
             </dependencies>
 
         </profile>
@@ -929,6 +939,16 @@
 		    <artifactId>resteasy-validator-provider-11</artifactId>
 		    <version>3.6.3.Final</version>
 	        </dependency>
+	        <dependency>
+		    <groupId>org.eclipse</groupId>
+		    <artifactId>yasson</artifactId>
+		    <version>2.0.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>javax.json.bind</groupId>
+		    <artifactId>javax.json.bind-api</artifactId>
+		    <version>1.0</version>
+		</dependency>
             </dependencies>
 
         </profile>
@@ -1400,6 +1420,16 @@
 		<dependency>
 		    <groupId>org.wildfly.core</groupId>
 		    <artifactId>wildfly-cli</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.eclipse</groupId>
+		    <artifactId>yasson</artifactId>
+		    <version>2.0.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>javax.json.bind</groupId>
+		    <artifactId>javax.json.bind-api</artifactId>
+		    <version>1.0</version>
 		</dependency>
             </dependencies>
 
