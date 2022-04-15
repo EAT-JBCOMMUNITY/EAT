@@ -15,6 +15,7 @@ Examples of such configs can be found in this dir.
 
 - Remove Eap7 dir from config directory and replace it with jdk17configs/Eap7
 - Add config3/modify-elytron-config.cli at config/other/elytronconfig
+- Delete module/srcpool if existent
 - Use jdk17 and execute the testsuite
 
 
