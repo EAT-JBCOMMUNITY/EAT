@@ -94,9 +94,9 @@
             </snapshots>
         </repository>
 	<repository>
-            <id>icm-repository-group</id>
-            <name>Icm Public Repository Group</name>
-            <url>http://maven.icm.edu.pl/artifactory/repo/</url>
+            <id>ebi-repository-group</id>
+            <name>Ebi Public Repository Group</name>
+            <url>https://www.ebi.ac.uk/intact/maven/nexus/content/repositories/public/</url>
             <layout>default</layout>
             <releases>
                 <enabled>true</enabled>
