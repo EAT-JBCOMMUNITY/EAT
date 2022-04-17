@@ -211,8 +211,10 @@
 		    <artifactId>jsr181-api</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>log4j</groupId>
+		    <groupId>org.apache.logging.log4j</groupId>
 		    <artifactId>log4j</artifactId>
+		    <version>2.17.2</version>
+		    <type>pom</type>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.activemq</groupId>
@@ -678,8 +680,10 @@
 		    <artifactId>jsr181-api</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>log4j</groupId>
+		    <groupId>org.apache.logging.log4j</groupId>
 		    <artifactId>log4j</artifactId>
+		    <version>2.17.2</version>
+		    <type>pom</type>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.activemq</groupId>
