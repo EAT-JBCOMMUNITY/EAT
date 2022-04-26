@@ -519,6 +519,11 @@
 		    <groupId>org.jboss.resteasy</groupId>
 		    <artifactId>resteasy-jackson2-provider</artifactId>
 		</dependency>
+		<dependency>
+		    <groupId>com.h2database</groupId>
+		    <artifactId>h2</artifactId>
+		    <version>1.4.197</version>
+		</dependency>
             </dependencies>
 
         </profile>
@@ -992,6 +997,11 @@
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
 		    <artifactId>resteasy-jackson2-provider</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>com.h2database</groupId>
+		    <artifactId>h2</artifactId>
+		    <version>1.4.197</version>
 		</dependency>
             </dependencies>
 
@@ -1496,6 +1506,11 @@
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
 		    <artifactId>resteasy-jackson2-provider</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>com.h2database</groupId>
+		    <artifactId>h2</artifactId>
+		    <version>1.4.197</version>
 		</dependency>
             </dependencies>
 
