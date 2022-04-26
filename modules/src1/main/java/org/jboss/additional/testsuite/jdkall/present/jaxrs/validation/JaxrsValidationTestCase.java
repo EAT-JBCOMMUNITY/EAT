@@ -55,7 +55,7 @@ public class JaxrsValidationTestCase {
     @ArquillianResource
     private URI serviceUri;
 
-    @ATTest({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#27.0.0"})
+    @ATTest({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#27.0.0"}) //Test in maintenance
     public void jaxrsValidation() {
         final String targetUrl = serviceUri.toString() + "greeter";
         ResteasyClient client = (ResteasyClient) ResteasyClientBuilder.newClient();
