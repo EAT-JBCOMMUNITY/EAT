@@ -116,6 +116,11 @@ if (project.hasProperty('standalone')){
         implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
         implementation 'org.springframework.boot:spring-boot-starter-web'
         implementation 'org.springframework.boot:spring-boot-starter-tomcat'
+        implementation 'org.jboss.resteasy:resteasy-client'
+        implementation 'org.jboss.resteasy:jaxrs-api:3.0.12.Final'
+        implementation 'org.jboss.resteasy:resteasy-jaxb-provider'
+        implementation 'org.jboss.resteasy:resteasy-jackson2-provider'
+        implementation 'com.h2database:h2:2.1.210'
     }
 }
 else if (project.hasProperty('standalone2')){
@@ -223,6 +228,11 @@ else if (project.hasProperty('standalone2')){
         implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
         implementation 'org.springframework.boot:spring-boot-starter-web'
         implementation 'org.springframework.boot:spring-boot-starter-tomcat'
+        implementation 'org.jboss.resteasy:resteasy-client'
+        implementation 'org.jboss.resteasy:jaxrs-api:3.0.12.Final'
+        implementation 'org.jboss.resteasy:resteasy-jaxb-provider'
+        implementation 'org.jboss.resteasy:resteasy-jackson2-provider'
+        implementation 'com.h2database:h2:2.1.210'
     }
 }
 else if(project.hasProperty('server-integration')){
@@ -333,5 +343,10 @@ else if(project.hasProperty('server-integration')){
         implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
         implementation 'org.springframework.boot:spring-boot-starter-web'
         implementation 'org.springframework.boot:spring-boot-starter-tomcat'
+        implementation 'org.jboss.resteasy:resteasy-client'
+        implementation 'org.jboss.resteasy:jaxrs-api:3.0.12.Final'
+        implementation 'org.jboss.resteasy:resteasy-jaxb-provider'
+        implementation 'org.jboss.resteasy:resteasy-jackson2-provider'
+        implementation 'com.h2database:h2:2.1.210'
     }
 }
