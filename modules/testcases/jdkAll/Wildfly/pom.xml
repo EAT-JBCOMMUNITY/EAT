@@ -1846,6 +1846,19 @@
         </profile>
 
         <profile>
+            <id>dbs</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>dbs</value>
+                </property>
+            </activation>
+            <modules>
+                <module>dbs</module>
+            </modules>
+        </profile>
+
+        <profile>
 	    <id>all</id>
 	    <activation>
 	        <property>
