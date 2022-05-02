@@ -54,6 +54,7 @@ test {
     environment 'JBOSS_HOME', project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     filter {
         excludeTest "org.jboss.additional.testsuite.jdkall.present.security.other.SecurityDeserializationTestCase", "testSecuirtyDatabind5"
+	excludeTestsMatching "org.jboss.additional.testsuite.jdkall.present.security.authentication.BasicAuthenticationTestCase"
 	excludeTestsMatching "org.jboss.additional.testsuite.jdkall.present.security.other.SecurityDeserializationTestCase"
         excludeTestsMatching "org.jboss.additional.testsuite.jdkall.present.security.other.Jsr310DeserializationTestCase"
     }

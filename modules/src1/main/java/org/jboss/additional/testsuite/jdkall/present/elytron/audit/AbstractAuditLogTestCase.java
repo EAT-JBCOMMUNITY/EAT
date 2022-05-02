@@ -138,6 +138,6 @@ public abstract class AbstractAuditLogTestCase {
     private static WebArchive createWar(String warName) {
         return ShrinkWrap.create(WebArchive.class, warName + ".war")
                 .addClasses(SimpleServlet.class)
-                .addAsWebInfResource(FileAuditLogTestCase.class.getPackage(), "BasicAuthentication-web.xml", "web.xml");
+                .addAsWebInfResource(AbstractAuditLogTestCase.class.getPackage(), "BasicAuthentication-web.xml", "web.xml");
     }
 }
