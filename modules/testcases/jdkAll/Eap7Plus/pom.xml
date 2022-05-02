@@ -211,8 +211,10 @@
 		    <artifactId>jsr181-api</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>log4j</groupId>
+		    <groupId>org.apache.logging.log4j</groupId>
 		    <artifactId>log4j</artifactId>
+		    <version>2.17.2</version>
+		    <type>pom</type>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.activemq</groupId>
@@ -477,6 +479,21 @@
 		    <artifactId>resteasy-validator-provider-11</artifactId>
 		    <version>3.6.3.Final</version>
 	        </dependency>
+	        <dependency>
+		    <groupId>org.eclipse</groupId>
+		    <artifactId>yasson</artifactId>
+		    <version>2.0.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>javax.json.bind</groupId>
+		    <artifactId>javax.json.bind-api</artifactId>
+		    <version>1.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.h2database</groupId>
+		    <artifactId>h2</artifactId>
+		    <version>2.1.210</version>
+		</dependency>
             </dependencies>
         </profile>
 
@@ -668,8 +685,10 @@
 		    <artifactId>jsr181-api</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>log4j</groupId>
+		    <groupId>org.apache.logging.log4j</groupId>
 		    <artifactId>log4j</artifactId>
+		    <version>2.17.2</version>
+		    <type>pom</type>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.activemq</groupId>
@@ -918,6 +937,21 @@
 		    <artifactId>resteasy-validator-provider-11</artifactId>
 		    <version>3.6.3.Final</version>
 	        </dependency>
+	        <dependency>
+		    <groupId>org.eclipse</groupId>
+		    <artifactId>yasson</artifactId>
+		    <version>2.0.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>javax.json.bind</groupId>
+		    <artifactId>javax.json.bind-api</artifactId>
+		    <version>1.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.h2database</groupId>
+		    <artifactId>h2</artifactId>
+		    <version>2.1.210</version>
+		</dependency>
             </dependencies>
         </profile>
 
@@ -931,6 +965,19 @@
             </activation>
             <modules>
                 <module>basic</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>batchActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>batch</value>
+                </property>
+            </activation>
+            <modules>
+                <module>batch</module>
             </modules>
         </profile>
 
@@ -1221,6 +1268,19 @@
         </profile>
 
         <profile>
+            <id>dbs</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>dbs</value>
+                </property>
+            </activation>
+            <modules>
+                <module>dbs</module>
+            </modules>
+        </profile>
+
+        <profile>
 	    <id>all</id>
 	    <activation>
 	        <property>
@@ -1250,6 +1310,7 @@
                 <module>spring</module>
 		<module>web</module>
 		<module>weld</module> 
+		<module>batch</module>
             </modules>
         </profile>
     

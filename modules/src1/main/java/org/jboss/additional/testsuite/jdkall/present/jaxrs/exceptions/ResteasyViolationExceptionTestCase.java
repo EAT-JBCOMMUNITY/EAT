@@ -25,8 +25,8 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.OperateOnDeployment;
 import org.jboss.arquillian.junit.Arquillian;
-
-import org.jboss.resteasy.api.validation.ResteasyViolationException;
+import org.jboss.resteasy.api.validation.ConstraintType;
+import org.jboss.resteasy.spi.validation.ConstraintTypeUtil;
 import org.jboss.resteasy.plugins.validation.SimpleViolationsContainer;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
@@ -36,7 +36,7 @@ import org.junit.runner.RunWith;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
-@EAT({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#25.0.0.Final","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.2"})
+@EAT({"modules/testcases/jdk11/Wildfly/jaxrs/src/main/java#25.0.0.Final","modules/testcases/jdk11/Eap7Plus/jaxrs/src/main/java#7.4.2"})
 public class ResteasyViolationExceptionTestCase {
 
     private final static String WARNAME = "ResteasyViolationExceptionTestCase.war";
@@ -44,7 +44,7 @@ public class ResteasyViolationExceptionTestCase {
     @Deployment(name = "war")
     public static Archive<?> createWar() {
         WebArchive war = ShrinkWrap.create(WebArchive.class,WARNAME);
-        war.addClasses(ResteasyViolationExceptionTestCase.class);
+        war.addClasses(ResteasyViolationExceptionTestCase.class,ResteasyViolationExceptionImpl.class,ConstraintTypeUtil11.class,ConstraintType.class,ConstraintTypeUtil.class);
         return war;
     }
 
@@ -53,7 +53,7 @@ public class ResteasyViolationExceptionTestCase {
     public void testViolationException() throws Exception {
         ExecutorService executor = Executors.newFixedThreadPool(10);
         AtomicBoolean run = new AtomicBoolean(true);
-        AtomicReference<ResteasyViolationException> exceptionToUse = new AtomicReference<>();
+        AtomicReference<ResteasyViolationExceptionImpl> exceptionToUse = new AtomicReference<>();
 
         List<Future<Boolean>> runnerResults = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -67,7 +67,7 @@ public class ResteasyViolationExceptionTestCase {
             violations.add(new DummyConstraintViolation());
             final SimpleViolationsContainer container = new SimpleViolationsContainer(violations);
             final List<MediaType> accept = new ArrayList<>();
-            ResteasyViolationException violationException = new ResteasyViolationException(container, accept);
+            ResteasyViolationExceptionImpl violationException = new ResteasyViolationExceptionImpl(container, accept);
             exceptionToUse.set(violationException);
             try {
                 Thread.sleep(5);
@@ -92,11 +92,11 @@ public class ResteasyViolationExceptionTestCase {
 
     static class ExceptionToStringCaller implements Callable<Boolean> {
 
-        final AtomicReference<ResteasyViolationException> exceptionToUse;
+        final AtomicReference<ResteasyViolationExceptionImpl> exceptionToUse;
         final AtomicBoolean run;
 
         ExceptionToStringCaller(AtomicBoolean run,
-                AtomicReference<ResteasyViolationException> exceptionToUse) {
+                AtomicReference<ResteasyViolationExceptionImpl> exceptionToUse) {
             this.run = run;
             this.exceptionToUse = exceptionToUse;
         }
