@@ -10,12 +10,12 @@
 
     <parent>
         <groupId>org.jboss</groupId>
-        <artifactId>eap7-additional-testsuite-jaxrs</artifactId>
+        <artifactId>eap7-additional-testsuite-jaxrs-jdk11</artifactId>
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>eap7-additional-testsuite-jaxrs-configuration</artifactId>
-    <name>eap7 additional testsuite: jaxrs : configuration</name>
+    <artifactId>eap7-additional-testsuite-jaxrs-configuration-jdk11</artifactId>
+    <name>eap7 additional testsuite: jaxrs jdk11 : configuration</name>
             
     <properties>
         <standalone.conf>${basedir}/../src/test/config/standaloneEap7/standalone.xml</standalone.conf>
