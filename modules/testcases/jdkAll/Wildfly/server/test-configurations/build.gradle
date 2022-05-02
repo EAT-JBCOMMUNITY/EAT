@@ -43,6 +43,9 @@ test {
     classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src1/config/arqWildfly') 
     systemProperty "arquillian.launch", "gradlejboss"
     environment 'JBOSS_HOME', project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
+    filter {
+        excludeTestsMatching "org.jboss.additional.testsuite.jdkall.present.server.ModuleNotFoundExceptionTestCase"
+    }
 }
 
 }
