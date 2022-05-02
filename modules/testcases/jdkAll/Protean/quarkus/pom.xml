@@ -1715,13 +1715,111 @@
                 <module>quark2</module>
             </modules>
         </profile>
-             
+        
         <profile>
             <id>releases122</id>
             <activation>
                 <property>
                     <name>JBOSS_VERSION</name>
                     <value>2.7.3.Final</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+        
+        <profile>
+            <id>releases123</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>2.7.4.Final</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+        
+        <profile>
+            <id>releases124</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>2.7.5.Final</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+             
+        <profile>
+            <id>releases125</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>2.8.0.CR1</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+        
+        <profile>
+            <id>releases126</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>2.8.0.Final</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+        
+        <profile>
+            <id>releases127</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>2.8.1.Final</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+        
+        <profile>
+            <id>releases128</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>2.8.2.Final</value>
+                </property>
+            </activation>
+    
+            <modules>
+                <module>quark2</module>
+            </modules>
+        </profile>
+        
+        <profile>
+            <id>releases129</id>
+            <activation>
+                <property>
+                    <name>JBOSS_VERSION</name>
+                    <value>2.9.0.CR1</value>
                 </property>
             </activation>
     
