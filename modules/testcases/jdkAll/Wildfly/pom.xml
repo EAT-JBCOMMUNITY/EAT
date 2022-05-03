@@ -504,6 +504,11 @@
 		    <version>1.0</version>
 		</dependency>
 		<dependency>
+		    <groupId>net.sourceforge.htmlunit</groupId>
+		    <artifactId>htmlunit</artifactId>
+		    <version>2.60.0</version>
+		</dependency>
+    <dependency>
 		    <groupId>org.jboss.resteasy</groupId>
 		    <artifactId>resteasy-client</artifactId>
 		</dependency>
@@ -984,7 +989,12 @@
 		    <version>1.0</version>
 		</dependency>
 		<dependency>
-		    <groupId>org.jboss.resteasy</groupId>
+		    <groupId>net.sourceforge.htmlunit</groupId>
+		    <artifactId>htmlunit</artifactId>
+		    <version>2.60.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.jboss.resteasy</groupId>
 		    <artifactId>resteasy-client</artifactId>
 		</dependency>
 		<dependency>
@@ -1490,6 +1500,11 @@
 		    <version>1.0</version>
 		</dependency>
 		<dependency>
+		    <groupId>net.sourceforge.htmlunit</groupId>
+		    <artifactId>htmlunit</artifactId>
+		    <version>2.60.0</version>
+    </dependency>
+    <dependency>
 		    <groupId>org.jboss.resteasy</groupId>
 		    <artifactId>resteasy-client</artifactId>
 		</dependency>
@@ -1511,7 +1526,7 @@
 		    <artifactId>h2</artifactId>
 		    <version>2.1.210</version>
 		</dependency>
-            </dependencies>
+</dependencies>
 
         </profile>
 
