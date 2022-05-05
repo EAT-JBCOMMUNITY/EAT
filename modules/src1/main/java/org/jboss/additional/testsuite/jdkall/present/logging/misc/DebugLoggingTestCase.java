@@ -29,8 +29,7 @@ import org.junit.runner.RunWith;
 //@AT({"modules/testcases/jdkAll/Wildfly/logging/src/main/java#?"})
 public class DebugLoggingTestCase {
 
-    private final String serverLogPath = "../../../../../servers/wildfly/build/target/jbossas/standalone/log/server.log";
-    private final String serverLogPath2 = "../../../../../servers/eap7/build/target/jbossas/standalone/log/server.log";
+    private final String serverLogPath = "${jboss.server.log.dir}/logging-properties-test.log";
     private static Logger log = Logger
             .getLogger(DebugLoggingTestCase.class);
 
@@ -55,9 +54,6 @@ public class DebugLoggingTestCase {
         // check logs
         String path = new File("").getAbsolutePath() + "/" + serverLogPath;
         File serverlogfile = new File(path);
-        if (!serverlogfile.exists()) {
-            path = new File("").getAbsolutePath() + "/" + serverLogPath2;
-        }
 
         FileInputStream inputStream = new FileInputStream(path);
         try {
