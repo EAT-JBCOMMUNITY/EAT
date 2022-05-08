@@ -121,6 +121,7 @@ if (project.hasProperty('standalone')){
         implementation 'org.jboss.resteasy:resteasy-jaxb-provider'
         implementation 'org.jboss.resteasy:resteasy-jackson2-provider'
         implementation 'com.h2database:h2:2.1.210'
+        implementation 'org.dom4j:dom4j:2.1.3'
     }
 }
 else if (project.hasProperty('standalone2')){
@@ -233,6 +234,7 @@ else if (project.hasProperty('standalone2')){
         implementation 'org.jboss.resteasy:resteasy-jaxb-provider'
         implementation 'org.jboss.resteasy:resteasy-jackson2-provider'
         implementation 'com.h2database:h2:2.1.210'
+        implementation 'org.dom4j:dom4j:2.1.3'
     }
 }
 else if(project.hasProperty('server-integration')){
@@ -348,5 +350,6 @@ else if(project.hasProperty('server-integration')){
         implementation 'org.jboss.resteasy:resteasy-jaxb-provider'
         implementation 'org.jboss.resteasy:resteasy-jackson2-provider'
         implementation 'com.h2database:h2:2.1.210'
+        implementation 'org.dom4j:dom4j:2.1.3'
     }
 }
