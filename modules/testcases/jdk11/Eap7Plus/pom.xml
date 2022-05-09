@@ -449,6 +449,7 @@
 		<dependency>
 		    <groupId>io.netty</groupId>
 		    <artifactId>netty-all</artifactId>
+		    <version>4.1.73.Final</version>
 		</dependency>
                 <dependency>
 		    <groupId>commons-configuration</groupId>
@@ -487,6 +488,11 @@
 		    <artifactId>resteasy-validator-provider-11</artifactId>
 		    <version>3.6.3.Final</version>
 	        </dependency>
+	        <dependency>
+		    <groupId>net.sourceforge.htmlunit</groupId>
+		    <artifactId>htmlunit</artifactId>
+		    <version>2.60.0</version>
+                </dependency>
             </dependencies>
         </profile>
 
@@ -880,6 +886,7 @@
 		<dependency>
 		    <groupId>io.netty</groupId>
 		    <artifactId>netty-all</artifactId>
+		    <version>4.1.73.Final</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.jboss</groupId>
@@ -938,6 +945,11 @@
 		    <artifactId>resteasy-core-spi</artifactId>
 		    <version>6.0.0.Final</version>
 		</dependency>
+		<dependency>
+		    <groupId>net.sourceforge.htmlunit</groupId>
+		    <artifactId>htmlunit</artifactId>
+		    <version>2.60.0</version>
+                </dependency>
             </dependencies>
         </profile>
 
@@ -1007,6 +1019,19 @@
         </profile>
 
         <profile>
+            <id>webActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>web</value>
+                </property>
+            </activation>
+            <modules>
+                <module>web</module>
+            </modules>
+        </profile>
+
+        <profile>
 	    <id>all</id>
 	    <activation>
 	        <property>
@@ -1019,6 +1044,7 @@
 		<module>management</module>
 		<module>security</module>
 		<module>server</module>
+		<module>web</module>
             </modules>
         </profile>
     
