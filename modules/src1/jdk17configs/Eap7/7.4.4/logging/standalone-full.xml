@@ -88,9 +88,6 @@
             <logger category="com.arjuna">
                 <level name="WARN"/>
             </logger>
-            <logger category="io.jaegertracing.Configuration">
-                <level name="WARN"/>
-            </logger>
             <logger category="org.jboss.as.config">
                 <level name="DEBUG"/>
             </logger>
@@ -110,6 +107,66 @@
             <formatter name="COLOR-PATTERN">
                 <pattern-formatter pattern="%K{level}%d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n"/>
             </formatter>
+            <logging-profiles>
+                <logging-profile name="profile-one">
+                    <file-handler name="fh" autoflush="true">
+                        <formatter>
+                            <named-formatter name="PATTERN"/>
+                        </formatter>
+                        <file relative-to="jboss.server.log.dir" path="profile-one.log"/>
+                        <append value="false"/>
+                    </file-handler>
+                    <root-logger>
+                        <level name="INFO"/>
+                        <handlers>
+                            <handler name="fh"/>
+                        </handlers>
+                    </root-logger>
+                    <formatter name="PATTERN">
+                        <pattern-formatter pattern="[profile-one]%d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n"/>
+                    </formatter>
+                </logging-profile>
+                <logging-profile name="profile-two">
+                    <file-handler name="fh" autoflush="true">
+                        <formatter>
+                            <named-formatter name="PATTERN"/>
+                        </formatter>
+                        <file relative-to="jboss.server.log.dir" path="profile-two.log"/>
+                        <append value="false"/>
+                    </file-handler>
+                    <root-logger>
+                        <level name="INFO"/>
+                        <handlers>
+                            <handler name="fh"/>
+                        </handlers>
+                    </root-logger>
+                    <formatter name="PATTERN">
+                        <pattern-formatter pattern="[profile-two] %d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n"/>
+                    </formatter>
+                </logging-profile>
+                <logging-profile name="LoggingProfile1">
+                    <file-handler name="App1Handler">
+                        <level name="ALL"/>
+                        <file relative-to="jboss.server.log.dir" path="myapp1.log"/>
+                    </file-handler>
+                    <root-logger>
+                        <handlers>
+                            <handler name="App1Handler"/>
+                        </handlers>
+                    </root-logger>
+                </logging-profile>
+                <logging-profile name="LoggingProfile2">
+                    <file-handler name="App2Handler">
+                        <level name="ALL"/>
+                        <file relative-to="jboss.server.log.dir" path="myapp2.log"/>
+                    </file-handler>
+                    <root-logger>
+                        <handlers>
+                            <handler name="App2Handler"/>
+                        </handlers>
+                    </root-logger>
+                </logging-profile>
+            </logging-profiles>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:batch-jberet:2.0">
             <default-job-repository name="in-memory"/>
