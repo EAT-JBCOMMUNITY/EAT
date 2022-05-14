@@ -481,12 +481,7 @@
 		    <version>3.6.3.Final</version>
 	        </dependency>
 	        <dependency>
-		    <groupId>net.sourceforge.htmlunit</groupId>
-		    <artifactId>htmlunit</artifactId>
-		    <version>2.60.0</version>
-    </dependency>
-    <dependency>
-        <groupId>org.eclipse</groupId>
+		    <groupId>org.eclipse</groupId>
 		    <artifactId>yasson</artifactId>
 		    <version>2.0.2</version>
 		</dependency>
@@ -495,7 +490,7 @@
 		    <artifactId>javax.json.bind-api</artifactId>
 		    <version>1.0</version>
 		</dependency>
-	  <dependency>
+	        <dependency>
 		    <groupId>net.sourceforge.htmlunit</groupId>
 		    <artifactId>htmlunit</artifactId>
 		    <version>2.60.0</version>
@@ -949,12 +944,7 @@
 		    <artifactId>resteasy-validator-provider-11</artifactId>
 		    <version>3.6.3.Final</version>
 	        </dependency>
-	        <dependency>
-		    <groupId>net.sourceforge.htmlunit</groupId>
-		    <artifactId>htmlunit</artifactId>
-		    <version>2.60.0</version>
-    </dependency>
-    <dependency>
+   		<dependency>
 		    <groupId>org.eclipse</groupId>
 		    <artifactId>yasson</artifactId>
 		    <version>2.0.2</version>
@@ -964,7 +954,7 @@
 		    <artifactId>javax.json.bind-api</artifactId>
 		    <version>1.0</version>
 		</dependency>
-    <dependency>
+    		<dependency>
 		    <groupId>net.sourceforge.htmlunit</groupId>
 		    <artifactId>htmlunit</artifactId>
 		    <version>2.60.0</version>
@@ -974,7 +964,7 @@
 		    <artifactId>h2</artifactId>
 		    <version>2.1.210</version>
 		</dependency>
-</dependencies>
+	    </dependencies>
         </profile>
 
         <profile>
