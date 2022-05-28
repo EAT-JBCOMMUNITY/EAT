@@ -7,12 +7,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.jboss.additional.testsuite.jdkall.present.elytron.ejb.authentication.MyBean;
 import org.jboss.additional.testsuite.jdkall.present.elytron.ejb.authentication.RunAsPrincipalEJB;
+import org.jboss.additional.testsuite.jdkall.present.elytron.ejb.authentication.RunAsEJBRemote;
+import org.jboss.additional.testsuite.jdkall.present.elytron.ejb.authentication.RunAsEJB;
 import org.jboss.additional.testsuite.jdkall.present.elytron.ejb.authentication.RunAsPrincipalEJBRemote;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.junit.runner.RunWith;
 import org.junit.Test;
 import static org.junit.Assert.assertTrue;
+import org.junit.Assert;
 import javax.ejb.EJB;
 import org.jboss.arquillian.junit.Arquillian;
 
@@ -26,16 +29,25 @@ public class RunAsTestCase {
     @EJB
     RunAsPrincipalEJBRemote runAsPrincipal;
 
+    @EJB
+    RunAsEJBRemote runAs;
+
     @Deployment
     public static JavaArchive deploymentEjb() {
         final JavaArchive ejb = ShrinkWrap.create(JavaArchive.class, EJB_NAME)
-                .addClasses(RunAsPrincipalEJB.class, RunAsPrincipalEJBRemote.class, MyBean.class);
+                .addClasses(RunAsPrincipalEJB.class, RunAsPrincipalEJBRemote.class, RunAsEJBRemote.class, RunAsEJB.class, MyBean.class);
         return ejb;
     }
 
     @Test
     public void testRunAs() throws Exception {
         assertTrue(runAsPrincipal.getInfo().compareTo("anonymous") == 0);
+        try {
+            runAs.getInfo();
+            Assert.fail();
+        }catch(Exception e) {
+            //this is expected
+        }
     }
 
 }
