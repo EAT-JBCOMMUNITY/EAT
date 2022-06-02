@@ -71,7 +71,7 @@ or gradle test -Pandroid -c androidsettings.gradle
 
 **Building multi-versioned Android projects with Maven on Windows**
 
-Replace line 12 of [pom.xml](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Android/androidproject1/pom.xml) with:
+Replace lines 30-35 of [pom.xml](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Android/androidproject1/pom.xml) with:
 
 ```
 <exec  
@@ -84,7 +84,7 @@ Replace line 12 of [pom.xml](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/
 
 **Building multi-versioned Android projects with Gradle on Windows**
 
-Replace lines 30-35 of https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Android/androidproject1/build.gradle with:
+Replace line 12 of [gradle.build](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Android/androidproject1/build.gradle) with:
 
 ```
 commandLine "cmd", "/c", "gradlew", "build"
