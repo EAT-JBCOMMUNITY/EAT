@@ -36,6 +36,7 @@ import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.as.test.integration.common.JndiServlet;
 import org.jboss.as.test.integration.management.util.CLIOpResult;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
+import org.jboss.eap.additional.testsuite.annotations.ATTest;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
@@ -89,6 +90,11 @@ public class DataSourceTestCase extends AbstractCliTestBase {
         testAddXaDataSource();
         testModifyXaDataSource();
         //testRemoveXaDataSource();
+    }
+
+    @ATTest({"modules/testcases/jdkAll/Eap7Plus/management/src/main/java#7.5.6","modules/testcases/jdkAll/Wildfly/management/src/main/java#27.0.0.Alpha1"})
+    public void testExpressionInDataSource() throws Exception {
+        testExpressionInJavaContext();
     }
 
     private void testAddDataSource() throws Exception {
@@ -213,4 +219,15 @@ public class DataSourceTestCase extends AbstractCliTestBase {
 
     }
 
+    private void testExpressionInJavaContext() throws Exception {
+
+        // remove data source
+        cli.sendLine("/subsystem=datasources/data-source=ExampleDS:read-attribute(name=use-java-context)");
+
+        //check the data source is not listed
+        cli.sendLine("/subsystem=datasources/data-source=ExampleDS:read-attribute(name=use-java-context,resolve-expressions=true)");
+        cli.sendLine("/subsystem=datasources/data-source=ExampleDS:test-connection-in-pool");
+        CLIOpResult result = cli.readAllAsOpResult();
+        assertTrue(result.isIsOutcomeSuccess());
+    }
 }
