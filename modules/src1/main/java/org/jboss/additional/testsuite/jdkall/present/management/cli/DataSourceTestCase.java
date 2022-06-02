@@ -36,6 +36,7 @@ import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.as.test.integration.common.JndiServlet;
 import org.jboss.as.test.integration.management.util.CLIOpResult;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
+import org.jboss.eap.additional.testsuite.annotations.ATTest;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
@@ -89,6 +90,11 @@ public class DataSourceTestCase extends AbstractCliTestBase {
         testAddXaDataSource();
         testModifyXaDataSource();
         //testRemoveXaDataSource();
+    }
+
+    @ATTest({"modules/testcases/jdkAll/Eap7Plus/management/src/main/java#7.5.6","modules/testcases/jdkAll/Wildfly/management/src/main/java#28.0.0"})
+    public void testReoveServerViaCli() throws Exception {
+        testRemoveServer();
     }
 
     private void testAddDataSource() throws Exception {
@@ -213,4 +219,10 @@ public class DataSourceTestCase extends AbstractCliTestBase {
 
     }
 
+    private void testRemoveServer() throws Exception {
+
+        cli.sendLine("/subsystem=undertow/server=abc:remove()");
+        CLIOpResult result = cli.readAllAsOpResult();
+        assertTrue(result.isIsOutcomeSuccess());
+    }
 }
