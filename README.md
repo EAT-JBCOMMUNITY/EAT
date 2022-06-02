@@ -68,16 +68,20 @@ Building multi-versioned Android projects
 2. export JBOSS_VERSION=...e.g. 1.0.0
 3. mvn clean install -Dandroid
 or gradle test -Pandroid -c androidsettings.gradle
+
 **Building multi-versioned Android projects with Maven on Windows**
 Replace line 12 of https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Android/androidproject1/pom.xml with:
+
 <exec  
   dir="${basedir}\AndroidProject"
   executable="cmd"
   failonerror="true">  
   <arg line="/c gradlew build"/>
 </exec> 
+
 **Building multi-versioned Android projects with Gradle on Windows**
 Replace lines 30-35 of https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Android/androidproject1/build.gradle with:
+
 commandLine "cmd", "/c", "gradlew", "build"
 
 Using HTTPS
