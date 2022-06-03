@@ -71,20 +71,31 @@ or gradle test -Pandroid -c androidsettings.gradle
 
 **Building multi-versioned Android projects with Maven on Windows**
 
-Replace lines 30-35 of [pom.xml](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Android/androidproject1/pom.xml) with:
+Replace the following lines of the project pom.xml :
 
 ```
-<exec  
-  dir="${basedir}\AndroidProject"
-  executable="cmd"
-  failonerror="true">  
-  <arg line="/c gradlew build"/>
-</exec> 
+executable="./gradlew"  
+failonerror="true">  
+<arg line="build"/>
+```
+
+with:
+
+```
+executable="cmd"
+failonerror="true">  
+<arg line="/c gradlew build"/>
 ```
 
 **Building multi-versioned Android projects with Gradle on Windows**
 
-Replace line 12 of [gradle.build](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Android/androidproject1/build.gradle) with:
+Replace the following line of the project gradle.build file:
+
+```
+commandLine "./gradlew", "build"
+```
+
+with:
 
 ```
 commandLine "cmd", "/c", "gradlew", "build"
