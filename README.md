@@ -69,6 +69,37 @@ Building multi-versioned Android projects
 3. mvn clean install -Dandroid
 or gradle test -Pandroid -c androidsettings.gradle
 
+**Building multi-versioned Android projects with Maven on Windows**
+
+Replace the following lines of the project pom.xml :
+
+```
+executable="./gradlew"  
+failonerror="true">  
+<arg line="build"/>
+```
+
+with:
+
+```
+executable="cmd"
+failonerror="true">  
+<arg line="/c gradlew build"/>
+```
+
+**Building multi-versioned Android projects with Gradle on Windows**
+
+Replace the following line of the project gradle.build file:
+
+```
+commandLine "./gradlew", "build"
+```
+
+with:
+
+```
+commandLine "cmd", "/c", "gradlew", "build"
+```
 
 Using HTTPS
 -----------
