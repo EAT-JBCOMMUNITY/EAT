@@ -28,10 +28,10 @@
 		       <configuration>  
 			 <tasks name="Build Android Project">
 				 <exec
-					 dir="${basedir}\AndroidProject"
-					 executable="cmd"
+					 dir="${basedir}/AndroidProject"
+					 executable="./gradlew"
 					 failonerror="true">
-					 <arg line="/c gradlew build"/>
+					 <arg line="build"/>
 				 </exec>
 			</tasks>  
 		       </configuration>  
