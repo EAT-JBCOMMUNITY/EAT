@@ -26,13 +26,13 @@
 		     <execution>  
 		       <phase>install</phase>  
 		       <configuration>  
-			 <tasks name="Build Android Project">    
-			   <exec  
-			     dir="${basedir}/AndroidProject"  
-			     executable="./gradlew"  
-			     failonerror="true">  
-			     <arg line="build"/>  
-			   </exec>  
+			 <tasks name="Build Android Project">
+				 <exec
+					 dir="${basedir}\AndroidProject"
+					 executable="cmd"
+					 failonerror="true">
+					 <arg line="/c gradlew build"/>
+				 </exec>
 			</tasks>  
 		       </configuration>  
 		       <goals>  
