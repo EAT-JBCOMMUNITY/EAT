@@ -71,7 +71,7 @@ public class JaxrsValidationTestCase {
 
     }
 
-    @ATTest({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#27.0.0","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.4"})
+    @ATTest({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.4"})  //Test in maintenance
     public void jaxrsSValidation() {
         final String targetUrl = serviceUri.toString() + "greeter";
         ResteasyClient client = (ResteasyClient) ResteasyClientBuilder.newClient();
