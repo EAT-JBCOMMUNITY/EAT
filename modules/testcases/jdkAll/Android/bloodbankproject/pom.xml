@@ -24,7 +24,7 @@
                         <configuration>
                             <tasks name="Build BloodBank Android Project">
                                 <exec
-                                    dir="${basedir}/AndroidProject"
+                                    dir="${basedir}/BloodBankProject"
                                     executable="./gradlew"
                                     failonerror="true">
                                     <arg line="build"/>
