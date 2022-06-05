@@ -18,7 +18,50 @@
     <packaging>pom</packaging>
     <name>android additional testsuite: project1</name>
 
-    <build>
+    <profiles>
+        <profile>
+            <id>clone</id>
+            <activation>
+                <property>
+                    <name>clone</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+	    <plugins>
+		<plugin>  
+		 <artifactId>maven-antrun-plugin</artifactId>  
+		   <executions>  
+		     <execution>
+		        <id>prepare</id>
+		        <inherited>false</inherited>
+			<phase>generate-sources</phase>
+			<configuration>
+			    <target name="command">
+				<exec executable="/bin/bash" osfamily="unix">
+					<arg value="clone.sh" />
+				</exec>      
+			    </target>
+			</configuration>
+			<goals>
+			    <goal>run</goal>
+			</goals>
+		     </execution>
+		   </executions>  
+		</plugin>
+
+	    </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>create</id>
+            <activation>
+                <property>
+                    <name>create</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
 	    <plugins>
 		<plugin>  
 		 <artifactId>maven-antrun-plugin</artifactId>  
@@ -43,6 +86,7 @@
 		</plugin>
 
 	    </plugins>
-    </build>
-
+            </build>
+        </profile>
+    </profiles>
 </project>
