@@ -66,8 +66,10 @@ Building multi-versioned Android projects
 -----------------------------------------
 1. export ANDROID_HOME='path to the Sdk'
 2. export JBOSS_VERSION=...e.g. 1.0.0
-3. mvn clean install -Dandroid
-or gradle test -Pandroid -c androidsettings.gradle
+3. mvn clean install -Dandroid -Dclone
+or gradle test -Pandroid -Pclone -c androidsettings.gradle
+4.  mvn clean install -Dandroid -Dcreate
+or gradle test -Pandroid -Pcreate -c androidsettings.gradle
 
 **Building multi-versioned Android projects with Maven on Windows**
 
