@@ -5,7 +5,17 @@ version = '1.0.3.Final'
 
 description = "android additional testsuite: androidproject1"
 
-if (project.hasProperty('android')){
+if (project.hasProperty('android')  && project.getProperty('clone')){
+
+	task cloneAndroidProject1(type: Exec) {
+	        commandLine "git", "clone", "https://github.com/EAT-JBCOMMUNITY/AndroidProject.git"
+	}
+
+        compileJava.dependsOn(cloneAndroidProject1)
+
+}
+
+if (project.hasProperty('android') && project.getProperty('create')){
 
 	task runAndroidProject1(type: Exec) {
 		workingDir project.buildDir.toString() + "/../AndroidProject"
