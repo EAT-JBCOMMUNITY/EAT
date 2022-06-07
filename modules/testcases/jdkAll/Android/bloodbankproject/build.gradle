@@ -8,10 +8,10 @@ description = "android additional testsuite: bloodbankproject"
 if (project.hasProperty('android')  && project.getProperty('clone')){
 
 	task cloneBloodBankProject(type: Exec) {
-	        commandLine "git", "clone", "https://github.com/imShakil/BloodBank.git"
+		commandLine "git", "clone", "https://github.com/imShakil/BloodBank.git"
 	}
 
-        compileJava.dependsOn(cloneBloodBankProject)
+	compileJava.dependsOn(cloneBloodBankProject)
 
 }
 
@@ -22,6 +22,6 @@ if (project.hasProperty('android') && project.getProperty('create')){
 		commandLine "./gradlew", "build"
 	}
 
-        compileJava.dependsOn(runBloodBankProject)
+	compileJava.dependsOn(runBloodBankProject)
 
 }
