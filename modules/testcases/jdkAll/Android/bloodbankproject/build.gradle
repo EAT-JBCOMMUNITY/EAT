@@ -5,10 +5,20 @@ version = '1.0.3.Final'
 
 description = "android additional testsuite: bloodbankproject"
 
-if (project.hasProperty('android')){
+if (project.hasProperty('android')  && project.getProperty('clone')){
+
+	task cloneBloodBankProject(type: Exec) {
+	        commandLine "git", "clone", "https://github.com/imShakil/BloodBank.git"
+	}
+
+        compileJava.dependsOn(cloneBloodBankProject)
+
+}
+
+if (project.hasProperty('android') && project.getProperty('create')){
 
 	task runBloodBankProject(type: Exec) {
-		workingDir project.buildDir.toString() + "/../BloodBankProject"
+		workingDir project.buildDir.toString() + "/../BloodBank"
 		commandLine "./gradlew", "build"
 	}
 
