@@ -359,7 +359,7 @@
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
 		    <artifactId>weld-core-impl</artifactId>
-		    <version>5.0.Final</version>
+		    <version>5.0.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
@@ -902,6 +902,7 @@
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
 		    <artifactId>weld-core-impl</artifactId>
+	            <version>5.0.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
@@ -1451,7 +1452,7 @@
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
 		    <artifactId>weld-core-impl</artifactId>
-		    <version>5.0.Final</version>
+		    <version>5.0.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
