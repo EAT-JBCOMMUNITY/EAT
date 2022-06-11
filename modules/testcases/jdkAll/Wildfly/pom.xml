@@ -194,22 +194,27 @@
 		<dependency>
 		    <groupId>org.apache.lucene</groupId>
 		    <artifactId>lucene-core</artifactId>
+		    <version>9.2.0</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-databinding-jaxb</artifactId>
+		    <version>3.5.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-frontend-jaxws</artifactId>
+		    <version>3.5.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-frontend-simple</artifactId>
+		    <version>3.5.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-transports-http</artifactId>
+		    <version>3.5.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.ws.xmlschema</groupId>
@@ -241,10 +246,12 @@
 		<dependency>
 		    <groupId>org.hibernate.validator</groupId>
 		    <artifactId>hibernate-validator</artifactId>
+		    <version>6.0.22.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss</groupId>
 		    <artifactId>jboss-ejb-client</artifactId>
+		    <version>4.0.44.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.classfilewriter</groupId>
@@ -257,10 +264,12 @@
 		<dependency>
 		    <groupId>org.jboss.ironjacamar</groupId>
 		    <artifactId>ironjacamar-core-impl</artifactId>
+		    <version>1.5.6.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.ironjacamar</groupId>
 		    <artifactId>ironjacamar-jdbc</artifactId>
+		    <version>1.5.6.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
@@ -345,14 +354,17 @@
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
 		    <artifactId>weld-api</artifactId>
+		    <version>5.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
 		    <artifactId>weld-core-impl</artifactId>
+		    <version>5.0.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
 		    <artifactId>weld-spi</artifactId>
+		    <version>5.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jsoup</groupId>
@@ -726,22 +738,27 @@
 		<dependency>
 		    <groupId>org.apache.lucene</groupId>
 		    <artifactId>lucene-core</artifactId>
+		    <version>9.2.0</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-databinding-jaxb</artifactId>
+		    <version>3.5.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-frontend-jaxws</artifactId>
+		    <version>3.5.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-frontend-simple</artifactId>
+		    <version>3.5.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-transports-http</artifactId>
+		    <version>3.5.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.ws.xmlschema</groupId>
@@ -773,10 +790,12 @@
 		<dependency>
 		    <groupId>org.hibernate.validator</groupId>
 		    <artifactId>hibernate-validator</artifactId>
+		    <version>6.0.22.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss</groupId>
 		    <artifactId>jboss-ejb-client</artifactId>
+		    <version>4.0.44.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.classfilewriter</groupId>
@@ -789,10 +808,12 @@
 		<dependency>
 		    <groupId>org.jboss.ironjacamar</groupId>
 		    <artifactId>ironjacamar-core-impl</artifactId>
+		    <version>1.5.6.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.ironjacamar</groupId>
 		    <artifactId>ironjacamar-jdbc</artifactId>
+		    <version>1.5.6.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
@@ -881,6 +902,7 @@
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
 		    <artifactId>weld-core-impl</artifactId>
+	            <version>5.0.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
@@ -1265,22 +1287,27 @@
 		<dependency>
 		    <groupId>org.apache.lucene</groupId>
 		    <artifactId>lucene-core</artifactId>
+		    <version>9.2.0</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-databinding-jaxb</artifactId>
+		    <version>3.5.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-frontend-jaxws</artifactId>
+		    <version>3.5.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-frontend-simple</artifactId>
+		    <version>3.5.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-transports-http</artifactId>
+		    <version>3.5.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.ws.xmlschema</groupId>
@@ -1312,10 +1339,12 @@
 		<dependency>
 		    <groupId>org.hibernate.validator</groupId>
 		    <artifactId>hibernate-validator</artifactId>
+		    <version>6.0.22.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss</groupId>
 		    <artifactId>jboss-ejb-client</artifactId>
+		    <version>4.0.44.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.classfilewriter</groupId>
@@ -1328,10 +1357,12 @@
 		<dependency>
 		    <groupId>org.jboss.ironjacamar</groupId>
 		    <artifactId>ironjacamar-core-impl</artifactId>
+		    <version>1.5.6.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.ironjacamar</groupId>
 		    <artifactId>ironjacamar-jdbc</artifactId>
+		    <version>1.5.6.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
@@ -1416,14 +1447,17 @@
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
 		    <artifactId>weld-api</artifactId>
+		    <version>5.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
 		    <artifactId>weld-core-impl</artifactId>
+		    <version>5.0.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
 		    <artifactId>weld-spi</artifactId>
+		    <version>5.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jsoup</groupId>
