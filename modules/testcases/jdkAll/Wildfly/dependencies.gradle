@@ -119,7 +119,7 @@ if (project.hasProperty('standalone')){
         implementation 'org.jboss.resteasy:resteasy-client'
         implementation 'org.jboss.resteasy:jaxrs-api:3.0.12.Final'
         implementation 'org.jboss.resteasy:resteasy-jaxb-provider'
-        implementation 'org.jboss.resteasy:resteasy-jackson2-provider'
+        implementation 'org.jboss.resteasy:resteasy-jackson2-provider:6.0.1.Final'
         implementation 'com.h2database:h2:2.1.210'
         implementation 'org.dom4j:dom4j:2.1.3'
         implementation 'jakarta.annotation:jakarta.annotation-api:2.1.0'
