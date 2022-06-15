@@ -64,7 +64,7 @@ Testing with Open Liberty
 
 Building multi-versioned Android projects
 -----------------------------------------
-1. export ANDROID_HOME='path to the Sdk'
+1. Add local.properties files at the android projects (modules/testcases/jdkAll/Android/'project') you want to build with entry sdk.dir='path to the Sdk'
 2. export JBOSS_VERSION=...e.g. 1.0.0
 3. mvn clean install -Dandroid -Dclone
 or gradle test -Pandroid -Pclone -c androidsettings.gradle
