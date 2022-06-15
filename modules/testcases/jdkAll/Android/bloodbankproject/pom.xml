@@ -14,9 +14,9 @@
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>android-additional-testsuite-project1</artifactId>
+    <artifactId>android-additional-testsuite-bloodbankproject</artifactId>
     <packaging>pom</packaging>
-    <name>android additional testsuite: project1</name>
+    <name>android additional testsuite: bloodbankproject</name>
 
     <profiles>
         <profile>
@@ -68,9 +68,9 @@
 						 <execution>
 						   <phase>install</phase>
 						   <configuration>
-							 <tasks name="Build Android Project">
+							 <tasks name="Build Blood Bank Android Project">
 							   <exec
-								 dir="${basedir}/AndroidProject"
+								 dir="${basedir}/BloodBank"
 								 executable="./gradlew"
 								 failonerror="true">
 								 <arg line="build"/>

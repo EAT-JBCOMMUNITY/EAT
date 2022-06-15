@@ -32,6 +32,7 @@
 	    </activation>
             <modules>
                 <module>androidproject1</module>
+                <module>bloodbankproject</module>
             </modules>
         </profile>
 
