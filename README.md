@@ -73,7 +73,23 @@ or gradle test -Pandroid -Pcreate -c androidsettings.gradle
 
 **Building multi-versioned Android projects with Maven on Windows**
 
-Replace the following lines of the project pom.xml :
+Replace the following lines within the "clone" profile of the project pom.xml :
+
+```
+<exec executable="/bin/bash" osfamily="unix">
+    <arg value="clone.sh" />
+</exec>
+```
+
+with:
+
+```
+<exec executable="bash">
+    <arg value="clone.sh" />
+</exec>
+```
+
+Also, replace the following lines within the "create" profile of the project pom.xml :
 
 ```
 executable="./gradlew"  
