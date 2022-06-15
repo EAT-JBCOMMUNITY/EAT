@@ -69,7 +69,7 @@ Building multi-versioned Android projects
 or gradle test -Pandroid -Pclone -c androidsettings.gradle
 3. export ANDROID_SDK_ROOT='path to the Sdk'
 4. export ANDROID_HOME='path to the Sdk'
-5. Add local.properties files at the android projects (modules/testcases/jdkAll/Android/'project') you want to build with entry sdk.dir='path to the Sdk'
+5. Add local.properties files at the android projects (modules/testcases/jdkAll/Android/'project'/'project-name') you want to build with entry sdk.dir='path to the Sdk'
 6.  mvn clean install -Dandroid -Dcreate
 or gradle test -Pandroid -Pcreate -c androidsettings.gradle
 
