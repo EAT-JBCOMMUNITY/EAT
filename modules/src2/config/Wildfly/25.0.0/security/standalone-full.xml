@@ -259,7 +259,6 @@
                         <permission-set name="default-permissions"/>
                     </permission-mapping>
                     <permission-mapping match-all="true">
-                        <permission-set name="login-permission"/>
                         <permission-set name="default-permissions"/>
                     </permission-mapping>
                 </simple-permission-mapper>
