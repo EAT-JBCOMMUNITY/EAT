@@ -68,7 +68,7 @@
     <profile>
         <subsystem xmlns="urn:jboss:domain:logging:8.0">
             <console-handler name="CONSOLE">
-                <level name="INFO"/>
+                <level name="TRACE"/>
                 <formatter>
                     <named-formatter name="COLOR-PATTERN"/>
                 </formatter>
@@ -82,7 +82,7 @@
                 <append value="true"/>
             </periodic-rotating-file-handler>
             <logger category="com.arjuna">
-                <level name="WARN"/>
+                <level name="TRACE"/>
             </logger>
             <logger category="io.jaegertracing.Configuration">
                 <level name="WARN"/>
@@ -94,7 +94,7 @@
                 <level name="WARN"/>
             </logger>
             <root-logger>
-                <level name="INFO"/>
+                <level name="TRACE"/>
                 <handlers>
                     <handler name="CONSOLE"/>
                     <handler name="FILE"/>
