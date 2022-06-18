@@ -230,6 +230,21 @@
         </profile>
 
         <profile>
+            <id>wildfly.release-27.0.0.Final.testsuite</id>
+            <activation>
+                <property>
+                    <name>wildfly.release-24.0.0.Final</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <properties>
+		<serverDir2>WildflyRelease-24.0.0.Final</serverDir2>
+                <activemodules>basic,batch,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,manualmode,remoting,messaging,security,server,web,weld,ejb</activemodules>
+	    </properties>
+        </profile>
+        
+        <profile>
             <id>wildfly.release-24.0.0.Final.testsuite</id>
             <activation>
                 <property>
