@@ -32,10 +32,21 @@
 	    </activation>
             <modules>
                 <module>androidproject1</module>
+                <!--module>bloodbankproject</module-->
+            </modules>
+        </profile>
+        <profile>
+	    <id>all</id>
+	    <activation>
+	        <property>
+		    <name>module</name>
+		    <value>bloodbank</value>
+	        </property>
+	    </activation>
+            <modules>
                 <module>bloodbankproject</module>
             </modules>
         </profile>
-
     </profiles>
 
     <build>
