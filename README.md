@@ -121,7 +121,7 @@ with:
 commandLine "cmd", "/c", "gradlew", "build"
 ```
 
-**Manual sing of produced unsigned apks**
+**Manual singing of produced unsigned apks**
 
 1. keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
 
