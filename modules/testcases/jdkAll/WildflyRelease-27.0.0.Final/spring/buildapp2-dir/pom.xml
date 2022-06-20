@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--
+     *  ΙΔΕΑ : THE JBOSS TESTSUITE TO DEVELOP TESTS AGAINST INFINITE NUMBER OF JBOSS SERVERS
+    -->
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.4</version>
+    </parent>
+
+    <artifactId>additional-testsuite-spring-buildapp2</artifactId>
+    <packaging>war</packaging>
+    <name>wildfly additional testsuite: spring build app2</name>
+
+
+            <dependencyManagement>
+		        <dependencies>
+		            <dependency>
+		                <groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-parent</artifactId>
+				<version>2.4.4</version>
+		                <type>pom</type>
+		                <scope>import</scope>
+		            </dependency>
+		        </dependencies>
+	     </dependencyManagement>
+
+	    <dependencies>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+		    <exclusions>
+			<exclusion>
+			    <artifactId>logback-classic</artifactId>
+			    <groupId>ch.qos.logback</groupId>
+			</exclusion>
+			<exclusion>
+			    <artifactId>log4j-over-slf4j</artifactId>
+			    <groupId>org.slf4j</groupId>
+			</exclusion>
+		    </exclusions>
+			</dependency>
+
+			<dependency>
+			    <groupId>org.springframework.boot</groupId>
+			    <artifactId>spring-boot-starter-web</artifactId>
+			    <exclusions>
+			<exclusion>
+			    <artifactId>logback-classic</artifactId>
+			    <groupId>ch.qos.logback</groupId>
+			</exclusion>
+			<exclusion>
+			    <artifactId>log4j-over-slf4j</artifactId>
+			    <groupId>org.slf4j</groupId>
+			</exclusion>
+		    </exclusions>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-tomcat</artifactId>
+		    <scope>provided</scope>
+		    <exclusions>
+			<exclusion>
+			    <artifactId>logback-classic</artifactId>
+			    <groupId>ch.qos.logback</groupId>
+			</exclusion>
+			<exclusion>
+			    <artifactId>log4j-over-slf4j</artifactId>
+			    <groupId>org.slf4j</groupId>
+			</exclusion>
+		    </exclusions>
+		</dependency>
+
+                <dependency>
+		    <groupId>org.jboss.eap.additional.testsuite</groupId>
+		    <artifactId>eap-additional-testsuite-source-distribution</artifactId>
+		    <version>3.0.0.Final</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.eap.additional.testsuite</groupId>
+		    <artifactId>eap-additional-testsuite-annotations</artifactId>
+		    <version>3.0.0.Final</version>
+		</dependency>
+
+	    </dependencies>
+
+            <build>
+		<plugins>  
+		    <plugin>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+		    </plugin>
+		</plugins>
+	    </build>    
+
+
+
+</project>
