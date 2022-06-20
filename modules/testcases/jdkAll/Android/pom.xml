@@ -24,18 +24,41 @@
 
     <profiles>
         <profile>
-	    <id>all</id>
-	    <activation>
-	        <property>
-		    <name>!module</name>
-	        </property>
-	    </activation>
+            <id>all</id>
+            <activation>
+                <property>
+                <name>!module</name>
+                </property>
+            </activation>
+                <modules>
+                    <module>androidproject1</module>
+                    <module>bloodbankproject</module>
+                </modules>
+        </profile>
+        <profile>
+            <id>androidproject1</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>androidproject1</value>
+                </property>
+            </activation>
             <modules>
                 <module>androidproject1</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>bloodbankproject</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>bloodbank</value>
+                </property>
+            </activation>
+            <modules>
                 <module>bloodbankproject</module>
             </modules>
         </profile>
-
     </profiles>
 
     <build>
