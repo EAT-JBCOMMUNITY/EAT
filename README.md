@@ -121,6 +121,13 @@ with:
 commandLine "cmd", "/c", "gradlew", "build"
 ```
 
+**Manual sing of produced unsigned apks**
+
+1. keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+
+2. jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore my_application.apk alias_name
+
+
 Using HTTPS
 -----------
 After changing from HTTP to HTTPS, the maven repositories for Eap may not host a valid public SSL certificate, which will lead to maven failed to build the project. There are 3 options to fix that if it happens:
