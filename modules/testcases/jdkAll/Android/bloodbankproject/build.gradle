@@ -8,7 +8,7 @@ description = "android additional testsuite: bloodbankproject"
 if (project.hasProperty('android')  && project.hasProperty('clone')){
 
 	task cloneBloodBankProject(type: Exec) {
-		commandLine "git", "clone", "https://github.com/imShakil/BloodBank.git"
+		commandLine "git", "clone", "https://github.com/stefanos-vlachos/BloodBank.git"
 	}
 
 	compileJava.dependsOn(cloneBloodBankProject)
