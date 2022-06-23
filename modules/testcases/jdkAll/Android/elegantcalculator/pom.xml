@@ -38,7 +38,7 @@
 							<phase>generate-sources</phase>
 							<configuration>
 								<target name="command">
-									<exec executable="bash">
+									<exec executable="/bin/bash" osfamily="unix">
 										<arg value="clone.sh" />
 									</exec>
 								</target>
