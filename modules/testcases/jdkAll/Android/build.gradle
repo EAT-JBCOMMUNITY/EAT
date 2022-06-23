@@ -38,3 +38,11 @@ if (project.hasProperty('android') && (project.getProperty('module')=="elegantca
     }
 
 }
+
+if (project.hasProperty('android') && (project.getProperty('module')=="textchat")){
+
+    dependencies{
+        implementation project(':modules:testcases:jdkAll:Android:textchat')
+    }
+
+}
