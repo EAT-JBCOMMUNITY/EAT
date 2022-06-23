@@ -70,8 +70,8 @@ or gradle test -Pandroid -Pclone (-Pmodule='android-project-name') -c androidset
 3. export ANDROID_SDK_ROOT='path to the Sdk'
 4. export ANDROID_HOME='path to the Sdk'
 5. Add local.properties files at the android projects (modules/testcases/jdkAll/Android/'project'/'project-name') you want to build with entry sdk.dir='path to the Sdk'
-6.  mvn clean install -Dandroid -Dcreate (-Dmodule='android-project-name')
-or gradle test -Pandroid -Pcreate (-Pmodule='android-project-name') -c androidsettings.gradle
+6.  mvn clean install -Dandroid -Dcreate (-Dmodule='android-project-name') 
+or gradle test -Pandroid -Pcreate (-Pmodule='android-project-name') -c androidsettings.gradle - For project ElegantCalculator execution rights should be first given to gradlew file (to be fixed)
 
 **Building multi-versioned Android projects with Maven on Windows**
 
