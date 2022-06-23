@@ -9,12 +9,13 @@ if (project.hasProperty('android') && !project.hasProperty('module')){
 
     dependencies{
         implementation project(':modules:testcases:jdkAll:Android:androidproject1')
-       # implementation project(':modules:testcases:jdkAll:Android:bloodbankproject')
+        //implementation project(':modules:testcases:jdkAll:Android:bloodbankproject')
+        //implementation project(':modules:testcases:jdkAll:Android:elegantcalculator')
     }
 
 }
 
-if (project.hasProperty('android') && (project.getProperty('module')=="androidproject"){
+if (project.hasProperty('android') && (project.getProperty('module')=="androidproject")){
 
     dependencies{
         implementation project(':modules:testcases:jdkAll:Android:androidproject1')
@@ -22,14 +23,18 @@ if (project.hasProperty('android') && (project.getProperty('module')=="androidpr
 
 }
 
-if (project.hasProperty('android') && (project.getProperty('module')=="bloodbank"){
+if (project.hasProperty('android') && (project.getProperty('module')=="bloodbank")){
 
     dependencies{
         implementation project(':modules:testcases:jdkAll:Android:bloodbankproject')
     }
 
 }
-    
 
+if (project.hasProperty('android') && (project.getProperty('module')=="elegantcalculator")){
 
+    dependencies{
+        implementation project(':modules:testcases:jdkAll:Android:elegantcalculator')
+    }
 
+}
