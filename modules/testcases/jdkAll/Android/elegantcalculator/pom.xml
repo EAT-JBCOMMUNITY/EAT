@@ -61,7 +61,7 @@
                 </property>
             </activation>
             <build>
-				<plugins>
+		   <plugins>
 					<plugin>
 						<artifactId>maven-antrun-plugin</artifactId>
 					   <executions>
@@ -71,9 +71,9 @@
 							 <tasks name="Build Elegant Calculator Android Project">
 							   <exec
 								 dir="${basedir}/Elegant_Calculator"
-								 executable="cmd"
+								 executable="./gradlew"
 								 failonerror="true">
-								   <arg line="/c gradlew build"/>
+								 <arg line="build"/>
 							   </exec>
 							</tasks>
 						   </configuration>
