@@ -1,3 +1,4 @@
+<!-- @EAT({"modules/testcases/jdkAll/Android/androidproject1/AndroidProject/app/src/main/res/values#1.0.0*1.9.9"}) -->
 <resources>
     <string name="app_name">AndroidProject</string>
     <string name="action_settings">Settings</string>
