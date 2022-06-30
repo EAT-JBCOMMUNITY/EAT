@@ -11,7 +11,7 @@ if (project.hasProperty('android') && !project.hasProperty('module')){
         implementation project(':modules:testcases:jdkAll:Android:androidproject1')
         //implementation project(':modules:testcases:jdkAll:Android:bloodbankproject')
         //implementation project(':modules:testcases:jdkAll:Android:elegantcalculator')
-        //implementation project(':modules:testcases:jdkAll:Android:imagebox')
+        //implementation project(':modules:testcases:jdkAll:Android:mycamera')
 
     }
 
@@ -37,6 +37,14 @@ if (project.hasProperty('android') && (project.getProperty('module')=="elegantca
 
     dependencies{
         implementation project(':modules:testcases:jdkAll:Android:elegantcalculator')
+    }
+
+}
+
+if (project.hasProperty('android') && (project.getProperty('module')=="mycamera")){
+
+    dependencies{
+        implementation project(':modules:testcases:jdkAll:Android:mycamera')
     }
 
 }

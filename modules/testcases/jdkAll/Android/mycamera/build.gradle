@@ -1,0 +1,27 @@
+apply plugin: 'java'
+
+group = 'org.jboss'
+version = '1.0.3.Final'
+
+description = "android additional testsuite: mycamera"
+
+if (project.hasProperty('android')  && project.hasProperty('clone')){
+
+	task cloneMyCameraProject(type: Exec) {
+		commandLine "git", "clone", "https://github.com/stefanos-vlachos/MyCamera.git"
+	}
+
+	compileJava.dependsOn(cloneMyCameraProject)
+
+}
+
+if (project.hasProperty('android') && project.hasProperty('create')){
+
+	task runMyCameraProject(type: Exec) {
+		workingDir project.buildDir.toString() + "/../MyCamera"
+		commandLine "./gradlew", "build"
+	}
+
+	compileJava.dependsOn(runMyCameraProject)
+
+}
