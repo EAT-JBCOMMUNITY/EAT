@@ -34,6 +34,7 @@
                 <module>androidproject1</module>
                 <!--<module>bloodbankproject</module>-->
                 <!--<module>elegantcalculator</module>-->
+                <!--<module>truthdare</module>-->
             </modules>
         </profile>
         <profile>
@@ -51,7 +52,7 @@
         <profile>
 	        <id>bloodbank</id>
 	        <activation>
-	            <property>
+	            <property>truthdare
 		            <name>module</name>
 		            <value>bloodbank</value>
 	            </property>
@@ -70,6 +71,18 @@
             </activation>
             <modules>
                 <module>elegantcalculator</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>truthdare</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>truthdare</value>
+                </property>
+            </activation>
+            <modules>
+                <module>truthdare</module>
             </modules>
         </profile>
     </profiles>
