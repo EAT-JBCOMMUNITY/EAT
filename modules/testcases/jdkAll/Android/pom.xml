@@ -34,7 +34,6 @@
                 <module>androidproject1</module>
                 <!--<module>bloodbankproject</module>-->
                 <!--<module>elegantcalculator</module>-->
-                <!--<module>imagebox</module>-->
             </modules>
         </profile>
         <profile>
@@ -71,18 +70,6 @@
             </activation>
             <modules>
                 <module>elegantcalculator</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>imagebox</id>
-            <activation>
-                <property>
-                    <name>module</name>
-                    <value>imagebox</value>
-                </property>
-            </activation>
-            <modules>
-                <module>imagebox</module>
             </modules>
         </profile>
     </profiles>
