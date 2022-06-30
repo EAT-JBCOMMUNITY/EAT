@@ -52,7 +52,7 @@
         <profile>
 	        <id>bloodbank</id>
 	        <activation>
-	            <property>truthdare
+	            <property>
 		            <name>module</name>
 		            <value>bloodbank</value>
 	            </property>
