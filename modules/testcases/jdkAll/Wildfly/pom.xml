@@ -170,7 +170,7 @@
                 <dependency>
 		    <groupId>org.jboss.ws.cxf</groupId>
 		    <artifactId>jbossws-cxf-client</artifactId>
-		    <version>6.0.0.Final</version>
+		    <version>5.5.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>javax.jws</groupId>
@@ -715,7 +715,7 @@
                 <dependency>
 		    <groupId>org.jboss.ws.cxf</groupId>
 		    <artifactId>jbossws-cxf-client</artifactId>
-		    <version>6.0.0.Final</version>
+		    <version>5.5.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>javax.jws</groupId>
@@ -1265,7 +1265,7 @@
                 <dependency>
 		    <groupId>org.jboss.ws.cxf</groupId>
 		    <artifactId>jbossws-cxf-client</artifactId>
-		    <version>6.0.0.Final</version>
+		    <version>5.5.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>javax.jws</groupId>
