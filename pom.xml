@@ -155,6 +155,7 @@
                 <activemodules>bloodbankproject</activemodules>
                 <activemodules>elegantcalculator</activemodules>
                 <activemodules>themesample</activemodules>
+                <activemodules>voxrec</activemodules>
 	        </properties>
         </profile>
         <profile>
