@@ -53,7 +53,7 @@ else if(project.hasProperty('wildfly-jdk8')){
 else if(project.hasProperty('android')){
 
     serverDir2 = "Android"
-    activemodules = "androidproject1,bloodbankproject,elegantcalculator"
+    activemodules = "androidproject1,bloodbankproject,elegantcalculator,voxrec"
 
 }
 else if(project.hasProperty('serverbeta')){
