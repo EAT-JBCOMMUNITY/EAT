@@ -75,6 +75,18 @@
             </modules>
         </profile>
         <profile>
+            <id>mycompanion</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>mycompanion</value>
+                </property>
+            </activation>
+            <modules>
+                <module>mycompanion</module>
+            </modules>
+        </profile>
+        <profile>
             <id>themesample</id>
             <activation>
                 <property>
