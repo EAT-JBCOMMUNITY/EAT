@@ -34,6 +34,8 @@
                 <module>androidproject1</module>
                 <!--<module>bloodbankproject</module>-->
                 <!--<module>elegantcalculator</module>-->
+                <!--<module>themesample</module>-->
+                <!--<module>voxrec</module>-->
             </modules>
         </profile>
         <profile>
@@ -82,6 +84,30 @@
             </activation>
             <modules>
                 <module>mycompanion</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>themesample</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>themesample</value>
+                </property>
+            </activation>
+            <modules>
+                <module>themesample</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>voxrec</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>voxrec</value>
+                </property>
+            </activation>
+            <modules>
+                <module>voxrec</module>
             </modules>
         </profile>
     </profiles>
