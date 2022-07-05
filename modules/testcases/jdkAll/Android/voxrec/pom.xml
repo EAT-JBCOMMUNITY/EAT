@@ -14,9 +14,9 @@
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>android-additional-testsuite-elegantcalculator</artifactId>
+    <artifactId>android-additional-testsuite-voxRec</artifactId>
     <packaging>pom</packaging>
-    <name>android additional testsuite: elegantcalculator</name>
+    <name>android additional testsuite: voxRec</name>
 
     <profiles>
         <profile>
@@ -61,16 +61,16 @@
                 </property>
             </activation>
             <build>
-		   <plugins>
+				<plugins>
 					<plugin>
 						<artifactId>maven-antrun-plugin</artifactId>
 					   <executions>
 						 <execution>
 						   <phase>install</phase>
 						   <configuration>
-							 <tasks name="Build Elegant Calculator Android Project">
+							 <tasks name="Build VoxRec Project">
 							   <exec
-								 dir="${basedir}/Elegant_Calculator"
+								 dir="${basedir}/voxRec"
 								 executable="./gradlew"
 								 failonerror="true">
 								 <arg line="build"/>
