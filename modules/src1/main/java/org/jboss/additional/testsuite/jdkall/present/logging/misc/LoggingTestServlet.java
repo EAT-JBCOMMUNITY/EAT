@@ -52,7 +52,6 @@ public class LoggingTestServlet extends HttpServlet {
             LoggingUtil.infoJBossLogging("org.jboss.reproducer.log.jboss.logging", "Test message from JBoss Logging");
             LoggingUtil.infoJul("org.jboss.reproducer.log.jul", "Test message from JUL");
             LoggingUtil.infoCommonsLogging("org.jboss.reproducer.log.commons.logging", "Test message from commons-logging");
-            LoggingUtil.infoLog4j("org.jboss.reproducer.log.log4j", "Test message from log4j");
             LoggingUtil.infoSlf4j("org.jboss.reproducer.log.slf4j", "Test message from slf4j");
         } catch (Throwable e) {
             throw new ServletException(e);
