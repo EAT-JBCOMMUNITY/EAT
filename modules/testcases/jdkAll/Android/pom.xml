@@ -34,7 +34,6 @@
                 <module>androidproject1</module>
                 <!--<module>bloodbankproject</module>-->
                 <!--<module>elegantcalculator</module>-->
-                <!--<module>textchat</module>-->
                 <!--<module>imagebox</module>-->
                 <!--<module>truthdare</module>-->
                 <!--<module>themesample</module>-->
@@ -75,18 +74,6 @@
             </activation>
             <modules>
                 <module>elegantcalculator</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>textchat</id>
-            <activation>
-                <property>
-                    <name>module</name>
-                    <value>textchat</value>
-                </property>
-            </activation>
-            <modules>
-                <module>textchat</module>
             </modules>
         </profile>
         <profile>
