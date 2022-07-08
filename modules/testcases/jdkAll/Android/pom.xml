@@ -35,6 +35,9 @@
                 <!--<module>bloodbankproject</module>-->
                 <!--<module>elegantcalculator</module>-->
                 <!--<module>imagebox</module>-->
+                <!--<module>truthdare</module>-->
+                <!--<module>themesample</module>-->
+                <!--<module>voxrec</module>-->
             </modules>
         </profile>
         <profile>
@@ -83,6 +86,54 @@
             </activation>
             <modules>
                 <module>imagebox</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>truthdare</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>truthdare</value>
+                </property>
+            </activation>
+            <modules>
+                <module>truthdare</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>mycompanion</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>mycompanion</value>
+                </property>
+            </activation>
+            <modules>
+                <module>mycompanion</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>themesample</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>themesample</value>
+                </property>
+            </activation>
+            <modules>
+                <module>themesample</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>voxrec</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>voxrec</value>
+                </property>
+            </activation>
+            <modules>
+                <module>voxrec</module>
             </modules>
         </profile>
     </profiles>
