@@ -7,7 +7,7 @@ description = "android additional testsuite: elegantcalculator"
 
 if (project.hasProperty('android')  && project.hasProperty('clone')){
 
-	task cloneBloodBankProject(type: Exec) {
+	task cloneElegantCalculatorProject(type: Exec) {
 		commandLine "git", "clone", "https://github.com/stefanos-vlachos/Elegant_Calculator.git"
 	}
 
@@ -17,7 +17,7 @@ if (project.hasProperty('android')  && project.hasProperty('clone')){
 
 if (project.hasProperty('android') && project.hasProperty('create')){
 
-	task runBloodBankProject(type: Exec) {
+	task runElegantCalculatorProject(type: Exec) {
 		workingDir project.buildDir.toString() + "/../Elegant_Calculator"
 		commandLine "./gradlew", "build"
 	}
