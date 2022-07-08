@@ -28,7 +28,6 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 public class LoggingUtil {
     private static final org.jboss.logging.Logger JBOSS_LOGGER = org.jboss.logging.Logger.getLogger(LoggingUtil.class);
     private static final org.apache.commons.logging.Log JCL_LOGGER = org.apache.commons.logging.LogFactory.getLog(LoggingUtil.class);
-    private static final org.apache.log4j.Logger LOG4J_LOGGER = org.apache.log4j.Logger.getLogger(LoggingUtil.class);
     private static final java.util.logging.Logger JUL_LOGGER = java.util.logging.Logger.getLogger(LoggingUtil.class.getName());
     private static final org.slf4j.Logger SLF4J_LOGGER = org.slf4j.LoggerFactory.getLogger(LoggingUtil.class);
 
@@ -44,13 +43,6 @@ public class LoggingUtil {
         org.apache.commons.logging.LogFactory.getLog(category).info(message + " LoggingUtil CL: " + LoggingUtil.class.getClassLoader());
         JCL_LOGGER.info("Test from static commons-logging: TCCL: " + getClassLoader());
         JCL_LOGGER.info("Test from static commons-logging LoggingUtil CL: " + LoggingUtil.class.getClassLoader());
-    }
-
-    public static void infoLog4j(final String category, final String message) {
-        org.apache.log4j.Logger.getLogger(category).info(message + " TCCL: " + getClassLoader());
-        org.apache.log4j.Logger.getLogger(category).info(message + " LoggingUtil CL: " + LoggingUtil.class.getClassLoader());
-        LOG4J_LOGGER.info("Test from static log4j TCCL: " + getClassLoader());
-        LOG4J_LOGGER.info("Test from static log4j LoggingUtil CL: " + LoggingUtil.class.getClassLoader());
     }
 
     public static void infoJul(final String category, final String message) {
