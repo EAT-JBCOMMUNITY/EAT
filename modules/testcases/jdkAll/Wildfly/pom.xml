@@ -2028,7 +2028,7 @@
                 <module>remoting</module>
 		<module>security</module>
 		<module>server</module>
-                <module>spring</module>
+                <!--module>spring</module-->
 		<module>web</module>
 		<module>weld</module>
 		<module>batch</module>
