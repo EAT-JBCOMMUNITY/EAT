@@ -34,6 +34,7 @@
                 <module>androidproject1</module>
                 <!--<module>bloodbankproject</module>-->
                 <!--<module>elegantcalculator</module>-->
+                <!--<module>imagebox</module>-->
                 <!--<module>truthdare</module>-->
                 <!--<module>themesample</module>-->
                 <!--<module>voxrec</module>-->
@@ -73,6 +74,18 @@
             </activation>
             <modules>
                 <module>elegantcalculator</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>imagebox</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>imagebox</value>
+                </property>
+            </activation>
+            <modules>
+                <module>imagebox</module>
             </modules>
         </profile>
         <profile>
