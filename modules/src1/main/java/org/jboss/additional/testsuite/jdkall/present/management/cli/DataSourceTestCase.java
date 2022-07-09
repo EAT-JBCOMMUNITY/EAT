@@ -92,7 +92,7 @@ public class DataSourceTestCase extends AbstractCliTestBase {
         //testRemoveXaDataSource();
     }
 
-    @ATTest({"modules/testcases/jdkAll/Eap7Plus/management/src/main/java#7.5.6","modules/testcases/jdkAll/Wildfly/management/src/main/java#27.0.0.Alpha1"})
+    @ATTest({"modules/testcases/jdkAll/Eap7Plus/management/src/main/java#7.4.6","modules/testcases/jdkAll/Wildfly/management/src/main/java#27.0.0.Alpha1"})
     public void testExpressionInDataSource() throws Exception {
         testExpressionInJavaContext();
     }
