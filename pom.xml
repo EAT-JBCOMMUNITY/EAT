@@ -155,6 +155,11 @@
                 <activemodules>bloodbankproject</activemodules>
                 <activemodules>elegantcalculator</activemodules>
                 <activemodules>mycamera</activemodules>
+                <activemodules>imagebox</activemodules>
+                <activemodules>truthdare</activemodules>
+                <activemodules>mycompanion</activemodules>
+                <activemodules>themesample</activemodules>
+                <activemodules>voxrec</activemodules>
 	        </properties>
         </profile>
         <profile>
