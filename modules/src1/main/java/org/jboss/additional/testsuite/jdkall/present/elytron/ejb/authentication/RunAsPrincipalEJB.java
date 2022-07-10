@@ -14,7 +14,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 @Stateless
 @Remote(RunAsPrincipalEJBRemote.class)
 @RunAsPrincipal("user2")
-@EAT({"modules/testcases/jdkAll/Wildfly/elytron/src/main/java#27.0.0", "modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java#7.4.3"})
+@EAT({"modules/testcases/jdkAll/Wildfly/elytron/src/main/java#27.0.0","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/elytron/src/main/java","modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java#7.4.3"})
 public class RunAsPrincipalEJB implements RunAsPrincipalEJBRemote {
 
     // Inject the Session Context

@@ -46,7 +46,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  * @author Peter Skopek
  *
  */
-@EAT({"modules/testcases/jdkAll/Wildfly/domain/src/main/java#25.0.0.Beta1"})
+@EAT({"modules/testcases/jdkAll/Wildfly/domain/src/main/java#25.0.0.Beta1","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/domain/src/main/java"})
 public final class VaultSession {
 
     public static final String VAULT_ENC_ALGORITHM = "PBEwithMD5andDES";

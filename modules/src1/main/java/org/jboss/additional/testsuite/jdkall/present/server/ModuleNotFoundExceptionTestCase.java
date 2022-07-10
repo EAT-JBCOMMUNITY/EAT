@@ -37,7 +37,7 @@ import static org.junit.Assert.assertFalse;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/WildflyRelease-10.1.0.Final/server/src/main/java#11.0.0-Final","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/server/src/main/java","modules/testcases/jdkAll/Wildfly/server/src/main/java#11.0.0-Alpha1","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/server/src/main/java","modules/testcases/jdkAll/Eap72x/server/src/main/java","modules/testcases/jdk11/Eap7Plus/server/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyRelease-10.1.0.Final/server/src/main/java#11.0.0-Final","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/server/src/main/java","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/server/src/main/java","modules/testcases/jdkAll/Wildfly/server/src/main/java#11.0.0-Alpha1","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/server/src/main/java","modules/testcases/jdkAll/Eap72x/server/src/main/java","modules/testcases/jdk11/Eap7Plus/server/src/main/java"})
 public class ModuleNotFoundExceptionTestCase {
     
     private final String serverLogPath = "../../../../../servers/wildfly/build/target/jbossas/standalone/log/server.log";

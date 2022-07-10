@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.io.input.Tailer;
 import org.jboss.additional.testsuite.jdkall.present.shared.ServerLogPatternListener;
-import org.jboss.as.test.shared.TestSuiteEnvironment;
+
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
@@ -27,11 +27,11 @@ import static org.junit.Assert.fail;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Wildfly/web/src/main/java#27.0.0", "modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.4"})
+@EAT({"modules/testcases/jdkAll/Wildfly/web/src/main/java#27.0.0","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.4"})
 public class AjpTestCase {
 
     private final static String WARNAME = "AjpTestCase.war";
-    private static final File SERVER_LOG = new File(TestSuiteEnvironment.getJBossHome(), "standalone" + File.separator + "log"
+    private static final File SERVER_LOG = new File(getJBossHome(), "standalone" + File.separator + "log"
             + File.separator + "server.log");
 
     @Deployment(name = "war")
@@ -76,6 +76,14 @@ public class AjpTestCase {
             tailerThread.stop();
         }
 
+    }
+
+    private static String getJBossHome() {
+        String jbossHome = System.getProperty("jboss.dist");
+	if (jbossHome == null) {
+	    jbossHome = System.getProperty("jboss.home");
+	}
+	return jbossHome == null ? System.getenv("JBOSS_HOME") : jbossHome;
     }
 
 }

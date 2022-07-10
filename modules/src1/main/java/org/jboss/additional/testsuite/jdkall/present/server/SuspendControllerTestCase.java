@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-@EAT({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/server/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/server/src/main/java","modules/testcases/jdkAll/Wildfly/server/src/main/java","modules/testcases/jdkAll/ServerBeta/server/src/main/java","modules/testcases/jdkAll/WildflyRelease-17.0.0.Final/server/src/main/java","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/server/src/main/java","modules/testcases/jdkAll/Eap71x/server/src/main/java","modules/testcases/jdkAll/Eap72x/server/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/server/src/main/java","modules/testcases/jdkAll/Eap7Plus/server/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/server/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/server/src/main/java","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/server/src/main/java","modules/testcases/jdkAll/Wildfly/server/src/main/java","modules/testcases/jdkAll/ServerBeta/server/src/main/java","modules/testcases/jdkAll/WildflyRelease-17.0.0.Final/server/src/main/java","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/server/src/main/java","modules/testcases/jdkAll/Eap71x/server/src/main/java","modules/testcases/jdkAll/Eap72x/server/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/server/src/main/java","modules/testcases/jdkAll/Eap7Plus/server/src/main/java"})
 public class SuspendControllerTestCase {
 
     private static final String FAIL_MESSAGE = "test failure";

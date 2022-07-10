@@ -37,7 +37,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  *
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>
  */
-@EAT({"modules/testcases/jdkAll/Wildfly/domain/src/main/java#25.0.0.Beta1"})
+@EAT({"modules/testcases/jdkAll/Wildfly/domain/src/main/java#25.0.0.Beta1","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/domain/src/main/java"})
 @MessageLogger(projectCode = "WFLYSEC", length = 4)
 interface VaultLogger extends BasicLogger {
 

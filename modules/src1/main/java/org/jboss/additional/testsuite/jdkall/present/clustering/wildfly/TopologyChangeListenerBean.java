@@ -48,7 +48,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 @Stateless
 @Remote(TopologyChangeListener.class)
 @Listener(sync = false)
-@EAT({"modules/testcases/jdkAll/Wildfly/clustering/src/main/java#25.0.0.Final"})
+@EAT({"modules/testcases/jdkAll/Wildfly/clustering/src/main/java#25.0.0.Final","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/clustering/src/main/java"})
 public class TopologyChangeListenerBean implements TopologyChangeListener {
 
     private static final Logger logger = Logger.getLogger(TopologyChangeListenerBean.class);

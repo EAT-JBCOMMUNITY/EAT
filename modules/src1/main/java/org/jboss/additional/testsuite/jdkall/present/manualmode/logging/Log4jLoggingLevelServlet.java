@@ -38,7 +38,7 @@ import static org.jboss.additional.testsuite.jdkall.present.manualmode.logging.L
 /**
  * @author <a href="mailto:pmackay@redhat.com">Peter Mackay</a>
  */
-@EAT({"modules/testcases/jdkAll/Eap7Plus/manualmode/src/main/java","modules/testcases/jdkAll/Eap72x/manualmode/src/main/java", "modules/testcases/jdkAll/Eap72x-Proposed/manualmode/src/main/java", "modules/testcases/jdkAll/Eap71x/manualmode/src/main/java#7.1.5", "modules/testcases/jdkAll/Eap71x-Proposed/manualmode/src/main/java#7.1.5", "modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/manualmode/src/main/java","modules/testcases/jdkAll/Wildfly/manualmode/src/main/java#14.0.0","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/manualmode/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/manualmode/src/main/java","modules/testcases/jdkAll/Eap72x/manualmode/src/main/java", "modules/testcases/jdkAll/Eap72x-Proposed/manualmode/src/main/java", "modules/testcases/jdkAll/Eap71x/manualmode/src/main/java#7.1.5", "modules/testcases/jdkAll/Eap71x-Proposed/manualmode/src/main/java#7.1.5", "modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/manualmode/src/main/java","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/manualmode/src/main/java","modules/testcases/jdkAll/Wildfly/manualmode/src/main/java#14.0.0","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/manualmode/src/main/java"})
 @WebServlet(urlPatterns = URL_PATTERN)
 public class Log4jLoggingLevelServlet extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(Log4jLoggingLevelServlet.class);

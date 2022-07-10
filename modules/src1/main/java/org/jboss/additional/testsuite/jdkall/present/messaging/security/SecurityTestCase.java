@@ -148,7 +148,7 @@ public class SecurityTestCase {
     }
 
 
-    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/messaging/src/main/java","modules/testcases/jdkAll/Wildfly/messaging/src/main/java#11.0.0*14.0.0.Beta2"})
+    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/messaging/src/main/java","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/messaging/src/main/java","modules/testcases/jdkAll/Wildfly/messaging/src/main/java#11.0.0*14.0.0.Beta2"})
     public void testUnsuccessfulAuthorization() throws Exception {
         final String queueName = "queue.testUnsuccessfulAuthorization";
         final ClientSessionFactory sf = createClientSessionFactory(managementClient.getMgmtAddress(), managementClient.getWebUri().getPort());

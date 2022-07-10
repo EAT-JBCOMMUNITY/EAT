@@ -39,7 +39,7 @@ import java.lang.management.ManagementFactory;
  *
  * @author Peter Mackay
  */
-@EAT({"modules/testcases/jdkAll/Eap7Plus/messaging/src/main/java","modules/testcases/jdkAll/Eap72x/messaging/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/messaging/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/messaging/src/main/java#7.1.4","modules/testcases/jdkAll/Eap71x/messaging/src/main/java#7.1.3","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/messaging/src/main/java","modules/testcases/jdkAll/Wildfly/messaging/src/main/java#12.0.0","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/messaging/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/messaging/src/main/java","modules/testcases/jdkAll/Eap72x/messaging/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/messaging/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/messaging/src/main/java#7.1.4","modules/testcases/jdkAll/Eap71x/messaging/src/main/java#7.1.3","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/messaging/src/main/java","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/messaging/src/main/java","modules/testcases/jdkAll/Wildfly/messaging/src/main/java#12.0.0","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/messaging/src/main/java"})
 @WebServlet(name = "EagerMBeanQueryServlet", urlPatterns = { "/EagerMBeanQueryServlet" }, loadOnStartup = 1)
 public class EagerMBeanQueryServlet extends HttpServlet {
 

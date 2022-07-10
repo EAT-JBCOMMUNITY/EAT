@@ -81,7 +81,7 @@ public class MarshallingTestCase {
         return archive;
     }
 
-    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/core/src/main/java","modules/testcases/jdkAll/Wildfly/core/src/main/java#10.0.0.Final*11.0.0.Beta1"})
+    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/core/src/main/java","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/core/src/main/java","modules/testcases/jdkAll/Wildfly/core/src/main/java#10.0.0.Final*11.0.0.Beta1"})
     public void deserializationTest() throws Exception {
         RiverMarshallerFactory factory = new RiverMarshallerFactory();  
 	    MarshallingConfiguration configuration = new MarshallingConfiguration();  

@@ -210,7 +210,7 @@ public class HibernateSecondLevelCacheTestCase {
     }
     
     @RunAsClient
-    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jpa/src/main/java","modules/testcases/jdkAll/Wildfly/jpa/src/main/java#12.0.0.Final","modules/testcases/jdkAll/Eap71x-Proposed/jpa/src/main/java#7.1.1","modules/testcases/jdkAll/Eap71x/jpa/src/main/java#7.1.1"})
+    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jpa/src/main/java","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/jpa/src/main/java","modules/testcases/jdkAll/Wildfly/jpa/src/main/java#12.0.0.Final","modules/testcases/jdkAll/Eap71x-Proposed/jpa/src/main/java#7.1.1","modules/testcases/jdkAll/Eap71x/jpa/src/main/java#7.1.1"})
     public void testWarningLogWithSecondLevelCache() throws IOException {
         List<String> logfile = new LinkedList<>();
         

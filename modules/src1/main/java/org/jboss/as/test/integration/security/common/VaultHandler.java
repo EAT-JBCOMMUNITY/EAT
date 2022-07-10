@@ -43,7 +43,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  * @author Peter Skopek (pskopek at redhat dot com)
  *
  */
-@EAT({"modules/testcases/jdkAll/Wildfly/domain/src/main/java#25.0.0.Beta1"})
+@EAT({"modules/testcases/jdkAll/Wildfly/domain/src/main/java#25.0.0.Beta1","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/domain/src/main/java"})
 public class VaultHandler {
 
     private static Logger LOGGER = Logger.getLogger(VaultHandler.class);
