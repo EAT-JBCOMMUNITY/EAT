@@ -1,3 +1,4 @@
+<!-- @EAT({"modules/testcases/jdkAll/Android/bloodbankproject/BloodBank/app/src/main/res/values#1.0.0*1.9.9"}) -->
 <resources>
     <string name="app_name">Blood Point</string>
     <string name="title_activity_login">Sign in</string>
