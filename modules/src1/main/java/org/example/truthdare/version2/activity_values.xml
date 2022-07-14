@@ -1,5 +1,5 @@
-<!-- @EAT({"modules/testcases/jdkAll/Android/truthdare/TruthDare/app/src/main/res/layout#2.0.0*2.0.1"}) -->
 <?xml version="1.0" encoding="utf-8"?>
+<!-- @EAT({"modules/testcases/jdkAll/Android/truthdare/TruthDare/app/src/main/res/layout#2.0.0*2.0.1"}) -->
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
