@@ -21,7 +21,6 @@
             
     <modules>
         <module>test-configurations</module>
-        <module>test-configurations2</module>
     </modules>
 
     <build>

@@ -1398,6 +1398,19 @@
         </profile>
 
         <profile>
+            <id>jaxrsElytron</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>elytron</value>
+                </property>
+            </activation>
+            <modules>
+                <module>elytron</module>
+            </modules>
+        </profile>
+
+        <profile>
 	    <id>all</id>
 	    <activation>
 	        <property>
@@ -1406,6 +1419,7 @@
 	    </activation>
             <modules>
 		<module>jaxrs</module>
+		<module>elytron</module>
             </modules>
         </profile>
 
