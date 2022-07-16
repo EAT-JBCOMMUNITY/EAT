@@ -1032,6 +1032,19 @@
         </profile>
 
         <profile>
+            <id>elytronActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>elytron</value>
+                </property>
+            </activation>
+            <modules>
+                <module>elytron</module>
+            </modules>
+        </profile>
+
+        <profile>
 	    <id>all</id>
 	    <activation>
 	        <property>
@@ -1045,6 +1058,7 @@
 		<module>security</module>
 		<module>server</module>
 		<module>web</module>
+		<module>elytron</module>
             </modules>
         </profile>
     
