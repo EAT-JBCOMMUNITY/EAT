@@ -14,9 +14,9 @@
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>eap7-additional-testsuite-elytron</artifactId>
+    <artifactId>eap7-additional-testsuite-elytron-jdk11</artifactId>
     <packaging>pom</packaging>
-    <name>Eap7 additional testsuite: elytron</name>
+    <name>Eap7 additional testsuite for jdk11: elytron</name>
 
             
     <modules>
