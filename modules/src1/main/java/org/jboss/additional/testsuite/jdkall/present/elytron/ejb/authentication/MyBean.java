@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @Stateless
-@EAT({"modules/testcases/jdkAll/Wildfly/elytron/src/main/java#27.0.0", "modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java#7.4.3"})
+@EAT({"modules/testcases/jdkAll/Wildfly/elytron/src/main/java#27.0.0", "modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java#7.4.3","modules/testcases/jdk11/Wildfly/elytron/src/main/java#27.0.0", "modules/testcases/jdk11/Eap7Plus/elytron/src/main/java#7.4.3"})
 public class MyBean {
 
     @Resource
