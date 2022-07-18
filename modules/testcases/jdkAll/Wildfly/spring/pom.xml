@@ -18,6 +18,10 @@
     <packaging>pom</packaging>
     <name>wildfly additional testsuite: spring</name>
 
+    <properties>
+        <moduledir>${basedir}/../../../../servers/wildfly/build/target/jbossas/modules</moduledir>
+        <spring.module>${basedir}/../../../../src1/resources/updatedModulesSpring</spring.module>
+    </properties>
 
     <profiles>
         <profile>
@@ -72,6 +76,29 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>copy-modules</id>
+                                <inherited>false</inherited>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <copy todir="${moduledir}" preservelastmodified="false" overwrite="true" >
+					    <fileset dir="${spring.module}">
+						<include name="**/**"/>
+					    </fileset>
+					</copy>  
+                                    </target> 
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
         </plugins>
     </build>
 
