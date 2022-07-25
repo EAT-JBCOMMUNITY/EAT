@@ -39,6 +39,7 @@
                 <!--<module>truthdare</module>-->
                 <!--<module>themesample</module>-->
                 <!--<module>voxrec</module>-->
+                <!--<module>jkslinks</module>-->
             </modules>
         </profile>
         <profile>
@@ -147,6 +148,18 @@
             </activation>
             <modules>
                 <module>voxrec</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>jkslinks</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>jkslinks</value>
+                </property>
+            </activation>
+            <modules>
+                <module>jkslinks</module>
             </modules>
         </profile>
     </profiles>
