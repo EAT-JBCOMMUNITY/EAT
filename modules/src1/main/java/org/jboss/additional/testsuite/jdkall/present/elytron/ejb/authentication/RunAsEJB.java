@@ -14,7 +14,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 @Stateless
 @Remote(RunAsEJBRemote.class)
 @RunAs("User2")
-@EAT({"modules/testcases/jdkAll/Wildfly/elytron/src/main/java#27.0.0", "modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java#7.4.3","modules/testcases/jdk11/Wildfly/elytron/src/main/java#27.0.0", "modules/testcases/jdk11/Eap7Plus/elytron/src/main/java#7.4.3"})
+@EAT({"modules/testcases/jdkAll/Wildfly/elytron/src/main/java#27.0.0", "modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java#7.4.3"})
 public class RunAsEJB implements RunAsEJBRemote {
 
     // Inject the Session Context
