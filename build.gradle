@@ -125,7 +125,7 @@ task distributeAndroidConfigs(type: JavaExec) {
   args rootPath, rootPath + "/modules/srcPool/config", serverDir2, "$System.env.ANDROID_SDK_VERSION", "versionOrder", "", "", "", "", "$System.env.JBOSS_GIT_DIR", "modules/testcases", "src/main/java", activemodules
 }
 
-if(!project.hasProperty('noDistribution')){
+if(project.hasProperty('androidversion')){
 
     compileJava.dependsOn(distributeAndroidConfigs).dependsOn(distributeAndroidSources)
 
