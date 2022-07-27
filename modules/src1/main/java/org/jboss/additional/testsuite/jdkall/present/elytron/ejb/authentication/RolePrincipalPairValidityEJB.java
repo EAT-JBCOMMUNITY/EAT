@@ -16,7 +16,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 @RolesAllowed({"Admin", "User"})
 @RunAs("Admin")
 @RunAsPrincipal("admin")
-@EAT({"modules/testcases/jdkAll/Wildfly/elytron/src/main/java#27.0.0", "modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java#7.4.5","modules/testcases/jdk11/Wildfly/elytron/src/main/java#27.0.0", "modules/testcases/jdk11/Eap7Plus/elytron/src/main/java#7.4.5"})
+@EAT({"modules/testcases/jdkAll/Wildfly/elytron/src/main/java#27.0.0", "modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java#7.4.5"})
 public class RolePrincipalPairValidityEJB implements RolePrincipalPairValidityEJBRemote {
 
     @Resource
