@@ -2135,6 +2135,76 @@
 	            </plugins>
 	        </build>
         </profile>
+	<profile>
+            <id>android-sdk-distribution</id>
+            <activation>
+                <property>
+		    <name>androidversion</name>
+		</property>
+	    </activation>
+
+            <build>
+		        <plugins>
+		            <plugin>
+			            <groupId>org.codehaus.mojo</groupId>
+			            <artifactId>exec-maven-plugin</artifactId>
+			            <version>1.1.1</version>
+			            <executions>
+			                <execution>
+		                        <id>java-sources</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+                                <configuration>
+                                   <mainClass>org.jboss.eap.additional.testsuite.source.distribution.AdditionalTestsuiteDistributeSources</mainClass>
+                                   <arguments>
+                                       <argument>${basedir}</argument>
+                                       <argument>${basedir}/modules/srcPool/main/java</argument>
+                                       <argument>${serverDir2}</argument>
+                                       <argument>${ANDROID_SDK_VERSION}</argument>
+                                       <argument>versionOrder</argument>
+                                       <argument>${DISABLE_TESTS}</argument>
+                                       <argument>${FEATURE_LIST}</argument>
+                                       <argument>${PM_FEATURES}</argument>
+                                       <argument>${DISABLE_SNAPSHOT_VERSIONS}</argument>
+                                       <argument>${JBOSS_GIT_DIR}</argument>
+                                       <argument>modules/testcases</argument>
+                                       <argument>src1/main/java</argument>
+                                       <argument>${activemodules}</argument>
+                                   </arguments>
+                                </configuration>
+			                </execution>
+                            <execution>
+		                        <id>configs</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+		                        <configuration>
+                                   <mainClass>org.jboss.eap.additional.testsuite.source.distribution.AdditionalTestsuiteDistributeSources</mainClass>
+                                   <arguments>
+                                       <argument>${basedir}</argument>
+                                       <argument>${basedir}/modules/srcPool/config</argument>
+                                       <argument>${serverDir2}</argument>
+                                       <argument>${ANDROID_SDK_VERSION}</argument>
+                                       <argument>versionOrder</argument>
+                                       <argument></argument>
+                                       <argument></argument>
+                                       <argument></argument>
+                                       <argument></argument>
+                                       <argument>${JBOSS_GIT_DIR}</argument>
+                                       <argument>modules/testcases</argument>
+                                       <argument>src1/main/java</argument>
+                                       <argument>${activemodules}</argument>
+                                    </arguments>
+                                </configuration>
+			                </execution>
+                        </executions>
+		            </plugin>
+	            </plugins>
+	        </build>
+        </profile>
         <profile>
              <id>Clean Sources</id>
              <activation>
