@@ -13,7 +13,7 @@ import org.jboss.resteasy.spi.ResteasyConfiguration;
 import org.jboss.resteasy.spi.validation.ConstraintTypeUtil;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdk11/Wildfly/jaxrs/src/main/java#25.0.0.Final","modules/testcases/jdk11/Eap7Plus/jaxrs/src/main/java#7.4.2"})
+@EAT({"modules/testcases/jdk11/Eap7Plus/jaxrs/src/main/java#7.4.2"})
 public class ResteasyViolationExceptionImpl extends ResteasyViolationException
 {
    private static final long serialVersionUID = 657697354453281559L;
