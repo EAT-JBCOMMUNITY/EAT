@@ -53,7 +53,7 @@ import static java.net.HttpURLConnection.HTTP_UNAUTHORIZED;
 @RunWith(Arquillian.class)
 @RunAsClient
 @ServerSetup(BearerAuthServerSetup.class)
-@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/security/src/main/java","modules/testcases/jdkAll/Wildfly/security/src/main/java#13.0.0","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/security/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java#7.2.0.CD14","modules/testcases/jdkAll/Eap72x/security/src/main/java#7.2.0.CD14","modules/testcases/jdkAll/Eap71x-Proposed/security/src/main/java#7.1.5","modules/testcases/jdkAll/Eap71x/security/src/main/java#7.1.5","modules/testcases/jdk11/Eap7Plus/security/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/security/src/main/java","modules/testcases/jdkAll/Wildfly/security/src/main/java#13.0.0.Final*27.0.0.Alpha3","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/security/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java#7.2.0.CD14","modules/testcases/jdkAll/Eap72x/security/src/main/java#7.2.0.CD14","modules/testcases/jdkAll/Eap71x-Proposed/security/src/main/java#7.1.5","modules/testcases/jdkAll/Eap71x/security/src/main/java#7.1.5","modules/testcases/jdk11/Eap7Plus/security/src/main/java"})
 public class BearerTokenAuthenticationTestCase {
 
     public static final String WEB_XML =

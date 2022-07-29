@@ -43,7 +43,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  */
 @Stateful
 @TransactionManagement(TransactionManagementType.CONTAINER)
-@EAT({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/jpa/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jpa/src/main/java","modules/testcases/jdkAll/Wildfly/jpa/src/main/java","modules/testcases/jdkAll/ServerBeta/jpa/src/main/java","modules/testcases/jdkAll/WildflyRelease-17.0.0.Final/jpa/src/main/java","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/jpa/src/main/java","modules/testcases/jdkAll/Eap72x/jpa/src/main/java#7.2.0.CD13","modules/testcases/jdkAll/Eap7Plus/jpa/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/jpa/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jpa/src/main/java","modules/testcases/jdkAll/Wildfly/jpa/src/main/java#13.0.0.Final*27.0.0.Alpha3","modules/testcases/jdkAll/ServerBeta/jpa/src/main/java","modules/testcases/jdkAll/WildflyRelease-17.0.0.Final/jpa/src/main/java","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/jpa/src/main/java","modules/testcases/jdkAll/Eap72x/jpa/src/main/java#7.2.0.CD13","modules/testcases/jdkAll/Eap7Plus/jpa/src/main/java"})
 public class SFSB {
 
     private static SessionFactory sessionFactory;
