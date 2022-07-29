@@ -1,0 +1,48 @@
+apply plugin: 'java'
+apply from: "./../dependencies.gradle"
+
+group = 'org.jboss'
+version = '1.0.3.Final'
+
+description = "wildfly additional testsuite: jaxrs"
+
+if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="jaxrs") || (project.getProperty('moduleName')=="all"))){
+
+dependencies {
+    implementation project(':modules:testcases:jdkAll:Wildfly:jaxrs:test-configurations')
+}
+
+if ("$System.env.JBOSS_VERSION"=="11.0.0.Beta1"){
+
+    ext.rootPath = System.getProperty("user.dir")
+    ext.version_org_jboss_resteasy = "3.0.23.Final"
+    //ext.artifactdir = ${settings.localRepository} 
+    ext.moduledir = project.buildDir.toString() + '/../../../../../../servers/wildfly/build/targer/jbossas/modules'
+    ext.resteasy_module = project.buildDir.toString() + '/../../../../../../src1/resources/updatedModulesJaxrs'
+    ext.resteasy_artifact = project.buildDir.toString() + '/../../../../../../src1/resources/updatedArtifactsJaxrs'
+
+    dependencies {
+        implementation "org.jboss.resteasy:resteasy-jaxrs:${version_org_jboss_resteasy}"
+    }
+
+    task copyFiles {
+        copy {
+            from ${resteasy_module}
+            into ${moduledir}
+            include '**/**'
+        }
+        /*copy {
+            from ${resteasy.artifact}
+            into ${artifactdir}
+            include '/'
+        }*/
+    }
+    
+    compileJava.dependsOn(copyFiles)
+
+}
+
+}
+
+
+

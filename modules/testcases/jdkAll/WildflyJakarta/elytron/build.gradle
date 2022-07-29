@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply from: "./../dependencies.gradle"
+
+group = 'org.jboss'
+version = '1.0.3.Final'
+
+description = "wildfly additional testsuite: elytron"
+
+if(project.hasProperty('moduleName') && project.hasProperty('includemvnredirections') && ((project.getProperty('moduleName')=="elytron") || (project.getProperty('moduleName')=="all"))){
+
+dependencies {
+  //  implementation project(':modules:testcases:jdkAll:Wildfly:elytron:test-configurations')
+}
+
+task runElytronWithMvn(type: Exec) {
+    workingDir project.buildDir.toString() + "/../"
+    commandLine "mvn", "clean", "install", "-Dwildfly", "-Dstandalone", "-Dmodule=elytron"
+}
+
+task myDeleteTask(type: Delete) {
+   delete files(project.buildDir.toString() + "/../../../../../servers/wildfly/build/target/jbossas/standalone/configuration/application-users")
+   delete files(project.buildDir.toString() + "/../../../../../servers/wildfly/build/target/jbossas/standalone/configuration/mgmt-users")
+}
+
+compileJava.dependsOn(myDeleteTask).dependsOn(runElytronWithMvn)
+
+}
