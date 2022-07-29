@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 
-@EAT({"modules/testcases/jdkAll/Wildfly/spring/src/main/java#23.0.0","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/spring/src/main/java","modules/testcases/jdkAll/ServerBeta/spring/src/main/java#21.0.0","modules/testcases/jdkAll/Eap7Plus/spring/src/main/java#7.3.5"})
+@EAT({"modules/testcases/jdkAll/Wildfly/spring/src/main/java#23.0.0.Final*27.0.0.Alpha3","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/spring/src/main/java","modules/testcases/jdkAll/ServerBeta/spring/src/main/java#21.0.0","modules/testcases/jdkAll/Eap7Plus/spring/src/main/java#7.3.5"})
 @RunWith(Arquillian.class)
 @RunAsClient
 public class JaxbProviderTests {

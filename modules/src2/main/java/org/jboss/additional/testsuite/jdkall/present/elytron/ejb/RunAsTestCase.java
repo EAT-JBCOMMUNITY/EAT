@@ -16,7 +16,7 @@ import static org.junit.Assert.assertTrue;
 import javax.ejb.EJB;
 import org.jboss.arquillian.junit.Arquillian;
 
-@EAT({"modules/testcases/jdkAll/Wildfly/elytron/src/main/java#27.0.0", "modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java#7.4.3"})
+@EAT({"modules/testcases/jdkAll/Wildfly/elytron/src/main/java#27.0.0.Alpha1*27.0.0.Alpha3", "modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java#7.4.3"})
 @RunWith(Arquillian.class)
 public class RunAsTestCase {
 
