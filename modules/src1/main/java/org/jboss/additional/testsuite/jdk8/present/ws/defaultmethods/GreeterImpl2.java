@@ -26,6 +26,6 @@ import javax.jws.WebService;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @WebService(targetNamespace = "http://defaultmethods.ws.jdk8.testsuite.additional.jboss.org/")
-@EAT({"modules/testcases/jdk8/WildflyRelease-13.0.0.Final/ws/src/main/java","modules/testcases/jdk8/Wildfly/ws/src/main/java","modules/testcases/jdk8/ServerBeta/ws/src/main/java","modules/testcases/jdk8/WildflyRelease-17.0.0.Final/ws/src/main/java","modules/testcases/jdk8/Eap7Plus/ws/src/main/java","modules/testcases/jdk8/Eap71x-Proposed/ws/src/main/java","modules/testcases/jdk8/Eap71x/ws/src/main/java","modules/testcases/jdk8/Eap70x/ws/src/main/java","modules/testcases/jdk8/Eap70x-Proposed/ws/src/main/java","modules/testcases/jdk8/WildflyRelease-20.0.0.Final/ws/src/main/java"})
+//@AT({"modules/testcases/jdk8/WildflyRelease-13.0.0.Final/ws/src/main/java","modules/testcases/jdk8/Wildfly/ws/src/main/java","modules/testcases/jdk8/ServerBeta/ws/src/main/java","modules/testcases/jdk8/WildflyRelease-17.0.0.Final/ws/src/main/java","modules/testcases/jdk8/Eap7Plus/ws/src/main/java","modules/testcases/jdk8/Eap71x-Proposed/ws/src/main/java","modules/testcases/jdk8/Eap71x/ws/src/main/java","modules/testcases/jdk8/Eap70x/ws/src/main/java","modules/testcases/jdk8/Eap70x-Proposed/ws/src/main/java","modules/testcases/jdk8/WildflyRelease-20.0.0.Final/ws/src/main/java"})
 public class GreeterImpl2 implements GreeterSEI {
 }
