@@ -1,0 +1,41 @@
+apply plugin: 'java'
+apply from: "./../../dependencies.gradle"
+
+group = 'org.jboss'
+version = '1.0.3.Final'
+
+description = "wildfly additional testsuite: server : configuration2"
+
+if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="server") || (project.getProperty('moduleName')=="all"))){
+
+task deleteFiles(type: Delete) {
+    delete fileTree(project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/deployments') {
+        include '**/**'
+    }
+}
+
+compileJava.dependsOn(deleteFiles)
+
+sourceSets {
+    test {
+      java {
+          srcDirs '../src'
+      }
+      resources {
+          srcDir 'src'
+      }
+    }
+}
+
+test {
+    systemProperty "jbosshome", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
+    systemProperty "java.util.logging.manager", 'org.jboss.logmanager.LogManager'
+    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src1/config/arqWildfly') 
+    systemProperty "arquillian.launch", "gradlejboss"
+    environment 'JBOSS_HOME', project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
+    filter {
+        excludeTestsMatching "org.jboss.additional.testsuite.jdkall.present.server.ModuleNotFoundExceptionTestCase"
+    }
+}
+
+}

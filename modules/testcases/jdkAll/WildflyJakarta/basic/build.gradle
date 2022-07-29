@@ -1,0 +1,16 @@
+apply plugin: 'java'
+apply from: "./../dependencies.gradle"
+
+group = 'org.jboss'
+version = '1.0.3.Final'
+
+description = "wildfly additional testsuite: additional testsuite for wildfly"
+
+
+if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="basic") || (project.getProperty('moduleName')=="all"))){
+
+    dependencies{
+        implementation project(':modules:testcases:jdkAll:Wildfly:basic:test-configurations')
+    }
+
+}

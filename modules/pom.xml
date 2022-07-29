@@ -1848,6 +1848,53 @@
             </modules>
 
         </profile>
+        
+        <profile>
+            <id>wildfly.jakarta.testsuite</id>
+            <activation>
+                <property>
+                    <name>wildfly-jakarta</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>prepare</id>
+                                <inherited>false</inherited>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir.xml">
+                                            <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas" />
+                                            <property name="jboss.folder" value="${JBOSS_FOLDER}" />
+                                            <target name="copy-server-dir"/>
+                                        </ant>
+                                        <ant antfile="${basedir}/src1/test/scripts/copy-server-dir-no-fail.xml">
+                                            <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas2" />
+                                            <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
+                                            <target name="copy-server-dir-no-fail"/>
+                                        </ant>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+
+            <modules>
+                <module>testcases/jdkAll/WildflyJakarta</module>
+            </modules>
+
+        </profile>
 
         <profile>
             <id>wildfly.jdk8.testsuite</id>

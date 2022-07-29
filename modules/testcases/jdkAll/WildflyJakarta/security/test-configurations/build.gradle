@@ -1,0 +1,63 @@
+apply plugin: 'java'
+apply from: "./../../dependencies.gradle"
+
+group = 'org.jboss'
+version = '1.0.3.Final'
+
+description = "wildfly additional testsuite: basic : configuration"
+
+if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="security") || (project.getProperty('moduleName')=="all"))){
+
+task deleteFiles(type: Delete) {
+    delete fileTree(project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/deployments') {
+        include '**/**'
+    }
+}
+
+task resourcecopy(type: Copy) {
+        from project.buildDir.toString() + '/../../../../../../src1/resources/securityRoles.war'
+        into project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/deployments'
+    }
+
+task resourcecopy2 {
+        copy {
+		from project.buildDir.toString() + '/../../../../../../src1/resources/keystores'
+		into project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/configuration'
+	    }
+    }
+
+task resourcecopy3(type: Copy) {
+        from project.buildDir.toString() + '/../../src/test/config/standaloneWildfly/standalone-full.xml'
+        into project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/configuration'
+    }
+
+
+compileJava.dependsOn(resourcecopy3).dependsOn(resourcecopy2).dependsOn(resourcecopy).dependsOn(deleteFiles)
+
+sourceSets {
+    test {
+      java {
+          srcDirs '../src'
+      }
+      resources {
+          srcDir 'src'
+      }
+    }
+}
+
+test {
+    systemProperty "jbosshome", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
+    systemProperty "jboss.dist", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
+    systemProperty "jboss.server.config.file.name", 'standalone-full.xml'
+    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src1/config/arqWildfly') 
+    systemProperty "arquillian.launch", "gradlejboss"
+    environment 'JBOSS_HOME', project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
+    filter {
+        excludeTest "org.jboss.additional.testsuite.jdkall.present.security.other.SecurityDeserializationTestCase", "testSecuirtyDatabind5"
+	excludeTestsMatching "org.jboss.additional.testsuite.jdkall.present.security.authentication.BasicAuthenticationTestCase"
+	excludeTestsMatching "org.jboss.additional.testsuite.jdkall.present.security.other.SecurityDeserializationTestCase"
+        excludeTestsMatching "org.jboss.additional.testsuite.jdkall.present.security.other.Jsr310DeserializationTestCase"
+    }
+}
+
+}
