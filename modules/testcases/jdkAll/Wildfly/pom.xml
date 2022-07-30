@@ -1170,7 +1170,7 @@
                 <dependencies>
                     <dependency>
                         <groupId>org.wildfly</groupId>
-                        <artifactId>wildfly-component-matrix</artifactId>
+                        <artifactId>wildfly-parent</artifactId>
                         <type>pom</type>
                         <version>${JBOSS_VERSION}</version>
                         <scope>import</scope>
