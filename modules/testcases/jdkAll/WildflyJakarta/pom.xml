@@ -36,7 +36,7 @@
                 <dependencies>
                     <dependency>
                         <groupId>org.wildfly</groupId>
-                        <artifactId>wildfly-parent</artifactId>
+                        <artifactId>wildfly-standard-ee-bom</artifactId>
                         <type>pom</type>
                         <version>${JBOSS_VERSION}</version>
                         <scope>import</scope>
@@ -94,7 +94,7 @@
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
                     <artifactId>artemis-server</artifactId>
-                    <version>2.23.1</version>
+                   
                 </dependency>
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
@@ -104,12 +104,10 @@
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
                     <artifactId>artemis-commons</artifactId>
-                    <version>2.23.1</version>
                 </dependency>
                 <dependency>
                    <groupId>org.apache.activemq</groupId>
                    <artifactId>artemis-journal</artifactId>
-                   <version>2.23.1</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
@@ -119,17 +117,14 @@
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
                     <artifactId>artemis-cli</artifactId>
-                    <version>2.23.1</version>
                 </dependency>
                 <dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>
 		    <artifactId>jackson-databind</artifactId>
-		    <version>2.12.6.1</version>
 		</dependency>
 		<dependency>
 		    <groupId>com.fasterxml.jackson.datatype</groupId>
 		    <artifactId>jackson-datatype-jsr310</artifactId>
-		    <version>2.11.2</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.wildfly</groupId>
@@ -139,7 +134,6 @@
                 <dependency>
 		    <groupId>joda-time</groupId>
 		    <artifactId>joda-time</artifactId>
-		    <version>2.10.14</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.spec.javax.jms</groupId>
@@ -179,7 +173,6 @@
                 <dependency>
 		    <groupId>org.jboss.ws.cxf</groupId>
 		    <artifactId>jbossws-cxf-client</artifactId>
-		    <version>5.5.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>javax.jws</groupId>
@@ -187,15 +180,8 @@
 		    <version>1.0-MR1</version>
 		</dependency>
 		<dependency>
-		    <groupId>org.apache.logging.log4j</groupId>
-		    <artifactId>log4j</artifactId>
-		    <version>2.17.2</version>
-		    <type>pom</type>
-		</dependency>
-		<dependency>
 		    <groupId>org.apache.activemq</groupId>
 		    <artifactId>artemis-core-client</artifactId>
-		    <version>2.23.1</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.activemq</groupId>
@@ -205,32 +191,26 @@
 		<dependency>
 		    <groupId>org.apache.lucene</groupId>
 		    <artifactId>lucene-core</artifactId>
-		    <version>9.2.0</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-databinding-jaxb</artifactId>
-		    <version>3.5.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-frontend-jaxws</artifactId>
-		    <version>3.5.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-frontend-simple</artifactId>
-		    <version>3.5.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-transports-http</artifactId>
-		    <version>3.5.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.ws.xmlschema</groupId>
 		    <artifactId>xmlschema-core</artifactId>
-		    <version>2.3.0</version>
 		    <scope>test</scope>
 		</dependency>
 		<dependency>
@@ -261,7 +241,6 @@
 		<dependency>
 		    <groupId>org.hibernate.validator</groupId>
 		    <artifactId>hibernate-validator</artifactId>
-		    <version>6.0.22.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss</groupId>
@@ -275,17 +254,11 @@
 		<dependency>
 		    <groupId>org.jboss.ejb3</groupId>
 		    <artifactId>jboss-ejb3-ext-api</artifactId>
-		    <version>2.3.0.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.ironjacamar</groupId>
-		    <artifactId>ironjacamar-core-impl</artifactId>
-		    <version>1.5.6.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.ironjacamar</groupId>
 		    <artifactId>ironjacamar-jdbc</artifactId>
-		    <version>1.5.6.Final</version>
+		    <version>1.5.7.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
@@ -295,43 +268,27 @@
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
 		    <artifactId>resteasy-core-spi</artifactId>
-		    <version>6.0.1.Final</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.jboss.resteasy</groupId>
 		    <artifactId>resteasy-client</artifactId>
-		    <version>6.0.1.Final</version>
 		</dependency>
                 <dependency>
                     <groupId>org.jboss.resteasy</groupId>
                     <artifactId>resteasy-client-api</artifactId>
-                    <version>6.0.1.Final</version>
                 </dependency>
                 <dependency>
                     <groupId>org.jboss.resteasy</groupId>
                     <artifactId>resteasy-core</artifactId>
-                    <version>6.0.1.Final</version>
                     <scope>test</scope>
-                </dependency>
-		<dependency>
-                    <groupId>org.wildfly</groupId>
-                    <artifactId>wildfly-jaxrs</artifactId>
-                    <version>27.0.0.Alpha3</version>
                 </dependency>
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
 		    <artifactId>resteasy-multipart-provider</artifactId>
-		    <version>6.0.1.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.security</groupId>
-		    <artifactId>jbossxacml</artifactId>
-		    <version>2.0.8.Final</version>
 		</dependency>
                 <dependency>
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-ext</artifactId>
-		    <version>1.7.25</version>
                 </dependency>
                 <dependency>
 		    <groupId>org.jboss.spec.javax.annotation</groupId>
@@ -371,17 +328,14 @@
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
 		    <artifactId>weld-api</artifactId>
-		    <version>5.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
 		    <artifactId>weld-core-impl</artifactId>
-		    <version>5.0.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
 		    <artifactId>weld-spi</artifactId>
-		    <version>5.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jsoup</groupId>
@@ -394,30 +348,15 @@
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>jipijapa-spi</artifactId>
-		    <version>27.0.0.Alpha3</version>
-		</dependency>
-		<!-- This is not desired, however the JCA tests seem to require this -->
-		<dependency>
-		    <groupId>org.wildfly</groupId>
-		    <artifactId>wildfly-connector</artifactId>
-		    <version>27.0.0.Alpha3</version>
-		    <scope>test</scope>
 		</dependency>
 		<!-- This is not desired, however the UncheckedStatelessBean requires this -->
 		<dependency>
 		    <groupId>org.wildfly</groupId>
-		    <artifactId>wildfly-ejb3</artifactId>
-		    <version>27.0.0.Alpha3</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-pojo</artifactId>
-		    <version>27.0.0.Alpha3</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-system-jmx</artifactId>
-		    <version>27.0.0.Alpha3</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.wildfly.core</groupId>
@@ -426,7 +365,6 @@
                 <dependency>
 		    <groupId>xalan</groupId>
 		    <artifactId>xalan</artifactId>
-		    <version>2.7.1.jbossorg-5</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.apache.openjpa</groupId>
@@ -531,7 +469,6 @@
 		<dependency>
 		    <groupId>org.codehaus.plexus</groupId>
 		    <artifactId>plexus-utils</artifactId>
-		    <version>3.4.1</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly.core</groupId>
@@ -544,7 +481,6 @@
                 <dependency>
 		    <groupId>org.eclipse</groupId>
 		    <artifactId>yasson</artifactId>
-		    <version>2.0.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>javax.json.bind</groupId>
@@ -558,33 +494,23 @@
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
-		    <artifactId>jaxrs-api</artifactId>
-		    <version>3.0.12.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.resteasy</groupId>
 		    <artifactId>resteasy-jaxb-provider</artifactId>
-		    <version>6.0.1.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
 		    <artifactId>resteasy-jackson2-provider</artifactId>
-		    <version>6.0.1.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>com.h2database</groupId>
 		    <artifactId>h2</artifactId>
-		    <version>2.1.210</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.dom4j</groupId>
 		    <artifactId>dom4j</artifactId>
-		    <version>2.1.3</version>
 		</dependency>
 		<dependency>
 		    <groupId>jakarta.annotation</groupId>
 		    <artifactId>jakarta.annotation-api</artifactId>
-		    <version>2.1.0</version>
 		</dependency>
 </dependencies>
 
@@ -1731,7 +1657,7 @@
 
         </profile>
 
-        <!--profile>
+        <profile>
             <id>basicActivate</id>
             <activation>
                 <property>
@@ -2102,7 +2028,7 @@
 		<module>batch</module>
                 <module>ejb</module>
             </modules>
-        </profile-->
+        </profile>
 
     </profiles>
 
