@@ -60,6 +60,11 @@
                 </dependency>
                 <dependency>
                     <groupId>org.wildfly</groupId>
+                    <artifactId>wildfly-testsuite-shared-jakarta</artifactId>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.wildfly</groupId>
                     <artifactId>wildfly-testsuite-shared</artifactId>
                     <scope>compile</scope>
                 </dependency>
@@ -127,11 +132,6 @@
 		    <artifactId>jackson-datatype-jsr310</artifactId>
 		</dependency>
                 <dependency>
-		    <groupId>org.wildfly</groupId>
-		    <artifactId>wildfly-batch-jberet</artifactId>
-		    <version>27.0.0.Alpha3</version>
-		</dependency>
-                <dependency>
 		    <groupId>joda-time</groupId>
 		    <artifactId>joda-time</artifactId>
 		</dependency>
@@ -166,9 +166,8 @@
                     <scope>compile</scope>
                 </dependency>
                 <dependency>
-                    <groupId>javax.enterprise.concurrent</groupId>
-                    <artifactId>javax.enterprise.concurrent-api</artifactId>
-                    <version>1.0</version>
+                    <groupId>jakarta.enterprise.concurrent</groupId>
+                    <artifactId>jakarta.enterprise.concurrent-api</artifactId>
                 </dependency>
                 <dependency>
 		    <groupId>org.jboss.ws.cxf</groupId>
@@ -532,6 +531,40 @@
 		  <groupId>jakarta.xml.bind</groupId>
 		  <artifactId>jakarta.xml.bind-api</artifactId>
 		</dependency>
+		    <dependency>
+                    <groupId>jakarta.batch</groupId>
+                    <artifactId>jakarta.batch-api</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.wildfly</groupId>
+                    <artifactId>wildfly-batch-jberet-jakarta</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.servlet</groupId>
+                    <artifactId>jakarta.servlet-api</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.servlet.jsp</groupId>
+                    <artifactId>jakarta.servlet.jsp-api</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.servlet.jsp.jstl</groupId>
+                    <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+                </dependency>
+                <dependency>
+		    <groupId>javax.enterprise</groupId>
+		    <artifactId>cdi-api</artifactId>
+		    <version>2.0</version>
+		    <scope>provided</scope>
+		</dependency>
+		<dependency>
+                    <groupId>org.jboss</groupId>
+                    <artifactId>jboss-ejb-client-jakarta</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.ejb</groupId>
+                    <artifactId>jakarta.ejb-api</artifactId>
+                </dependency>
 		<!--dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-api</artifactId>
