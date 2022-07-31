@@ -18,7 +18,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.junit.Assert;
 
 @RunWith(Arquillian.class)
-@EAT({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#27.0.0","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.4"})
+@EAT({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#27.0.0","modules/testcases/jdkAll/WildflyJakarta/core/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.4"})
 public class DataSourceConfigurationTestCase {
 
     @Deployment
