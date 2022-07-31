@@ -28,6 +28,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import javax.management.Attribute;
 
 import org.jboss.as.controller.OperationDefinition;
 import org.jboss.as.controller.PathAddress;
@@ -43,7 +44,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  *
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>
  */
-@EAT({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java#27.0.0.Alpha2","modules/testcases/jdkAll/Wildfly/logging/src/main/java#27.0.0.Alpha2","modules/testcases/jdkAll/Wildfly/jpa/src/main/java#27.0.0.Alpha2"})
+@EAT({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java#27.0.0.Alpha2","modules/testcases/jdkAll/Wildfly/logging/src/main/java#27.0.0.Alpha2","modules/testcases/jdkAll/Wildfly/jpa/src/main/java#27.0.0.Alpha2","modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyJakarta/logging/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyJakarta/jpa/src/main/java#27.0.0.Alpha4"})
 public final class Operations {
 
     private static final String INDEX = "index";

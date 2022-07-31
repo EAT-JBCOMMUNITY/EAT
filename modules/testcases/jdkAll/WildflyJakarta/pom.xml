@@ -565,6 +565,10 @@
                     <groupId>jakarta.ejb</groupId>
                     <artifactId>jakarta.ejb-api</artifactId>
                 </dependency>
+                <dependency>
+                    <groupId>org.wildfly</groupId>
+                    <artifactId>wildfly-ejb3-jakarta</artifactId>
+                </dependency>
 		<!--dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-api</artifactId>
@@ -582,7 +586,6 @@
 		<dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-bindings-soap</artifactId>
-
 		</dependency-->
             </dependencies>
 
