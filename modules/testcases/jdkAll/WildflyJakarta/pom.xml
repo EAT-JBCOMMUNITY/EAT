@@ -173,6 +173,7 @@
                 <dependency>
 		    <groupId>org.jboss.ws.cxf</groupId>
 		    <artifactId>jbossws-cxf-client</artifactId>
+		    <version>5.5.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>javax.jws</groupId>
@@ -207,6 +208,7 @@
 		<dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-transports-http</artifactId>
+		    <version>3.5.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.ws.xmlschema</groupId>
@@ -374,7 +376,7 @@
                 <dependency>
 		    <groupId>org.apache.axis2</groupId>
 		    <artifactId>axis2-jaxws</artifactId>
-		    <version>1.7.8</version>
+		    <version>1.8.2</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.jboss</groupId>
@@ -384,7 +386,7 @@
                 <dependency>
 		    <groupId>org.apache.axis2</groupId>
 		    <artifactId>axis2-transport-jms</artifactId>
-		    <version>1.7.9</version>
+		    <version>1.8.2</version>
 		</dependency>
                 <dependency>
                     <groupId>org.jboss.remotingjmx</groupId>
@@ -512,7 +514,44 @@
 		    <groupId>jakarta.annotation</groupId>
 		    <artifactId>jakarta.annotation-api</artifactId>
 		</dependency>
-</dependencies>
+		<dependency>
+		    <groupId>jakarta.xml.ws</groupId>
+		    <artifactId>jakarta.xml.ws-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.axis2</groupId>
+		    <artifactId>axis2-adb</artifactId>
+		    <version>1.8.2</version>
+	        </dependency>
+                <dependency>
+		  <groupId>org.apache.axis2</groupId>
+		  <artifactId>axis2-transport-local</artifactId>
+		  <version>1.8.2</version>
+		</dependency>
+		<dependency>
+		  <groupId>jakarta.xml.bind</groupId>
+		  <artifactId>jakarta.xml.bind-api</artifactId>
+		</dependency>
+		<!--dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-api</artifactId>
+		    <version>2.7.18</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-core</artifactId>
+		    <version>2.7.18</version>
+		</dependency>
+                <dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-wsdl</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-bindings-soap</artifactId>
+
+		</dependency-->
+            </dependencies>
 
         </profile>
 	    
