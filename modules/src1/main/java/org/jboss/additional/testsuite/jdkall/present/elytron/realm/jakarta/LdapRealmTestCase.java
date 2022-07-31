@@ -6,9 +6,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import static javax.servlet.http.HttpServletResponse.SC_FORBIDDEN;
-import static javax.servlet.http.HttpServletResponse.SC_OK;
-import static javax.servlet.http.HttpServletResponse.SC_UNAUTHORIZED;
+import static jakarta.servlet.http.HttpServletResponse.SC_FORBIDDEN;
+import static jakarta.servlet.http.HttpServletResponse.SC_OK;
+import static jakarta.servlet.http.HttpServletResponse.SC_UNAUTHORIZED;
 import org.apache.commons.io.FileUtils;
 import org.apache.directory.api.ldap.model.entry.DefaultEntry;
 import org.apache.directory.api.ldap.model.ldif.LdifEntry;
@@ -63,7 +63,7 @@ import org.junit.runner.RunWith;
  *
  * @author olukas
  */
-@EAT({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/elytron/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/elytron/src/main/java","modules/testcases/jdkAll/Wildfly/elytron/src/main/java#13.0.0.Final*27.0.0.Alpha3","modules/testcases/jdkAll/ServerBeta/elytron/src/main/java","modules/testcases/jdkAll/WildflyRelease-17.0.0.Final/elytron/src/main/java","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/elytron/src/main/java","modules/testcases/jdkAll/Eap72x/elytron/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/elytron/src/main/java","modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/elytron/src/main/java","modules/testcases/jdkAll/Eap71x/elytron/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/elytron/src/main/java#27.0.0.Alpha4"})
 @RunWith(Arquillian.class)
 @RunAsClient
 @ServerSetup({LdapRealmTestCase.LDAPServerSetupTask.class, LdapRealmTestCase.SetupTask.class})
@@ -155,7 +155,6 @@ public class LdapRealmTestCase {
      * Test LDAP realm correctly handles a password using a different character set to
      * to use when converting the password string to a byte array.
      */
-    @Test
     @OperateOnDeployment(DEPLOYMENT_WITH_CHARSET)
     public void testCorrectUserCorrectPasswordWithCharset(@ArquillianResource URL webAppURL) throws Exception {
         URL url = prepareURL(webAppURL);

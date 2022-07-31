@@ -22,20 +22,36 @@
 
 package org.jboss.additional.testsuite.jdkall.present.elytron.batch;
 
-import javax.ejb.LocalBean;
-import javax.ejb.Stateless;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
+import jakarta.batch.api.Batchlet;
+import jakarta.batch.runtime.context.JobContext;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
-import org.jboss.ejb3.annotation.SecurityDomain;
+import org.jboss.as.test.shared.TimeoutUtil;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
- * This is here as just a hack to be able to set the security domain of a deployment.
- * See https://issues.jboss.org/browse/JBEAP-8702 discussion for more context.
  * @author Jan Martiska
  */
-@EAT({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/elytron/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/elytron/src/main/java","modules/testcases/jdkAll/Wildfly/elytron/src/main/java","modules/testcases/jdkAll/WildflyJakarta/elytron/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/ServerBeta/elytron/src/main/java","modules/testcases/jdkAll/WildflyRelease-17.0.0.Final/elytron/src/main/java","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/elytron/src/main/java","modules/testcases/jdkAll/Eap72x/elytron/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/elytron/src/main/java","modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/elytron/src/main/java","modules/testcases/jdkAll/Eap71x/elytron/src/main/java"})
-@Stateless
-@SecurityDomain("BatchDomain2")
-@LocalBean
-public class SecurityDomainSettingEJB {
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/elytron/src/main/java#27.0.0.Alpha4"})
+@Named
+public class LongRunningBatchlet implements Batchlet {
+
+    private final CompletableFuture<Void> SHOULD_STOP = new CompletableFuture<>();
+
+    @Inject
+    JobContext ctx;
+
+    @Override
+    public String process() throws Exception {
+        SHOULD_STOP.get(TimeoutUtil.adjust(10), TimeUnit.SECONDS);
+        return null;
+    }
+
+    @Override
+    public void stop() throws Exception {
+        SHOULD_STOP.complete(null);
+    }
 }
