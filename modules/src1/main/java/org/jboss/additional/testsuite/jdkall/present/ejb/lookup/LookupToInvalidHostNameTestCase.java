@@ -62,7 +62,7 @@ import org.jboss.as.test.shared.TestSuiteEnvironment;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap72x/ejb/src/main/java","modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/ejb/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/ejb/src/main/java","modules/testcases/jdkAll/Eap71x/ejb/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap72x/ejb/src/main/java","modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/ejb/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/ejb/src/main/java","modules/testcases/jdkAll/Eap71x/ejb/src/main/java","modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0.Alpha4"})
 public class LookupToInvalidHostNameTestCase {
 
    private static final String ARCHIVE_NAME = "test-simple-ejb";
@@ -85,20 +85,8 @@ public class LookupToInvalidHostNameTestCase {
       props.put(Context.PROVIDER_URL, String.format("remote+http://%s:%d", host, 8080));
       Context ic = new InitialContext(props);
       // from some reason the deployment does not have name DEPLOYMENT but "test.war"
-      final String lookup = "test//" + TestSLSB.class.getSimpleName() + "!" + TestRemote.class.getName();
+      final String lookup = "test-???//" + TestSLSB.class.getSimpleName() + "!" + TestRemote.class.getName();
       return (TestRemote) ic.lookup(lookup);
-   }
-
-   /*
-   test if ejb is correctly deployed and accessible with using correct hostname
-    */
-   @Test
-   @OperateOnDeployment(DEPLOYMENT)
-   public void testLookUpWithCorrectHostname() throws Exception {
-      TestRemote proxy = lookup(TestSuiteEnvironment.getServerAddress());
-      String echo = "Answer to the Ultimate Question of Life, the Universe, and Everything";
-      String result = proxy.invoke(echo);
-      Assert.assertEquals(echo,result);
    }
 
    /*

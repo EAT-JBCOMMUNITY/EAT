@@ -54,7 +54,7 @@ import java.util.Properties;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/ejb/src/main/java","modules/testcases/jdkAll/Wildfly/ejb/src/main/java#16.0.0.Beta1*27.0.0.Alpha3", "modules/testcases/jdkAll/Eap72x/ejb/src/main/java#7.2.2", "modules/testcases/jdkAll/Eap72x-Proposed/ejb/main/java#7.2.2","modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.3.0.CD17"})
+@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/ejb/src/main/java","modules/testcases/jdkAll/Wildfly/ejb/src/main/java#16.0.0.Beta1*27.0.0.Alpha3", "modules/testcases/jdkAll/Eap72x/ejb/src/main/java#7.2.2", "modules/testcases/jdkAll/Eap72x-Proposed/ejb/main/java#7.2.2","modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.3.0.CD17","modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0.Alpha4"})
 public class JNDIBindingsNoAppNameTestCase {
 
     private static final String JAR_NAME = "ejb-jndi";
@@ -78,7 +78,7 @@ public class JNDIBindingsNoAppNameTestCase {
         int i = 0;
         while (i < lines.size() && !passed) {
             String line = lines.get(i);
-            if (line.contains("ejb:/test/Hello!org.jboss.additional.testsuite.jdkall.present.ejb.jndi.logging.Hello")) {
+            if (line.contains("ejb:/test") && line.contains("/Hello!org.jboss.additional.testsuite.jdkall.present.ejb.jndi.logging.Hello")) {
                 passed = true;
             }
             i++;
