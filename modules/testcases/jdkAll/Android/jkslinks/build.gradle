@@ -1,0 +1,27 @@
+apply plugin: 'java'
+
+group = 'org.jboss'
+version = '1.0.3.Final'
+
+description = "android additional testsuite: jkslinks"
+
+if (project.hasProperty('android')  && project.hasProperty('clone')){
+
+	task cloneJKSLinksProject(type: Exec) {
+		commandLine "git", "clone", "https://github.com/stefanos-vlachos/JKSLinks.git"
+	}
+
+	compileJava.dependsOn(cloneJKSLinksProject)
+
+}
+
+if (project.hasProperty('android') && project.hasProperty('create')){
+
+	task runJKSLinksProject(type: Exec) {
+		workingDir project.buildDir.toString() + "/../JKSLinks"
+		commandLine "./gradlew", "build"
+	}
+
+	compileJava.dependsOn(runJKSLinksProject)
+
+}
