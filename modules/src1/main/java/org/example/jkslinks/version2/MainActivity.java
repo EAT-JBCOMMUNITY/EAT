@@ -1,4 +1,3 @@
-/*@EAT({"modules/testcases/jdkAll/Android/jkslinks/JKSLinks/app/src/main/java/com/fari/jkslinks#10.0.0})*/
 package com.fari.jkslinks;
 
 import android.content.Intent;
@@ -8,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.telephony.emergency.EmergencyNumber;
 
+//@EAT({"modules/testcases/jdkAll/Android/jkslinks/JKSLinks/app/src/main/java/com/fari/jkslinks#29.0.0})
 public class MainActivity extends AppCompatActivity {
 
     @Override
