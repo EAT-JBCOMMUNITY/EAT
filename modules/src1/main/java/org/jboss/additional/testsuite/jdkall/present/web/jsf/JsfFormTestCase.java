@@ -20,7 +20,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-//@AT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.5", "modules/testcases/jdkAll/Wildfly/web/src/main/java#28.0.0"}) Not yet available 12-4-2022
+@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.5", "modules/testcases/jdkAll/Wildfly/web/src/main/java#28.0.0"})
 public class JsfFormTestCase {
 
     @Deployment(name = "jsf-form", testable = false)
