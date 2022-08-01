@@ -160,6 +160,7 @@
                 <activemodules>mycompanion</activemodules>
                 <activemodules>themesample</activemodules>
                 <activemodules>voxrec</activemodules>
+                <activemodules>jkslinks</activemodules>
 	        </properties>
         </profile>
         <profile>
