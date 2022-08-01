@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-//@EAT({"modules/testcases/jdkAll/Android/jkslinks/JKSLinks/app/src/main/java/com/fari/jkslinks#28.0.0*28.0.0})
+//@EAT({"modules/testcases/jdkAll/Android/jkslinks/JKSLinks/app/src/main/java#2.8.0*2.8.1"})
 public class MainActivity extends AppCompatActivity {
 
     @Override
