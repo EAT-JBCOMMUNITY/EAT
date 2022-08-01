@@ -1,4 +1,4 @@
-//@EAT({"modules/testcases/jdkAll/Android/jkslinks/JKSLinks#2.9.0"})
+//@EAT({"modules/testcases/jdkAll/Android/jkslinks/JKSLinks/app#2.9.0"})
 apply plugin: 'com.android.application'
 
 android {
