@@ -20,7 +20,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.4", "modules/testcases/jdkAll/Wildfly/web/src/main/java#27.0.0.Alpha1*27.0.0.Alpha3"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.4", "modules/testcases/jdkAll/Wildfly/web/src/main/java#27.0.0.Alpha1*27.0.0.Alpha3","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Alpha4"})
 public class JsonSerializerTestCase {
 
     private static final String DEPLOYMENT = "JsonSerializerApp";
