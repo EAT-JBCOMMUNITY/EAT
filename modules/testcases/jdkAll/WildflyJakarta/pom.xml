@@ -540,6 +540,10 @@
                     <artifactId>wildfly-batch-jberet-jakarta</artifactId>
                 </dependency>
                 <dependency>
+                    <groupId>org.jberet</groupId>
+                    <artifactId>jberet-core</artifactId>
+                </dependency>
+                <dependency>
                     <groupId>jakarta.servlet</groupId>
                     <artifactId>jakarta.servlet-api</artifactId>
                 </dependency>
@@ -697,11 +701,6 @@
 		<dependency>
 		    <groupId>com.fasterxml.jackson.datatype</groupId>
 		    <artifactId>jackson-datatype-jsr310</artifactId>
-		</dependency>
-                <dependency>
-		    <groupId>org.wildfly</groupId>
-		    <artifactId>wildfly-batch-jberet</artifactId>
-		    <version>27.0.0.Alpha3</version>
 		</dependency>
                 <dependency>
 		    <groupId>joda-time</groupId>
@@ -1197,11 +1196,6 @@
 		<dependency>
 		    <groupId>com.fasterxml.jackson.datatype</groupId>
 		    <artifactId>jackson-datatype-jsr310</artifactId>
-		</dependency>
-                <dependency>
-		    <groupId>org.wildfly</groupId>
-		    <artifactId>wildfly-batch-jberet</artifactId>
-		    <version>27.0.0.Alpha3</version>
 		</dependency>
                 <dependency>
 		    <groupId>joda-time</groupId>
