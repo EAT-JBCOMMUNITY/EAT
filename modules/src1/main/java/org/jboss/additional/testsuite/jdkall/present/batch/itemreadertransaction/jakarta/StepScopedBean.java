@@ -9,7 +9,7 @@ import org.jberet.cdi.StepScoped;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @StepScoped
-@EAT({"modules/testcases/jdkAll/Wildfly/batch/src/main/java#27.0.0","modules/testcases/jdkAll/WildflyJakarta/batch/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/Eap7Plus/batch/src/main/java#7.4.5"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/batch/src/main/java#27.0.0.Alpha4"})
 @Transactional(TxType.MANDATORY)
 public class StepScopedBean
 {
