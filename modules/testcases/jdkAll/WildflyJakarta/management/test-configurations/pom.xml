@@ -52,7 +52,7 @@
 
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
-                        <additionalClasspathElement>${jboss.modules.dir}/src1/config/arqWildfly</additionalClasspathElement>
+                        <additionalClasspathElement>${jboss.modules.dir}/src1/config/arqWildflyJakarta</additionalClasspathElement>
                     </additionalClasspathElements>
 
                 </configuration>

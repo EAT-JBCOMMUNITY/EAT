@@ -41,7 +41,7 @@
 
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
-                        <additionalClasspathElement>${jboss.modules.dir}/src1/config/arqWildfly/manualmode</additionalClasspathElement>
+                        <additionalClasspathElement>${jboss.modules.dir}/src1/config/arqWildflyJakarta/manualmode</additionalClasspathElement>
                     </additionalClasspathElements>
 
                     <systemPropertyVariables>
