@@ -92,6 +92,36 @@ public class ContainerInterceptorsTestCase {
         });
     }
 
- 
+     @Test
+    // force real remote invocation so that the RemotingConnectionEJBReceiver is used instead of a LocalEJBReceiver
+    @RunAsClient
+    public void testDataPassingForContainerInterceptorsOnRemoteViewUsingHttpClient() throws Exception {
+        // create some data that the client side interceptor will pass along during the EJB invocation
+        final Map<String, Object> interceptorData = new HashMap<String, Object>();
+        interceptorData.put(FlowTrackingBean.CONTEXT_DATA_KEY, NonContainerInterceptor.class.getName());
+        final SimpleEJBClientInterceptor clientInterceptor = new SimpleEJBClientInterceptor(interceptorData);
+        // get hold of the EJBClientContext and register the client side interceptor
+        EJBClientContext ejbClientContext = EJBClientContext.getCurrent().withAddedInterceptors(clientInterceptor);
+
+        final Hashtable<String, Object> jndiProps = new Hashtable<String, Object>();
+        jndiProps.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
+        jndiProps.put(Context.PROVIDER_URL, "http://localhost:8080/wildfly-services");
+        jndiProps.put(Context.SECURITY_PRINCIPAL, "ANONYMOUS");
+        jndiProps.put(Context.SECURITY_CREDENTIALS, "ANONYMOUS");
+        final Context jndiCtx = new InitialContext(jndiProps);
+        ejbClientContext.runCallable(() -> {
+            final FlowTracker bean = (FlowTracker) jndiCtx.lookup("ejb:/" + EJB_JAR_NAME + "/"
+                    + FlowTrackingBean.class.getSimpleName() + "!" + FlowTracker.class.getName());
+            final String message = "foo";
+            final String firstResult = bean.echo(message);
+            System.out.println("========= " + firstResult);
+
+            Assert.assertTrue("AnyKey=AnyValue should not be contained in the result",
+                    !firstResult.contains("AnyKey=AnyValue"));
+
+           
+            return null;
+        });
+    }
 
 }
