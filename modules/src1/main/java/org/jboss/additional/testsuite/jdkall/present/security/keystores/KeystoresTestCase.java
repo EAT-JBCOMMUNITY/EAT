@@ -19,7 +19,7 @@ import static org.junit.Assert.fail;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Wildfly/security/src/main/java#28.0.0", "modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.4.6"})
+@EAT({"modules/testcases/jdkAll/Wildfly/security/src/main/java#28.0.0", "modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.4.6","modules/testcases/jdkAll/WildflyJakarta/security/src/main/java#27.0.0.Alpha4"})
 public class KeystoresTestCase {
 
     private final String serverLogPath = "target/surefire-reports/org.jboss.additional.testsuite.jdkall.present.security.keystores.KeystoresTestCase-output.txt";

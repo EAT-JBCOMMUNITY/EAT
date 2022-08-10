@@ -25,7 +25,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Wildfly/security/src/main/java#27.0.0.Alpha1*27.0.0.Alpha3", "modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.4.4"})
+@EAT({"modules/testcases/jdkAll/Wildfly/security/src/main/java#27.0.0.Alpha1*27.0.0.Alpha3","modules/testcases/jdkAll/WildflyJakarta/security/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.4.4"})
 public class BasicAuthenticationTestCase {
 
     @Deployment
