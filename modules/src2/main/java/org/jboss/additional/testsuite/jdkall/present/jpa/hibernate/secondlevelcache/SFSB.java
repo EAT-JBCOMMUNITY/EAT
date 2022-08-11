@@ -58,16 +58,16 @@ public class SFSB {
         try {
 
             // prepare the configuration
-            Configuration configuration = new Configuration().setProperty(AvailableSettings.USE_NEW_ID_GENERATOR_MAPPINGS, "true");
+            Configuration configuration = new Configuration().setProperty("hibernate.id.new_generator_mappings", "true");
             configuration.getProperties().put(AvailableSettings.JTA_PLATFORM, JBossAppServerJtaPlatform.class);
             configuration.getProperties().put(AvailableSettings.TRANSACTION_COORDINATOR_STRATEGY, "jta");
-            configuration.setProperty(Environment.HBM2DDL_AUTO, "create-drop");
-            configuration.setProperty(Environment.DATASOURCE, "java:jboss/datasources/ExampleDS");
+            configuration.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+            configuration.setProperty("hibernate.connection.datasource", "java:jboss/datasources/ExampleDS");
             // fetch the properties
             Properties properties = new Properties();
             configuration = configuration.configure("hibernate.cfg.xml");
             properties.putAll(configuration.getProperties());
-            Environment.verifyProperties(properties);
+            // Environment.verifyProperties(properties);
             ConfigurationHelper.resolvePlaceHolders(properties);
 
             sessionFactory = configuration.buildSessionFactory();
