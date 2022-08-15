@@ -40,6 +40,7 @@
                 <!--<module>themesample</module>-->
                 <!--<module>voxrec</module>-->
                 <!--<module>jkslinks</module>-->
+                <!--<module>loginpanel</module>-->
             </modules>
         </profile>
         <profile>
@@ -160,6 +161,18 @@
             </activation>
             <modules>
                 <module>jkslinks</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>loginpanel</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>loginpanel</value>
+                </property>
+            </activation>
+            <modules>
+                <module>loginpanel</module>
             </modules>
         </profile>
     </profiles>
