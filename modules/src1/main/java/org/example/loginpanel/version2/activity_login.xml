@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- @EAT({"modules/testcases/jdkAll/Android/loginpanel/LoginPanel/app/src/main/res/values#2.0.0*2.0.1"}) -->
+<!-- @EAT({"modules/testcases/jdkAll/Android/loginpanel/LoginPanel/app/src/main/res/layout#2.0.0*2.0.1"}) -->
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -10,7 +10,7 @@
     tools:context=".LoginActivity">
 
     <ImageView
-        android:id="@+id/login_logo"
+        android:id="@+id/account"
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:src="@drawable/logo"

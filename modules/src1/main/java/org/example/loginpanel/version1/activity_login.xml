@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- @EAT({"modules/testcases/jdkAll/Android/loginpanel/LoginPanel/app/src/main/res/values#1.0.0*1.9.9"}) -->
+<!-- @EAT({"modules/testcases/jdkAll/Android/loginpanel/LoginPanel/app/src/main/res/layout#1.0.0*1.9.9"}) -->
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
