@@ -596,6 +596,33 @@
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-bindings-soap</artifactId>
 		</dependency>
+		<dependency>
+		    <groupId>org.infinispan</groupId>
+		    <artifactId>infinispan-client-hotrod</artifactId>
+		    <version>13.0.10.Final</version>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.infinispan</groupId>
+		    <artifactId>infinispan-server-testdriver-junit4</artifactId>
+		    <version>13.0.10.Final</version>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-clustering-common</artifactId>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-clustering-marshalling-api</artifactId>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-clustering-singleton-api</artifactId>
+		    <scope>test</scope>
+		</dependency>
             </dependencies>
 
         </profile>
