@@ -23,7 +23,7 @@ import org.jboss.eap.additional.testsuite.annotations.ATFeature;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/basic/src/main/java","modules/testcases/jdkAll/Wildfly/basic/src/main/java#17.0.0.Final","modules/testcases/jdkAll/WildflyJakarta/basic/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/ServerBeta/basic/src/main/java#17.0.0.Final","modules/testcases/jdkAll/WildflyRelease-17.0.0.Final/basic/src/main/java","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/basic/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/basic/src/main/java","modules/testcases/jdkAll/Wildfly/basic/src/main/java#17.0.0.Final","modules/testcases/jdkAll/WildflyJakarta/basic/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/basic/src/main/java","modules/testcases/jdkAll/ServerBeta/basic/src/main/java#17.0.0.Final","modules/testcases/jdkAll/WildflyRelease-17.0.0.Final/basic/src/main/java","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/basic/src/main/java"})
 public class JspTestCase {
 
     private static final String DEPLOYMENT = "jsp-test.war";

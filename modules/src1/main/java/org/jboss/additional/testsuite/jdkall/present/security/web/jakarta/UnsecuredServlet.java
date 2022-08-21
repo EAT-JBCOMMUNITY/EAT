@@ -32,7 +32,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/security/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/security/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/security/src/main/java"})
 @WebServlet(name = "UnsecuredServlet", urlPatterns = {UnsecuredServlet.URL_PATTERN})
 public class UnsecuredServlet extends HttpServlet {
 

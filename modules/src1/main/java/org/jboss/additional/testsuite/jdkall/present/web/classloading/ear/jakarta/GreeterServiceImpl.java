@@ -30,7 +30,7 @@ import jakarta.jws.WebService;
 @Singleton
 @WebService(serviceName = "GreeterService", portName = "Greeter", name = "Greeter", endpointInterface = "org.jboss.additional.testsuite.jdkall.present.web.classloading.ear.GreeterService",
     targetNamespace = "http://www.jboss.org/eap/additional/ts/Greeter")
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/web/src/main/java"})
 public class GreeterServiceImpl implements GreeterService {
 
     @Override

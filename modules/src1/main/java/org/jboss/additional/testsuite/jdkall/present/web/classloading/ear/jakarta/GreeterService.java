@@ -28,7 +28,7 @@ import jakarta.jws.WebMethod;
 import jakarta.jws.WebService;
 
 @WebService(targetNamespace = "http://www.jboss.org/eap/additional/ts/Greeter")
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/web/src/main/java"})
 public interface GreeterService {
 
     @WebMethod

@@ -35,7 +35,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  */
 @Singleton
 @ConcurrencyManagement(ConcurrencyManagementType.BEAN)
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/ejb/src/main/java"})
 public class AsyncBeanSynchronizeSingleton implements AsyncBeanSynchronizeSingletonRemote {
     private static volatile CountDownLatch latch = new CountDownLatch(1);
     private static volatile CountDownLatch latch2 = new CountDownLatch(1);

@@ -34,7 +34,7 @@ import java.io.IOException;
 import org.jboss.additional.testsuite.jdkall.present.logging.misc.log.LoggingUtil;
 
 @WebServlet(name = "SimpleServlet", urlPatterns = {"/simple2"})
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/logging/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/logging/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/logging/src/main/java"})
 public class LoggingTestServlet2 extends HttpServlet {
 
     private static final Logger LOGGER = Logger.getLogger(LoggingTestServlet2.class.getPackage().getName());

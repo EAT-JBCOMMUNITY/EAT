@@ -31,7 +31,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  */
 @Stateless
 @Remote(RemoteEcho.class)
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/ejb/src/main/java"})
 public class IndependentBean implements RemoteEcho {
     @Override
     public String echo(String msg) {

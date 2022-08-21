@@ -25,7 +25,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/clustering/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/clustering/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/clustering/src/main/java"})
 public class ClusterTopology implements Serializable {
     private static final long serialVersionUID = 413628123168918069L;
 

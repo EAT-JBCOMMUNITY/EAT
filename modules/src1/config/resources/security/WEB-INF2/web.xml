@@ -1,4 +1,4 @@
-<!-- @EAT({"modules/testcases/jdkAll/Wildfly/security/test-configurations/src/test/resources/WEB-INF2#27.0.0","modules/testcases/jdkAll/WildflyJakarta/security/test-configurations/src/test/resources/WEB-INF2#27.0.0.Alpha4","modules/testcases/jdkAll/Eap7Plus/security/test-configurations/src/test/resources/WEB-INF2#7.4.4"})-->
+<!-- @EAT({"modules/testcases/jdkAll/Wildfly/security/test-configurations/src/test/resources/WEB-INF2#27.0.0","modules/testcases/jdkAll/WildflyJakarta/security/test-configurations/src/test/resources/WEB-INF2#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/security/test-configurations/src/test/resources/WEB-INF2","modules/testcases/jdkAll/Eap7Plus/security/test-configurations/src/test/resources/WEB-INF2#7.4.4"})-->
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
 

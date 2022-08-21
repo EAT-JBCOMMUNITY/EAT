@@ -25,7 +25,7 @@ import org.hibernate.validator.constraints.Length;
 import org.jboss.additional.testsuite.jdkall.present.basic.beanvalidation.custom.MyOtherBean;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/basic/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/basic/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/basic/src/main/java"})
 @Path("/test")
 public class BeanValidationTestResource {
 

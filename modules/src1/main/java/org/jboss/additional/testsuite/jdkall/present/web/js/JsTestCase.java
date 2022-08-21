@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdk11/Eap7Plus/web/src/main/java#7.4.5", "modules/testcases/jdkAll/Wildfly/web/src/main/java#28.0.0","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdk11/Eap7Plus/web/src/main/java#7.4.5", "modules/testcases/jdkAll/Wildfly/web/src/main/java#28.0.0","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/web/src/main/java"})
 public class JsTestCase {
 
     @Test

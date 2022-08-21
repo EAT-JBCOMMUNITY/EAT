@@ -40,7 +40,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  * @author Eduardo Martins
  */
 @WebServlet(name = "SimpleServlet", urlPatterns = {"/simple"})
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/web/src/main/java"})
 public class DefaultConcurrencyTestServlet extends HttpServlet {
 
     @Resource

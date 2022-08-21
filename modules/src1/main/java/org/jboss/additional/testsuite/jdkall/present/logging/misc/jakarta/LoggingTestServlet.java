@@ -37,7 +37,7 @@ import org.jboss.logging.Logger;
  * @author Eduardo Martins
  */
 @WebServlet(name = "SimpleServlet", urlPatterns = {"/simple"})
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/logging/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/logging/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/logging/src/main/java"})
 public class LoggingTestServlet extends HttpServlet {
 
     private static final Logger LOGGER = Logger.getLogger(LoggingTestServlet.class.getPackage().getName());

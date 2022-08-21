@@ -31,7 +31,7 @@ import java.io.IOException;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @WebServlet(name = "ResponseBufferSizeServlet", urlPatterns = {"/ResponseBufferSizeServlet"})
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/web/src/main/java"})
 public class ResponseBufferSizeServlet extends HttpServlet {
 
     public static final String SIZE_CHANGE_PARAM_NAME = "sizeChange";

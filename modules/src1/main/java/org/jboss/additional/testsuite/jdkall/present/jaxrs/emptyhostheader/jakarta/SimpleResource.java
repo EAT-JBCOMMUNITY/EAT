@@ -34,7 +34,7 @@ import jakarta.ws.rs.core.UriInfo;
  * @author Ivo Studensky
  */
 @Path("/host")
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/jaxrs/src/main/java"})
 public class SimpleResource {
     private static Logger log = Logger.getLogger(SimpleResource.class.getName());
 

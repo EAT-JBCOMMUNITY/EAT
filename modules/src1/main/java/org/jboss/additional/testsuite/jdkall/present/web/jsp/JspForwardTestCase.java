@@ -26,7 +26,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.1","modules/testcases/jdkAll/Wildfly/web/src/main/java#24.0.0","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.1","modules/testcases/jdkAll/Wildfly/web/src/main/java#24.0.0","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/web/src/main/java"})
 public class JspForwardTestCase {
 
     private static final String JSP_DEPLOYMENT = "forwardjsp";

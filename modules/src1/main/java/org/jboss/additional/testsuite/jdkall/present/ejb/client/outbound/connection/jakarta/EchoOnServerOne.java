@@ -32,7 +32,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  */
 @Stateless
 @Remote(RemoteEcho.class)
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/ejb/src/main/java"})
 public class EchoOnServerOne implements RemoteEcho {
     @EJB (lookup = "ejb:/server-two-module//EchoOnServerTwo!org.jboss.additional.testsuite.jdkall.present.ejb.client.outbound.connection.RemoteEcho")
     private RemoteEcho echoOnServerTwo;

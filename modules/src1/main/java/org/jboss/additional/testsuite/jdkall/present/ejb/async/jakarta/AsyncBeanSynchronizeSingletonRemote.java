@@ -29,7 +29,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  * @author Ondrej Chaloupka
  */
 @Remote
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/ejb/src/main/java"})
 public interface AsyncBeanSynchronizeSingletonRemote {
     void reset();    
     void latchCountDown();

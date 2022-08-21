@@ -26,7 +26,7 @@ import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/clustering/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/clustering/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/clustering/src/main/java"})
 public class Mutable implements Serializable {
     private static final long serialVersionUID = -5129400250276547619L;
     private transient boolean serialized = false;

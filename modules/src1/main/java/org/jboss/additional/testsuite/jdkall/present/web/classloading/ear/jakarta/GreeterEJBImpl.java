@@ -31,7 +31,7 @@ import java.net.MalformedURLException;
 
 @WebService
 @Stateless
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/web/src/main/java"})
 public class GreeterEJBImpl implements GreeterEJB {
 
     public static final String CLASS_NAME = GreeterEJBImpl.class.getSimpleName();

@@ -72,7 +72,7 @@ import static org.junit.Assert.fail;
  */
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/domain/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/domain/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/domain/src/main/java"})
 public class EEConcurrencyExecutorShutdownTestCase {
 
     private static final String ARCHIVE_FILE_NAME = "test.war";

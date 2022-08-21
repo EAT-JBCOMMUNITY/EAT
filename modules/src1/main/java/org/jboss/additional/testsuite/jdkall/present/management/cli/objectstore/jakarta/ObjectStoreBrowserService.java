@@ -36,7 +36,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  */
 @Singleton
 @Startup
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/management/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/management/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/management/src/main/java"})
 public class ObjectStoreBrowserService {
 
     private RecoveryStoreBean rsb;
