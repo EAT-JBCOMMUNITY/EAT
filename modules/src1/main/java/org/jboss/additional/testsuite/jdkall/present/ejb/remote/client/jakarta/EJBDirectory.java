@@ -33,7 +33,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  *
  * @author Paul Ferraro
  */
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/ejb/src/main/java"})
 public interface EJBDirectory extends AutoCloseable {
     <T> T lookupStateful(String beanName, Class<T> beanInterface) throws NamingException;
 

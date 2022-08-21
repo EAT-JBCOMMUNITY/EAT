@@ -20,7 +20,7 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-<!-- @EAT({"modules/testcases/jdkAll/WildflyJakarta/clustering/test-configurations/src/test/resources"}) -->
+<!-- @EAT({"modules/testcases/jdkAll/WildflyJakarta/clustering/test-configurations/src/test/resources","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/clustering/test-configurations/src/test/resources"}) -->
 <web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"

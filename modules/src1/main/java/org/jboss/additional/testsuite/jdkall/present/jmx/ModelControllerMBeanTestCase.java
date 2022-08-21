@@ -56,7 +56,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jmx/src/main/java","modules/testcases/jdkAll/Wildfly/jmx/src/main/java","modules/testcases/jdkAll/WildflyJakarta/jmx/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/ServerBeta/jmx/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jmx/src/main/java","modules/testcases/jdkAll/Wildfly/jmx/src/main/java","modules/testcases/jdkAll/WildflyJakarta/jmx/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/jmx/src/main/java","modules/testcases/jdkAll/ServerBeta/jmx/src/main/java"})
 public class ModelControllerMBeanTestCase {
 
     private static final String RESOLVED_DOMAIN = "jboss.as";

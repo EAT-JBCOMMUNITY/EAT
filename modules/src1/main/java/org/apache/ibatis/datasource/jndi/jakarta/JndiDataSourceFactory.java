@@ -27,7 +27,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 import java.util.Properties;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/jaxrs/src/main/java"})
 @XmlRootElement
 public class JndiDataSourceFactory {
     Properties properties;

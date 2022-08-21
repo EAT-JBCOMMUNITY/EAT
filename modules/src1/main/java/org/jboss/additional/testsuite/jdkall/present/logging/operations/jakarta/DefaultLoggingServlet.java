@@ -36,7 +36,7 @@ import org.jboss.logging.Logger;
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>
  */
 @WebServlet("/logger")
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/logging/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/logging/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/logging/src/main/java"})
 public class DefaultLoggingServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = Logger.getLogger(DefaultLoggingServlet.class.getPackage().getName());

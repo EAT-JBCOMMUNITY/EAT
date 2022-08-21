@@ -31,7 +31,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @WebServlet(urlPatterns = "/addr")
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/elytron/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/elytron/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/elytron/src/main/java"})
 public class RemoteIpServlet extends HttpServlet {
 
     @Override

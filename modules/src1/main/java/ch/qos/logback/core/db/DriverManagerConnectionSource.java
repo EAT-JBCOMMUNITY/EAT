@@ -2,7 +2,7 @@ package ch.qos.logback.core.db;
 
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/security/src/main/java","modules/testcases/jdkAll/Wildfly/security/src/main/java#17.0.0.Final","modules/testcases/jdkAll/ServerBeta/basic/src/main/java#17.0.0.Final","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/security/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java#7.2.4","modules/testcases/jdkAll/Eap72x/security/src/main/java#7.2.4","modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.3.0.GA","modules/testcases/jdkAll/WildflyJakarta/security/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/security/src/main/java","modules/testcases/jdkAll/Wildfly/security/src/main/java#17.0.0.Final","modules/testcases/jdkAll/ServerBeta/basic/src/main/java#17.0.0.Final","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/security/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java#7.2.4","modules/testcases/jdkAll/Eap72x/security/src/main/java#7.2.4","modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.3.0.GA","modules/testcases/jdkAll/WildflyJakarta/security/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/security/src/main/java"})
 public class DriverManagerConnectionSource {
 
 }

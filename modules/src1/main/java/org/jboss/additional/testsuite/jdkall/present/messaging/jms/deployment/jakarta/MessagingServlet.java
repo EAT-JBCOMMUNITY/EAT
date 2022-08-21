@@ -46,7 +46,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  * @author <a href="http://jmesnil.net/">Jeff Mesnil</a> (c) 2014 Red Hat inc.
  */
 @WebServlet("/DependentMessagingDeploymentTestCase")
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/messaging/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/messaging/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/messaging/src/main/java"})
 public class MessagingServlet extends HttpServlet {
 
     @Resource(lookup = QUEUE_LOOKUP)

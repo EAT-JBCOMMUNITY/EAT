@@ -38,7 +38,7 @@ import org.wildfly.clustering.singleton.SingletonElectionListener;
  */
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/clustering/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/clustering/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/clustering/src/main/java"})
 public class SingletonElectionListenerService implements Service, SingletonElectionListener, Supplier<Node> {
     private final Consumer<Supplier<Node>> injector;
     private volatile Node primaryMember = null;

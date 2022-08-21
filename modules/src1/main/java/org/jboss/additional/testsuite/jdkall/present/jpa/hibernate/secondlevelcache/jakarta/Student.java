@@ -33,7 +33,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  *
  * @author Madhumita Sadhukhan
  */
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jpa/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jpa/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/jpa/src/main/java"})
 @Entity
 @Cache(usage=TRANSACTIONAL)
 public class Student {

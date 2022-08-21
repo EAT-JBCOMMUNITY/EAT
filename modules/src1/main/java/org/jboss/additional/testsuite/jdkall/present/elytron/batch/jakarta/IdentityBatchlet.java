@@ -32,7 +32,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 /**
  * @author Jan Martiska
  */
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/elytron/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/elytron/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/elytron/src/main/java"})
 @Named
 public class IdentityBatchlet implements Batchlet {
 

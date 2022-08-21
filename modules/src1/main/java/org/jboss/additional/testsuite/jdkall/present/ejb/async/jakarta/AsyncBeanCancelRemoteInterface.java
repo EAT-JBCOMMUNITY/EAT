@@ -30,7 +30,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  * Remote interface for testing cancel method asynchronously.
  */
 @Remote
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/ejb/src/main/java"})
 public interface AsyncBeanCancelRemoteInterface {
     Future<String> asyncRemoteCancelMethod() throws InterruptedException;
 }

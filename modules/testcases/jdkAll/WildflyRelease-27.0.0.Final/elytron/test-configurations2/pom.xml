@@ -10,12 +10,12 @@
 
     <parent>
         <groupId>org.jboss</groupId>
-        <artifactId>wildfly-additional-testsuite-elytron</artifactId>
+        <artifactId>wildfly-release-27.0.0.Final-additional-testsuite-elytron</artifactId>
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>wildfly-additional-testsuite-elytron-configuration2</artifactId>
-    <name>wildfly additional testsuite: elytron : configuration2</name>
+    <artifactId>wildfly-release-27.0.0.Final-additional-testsuite-elytron-configuration2</artifactId>
+    <name>wildfly-release-27.0.0.Final additional testsuite: elytron : configuration2</name>
             
     <properties>
         <standalone.conf>../src/test/config2/standaloneWildfly/standalone-full.xml</standalone.conf>

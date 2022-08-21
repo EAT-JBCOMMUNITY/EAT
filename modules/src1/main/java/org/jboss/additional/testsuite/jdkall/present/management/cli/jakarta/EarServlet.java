@@ -13,7 +13,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  * @author Stuart Douglas
  */
 @WebServlet(urlPatterns = "/EarServlet")
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/management/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/management/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/management/src/main/java"})
 public class EarServlet extends HttpServlet {
 
     @Override
