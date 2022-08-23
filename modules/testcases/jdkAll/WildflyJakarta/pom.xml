@@ -616,10 +616,10 @@
         </profile>
 	    
 	<profile>
-            <id>standalone2</id>
+            <id>server-integration</id>
             <activation>
                 <property>
-                    <name>standalone2</name>
+                    <name>server-integration</name>
                     <value>true</value>
                 </property>
             </activation>
@@ -637,6 +637,7 @@
             </dependencyManagement>
 
             <dependencies>
+                <dependencies>
                 <dependency>
                     <groupId>org.wildfly.arquillian</groupId>
                     <artifactId>wildfly-arquillian-container-managed</artifactId>
@@ -648,6 +649,11 @@
                 <dependency>
                     <groupId>org.jboss.shrinkwrap</groupId>
                     <artifactId>shrinkwrap-api</artifactId>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.wildfly</groupId>
+                    <artifactId>wildfly-testsuite-shared-jakarta</artifactId>
                     <scope>compile</scope>
                 </dependency>
                 <dependency>
@@ -753,13 +759,13 @@
                     <scope>compile</scope>
                 </dependency>
                 <dependency>
-                    <groupId>javax.enterprise.concurrent</groupId>
-                    <artifactId>javax.enterprise.concurrent-api</artifactId>
-                    <version>1.0</version>
+                    <groupId>jakarta.enterprise.concurrent</groupId>
+                    <artifactId>jakarta.enterprise.concurrent-api</artifactId>
                 </dependency>
                 <dependency>
 		    <groupId>org.jboss.ws.cxf</groupId>
 		    <artifactId>jbossws-cxf-client</artifactId>
+		    <version>5.5.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>javax.jws</groupId>
@@ -794,6 +800,7 @@
 		<dependency>
 		    <groupId>org.apache.cxf</groupId>
 		    <artifactId>cxf-rt-transports-http</artifactId>
+		    <version>3.5.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.ws.xmlschema</groupId>
@@ -961,7 +968,7 @@
                 <dependency>
 		    <groupId>org.apache.axis2</groupId>
 		    <artifactId>axis2-jaxws</artifactId>
-		    <version>1.7.8</version>
+		    <version>1.8.2</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.jboss</groupId>
@@ -971,7 +978,7 @@
                 <dependency>
 		    <groupId>org.apache.axis2</groupId>
 		    <artifactId>axis2-transport-jms</artifactId>
-		    <version>1.7.9</version>
+		    <version>1.8.2</version>
 		</dependency>
                 <dependency>
                     <groupId>org.jboss.remotingjmx</groupId>
@@ -1098,6 +1105,104 @@
 		<dependency>
 		    <groupId>jakarta.annotation</groupId>
 		    <artifactId>jakarta.annotation-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>jakarta.xml.ws</groupId>
+		    <artifactId>jakarta.xml.ws-api</artifactId>
+		    <version>4.0.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.axis2</groupId>
+		    <artifactId>axis2-adb</artifactId>
+		    <version>1.8.2</version>
+	        </dependency>
+                <dependency>
+		  <groupId>org.apache.axis2</groupId>
+		  <artifactId>axis2-transport-local</artifactId>
+		  <version>1.8.2</version>
+		</dependency>
+		<dependency>
+		  <groupId>jakarta.xml.bind</groupId>
+		  <artifactId>jakarta.xml.bind-api</artifactId>
+		</dependency>
+		    <dependency>
+                    <groupId>jakarta.batch</groupId>
+                    <artifactId>jakarta.batch-api</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.wildfly</groupId>
+                    <artifactId>wildfly-batch-jberet-jakarta</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.jberet</groupId>
+                    <artifactId>jberet-core</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.servlet</groupId>
+                    <artifactId>jakarta.servlet-api</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.servlet.jsp</groupId>
+                    <artifactId>jakarta.servlet.jsp-api</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.servlet.jsp.jstl</groupId>
+                    <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+                </dependency>
+                <dependency>
+		    <groupId>javax.enterprise</groupId>
+		    <artifactId>cdi-api</artifactId>
+		    <version>2.0</version>
+		    <scope>provided</scope>
+		</dependency>
+		<dependency>
+                    <groupId>org.jboss</groupId>
+                    <artifactId>jboss-ejb-client-jakarta</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.ejb</groupId>
+                    <artifactId>jakarta.ejb-api</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.wildfly</groupId>
+                    <artifactId>wildfly-ejb3-jakarta</artifactId>
+                </dependency>
+                <dependency>
+		    <groupId>jakarta.json.bind</groupId>
+		    <artifactId>jakarta.json.bind-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-api</artifactId>
+		    <version>2.7.18</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-core</artifactId>
+		    <version>2.7.18</version>
+		</dependency>
+                <dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-wsdl</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-bindings-soap</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-clustering-common</artifactId>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-clustering-marshalling-api</artifactId>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-clustering-singleton-api</artifactId>
+		    <scope>test</scope>
 		</dependency>
 </dependencies>
 
