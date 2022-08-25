@@ -38,7 +38,7 @@ Testing Wildfly
 ---------------
 1. Make sure that JBOSS_FOLDER environment variable is set with the path to your WILDFLY directory.
 2. Make sure that JBOSS_VERSION environment variable is set with the version of WILDFLY Server.
-3. Build and run the additional testsuite activating the WILDFLY profile (-Dwildfly -Dstandalone).
+3. Build and run the additional testsuite activating the WILDFLY profile (-Dwildfly -Dstandalone or -Dwildfly-jakarta -Dstandalone).
 4. If you want to use http add -Dmaven.repository.protocol=http (Section : Using HTTPS below)
 5. If you would like/need to disable snapshot versions add -DDISABLE_SNAPSHOT_VERSIONS=true
 6. Sometimes enforcer rules need to be skipped adding -Denforcer.skip
@@ -247,7 +247,7 @@ Supposing that we would like to add Mtom TestCase for Wildfly (master) and Eap 7
 4. Enable the Mtom TestCase in [Wildfy Web Configuration pom](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Wildfly/web/test-configurations/pom.xml) (for Wildfly) and [Eap7+ Web Configuration pom](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Eap7/web/test-configurations/pom.xml) (for Eap7+)
 
 5. Build the Eap Additional Testsuite for Wildfy and Eap7 (having set the equivalent JBOSS_FOLDER and JBOSS_VERSION environment variables) :
-    - mvn clean install -Dwildfly -Dstandalone (for Wildfly)
+    - mvn clean install -Dwildfly -Dstandalone (for Wildfly) or mvn clean install -Dwildfly-jakarta -Dstandalone (for Jakarta Wildfly) 
     - mvn clean install -Deap7+ -Dstandalone (for Eap7+)
     
  
