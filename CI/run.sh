@@ -27,6 +27,20 @@ elif [ "$1" == "-wildfly" ]; then
 	echo ""
 	
 	./pr.sh
+elif [ "$1" == "-wildfly-jakarta" ]; then
+	export PROGRAM="https://github.com/wildfly/wildfly"
+	export AT="https://github.com/EAT-JBCOMMUNITY/EAT"
+	export ADDITIONAL_PARAMS=-Denforcer.skip
+	export PROGRAM_BRANCH="main"
+	export TEST_CATEGORY=wildfly-jakarta
+	
+	./v.sh
+	echo ""
+	
+	echo "Testing: Latest Wildfly + EAT"
+	echo ""
+	
+	./pr.sh
 elif [ "$1" == "-all" ]; then
 	./all.sh $2 $3
 elif [ "$1" == "-at" ]; then
