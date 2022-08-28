@@ -12,7 +12,8 @@ public enum Commands {
     OPENLIBERTY("-openliberty"),
     SPRINGBOOT("-springboot"),
     V("-v"),
-    WILDFLY("-wildfly");
+    WILDFLY("-wildfly"),
+    WILDFLYJAKARTA("-wildfly-jakarta");
     
     private String command;
     
