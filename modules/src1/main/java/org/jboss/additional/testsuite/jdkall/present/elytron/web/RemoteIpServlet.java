@@ -31,7 +31,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @WebServlet(urlPatterns = "/addr")
-@EAT({"modules/testcases/jdkAll/Wildfly/elytron/src/main/java#27.0.0.Beta1"})
+@EAT({"modules/testcases/jdkAll/Wildfly/elytron/src/main/java#27.0.0.Alpha1"})
 public class RemoteIpServlet extends HttpServlet {
 
     @Override
