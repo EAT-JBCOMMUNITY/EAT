@@ -90,7 +90,7 @@ import io.undertow.util.FileUtils;
 @RunWith(Arquillian.class)
 @ServerSetup(ListenerTestCase.SslContextSetup.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Wildfly/elytron/src/main/java#27.0.0.Beta1*27.0.0.Alpha3","modules/testcases/jdkAll/WildflyJakarta/elytron/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/elytron/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Wildfly/elytron/src/main/java#27.0.0.Alpha1*27.0.0.Alpha3","modules/testcases/jdkAll/WildflyJakarta/elytron/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/elytron/src/main/java"})
 public class ListenerTestCase extends ContainerResourceMgmtTestBase {
 
     /**
