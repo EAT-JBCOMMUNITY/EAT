@@ -50,6 +50,9 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  *
  * @author Jaikiran Pai
  */
+/**
+ * HOW TO TEST : TEST WITH WIRESHARK. "AnyKey=AnyValue" should not exist in the DATA.
+ */
 //@AT({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java#27.0.0.Alpha3"})
 @RunWith(Arquillian.class)
 public class ContainerInterceptorsTestCase {
@@ -84,8 +87,9 @@ public class ContainerInterceptorsTestCase {
             final String firstResult = bean.echo(message);
             System.out.println("========= " + firstResult);
 
+            // This assertion is always true. Should be checked with wireshark.
             Assert.assertTrue("AnyKey=AnyValue should not be contained in the result",
-                    !firstResult.contains("AnyKey=AnyValue"));
+                    !firstResult.contains("AnyKey=AnyValue")); 
 
            
             return null;
@@ -116,6 +120,7 @@ public class ContainerInterceptorsTestCase {
             final String firstResult = bean.echo(message);
             System.out.println("========= " + firstResult);
 
+            // This assertion is always true. Should be checked with wireshark.
             Assert.assertTrue("AnyKey=AnyValue should not be contained in the result",
                     !firstResult.contains("AnyKey=AnyValue"));
 
