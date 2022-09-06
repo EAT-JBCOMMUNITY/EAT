@@ -52,7 +52,7 @@ public class FlowTrackingBean implements FlowTracker {
     protected Object aroundInvoke(InvocationContext invocationContext) throws Exception {
         logger.trace("@AroundInvoke on bean invoked");
         System.out.println("invocationContext.getContextData() " + invocationContext.getContextData());
-        return invocationContext.getContextData() + " " + invocationContext.proceed();
+        return invocationContext.proceed();
     }
 
     public String echo(final String msg) {
