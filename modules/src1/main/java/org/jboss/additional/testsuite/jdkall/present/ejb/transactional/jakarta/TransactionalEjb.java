@@ -1,15 +1,15 @@
 package org.jboss.additional.testsuite.jdkall.present.ejb.transactional;
 
 import java.util.Properties;
-import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import static javax.ejb.TransactionAttributeType.NOT_SUPPORTED;
-import static javax.ejb.TransactionAttributeType.REQUIRED;
+import jakarta.ejb.Stateless;
+import jakarta.ejb.TransactionAttribute;
+import static jakarta.ejb.TransactionAttributeType.NOT_SUPPORTED;
+import static jakarta.ejb.TransactionAttributeType.REQUIRED;
 import javax.naming.InitialContext;
 import javax.transaction.UserTransaction;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.8"})
+@EAT({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java#28.0.0"})
 @Stateless
 public class TransactionalEjb {
 
