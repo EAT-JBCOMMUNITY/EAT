@@ -150,7 +150,7 @@ else if (project.hasProperty('standalone2')){
     implementation 'javax.validation:validation-api:2.0.0.Final'
     implementation 'io.smallrye.config:smallrye-config:2.10.0'
         implementation 'org.apache.activemq:artemis-commons:2.23.1'
-        implementation 'org.apache.activemq:artemis-journal:2.23.1
+        implementation 'org.apache.activemq:artemis-journal:2.23.1'
         implementation 'org.apache.activemq:artemis-jms-server:2.22.0'
         implementation 'org.apache.activemq:artemis-cli:2.23.1'
         implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.6.1'
