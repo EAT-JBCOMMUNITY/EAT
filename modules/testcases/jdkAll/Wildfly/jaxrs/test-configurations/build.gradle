@@ -34,6 +34,7 @@ test {
     environment 'JBOSS_HOME', project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     filter {
         excludeTestsMatching "org.jboss.additional.testsuite.jdkall.present.jaxrs.jaxb.JaxbProviderDeserializationSecurityCheckTestCase"
+        excludeTestsMatching "org.jboss.eap.jca.ds.h2.DataSourceConfigurationTestCase"
     }
 }
 
