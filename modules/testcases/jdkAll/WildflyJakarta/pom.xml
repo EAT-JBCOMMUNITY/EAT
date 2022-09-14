@@ -612,6 +612,16 @@
 		    <artifactId>wildfly-clustering-singleton-api</artifactId>
 		    <scope>test</scope>
 		</dependency>
+		<dependency>
+		    <groupId>org.wildfly.security</groupId>
+		    <artifactId>wildfly-elytron-jacc</artifactId>
+		    <version>2.0.0.Alpha10</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly.security</groupId>
+		    <artifactId>wildfly-elytron-jaspi</artifactId>
+		    <version>2.0.0.Alpha10</version>
+		</dependency>
             </dependencies>
 
         </profile>
@@ -1204,6 +1214,16 @@
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-clustering-singleton-api</artifactId>
 		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly.security</groupId>
+		    <artifactId>wildfly-elytron-jacc</artifactId>
+		    <version>2.0.0.Alpha10</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly.security</groupId>
+		    <artifactId>wildfly-elytron-jaspi</artifactId>
+		    <version>2.0.0.Alpha10</version>
 		</dependency>
 </dependencies>
 
