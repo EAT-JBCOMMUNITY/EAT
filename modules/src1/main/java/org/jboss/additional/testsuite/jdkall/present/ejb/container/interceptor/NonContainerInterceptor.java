@@ -35,7 +35,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  *
  * @author Jaikiran Pai
  */
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#29.0.0","modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.8"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.8"})
 public class NonContainerInterceptor {
 
     private static final Logger logger = Logger.getLogger(NonContainerInterceptor.class);
