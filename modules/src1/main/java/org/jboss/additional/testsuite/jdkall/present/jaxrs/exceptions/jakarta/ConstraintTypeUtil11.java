@@ -3,9 +3,9 @@ package org.jboss.additional.testsuite.jdkall.present.jaxrs.exceptions;
 import java.lang.reflect.Method;
 import java.util.Iterator;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.ElementKind;
-import javax.validation.Path.Node;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ElementKind;
+import jakarta.validation.Path.Node;
 
 import org.jboss.resteasy.api.validation.ConstraintType;
 import org.jboss.resteasy.resteasy_jaxrs.i18n.Messages;
@@ -17,7 +17,7 @@ import java.security.PrivilegedExceptionAction;
 
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.7"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Beta1"})
 public class ConstraintTypeUtil11 implements ConstraintTypeUtil
 {
    public ConstraintType.Type getConstraintType(Object o)
@@ -74,12 +74,12 @@ public class ConstraintTypeUtil11 implements ConstraintTypeUtil
                }
                else
                {
-                  return ConstraintType.Type.FIELD;
+                  return ConstraintType.Type.PROPERTY;
                }
             }
             catch (NoSuchMethodException e1)
             {
-               return ConstraintType.Type.FIELD;
+               return ConstraintType.Type.PROPERTY;
             }
          }
       }

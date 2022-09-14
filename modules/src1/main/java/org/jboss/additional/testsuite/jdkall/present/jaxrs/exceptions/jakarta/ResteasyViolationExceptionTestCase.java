@@ -16,11 +16,11 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.ElementKind;
-import javax.validation.Path;
-import javax.validation.metadata.ConstraintDescriptor;
-import javax.ws.rs.core.MediaType;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ElementKind;
+import jakarta.validation.Path;
+import jakarta.validation.metadata.ConstraintDescriptor;
+import jakarta.ws.rs.core.MediaType;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.OperateOnDeployment;
@@ -36,7 +36,7 @@ import org.junit.runner.RunWith;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.7"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Beta1"})
 public class ResteasyViolationExceptionTestCase {
 
     private final static String WARNAME = "ResteasyViolationExceptionTestCase.war";
