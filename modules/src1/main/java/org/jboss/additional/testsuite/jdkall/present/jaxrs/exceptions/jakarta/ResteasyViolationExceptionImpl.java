@@ -3,8 +3,8 @@ package org.jboss.additional.testsuite.jdkall.present.jaxrs.exceptions;
 import java.util.List;
 import java.util.Set;
 
-import javax.validation.ConstraintViolation;
-import javax.ws.rs.core.MediaType;
+import jakarta.validation.ConstraintViolation;
+import jakarta.ws.rs.core.MediaType;
 
 import org.jboss.resteasy.api.validation.ResteasyViolationException;
 import org.jboss.resteasy.api.validation.SimpleViolationsContainer;
@@ -13,7 +13,7 @@ import org.jboss.resteasy.spi.ResteasyConfiguration;
 import org.jboss.resteasy.spi.validation.ConstraintTypeUtil;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.7"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Beta1"})
 public class ResteasyViolationExceptionImpl extends ResteasyViolationException
 {
    private static final long serialVersionUID = 657697354453281559L;
