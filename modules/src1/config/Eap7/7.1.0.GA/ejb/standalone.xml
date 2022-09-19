@@ -201,6 +201,7 @@
             <timer-service thread-pool-name="default" default-data-store="default-file-store">
                 <data-stores>
                     <file-data-store name="default-file-store" path="timer-service-data" relative-to="jboss.server.data.dir"/>
+                    <database-data-store name="store" database="oracle" datasource-jndi-name="java:jboss/datasources/ExampleDS" partition="ejb_timer_part" refresh-interval="30000"/>
                 </data-stores>
             </timer-service>
             <remote connector-ref="http-remoting-connector" thread-pool-name="default">
