@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- @EAT({"modules/testcases/jdkAll/WildflyJakarta/domain/test-configurations/src/test/resources/host-configs"}) -->
+<!-- @EAT({"modules/testcases/jdkAll/WildflyJakarta/domain/test-configurations/src/test/resources/host-configs","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/domain/test-configurations/src/test/resources/host-configs"}) -->
 <host xmlns="urn:jboss:domain:20.0" name="primary">
     <extensions>
         <extension module="org.jboss.as.jmx"/>
