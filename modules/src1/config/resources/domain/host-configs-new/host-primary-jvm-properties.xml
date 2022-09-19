@@ -19,7 +19,7 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-<!-- @EAT({"modules/testcases/jdkAll/WildflyJakarta/domain/test-configurations/src/test/resources/host-configs"}) -->
+<!-- @EAT({"modules/testcases/jdkAll/WildflyJakarta/domain/test-configurations/src/test/resources/host-configs","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/domain/test-configurations/src/test/resources/host-configs"}) -->
 <host xmlns="urn:jboss:domain:18.0"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="urn:jboss:domain:10.0 wildfly-config_10_0.xsd"
