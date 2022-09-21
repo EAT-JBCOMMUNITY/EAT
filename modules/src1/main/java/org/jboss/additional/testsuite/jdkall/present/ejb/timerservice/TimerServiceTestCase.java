@@ -1,7 +1,7 @@
 package org.jboss.additional.testsuite.jdkall.present.ejb.timerservice;
 
 import org.jboss.eap.additional.testsuite.annotations.EAT;
-
+import org.jboss.eap.additional.testsuite.annotations.ATTest;
 import java.io.FileInputStream;
 import java.io.File;
 import org.apache.commons.io.IOUtils;
@@ -45,6 +45,24 @@ public class TimerServiceTestCase {
         } finally {
             inputStream.close();
             assertFalse("StartException ERROR should not be logs", everything.contains("ERROR"));
+        }
+    }
+
+    @ATTest({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#29.0.0", "modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.8"})
+    public void timerServiceInvalidDatabaseTest() throws Exception {
+        String path = new File("").getAbsolutePath() + "/" + serverLogPath;
+        File serverlogfile = new File(path);
+        if(!serverlogfile.exists()) {
+            fail();
+        }
+
+        String everything = "";
+        FileInputStream inputStream = new FileInputStream(path);
+        try {
+            everything = IOUtils.toString(inputStream);            
+        } finally {
+            inputStream.close();
+            assertFalse("Invalide database WARN should not be logs", everything.contains("Database detected from configuration is:") && everything.contains("If this is incorrect, please specify the correct database."));
         }
     }
 
