@@ -538,7 +538,7 @@
                 </dependency>
                 <dependency>
                     <groupId>org.wildfly</groupId>
-                    <artifactId>wildfly-batch-jberet-jakarta</artifactId>
+                    <artifactId>wildfly-batch-jberet</artifactId>
                 </dependency>
                 <dependency>
                     <groupId>org.jberet</groupId>
