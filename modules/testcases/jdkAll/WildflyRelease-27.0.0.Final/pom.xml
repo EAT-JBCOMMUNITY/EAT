@@ -309,6 +309,7 @@
 		<dependency>
 		    <groupId>org.jboss.spec.javax.security.auth.message</groupId>
 		    <artifactId>jboss-jaspi-api_1.1_spec</artifactId>
+		    <version>2.0.1.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.spec.javax.websocket</groupId>
@@ -538,7 +539,7 @@
                 </dependency>
                 <dependency>
                     <groupId>org.wildfly</groupId>
-                    <artifactId>wildfly-batch-jberet-jakarta</artifactId>
+                    <artifactId>wildfly-batch-jberet</artifactId>
                 </dependency>
                 <dependency>
                     <groupId>org.jberet</groupId>
@@ -610,6 +611,16 @@
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-clustering-singleton-api</artifactId>
 		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly.security</groupId>
+		    <artifactId>wildfly-elytron-jacc</artifactId>
+		    <version>2.0.0.Alpha10</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly.security</groupId>
+		    <artifactId>wildfly-elytron-jaspi</artifactId>
+		    <version>2.0.0.Alpha10</version>
 		</dependency>
             </dependencies>
 
