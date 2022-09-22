@@ -32,6 +32,7 @@ Testing EAP
 5. If you would like/need to disable snapshot versions add -DDISABLE_SNAPSHOT_VERSIONS=true
 6. Sometimes enforcer rules need to be skipped adding -Denforcer.skip
 7. Optional parameter : -Dmaven.wagon.http.ssl.ignore.validity.dates=true
+8. If selenium tests should be included : -Dwebdriver.gecko.driver='path to gecko driver'
 
 
 Testing Wildfly
@@ -43,6 +44,7 @@ Testing Wildfly
 5. If you would like/need to disable snapshot versions add -DDISABLE_SNAPSHOT_VERSIONS=true
 6. Sometimes enforcer rules need to be skipped adding -Denforcer.skip
 7. Optional parameter : -Dmaven.wagon.http.ssl.ignore.validity.dates=true
+8. If selenium tests should be included : -Dwebdriver.gecko.driver='path to gecko driver'
 
 
 
