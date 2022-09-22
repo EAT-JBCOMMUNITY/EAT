@@ -475,6 +475,16 @@
 		<dependency>
 		    <groupId>org.wildfly.core</groupId>
 		    <artifactId>wildfly-elytron-integration</artifactId>
+		    <exclusions>
+                        <exclusion>
+                            <groupId>org.wildfly.security</groupId>
+                            <artifactId>wildfly-elytron-jacc</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>org.wildfly.security</groupId>
+                            <artifactId>wildfly-elytron-jaspi</artifactId>
+                        </exclusion>
+                    </exclusions>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly.core</groupId>
@@ -493,6 +503,21 @@
 		    <groupId>net.sourceforge.htmlunit</groupId>
 		    <artifactId>htmlunit</artifactId>
 		    <version>2.60.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.seleniumhq.selenium</groupId>
+		    <artifactId>selenium-api</artifactId>
+		    <version>4.4.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.seleniumhq.selenium</groupId>
+		    <artifactId>selenium-support</artifactId>
+		    <version>4.4.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.seleniumhq.selenium</groupId>
+		    <artifactId>selenium-firefox-driver</artifactId>
+		    <version>4.4.0</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
@@ -611,16 +636,6 @@
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-clustering-singleton-api</artifactId>
 		    <scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly.security</groupId>
-		    <artifactId>wildfly-elytron-jacc</artifactId>
-		    <version>2.0.0.Alpha10</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly.security</groupId>
-		    <artifactId>wildfly-elytron-jaspi</artifactId>
-		    <version>2.0.0.Alpha10</version>
 		</dependency>
             </dependencies>
 
@@ -1078,6 +1093,16 @@
 		<dependency>
 		    <groupId>org.wildfly.core</groupId>
 		    <artifactId>wildfly-elytron-integration</artifactId>
+		    <exclusions>
+                        <exclusion>
+                            <groupId>org.wildfly.security</groupId>
+                            <artifactId>wildfly-elytron-jacc</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>org.wildfly.security</groupId>
+                            <artifactId>wildfly-elytron-jaspi</artifactId>
+                        </exclusion>
+                    </exclusions>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly.core</groupId>
@@ -1096,6 +1121,21 @@
 		    <groupId>net.sourceforge.htmlunit</groupId>
 		    <artifactId>htmlunit</artifactId>
 		    <version>2.60.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.seleniumhq.selenium</groupId>
+		    <artifactId>selenium-api</artifactId>
+		    <version>4.4.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.seleniumhq.selenium</groupId>
+		    <artifactId>selenium-support</artifactId>
+		    <version>4.4.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.seleniumhq.selenium</groupId>
+		    <artifactId>selenium-firefox-driver</artifactId>
+		    <version>4.4.0</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
@@ -1214,16 +1254,6 @@
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-clustering-singleton-api</artifactId>
 		    <scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly.security</groupId>
-		    <artifactId>wildfly-elytron-jacc</artifactId>
-		    <version>2.0.0.Alpha10</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly.security</groupId>
-		    <artifactId>wildfly-elytron-jaspi</artifactId>
-		    <version>2.0.0.Alpha10</version>
 		</dependency>
 </dependencies>
 
