@@ -537,6 +537,16 @@
 		<dependency>
 		    <groupId>org.wildfly.core</groupId>
 		    <artifactId>wildfly-elytron-integration</artifactId>
+		    <exclusions>
+                        <exclusion>
+                            <groupId>org.wildfly.security</groupId>
+                            <artifactId>wildfly-elytron-jacc</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>org.wildfly.security</groupId>
+                            <artifactId>wildfly-elytron-jaspi</artifactId>
+                        </exclusion>
+                    </exclusions>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly.core</groupId>
@@ -586,16 +596,6 @@
 		    <groupId>jakarta.annotation</groupId>
 		    <artifactId>jakarta.annotation-api</artifactId>
 		    <version>2.1.0</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly.security</groupId>
-		    <artifactId>wildfly-elytron-jacc</artifactId>
-		    <version>2.0.0.Alpha10</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly.security</groupId>
-		    <artifactId>wildfly-elytron-jaspi</artifactId>
-		    <version>2.0.0.Alpha10</version>
 		</dependency>
 </dependencies>
 
@@ -1115,6 +1115,16 @@
 		<dependency>
 		    <groupId>org.wildfly.core</groupId>
 		    <artifactId>wildfly-elytron-integration</artifactId>
+	            <exclusions>
+                        <exclusion>
+                            <groupId>org.wildfly.security</groupId>
+                            <artifactId>wildfly-elytron-jacc</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>org.wildfly.security</groupId>
+                            <artifactId>wildfly-elytron-jaspi</artifactId>
+                        </exclusion>
+                    </exclusions>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly.core</groupId>
@@ -1749,16 +1759,6 @@
 		    <groupId>jakarta.annotation</groupId>
 		    <artifactId>jakarta.annotation-api</artifactId>
 		    <version>2.1.0</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly.security</groupId>
-		    <artifactId>wildfly-elytron-jacc</artifactId>
-		    <version>2.0.0.Alpha10</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly.security</groupId>
-		    <artifactId>wildfly-elytron-jaspi</artifactId>
-		    <version>2.0.0.Alpha10</version>
 		</dependency>
 </dependencies>
 
