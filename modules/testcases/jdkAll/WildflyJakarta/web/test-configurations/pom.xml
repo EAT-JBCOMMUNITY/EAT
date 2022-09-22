@@ -91,15 +91,15 @@
 	                            <target name="build-basic-check"/>
 	                        </ant>
                                 <ant antfile="${jboss.modules.dir}/src1/test/scripts/copy-file.xml">
-	                            <property name="fileName" value="rss.png" />
-                                    <property name="filePath" value="${jboss.modules.dir}/testcases/jdkAll/Wildfly/web/test-configurations/src/test/resources" />
-                                    <property name="fileToCopy" value="${jboss.modules.dir}/src1/resources/rss.png" />
+	                            <property name="fileName" value="bug.war" />
+                                    <property name="filePath" value="${jboss.modules.dir}/servers/wildfly/build/target/jbossas/standalone/deployments" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src1/resources/jakarta/bug.war" />
 	                            <target name="copy-file"/>
 	                        </ant>
-                                <ant antfile="${jboss.modules.dir}/src1/test/scripts/copy-file.xml">
-	                            <property name="fileName" value="testTag-1.0-SNAPSHOT.war" />
-                                    <property name="filePath" value="${jboss.modules.dir}/testcases/jdkAll/Wildfly/web/test-configurations/src/test/resources" />
-                                    <property name="fileToCopy" value="${jboss.modules.dir}/src1/resources/testTag-1.0-SNAPSHOT.war" />
+	                        <ant antfile="${jboss.modules.dir}/src1/test/scripts/copy-file.xml">
+	                            <property name="fileName" value="bug.war" />
+                                    <property name="filePath" value="${jboss.modules.dir}/testcases/jdkAll/WildflyJakarta/web/test-configurations/src/test/resources/bug" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src1/resources/jakarta/bug/bug.war" />
 	                            <target name="copy-file"/>
 	                        </ant>
 	                    </target>
