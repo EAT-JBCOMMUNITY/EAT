@@ -31,7 +31,7 @@ public class TimerServiceTestCase {
     }
 
     @Test
-    public void keystoreTest() throws Exception {
+    public void timerServiceLoadTest() throws Exception {
         String path = new File("").getAbsolutePath() + "/" + serverLogPath;
         File serverlogfile = new File(path);
         if(!serverlogfile.exists()) {
