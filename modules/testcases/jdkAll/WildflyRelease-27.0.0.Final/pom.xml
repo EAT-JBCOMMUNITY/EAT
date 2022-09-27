@@ -367,6 +367,7 @@
                 <dependency>
 		    <groupId>xalan</groupId>
 		    <artifactId>xalan</artifactId>
+		    <version>2.7.1.jbossorg-5</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.apache.openjpa</groupId>
@@ -475,6 +476,16 @@
 		<dependency>
 		    <groupId>org.wildfly.core</groupId>
 		    <artifactId>wildfly-elytron-integration</artifactId>
+		    <exclusions>
+                        <exclusion>
+                            <groupId>org.jboss.logging</groupId>
+                            <artifactId>jboss-logging-processor</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>org.jboss.logmanager</groupId>
+                            <artifactId>jboss-logmanager</artifactId>
+                        </exclusion>
+                    </exclusions>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly.core</groupId>
@@ -611,16 +622,6 @@
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-clustering-singleton-api</artifactId>
 		    <scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly.security</groupId>
-		    <artifactId>wildfly-elytron-jacc</artifactId>
-		    <version>2.0.0.Alpha10</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly.security</groupId>
-		    <artifactId>wildfly-elytron-jaspi</artifactId>
-		    <version>2.0.0.Alpha10</version>
 		</dependency>
             </dependencies>
 
