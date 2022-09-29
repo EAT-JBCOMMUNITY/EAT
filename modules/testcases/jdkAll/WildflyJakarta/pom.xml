@@ -638,6 +638,14 @@
 		    <artifactId>wildfly-clustering-singleton-api</artifactId>
 		    <scope>test</scope>
 		</dependency>
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-clustering-server-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-clustering-service</artifactId>
+		</dependency>
             </dependencies>
 
         </profile>
@@ -1256,6 +1264,14 @@
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-clustering-singleton-api</artifactId>
 		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-clustering-server-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-clustering-service</artifactId>
 		</dependency>
 </dependencies>
 
