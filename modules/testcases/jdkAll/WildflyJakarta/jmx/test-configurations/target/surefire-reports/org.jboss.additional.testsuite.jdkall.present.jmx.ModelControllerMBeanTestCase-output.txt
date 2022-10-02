@@ -1,0 +1,22 @@
+[0m00:06:32,635 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/e1/30953f8eccb0ec5a132ba8fa4b17d0efb66b80/content
+[0m[0m00:06:32,640 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0027: Starting deployment of "ModelControllerMBeanTestCase.war" (runtime-name: "ModelControllerMBeanTestCase.war")
+[0m[0m00:06:32,814 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 74) WFLYUT0021: Registered web context: '/ModelControllerMBeanTestCase' for server 'default-server'
+[0m[0m00:06:32,827 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "ModelControllerMBeanTestCase.war" (runtime-name : "ModelControllerMBeanTestCase.war")
+[0m[0m00:06:40,278 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 74) WFLYUT0022: Unregistered web context: '/ModelControllerMBeanTestCase' from server 'default-server'
+[0m[0m00:06:40,296 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0028: Stopped deployment ModelControllerMBeanTestCase.war (runtime-name: ModelControllerMBeanTestCase.war) in 18ms
+[0m[0m00:06:40,324 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/e1/30953f8eccb0ec5a132ba8fa4b17d0efb66b80/content
+[0m[0m00:06:40,324 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "ModelControllerMBeanTestCase.war" (runtime-name: "ModelControllerMBeanTestCase.war")
+[0m[0m00:06:40,341 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0272: Suspending server
+[0m[0m00:06:40,345 INFO  [org.jboss.as.ejb3] (management-handler-thread - 1) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+[0m[0m00:06:40,346 INFO  [org.jboss.as.server] (Management Triggered Shutdown) WFLYSRV0241: Shutting down in response to management operation 'shutdown'
+[0m[0m00:06:40,386 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0019: Host default-host stopping
+[0m[0m00:06:40,387 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-7) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+[0m[0m00:06:40,389 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-6) WFLYMAIL0002: Unbound mail session [java:jboss/mail/Default]
+[0m[0m00:06:40,392 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0008: Undertow HTTPS listener https suspending
+[0m[0m00:06:40,403 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 127.0.0.1:8443
+[0m[0m00:06:40,411 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0019: Stopped Driver service with driver-name = h2
+[0m[0m00:06:40,409 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0008: Undertow HTTP listener default suspending
+[0m[0m00:06:40,415 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+[0m[0m00:06:40,418 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0004: Undertow 2.3.0.Beta1 stopping
+[0m[0m00:06:40,442 INFO  [org.jboss.as] (MSC service thread 1-7) WFLYSRV0050: WildFly Full 27.0.0.Final-SNAPSHOT (WildFly Core 19.0.0.Beta18) stopped in 82ms
+[0m

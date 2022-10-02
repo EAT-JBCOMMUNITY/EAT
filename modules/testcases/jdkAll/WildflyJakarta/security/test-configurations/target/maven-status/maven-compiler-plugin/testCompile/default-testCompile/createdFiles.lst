@@ -1,0 +1,17 @@
+org/jboss/additional/testsuite/jdkall/present/security/authentication/SecuredServlet.class
+org/jdom/transform/XSLTransformer.class
+ch/qos/logback/core/db/DriverManagerConnectionSource.class
+org/jboss/additional/testsuite/jdkall/present/security/other/SecurityDeserializationTestCase$SerializedClass.class
+com/mysql/cj/jdbc/admin/MiniAdmin.class
+org/jboss/additional/testsuite/jdkall/present/security/web/BearerTokenAuthenticationTestCase.class
+org/jboss/additional/testsuite/jdkall/present/security/web/UnsecuredServlet.class
+com/zaxxer/hikari/HikariDataSource.class
+org/jboss/additional/testsuite/jdkall/present/security/other/SecurityDeserializationTestCase.class
+org/jboss/additional/testsuite/jdkall/present/security/web/BearerAuthServerSetup.class
+org/jboss/additional/testsuite/jdkall/present/security/other/SecurityDeserializationTestCase$PolyWrapper.class
+org/jboss/additional/testsuite/jdkall/present/security/authentication/BasicAuthenticationTestCase.class
+oracle/jdbc/connector/OracleManagedConnectionFactory.class
+org/jboss/additional/testsuite/jdkall/present/security/keystores/KeystoresTestCase.class
+org/jboss/additional/testsuite/jdkall/present/security/other/Jsr310DeserializationTestCase.class
+org/jboss/additional/testsuite/jdkall/present/security/cli/CliTestCase.class
+org/jboss/additional/testsuite/jdkall/present/security/saxparser/SaxParserTestCase.class

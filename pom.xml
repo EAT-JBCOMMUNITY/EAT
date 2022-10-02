@@ -2008,62 +2008,11 @@
                                 <configuration>
                                 <tasks>
                                     <copy todir="${project.build.directory}/../modules/srcPool" failonerror="false" overwrite="true">
-                                        <fileset dir="${project.build.directory}/../modules/src1">
+                                        <fileset dir="${project.build.directory}/../modules/src">
                                             <include name="**/*"/>
                                         </fileset>
                                     </copy>
                                 </tasks>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-	        </build>
-        </profile>
-
-        <profile>
-            <id>Dynamic Sources</id>
-            <activation>
-                <property>
-                    <name>dSources</name>
-                </property>
-	        </activation>
-
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-antrun-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>prepare</id>
-                                <inherited>false</inherited>
-                                <phase>generate-sources</phase>
-                                <configuration>
-                                    <target name="command">
-                                        <exec executable="/bin/bash" osfamily="unix">
-                                            <arg value="cloneRemoteTests.sh" />
-                                        </exec>
-                                    </target>
-                                </configuration>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>copy-src</id>
-                                <phase>generate-sources</phase>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                                <configuration>
-                                    <tasks>
-                                        <copy todir="${project.build.directory}/../modules/srcPool" failonerror="false" overwrite="true">
-                                            <fileset dir="${project.build.directory}/../modules/src2">
-                                                <include name="**/*"/>
-                                            </fileset>
-                                        </copy>
-                                    </tasks>
                                 </configuration>
                             </execution>
                         </executions>
@@ -2107,7 +2056,7 @@
                                        <argument>${DISABLE_SNAPSHOT_VERSIONS}</argument>
                                        <argument>${JBOSS_GIT_DIR}</argument>
                                        <argument>modules/testcases</argument>
-                                       <argument>src1/main/java</argument>
+                                       <argument>src/main/java</argument>
                                        <argument>${activemodules}</argument>
                                    </arguments>
                                 </configuration>
@@ -2132,7 +2081,7 @@
                                        <argument></argument>
                                        <argument>${JBOSS_GIT_DIR}</argument>
                                        <argument>modules/testcases</argument>
-                                       <argument>src1/main/java</argument>
+                                       <argument>src/main/java</argument>
                                        <argument>${activemodules}</argument>
                                     </arguments>
                                 </configuration>
@@ -2177,7 +2126,7 @@
                                        <argument>${DISABLE_SNAPSHOT_VERSIONS}</argument>
                                        <argument>${JBOSS_GIT_DIR}</argument>
                                        <argument>modules/testcases</argument>
-                                       <argument>src1/main/java</argument>
+                                       <argument>src/main/java</argument>
                                        <argument>${activemodules}</argument>
                                    </arguments>
                                 </configuration>
@@ -2202,7 +2151,7 @@
                                        <argument></argument>
                                        <argument>${JBOSS_GIT_DIR}</argument>
                                        <argument>modules/testcases</argument>
-                                       <argument>src1/main/java</argument>
+                                       <argument>src/main/java</argument>
                                        <argument>${activemodules}</argument>
                                     </arguments>
                                 </configuration>

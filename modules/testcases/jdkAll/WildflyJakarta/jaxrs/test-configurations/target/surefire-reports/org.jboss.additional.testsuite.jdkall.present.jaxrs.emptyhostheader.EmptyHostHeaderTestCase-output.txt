@@ -1,0 +1,66 @@
+ERROR StatusLogger Log4j2 could not find a logging implementation. Please add log4j-core to the classpath. Using SimpleLogger to log to the console...
+Oct 01, 2022 12:04:27 AM org.jboss.logmanager.JBossLoggerFinder getLogger
+ERROR: The LogManager accessed before the "java.util.logging.manager" system property was set to "org.jboss.logmanager.LogManager". Results may be unexpected.
+[0m00:04:28,339 INFO  [org.jboss.modules] (main) JBoss Modules version 2.0.3.Final
+[0m[0m00:04:29,537 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.13.Final
+[0m[0m00:04:29,558 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
+[0m[0m00:04:29,811 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: WildFly Full 27.0.0.Final-SNAPSHOT (WildFly Core 19.0.0.Beta18) starting
+[0mWARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.wildfly.extension.elytron.SSLDefinitions (jar:file:/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/modules/system/layers/base/org/wildfly/extension/elytron/main/wildfly-elytron-integration-jakarta-19.0.0.Beta18.jar!/) to method com.sun.net.ssl.internal.ssl.Provider.isFIPS()
+WARNING: Please consider reporting this to the maintainers of org.wildfly.extension.elytron.SSLDefinitions
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[0m00:04:31,640 INFO  [org.wildfly.security] (ServerService Thread Pool -- 26) ELY00001: WildFly Elytron version 2.0.0.Final
+[0m[0m00:04:33,113 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 8) WFLYCTL0028: Attribute 'cluster' in the resource at address '/subsystem=ejb3/service=remote' is deprecated, and may be removed in a future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+[0m[0m00:04:33,304 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+[0m[0m00:04:33,346 INFO  [org.xnio] (MSC service thread 1-3) XNIO version 3.8.8.Final
+[0m[0m00:04:33,364 INFO  [org.xnio.nio] (MSC service thread 1-3) XNIO NIO Implementation Version 3.8.8.Final
+[0m[0m00:04:33,450 INFO  [org.wildfly.extension.health] (ServerService Thread Pool -- 52) WFLYHEALTH0001: Activating Base Health Subsystem
+[0m[0m00:04:33,459 INFO  [org.wildfly.extension.elytron.oidc._private] (ServerService Thread Pool -- 51) WFLYOIDC0001: Activating WildFly Elytron OIDC Subsystem
+[0m[0m00:04:33,468 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 53) WFLYCLINF0001: Activating Infinispan subsystem.
+[0m[0m00:04:33,482 INFO  [org.wildfly.extension.metrics] (ServerService Thread Pool -- 62) WFLYMETRICS0001: Activating Base Metrics Subsystem
+[0m[0m00:04:33,449 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 55) WFLYRS0016: RESTEasy version 6.2.0.Final
+[0m[0m00:04:33,477 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 60) WFLYJSF0007: Activated the following Jakarta Server Faces Implementations: [main]
+[0m[0m00:04:33,531 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 63) WFLYNAM0001: Activating Naming Subsystem
+[0m[0m00:04:33,566 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 72) WFLYWS0002: Activating WebServices Extension
+[0m[33m00:04:33,536 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 70) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+[0m[0m00:04:33,604 INFO  [org.jboss.remoting] (MSC service thread 1-7) JBoss Remoting version 5.0.25.Final
+[0m[0m00:04:33,609 INFO  [org.jboss.as.connector] (MSC service thread 1-5) WFLYJCA0009: Starting Jakarta Connectors Subsystem (WildFly/IronJacamar 1.5.9.Final)
+[0m[0m00:04:33,633 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 54) WFLYIO001: Worker 'default' has auto-configured to 16 IO threads with 128 max task threads based on your 8 available processors
+[0m[0m00:04:33,718 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 42) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 2.1)
+[0m[0m00:04:33,728 INFO  [org.jboss.as.naming] (MSC service thread 1-5) WFLYNAM0003: Starting Naming Service
+[0m[0m00:04:33,736 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0018: Started Driver service with driver-name = h2
+[0m[0m00:04:33,738 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-8) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+[0m[0m00:04:33,843 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0003: Undertow 2.3.0.Beta1 starting
+[0m[33m00:04:34,087 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-4) WFLYELY00023: KeyStore file '/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/configuration/application.keystore' does not exist. Used blank.
+[0m[33m00:04:34,107 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-1) WFLYELY01084: KeyStore /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+[0m[0m00:04:34,131 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 71) WFLYUT0014: Creating file handler for path '/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+[0m[0m00:04:34,253 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0012: Started server default-server.
+[0m[0m00:04:34,321 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) Queuing requests.
+[0m[0m00:04:34,323 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0018: Host default-host starting
+[0m[0m00:04:34,323 INFO  [org.jboss.as.ejb3] (MSC service thread 1-1) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 128 (per class), which is derived from thread worker pool sizing.
+[0m[0m00:04:34,325 INFO  [org.jboss.as.ejb3] (MSC service thread 1-5) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 32 (per class), which is derived from the number of CPUs on this host.
+[0m[0m00:04:34,520 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+[0m[0m00:04:34,885 INFO  [org.jboss.as.ejb3] (MSC service thread 1-3) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+[0m[0m00:04:34,938 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+[0m[0m00:04:35,065 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-1) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+[0m[0m00:04:35,174 INFO  [org.jboss.as.patching] (MSC service thread 1-1) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+[0m[0m00:04:35,211 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-4) WFLYDS0013: Started FileSystemDeploymentService for directory /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/deployments
+[0m[0m00:04:35,360 INFO  [org.jboss.ws.common.management] (MSC service thread 1-7) JBWS022052: Starting JBossWS 6.1.0.Final (Apache CXF 3.5.2.jbossorg-3) 
+[0m[0m00:04:36,415 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+[0m[0m00:04:36,433 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 27.0.0.Final-SNAPSHOT (WildFly Core 19.0.0.Beta18) started in 8783ms - Started 289 of 562 services (358 services are lazy, passive or on-demand) - Server configuration file in use: standalone.xml
+[0m[0m00:04:36,443 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+[0m[0m00:04:36,444 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+[0m[0m00:04:39,041 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/58/e10a7fef3ea3a0e146422f3601c396538128ea/content
+[0m[0m00:04:39,072 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0027: Starting deployment of "jaxrsemptyhost.war" (runtime-name: "jaxrsemptyhost.war")
+[0m[33m00:04:40,401 WARN  [org.jboss.weld.deployer] (MSC service thread 1-8) WFLYWELD0013: Deployment jaxrsemptyhost.war contains Jakarta Contexts and Dependency Injection annotations but no bean archive was found (no beans.xml or class with bean defining annotations was present).
+[0m[0m00:04:41,271 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 74) RESTEASY002225: Deploying jakarta.ws.rs.core.Application: class org.jboss.additional.testsuite.jdkall.present.jaxrs.emptyhostheader.JaxRsActivator
+[0m[0m00:04:41,350 INFO  [org.hibernate.validator.internal.util.Version] (ServerService Thread Pool -- 74) HV000001: Hibernate Validator 8.0.0.Final
+[0m[0m00:04:41,387 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 74) WFLYUT0021: Registered web context: '/jaxrsemptyhost' for server 'default-server'
+[0m[0m00:04:41,451 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "jaxrsemptyhost.war" (runtime-name : "jaxrsemptyhost.war")
+[0m[0m00:04:42,217 INFO  [org.jboss.additional.testsuite.jdkall.present.jaxrs.emptyhostheader.SimpleResource] (default task-1) uriInfo = http://127.0.0.1:8080/jaxrsemptyhost/myjaxrs/host
+[0m[0m00:05:42,335 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 74) WFLYUT0022: Unregistered web context: '/jaxrsemptyhost' from server 'default-server'
+[0m[0m00:05:42,368 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0028: Stopped deployment jaxrsemptyhost.war (runtime-name: jaxrsemptyhost.war) in 40ms
+[0m[0m00:05:42,395 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/58/e10a7fef3ea3a0e146422f3601c396538128ea/content
+[0m[0m00:05:42,395 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "jaxrsemptyhost.war" (runtime-name: "jaxrsemptyhost.war")
+[0m

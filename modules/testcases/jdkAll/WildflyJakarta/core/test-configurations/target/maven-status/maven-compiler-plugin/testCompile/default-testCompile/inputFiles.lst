@@ -1,0 +1,4 @@
+/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/core/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/core/jca/DatasourcesActiveCountTestCase.java
+/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/core/test-configurations/../src/main/java/org/jboss/eap/jca/ds/h2/DataSourceConfigurationTestCase.java
+/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/core/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/core/jca/workmanager/AddSecondWorkmanagerTestCase.java
+/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/core/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/core/deployment/ZipSlipTestCase.java

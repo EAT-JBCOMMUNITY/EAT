@@ -1,0 +1,10 @@
+[0m00:05:44,371 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/55/608f9d50cfc0433dabaa3b81993e4fe95f6bda/content
+[0m[0m00:05:44,374 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0027: Starting deployment of "jaxrsnoap.war" (runtime-name: "jaxrsnoap.war")
+[0m[0m00:05:44,544 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 77) RESTEASY002225: Deploying jakarta.ws.rs.core.Application: class org.jboss.additional.testsuite.jdkall.present.jaxrs.jaxb.ExampleApplication2
+[0m[0m00:05:44,548 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 77) WFLYUT0021: Registered web context: '/jaxrsnoap' for server 'default-server'
+[0m[0m00:05:44,564 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "jaxrsnoap.war" (runtime-name : "jaxrsnoap.war")
+[0m[0m00:05:44,608 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 77) WFLYUT0022: Unregistered web context: '/jaxrsnoap' from server 'default-server'
+[0m[0m00:05:44,615 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0028: Stopped deployment jaxrsnoap.war (runtime-name: jaxrsnoap.war) in 8ms
+[0m[0m00:05:44,631 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/55/608f9d50cfc0433dabaa3b81993e4fe95f6bda/content
+[0m[0m00:05:44,631 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "jaxrsnoap.war" (runtime-name: "jaxrsnoap.war")
+[0m

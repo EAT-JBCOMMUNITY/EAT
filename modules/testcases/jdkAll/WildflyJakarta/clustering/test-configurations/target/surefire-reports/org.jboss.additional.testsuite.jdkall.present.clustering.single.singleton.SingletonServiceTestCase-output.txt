@@ -1,0 +1,123 @@
+Oct 01, 2022 12:06:50 AM org.jboss.logmanager.JBossLoggerFinder getLogger
+ERROR: The LogManager accessed before the "java.util.logging.manager" system property was set to "org.jboss.logmanager.LogManager". Results may be unexpected.
+[0m00:06:52,439 INFO  [org.jboss.modules] (main) JBoss Modules version 2.0.3.Final
+[0m[0m00:06:53,378 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.13.Final
+[0m[0m00:06:53,390 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
+[0m[0m00:06:53,552 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: WildFly Full 27.0.0.Final-SNAPSHOT (WildFly Core 19.0.0.Beta18) starting
+[0mWARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.wildfly.extension.elytron.SSLDefinitions (jar:file:/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/wildfly-SYNC-tcp-0/modules/system/layers/base/org/wildfly/extension/elytron/main/wildfly-elytron-integration-jakarta-19.0.0.Beta18.jar!/) to method com.sun.net.ssl.internal.ssl.Provider.isFIPS()
+WARNING: Please consider reporting this to the maintainers of org.wildfly.extension.elytron.SSLDefinitions
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[0m00:06:54,653 INFO  [org.wildfly.security] (ServerService Thread Pool -- 30) ELY00001: WildFly Elytron version 2.0.0.Final
+[0m[0m00:06:55,710 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 29) WFLYCTL0028: Attribute 'cluster' in the resource at address '/subsystem=ejb3/service=remote' is deprecated, and may be removed in a future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+[0m[0m00:06:55,935 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+[0m[0m00:06:55,961 INFO  [org.xnio] (MSC service thread 1-2) XNIO version 3.8.8.Final
+[0m[0m00:06:55,972 INFO  [org.xnio.nio] (MSC service thread 1-2) XNIO NIO Implementation Version 3.8.8.Final
+[0m[0m00:06:56,061 INFO  [org.wildfly.extension.health] (ServerService Thread Pool -- 55) WFLYHEALTH0001: Activating Base Health Subsystem
+[0m[0m00:06:56,074 INFO  [org.jboss.remoting] (MSC service thread 1-3) JBoss Remoting version 5.0.25.Final
+[0m[0m00:06:56,078 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 57) WFLYCLINF0001: Activating Infinispan subsystem.
+[0m[0m00:06:56,121 INFO  [org.wildfly.iiop.openjdk] (ServerService Thread Pool -- 56) WFLYIIOP0001: Activating IIOP Subsystem
+[0m[0m00:06:56,126 INFO  [org.wildfly.extension.metrics] (ServerService Thread Pool -- 68) WFLYMETRICS0001: Activating Base Metrics Subsystem
+[0m[0m00:06:56,104 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 59) WFLYRS0016: RESTEasy version 6.2.0.Final
+[0m[0m00:06:56,171 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 70) WFLYNAM0001: Activating Naming Subsystem
+[0m[0m00:06:56,181 INFO  [org.jboss.as.clustering.jgroups] (ServerService Thread Pool -- 62) WFLYCLJG0001: Activating JGroups subsystem. JGroups version 5.2.6
+[0m[33m00:06:56,161 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 78) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+[0m[0m00:06:56,183 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 58) WFLYIO001: Worker 'default' has auto-configured to 16 IO threads with 128 max task threads based on your 8 available processors
+[0m[0m00:06:56,165 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 65) WFLYJSF0007: Activated the following Jakarta Server Faces Implementations: [main]
+[0m[0m00:06:56,220 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 46) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 2.1)
+[0m[0m00:06:56,224 INFO  [org.jboss.as.connector] (MSC service thread 1-1) WFLYJCA0009: Starting Jakarta Connectors Subsystem (WildFly/IronJacamar 1.5.9.Final)
+[0m[0m00:06:56,326 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 80) WFLYWS0002: Activating WebServices Extension
+[0m[0m00:06:56,344 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0018: Started Driver service with driver-name = h2
+[0m[33m00:06:56,410 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-8) WFLYELY00023: KeyStore file '/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/wildfly-SYNC-tcp-0/standalone/configuration/application.keystore' does not exist. Used blank.
+[0m[33m00:06:56,548 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-6) WFLYELY01084: KeyStore /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/wildfly-SYNC-tcp-0/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+[0m[0m00:06:56,558 INFO  [org.jboss.as.naming] (MSC service thread 1-1) WFLYNAM0003: Starting Naming Service
+[0m[0m00:06:56,573 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0003: Undertow 2.3.0.Beta1 starting
+[0m[0m00:06:56,698 INFO  [org.jboss.as.ejb3] (MSC service thread 1-3) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 128 (per class), which is derived from thread worker pool sizing.
+[0m[0m00:06:56,701 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-3) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+[0m[0m00:06:56,702 INFO  [org.jboss.as.ejb3] (MSC service thread 1-2) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 32 (per class), which is derived from the number of CPUs on this host.
+[0m[0m00:06:56,814 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 79) WFLYUT0014: Creating file handler for path '/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/wildfly-SYNC-tcp-0/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+[0m[0m00:06:56,866 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0012: Started server default-server.
+[0m[0m00:06:56,897 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) Queuing requests.
+[0m[0m00:06:56,912 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0018: Host default-host starting
+[0m[0m00:06:57,014 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0006: Undertow AJP listener ajp listening on 127.0.0.1:8009
+[0m[0m00:06:57,014 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+[0m[0m00:06:57,042 INFO  [org.jboss.modcluster] (ServerService Thread Pool -- 82) MODCLUSTER000001: Initializing mod_cluster version 2.0.1.Final
+[0m[0m00:06:57,123 INFO  [org.jboss.modcluster] (ServerService Thread Pool -- 82) MODCLUSTER000032: Listening to proxy advertisements on /224.0.1.105:23364
+[0m[0m00:06:57,382 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+[0m[0m00:06:57,440 INFO  [org.jboss.as.ejb3] (MSC service thread 1-7) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+[0m[0m00:06:57,522 INFO  [org.wildfly.iiop.openjdk] (MSC service thread 1-4) WFLYIIOP0009: CORBA ORB Service started
+[0m[0m00:06:57,605 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-5) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+[0m[0m00:06:57,710 INFO  [org.jboss.as.patching] (MSC service thread 1-5) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+[0m[0m00:06:57,719 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-8) WFLYDS0013: Started FileSystemDeploymentService for directory /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/wildfly-SYNC-tcp-0/standalone/deployments
+[0m[33m00:06:57,788 WARN  [org.jboss.as.clustering.jgroups] (ServerService Thread Pool -- 82) WFLYCLJG0031: Ignoring unrecognized UDP property: bundler.max_size
+[0m[0m00:06:57,890 INFO  [org.jboss.ws.common.management] (MSC service thread 1-3) JBWS022052: Starting JBossWS 6.1.0.Final (Apache CXF 3.5.2.jbossorg-3) 
+[0m[0m00:06:58,216 INFO  [org.jgroups.JChannel] (ServerService Thread Pool -- 82) local_addr: 448fd896-a30b-4ef2-9a74-c6421f50aa92, name: node-1
+[0m[33m00:06:58,233 WARN  [org.jgroups.protocols.UDP] (ServerService Thread Pool -- 82) JGRP000015: the send buffer of socket ManagedMulticastSocketBinding was set to 1MB, but the OS only allocated 212.99KB
+[0m[33m00:06:58,234 WARN  [org.jgroups.protocols.UDP] (ServerService Thread Pool -- 82) JGRP000015: the receive buffer of socket ManagedMulticastSocketBinding was set to 20MB, but the OS only allocated 212.99KB
+[0m[33m00:06:58,235 WARN  [org.jgroups.protocols.UDP] (ServerService Thread Pool -- 82) JGRP000015: the send buffer of socket ManagedMulticastSocketBinding was set to 1MB, but the OS only allocated 212.99KB
+[0m[33m00:06:58,236 WARN  [org.jgroups.protocols.UDP] (ServerService Thread Pool -- 82) JGRP000015: the receive buffer of socket ManagedMulticastSocketBinding was set to 25MB, but the OS only allocated 212.99KB
+[0m[0m00:07:00,251 INFO  [org.jgroups.protocols.pbcast.GMS] (ServerService Thread Pool -- 82) node-1: no members discovered after 2005 ms: creating cluster as coordinator
+[0m[0m00:07:00,634 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 82) AMQ221000: live Message Broker is starting with configuration Broker Configuration (clustered=true,journalDirectory=/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/wildfly-SYNC-tcp-0/standalone/data/activemq/journal,bindingsDirectory=/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/wildfly-SYNC-tcp-0/standalone/data/activemq/bindings,largeMessagesDirectory=/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/wildfly-SYNC-tcp-0/standalone/data/activemq/largemessages,pagingDirectory=/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/wildfly-SYNC-tcp-0/standalone/data/activemq/paging)
+[0m[0m00:07:00,684 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 82) AMQ221012: Using AIO Journal
+[0m[0m00:07:00,830 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 86) ISPN000389: Loaded global state, version=14.0.0.Final timestamp=2022-09-30T16:09:54.781490Z
+[0m[0m00:07:00,830 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 85) ISPN000389: Loaded global state, version=14.0.0.Final timestamp=2022-09-30T16:09:54.760226Z
+[0m[0m00:07:00,830 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 84) ISPN000389: Loaded global state, version=14.0.0.Final timestamp=2022-09-30T16:09:54.810040Z
+[0m[0m00:07:00,830 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 83) ISPN000389: Loaded global state, version=14.0.0.Final timestamp=2022-09-30T16:09:54.749713Z
+[0m[0m00:07:00,902 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 86) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.marshall.InfinispanProtoStreamMarshaller'
+[0m[0m00:07:00,903 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 83) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.marshalling.jboss.JBossMarshaller'
+[0m[0m00:07:00,905 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 85) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.marshall.InfinispanProtoStreamMarshaller'
+[0m[0m00:07:00,908 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 84) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.marshall.InfinispanProtoStreamMarshaller'
+[0m[0m00:07:00,915 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 82) AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+[0m[0m00:07:00,925 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 82) AMQ221043: Protocol module found: [artemis-amqp-protocol]. Adding protocol support for: AMQP
+[0m[0m00:07:00,926 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 82) AMQ221043: Protocol module found: [artemis-hornetq-protocol]. Adding protocol support for: HORNETQ
+[0m[0m00:07:00,927 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 82) AMQ221043: Protocol module found: [artemis-stomp-protocol]. Adding protocol support for: STOMP
+[0m[0m00:07:01,011 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 82) AMQ221034: Waiting indefinitely to obtain live lock
+[0m[0m00:07:01,011 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 82) AMQ221035: Live Server Obtained live lock
+[0m[0m00:07:01,159 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 86) ISPN000078: Starting JGroups channel `ejb`
+[0m[0m00:07:01,158 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 83) ISPN000078: Starting JGroups channel `ejb`
+[0m[0m00:07:01,158 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 84) ISPN000078: Starting JGroups channel `ejb`
+[0m[0m00:07:01,158 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 85) ISPN000078: Starting JGroups channel `ejb`
+[0m[0m00:07:01,168 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 84) ISPN000094: Received new cluster view for channel ejb: [node-1|0] (1) [node-1]
+[0m[0m00:07:01,168 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 85) ISPN000094: Received new cluster view for channel ejb: [node-1|0] (1) [node-1]
+[0m[0m00:07:01,168 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 86) ISPN000094: Received new cluster view for channel ejb: [node-1|0] (1) [node-1]
+[0m[0m00:07:01,168 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 83) ISPN000094: Received new cluster view for channel ejb: [node-1|0] (1) [node-1]
+[0m[0m00:07:01,202 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 85) ISPN000079: Channel `ejb` local address is `node-1`, physical addresses are `[127.0.0.1:55200]`
+[0m[0m00:07:01,203 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 86) ISPN000079: Channel `ejb` local address is `node-1`, physical addresses are `[127.0.0.1:55200]`
+[0m[0m00:07:01,203 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 84) ISPN000079: Channel `ejb` local address is `node-1`, physical addresses are `[127.0.0.1:55200]`
+[0m[0m00:07:01,206 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 83) ISPN000079: Channel `ejb` local address is `node-1`, physical addresses are `[127.0.0.1:55200]`
+[0m[0m00:07:02,117 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 82) AMQ221003: Deploying ANYCAST queue jms.queue.ExpiryQueue on address jms.queue.ExpiryQueue
+[0m[0m00:07:02,127 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 82) AMQ221003: Deploying ANYCAST queue jms.queue.DLQ on address jms.queue.DLQ
+[0m[0m00:07:02,152 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-8) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor-throughput acceptor
+[0m[0m00:07:02,152 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-5) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor acceptor
+[0m[0m00:07:02,152 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-7) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor acceptor
+[0m[0m00:07:02,152 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-2) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor-throughput acceptor
+[0m[0m00:07:02,387 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 82) AMQ221007: Server is now live
+[0m[0m00:07:02,387 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 82) AMQ221001: Apache ActiveMQ Artemis Message Broker version 2.25.0 [default, nodeID=eec2f110-40d8-11ed-8d58-f8e4e3592f13] 
+[0m[0m00:07:02,395 INFO  [org.wildfly.extension.messaging-activemq] (ServerService Thread Pool -- 82) WFLYMSGAMQ0002: Bound messaging object to jndi name java:/ConnectionFactory
+[0m[0m00:07:02,414 INFO  [org.wildfly.extension.messaging-activemq] (ServerService Thread Pool -- 84) WFLYMSGAMQ0002: Bound messaging object to jndi name java:jboss/exported/jms/RemoteConnectionFactory
+[0m[0m00:07:02,478 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-3) WFLYJCA0007: Registered connection factory java:/JmsXA
+[0m[0m00:07:02,555 INFO  [org.apache.activemq.artemis.ra.ActiveMQRALogger] (MSC service thread 1-3) AMQ151007: Resource adaptor started
+[0m[0m00:07:02,556 INFO  [org.jboss.as.connector.services.resourceadapters.ResourceAdapterActivatorService$ResourceAdapterActivator] (MSC service thread 1-3) IJ020002: Deployed: file://RaActivatoractivemq-ra
+[0m[0m00:07:02,558 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-5) WFLYJCA0002: Bound Jakarta Connectors ConnectionFactory [java:/JmsXA]
+[0m[0m00:07:02,558 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-3) WFLYJCA0118: Binding connection factory named java:/JmsXA to alias java:jboss/DefaultJMSConnectionFactory
+[0m[0m00:07:02,740 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+[0m[0m00:07:02,743 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 27.0.0.Final-SNAPSHOT (WildFly Core 19.0.0.Beta18) started in 11084ms - Started 407 of 696 services (465 services are lazy, passive or on-demand) - Server configuration file in use: standalone-full-ha.xml
+[0m[0m00:07:02,746 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+[0m[0m00:07:02,746 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+[0m[0m00:07:02,995 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/wildfly-SYNC-tcp-0/standalone/data/content/55/a2e0e7d95347c65a39ebef2a50aafb871bd117/content
+[0m[0m00:07:03,021 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0027: Starting deployment of "SingletonServiceTestCase.war" (runtime-name: "SingletonServiceTestCase.war")
+[0m[33m00:07:03,525 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-6) WFLYSRV0018: Deployment "deployment.SingletonServiceTestCase.war" is using a private module ("org.jboss.as.clustering.common") which may be changed or removed in future versions without notice.
+[0m[0m00:07:03,575 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 84) WFLYCLINF0002: Started http-remoting-connector cache from ejb container
+[0m[0m00:07:03,852 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 84) WFLYCLINF0002: Started default cache from server container
+[0m[33m00:07:03,900 WARN  [org.wildfly.clustering.singleton.server] (DistributedSingletonService - 1) WFLYCLSN0006: Failed to reach quorum of 2 for jboss.test.service.quorum.singleton service. No primary singleton provider will be elected.
+[0m[0m00:07:03,931 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 25) WFLYUT0021: Registered web context: '/SingletonServiceTestCase' for server 'default-server'
+[0m[0m00:07:03,997 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "SingletonServiceTestCase.war" (runtime-name : "SingletonServiceTestCase.war")
+[0m[0m00:07:04,778 INFO  [io.undertow.servlet] (default task-1) org.jboss.additional.testsuite.jdkall.present.clustering.cluster.singleton.service.NodeServiceServlet: Received request for jboss.test.service.default, expecting null
+[0m[0m00:07:04,810 INFO  [io.undertow.servlet] (default task-1) org.jboss.additional.testsuite.jdkall.present.clustering.cluster.singleton.service.NodeServiceServlet: Received request for jboss.test.service.quorum, expecting null
+[0m[0m00:07:04,843 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 12) WFLYUT0022: Unregistered web context: '/SingletonServiceTestCase' from server 'default-server'
+[0m[0m00:07:04,876 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 2) WFLYCLINF0003: Stopped default cache from server container
+[0m[0m00:07:04,904 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0028: Stopped deployment SingletonServiceTestCase.war (runtime-name: SingletonServiceTestCase.war) in 68ms
+[0m[0m00:07:04,957 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/wildfly-SYNC-tcp-0/standalone/data/content/55/a2e0e7d95347c65a39ebef2a50aafb871bd117/content
+[0m[0m00:07:04,958 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "SingletonServiceTestCase.war" (runtime-name: "SingletonServiceTestCase.war")
+[0m

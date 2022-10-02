@@ -1,0 +1,11 @@
+[0m00:44:43,956 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/8e/9b37d8e49a3783c94a53b9f84f4b6b7f2d8202/content
+[0m[0m00:44:43,962 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "c6bc1ea2-f0ef-4df4-8b27-9c6318256d54.war" (runtime-name: "c6bc1ea2-f0ef-4df4-8b27-9c6318256d54.war")
+[0m[33m00:44:44,286 WARN  [org.jboss.weld.deployer] (MSC service thread 1-2) WFLYWELD0013: Deployment c6bc1ea2-f0ef-4df4-8b27-9c6318256d54.war contains Jakarta Contexts and Dependency Injection annotations but no bean archive was found (no beans.xml or class with bean defining annotations was present).
+[0m[0m00:44:44,318 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 77) WFLYUT0021: Registered web context: '/c6bc1ea2-f0ef-4df4-8b27-9c6318256d54' for server 'default-server'
+[0m[0m00:44:44,385 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "c6bc1ea2-f0ef-4df4-8b27-9c6318256d54.war" (runtime-name : "c6bc1ea2-f0ef-4df4-8b27-9c6318256d54.war")
+[0m[0m00:44:44,622 INFO  [org.jboss.arquillian.testenricher.cdi.container.BeanManagerProducer] (default task-2) BeanManager not found.
+[0m[0m00:44:44,701 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 77) WFLYUT0022: Unregistered web context: '/c6bc1ea2-f0ef-4df4-8b27-9c6318256d54' from server 'default-server'
+[0m[0m00:44:44,718 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0028: Stopped deployment c6bc1ea2-f0ef-4df4-8b27-9c6318256d54.war (runtime-name: c6bc1ea2-f0ef-4df4-8b27-9c6318256d54.war) in 19ms
+[0m[0m00:44:44,734 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/8e/9b37d8e49a3783c94a53b9f84f4b6b7f2d8202/content
+[0m[0m00:44:44,735 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "c6bc1ea2-f0ef-4df4-8b27-9c6318256d54.war" (runtime-name: "c6bc1ea2-f0ef-4df4-8b27-9c6318256d54.war")
+[0m

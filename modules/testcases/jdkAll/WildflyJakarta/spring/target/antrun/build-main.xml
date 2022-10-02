@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <copy todir="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/spring/target/../modules/srcPool" failonerror="false" overwrite="true">
+    <fileset dir="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/spring/target/../modules/src">
+      <include name="**/*"/>
+    </fileset>
+  </copy>
+</target>
+</project>

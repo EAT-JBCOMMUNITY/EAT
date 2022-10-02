@@ -36,8 +36,8 @@
 		<version.org.jboss.resteasy>3.0.23.Final</version.org.jboss.resteasy>
                 <artifactdir>${settings.localRepository}</artifactdir>
                 <moduledir>${basedir}/../../../../servers/wildfly/build/target/jbossas/modules</moduledir>
-                <resteasy.module>${basedir}/../../../../src1/resources/updatedModulesJaxrs</resteasy.module>
-                <resteasy.artifact>${basedir}/../../../../src1/resources/updatedArtifactsJaxrs</resteasy.artifact>
+                <resteasy.module>${basedir}/../../../../src/resources/updatedModulesJaxrs</resteasy.module>
+                <resteasy.artifact>${basedir}/../../../../src/resources/updatedArtifactsJaxrs</resteasy.artifact>
 	    </properties>
 
             <dependencies>

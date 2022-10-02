@@ -1,0 +1,37 @@
+[0m00:46:57,967 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/02/9b07bc0c6958317180c88b8a3f5179fdd395dc/content
+[0m[0m00:46:57,971 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0027: Starting deployment of "test-c974e4fe-3d26-4be2-91fe-78a9fca9c061.war" (runtime-name: "test-c974e4fe-3d26-4be2-91fe-78a9fca9c061.war")
+[0m[0m00:46:58,324 INFO  [org.jboss.weld.deployer] (MSC service thread 1-7) WFLYWELD0003: Processing weld deployment test-c974e4fe-3d26-4be2-91fe-78a9fca9c061.war
+[0m[0m00:46:58,358 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'SFBean2' in deployment unit 'deployment "test-c974e4fe-3d26-4be2-91fe-78a9fca9c061.war"' are as follows:
+
+	java:global/test-c974e4fe-3d26-4be2-91fe-78a9fca9c061/SFBean2!org.jboss.additional.testsuite.jdkall.present.ejb.sfsbconcurrency2.SFBean2
+	java:app/test-c974e4fe-3d26-4be2-91fe-78a9fca9c061/SFBean2!org.jboss.additional.testsuite.jdkall.present.ejb.sfsbconcurrency2.SFBean2
+	java:module/SFBean2!org.jboss.additional.testsuite.jdkall.present.ejb.sfsbconcurrency2.SFBean2
+	java:global/test-c974e4fe-3d26-4be2-91fe-78a9fca9c061/SFBean2
+	java:app/test-c974e4fe-3d26-4be2-91fe-78a9fca9c061/SFBean2
+	java:module/SFBean2
+
+[0m[0m00:46:58,358 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'SFBean1' in deployment unit 'deployment "test-c974e4fe-3d26-4be2-91fe-78a9fca9c061.war"' are as follows:
+
+	java:global/test-c974e4fe-3d26-4be2-91fe-78a9fca9c061/SFBean1!org.jboss.additional.testsuite.jdkall.present.ejb.sfsbconcurrency2.SFBean1
+	java:app/test-c974e4fe-3d26-4be2-91fe-78a9fca9c061/SFBean1!org.jboss.additional.testsuite.jdkall.present.ejb.sfsbconcurrency2.SFBean1
+	java:module/SFBean1!org.jboss.additional.testsuite.jdkall.present.ejb.sfsbconcurrency2.SFBean1
+	java:global/test-c974e4fe-3d26-4be2-91fe-78a9fca9c061/SFBean1
+	java:app/test-c974e4fe-3d26-4be2-91fe-78a9fca9c061/SFBean1
+	java:module/SFBean1
+
+[0m[0m00:46:58,359 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'SFBean3' in deployment unit 'deployment "test-c974e4fe-3d26-4be2-91fe-78a9fca9c061.war"' are as follows:
+
+	java:global/test-c974e4fe-3d26-4be2-91fe-78a9fca9c061/SFBean3!org.jboss.additional.testsuite.jdkall.present.ejb.sfsbconcurrency2.SFBean3
+	java:app/test-c974e4fe-3d26-4be2-91fe-78a9fca9c061/SFBean3!org.jboss.additional.testsuite.jdkall.present.ejb.sfsbconcurrency2.SFBean3
+	java:module/SFBean3!org.jboss.additional.testsuite.jdkall.present.ejb.sfsbconcurrency2.SFBean3
+	java:global/test-c974e4fe-3d26-4be2-91fe-78a9fca9c061/SFBean3
+	java:app/test-c974e4fe-3d26-4be2-91fe-78a9fca9c061/SFBean3
+	java:module/SFBean3
+
+[0m[0m00:46:58,675 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 5) WFLYUT0021: Registered web context: '/test-c974e4fe-3d26-4be2-91fe-78a9fca9c061' for server 'default-server'
+[0m[0m00:46:58,697 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "test-c974e4fe-3d26-4be2-91fe-78a9fca9c061.war" (runtime-name : "test-c974e4fe-3d26-4be2-91fe-78a9fca9c061.war")
+[0m[0m00:46:58,975 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 6) WFLYUT0022: Unregistered web context: '/test-c974e4fe-3d26-4be2-91fe-78a9fca9c061' from server 'default-server'
+[0m[0m00:46:59,004 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0028: Stopped deployment test-c974e4fe-3d26-4be2-91fe-78a9fca9c061.war (runtime-name: test-c974e4fe-3d26-4be2-91fe-78a9fca9c061.war) in 30ms
+[0m[0m00:46:59,025 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/02/9b07bc0c6958317180c88b8a3f5179fdd395dc/content
+[0m[0m00:46:59,026 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "test-c974e4fe-3d26-4be2-91fe-78a9fca9c061.war" (runtime-name: "test-c974e4fe-3d26-4be2-91fe-78a9fca9c061.war")
+[0m

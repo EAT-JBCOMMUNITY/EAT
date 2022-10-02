@@ -1,0 +1,35 @@
+[0m00:09:27,993 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/d1/ca2cad5a5cdac1aed20a7a851236526ee54068/content
+[0m[0m00:09:27,996 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0027: Starting deployment of "test-fe761765-5c35-430e-b0f6-d42b61855efa.war" (runtime-name: "test-fe761765-5c35-430e-b0f6-d42b61855efa.war")
+[0m[33m00:09:28,252 WARN  [org.jboss.weld.deployer] (MSC service thread 1-8) WFLYWELD0013: Deployment test-fe761765-5c35-430e-b0f6-d42b61855efa.war contains Jakarta Contexts and Dependency Injection annotations but no bean archive was found (no beans.xml or class with bean defining annotations was present).
+[0m[0m00:09:28,270 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 13) WFLYUT0021: Registered web context: '/test-fe761765-5c35-430e-b0f6-d42b61855efa' for server 'default-server'
+[0m[0m00:09:28,282 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "test-fe761765-5c35-430e-b0f6-d42b61855efa.war" (runtime-name : "test-fe761765-5c35-430e-b0f6-d42b61855efa.war")
+[0m[0m00:09:28,343 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/a1/558acc51d8b6905bb5c031971d04259c72cb71/content
+[0m[0m00:09:28,346 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0027: Starting deployment of "SimpleServlet.war" (runtime-name: "SimpleServlet.war")
+[0m[0m00:09:28,460 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 8) WFLYUT0021: Registered web context: '/SimpleServlet' for server 'default-server'
+[0m[0m00:09:28,472 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "SimpleServlet.war" (runtime-name : "SimpleServlet.war")
+[0mERROR CommandContext org.jboss.as.cli.CommandFormatException: 'SimpleServlet.war' already exists in the deployment repository (use --force to replace the existing content in the repository).
+[0m00:09:28,494 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/51/31ba8c50a4959e57a6d8a43b85bd40a7d43501/content
+[0m[0m00:09:28,496 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 8) WFLYUT0022: Unregistered web context: '/SimpleServlet' from server 'default-server'
+[0m[0m00:09:28,500 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0028: Stopped deployment SimpleServlet.war (runtime-name: SimpleServlet.war) in 5ms
+[0m[0m00:09:28,501 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0027: Starting deployment of "SimpleServlet.war" (runtime-name: "SimpleServlet.war")
+[0m[0m00:09:28,594 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 13) WFLYUT0021: Registered web context: '/SimpleServlet' for server 'default-server'
+[0m[0m00:09:28,610 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0016: Replaced deployment "SimpleServlet.war" with deployment "SimpleServlet.war"
+[0m[0m00:09:28,611 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/a1/558acc51d8b6905bb5c031971d04259c72cb71/content
+[0m[0m00:09:28,620 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 13) WFLYUT0022: Unregistered web context: '/SimpleServlet' from server 'default-server'
+[0m[0m00:09:28,623 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0028: Stopped deployment SimpleServlet.war (runtime-name: SimpleServlet.war) in 4ms
+[0m[0m00:09:28,636 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/51/31ba8c50a4959e57a6d8a43b85bd40a7d43501/content
+[0m[0m00:09:28,636 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "SimpleServlet.war" (runtime-name: "SimpleServlet.war")
+[0m[0m00:09:28,653 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/51/31ba8c50a4959e57a6d8a43b85bd40a7d43501/content
+[0m[0m00:09:28,655 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0027: Starting deployment of "SimpleServlet.war" (runtime-name: "SimpleServlet.war")
+[0m[0m00:09:28,755 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 8) WFLYUT0021: Registered web context: '/SimpleServlet' for server 'default-server'
+[0m[0m00:09:28,768 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "SimpleServlet.war" (runtime-name : "SimpleServlet.war")
+[0mERROR CommandContext {"outcome" => "success"}
+[0m00:09:28,775 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 8) WFLYUT0022: Unregistered web context: '/SimpleServlet' from server 'default-server'
+[0m[0m00:09:28,782 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0028: Stopped deployment SimpleServlet.war (runtime-name: SimpleServlet.war) in 7ms
+[0m[0m00:09:28,796 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/51/31ba8c50a4959e57a6d8a43b85bd40a7d43501/content
+[0m[0m00:09:28,796 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "SimpleServlet.war" (runtime-name: "SimpleServlet.war")
+[0m[0m00:09:28,807 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 8) WFLYUT0022: Unregistered web context: '/test-fe761765-5c35-430e-b0f6-d42b61855efa' from server 'default-server'
+[0m[0m00:09:28,815 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0028: Stopped deployment test-fe761765-5c35-430e-b0f6-d42b61855efa.war (runtime-name: test-fe761765-5c35-430e-b0f6-d42b61855efa.war) in 9ms
+[0m[0m00:09:28,829 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/d1/ca2cad5a5cdac1aed20a7a851236526ee54068/content
+[0m[0m00:09:28,830 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "test-fe761765-5c35-430e-b0f6-d42b61855efa.war" (runtime-name: "test-fe761765-5c35-430e-b0f6-d42b61855efa.war")
+[0m
