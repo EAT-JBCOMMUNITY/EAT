@@ -55,7 +55,7 @@
 
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
-                        <additionalClasspathElement>${jboss.modules.dir}/src1/config/arqEap7</additionalClasspathElement>
+                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEap7</additionalClasspathElement>
                     </additionalClasspathElements>
 
                 </configuration>

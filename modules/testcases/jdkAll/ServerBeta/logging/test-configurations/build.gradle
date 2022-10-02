@@ -15,12 +15,12 @@ task deleteFiles(type: Delete) {
 }
 
 task copyfiles1(type: Copy, dependsOn: deleteFiles) {
-    from project.buildDir.toString() + '/../../../../../../src1/resources/Application1-ear-0.0.1-SNAPSHOT.ear'
+    from project.buildDir.toString() + '/../../../../../../src/resources/Application1-ear-0.0.1-SNAPSHOT.ear'
     into project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/deployments'
 }
 
 task copyfiles2(type: Copy, dependsOn: deleteFiles) {
-    from project.buildDir.toString() + '/../../../../../../src1/resources/Application2-ear-0.0.1-SNAPSHOT.ear'
+    from project.buildDir.toString() + '/../../../../../../src/resources/Application2-ear-0.0.1-SNAPSHOT.ear'
     into project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/deployments'
 }
 
@@ -47,7 +47,7 @@ test {
     systemProperty "jbosshome", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     systemProperty "server.dir", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     systemProperty "jboss.server.config.file.name", 'standalone-full.xml'
-    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src1/config/arqWildfly') 
+    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src/config/arqWildfly') 
     systemProperty "arquillian.launch", "gradlejboss"
     environment 'JBOSS_HOME', project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
 }

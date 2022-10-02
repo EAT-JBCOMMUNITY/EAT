@@ -57,7 +57,7 @@
 
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
-                        <additionalClasspathElement>${jboss.modules.dir}/src1/config/arqEap</additionalClasspathElement>
+                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEap</additionalClasspathElement>
                     </additionalClasspathElements>
 
                 </configuration>
@@ -76,7 +76,7 @@
 	                </goals>
 	                <configuration>
 	                    <target>
-	                        <ant antfile="${jboss.modules.dir}/src1/test/scripts/basic-build.xml">
+	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/basic-build.xml">
 	                            <property name="workspace" value="/${jboss.modules.dir}" />
                                     <property name="server" value="${server}" />
                                     <property name="dist" value="jbossas" />

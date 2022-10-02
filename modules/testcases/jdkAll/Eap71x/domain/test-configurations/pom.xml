@@ -41,7 +41,7 @@
 
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
-                        <additionalClasspathElement>${jboss.modules.dir}/src1/config/arqEap7</additionalClasspathElement>
+                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEap7</additionalClasspathElement>
                     </additionalClasspathElements>
 
                 </configuration>
@@ -81,21 +81,21 @@
 	                </goals>
 	                <configuration>
 	                    <target>
-                                <ant antfile="${jboss.modules.dir}/src1/test/scripts/clean-deployments.xml">
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/clean-deployments.xml">
 	                            <property name="serverDir" value="/${jboss.modules.dir}/servers" />
 	                            <target name="clean-deployments"/>
 	                        </ant>
-	                        <ant antfile="${jboss.modules.dir}/src1/test/scripts/basic-build.xml">
+	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/basic-build.xml">
 	                            <property name="workspace" value="/${jboss.modules.dir}" />
                                     <property name="server" value="${server}" />
                                     <property name="dist" value="jbossas" />
 	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
 	                            <target name="build-basic-check"/>
 	                        </ant>
-                                <ant antfile="${jboss.modules.dir}/src1/test/scripts/copy-file.xml">
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
 	                            <property name="fileName" value="java.sql.Driver" />
                                     <property name="filePath" value="${basedir}/src/test/resources/META-INF/" />
-                                    <property name="fileToCopy" value="${jboss.modules.dir}/src1/resources/META-INF/services/java.sql.Driver" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/META-INF/services/java.sql.Driver" />
 	                            <target name="copy-file"/>
 	                        </ant>
 	                    </target>

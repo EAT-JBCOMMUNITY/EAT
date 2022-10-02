@@ -15,12 +15,12 @@ task deleteFiles(type: Delete) {
 }
 
 task copyFiles(type: Copy) {
-    from project.buildDir.toString() + '/../../../../../../src1/resources/rss.png'
+    from project.buildDir.toString() + '/../../../../../../src/resources/rss.png'
     into project.buildDir.toString() + '/../../../../../../testcases/jdkAll/Wildfly/web/test-configurations/src/test/resources'
 }
 
 task copyFiles2(type: Copy, dependsOn: deleteFiles) {
-    from project.buildDir.toString() + '/../../../../../../src1/resources/testTag-1.0-SNAPSHOT.war'
+    from project.buildDir.toString() + '/../../../../../../src/resources/testTag-1.0-SNAPSHOT.war'
     into project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/deployments'
 }
 
@@ -44,7 +44,7 @@ sourceSets {
 
 test {
     systemProperty "jbosshome", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
-    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src1/config/arqWildfly') 
+    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src/config/arqWildfly') 
     systemProperty "arquillian.launch", "gradlejboss"
     environment 'JBOSS_HOME', project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     filter {

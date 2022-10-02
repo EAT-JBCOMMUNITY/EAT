@@ -1,0 +1,37 @@
+[0m00:47:08,623 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/42/70773f3b09a59105bbf7b54358ef0a79e20911/content
+[0m[0m00:47:08,624 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0027: Starting deployment of "Spec2TestCase.war" (runtime-name: "Spec2TestCase.war")
+[0m[0m00:47:08,773 INFO  [org.jboss.weld.deployer] (MSC service thread 1-5) WFLYWELD0003: Processing weld deployment Spec2TestCase.war
+[0m[0m00:47:08,784 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-5) WFLYEJB0473: JNDI bindings for session bean named 'Test1' in deployment unit 'deployment "Spec2TestCase.war"' are as follows:
+
+	java:global/Spec2TestCase/Test1!org.jboss.additional.testsuite.jdkall.present.ejb.spec.TestEjb
+	java:app/Spec2TestCase/Test1!org.jboss.additional.testsuite.jdkall.present.ejb.spec.TestEjb
+	java:module/Test1!org.jboss.additional.testsuite.jdkall.present.ejb.spec.TestEjb
+	java:global/Spec2TestCase/Test1
+	java:app/Spec2TestCase/Test1
+	java:module/Test1
+
+[0m[0m00:47:08,886 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 20) WFLYUT0021: Registered web context: '/Spec2TestCase' for server 'default-server'
+[0m[0m00:47:08,895 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "Spec2TestCase.war" (runtime-name : "Spec2TestCase.war")
+[0m[0m00:47:09,206 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/f9/caab4d3daf2c7efc60800cba92862ab607b518/content
+[0m[0m00:47:09,208 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0027: Starting deployment of "Spec22TestCase.war" (runtime-name: "Spec22TestCase.war")
+[0m[0m00:47:09,353 INFO  [org.jboss.weld.deployer] (MSC service thread 1-6) WFLYWELD0003: Processing weld deployment Spec22TestCase.war
+[0m[0m00:47:09,367 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-6) WFLYEJB0473: JNDI bindings for session bean named 'Test1' in deployment unit 'deployment "Spec22TestCase.war"' are as follows:
+
+	java:global/Spec22TestCase/Test1!org.jboss.additional.testsuite.jdkall.present.ejb.spec.TestEjb
+	java:app/Spec22TestCase/Test1!org.jboss.additional.testsuite.jdkall.present.ejb.spec.TestEjb
+	java:module/Test1!org.jboss.additional.testsuite.jdkall.present.ejb.spec.TestEjb
+	java:global/Spec22TestCase/Test1
+	java:app/Spec22TestCase/Test1
+	java:module/Test1
+
+[0m[0m00:47:09,518 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 74) WFLYUT0021: Registered web context: '/Spec22TestCase' for server 'default-server'
+[0m[0m00:47:09,530 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "Spec22TestCase.war" (runtime-name : "Spec22TestCase.war")
+[0m[0m00:47:09,701 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 74) WFLYUT0022: Unregistered web context: '/Spec2TestCase' from server 'default-server'
+[0m[0m00:47:09,722 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0028: Stopped deployment Spec2TestCase.war (runtime-name: Spec2TestCase.war) in 22ms
+[0m[0m00:47:09,737 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/42/70773f3b09a59105bbf7b54358ef0a79e20911/content
+[0m[0m00:47:09,737 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "Spec2TestCase.war" (runtime-name: "Spec2TestCase.war")
+[0m[0m00:47:09,742 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 74) WFLYUT0022: Unregistered web context: '/Spec22TestCase' from server 'default-server'
+[0m[0m00:47:09,761 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0028: Stopped deployment Spec22TestCase.war (runtime-name: Spec22TestCase.war) in 20ms
+[0m[0m00:47:09,774 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/f9/caab4d3daf2c7efc60800cba92862ab607b518/content
+[0m[0m00:47:09,774 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "Spec22TestCase.war" (runtime-name: "Spec22TestCase.war")
+[0m

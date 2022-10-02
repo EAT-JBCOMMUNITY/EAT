@@ -35,7 +35,7 @@
 
             <properties>
                 <moduledir>${basedir}/../../../../servers/eap7/build/target/jbossas/modules</moduledir>
-                <server.module>${basedir}/../../../../src1/resources/updatedModulesServer2</server.module>
+                <server.module>${basedir}/../../../../src/resources/updatedModulesServer2</server.module>
 	    </properties>
 
             <build>

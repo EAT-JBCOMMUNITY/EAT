@@ -1,0 +1,121 @@
+[0m00:08:13,621 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/12/fa7694aa0b9e519eb8110909a85e9bda7cb00b/content
+[0m[0m00:08:13,631 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "default-logging.war" (runtime-name: "default-logging.war")
+[0m[33m00:08:14,371 WARN  [org.jboss.weld.deployer] (MSC service thread 1-2) WFLYWELD0013: Deployment default-logging.war contains Jakarta Contexts and Dependency Injection annotations but no bean archive was found (no beans.xml or class with bean defining annotations was present).
+[0m[0m00:08:14,414 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 30) WFLYUT0021: Registered web context: '/default-logging' for server 'default-server'
+[0m[0m00:08:14,445 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "default-logging.war" (runtime-name : "default-logging.war")
+[0m[0m00:08:14,446 INFO  [org.jboss.as.controller] (management-handler-thread - 1) WFLYCTL0183: Service status report
+WFLYCTL0186:   Services which failed to start:      service jboss.deployment.subunit."Application2-ear-0.0.1-SNAPSHOT.ear"."Application2-web-0.0.1-SNAPSHOT.war".undertow-deployment.UndertowDeploymentInfoService: Failed to start service
+      service jboss.deployment.subunit."Application1-ear-0.0.1-SNAPSHOT.ear"."Application1-web-0.0.1-SNAPSHOT.war".undertow-deployment.UndertowDeploymentInfoService: Failed to start service
+
+[0m[0m00:08:14,657 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This message should not appear in log file
+[0m[0m00:08:14,711 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This message should appear in log file
+[0m[0m00:08:14,974 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:14,978 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:14,981 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:14,985 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:14,988 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:14,991 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:14,995 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:14,998 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,001 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,004 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,007 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,010 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,017 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,020 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,022 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,025 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,028 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,030 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,033 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,036 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,038 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,041 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,044 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,047 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,049 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,052 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,054 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,057 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,060 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,063 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,065 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,068 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,071 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,074 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,077 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,080 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,083 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,086 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,090 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,093 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,095 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,098 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,101 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,104 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,106 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,110 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,112 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,115 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,117 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,120 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,123 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,125 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,128 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,130 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,133 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,135 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,139 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,142 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,144 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,147 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,150 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,153 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,155 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,157 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,160 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,162 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,164 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,168 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,170 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,172 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,176 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,179 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,183 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,186 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,189 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,191 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,194 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,196 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,200 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,203 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,206 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,209 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,212 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,215 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,217 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,219 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,221 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,224 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,226 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,229 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,231 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,233 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,236 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,239 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,241 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,244 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,246 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,249 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,252 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,255 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is my dummy message which is gonna fill my log file
+[0m[0m00:08:15,260 INFO  [org.jboss.additional.testsuite.jdkall.present.logging.operations] (default task-1) SizeRotatingHandlerTestCase - This is new message
+[0m[0m00:08:15,343 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 30) WFLYUT0022: Unregistered web context: '/default-logging' from server 'default-server'
+[0m[0m00:08:15,363 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0028: Stopped deployment default-logging.war (runtime-name: default-logging.war) in 22ms
+[0m[0m00:08:15,397 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/12/fa7694aa0b9e519eb8110909a85e9bda7cb00b/content
+[0m[0m00:08:15,398 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "default-logging.war" (runtime-name: "default-logging.war")
+[0m[0m00:08:15,398 INFO  [org.jboss.as.controller] (management-handler-thread - 1) WFLYCTL0183: Service status report
+WFLYCTL0186:   Services which failed to start:      service jboss.deployment.subunit."Application2-ear-0.0.1-SNAPSHOT.ear"."Application2-web-0.0.1-SNAPSHOT.war".undertow-deployment.UndertowDeploymentInfoService: Failed to start service
+      service jboss.deployment.subunit."Application1-ear-0.0.1-SNAPSHOT.ear"."Application1-web-0.0.1-SNAPSHOT.war".undertow-deployment.UndertowDeploymentInfoService: Failed to start service
+
+[0m

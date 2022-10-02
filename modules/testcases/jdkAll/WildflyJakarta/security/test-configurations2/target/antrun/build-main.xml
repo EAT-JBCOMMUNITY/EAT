@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <ant antfile="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/security/test-configurations2/../../../../../src/test/scripts/clean-deployments.xml">
+    <property name="serverDir" value="//home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/security/test-configurations2/../../../../../servers"/>
+    <target name="clean-deployments"/>
+  </ant>
+  <ant antfile="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/security/test-configurations2/../../../../../src/test/scripts/basic-build.xml">
+    <property name="workspace" value="//home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/security/test-configurations2/../../../../.."/>
+    <property name="server" value="wildfly"/>
+    <property name="dist" value="jbossas"/>
+    <property name="standaloneConfiguration" value="../src/test/config/standaloneWildfly/standalone.xml"/>
+    <target name="build-basic-check"/>
+  </ant>
+  <ant antfile="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/security/test-configurations2/../../../../../src/test/scripts/copy-file.xml">
+    <property name="fileName" value="server.keystore"/>
+    <property name="filePath" value="//home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/security/test-configurations2/../../../../../servers/wildfly/build/target/jbossas/standalone/configuration"/>
+    <property name="fileToCopy" value="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/security/test-configurations2/../../../../../src/resources/server.keystore"/>
+    <target name="copy-file"/>
+  </ant>
+</target>
+</project>

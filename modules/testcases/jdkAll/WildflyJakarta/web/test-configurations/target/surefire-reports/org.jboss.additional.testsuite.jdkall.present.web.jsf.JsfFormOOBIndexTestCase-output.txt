@@ -1,0 +1,10 @@
+[0m00:44:37,985 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/42/e0a4f8ecd6267ea6a077a6f31407e8416532fc/content
+[0m[0m00:44:38,003 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0027: Starting deployment of "jsf-war.war" (runtime-name: "jsf-war.war")
+[0m[0m00:44:38,255 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 17) WFLYUT0021: Registered web context: '/jsf-war' for server 'default-server'
+[0m[0m00:44:38,282 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "jsf-war.war" (runtime-name : "jsf-war.war")
+[0mwebdriver.gecko.driver is not set. JsfFormOOBIndexTestCasejsf.WarTest was not executed ...
+[0m00:44:38,344 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 17) WFLYUT0022: Unregistered web context: '/jsf-war' from server 'default-server'
+[0m[0m00:44:38,361 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0028: Stopped deployment jsf-war.war (runtime-name: jsf-war.war) in 21ms
+[0m[0m00:44:38,382 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/42/e0a4f8ecd6267ea6a077a6f31407e8416532fc/content
+[0m[0m00:44:38,383 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "jsf-war.war" (runtime-name: "jsf-war.war")
+[0m

@@ -1,0 +1,10 @@
+[0m00:47:07,351 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/a4/b18480031ecb1d6d55b2e947bd7bb3b139546a/content
+[0m[0m00:47:07,354 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0027: Starting deployment of "timerservice.war" (runtime-name: "timerservice.war")
+[0m[33m00:47:07,509 WARN  [org.jboss.weld.deployer] (MSC service thread 1-1) WFLYWELD0013: Deployment timerservice.war contains Jakarta Contexts and Dependency Injection annotations but no bean archive was found (no beans.xml or class with bean defining annotations was present).
+[0m[0m00:47:07,522 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 29) WFLYUT0021: Registered web context: '/timerservice' for server 'default-server'
+[0m[0m00:47:07,534 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "timerservice.war" (runtime-name : "timerservice.war")
+[0m[0m00:47:07,552 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 29) WFLYUT0022: Unregistered web context: '/timerservice' from server 'default-server'
+[0m[0m00:47:07,558 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0028: Stopped deployment timerservice.war (runtime-name: timerservice.war) in 6ms
+[0m[0m00:47:07,568 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/a4/b18480031ecb1d6d55b2e947bd7bb3b139546a/content
+[0m[0m00:47:07,568 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "timerservice.war" (runtime-name: "timerservice.war")
+[0m

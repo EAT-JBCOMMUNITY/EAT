@@ -1,0 +1,64 @@
+2022-10-01 00:07:21,381 INFO  [org.jboss.modules] (main) JBoss Modules version 2.0.3.Final
+2022-10-01 00:07:21,957 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.13.Final
+2022-10-01 00:07:21,969 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
+2022-10-01 00:07:22,211 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: WildFly Full 27.0.0.Final-SNAPSHOT (WildFly Core 19.0.0.Beta18) starting
+2022-10-01 00:07:22,354 INFO  [org.xnio] (MSC service thread 1-7) XNIO version 3.8.8.Final
+2022-10-01 00:07:22,366 INFO  [org.xnio.nio] (MSC service thread 1-7) XNIO NIO Implementation Version 3.8.8.Final
+2022-10-01 00:07:22,409 INFO  [org.jboss.remoting] (MSC service thread 1-6) JBoss Remoting version 5.0.25.Final
+2022-10-01 00:07:22,878 INFO  [org.wildfly.security] (ServerService Thread Pool -- 2) ELY00001: WildFly Elytron version 2.0.0.Final
+2022-10-01 00:07:25,114 WARN  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 10) WFLYCLINF0033: Attribute 'marshaller' is configured to use a deprecated value: LEGACY; use one of the following values instead: [JBOSS, PROTOSTREAM]
+2022-10-01 00:07:25,140 WARN  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 10) WFLYCLINF0033: Attribute 'marshaller' is configured to use a deprecated value: LEGACY; use one of the following values instead: [JBOSS, PROTOSTREAM]
+2022-10-01 00:07:25,176 WARN  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 10) WFLYCLINF0033: Attribute 'marshaller' is configured to use a deprecated value: LEGACY; use one of the following values instead: [JBOSS, PROTOSTREAM]
+2022-10-01 00:07:25,200 WARN  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 10) WFLYCLINF0033: Attribute 'marshaller' is configured to use a deprecated value: LEGACY; use one of the following values instead: [JBOSS, PROTOSTREAM]
+2022-10-01 00:07:25,366 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 9) WFLYRS0016: RESTEasy version 6.2.0.Final
+2022-10-01 00:07:25,397 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 32) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+2022-10-01 00:07:25,406 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 42) WFLYCLINF0001: Activating Infinispan subsystem.
+2022-10-01 00:07:25,528 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 35) WFLYNAM0001: Activating Naming Subsystem
+2022-10-01 00:07:25,541 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 41) WFLYIO001: Worker 'default' has auto-configured to 16 IO threads with 128 max task threads based on your 8 available processors
+2022-10-01 00:07:25,561 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 37) WFLYJSF0007: Activated the following Jakarta Server Faces Implementations: [main]
+2022-10-01 00:07:25,626 INFO  [org.jboss.as.naming] (MSC service thread 1-1) WFLYNAM0003: Starting Naming Service
+2022-10-01 00:07:25,628 INFO  [org.jboss.as.connector] (MSC service thread 1-3) WFLYJCA0009: Starting Jakarta Connectors Subsystem (WildFly/IronJacamar 1.5.9.Final)
+2022-10-01 00:07:25,678 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-3) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2022-10-01 00:07:25,682 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 14) WFLYUT0014: Creating file handler for path '/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/welcome-content' with options [directory-listing: 'true', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2022-10-01 00:07:25,722 WARN  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 42) WFLYCLINF0033: Attribute 'marshaller' is configured to use a deprecated value: LEGACY; use one of the following values instead: [JBOSS, PROTOSTREAM]
+2022-10-01 00:07:25,745 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0003: Undertow 2.3.0.Beta1 starting
+2022-10-01 00:07:25,781 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-1) WFLYELY00023: KeyStore file '/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/domain/test-configurations/target/domains/EEConcurrencyExecutorShutdownTestCase/primary/configuration/application.keystore' does not exist. Used blank.
+2022-10-01 00:07:25,839 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-2) WFLYELY01084: KeyStore /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/domain/test-configurations/target/domains/EEConcurrencyExecutorShutdownTestCase/primary/configuration/application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+2022-10-01 00:07:25,945 WARN  [org.wildfly.clustering.web.undertow] (ServerService Thread Pool -- 14) WFLYCLWEBUT0007: No routing provider found for default-server; using legacy provider based on static configuration
+2022-10-01 00:07:26,051 WARN  [org.jboss.as.ejb3] (ServerService Thread Pool -- 43) WFLYEJB0531: No client mappings registry provider found for ejb; using legacy provider based on static configuration
+2022-10-01 00:07:26,091 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0012: Started server default-server.
+2022-10-01 00:07:26,094 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) Queuing requests.
+2022-10-01 00:07:26,096 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0018: Host default-host starting
+2022-10-01 00:07:26,117 WARN  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 42) WFLYCLINF0033: Attribute 'marshaller' is configured to use a deprecated value: LEGACY; use one of the following values instead: [JBOSS, PROTOSTREAM]
+2022-10-01 00:07:26,158 INFO  [com.arjuna.ats.jbossatx] (MSC service thread 1-4) ARJUNA032010: JBossTS Recovery Service (tag: cbd46e899c5d1a8b064783282fc35d05ac93bffd) - JBoss Inc.
+2022-10-01 00:07:26,211 WARN  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 42) WFLYCLINF0033: Attribute 'marshaller' is configured to use a deprecated value: LEGACY; use one of the following values instead: [JBOSS, PROTOSTREAM]
+2022-10-01 00:07:26,244 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2022-10-01 00:07:26,247 WARN  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 42) WFLYCLINF0033: Attribute 'marshaller' is configured to use a deprecated value: LEGACY; use one of the following values instead: [JBOSS, PROTOSTREAM]
+2022-10-01 00:07:26,260 INFO  [org.jboss.modcluster] (ServerService Thread Pool -- 46) MODCLUSTER000001: Initializing mod_cluster version 2.0.1.Final
+2022-10-01 00:07:26,287 INFO  [org.jboss.modcluster] (ServerService Thread Pool -- 46) MODCLUSTER000032: Listening to proxy advertisements on /224.0.1.105:23364
+2022-10-01 00:07:26,388 INFO  [org.jboss.as.patching] (MSC service thread 1-5) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+2022-10-01 00:07:26,466 INFO  [org.jboss.as.ejb3] (MSC service thread 1-8) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+2022-10-01 00:07:26,572 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2022-10-01 00:07:26,576 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 27.0.0.Final-SNAPSHOT (WildFly Core 19.0.0.Beta18) started in 6027ms - Started 239 of 490 services (323 services are lazy, passive or on-demand) 
+2022-10-01 00:07:27,395 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0027: Starting deployment of "test.war" (runtime-name: "test.war")
+2022-10-01 00:07:28,902 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 2) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.marshall.InfinispanProtoStreamMarshaller'
+2022-10-01 00:07:29,448 INFO  [org.infinispan.CONFIG] (MSC service thread 1-6) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2022-10-01 00:07:29,451 INFO  [org.infinispan.CONFIG] (MSC service thread 1-6) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2022-10-01 00:07:29,468 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 2) WFLYCLINF0002: Started http-remoting-connector cache from ejb container
+2022-10-01 00:07:29,576 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 26) WFLYUT0021: Registered web context: '/test' for server 'default-server'
+2022-10-01 00:07:29,684 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 10) WFLYSRV0010: Deployed "test.war" (runtime-name : "test.war")
+2022-10-01 00:07:29,698 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 10) WFLYSRV0272: Suspending server
+2022-10-01 00:07:29,700 INFO  [org.jboss.as.ejb3] (ServerService Thread Pool -- 10) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+2022-10-01 00:07:29,704 INFO  [org.jboss.as.server] (main) WFLYSRV0240: ProcessController has signalled to shut down; shutting down
+2022-10-01 00:07:29,707 INFO  [org.jboss.as.server] (Thread-1) WFLYSRV0272: Suspending server
+2022-10-01 00:07:29,707 INFO  [org.jboss.as.ejb3] (Thread-1) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+2022-10-01 00:07:29,737 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-2) WFLYMAIL0002: Unbound mail session [java:jboss/mail/Default]
+2022-10-01 00:07:29,739 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 10) WFLYUT0022: Unregistered web context: '/test' from server 'default-server'
+2022-10-01 00:07:29,751 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0019: Host default-host stopping
+2022-10-01 00:07:29,762 INFO  [org.jboss.modcluster] (ServerService Thread Pool -- 26) MODCLUSTER000002: Initiating mod_cluster shutdown
+2022-10-01 00:07:29,767 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0008: Undertow HTTP listener default suspending
+2022-10-01 00:07:29,768 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2022-10-01 00:07:29,773 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 10) WFLYCLINF0003: Stopped http-remoting-connector cache from ejb container
+2022-10-01 00:07:29,773 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0004: Undertow 2.3.0.Beta1 stopping
+2022-10-01 00:07:29,800 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0028: Stopped deployment test.war (runtime-name: test.war) in 89ms
+2022-10-01 00:07:29,825 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0050: WildFly Full 27.0.0.Final-SNAPSHOT (WildFly Core 19.0.0.Beta18) stopped in 112ms

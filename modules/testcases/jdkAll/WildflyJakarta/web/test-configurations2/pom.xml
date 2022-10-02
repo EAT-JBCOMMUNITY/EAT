@@ -41,7 +41,7 @@
 
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
-                        <additionalClasspathElement>${jboss.modules.dir}/src1/config/arqWildflyJakarta</additionalClasspathElement>
+                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqWildflyJakarta</additionalClasspathElement>
                     </additionalClasspathElements>
 
                 </configuration>
@@ -76,11 +76,11 @@
 	                </goals>
 	                <configuration>
 	                    <target>
-                                <ant antfile="${jboss.modules.dir}/src1/test/scripts/clean-deployments.xml">
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/clean-deployments.xml">
 	                            <property name="serverDir" value="/${jboss.modules.dir}/servers" />
 	                            <target name="clean-deployments"/>
 	                        </ant>
-	                        <ant antfile="${jboss.modules.dir}/src1/test/scripts/basic-build.xml">
+	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/basic-build.xml">
 	                            <property name="workspace" value="/${jboss.modules.dir}" />
                                     <property name="server" value="${server}" />
                                     <property name="dist" value="jbossas" />

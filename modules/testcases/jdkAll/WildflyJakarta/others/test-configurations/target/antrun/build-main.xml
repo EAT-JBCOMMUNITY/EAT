@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <ant antfile="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/others/test-configurations/../../../../../src/test/scripts/clean-deployments.xml">
+    <property name="serverDir" value="//home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/others/test-configurations/../../../../../servers"/>
+    <target name="clean-deployments"/>
+  </ant>
+</target>
+</project>

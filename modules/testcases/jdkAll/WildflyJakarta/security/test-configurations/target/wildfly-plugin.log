@@ -1,0 +1,10 @@
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.wildfly.extension.elytron.SSLDefinitions (jar:file:/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/modules/system/layers/base/org/wildfly/extension/elytron/main/wildfly-elytron-integration-jakarta-19.0.0.Beta18.jar!/) to method com.sun.net.ssl.internal.ssl.Provider.isFIPS()
+WARNING: Please consider reporting this to the maintainers of org.wildfly.extension.elytron.SSLDefinitions
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+{"outcome" => "success"}
+{"outcome" => "success"}
+{"outcome" => "success"}
+{"outcome" => "success"}
+{"outcome" => "success"}

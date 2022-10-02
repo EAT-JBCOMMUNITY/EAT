@@ -1,0 +1,13 @@
+[0m00:05:42,993 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/a7/74a7e7e907f193aec0c00b38ae6196a45c175b/content
+[0m[0m00:05:42,995 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0027: Starting deployment of "jaxrssecurity.war" (runtime-name: "jaxrssecurity.war")
+[0m[33m00:05:43,522 WARN  [org.jboss.as.jaxrs] (MSC service thread 1-7) WFLYRS0018: Explicit usage of Jackson annotation in a Jakarta RESTful Web Services deployment; the system will disable Jakarta JSON Binding processing for the current deployment. Consider setting the 'resteasy.preferJacksonOverJsonB' property to 'false' to restore Jakarta JSON Binding.
+[0m[0m00:05:43,570 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 78) RESTEASY002225: Deploying jakarta.ws.rs.core.Application: class org.jboss.additional.testsuite.jdkall.present.jaxrs.jaxb.ExampleApplication
+[0m[0m00:05:43,687 INFO  [stdout] (ServerService Thread Pool -- 78) enabled Default Typing
+[0m[0m00:05:43,700 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 78) WFLYUT0021: Registered web context: '/jaxrssecurity' for server 'default-server'
+[0m[0m00:05:43,721 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "jaxrssecurity.war" (runtime-name : "jaxrssecurity.war")
+[0mAdding a default test for usage of this class with the EAT workshop
+[0m00:05:43,965 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 78) WFLYUT0022: Unregistered web context: '/jaxrssecurity' from server 'default-server'
+[0m[0m00:05:43,990 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0028: Stopped deployment jaxrssecurity.war (runtime-name: jaxrssecurity.war) in 25ms
+[0m[0m00:05:44,001 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/a7/74a7e7e907f193aec0c00b38ae6196a45c175b/content
+[0m[0m00:05:44,001 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "jaxrssecurity.war" (runtime-name: "jaxrssecurity.war")
+[0m

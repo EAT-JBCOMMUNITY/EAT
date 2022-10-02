@@ -15,7 +15,7 @@ task deleteFiles(type: Delete) {
 }
 
 task resourcecopy(type: Copy) {
-        from project.buildDir.toString() + '/../../../../../../src1/resources/testClusterDublicateServiceException.ear'
+        from project.buildDir.toString() + '/../../../../../../src/resources/testClusterDublicateServiceException.ear'
         into project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/deployments'
     }
 
@@ -36,7 +36,7 @@ sourceSets {
 
 test {
     systemProperty "jbosshome", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
-    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src1/config/arqWildfly/clustering') 
+    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src/config/arqWildfly/clustering') 
     systemProperty "arquillian.launch", "gradle-clustering-all"
     environment 'JBOSS_HOME', "$System.env.JBOSS_FOLDER"
 }*/

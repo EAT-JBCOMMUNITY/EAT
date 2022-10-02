@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <ant antfile="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/jpa/test-configurations/../../../../../src/test/scripts/clean-deployments.xml">
+    <property name="serverDir" value="//home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/jpa/test-configurations/../../../../../servers"/>
+    <target name="clean-deployments"/>
+  </ant>
+  <ant antfile="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/jpa/test-configurations/../../../../../src/test/scripts/basic-build.xml">
+    <property name="workspace" value="//home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/jpa/test-configurations/../../../../.."/>
+    <property name="server" value="wildfly"/>
+    <property name="dist" value="jbossas"/>
+    <property name="standaloneConfiguration" value="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/jpa/test-configurations/../src/test/config/standaloneWildfly/standalone-full.xml"/>
+    <target name="build-basic-check"/>
+  </ant>
+</target>
+</project>
