@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: org.jboss.additional.testsuite.jdkall.present.web.jsp.JspForwardTestCase
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 30.542 s - in org.jboss.additional.testsuite.jdkall.present.web.jsp.JspForwardTestCase

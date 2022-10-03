@@ -1,0 +1,348 @@
+Oct 02, 2022 2:25:10 PM org.jboss.logmanager.JBossLoggerFinder getLogger
+ERROR: The LogManager accessed before the "java.util.logging.manager" system property was set to "org.jboss.logmanager.LogManager". Results may be unexpected.
+[0m14:25:12,817 INFO  [org.jboss.modules] (main) JBoss Modules version 2.0.3.Final
+[0m[0m14:25:13,726 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.13.Final
+[0m[0m14:25:13,739 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
+[0m[0m14:25:13,924 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: WildFly Full 27.0.0.Final-SNAPSHOT (WildFly Core 19.0.0.Beta18) starting
+[0mWARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.wildfly.extension.elytron.SSLDefinitions (jar:file:/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/modules/system/layers/base/org/wildfly/extension/elytron/main/wildfly-elytron-integration-jakarta-19.0.0.Beta18.jar!/) to method com.sun.net.ssl.internal.ssl.Provider.isFIPS()
+WARNING: Please consider reporting this to the maintainers of org.wildfly.extension.elytron.SSLDefinitions
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[0m14:25:15,268 INFO  [org.wildfly.security] (ServerService Thread Pool -- 26) ELY00001: WildFly Elytron version 2.0.0.Final
+[0m[0m14:25:16,300 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 35) WFLYCTL0028: Attribute 'cluster' in the resource at address '/subsystem=ejb3/service=remote' is deprecated, and may be removed in a future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+[0m[0m14:25:16,377 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 26) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/ae/d33320a50f19a6c8309af4adb4636d888ad831/content
+[0m[0m14:25:16,419 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 26) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/ec/f1d6e0e6499e90a9ef8b426c12d8ae857bb1d6/content
+[0m[0m14:25:16,448 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+[0m[0m14:25:16,479 INFO  [org.xnio] (MSC service thread 1-2) XNIO version 3.8.8.Final
+[0m[0m14:25:16,493 INFO  [org.xnio.nio] (MSC service thread 1-2) XNIO NIO Implementation Version 3.8.8.Final
+[0m[0m14:25:16,576 INFO  [org.wildfly.extension.health] (ServerService Thread Pool -- 50) WFLYHEALTH0001: Activating Base Health Subsystem
+[0m[0m14:25:16,582 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 52) WFLYCLINF0001: Activating Infinispan subsystem.
+[0m[0m14:25:16,597 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 54) WFLYRS0016: RESTEasy version 6.2.0.Final
+[0m[0m14:25:16,621 INFO  [org.wildfly.extension.metrics] (ServerService Thread Pool -- 62) WFLYMETRICS0001: Activating Base Metrics Subsystem
+[0m[0m14:25:16,622 INFO  [org.wildfly.iiop.openjdk] (ServerService Thread Pool -- 51) WFLYIIOP0001: Activating IIOP Subsystem
+[0m[0m14:25:16,622 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 41) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 2.1)
+[0m[0m14:25:16,651 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 63) WFLYNAM0001: Activating Naming Subsystem
+[0m[0m14:25:16,691 INFO  [org.jboss.remoting] (MSC service thread 1-8) JBoss Remoting version 5.0.25.Final
+[0m[0m14:25:16,735 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0018: Started Driver service with driver-name = h2
+[0m[0m14:25:16,700 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 59) WFLYJSF0007: Activated the following Jakarta Server Faces Implementations: [main]
+[0m[0m14:25:16,762 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 72) WFLYWS0002: Activating WebServices Extension
+[0m[0m14:25:16,706 INFO  [org.jboss.as.connector] (MSC service thread 1-1) WFLYJCA0009: Starting Jakarta Connectors Subsystem (WildFly/IronJacamar 1.5.9.Final)
+[0m[33m14:25:16,663 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 70) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+[0m[0m14:25:16,691 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 53) WFLYIO001: Worker 'default' has auto-configured to 16 IO threads with 128 max task threads based on your 8 available processors
+[0m[0m14:25:16,803 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-2) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+[0m[0m14:25:16,800 INFO  [org.jboss.as.naming] (MSC service thread 1-1) WFLYNAM0003: Starting Naming Service
+[0m[0m14:25:17,143 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0003: Undertow 2.3.0.Beta1 starting
+[0m[33m14:25:17,169 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-4) WFLYELY00023: KeyStore file '/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/configuration/application.keystore' does not exist. Used blank.
+[0m[0m14:25:17,246 INFO  [org.jboss.as.ejb3] (MSC service thread 1-2) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 32 (per class), which is derived from the number of CPUs on this host.
+[0m[33m14:25:17,257 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-7) WFLYELY01084: KeyStore /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+[0m[0m14:25:17,246 INFO  [org.jboss.as.ejb3] (MSC service thread 1-3) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 128 (per class), which is derived from thread worker pool sizing.
+[0m[0m14:25:17,362 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 71) WFLYUT0014: Creating file handler for path '/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+[0m[0m14:25:17,386 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0012: Started server default-server.
+[0m[0m14:25:17,388 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) Queuing requests.
+[0m[0m14:25:17,403 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0018: Host default-host starting
+[0m[0m14:25:17,629 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+[0m[0m14:25:17,878 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+[0m[0m14:25:17,968 INFO  [org.jboss.as.ejb3] (MSC service thread 1-5) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+[0m[0m14:25:18,015 INFO  [org.wildfly.iiop.openjdk] (MSC service thread 1-1) WFLYIIOP0009: CORBA ORB Service started
+[0m[0m14:25:18,131 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+[0m[0m14:25:18,220 INFO  [org.jboss.as.patching] (MSC service thread 1-6) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+[0m[0m14:25:18,244 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-3) WFLYDS0013: Started FileSystemDeploymentService for directory /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/deployments
+[0m[0m14:25:18,273 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0027: Starting deployment of "Application1-ear-0.0.1-SNAPSHOT.ear" (runtime-name: "Application1-ear-0.0.1-SNAPSHOT.ear")
+[0m[0m14:25:18,276 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "Application2-ear-0.0.1-SNAPSHOT.ear" (runtime-name: "Application2-ear-0.0.1-SNAPSHOT.ear")
+[0m[0m14:25:18,460 INFO  [org.jboss.ws.common.management] (MSC service thread 1-1) JBWS022052: Starting JBossWS 6.1.0.Final (Apache CXF 3.5.2.jbossorg-3) 
+[0m[0m14:25:18,475 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 74) AMQ221000: live Message Broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/activemq/journal,bindingsDirectory=/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/activemq/bindings,largeMessagesDirectory=/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/activemq/largemessages,pagingDirectory=/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/activemq/paging)
+[0m[0m14:25:18,569 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0207: Starting subdeployment (runtime-name: "Application2-web-0.0.1-SNAPSHOT.war")
+[0m[0m14:25:18,573 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0207: Starting subdeployment (runtime-name: "Application1-web-0.0.1-SNAPSHOT.war")
+[0m[0m14:25:18,618 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 74) AMQ221012: Using AIO Journal
+[0m[0m14:25:18,906 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 74) AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+[0m[0m14:25:18,909 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 74) AMQ221043: Protocol module found: [artemis-amqp-protocol]. Adding protocol support for: AMQP
+[0m[0m14:25:18,910 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 74) AMQ221043: Protocol module found: [artemis-hornetq-protocol]. Adding protocol support for: HORNETQ
+[0m[0m14:25:18,911 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 74) AMQ221043: Protocol module found: [artemis-stomp-protocol]. Adding protocol support for: STOMP
+[0m[0m14:25:19,147 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 74) AMQ221034: Waiting indefinitely to obtain live lock
+[0m[0m14:25:19,148 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 74) AMQ221035: Live Server Obtained live lock
+[0m[33m14:25:19,894 WARN  [org.jboss.modules.define] (MSC service thread 1-7) Failed to define class com.test.servlets.LogsTestServlet in Module "deployment.Application2-ear-0.0.1-SNAPSHOT.ear.Application2-web-0.0.1-SNAPSHOT.war" from Service Module Loader: java.lang.NoClassDefFoundError: Failed to link com/test/servlets/LogsTestServlet (Module "deployment.Application2-ear-0.0.1-SNAPSHOT.ear.Application2-web-0.0.1-SNAPSHOT.war" from Service Module Loader): javax/servlet/http/HttpServlet
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1016)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1095)
+	at org.jboss.modules.ModuleClassLoader.doDefineOrLoadClass(ModuleClassLoader.java:351)
+	at org.jboss.modules.ModuleClassLoader.defineClass(ModuleClassLoader.java:482)
+	at org.jboss.modules.ModuleClassLoader.loadClassLocal(ModuleClassLoader.java:276)
+	at org.jboss.modules.ModuleClassLoader$1.loadClassLocal(ModuleClassLoader.java:79)
+	at org.jboss.modules.Module.loadModuleClass(Module.java:765)
+	at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:192)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:410)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:398)
+	at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:116)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:398)
+	at org.jboss.as.ee@27.0.0.Final-SNAPSHOT//org.jboss.as.ee.utils.ClassLoadingUtils.loadClass(ClassLoadingUtils.java:21)
+	at org.jboss.as.ee@27.0.0.Final-SNAPSHOT//org.jboss.as.ee.utils.ClassLoadingUtils.loadClass(ClassLoadingUtils.java:14)
+	at org.jboss.as.ee@27.0.0.Final-SNAPSHOT//org.jboss.as.ee.component.deployers.InterceptorAnnotationProcessor.processComponentConfig(InterceptorAnnotationProcessor.java:84)
+	at org.jboss.as.ee@27.0.0.Final-SNAPSHOT//org.jboss.as.ee.component.deployers.InterceptorAnnotationProcessor.deploy(InterceptorAnnotationProcessor.java:77)
+	at org.jboss.as.server@19.0.0.Beta18//org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:182)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1739)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1701)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1559)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+[0m[33m14:25:19,894 WARN  [org.jboss.modules.define] (MSC service thread 1-4) Failed to define class com.test.servlets.LogsTestServlet in Module "deployment.Application1-ear-0.0.1-SNAPSHOT.ear.Application1-web-0.0.1-SNAPSHOT.war" from Service Module Loader: java.lang.NoClassDefFoundError: Failed to link com/test/servlets/LogsTestServlet (Module "deployment.Application1-ear-0.0.1-SNAPSHOT.ear.Application1-web-0.0.1-SNAPSHOT.war" from Service Module Loader): javax/servlet/http/HttpServlet
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1016)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1095)
+	at org.jboss.modules.ModuleClassLoader.doDefineOrLoadClass(ModuleClassLoader.java:351)
+	at org.jboss.modules.ModuleClassLoader.defineClass(ModuleClassLoader.java:482)
+	at org.jboss.modules.ModuleClassLoader.loadClassLocal(ModuleClassLoader.java:276)
+	at org.jboss.modules.ModuleClassLoader$1.loadClassLocal(ModuleClassLoader.java:79)
+	at org.jboss.modules.Module.loadModuleClass(Module.java:765)
+	at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:192)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:410)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:398)
+	at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:116)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:398)
+	at org.jboss.as.ee@27.0.0.Final-SNAPSHOT//org.jboss.as.ee.utils.ClassLoadingUtils.loadClass(ClassLoadingUtils.java:21)
+	at org.jboss.as.ee@27.0.0.Final-SNAPSHOT//org.jboss.as.ee.utils.ClassLoadingUtils.loadClass(ClassLoadingUtils.java:14)
+	at org.jboss.as.ee@27.0.0.Final-SNAPSHOT//org.jboss.as.ee.component.deployers.InterceptorAnnotationProcessor.processComponentConfig(InterceptorAnnotationProcessor.java:84)
+	at org.jboss.as.ee@27.0.0.Final-SNAPSHOT//org.jboss.as.ee.component.deployers.InterceptorAnnotationProcessor.deploy(InterceptorAnnotationProcessor.java:77)
+	at org.jboss.as.server@19.0.0.Beta18//org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:182)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1739)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1701)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1559)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+[0m[33m14:25:20,159 WARN  [org.jboss.modules.define] (MSC service thread 1-4) Failed to define class com.test.servlets.LogsTestServlet in Module "deployment.Application2-ear-0.0.1-SNAPSHOT.ear.Application2-web-0.0.1-SNAPSHOT.war" from Service Module Loader: java.lang.NoClassDefFoundError: Failed to link com/test/servlets/LogsTestServlet (Module "deployment.Application2-ear-0.0.1-SNAPSHOT.ear.Application2-web-0.0.1-SNAPSHOT.war" from Service Module Loader): javax/servlet/http/HttpServlet
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1016)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1095)
+	at org.jboss.modules.ModuleClassLoader.doDefineOrLoadClass(ModuleClassLoader.java:351)
+	at org.jboss.modules.ModuleClassLoader.defineClass(ModuleClassLoader.java:482)
+	at org.jboss.modules.ModuleClassLoader.loadClassLocal(ModuleClassLoader.java:276)
+	at org.jboss.modules.ModuleClassLoader$1.loadClassLocal(ModuleClassLoader.java:79)
+	at org.jboss.modules.Module.loadModuleClass(Module.java:765)
+	at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:192)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:410)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:398)
+	at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:116)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:398)
+	at org.jboss.as.ee@27.0.0.Final-SNAPSHOT//org.jboss.as.ee.utils.ClassLoadingUtils.loadClass(ClassLoadingUtils.java:21)
+	at org.jboss.as.ee@27.0.0.Final-SNAPSHOT//org.jboss.as.ee.component.deployers.EEModuleConfigurationProcessor.deploy(EEModuleConfigurationProcessor.java:80)
+	at org.jboss.as.server@19.0.0.Beta18//org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:182)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1739)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1701)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1559)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1363)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+[0m[33m14:25:20,162 WARN  [org.jboss.as.ee] (MSC service thread 1-4) WFLYEE0007: Not installing optional component com.test.servlets.LogsTestServlet due to an exception (enable DEBUG log level to see the cause)
+[0m[33m14:25:20,181 WARN  [org.jboss.modules.define] (MSC service thread 1-3) Failed to define class com.test.servlets.LogsTestServlet in Module "deployment.Application1-ear-0.0.1-SNAPSHOT.ear.Application1-web-0.0.1-SNAPSHOT.war" from Service Module Loader: java.lang.NoClassDefFoundError: Failed to link com/test/servlets/LogsTestServlet (Module "deployment.Application1-ear-0.0.1-SNAPSHOT.ear.Application1-web-0.0.1-SNAPSHOT.war" from Service Module Loader): javax/servlet/http/HttpServlet
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1016)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1095)
+	at org.jboss.modules.ModuleClassLoader.doDefineOrLoadClass(ModuleClassLoader.java:351)
+	at org.jboss.modules.ModuleClassLoader.defineClass(ModuleClassLoader.java:482)
+	at org.jboss.modules.ModuleClassLoader.loadClassLocal(ModuleClassLoader.java:276)
+	at org.jboss.modules.ModuleClassLoader$1.loadClassLocal(ModuleClassLoader.java:79)
+	at org.jboss.modules.Module.loadModuleClass(Module.java:765)
+	at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:192)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:410)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:398)
+	at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:116)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:398)
+	at org.jboss.as.ee@27.0.0.Final-SNAPSHOT//org.jboss.as.ee.utils.ClassLoadingUtils.loadClass(ClassLoadingUtils.java:21)
+	at org.jboss.as.ee@27.0.0.Final-SNAPSHOT//org.jboss.as.ee.component.deployers.EEModuleConfigurationProcessor.deploy(EEModuleConfigurationProcessor.java:80)
+	at org.jboss.as.server@19.0.0.Beta18//org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:182)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1739)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1701)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1559)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+[0m[33m14:25:20,184 WARN  [org.jboss.as.ee] (MSC service thread 1-3) WFLYEE0007: Not installing optional component com.test.servlets.LogsTestServlet due to an exception (enable DEBUG log level to see the cause)
+[0m[33m14:25:20,436 WARN  [org.jboss.modules.define] (MSC service thread 1-2) Failed to define class com.test.servlets.LogsTestServlet in Module "deployment.Application1-ear-0.0.1-SNAPSHOT.ear.Application1-web-0.0.1-SNAPSHOT.war" from Service Module Loader: java.lang.NoClassDefFoundError: Failed to link com/test/servlets/LogsTestServlet (Module "deployment.Application1-ear-0.0.1-SNAPSHOT.ear.Application1-web-0.0.1-SNAPSHOT.war" from Service Module Loader): javax/servlet/http/HttpServlet
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1016)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1095)
+	at org.jboss.modules.ModuleClassLoader.doDefineOrLoadClass(ModuleClassLoader.java:351)
+	at org.jboss.modules.ModuleClassLoader.defineClass(ModuleClassLoader.java:482)
+	at org.jboss.modules.ModuleClassLoader.loadClassLocal(ModuleClassLoader.java:276)
+	at org.jboss.modules.ModuleClassLoader$1.loadClassLocal(ModuleClassLoader.java:79)
+	at org.jboss.modules.Module.loadModuleClass(Module.java:765)
+	at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:192)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:410)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:398)
+	at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:116)
+	at org.wildfly.extension.undertow@27.0.0.Final-SNAPSHOT//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService.createServletConfig(UndertowDeploymentInfoService.java:638)
+	at org.wildfly.extension.undertow@27.0.0.Final-SNAPSHOT//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService.start(UndertowDeploymentInfoService.java:286)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1739)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1701)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1559)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+[0m[33m14:25:20,436 WARN  [org.jboss.modules.define] (MSC service thread 1-1) Failed to define class com.test.servlets.LogsTestServlet in Module "deployment.Application2-ear-0.0.1-SNAPSHOT.ear.Application2-web-0.0.1-SNAPSHOT.war" from Service Module Loader: java.lang.NoClassDefFoundError: Failed to link com/test/servlets/LogsTestServlet (Module "deployment.Application2-ear-0.0.1-SNAPSHOT.ear.Application2-web-0.0.1-SNAPSHOT.war" from Service Module Loader): javax/servlet/http/HttpServlet
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1016)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1095)
+	at org.jboss.modules.ModuleClassLoader.doDefineOrLoadClass(ModuleClassLoader.java:351)
+	at org.jboss.modules.ModuleClassLoader.defineClass(ModuleClassLoader.java:482)
+	at org.jboss.modules.ModuleClassLoader.loadClassLocal(ModuleClassLoader.java:276)
+	at org.jboss.modules.ModuleClassLoader$1.loadClassLocal(ModuleClassLoader.java:79)
+	at org.jboss.modules.Module.loadModuleClass(Module.java:765)
+	at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:192)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:410)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:398)
+	at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:116)
+	at org.wildfly.extension.undertow@27.0.0.Final-SNAPSHOT//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService.createServletConfig(UndertowDeploymentInfoService.java:638)
+	at org.wildfly.extension.undertow@27.0.0.Final-SNAPSHOT//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService.start(UndertowDeploymentInfoService.java:286)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1739)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1701)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1559)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1363)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+[0m[31m14:25:20,437 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-2) MSC000001: Failed to start service jboss.deployment.subunit."Application1-ear-0.0.1-SNAPSHOT.ear"."Application1-web-0.0.1-SNAPSHOT.war".undertow-deployment.UndertowDeploymentInfoService: org.jboss.msc.service.StartException in service jboss.deployment.subunit."Application1-ear-0.0.1-SNAPSHOT.ear"."Application1-web-0.0.1-SNAPSHOT.war".undertow-deployment.UndertowDeploymentInfoService: Failed to start service
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1731)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1559)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NoClassDefFoundError: Failed to link com/test/servlets/LogsTestServlet (Module "deployment.Application1-ear-0.0.1-SNAPSHOT.ear.Application1-web-0.0.1-SNAPSHOT.war" from Service Module Loader): javax/servlet/http/HttpServlet
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1016)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1095)
+	at org.jboss.modules.ModuleClassLoader.doDefineOrLoadClass(ModuleClassLoader.java:351)
+	at org.jboss.modules.ModuleClassLoader.defineClass(ModuleClassLoader.java:482)
+	at org.jboss.modules.ModuleClassLoader.loadClassLocal(ModuleClassLoader.java:276)
+	at org.jboss.modules.ModuleClassLoader$1.loadClassLocal(ModuleClassLoader.java:79)
+	at org.jboss.modules.Module.loadModuleClass(Module.java:765)
+	at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:192)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:410)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:398)
+	at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:116)
+	at org.wildfly.extension.undertow@27.0.0.Final-SNAPSHOT//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService.createServletConfig(UndertowDeploymentInfoService.java:638)
+	at org.wildfly.extension.undertow@27.0.0.Final-SNAPSHOT//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService.start(UndertowDeploymentInfoService.java:286)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1739)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1701)
+	... 6 more
+
+[0m[31m14:25:20,438 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-1) MSC000001: Failed to start service jboss.deployment.subunit."Application2-ear-0.0.1-SNAPSHOT.ear"."Application2-web-0.0.1-SNAPSHOT.war".undertow-deployment.UndertowDeploymentInfoService: org.jboss.msc.service.StartException in service jboss.deployment.subunit."Application2-ear-0.0.1-SNAPSHOT.ear"."Application2-web-0.0.1-SNAPSHOT.war".undertow-deployment.UndertowDeploymentInfoService: Failed to start service
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1731)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1559)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1363)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NoClassDefFoundError: Failed to link com/test/servlets/LogsTestServlet (Module "deployment.Application2-ear-0.0.1-SNAPSHOT.ear.Application2-web-0.0.1-SNAPSHOT.war" from Service Module Loader): javax/servlet/http/HttpServlet
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1016)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1095)
+	at org.jboss.modules.ModuleClassLoader.doDefineOrLoadClass(ModuleClassLoader.java:351)
+	at org.jboss.modules.ModuleClassLoader.defineClass(ModuleClassLoader.java:482)
+	at org.jboss.modules.ModuleClassLoader.loadClassLocal(ModuleClassLoader.java:276)
+	at org.jboss.modules.ModuleClassLoader$1.loadClassLocal(ModuleClassLoader.java:79)
+	at org.jboss.modules.Module.loadModuleClass(Module.java:765)
+	at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:192)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:410)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:398)
+	at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:116)
+	at org.wildfly.extension.undertow@27.0.0.Final-SNAPSHOT//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService.createServletConfig(UndertowDeploymentInfoService.java:638)
+	at org.wildfly.extension.undertow@27.0.0.Final-SNAPSHOT//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService.start(UndertowDeploymentInfoService.java:286)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1739)
+	at org.jboss.msc@1.4.13.Final//org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1701)
+	... 6 more
+
+[0m[0m14:25:20,686 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 74) AMQ221003: Deploying ANYCAST queue jms.queue.ExpiryQueue on address jms.queue.ExpiryQueue
+[0m[0m14:25:20,698 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 74) AMQ221003: Deploying ANYCAST queue jms.queue.DLQ on address jms.queue.DLQ
+[0m[0m14:25:20,711 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-8) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor-throughput acceptor
+[0m[0m14:25:20,712 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-5) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor acceptor
+[0m[0m14:25:20,712 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-2) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor acceptor
+[0m[0m14:25:20,712 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-6) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor-throughput acceptor
+[0m[0m14:25:21,107 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 74) AMQ221007: Server is now live
+[0m[0m14:25:21,108 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 74) AMQ221001: Apache ActiveMQ Artemis Message Broker version 2.25.0 [default, nodeID=8a3b8861-4244-11ed-8143-f8e4e3592f13] 
+[0m[0m14:25:21,143 INFO  [org.wildfly.extension.messaging-activemq] (ServerService Thread Pool -- 74) WFLYMSGAMQ0002: Bound messaging object to jndi name java:/ConnectionFactory
+[0m[0m14:25:21,145 INFO  [org.wildfly.extension.messaging-activemq] (ServerService Thread Pool -- 76) WFLYMSGAMQ0002: Bound messaging object to jndi name java:jboss/exported/jms/RemoteConnectionFactory
+[0m[0m14:25:21,233 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-6) WFLYJCA0007: Registered connection factory java:/JmsXA
+[0m[0m14:25:21,518 INFO  [org.apache.activemq.artemis.ra.ActiveMQRALogger] (MSC service thread 1-6) AMQ151007: Resource adaptor started
+[0m[0m14:25:21,518 INFO  [org.jboss.as.connector.services.resourceadapters.ResourceAdapterActivatorService$ResourceAdapterActivator] (MSC service thread 1-6) IJ020002: Deployed: file://RaActivatoractivemq-ra
+[0m[0m14:25:21,523 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-5) WFLYJCA0002: Bound Jakarta Connectors ConnectionFactory [java:/JmsXA]
+[0m[0m14:25:21,524 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-2) WFLYJCA0118: Binding connection factory named java:/JmsXA to alias java:jboss/DefaultJMSConnectionFactory
+[0m[31m14:25:21,537 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("deploy") failed - address: ([("deployment" => "Application2-ear-0.0.1-SNAPSHOT.ear")]) - failure description: {"WFLYCTL0080: Failed services" => {"jboss.deployment.subunit.\"Application2-ear-0.0.1-SNAPSHOT.ear\".\"Application2-web-0.0.1-SNAPSHOT.war\".undertow-deployment.UndertowDeploymentInfoService" => "Failed to start service
+    Caused by: java.lang.NoClassDefFoundError: Failed to link com/test/servlets/LogsTestServlet (Module \"deployment.Application2-ear-0.0.1-SNAPSHOT.ear.Application2-web-0.0.1-SNAPSHOT.war\" from Service Module Loader): javax/servlet/http/HttpServlet"}}
+[0m[31m14:25:21,542 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("deploy") failed - address: ([("deployment" => "Application1-ear-0.0.1-SNAPSHOT.ear")]) - failure description: {"WFLYCTL0080: Failed services" => {"jboss.deployment.subunit.\"Application1-ear-0.0.1-SNAPSHOT.ear\".\"Application1-web-0.0.1-SNAPSHOT.war\".undertow-deployment.UndertowDeploymentInfoService" => "Failed to start service
+    Caused by: java.lang.NoClassDefFoundError: Failed to link com/test/servlets/LogsTestServlet (Module \"deployment.Application1-ear-0.0.1-SNAPSHOT.ear.Application1-web-0.0.1-SNAPSHOT.war\" from Service Module Loader): javax/servlet/http/HttpServlet"}}
+[0m[0m14:25:21,715 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 42) WFLYSRV0010: Deployed "Application1-ear-0.0.1-SNAPSHOT.ear" (runtime-name : "Application1-ear-0.0.1-SNAPSHOT.ear")
+[0m[0m14:25:21,716 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 42) WFLYSRV0010: Deployed "Application2-ear-0.0.1-SNAPSHOT.ear" (runtime-name : "Application2-ear-0.0.1-SNAPSHOT.ear")
+[0m[0m14:25:21,718 INFO  [org.jboss.as.controller] (Controller Boot Thread) WFLYCTL0183: Service status report
+WFLYCTL0186:   Services which failed to start:      service jboss.deployment.subunit."Application2-ear-0.0.1-SNAPSHOT.ear"."Application2-web-0.0.1-SNAPSHOT.war".undertow-deployment.UndertowDeploymentInfoService: Failed to start service
+      service jboss.deployment.subunit."Application1-ear-0.0.1-SNAPSHOT.ear"."Application1-web-0.0.1-SNAPSHOT.war".undertow-deployment.UndertowDeploymentInfoService: Failed to start service
+WFLYCTL0448: 6 additional services are down due to their dependencies being missing or failed
+[0m[0m14:25:21,813 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+[0m[31m14:25:21,817 ERROR [org.jboss.as] (Controller Boot Thread) WFLYSRV0026: WildFly Full 27.0.0.Final-SNAPSHOT (WildFly Core 19.0.0.Beta18) started (with errors) in 9780ms - Started 498 of 727 services (12 services failed or missing dependencies, 344 services are lazy, passive or on-demand) - Server configuration file in use: standalone-full.xml
+[0m[0m14:25:21,820 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+[0m[0m14:25:21,821 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+[0m[0m14:25:23,700 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/a9/1e99c13dc8bf83d28d386baa6d0a62c17e273b/content
+[0m[0m14:25:23,705 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "test.war" (runtime-name: "test.war")
+[0m[33m14:25:24,261 WARN  [org.jboss.weld.deployer] (MSC service thread 1-3) WFLYWELD0013: Deployment test.war contains Jakarta Contexts and Dependency Injection annotations but no bean archive was found (no beans.xml or class with bean defining annotations was present).
+[0m[0m14:25:24,390 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 26) WFLYUT0021: Registered web context: '/test' for server 'default-server'
+[0m[0m14:25:24,416 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "test.war" (runtime-name : "test.war")
+[0m[0m14:25:24,416 INFO  [org.jboss.as.controller] (management-handler-thread - 1) WFLYCTL0183: Service status report
+WFLYCTL0186:   Services which failed to start:      service jboss.deployment.subunit."Application2-ear-0.0.1-SNAPSHOT.ear"."Application2-web-0.0.1-SNAPSHOT.war".undertow-deployment.UndertowDeploymentInfoService: Failed to start service
+      service jboss.deployment.subunit."Application1-ear-0.0.1-SNAPSHOT.ear"."Application1-web-0.0.1-SNAPSHOT.war".undertow-deployment.UndertowDeploymentInfoService: Failed to start service
+
+[0m[0m14:25:25,106 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 26) WFLYUT0022: Unregistered web context: '/test' from server 'default-server'
+[0m[0m14:25:25,157 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0028: Stopped deployment test.war (runtime-name: test.war) in 55ms
+[0m[0m14:25:25,202 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/a9/1e99c13dc8bf83d28d386baa6d0a62c17e273b/content
+[0m[0m14:25:25,202 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "test.war" (runtime-name: "test.war")
+[0m[0m14:25:25,203 INFO  [org.jboss.as.controller] (management-handler-thread - 1) WFLYCTL0183: Service status report
+WFLYCTL0186:   Services which failed to start:      service jboss.deployment.subunit."Application2-ear-0.0.1-SNAPSHOT.ear"."Application2-web-0.0.1-SNAPSHOT.war".undertow-deployment.UndertowDeploymentInfoService: Failed to start service
+      service jboss.deployment.subunit."Application1-ear-0.0.1-SNAPSHOT.ear"."Application1-web-0.0.1-SNAPSHOT.war".undertow-deployment.UndertowDeploymentInfoService: Failed to start service
+
+[0m[0m14:25:25,326 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0272: Suspending server
+[0m[0m14:25:25,337 INFO  [org.jboss.as.ejb3] (management-handler-thread - 1) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+[0m[0m14:25:25,338 INFO  [org.jboss.as.server] (Management Triggered Shutdown) WFLYSRV0241: Shutting down in response to management operation 'shutdown'
+[0m[0m14:25:25,412 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-7) WFLYMAIL0002: Unbound mail session [java:jboss/mail/Default]
+[0m[0m14:25:25,420 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-3) WFLYMSGAMQ0006: Unbound messaging object to jndi name java:jboss/exported/jms/RemoteConnectionFactory
+[0m[0m14:25:25,424 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0019: Host default-host stopping
+[0m[0m14:25:25,424 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-1) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+[0m[0m14:25:25,424 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-3) WFLYJCA0119: Unbinding connection factory named java:/JmsXA to alias java:jboss/DefaultJMSConnectionFactory
+[0m[0m14:25:25,427 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-7) WFLYJCA0011: Unbound Jakarta Connectors ConnectionFactory [java:/JmsXA]
+[0m[0m14:25:25,435 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0019: Stopped Driver service with driver-name = h2
+[0m[0m14:25:25,456 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0208: Stopped subdeployment (runtime-name: Application1-web-0.0.1-SNAPSHOT.war) in 92ms
+[0m[0m14:25:25,464 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0028: Stopped deployment Application1-ear-0.0.1-SNAPSHOT.ear (runtime-name: Application1-ear-0.0.1-SNAPSHOT.ear) in 105ms
+[0m[0m14:25:25,469 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0008: Undertow HTTPS listener https suspending
+[0m[0m14:25:25,472 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 127.0.0.1:8443
+[0m[0m14:25:25,473 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0208: Stopped subdeployment (runtime-name: Application2-web-0.0.1-SNAPSHOT.war) in 110ms
+[0m[0m14:25:25,480 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0028: Stopped deployment Application2-ear-0.0.1-SNAPSHOT.ear (runtime-name: Application2-ear-0.0.1-SNAPSHOT.ear) in 116ms
+[0m[0m14:25:25,488 INFO  [org.apache.activemq.artemis.ra.ActiveMQRALogger] (ServerService Thread Pool -- 76) AMQ151003: resource adaptor stopped
+[0m[0m14:25:25,714 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 76) AMQ221002: Apache ActiveMQ Artemis Message Broker version 2.25.0 [8a3b8861-4244-11ed-8143-f8e4e3592f13] stopped, uptime 7.279 seconds
+[0m[0m14:25:25,716 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0008: Undertow HTTP listener default suspending
+[0m[0m14:25:25,717 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+[0m[0m14:25:25,719 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0004: Undertow 2.3.0.Beta1 stopping
+[0m[0m14:25:25,736 INFO  [org.jboss.as] (MSC service thread 1-6) WFLYSRV0050: WildFly Full 27.0.0.Final-SNAPSHOT (WildFly Core 19.0.0.Beta18) stopped in 377ms
+[0m

@@ -1,0 +1,5 @@
+/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/batch/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/batch/itemreadertransaction/ItemreaderReader.java
+/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/batch/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/batch/itemreadertransaction/ItemTransactionTestCase.java
+/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/batch/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/batch/itemreadertransaction/ItemwriterWriter.java
+/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/batch/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/batch/itemreadertransaction/StepScopedBean.java
+/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/batch/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/batch/itemreadertransaction/ItemreaderProcessor.java

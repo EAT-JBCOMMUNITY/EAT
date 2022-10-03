@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <ant antfile="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/logging/test-configurations/../../../../../src/test/scripts/clean-deployments.xml">
+    <property name="serverDir" value="//home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/logging/test-configurations/../../../../../servers"/>
+    <target name="clean-deployments"/>
+  </ant>
+  <ant antfile="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/logging/test-configurations/../../../../../src/test/scripts/basic-build.xml">
+    <property name="workspace" value="//home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/logging/test-configurations/../../../../.."/>
+    <property name="server" value="wildfly"/>
+    <property name="dist" value="jbossas"/>
+    <property name="standaloneConfiguration" value="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/logging/test-configurations/../src/test/config/standaloneWildfly/standalone-full.xml"/>
+    <target name="build-basic-check"/>
+  </ant>
+  <ant antfile="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/logging/test-configurations/../../../../../src/test/scripts/copy-file.xml">
+    <property name="fileName" value="Application1-ear-0.0.1-SNAPSHOT.ear"/>
+    <property name="filePath" value="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/logging/test-configurations/../../../../../servers/wildfly/build/target/jbossas/standalone/deployments"/>
+    <property name="fileToCopy" value="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/logging/test-configurations/../../../../../src/resources/Application1-ear-0.0.1-SNAPSHOT.ear"/>
+    <target name="copy-file"/>
+  </ant>
+  <ant antfile="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/logging/test-configurations/../../../../../src/test/scripts/copy-file.xml">
+    <property name="fileName" value="Application2-ear-0.0.1-SNAPSHOT.ear"/>
+    <property name="filePath" value="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/logging/test-configurations/../../../../../servers/wildfly/build/target/jbossas/standalone/deployments"/>
+    <property name="fileToCopy" value="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/logging/test-configurations/../../../../../src/resources/Application2-ear-0.0.1-SNAPSHOT.ear"/>
+    <target name="copy-file"/>
+  </ant>
+</target>
+</project>

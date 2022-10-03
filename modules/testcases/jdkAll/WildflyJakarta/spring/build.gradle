@@ -4,16 +4,16 @@ apply from: "./../dependencies.gradle"
 group = 'org.jboss'
 version = '1.0.3.Final'
 
-description = "wildfly additional testsuite: spring"
+description = "WildflyJakarta additional testsuite: spring"
 
 if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="spring") || (project.getProperty('moduleName')=="all"))){
 
 if(System.hasProperty('b')){
-    implementation project(':modules:testcases:jdkAll:Wildfly:spring:buildapp-dir')
-    implementation project(':modules:testcases:jdkAll:Wildfly:spring:buildapp2-dir')
+    implementation project(':modules:testcases:jdkAll:WildflyJakarta:spring:buildapp-dir')
+    implementation project(':modules:testcases:jdkAll:WildflyJakarta:spring:buildapp2-dir')
 }
 if(System.hasProperty('disableSpringTests') && (System.getProperty('disableSpringTests')=="false")){
-    implementation project(':modules:testcases:jdkAll:Wildfly:spring:test-configurations')
+    implementation project(':modules:testcases:jdkAll:WildflyJakarta:spring:test-configurations')
 }
 
 }

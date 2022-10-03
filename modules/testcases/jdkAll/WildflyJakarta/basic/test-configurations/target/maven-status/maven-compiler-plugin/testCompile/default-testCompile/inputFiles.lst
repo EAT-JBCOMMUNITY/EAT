@@ -1,9 +1,0 @@
-/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/basic/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/basic/beanvalidation/BeanValidationApplication.java
-/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/basic/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/basic/JspTestCase.java
-/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/basic/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/basic/vfs/GetContentTestCase.java
-/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/basic/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/basic/beanvalidation/custom/MyOtherBean.java
-/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/basic/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/basic/beanvalidation/GreetingService.java
-/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/basic/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/basic/beanvalidation/BeanValidationTestResource.java
-/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/basic/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/basic/BasicTest.java
-/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/basic/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/basic/beanvalidation/custom/MyCustomConstraint.java
-/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/WildflyJakarta/basic/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/basic/testBeanValidation/JaxbBeanValidationTestCase.java

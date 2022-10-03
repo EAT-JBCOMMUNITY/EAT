@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <ant antfile="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/ejb/test2-configurations/../../../../../src/test/scripts/clean-deployments.xml">
+    <property name="serverDir" value="//home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/ejb/test2-configurations/../../../../../servers"/>
+    <target name="clean-deployments"/>
+  </ant>
+  <ant antfile="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/ejb/test2-configurations/../../../../../src/test/scripts/copy-file.xml">
+    <property name="filePath" value="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/ejb/test2-configurations/../../../../../servers/wildfly/build/target/jbossas/standalone/deployments"/>
+    <property name="fileName" value="server.jar"/>
+    <property name="fileToCopy" value="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/ejb/test2-configurations/../../../../../src/resources/server.jar"/>
+    <target name="copy-file"/>
+  </ant>
+</target>
+</project>

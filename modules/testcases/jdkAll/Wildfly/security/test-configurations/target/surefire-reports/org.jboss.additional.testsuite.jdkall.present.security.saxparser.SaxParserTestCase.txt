@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.jboss.additional.testsuite.jdkall.present.security.saxparser.SaxParserTestCase
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.734 s - in org.jboss.additional.testsuite.jdkall.present.security.saxparser.SaxParserTestCase
