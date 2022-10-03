@@ -1,9 +1,0 @@
-org/jboss/as/security/vault/VaultLogger_$logger.class
-org/jboss/additional/testsuite/jdkall/present/domain/util/SimpleServlet.class
-org/jboss/as/security/vault/VaultLogger.class
-org/jboss/additional/testsuite/jdkall/present/domain/BuildConfigurationTestBase.class
-org/jboss/as/test/integration/security/common/VaultHandler.class
-org/jboss/as/security/vault/VaultLogger.i18n.properties
-org/jboss/additional/testsuite/jdkall/present/domain/driver/FooDriver.class
-org/jboss/additional/testsuite/jdkall/present/domain/management/cli/RolloutPlanTestServlet.class
-org/jboss/as/security/vault/VaultSession.class

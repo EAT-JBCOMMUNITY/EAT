@@ -1,7 +1,0 @@
-org/jboss/additional/testsuite/jdkall/present/batch/itemreadertransaction/StepScopedBean.class
-org/jboss/additional/testsuite/jdkall/present/batch/itemreadertransaction/ItemTransactionTestCase$LogMessageListener.class
-org/jboss/additional/testsuite/jdkall/present/batch/itemreadertransaction/ItemwriterWriter.class
-org/jboss/additional/testsuite/jdkall/present/batch/itemreadertransaction/ItemreaderReader.class
-org/jboss/additional/testsuite/jdkall/present/batch/itemreadertransaction/ItemTransactionTestCase$1.class
-org/jboss/additional/testsuite/jdkall/present/batch/itemreadertransaction/ItemreaderProcessor.class
-org/jboss/additional/testsuite/jdkall/present/batch/itemreadertransaction/ItemTransactionTestCase.class

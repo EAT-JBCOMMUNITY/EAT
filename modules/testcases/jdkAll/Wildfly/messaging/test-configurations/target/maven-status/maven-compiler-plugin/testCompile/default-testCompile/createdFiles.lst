@@ -1,9 +1,0 @@
-org/jboss/additional/testsuite/jdkall/present/shared/ServerLogPatternListener.class
-org/jboss/additional/testsuite/jdkall/present/messaging/jms/deployment/PooledCFAvailableOnStartupTestCase.class
-org/jboss/additional/testsuite/jdkall/present/messaging/jms/context/transactionscoped/auxiliary/ThreadLauncher$SendRunnable.class
-org/jboss/additional/testsuite/jdkall/present/messaging/jms/context/auxiliary/VaultedMessageProducer.class
-org/jboss/additional/testsuite/jdkall/present/messaging/jms/context/transactionscoped/auxiliary/AppScopedBean.class
-org/jboss/additional/testsuite/jdkall/present/messaging/jms/context/auxiliary/TransactedMessageProducer.class
-org/jboss/additional/testsuite/jdkall/present/messaging/jms/context/auxiliary/TransactedMDB.class
-org/jboss/additional/testsuite/jdkall/present/messaging/jms/deployment/EagerMBeanQueryServlet.class
-org/jboss/additional/testsuite/jdkall/present/messaging/jms/context/transactionscoped/auxiliary/ThreadLauncher.class
