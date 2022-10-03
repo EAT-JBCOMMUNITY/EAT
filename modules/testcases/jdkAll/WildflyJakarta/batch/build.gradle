@@ -4,13 +4,13 @@ apply from: "./../dependencies.gradle"
 group = 'org.jboss'
 version = '1.0.3.Final'
 
-description = "wildfly additional testsuite: additional testsuite for wildfly"
+description = "WildflyJakarta additional testsuite: additional testsuite for WildflyJakarta"
 
 
 if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="batch") || (project.getProperty('moduleName')=="all"))){
 
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:batch:test-configurations')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:batch:test-configurations')
     }
 
 }

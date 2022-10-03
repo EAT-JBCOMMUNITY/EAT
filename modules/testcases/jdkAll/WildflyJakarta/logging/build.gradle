@@ -4,12 +4,12 @@ apply from: "./../dependencies.gradle"
 group = 'org.jboss'
 version = '1.0.3.Final'
 
-description = "wildfly additional testsuite: logging"
+description = "WildflyJakarta additional testsuite: logging"
 
 if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="logging") || (project.getProperty('moduleName')=="all"))){
 
 dependencies {
-    implementation project(':modules:testcases:jdkAll:Wildfly:logging:test-configurations')
+    implementation project(':modules:testcases:jdkAll:WildflyJakarta:logging:test-configurations')
 }
 
 }

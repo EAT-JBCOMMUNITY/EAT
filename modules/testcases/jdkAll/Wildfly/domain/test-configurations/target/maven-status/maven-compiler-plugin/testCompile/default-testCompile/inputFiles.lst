@@ -1,0 +1,7 @@
+/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/domain/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/domain/util/SimpleServlet.java
+/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/domain/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/domain/management/cli/RolloutPlanTestServlet.java
+/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/domain/test-configurations/../src/main/java/org/jboss/as/security/vault/VaultSession.java
+/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/domain/test-configurations/../src/main/java/org/jboss/as/security/vault/VaultLogger.java
+/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/domain/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/domain/BuildConfigurationTestBase.java
+/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/domain/test-configurations/../src/main/java/org/jboss/additional/testsuite/jdkall/present/domain/driver/FooDriver.java
+/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/domain/test-configurations/../src/main/java/org/jboss/as/test/integration/security/common/VaultHandler.java

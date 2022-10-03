@@ -5,195 +5,195 @@ apply from: "dependencies.gradle"
 group = 'org.jboss'
 version = '1.0.3.Final'
 
-description = "wildfly additional testsuite: additional testsuite for wildfly"
+description = "WildflyJakarta additional testsuite: additional testsuite for WildflyJakarta"
 
 if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="basic")){
 
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:basic')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:basic')
     }
 
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="core")){
 
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:core')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:core')
     }
 
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="ejb")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:ejb')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:ejb')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="elytron")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:elytron')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:elytron')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="clustering")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:clustering')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:clustering')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="infinispan")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:infinispan')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:infinispan')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="domain")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:domain')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:domain')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="domain_management")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:domain_management')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:domain_management')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="jaxrs")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:jaxrs')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:jaxrs')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="logging")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:logging')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:logging')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="management")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:management')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:management')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="manualmode")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:manualmode')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:manualmode')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="messaging")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:messaging')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:messaging')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="microprofile")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:microprofile')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:microprofile')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="others")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:others')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:others')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="remoting")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:remoting')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:remoting')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="security")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:security')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:security')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="server")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:server')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:server')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="web")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:web')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:web')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="weld")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:weld')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:weld')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="jpa")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:jpa')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:jpa')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="manualserver")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:manualserver')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:manualserver')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="spring")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:spring')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:spring')
     }
     
 }
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="all")){
     
     dependencies{
-        implementation project(':modules:testcases:jdkAll:Wildfly:basic')
-        implementation project(':modules:testcases:jdkAll:Wildfly:core')
-        implementation project(':modules:testcases:jdkAll:Wildfly:elytron')
-        implementation project(':modules:testcases:jdkAll:Wildfly:jpa')
-        implementation project(':modules:testcases:jdkAll:Wildfly:jmx')
-        implementation project(':modules:testcases:jdkAll:Wildfly:jaxrs')
-        implementation project(':modules:testcases:jdkAll:Wildfly:clustering')
-        implementation project(':modules:testcases:jdkAll:Wildfly:infinispan')
-        implementation project(':modules:testcases:jdkAll:Wildfly:logging')
-        implementation project(':modules:testcases:jdkAll:Wildfly:domain')
-        implementation project(':modules:testcases:jdkAll:Wildfly:domain_management')
-        implementation project(':modules:testcases:jdkAll:Wildfly:management')
-        implementation project(':modules:testcases:jdkAll:Wildfly:manualmode')
-        implementation project(':modules:testcases:jdkAll:Wildfly:messaging')
-        implementation project(':modules:testcases:jdkAll:Wildfly:microprofile')
-        implementation project(':modules:testcases:jdkAll:Wildfly:others')
-        implementation project(':modules:testcases:jdkAll:Wildfly:remoting')
-        implementation project(':modules:testcases:jdkAll:Wildfly:security')
-        implementation project(':modules:testcases:jdkAll:Wildfly:server')
-        implementation project(':modules:testcases:jdkAll:Wildfly:spring')
-        implementation project(':modules:testcases:jdkAll:Wildfly:web')
-        implementation project(':modules:testcases:jdkAll:Wildfly:weld')
-        implementation project(':modules:testcases:jdkAll:Wildfly:ejb')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:basic')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:core')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:elytron')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:jpa')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:jmx')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:jaxrs')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:clustering')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:infinispan')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:logging')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:domain')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:domain_management')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:management')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:manualmode')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:messaging')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:microprofile')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:others')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:remoting')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:security')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:server')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:spring')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:web')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:weld')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:ejb')
     }
 
 }

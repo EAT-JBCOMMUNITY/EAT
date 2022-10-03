@@ -1,0 +1,12 @@
+[0m14:22:28,660 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/83/aee4a6357d80e7d9b932771f0430e382a1b307/content
+[0m[0m14:22:28,664 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0027: Starting deployment of "test-781e9dbf-7026-4157-88d3-718ce71ceca9.war" (runtime-name: "test-781e9dbf-7026-4157-88d3-718ce71ceca9.war")
+[0m[33m14:22:29,034 WARN  [org.jboss.weld.deployer] (MSC service thread 1-6) WFLYWELD0013: Deployment test-781e9dbf-7026-4157-88d3-718ce71ceca9.war contains Jakarta Contexts and Dependency Injection annotations but no bean archive was found (no beans.xml or class with bean defining annotations was present).
+[0m[0m14:22:29,077 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 33) WFLYUT0021: Registered web context: '/test-781e9dbf-7026-4157-88d3-718ce71ceca9' for server 'default-server'
+[0m[0m14:22:29,104 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "test-781e9dbf-7026-4157-88d3-718ce71ceca9.war" (runtime-name : "test-781e9dbf-7026-4157-88d3-718ce71ceca9.war")
+[0m[0m14:22:29,282 INFO  [org.jboss.arquillian.testenricher.cdi.container.BeanManagerProducer] (default task-2) BeanManager not found.
+[0m[0m14:22:29,360 INFO  [org.jboss.arquillian.testenricher.cdi.container.BeanManagerProducer] (default task-2) BeanManager not found.
+[0m[0m14:22:29,383 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 70) WFLYUT0022: Unregistered web context: '/test-781e9dbf-7026-4157-88d3-718ce71ceca9' from server 'default-server'
+[0m[0m14:22:29,400 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0028: Stopped deployment test-781e9dbf-7026-4157-88d3-718ce71ceca9.war (runtime-name: test-781e9dbf-7026-4157-88d3-718ce71ceca9.war) in 17ms
+[0m[0m14:22:29,425 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/83/aee4a6357d80e7d9b932771f0430e382a1b307/content
+[0m[0m14:22:29,426 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "test-781e9dbf-7026-4157-88d3-718ce71ceca9.war" (runtime-name: "test-781e9dbf-7026-4157-88d3-718ce71ceca9.war")
+[0m

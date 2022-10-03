@@ -1,4 +1,0 @@
-org/jboss/additional/testsuite/jdkall/present/core/deployment/ZipSlipTestCase.class
-org/jboss/additional/testsuite/jdkall/present/core/jca/DatasourcesActiveCountTestCase.class
-org/jboss/eap/jca/ds/h2/DataSourceConfigurationTestCase.class
-org/jboss/additional/testsuite/jdkall/present/core/jca/workmanager/AddSecondWorkmanagerTestCase.class

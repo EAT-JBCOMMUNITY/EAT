@@ -4,12 +4,12 @@ apply from: "./../dependencies.gradle"
 group = 'org.jboss'
 version = '1.0.3.Final'
 
-description = "wildfly additional testsuite: manualmode"
+description = "WildflyJakarta additional testsuite: manualmode"
 
 if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="manualmode") || (project.getProperty('moduleName')=="all"))){
 
 dependencies {      
-    implementation project(':modules:testcases:jdkAll:Wildfly:manualmode:test-configurations')
+    implementation project(':modules:testcases:jdkAll:WildflyJakarta:manualmode:test-configurations')
 }
 
 }

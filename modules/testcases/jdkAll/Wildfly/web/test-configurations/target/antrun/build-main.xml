@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <ant antfile="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/web/test-configurations/../../../../../src/test/scripts/clean-deployments.xml">
+    <property name="serverDir" value="//home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/web/test-configurations/../../../../../servers"/>
+    <target name="clean-deployments"/>
+  </ant>
+  <ant antfile="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/web/test-configurations/../../../../../src/test/scripts/basic-build.xml">
+    <property name="workspace" value="//home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/web/test-configurations/../../../../.."/>
+    <property name="server" value="wildfly"/>
+    <property name="dist" value="jbossas"/>
+    <property name="standaloneConfiguration" value="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/web/test-configurations/../src/test/config/standaloneWildfly/standalone.xml"/>
+    <target name="build-basic-check"/>
+  </ant>
+  <ant antfile="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/web/test-configurations/../../../../../src/test/scripts/copy-file.xml">
+    <property name="fileName" value="rss.png"/>
+    <property name="filePath" value="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/web/test-configurations/../../../../../testcases/jdkAll/Wildfly/web/test-configurations/src/test/resources"/>
+    <property name="fileToCopy" value="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/web/test-configurations/../../../../../src/resources/rss.png"/>
+    <target name="copy-file"/>
+  </ant>
+  <ant antfile="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/web/test-configurations/../../../../../src/test/scripts/copy-file.xml">
+    <property name="fileName" value="testTag-1.0-SNAPSHOT.war"/>
+    <property name="filePath" value="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/web/test-configurations/../../../../../testcases/jdkAll/Wildfly/web/test-configurations/src/test/resources"/>
+    <property name="fileToCopy" value="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/web/test-configurations/../../../../../src/resources/testTag-1.0-SNAPSHOT.war"/>
+    <target name="copy-file"/>
+  </ant>
+</target>
+</project>

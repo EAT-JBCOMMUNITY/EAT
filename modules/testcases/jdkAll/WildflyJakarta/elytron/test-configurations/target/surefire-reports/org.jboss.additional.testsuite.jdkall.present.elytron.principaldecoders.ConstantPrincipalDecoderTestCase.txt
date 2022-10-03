@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: org.jboss.additional.testsuite.jdkall.present.elytron.principaldecoders.ConstantPrincipalDecoderTestCase
--------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 19.183 s - in org.jboss.additional.testsuite.jdkall.present.elytron.principaldecoders.ConstantPrincipalDecoderTestCase

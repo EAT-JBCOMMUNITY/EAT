@@ -4,13 +4,13 @@ apply from: "./../dependencies.gradle"
 group = 'org.jboss'
 version = '1.0.3.Final'
 
-description = "wildfly additional testsuite: weld"
+description = "WildflyJakarta additional testsuite: weld"
 
 if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="weld") || (project.getProperty('moduleName')=="all"))){
 
 dependencies {
-    implementation project(':modules:testcases:jdkAll:Wildfly:weld:test-configurations')
-    implementation project(':modules:testcases:jdkAll:Wildfly:weld:test-configurations2')
+    implementation project(':modules:testcases:jdkAll:WildflyJakarta:weld:test-configurations')
+    implementation project(':modules:testcases:jdkAll:WildflyJakarta:weld:test-configurations2')
 }
 
 }

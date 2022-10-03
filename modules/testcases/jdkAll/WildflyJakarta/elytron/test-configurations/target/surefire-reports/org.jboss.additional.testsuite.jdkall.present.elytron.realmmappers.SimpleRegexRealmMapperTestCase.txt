@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: org.jboss.additional.testsuite.jdkall.present.elytron.realmmappers.SimpleRegexRealmMapperTestCase
--------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.39 s - in org.jboss.additional.testsuite.jdkall.present.elytron.realmmappers.SimpleRegexRealmMapperTestCase

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <delete quiet="true">
+    <fileset dir="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/elytron/../../../../servers/wildfly/build/target/jbossas/standalone/configuration/application-users"/>
+    <fileset dir="/home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/testcases/jdkAll/Wildfly/elytron/../../../../servers/wildfly/build/target/jbossas/standalone/configuration/mgmt-users"/>
+  </delete>
+</target>
+</project>

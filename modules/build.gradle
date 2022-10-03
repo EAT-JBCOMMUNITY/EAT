@@ -44,4 +44,10 @@ else if (project.hasProperty('wildfly-jdk8')){
         implementation project(':modules:testcases:jdkAll:ServerBeta')
     }
 
+}else if (project.hasProperty('wildfly-jakarta')){
+    
+    dependencies{
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta')
+    }
+
 }
