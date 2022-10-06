@@ -44,7 +44,7 @@
 
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
-                        <additionalClasspathElement>${jboss.modules.dir}/src1/config/arqWildfly</additionalClasspathElement>
+                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqWildfly</additionalClasspathElement>
                     </additionalClasspathElements>
 
                     <systemPropertyVariables>
@@ -84,62 +84,62 @@
 	                </goals>
 	                <configuration>
 	                    <target>
-                                <ant antfile="${jboss.modules.dir}/src1/test/scripts/clean-deployments.xml">
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/clean-deployments.xml">
 	                            <property name="serverDir" value="/${jboss.modules.dir}/servers" />
 	                            <target name="clean-deployments"/>
 	                        </ant>
-	                        <ant antfile="${jboss.modules.dir}/src1/test/scripts/basic-build.xml">
+	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/basic-build.xml">
 	                            <property name="workspace" value="/${jboss.modules.dir}" />
                                     <property name="server" value="${server}" />
                                     <property name="dist" value="jbossas" />
 	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
 	                            <target name="build-basic-check"/>
 	                        </ant>
-                                <ant antfile="${jboss.modules.dir}/src1/test/scripts/server-copy.xml">
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/server-copy.xml">
 	                            <property name="workspace" value="/${jboss.modules.dir}" />
                                     <property name="server" value="${server}" />
                                     <property name="serverDir" value="jbossas1" />
 	                            <target name="server-copy"/>
 	                        </ant>
-                                <ant antfile="${jboss.modules.dir}/src1/test/scripts/server-copy.xml">
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/server-copy.xml">
 	                            <property name="workspace" value="/${jboss.modules.dir}" />
                                     <property name="server" value="${server}" />
                                     <property name="serverDir" value="jbossas2" />
 	                            <target name="server-copy"/>
 	                        </ant>
-                                <ant antfile="${jboss.modules.dir}/src1/test/scripts/basic-build.xml">
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/basic-build.xml">
 	                            <property name="workspace" value="/${jboss.modules.dir}" />
                                     <property name="server" value="${server}" />
                                     <property name="dist" value="jbossas1" />
 	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
 	                            <target name="build-basic-check"/>
 	                        </ant>
-	                        <ant antfile="${jboss.modules.dir}/src1/test/scripts/basic-build.xml">
+	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/basic-build.xml">
 	                            <property name="workspace" value="/${jboss.modules.dir}" />
                                     <property name="server" value="${server}" />
                                     <property name="dist" value="jbossas2" />
 	                            <property name="standaloneConfiguration" value="${standalone2.conf}" />
 	                            <target name="build-basic-check"/>
 	                        </ant>
-                                <ant antfile="${jboss.modules.dir}/src1/test/scripts/copy-file.xml">
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
 	                            <property name="fileName" value="application-roles.properties" />
                                     <property name="filePath" value="/${jboss.modules.dir}/servers/${server}/build/target/jbossas1/standalone/configuration" />
                                     <property name="fileToCopy" value="${basedir}/src/test/resources/application-roles.properties" />
 	                            <target name="copy-file"/>
 	                        </ant>
-                                <ant antfile="${jboss.modules.dir}/src1/test/scripts/copy-file.xml">
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
 	                            <property name="fileName" value="application-users.properties" />
                                     <property name="filePath" value="/${jboss.modules.dir}/servers/${server}/build/target/jbossas1/standalone/configuration" />
                                     <property name="fileToCopy" value="${basedir}/src/test/resources/application-users.properties" />
 	                            <target name="copy-file"/>
 	                        </ant>
-                                <ant antfile="${jboss.modules.dir}/src1/test/scripts/copy-file.xml">
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
 	                            <property name="fileName" value="application-roles.properties" />
                                     <property name="filePath" value="/${jboss.modules.dir}/servers/${server}/build/target/jbossas2/standalone/configuration" />
                                     <property name="fileToCopy" value="${basedir}/src/test/resources/application-roles.properties" />
 	                            <target name="copy-file"/>
 	                        </ant>
-                                <ant antfile="${jboss.modules.dir}/src1/test/scripts/copy-file.xml">
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
 	                            <property name="fileName" value="application-users.properties" />
                                     <property name="filePath" value="/${jboss.modules.dir}/servers/${server}/build/target/jbossas2/standalone/configuration" />
                                     <property name="fileToCopy" value="${basedir}/src/test/resources/application-users.properties" />

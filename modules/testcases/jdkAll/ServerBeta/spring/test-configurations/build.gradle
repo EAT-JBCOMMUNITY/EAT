@@ -15,12 +15,12 @@ task deleteFiles(type: Delete) {
 }
 
 task copyFiles(type: Copy, dependsOn: deleteFiles) {
-    from project.buildDir.toString() + '/../../../../../../src1/resources/additional-testsuite-spring-buildapp1-2.4.4.war'
+    from project.buildDir.toString() + '/../../../../../../src/resources/additional-testsuite-spring-buildapp1-2.4.4.war'
     into project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/deployments'
 }
 
 task copyFiles2(type: Copy, dependsOn: deleteFiles) {
-    from project.buildDir.toString() + '/../../../../../../src1/resources/additional-testsuite-spring-buildapp2-2.4.4.war'
+    from project.buildDir.toString() + '/../../../../../../src/resources/additional-testsuite-spring-buildapp2-2.4.4.war'
     into project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/deployments'
 }
 
@@ -39,7 +39,7 @@ sourceSets {
 
 test {
     systemProperty "jbosshome", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
-    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src1/config/arqWildfly') 
+    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src/config/arqWildfly') 
     systemProperty "arquillian.launch", "gradlejboss"
     environment 'JBOSS_HOME', project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
 }

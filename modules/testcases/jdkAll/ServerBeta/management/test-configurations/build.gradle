@@ -37,7 +37,7 @@ test {
     systemProperty "jboss.dist", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     systemProperty "module.path", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas/modules'
     systemProperty "jboss.server.config.file.name", 'standalone-full.xml'
-    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src1/config/arqWildfly') 
+    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src/config/arqWildfly') 
     systemProperty "arquillian.launch", "gradlejboss"
     environment 'JBOSS_HOME', project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     filter {

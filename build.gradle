@@ -53,7 +53,7 @@ else if(project.hasProperty('wildfly-jdk8')){
 else if(project.hasProperty('android')){
 
     serverDir2 = "Android"
-    activemodules = "androidproject1,bloodbankproject,elegantcalculator,voxrec,themesample,mycompanion,truthdare,imagebox,mycamera"
+    activemodules = "androidproject1,bloodbankproject,elegantcalculator,voxrec,themesample,mycompanion,truthdare,imagebox,mycamera,jkslinks,loginpanel"
 
 }
 else if(project.hasProperty('serverbeta')){
@@ -66,7 +66,7 @@ if(!project.hasProperty('dSources')){
 
     task copyToSrcPool {
     copy {
-        from "modules/src1"
+        from "modules/src"
         into "modules/srcPool"
     }
 }
@@ -110,5 +110,23 @@ task distributeConfigs(type: JavaExec) {
 if(!project.hasProperty('noDistribution')){
 
     compileJava.dependsOn(distributeConfigs).dependsOn(distributeSources)
+
+}
+
+task distributeAndroidSources(type: JavaExec) {
+  classpath = files('eap-additional-testsuite-source-distribution-3.0.0.Final.jar','eap-additional-testsuite-annotations-3.0.0.Final.jar')
+  main = "org.jboss.eap.additional.testsuite.source.distribution.AdditionalTestsuiteDistributeSources"
+  args rootPath, rootPath + "/modules/srcPool/main/java", serverDir2, "$System.env.ANDROID_SDK_VERSION", "versionOrder", "$System.env.DISABLE_TESTS", "$System.env.FEATURE_LIST", "$System.env.PM_FEATURES", "$System.env.DISABLE_SNAPSHOT_VERSIONS", "$System.env.JBOSS_GIT_DIR", "modules/testcases", "src/main/java", activemodules
+}
+
+task distributeAndroidConfigs(type: JavaExec) {
+  classpath = files('eap-additional-testsuite-source-distribution-3.0.0.Final.jar','eap-additional-testsuite-annotations-3.0.0.Final.jar')
+  main = "org.jboss.eap.additional.testsuite.source.distribution.AdditionalTestsuiteDistributeSources"
+  args rootPath, rootPath + "/modules/srcPool/config", serverDir2, "$System.env.ANDROID_SDK_VERSION", "versionOrder", "", "", "", "", "$System.env.JBOSS_GIT_DIR", "modules/testcases", "src/main/java", activemodules
+}
+
+if(project.hasProperty('androidversion')){
+
+    compileJava.dependsOn(distributeAndroidConfigs).dependsOn(distributeAndroidSources)
 
 }

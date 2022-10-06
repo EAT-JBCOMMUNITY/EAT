@@ -20,7 +20,7 @@
 
     <properties>
         <configdir>${basedir}/../../../../servers/eap7/build/target/jbossas/standalone/configuration</configdir>
-        <keystoredir>${basedir}/../../../../src1/resources/keystores</keystoredir>
+        <keystoredir>${basedir}/../../../../src/resources/keystores</keystoredir>
     </properties>
         
     <modules>

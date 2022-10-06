@@ -26,8 +26,8 @@
     <properties>
         <moduledir>${basedir}/../../../../servers/eap7/build/target/jbossas/modules</moduledir>
         <configdir>${basedir}/../../../../servers/eap7/build/target/jbossas/standalone/configuration</configdir>
-        <keystoredir>${basedir}/../../../../src1/resources/keystores</keystoredir>
-        <elytron.module>${basedir}/../../../../src1/resources/updatedModulesSecurity</elytron.module>
+        <keystoredir>${basedir}/../../../../src/resources/keystores</keystoredir>
+        <elytron.module>${basedir}/../../../../src/resources/updatedModulesSecurity</elytron.module>
     </properties>
 
     <build>

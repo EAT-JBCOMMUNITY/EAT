@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--@EAT({"modules/testcases/jdkAll/Wildfly/web/test-configurations/src/test/resources#27.0.0","modules/testcases/jdkAll/WildflyJakarta/web/test-configurations/src/test/resources#27.0.0.Alpha4","modules/testcases/jdkAll/Eap7Plus/web/test-configurations/src/test/resources#7.4.4"}})-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./templates/layout.xhtml">
+    <ui:define name="contents">
+        <h:form id="it" style="font-size:8px;">
+            <div class="container">
+                <div class="form-group">
+                    <h:commandButton id="test01" value="Click Here"
+                                     actionListener="#{testBean.testFunc}" />
+
+                    <h:panelGrid columns="4" cellpadding="5" class="ui-grid"
+                                 style="width:1200px;">
+                        <h:outputText value="TEST STRINGS." /><br/>
+                    </h:panelGrid>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

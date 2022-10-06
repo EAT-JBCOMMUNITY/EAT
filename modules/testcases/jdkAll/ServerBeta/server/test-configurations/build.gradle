@@ -15,12 +15,12 @@ task deleteFiles(type: Delete) {
 }
 
 task copyFiles(type: Copy, dependsOn: deleteFiles) {
-    from project.buildDir.toString() + '/../../../../../../src1/resources/helloWorld.ear'
+    from project.buildDir.toString() + '/../../../../../../src/resources/helloWorld.ear'
     into project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/deployments'
 }
 
 task copyFiles2(type: Copy, dependsOn: deleteFiles) {
-    from project.buildDir.toString() + '/../../../../../../src1/resources/helloWorld2.ear'
+    from project.buildDir.toString() + '/../../../../../../src/resources/helloWorld2.ear'
     into project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/deployments'
 }
 
@@ -40,7 +40,7 @@ sourceSets {
 test {
     systemProperty "jbosshome", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     systemProperty "java.util.logging.manager", 'org.jboss.logmanager.LogManager'
-    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src1/config/arqWildfly') 
+    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src/config/arqWildfly') 
     systemProperty "arquillian.launch", "gradlejboss"
     environment 'JBOSS_HOME', project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
 }

@@ -39,6 +39,8 @@
                 <!--<module>truthdare</module>-->
                 <!--<module>themesample</module>-->
                 <!--<module>voxrec</module>-->
+                <!--<module>jkslinks</module>-->
+                <!--<module>loginpanel</module>-->
             </modules>
         </profile>
         <profile>
@@ -149,6 +151,30 @@
                 <module>voxrec</module>
             </modules>
         </profile>
+        <profile>
+            <id>jkslinks</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>jkslinks</value>
+                </property>
+            </activation>
+            <modules>
+                <module>jkslinks</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>loginpanel</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>loginpanel</value>
+                </property>
+            </activation>
+            <modules>
+                <module>loginpanel</module>
+            </modules>
+        </profile>
     </profiles>
 
     <build>
@@ -167,7 +193,7 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>${basedir}/../../../src1/main/java</source>
+                                <source>${basedir}/../../../src/main/java</source>
                                 <source>${basedir}/../../../src2/main/java</source>
                             </sources>
                         </configuration>

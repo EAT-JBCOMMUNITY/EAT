@@ -496,9 +496,34 @@
 		    <version>2.60.0</version>
 		</dependency>
 		<dependency>
+		    <groupId>org.seleniumhq.selenium</groupId>
+		    <artifactId>selenium-api</artifactId>
+		    <version>4.4.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.seleniumhq.selenium</groupId>
+		    <artifactId>selenium-support</artifactId>
+		    <version>4.4.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.seleniumhq.selenium</groupId>
+		    <artifactId>selenium-firefox-driver</artifactId>
+		    <version>4.4.0</version>
+		</dependency>
+		<dependency>
 		    <groupId>com.h2database</groupId>
 		    <artifactId>h2</artifactId>
 		    <version>2.1.210</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-core</artifactId>
+		    <version>6.1.0.Final</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-core-spi</artifactId>
+		    <version>6.1.0.Final</version>
 		</dependency>
             </dependencies>
         </profile>
@@ -939,11 +964,7 @@
                         </exclusion>
                     </exclusions>
                 </dependency>
-                <dependency>
-		    <groupId>org.jboss.resteasy</groupId>
-		    <artifactId>resteasy-validator-provider-11</artifactId>
-		    <version>3.6.3.Final</version>
-	        </dependency>
+
    		<dependency>
 		    <groupId>org.eclipse</groupId>
 		    <artifactId>yasson</artifactId>
@@ -1345,7 +1366,7 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>${basedir}/../../../src1/main/java</source>
+                                <source>${basedir}/../../../src/main/java</source>
                                 <source>${basedir}/../../../src2/main/java</source>
                             </sources>
                         </configuration>

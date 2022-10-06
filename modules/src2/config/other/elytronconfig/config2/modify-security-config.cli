@@ -1,4 +1,0 @@
-#@EAT({"modules/testcases/jdkAll/Wildfly/security/test-configurations#11.0.0*26.0.0","modules/testcases/jdkAll/Eap7Plus/security/test-configurations#7.3.0*7.4.3"})
-embed-server --admin-only=true --server-config=standalone-full.xml
-
-stop-embedded-server

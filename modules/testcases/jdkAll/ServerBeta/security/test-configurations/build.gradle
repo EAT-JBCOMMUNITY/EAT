@@ -15,13 +15,13 @@ task deleteFiles(type: Delete) {
 }
 
 task resourcecopy(type: Copy) {
-        from project.buildDir.toString() + '/../../../../../../src1/resources/securityRoles.war'
+        from project.buildDir.toString() + '/../../../../../../src/resources/securityRoles.war'
         into project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/deployments'
     }
 
 task resourcecopy2 {
         copy {
-		from project.buildDir.toString() + '/../../../../../../src1/resources/keystores'
+		from project.buildDir.toString() + '/../../../../../../src/resources/keystores'
 		into project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/configuration'
 	    }
     }
@@ -49,7 +49,7 @@ test {
     systemProperty "jbosshome", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     systemProperty "jboss.dist", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     systemProperty "jboss.server.config.file.name", 'standalone-full.xml'
-    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src1/config/arqWildfly') 
+    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src/config/arqWildfly') 
     systemProperty "arquillian.launch", "gradlejboss"
     environment 'JBOSS_HOME', project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     filter {
