@@ -150,17 +150,9 @@
             </activation>
 
             <properties>
-		        <serverDir2>Android</serverDir2>
-                <activemodules>androidproject1</activemodules>
-                <activemodules>bloodbankproject</activemodules>
-                <activemodules>elegantcalculator</activemodules>
-                <activemodules>mycamera</activemodules>
-                <activemodules>imagebox</activemodules>
-                <activemodules>truthdare</activemodules>
-                <activemodules>mycompanion</activemodules>
-                <activemodules>themesample</activemodules>
-                <activemodules>voxrec</activemodules>
-	        </properties>
+		<serverDir2>Android</serverDir2>
+                <activemodules>androidproject1,bloodbankproject,elegantcalculator,mycamera,imagebox,truthdare,mycompanion,themesample,voxrec,jkslinks,loginpanel</activemodules>
+	    </properties>
         </profile>
         <profile>
             <id>springtests</id>
@@ -397,6 +389,21 @@
 
             <properties>
 		<serverDir2>Wildfly</serverDir2>
+                <activemodules>basic,batch,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,manualmode,remoting,messaging,security,server,web,weld,ejb</activemodules>
+	    </properties>
+        </profile>
+
+        <profile>
+            <id>wildfly.jakarta.testsuite</id>
+            <activation>
+                <property>
+                    <name>wildfly-jakarta</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <properties>
+		<serverDir2>WildflyJakarta</serverDir2>
                 <activemodules>basic,batch,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,manualmode,remoting,messaging,security,server,web,weld,ejb</activemodules>
 	    </properties>
         </profile>
@@ -2001,62 +2008,11 @@
                                 <configuration>
                                 <tasks>
                                     <copy todir="${project.build.directory}/../modules/srcPool" failonerror="false" overwrite="true">
-                                        <fileset dir="${project.build.directory}/../modules/src1">
+                                        <fileset dir="${project.build.directory}/../modules/src">
                                             <include name="**/*"/>
                                         </fileset>
                                     </copy>
                                 </tasks>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-	        </build>
-        </profile>
-
-        <profile>
-            <id>Dynamic Sources</id>
-            <activation>
-                <property>
-                    <name>dSources</name>
-                </property>
-	        </activation>
-
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-antrun-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>prepare</id>
-                                <inherited>false</inherited>
-                                <phase>generate-sources</phase>
-                                <configuration>
-                                    <target name="command">
-                                        <exec executable="/bin/bash" osfamily="unix">
-                                            <arg value="cloneRemoteTests.sh" />
-                                        </exec>
-                                    </target>
-                                </configuration>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>copy-src</id>
-                                <phase>generate-sources</phase>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                                <configuration>
-                                    <tasks>
-                                        <copy todir="${project.build.directory}/../modules/srcPool" failonerror="false" overwrite="true">
-                                            <fileset dir="${project.build.directory}/../modules/src2">
-                                                <include name="**/*"/>
-                                            </fileset>
-                                        </copy>
-                                    </tasks>
                                 </configuration>
                             </execution>
                         </executions>
@@ -2100,7 +2056,7 @@
                                        <argument>${DISABLE_SNAPSHOT_VERSIONS}</argument>
                                        <argument>${JBOSS_GIT_DIR}</argument>
                                        <argument>modules/testcases</argument>
-                                       <argument>src1/main/java</argument>
+                                       <argument>src/main/java</argument>
                                        <argument>${activemodules}</argument>
                                    </arguments>
                                 </configuration>
@@ -2125,7 +2081,77 @@
                                        <argument></argument>
                                        <argument>${JBOSS_GIT_DIR}</argument>
                                        <argument>modules/testcases</argument>
-                                       <argument>src1/main/java</argument>
+                                       <argument>src/main/java</argument>
+                                       <argument>${activemodules}</argument>
+                                    </arguments>
+                                </configuration>
+			                </execution>
+                        </executions>
+		            </plugin>
+	            </plugins>
+	        </build>
+        </profile>
+	<profile>
+            <id>android-sdk-distribution</id>
+            <activation>
+                <property>
+		    <name>androidversion</name>
+		</property>
+	    </activation>
+
+            <build>
+		        <plugins>
+		            <plugin>
+			            <groupId>org.codehaus.mojo</groupId>
+			            <artifactId>exec-maven-plugin</artifactId>
+			            <version>1.1.1</version>
+			            <executions>
+			                <execution>
+		                        <id>java-sources</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+                                <configuration>
+                                   <mainClass>org.jboss.eap.additional.testsuite.source.distribution.AdditionalTestsuiteDistributeSources</mainClass>
+                                   <arguments>
+                                       <argument>${basedir}</argument>
+                                       <argument>${basedir}/modules/srcPool/main/java</argument>
+                                       <argument>${serverDir2}</argument>
+                                       <argument>${ANDROID_SDK_VERSION}</argument>
+                                       <argument>versionOrder</argument>
+                                       <argument>${DISABLE_TESTS}</argument>
+                                       <argument>${FEATURE_LIST}</argument>
+                                       <argument>${PM_FEATURES}</argument>
+                                       <argument>${DISABLE_SNAPSHOT_VERSIONS}</argument>
+                                       <argument>${JBOSS_GIT_DIR}</argument>
+                                       <argument>modules/testcases</argument>
+                                       <argument>src/main/java</argument>
+                                       <argument>${activemodules}</argument>
+                                   </arguments>
+                                </configuration>
+			                </execution>
+                            <execution>
+		                        <id>configs</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+		                        <configuration>
+                                   <mainClass>org.jboss.eap.additional.testsuite.source.distribution.AdditionalTestsuiteDistributeSources</mainClass>
+                                   <arguments>
+                                       <argument>${basedir}</argument>
+                                       <argument>${basedir}/modules/srcPool/config</argument>
+                                       <argument>${serverDir2}</argument>
+                                       <argument>${ANDROID_SDK_VERSION}</argument>
+                                       <argument>versionOrder</argument>
+                                       <argument></argument>
+                                       <argument></argument>
+                                       <argument></argument>
+                                       <argument></argument>
+                                       <argument>${JBOSS_GIT_DIR}</argument>
+                                       <argument>modules/testcases</argument>
+                                       <argument>src/main/java</argument>
                                        <argument>${activemodules}</argument>
                                     </arguments>
                                 </configuration>

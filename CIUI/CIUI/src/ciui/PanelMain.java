@@ -31,7 +31,7 @@ import javax.swing.text.DefaultCaret;
 public class PanelMain extends JPanel{
    
     private final int FIELD_SIZE=15;
-    private final String[] options = {"Specific Pull Request", "All Pull Requests", "-activemq", "-activemq-artemis", "-clear", "-jboss-modules", "-jboss-threads", "-openliberty", "-springboot", "-wildfly"};
+    private final String[] options = {"Specific Pull Request", "All Pull Requests", "-activemq", "-activemq-artemis", "-clear", "-jboss-modules", "-jboss-threads", "-openliberty", "-springboot", "-wildfly", "-wildfly-jakarta"};
     private JLabel msg_label, fixed_command_label;
     private JButton start;
     private JList list;
@@ -286,6 +286,9 @@ public class PanelMain extends JPanel{
                 break;
             case "-wildfly":
                 command = Commands.WILDFLY;
+                break;
+            case "-wildfly-jakarta":
+                command = Commands.WILDFLYJAKARTA;
                 break;
             default:
         }

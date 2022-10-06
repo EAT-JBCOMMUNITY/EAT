@@ -17,6 +17,8 @@ if (project.hasProperty('android') && !project.hasProperty('module')){
         //implementation project(':modules:testcases:jdkAll:Android:mycompanion')
         //implementation project(':modules:testcases:jdkAll:Android:themesample')
         //implementation project(':modules:testcases:jdkAll:Android:voxrec')
+        //implementation project(':modules:testcases:jdkAll:Android:jkslinks')
+        //implementation project(':modules:testcases:jdkAll:Android:loginpanel')
     }
 
 }
@@ -85,5 +87,19 @@ if (project.hasProperty('android') && (project.getProperty('module')=="voxrec"))
 
     dependencies{
         implementation project(':modules:testcases:jdkAll:Android:voxrec')
+    }
+}
+
+if (project.hasProperty('android') && (project.getProperty('module')=="jkslinks")){
+
+    dependencies{
+        implementation project(':modules:testcases:jdkAll:Android:jkslinks')
+    }
+}
+
+if (project.hasProperty('android') && (project.getProperty('module')=="loginpanel")){
+
+    dependencies{
+        implementation project(':modules:testcases:jdkAll:Android:loginpanel')
     }
 }

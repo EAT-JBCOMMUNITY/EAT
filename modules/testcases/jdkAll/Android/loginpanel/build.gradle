@@ -1,0 +1,27 @@
+apply plugin: 'java'
+
+group = 'org.jboss'
+version = '1.0.3.Final'
+
+description = "android additional testsuite: loginpanel"
+
+if (project.hasProperty('android')  && project.hasProperty('clone')){
+
+	task cloneAndroidLoginPanel(type: Exec) {
+	        commandLine "git", "clone", "https://github.com/ServerBeta/LoginPanel.git"
+	}
+
+        compileJava.dependsOn(cloneAndroidLoginPanel)
+
+}
+
+if (project.hasProperty('android') && project.hasProperty('create')){
+
+	task runAndroidLoginPanel(type: Exec) {
+		workingDir project.buildDir.toString() + "/../LoginPanel"
+		commandLine "./gradlew", "build"
+	}
+
+        compileJava.dependsOn(runAndroidLoginPanel)
+
+}

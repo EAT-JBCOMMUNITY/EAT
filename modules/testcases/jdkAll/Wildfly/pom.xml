@@ -84,14 +84,17 @@
                 <dependency>
                     <groupId>org.wildfly</groupId>
                     <artifactId>wildfly-weld</artifactId>
+                    <version>27.0.0.Alpha3</version>
                 </dependency>
                 <dependency>
 		    <groupId>org.infinispan</groupId>
 		    <artifactId>infinispan-core</artifactId>
+		    <version>13.0.10.Final</version>
 		</dependency>
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
                     <artifactId>artemis-server</artifactId>
+                    <version>2.23.1</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
@@ -101,10 +104,12 @@
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
                     <artifactId>artemis-commons</artifactId>
+                    <version>2.23.1</version>
                 </dependency>
                 <dependency>
                    <groupId>org.apache.activemq</groupId>
                    <artifactId>artemis-journal</artifactId>
+                   <version>2.23.1</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
@@ -114,10 +119,12 @@
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
                     <artifactId>artemis-cli</artifactId>
+                    <version>2.23.1</version>
                 </dependency>
                 <dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>
 		    <artifactId>jackson-databind</artifactId>
+		    <version>2.12.6.1</version>
 		</dependency>
 		<dependency>
 		    <groupId>com.fasterxml.jackson.datatype</groupId>
@@ -127,10 +134,12 @@
                 <dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-batch-jberet</artifactId>
+		    <version>27.0.0.Alpha3</version>
 		</dependency>
                 <dependency>
 		    <groupId>joda-time</groupId>
 		    <artifactId>joda-time</artifactId>
+		    <version>2.10.14</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.spec.javax.jms</groupId>
@@ -186,6 +195,7 @@
 		<dependency>
 		    <groupId>org.apache.activemq</groupId>
 		    <artifactId>artemis-core-client</artifactId>
+		    <version>2.23.1</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.activemq</groupId>
@@ -220,6 +230,7 @@
 		<dependency>
 		    <groupId>org.apache.ws.xmlschema</groupId>
 		    <artifactId>xmlschema-core</artifactId>
+		    <version>2.3.0</version>
 		    <scope>test</scope>
 		</dependency>
 		<dependency>
@@ -230,10 +241,12 @@
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-core</artifactId>
+		    <version>6.0.2.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-envers</artifactId>
+		    <version>6.0.2.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.hibernate</groupId>
@@ -243,6 +256,7 @@
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-search-orm</artifactId>
+		    <version>5.10.11.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.hibernate.validator</groupId>
@@ -261,6 +275,7 @@
 		<dependency>
 		    <groupId>org.jboss.ejb3</groupId>
 		    <artifactId>jboss-ejb3-ext-api</artifactId>
+		    <version>2.3.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.ironjacamar</groupId>
@@ -301,6 +316,7 @@
 		<dependency>
                     <groupId>org.wildfly</groupId>
                     <artifactId>wildfly-jaxrs</artifactId>
+                    <version>27.0.0.Alpha3</version>
                 </dependency>
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
@@ -335,6 +351,7 @@
 		<dependency>
 		    <groupId>org.jboss.spec.javax.security.auth.message</groupId>
 		    <artifactId>jboss-jaspi-api_1.1_spec</artifactId>
+		    <version>2.0.1.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.spec.javax.websocket</groupId>
@@ -378,25 +395,30 @@
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>jipijapa-spi</artifactId>
+		    <version>27.0.0.Alpha3</version>
 		</dependency>
 		<!-- This is not desired, however the JCA tests seem to require this -->
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-connector</artifactId>
+		    <version>27.0.0.Alpha3</version>
 		    <scope>test</scope>
 		</dependency>
 		<!-- This is not desired, however the UncheckedStatelessBean requires this -->
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-ejb3</artifactId>
+		    <version>27.0.0.Alpha3</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-pojo</artifactId>
+		    <version>27.0.0.Alpha3</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-system-jmx</artifactId>
+		    <version>27.0.0.Alpha3</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.wildfly.core</groupId>
@@ -405,6 +427,7 @@
                 <dependency>
 		    <groupId>xalan</groupId>
 		    <artifactId>xalan</artifactId>
+		    <version>2.7.1.jbossorg-5</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.apache.openjpa</groupId>
@@ -514,6 +537,16 @@
 		<dependency>
 		    <groupId>org.wildfly.core</groupId>
 		    <artifactId>wildfly-elytron-integration</artifactId>
+		    <exclusions>
+                        <exclusion>
+                            <groupId>org.wildfly.security</groupId>
+                            <artifactId>wildfly-elytron-jacc</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>org.wildfly.security</groupId>
+                            <artifactId>wildfly-elytron-jaspi</artifactId>
+                        </exclusion>
+                    </exclusions>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly.core</groupId>
@@ -629,14 +662,17 @@
                 <dependency>
                     <groupId>org.wildfly</groupId>
                     <artifactId>wildfly-weld</artifactId>
+                    <version>27.0.0.Alpha3</version>
                 </dependency>
                 <dependency>
 		    <groupId>org.infinispan</groupId>
 		    <artifactId>infinispan-core</artifactId>
+		    <version>13.0.10.Final</version>
 		</dependency>
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
                     <artifactId>artemis-server</artifactId>
+                    <version>2.23.1</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
@@ -646,10 +682,12 @@
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
                     <artifactId>artemis-commons</artifactId>
+                    <version>2.23.1</version>
                 </dependency>
                 <dependency>
                    <groupId>org.apache.activemq</groupId>
                    <artifactId>artemis-journal</artifactId>
+                   <version>2.23.1</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
@@ -659,10 +697,12 @@
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
                     <artifactId>artemis-cli</artifactId>
+                    <version>2.23.1</version>
                 </dependency>
                 <dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>
 		    <artifactId>jackson-databind</artifactId>
+		    <version>2.12.6.1</version>
 		</dependency>
 		<dependency>
 		    <groupId>com.fasterxml.jackson.datatype</groupId>
@@ -672,10 +712,12 @@
                 <dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-batch-jberet</artifactId>
+		    <version>27.0.0.Alpha3</version>
 		</dependency>
                 <dependency>
 		    <groupId>joda-time</groupId>
 		    <artifactId>joda-time</artifactId>
+		    <version>2.10.14</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.spec.javax.jms</groupId>
@@ -731,6 +773,7 @@
 		<dependency>
 		    <groupId>org.apache.activemq</groupId>
 		    <artifactId>artemis-core-client</artifactId>
+		    <version>2.23.1</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.activemq</groupId>
@@ -765,6 +808,7 @@
 		<dependency>
 		    <groupId>org.apache.ws.xmlschema</groupId>
 		    <artifactId>xmlschema-core</artifactId>
+		    <version>2.3.0</version>
 		    <scope>test</scope>
 		</dependency>
 		<dependency>
@@ -775,10 +819,12 @@
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-core</artifactId>
+		    <version>6.0.2.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-envers</artifactId>
+		    <version>6.0.2.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.hibernate</groupId>
@@ -788,6 +834,7 @@
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-search-orm</artifactId>
+		    <version>5.10.11.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.hibernate.validator</groupId>
@@ -806,6 +853,7 @@
 		<dependency>
 		    <groupId>org.jboss.ejb3</groupId>
 		    <artifactId>jboss-ejb3-ext-api</artifactId>
+		    <version>2.3.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.ironjacamar</groupId>
@@ -846,6 +894,7 @@
 		<dependency>
                     <groupId>org.wildfly</groupId>
                     <artifactId>wildfly-jaxrs</artifactId>
+                    <version>27.0.0.Alpha3</version>
                 </dependency>
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
@@ -880,6 +929,7 @@
 		<dependency>
 		    <groupId>org.jboss.spec.javax.security.auth.message</groupId>
 		    <artifactId>jboss-jaspi-api_1.1_spec</artifactId>
+                    <version>2.0.1.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.spec.javax.websocket</groupId>
@@ -900,15 +950,17 @@
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
 		    <artifactId>weld-api</artifactId>
+		    <version>5.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
 		    <artifactId>weld-core-impl</artifactId>
-	            <version>5.0.0.Final</version>
+		    <version>5.0.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.weld</groupId>
 		    <artifactId>weld-spi</artifactId>
+		    <version>5.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jsoup</groupId>
@@ -921,25 +973,30 @@
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>jipijapa-spi</artifactId>
+		    <version>27.0.0.Alpha3</version>
 		</dependency>
 		<!-- This is not desired, however the JCA tests seem to require this -->
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-connector</artifactId>
+		    <version>27.0.0.Alpha3</version>
 		    <scope>test</scope>
 		</dependency>
 		<!-- This is not desired, however the UncheckedStatelessBean requires this -->
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-ejb3</artifactId>
+		    <version>27.0.0.Alpha3</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-pojo</artifactId>
+		    <version>27.0.0.Alpha3</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-system-jmx</artifactId>
+		    <version>27.0.0.Alpha3</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.wildfly.core</groupId>
@@ -948,6 +1005,7 @@
                 <dependency>
 		    <groupId>xalan</groupId>
 		    <artifactId>xalan</artifactId>
+		    <version>2.7.1.jbossorg-5</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.apache.openjpa</groupId>
@@ -1057,6 +1115,16 @@
 		<dependency>
 		    <groupId>org.wildfly.core</groupId>
 		    <artifactId>wildfly-elytron-integration</artifactId>
+	            <exclusions>
+                        <exclusion>
+                            <groupId>org.wildfly.security</groupId>
+                            <artifactId>wildfly-elytron-jacc</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>org.wildfly.security</groupId>
+                            <artifactId>wildfly-elytron-jaspi</artifactId>
+                        </exclusion>
+                    </exclusions>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly.core</groupId>
@@ -1107,7 +1175,17 @@
 		    <artifactId>jakarta.annotation-api</artifactId>
 		    <version>2.1.0</version>
 		</dependency>
- </dependencies>
+		<dependency>
+		    <groupId>org.wildfly.security</groupId>
+		    <artifactId>wildfly-elytron-jacc</artifactId>
+		    <version>2.0.0.Alpha10</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly.security</groupId>
+		    <artifactId>wildfly-elytron-jaspi</artifactId>
+		    <version>2.0.0.Alpha10</version>
+		</dependency>
+</dependencies>
 
         </profile>
 
@@ -1124,7 +1202,7 @@
                 <dependencies>
                     <dependency>
                         <groupId>org.wildfly</groupId>
-                        <artifactId>wildfly-component-matrix</artifactId>
+                        <artifactId>wildfly-parent</artifactId>
                         <type>pom</type>
                         <version>${JBOSS_VERSION}</version>
                         <scope>import</scope>
@@ -1179,14 +1257,17 @@
                 <dependency>
                     <groupId>org.wildfly</groupId>
                     <artifactId>wildfly-weld</artifactId>
+                    <version>27.0.0.Alpha3</version>
                 </dependency>
                 <dependency>
 		    <groupId>org.infinispan</groupId>
 		    <artifactId>infinispan-core</artifactId>
+		    <version>13.0.10.Final</version>
 		</dependency>
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
                     <artifactId>artemis-server</artifactId>
+                    <version>2.23.1</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
@@ -1196,10 +1277,12 @@
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
                     <artifactId>artemis-commons</artifactId>
+                    <version>2.23.1</version>
                 </dependency>
                 <dependency>
                    <groupId>org.apache.activemq</groupId>
                    <artifactId>artemis-journal</artifactId>
+                   <version>2.23.1</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
@@ -1209,10 +1292,12 @@
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
                     <artifactId>artemis-cli</artifactId>
+                    <version>2.23.1</version>
                 </dependency>
                 <dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>
 		    <artifactId>jackson-databind</artifactId>
+		    <version>2.12.6.1</version>
 		</dependency>
 		<dependency>
 		    <groupId>com.fasterxml.jackson.datatype</groupId>
@@ -1222,10 +1307,12 @@
                 <dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-batch-jberet</artifactId>
+		    <version>27.0.0.Alpha3</version>
 		</dependency>
                 <dependency>
 		    <groupId>joda-time</groupId>
 		    <artifactId>joda-time</artifactId>
+		    <version>2.10.14</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.spec.javax.jms</groupId>
@@ -1281,6 +1368,7 @@
 		<dependency>
 		    <groupId>org.apache.activemq</groupId>
 		    <artifactId>artemis-core-client</artifactId>
+		    <version>2.23.1</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.activemq</groupId>
@@ -1315,6 +1403,7 @@
 		<dependency>
 		    <groupId>org.apache.ws.xmlschema</groupId>
 		    <artifactId>xmlschema-core</artifactId>
+		    <version>2.3.0</version>
 		    <scope>test</scope>
 		</dependency>
 		<dependency>
@@ -1325,10 +1414,12 @@
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-core</artifactId>
+		    <version>6.0.2.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-envers</artifactId>
+		    <version>6.0.2.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.hibernate</groupId>
@@ -1338,6 +1429,7 @@
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-search-orm</artifactId>
+		    <version>5.10.11.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.hibernate.validator</groupId>
@@ -1356,6 +1448,7 @@
 		<dependency>
 		    <groupId>org.jboss.ejb3</groupId>
 		    <artifactId>jboss-ejb3-ext-api</artifactId>
+		    <version>2.3.0.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.ironjacamar</groupId>
@@ -1396,6 +1489,7 @@
 		<dependency>
                     <groupId>org.wildfly</groupId>
                     <artifactId>wildfly-jaxrs</artifactId>
+                    <version>27.0.0.Alpha3</version>
                 </dependency>
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
@@ -1430,6 +1524,7 @@
 		<dependency>
 		    <groupId>org.jboss.spec.javax.security.auth.message</groupId>
 		    <artifactId>jboss-jaspi-api_1.1_spec</artifactId>
+		    <version>2.0.1.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.spec.javax.websocket</groupId>
@@ -1473,25 +1568,30 @@
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>jipijapa-spi</artifactId>
+		    <version>27.0.0.Alpha3</version>
 		</dependency>
 		<!-- This is not desired, however the JCA tests seem to require this -->
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-connector</artifactId>
+		    <version>27.0.0.Alpha3</version>
 		    <scope>test</scope>
 		</dependency>
 		<!-- This is not desired, however the UncheckedStatelessBean requires this -->
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-ejb3</artifactId>
+		    <version>27.0.0.Alpha3</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-pojo</artifactId>
+		    <version>27.0.0.Alpha3</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-system-jmx</artifactId>
+		    <version>27.0.0.Alpha3</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.wildfly.core</groupId>
@@ -1500,6 +1600,7 @@
                 <dependency>
 		    <groupId>xalan</groupId>
 		    <artifactId>xalan</artifactId>
+		    <version>2.7.1.jbossorg-5</version>
 		</dependency>
                 <dependency>
 		    <groupId>org.apache.openjpa</groupId>
@@ -2054,7 +2155,7 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>${basedir}/../../../src1/main/java</source>
+                                <source>${basedir}/../../../src/main/java</source>
                                 <source>${basedir}/../../../src2/main/java</source>
                             </sources>
                         </configuration>

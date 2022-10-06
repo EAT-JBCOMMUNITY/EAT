@@ -15,7 +15,7 @@ task deleteFiles(type: Delete) {
 }
 
 task resourcecopy(type: Copy, dependsOn: deleteFiles) {
-        from project.buildDir.toString() + '/../../../../../../src1/resources/zipSlip.war'
+        from project.buildDir.toString() + '/../../../../../../src/resources/zipSlip.war'
         into project.buildDir.toString() + '/../../../../../../servers/wildfly/build/target/jbossas/standalone/deployments'
     }
 
@@ -37,7 +37,7 @@ test {
     systemProperty "jboss.dist", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     systemProperty "jboss.home", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     systemProperty "module.path", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas/modules'
-    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src1/config/arqWildfly') 
+    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src/config/arqWildfly') 
     systemProperty "arquillian.launch", "gradlejboss"
     environment 'JBOSS_HOME', project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     filter {

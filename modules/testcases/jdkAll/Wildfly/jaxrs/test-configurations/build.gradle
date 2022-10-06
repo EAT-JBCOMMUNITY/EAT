@@ -29,11 +29,13 @@ sourceSets {
 
 test {
     systemProperty "jbosshome", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
-    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src1/config/arqWildfly') 
+    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src/config/arqWildfly') 
     systemProperty "arquillian.launch", "gradlejboss"
     environment 'JBOSS_HOME', project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     filter {
         excludeTestsMatching "org.jboss.additional.testsuite.jdkall.present.jaxrs.jaxb.JaxbProviderDeserializationSecurityCheckTestCase"
+        excludeTestsMatching "org.jboss.eap.jca.ds.h2.DataSourceConfigurationTestCase"
+        setFailOnNoMatchingTests(false)
     }
 }
 

@@ -32,17 +32,19 @@ Testing EAP
 5. If you would like/need to disable snapshot versions add -DDISABLE_SNAPSHOT_VERSIONS=true
 6. Sometimes enforcer rules need to be skipped adding -Denforcer.skip
 7. Optional parameter : -Dmaven.wagon.http.ssl.ignore.validity.dates=true
+8. If selenium tests should be included : -Dwebdriver.gecko.driver='path to gecko driver'
 
 
 Testing Wildfly
 ---------------
 1. Make sure that JBOSS_FOLDER environment variable is set with the path to your WILDFLY directory.
 2. Make sure that JBOSS_VERSION environment variable is set with the version of WILDFLY Server.
-3. Build and run the additional testsuite activating the WILDFLY profile (-Dwildfly -Dstandalone).
+3. Build and run the additional testsuite activating the WILDFLY profile (-Dwildfly -Dstandalone or -Dwildfly-jakarta -Dstandalone).
 4. If you want to use http add -Dmaven.repository.protocol=http (Section : Using HTTPS below)
 5. If you would like/need to disable snapshot versions add -DDISABLE_SNAPSHOT_VERSIONS=true
 6. Sometimes enforcer rules need to be skipped adding -Denforcer.skip
 7. Optional parameter : -Dmaven.wagon.http.ssl.ignore.validity.dates=true
+8. If selenium tests should be included : -Dwebdriver.gecko.driver='path to gecko driver'
 
 
 
@@ -64,14 +66,14 @@ Testing with Open Liberty
 
 Building multi-versioned Android projects
 -----------------------------------------
-1. mvn clean install -Dandroid -Dclone (-Dmodule='android-project-name')
-or gradle test -Pandroid -Pclone (-Pmodule='android-project-name') -c androidsettings.gradle
-2. export JBOSS_VERSION=...e.g. 1.0.0
+1. mvn clean install -Dandroid -DnoDistribution -Dclone (-Dmodule='android-project-name')
+or gradle test -Pandroid -PnoDistribution -Pclone (-Pmodule='android-project-name') -c androidsettings.gradle
+2. export ANDROID_SDK_VERSION=...e.g. 1.0.0
 3. export ANDROID_SDK_ROOT='path to the Sdk'
 4. export ANDROID_HOME='path to the Sdk'
 5. Add local.properties files at the android projects (modules/testcases/jdkAll/Android/'project'/'project-name') you want to build with entry sdk.dir='path to the Sdk'
-6.  mvn clean install -Dandroid -Dcreate (-Dmodule='android-project-name') 
-or gradle test -Pandroid -Pcreate (-Pmodule='android-project-name') -c androidsettings.gradle
+6.  mvn clean install -DnoDistribution -Dandroidversion -Dandroid -Dcreate (-Dmodule='android-project-name') 
+or gradle test -PnoDistribution -Pandroidversion -Pandroid -Pcreate (-Pmodule='android-project-name') -c androidsettings.gradle
 
 **Building multi-versioned Android projects with Maven on Windows**
 
@@ -247,7 +249,7 @@ Supposing that we would like to add Mtom TestCase for Wildfly (master) and Eap 7
 4. Enable the Mtom TestCase in [Wildfy Web Configuration pom](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Wildfly/web/test-configurations/pom.xml) (for Wildfly) and [Eap7+ Web Configuration pom](https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/testcases/jdkAll/Eap7/web/test-configurations/pom.xml) (for Eap7+)
 
 5. Build the Eap Additional Testsuite for Wildfy and Eap7 (having set the equivalent JBOSS_FOLDER and JBOSS_VERSION environment variables) :
-    - mvn clean install -Dwildfly -Dstandalone (for Wildfly)
+    - mvn clean install -Dwildfly -Dstandalone (for Wildfly) or mvn clean install -Dwildfly-jakarta -Dstandalone (for Jakarta Wildfly) 
     - mvn clean install -Deap7+ -Dstandalone (for Eap7+)
     
  

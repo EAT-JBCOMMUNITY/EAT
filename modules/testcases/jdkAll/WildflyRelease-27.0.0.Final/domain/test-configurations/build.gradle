@@ -15,7 +15,7 @@ task deleteFiles(type: Delete) {
 }
 
 task resourcecopy(type: Copy) {
-        from project.buildDir.toString() + '/../../../../../../src1/resources/META-INF/services/java.sql.Driver'
+        from project.buildDir.toString() + '/../../../../../../src/resources/META-INF/services/java.sql.Driver'
         into project.buildDir.toString() + '/../src/test/resources/META-INF/'
     }
 
@@ -41,7 +41,7 @@ test {
     systemProperty "jbosshome", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     systemProperty "jboss.dist", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     systemProperty "jboss.home", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
-    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src1/config/arqWildfly') 
+    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src/config/arqWildfly') 
     systemProperty "arquillian.launch", "gradlejboss"
     /*filter {
         includeTestsMatching 'org.jboss.additional.testsuite.jdkall.present.domain.*TestCase'
