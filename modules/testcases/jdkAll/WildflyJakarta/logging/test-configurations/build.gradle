@@ -4,7 +4,7 @@ apply from: "./../../dependencies.gradle"
 group = 'org.jboss'
 version = '1.0.3.Final'
 
-description = "wildfly additional testsuite: logging : configuration"
+description = "wildfly jakarta additional testsuite: logging : configuration"
 
 if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="logging") || (project.getProperty('moduleName')=="all"))){
 

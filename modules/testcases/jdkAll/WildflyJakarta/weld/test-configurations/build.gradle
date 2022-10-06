@@ -4,7 +4,7 @@ apply from: "./../../dependencies.gradle"
 group = 'org.jboss'
 version = '1.0.3.Final'
 
-description = "wildfly additional testsuite: weld : configuration"
+description = "wildfly jakarta additional testsuite: weld : configuration"
 
 if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="weld") || (project.getProperty('moduleName')=="all"))){
 
