@@ -4,7 +4,7 @@ apply from: "./../../dependencies.gradle"
 group = 'org.jboss'
 version = '1.0.3.Final'
 
-description = "wildfly additional testsuite: ejb : configuration"
+description = "wildfly jakarta additional testsuite: ejb : configuration"
 
 if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="ejb") || (project.getProperty('moduleName')=="all"))){
 
