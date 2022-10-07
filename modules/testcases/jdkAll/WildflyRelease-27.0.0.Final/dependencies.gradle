@@ -126,6 +126,7 @@ if (project.hasProperty('standalone')){
         implementation 'org.dom4j:dom4j:2.1.3'
         implementation 'jakarta.annotation:jakarta.annotation-api:2.1.0'
         implementation 'net.sourceforge.htmlunit:htmlunit:2.60.0'
+        implementation 'org.wildfly.discovery:wildfly-discovery-client'
     }
 }
 else if (project.hasProperty('standalone2')){
@@ -247,6 +248,7 @@ else if (project.hasProperty('standalone2')){
         implementation 'org.dom4j:dom4j:2.1.3'
         implementation 'jakarta.annotation:jakarta.annotation-api:2.1.0'
         implementation 'net.sourceforge.htmlunit:htmlunit:2.60.0'
+        implementation 'org.wildfly.discovery:wildfly-discovery-client'
     }
 }
 else if(project.hasProperty('server-integration')){
@@ -367,5 +369,6 @@ else if(project.hasProperty('server-integration')){
         implementation 'org.dom4j:dom4j:2.1.3'
         implementation 'jakarta.annotation:jakarta.annotation-api:2.1.0'
         implementation 'net.sourceforge.htmlunit:htmlunit:2.60.0'
+        implementation 'org.wildfly.discovery:wildfly-discovery-client'
     }
 }
