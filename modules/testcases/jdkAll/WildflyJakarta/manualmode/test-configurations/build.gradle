@@ -37,7 +37,7 @@ test {
     systemProperty "jbosshome", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     systemProperty "jboss.server.config.file.name", 'standalone-full.xml'
     systemProperty "arquillian.launch", 'gradle-manual-mode'
-    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src/config/arqWildfly/manualmode') 
+    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src/config/arqWildflyJakarta/manualmode') 
     environment 'JBOSS_HOME', project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
 }
 
