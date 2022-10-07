@@ -36,7 +36,7 @@ sourceSets {
 
 test {
     systemProperty "jbosshome", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
-    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src/config/arqWildfly/clustering') 
+    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src/config/arqWildflyJakarta/clustering') 
     systemProperty "arquillian.launch", "gradle-clustering-all"
     environment 'JBOSS_HOME', "$System.env.JBOSS_FOLDER"
 }*/
