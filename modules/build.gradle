@@ -32,6 +32,17 @@ else if (project.hasProperty('wildfly-jdk8')){
         implementation project(':modules:testcases:jdkAll:Wildfly')
     }
 
+}else if (project.hasProperty('wildfly-jakarta')){
+    
+    copy {
+        from "$System.env.JBOSS_FOLDER"
+        into project.buildDir.toString() + "/../servers/wildfly/build/target/jbossas"
+    }
+
+    dependencies{
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta')
+    }
+
 }else if (project.hasProperty('android')){
     
     dependencies{
@@ -42,12 +53,6 @@ else if (project.hasProperty('wildfly-jdk8')){
     
     dependencies{
         implementation project(':modules:testcases:jdkAll:ServerBeta')
-    }
-
-}else if (project.hasProperty('wildfly-jakarta')){
-    
-    dependencies{
-        implementation project(':modules:testcases:jdkAll:WildflyJakarta')
     }
 
 }
