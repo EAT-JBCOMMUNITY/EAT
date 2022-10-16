@@ -9,6 +9,15 @@ version = '1.0.3.Final'
 
 description = "eap additional testsuite: eap additional testsuite modules"
 
+sourceSets {
+    main {
+        java {
+            srcDirs 'src'
+            exclude "**/**.java"
+        }
+    }
+ }
+ 
 if (project.hasProperty('wildfly')){
 
     copy {
