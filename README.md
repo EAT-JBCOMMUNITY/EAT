@@ -181,7 +181,7 @@ BUILD WITH GRADLE
 ------------------
 1. Make sure that JBOSS_FOLDER environment variable is set with the path to your JBOSS EAP directory.
 2. Make sure that JBOSS_VERSION environment variable is set with the version of JBOSS EAP Server.
-3. From parent directory execute : gradle test -Pwildfly -Pstandalone -PmoduleName=all (-Pincludemvnredirections)
+3. From parent directory execute : gradle test -Pwildfly-jakarta -Pstandalone -PmoduleName=all (-Pincludemvnredirections)
 
 
 HOW TO BUILD EAP ADDITIONAL TESTSUITE INSIDE AN IDE (ECLIPSE, IntelliJ IDEA, NETBEANS)
