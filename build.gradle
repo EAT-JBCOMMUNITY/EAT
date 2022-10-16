@@ -50,6 +50,12 @@ else if(project.hasProperty('wildfly-jdk8')){
     activemodules = "logging,management,ws"
 
 }
+else if(project.hasProperty('wildfly-jakarta')){
+
+    serverDir2 = "WildflyJakarta"
+    activemodules = "basic,batch,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,manualmode,remoting,messaging,security,server,web,weld,ejb"
+
+}
 else if(project.hasProperty('android')){
 
     serverDir2 = "Android"
