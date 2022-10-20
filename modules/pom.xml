@@ -1049,6 +1049,54 @@
             </modules>
 
         </profile>
+        
+        <profile>
+            <id>eap7+.jdk17.testsuite</id>
+            <activation>
+                <property>
+                    <name>eap7+-jdk17</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>prepare</id>
+                                <inherited>false</inherited>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                            <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas" />
+                                            <property name="jboss.folder" value="${JBOSS_FOLDER}" />
+                                            <target name="copy-server-dir"/>
+                                        </ant>
+                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                            <property name="todir" value="${basedir}/servers/eap7/build/target/jbossas2" />
+                                            <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
+                                            <target name="copy-server-dir-no-fail"/>
+                                        </ant>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+
+            <modules>
+                <module>testcases/jdk17/Eap7Plus</module>
+            </modules>
+
+        </profile>
 
         <profile>
             <id>eap71x.jdk8.testsuite</id>
@@ -1892,6 +1940,53 @@
 
             <modules>
                 <module>testcases/jdkAll/WildflyJakarta</module>
+            </modules>
+
+        </profile>
+
+        <profile>
+            <id>wildfly.jakarta.jdk17.testsuite</id>
+            <activation>
+                <property>
+                    <name>wildfly-jakarta-jdk17</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>prepare</id>
+                                <inherited>false</inherited>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir.xml">
+                                            <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas" />
+                                            <property name="jboss.folder" value="${JBOSS_FOLDER}" />
+                                            <target name="copy-server-dir"/>
+                                        </ant>
+                                        <ant antfile="${basedir}/src/test/scripts/copy-server-dir-no-fail.xml">
+                                            <property name="todir" value="${basedir}/servers/wildfly/build/target/jbossas2" />
+                                            <property name="jboss.folder" value="${JBOSS_FOLDER2}" />
+                                            <target name="copy-server-dir-no-fail"/>
+                                        </ant>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+
+            <modules>
+                <module>testcases/jdk17/WildflyJakarta</module>
             </modules>
 
         </profile>
