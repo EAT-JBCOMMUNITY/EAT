@@ -64,6 +64,11 @@
                     <scope>compile</scope>
                 </dependency>
                 <dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-testsuite-shared-jakarta</artifactId>
+		    <version>27.0.0.Beta1</version>
+		</dependency>
+                <dependency>
                     <groupId>org.wildfly.core</groupId>
                     <artifactId>wildfly-core-testsuite-shared</artifactId>
                     <scope>compile</scope>
@@ -583,6 +588,15 @@
 		    <artifactId>cdi-api</artifactId>
 		    <version>2.0</version>
 		    <scope>provided</scope>
+		</dependency>
+		<dependency>
+                    <groupId>jakarta.enterprise</groupId>
+                    <artifactId>jakarta.enterprise.cdi-api</artifactId>
+                </dependency>
+                <dependency>
+		    <groupId>jakarta.persistence</groupId>
+		    <artifactId>jakarta.persistence-api</artifactId>
+		    <version>3.1.0</version>
 		</dependency>
 		<dependency>
                     <groupId>org.jboss</groupId>
@@ -690,6 +704,11 @@
                     <scope>compile</scope>
                 </dependency>
                 <dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-testsuite-shared-jakarta</artifactId>
+		    <version>27.0.0.Beta1</version>
+		</dependency>
+                <dependency>
                     <groupId>org.wildfly.core</groupId>
                     <artifactId>wildfly-core-testsuite-shared</artifactId>
                     <scope>compile</scope>
@@ -1209,6 +1228,15 @@
 		    <artifactId>cdi-api</artifactId>
 		    <version>2.0</version>
 		    <scope>provided</scope>
+		</dependency>
+		<dependency>
+                    <groupId>jakarta.enterprise</groupId>
+                    <artifactId>jakarta.enterprise.cdi-api</artifactId>
+                </dependency>
+                <dependency>
+		    <groupId>jakarta.persistence</groupId>
+		    <artifactId>jakarta.persistence-api</artifactId>
+		    <version>3.1.0</version>
 		</dependency>
 		<dependency>
                     <groupId>org.jboss</groupId>
