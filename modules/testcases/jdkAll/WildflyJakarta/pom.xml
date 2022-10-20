@@ -599,7 +599,7 @@
                 </dependency>
                 <dependency>
                     <groupId>org.wildfly</groupId>
-                    <artifactId>wildfly-ejb3-jakarta</artifactId>
+                    <artifactId>wildfly-ejb3</artifactId>
                 </dependency>
                 <dependency>
 		    <groupId>jakarta.json.bind</groupId>
@@ -1230,7 +1230,7 @@
                 </dependency>
                 <dependency>
                     <groupId>org.wildfly</groupId>
-                    <artifactId>wildfly-ejb3-jakarta</artifactId>
+                    <artifactId>wildfly-ejb3</artifactId>
                 </dependency>
                 <dependency>
 		    <groupId>jakarta.json.bind</groupId>
