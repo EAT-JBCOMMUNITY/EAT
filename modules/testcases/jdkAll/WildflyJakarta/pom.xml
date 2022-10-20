@@ -1623,7 +1623,7 @@
             <modules>
                 <module>basic</module>
 		<module>core</module>
-		<module>elytron</module>
+		<!--module>elytron</module-->
 		<module>jaxrs</module>
                 <module>jpa</module>
 		<module>jmx</module>
