@@ -4,7 +4,7 @@ apply from: "./../../dependencies.gradle"
 group = 'org.jboss'
 version = '1.0.3.Final'
 
-description = "wildfly additional testsuite: basic : configuration"
+description = "wildfly jakarta additional testsuite: basic : configuration"
 
 if(project.hasProperty('moduleName') && project.hasProperty('includemvnredirections') && ((project.getProperty('moduleName')=="clustering") || (project.getProperty('moduleName')=="all"))){
 
@@ -36,7 +36,7 @@ sourceSets {
 
 test {
     systemProperty "jbosshome", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
-    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src/config/arqWildfly/clustering') 
+    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src/config/arqWildflyJakarta/clustering') 
     systemProperty "arquillian.launch", "gradle-clustering-all"
     environment 'JBOSS_HOME', "$System.env.JBOSS_FOLDER"
 }*/
