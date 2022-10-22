@@ -29,8 +29,8 @@ import java.io.Writer;
 import java.util.concurrent.Callable;
 
 import javax.annotation.security.DeclareRoles;
-import javax.ejb.EJB;
-import javax.ejb.EJBException;
+import jakarta.ejb.EJB;
+import jakarta.ejb.EJBException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.HttpConstraint;
 import javax.servlet.annotation.ServletSecurity;
@@ -46,7 +46,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  * @author <a href="mailto:cdewolf@redhat.com">Carlo de Wolf</a>
  * @author <a href="mailto:darran.lofthouse@jboss.com">Darran Lofthouse</a>
  */
-@EAT({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/elytron/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/elytron/src/main/java","modules/testcases/jdkAll/Wildfly/elytron/src/main/java","modules/testcases/jdkAll/WildflyJakarta/elytron/src/main/java#27.0.0.Alpha4*27.0.0.Beta2","modules/testcases/jdkAll/ServerBeta/elytron/src/main/java","modules/testcases/jdkAll/WildflyRelease-17.0.0.Final/elytron/src/main/java","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/elytron/src/main/java","modules/testcases/jdkAll/Eap72x/elytron/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/elytron/src/main/java","modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/elytron/src/main/java","modules/testcases/jdkAll/Eap71x/elytron/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/elytron/src/main/java#27.0.0.Final","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/elytron/src/main/java"})
 @WebServlet(urlPatterns = "/whoAmI", loadOnStartup = 1)
 @ServletSecurity(@HttpConstraint(rolesAllowed = { "Users" }))
 @DeclareRoles("Users")

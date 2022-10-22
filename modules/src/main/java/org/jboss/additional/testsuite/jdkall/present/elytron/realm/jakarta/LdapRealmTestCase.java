@@ -63,7 +63,7 @@ import org.junit.runner.RunWith;
  *
  * @author olukas
  */
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/elytron/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/elytron/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/elytron/src/main/java#27.0.0.Alpha4*27.0.0.Beta2"})
 @RunWith(Arquillian.class)
 @RunAsClient
 @ServerSetup({LdapRealmTestCase.LDAPServerSetupTask.class, LdapRealmTestCase.SetupTask.class})
