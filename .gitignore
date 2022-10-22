@@ -19,8 +19,10 @@ remoteSrc
 src/test/config
 modules/testcases/**/src/
 modules/testcases/jdk8/**/
+modules/testcases/jdk17/**/
 modules/testcases/jdkAll/**/
 modules/testcases/jdk8/**/target
+modules/testcases/jdk17/**/target
 modules/testcases/jdkAll/**/target
 
 .idea

@@ -72,7 +72,7 @@ import static org.junit.Assert.fail;
  */
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/domain/src/main/java#27.0.0.Beta1","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/domain/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/domain/src/main/java#27.0.0.Final","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/domain/src/main/java"})
 public class EEConcurrencyExecutorShutdownTestCase {
 
     private static final String ARCHIVE_FILE_NAME = "test.war";
@@ -90,7 +90,7 @@ public class EEConcurrencyExecutorShutdownTestCase {
     @BeforeClass
     public static void setupDomain() {
         testSupport = createAndStartDefaultEESupport(EEConcurrencyExecutorShutdownTestCase.class.getSimpleName());
-        domainMasterLifecycleUtil = testSupport.getDomainMasterLifecycleUtil();
+        domainMasterLifecycleUtil = testSupport.getDomainPrimaryLifecycleUtil();
         masterClient = domainMasterLifecycleUtil.getDomainClient();
     }
 
@@ -98,10 +98,10 @@ public class EEConcurrencyExecutorShutdownTestCase {
         try {
             final DomainTestSupport.Configuration configuration;
             if (Boolean.getBoolean("wildfly.master.debug")) {
-                configuration = DomainTestSupport.Configuration.createDebugMaster(testName,
+                configuration = DomainTestSupport.Configuration.createDebugPrimary(testName,
                         "domain-configs/domain-standard-ee.xml", "host-configs/host-primary.xml", null);
             } else if (Boolean.getBoolean("wildfly.slave.debug")) {
-                configuration = DomainTestSupport.Configuration.createDebugSlave(testName,
+                configuration = DomainTestSupport.Configuration.createDebugSecondary(testName,
                         "domain-configs/domain-standard-ee.xml", "host-configs/host-primary.xml", null);
             } else {
                 configuration = DomainTestSupport.Configuration.create(testName,

@@ -4,7 +4,7 @@ apply from: "./../../dependencies.gradle"
 group = 'org.jboss'
 version = '1.0.3.Final'
 
-description = "wildfly additional testsuite: domain : configuration"
+description = "wildfly jakarta additional testsuite: domain : configuration"
 
 if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="domain") || (project.getProperty('moduleName')=="all"))){
 
@@ -41,7 +41,7 @@ test {
     systemProperty "jbosshome", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     systemProperty "jboss.dist", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
     systemProperty "jboss.home", project.buildDir.toString()+'/../../../../../../servers/wildfly/build/target/jbossas'
-    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src/config/arqWildfly') 
+    classpath = project.sourceSets.test.runtimeClasspath + files(project.buildDir.toString() + '/../../../../../../src/config/arqWildflyJakarta') 
     systemProperty "arquillian.launch", "gradlejboss"
     /*filter {
         includeTestsMatching 'org.jboss.additional.testsuite.jdkall.present.domain.*TestCase'

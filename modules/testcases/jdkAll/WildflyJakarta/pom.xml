@@ -60,14 +60,14 @@
                 </dependency>
                 <dependency>
                     <groupId>org.wildfly</groupId>
-                    <artifactId>wildfly-testsuite-shared-jakarta</artifactId>
-                    <scope>compile</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.wildfly</groupId>
                     <artifactId>wildfly-testsuite-shared</artifactId>
                     <scope>compile</scope>
                 </dependency>
+                <dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-testsuite-shared-jakarta</artifactId>
+		    <version>27.0.0.Beta1</version>
+		</dependency>
                 <dependency>
                     <groupId>org.wildfly.core</groupId>
                     <artifactId>wildfly-core-testsuite-shared</artifactId>
@@ -590,8 +590,17 @@
 		    <scope>provided</scope>
 		</dependency>
 		<dependency>
+                    <groupId>jakarta.enterprise</groupId>
+                    <artifactId>jakarta.enterprise.cdi-api</artifactId>
+                </dependency>
+                <dependency>
+		    <groupId>jakarta.persistence</groupId>
+		    <artifactId>jakarta.persistence-api</artifactId>
+		    <version>3.1.0</version>
+		</dependency>
+		<dependency>
                     <groupId>org.jboss</groupId>
-                    <artifactId>jboss-ejb-client-jakarta</artifactId>
+                    <artifactId>jboss-ejb-client</artifactId>
                 </dependency>
                 <dependency>
                     <groupId>jakarta.ejb</groupId>
@@ -599,7 +608,7 @@
                 </dependency>
                 <dependency>
                     <groupId>org.wildfly</groupId>
-                    <artifactId>wildfly-ejb3-jakarta</artifactId>
+                    <artifactId>wildfly-ejb3</artifactId>
                 </dependency>
                 <dependency>
 		    <groupId>jakarta.json.bind</groupId>
@@ -645,6 +654,10 @@
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-clustering-service</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly.discovery</groupId>
+		    <artifactId>wildfly-discovery-client</artifactId>
 		</dependency>
             </dependencies>
 
@@ -687,14 +700,14 @@
                 </dependency>
                 <dependency>
                     <groupId>org.wildfly</groupId>
-                    <artifactId>wildfly-testsuite-shared-jakarta</artifactId>
-                    <scope>compile</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.wildfly</groupId>
                     <artifactId>wildfly-testsuite-shared</artifactId>
                     <scope>compile</scope>
                 </dependency>
+                <dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-testsuite-shared-jakarta</artifactId>
+		    <version>27.0.0.Beta1</version>
+		</dependency>
                 <dependency>
                     <groupId>org.wildfly.core</groupId>
                     <artifactId>wildfly-core-testsuite-shared</artifactId>
@@ -1217,8 +1230,17 @@
 		    <scope>provided</scope>
 		</dependency>
 		<dependency>
+                    <groupId>jakarta.enterprise</groupId>
+                    <artifactId>jakarta.enterprise.cdi-api</artifactId>
+                </dependency>
+                <dependency>
+		    <groupId>jakarta.persistence</groupId>
+		    <artifactId>jakarta.persistence-api</artifactId>
+		    <version>3.1.0</version>
+		</dependency>
+		<dependency>
                     <groupId>org.jboss</groupId>
-                    <artifactId>jboss-ejb-client-jakarta</artifactId>
+                    <artifactId>jboss-ejb-client</artifactId>
                 </dependency>
                 <dependency>
                     <groupId>jakarta.ejb</groupId>
@@ -1226,7 +1248,7 @@
                 </dependency>
                 <dependency>
                     <groupId>org.wildfly</groupId>
-                    <artifactId>wildfly-ejb3-jakarta</artifactId>
+                    <artifactId>wildfly-ejb3</artifactId>
                 </dependency>
                 <dependency>
 		    <groupId>jakarta.json.bind</groupId>
@@ -1272,6 +1294,10 @@
 		<dependency>
 		    <groupId>org.wildfly</groupId>
 		    <artifactId>wildfly-clustering-service</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly.discovery</groupId>
+		    <artifactId>wildfly-discovery-client</artifactId>
 		</dependency>
 </dependencies>
 
@@ -1625,7 +1651,7 @@
             <modules>
                 <module>basic</module>
 		<module>core</module>
-		<module>elytron</module>
+		<!--module>elytron</module-->
 		<module>jaxrs</module>
                 <module>jpa</module>
 		<module>jmx</module>
