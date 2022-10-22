@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- @EAT({"modules/testcases/jdkAll/Eap72x/jaxrs/src/test/config/standaloneEap7#7.2.0","modules/testcases/jdkAll/Eap72x-Proposed/jaxrs/src/test/config/standaloneEap7#7.2.0","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/test/config/standaloneEap7#7.1.0.GA*7.1.200.GA","modules/testcases/jdk11/Eap7Plus/jaxrs/src/test/config/standaloneEap7#7.1.0.GA*7.1.200.GA","modules/testcases/jdkAll/Eap71x/jaxrs/src/test/config/standaloneEap7#7.1.0.GA*7.1.20.GA","modules/testcases/jdkAll/Eap71x-Proposed/jaxrs/src/test/config/standaloneEap7#7.1.0.GA*7.1.20.GA"}) -->
+<!-- @EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/test/config/standaloneEap7#7.1.0.GA*7.1.9.GA","modules/testcases/jdk11/Eap7Plus/jaxrs/src/test/config/standaloneEap7#7.1.0.GA*7.1.9.GA","modules/testcases/jdkAll/Eap71x/jaxrs/src/test/config/standaloneEap7#7.1.0.GA*7.1.9.GA","modules/testcases/jdkAll/Eap71x-Proposed/jaxrs/src/test/config/standaloneEap7#7.1.0.GA*7.1.9.GA"}) -->
 <server xmlns="urn:jboss:domain:5.0">
     <extensions>
         <extension module="org.jboss.as.clustering.infinispan"/>
@@ -205,7 +205,7 @@
             </timer-service>
             <remote connector-ref="http-remoting-connector" thread-pool-name="default">
                 <channel-creation-options>
-                    <option name="READ_TIMEOUT" value="${prop.remoting-connector.read.timeout:20}" type="xnio"/>
+                    <option name="READ_TIMEOUT" value="${prop.remoting-connector.read.timeout:9}" type="xnio"/>
                     <option name="MAX_OUTBOUND_MESSAGES" value="1234" type="remoting"/>
                 </channel-creation-options>
             </remote>

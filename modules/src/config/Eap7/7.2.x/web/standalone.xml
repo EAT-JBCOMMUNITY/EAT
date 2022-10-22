@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- @EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/test/config2/standaloneEap7#7.3.0*7.3.10","modules/testcases/jdkAll/Eap72x/web/src/test/config2/standaloneEap7#7.2.1","modules/testcases/jdkAll/Eap72x-Proposed/web/src/test/config2/standaloneEap7#7.2.1"}) -->
+<!-- @EAT({"modules/testcases/jdkAll/Eap72x/web/src/test/config2/standaloneEap7#7.2.1","modules/testcases/jdkAll/Eap72x-Proposed/web/src/test/config2/standaloneEap7#7.2.1"}) -->
 <server xmlns="urn:jboss:domain:8.0">
     <extensions>
         <extension module="org.jboss.as.clustering.infinispan"/>
