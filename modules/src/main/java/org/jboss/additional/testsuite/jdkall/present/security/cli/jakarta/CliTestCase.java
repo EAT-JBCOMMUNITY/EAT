@@ -30,7 +30,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.Ignore;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/security/src/main/java#27.0.0.Final"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/security/src/main/java#27.0.0.Final","modules/testcases/jdkAll/Wildfly/security/src/main/java#27.0.0.Final","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/security/src/main/java"})
 public class CliTestCase extends AbstractCliTestBase {
 
     @BeforeClass
