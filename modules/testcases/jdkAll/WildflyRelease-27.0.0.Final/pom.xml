@@ -60,14 +60,14 @@
                 </dependency>
                 <dependency>
                     <groupId>org.wildfly</groupId>
-                    <artifactId>wildfly-testsuite-shared-jakarta</artifactId>
-                    <scope>compile</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.wildfly</groupId>
                     <artifactId>wildfly-testsuite-shared</artifactId>
                     <scope>compile</scope>
                 </dependency>
+                <dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-testsuite-shared-jakarta</artifactId>
+		    <version>27.0.0.Beta1</version>
+		</dependency>
                 <dependency>
                     <groupId>org.wildfly.core</groupId>
                     <artifactId>wildfly-core-testsuite-shared</artifactId>
@@ -309,7 +309,7 @@
 		<dependency>
 		    <groupId>org.jboss.spec.javax.security.auth.message</groupId>
 		    <artifactId>jboss-jaspi-api_1.1_spec</artifactId>
-		    <version>2.0.1.Final</version>
+	            <version>2.0.1.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.spec.javax.websocket</groupId>
@@ -478,12 +478,12 @@
 		    <artifactId>wildfly-elytron-integration</artifactId>
 		    <exclusions>
                         <exclusion>
-                            <groupId>org.jboss.logging</groupId>
-                            <artifactId>jboss-logging-processor</artifactId>
+                            <groupId>org.wildfly.security</groupId>
+                            <artifactId>wildfly-elytron-jacc</artifactId>
                         </exclusion>
                         <exclusion>
-                            <groupId>org.jboss.logmanager</groupId>
-                            <artifactId>jboss-logmanager</artifactId>
+                            <groupId>org.wildfly.security</groupId>
+                            <artifactId>wildfly-elytron-jaspi</artifactId>
                         </exclusion>
                     </exclusions>
 		</dependency>
@@ -504,6 +504,21 @@
 		    <groupId>net.sourceforge.htmlunit</groupId>
 		    <artifactId>htmlunit</artifactId>
 		    <version>2.60.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.seleniumhq.selenium</groupId>
+		    <artifactId>selenium-api</artifactId>
+		    <version>4.4.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.seleniumhq.selenium</groupId>
+		    <artifactId>selenium-support</artifactId>
+		    <version>4.4.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.seleniumhq.selenium</groupId>
+		    <artifactId>selenium-firefox-driver</artifactId>
+		    <version>4.4.0</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
@@ -575,6 +590,15 @@
 		    <scope>provided</scope>
 		</dependency>
 		<dependency>
+                    <groupId>jakarta.enterprise</groupId>
+                    <artifactId>jakarta.enterprise.cdi-api</artifactId>
+                </dependency>
+                <dependency>
+		    <groupId>jakarta.persistence</groupId>
+		    <artifactId>jakarta.persistence-api</artifactId>
+		    <version>3.1.0</version>
+		</dependency>
+		<dependency>
                     <groupId>org.jboss</groupId>
                     <artifactId>jboss-ejb-client</artifactId>
                 </dependency>
@@ -584,7 +608,7 @@
                 </dependency>
                 <dependency>
                     <groupId>org.wildfly</groupId>
-                    <artifactId>wildfly-ejb3-jakarta</artifactId>
+                    <artifactId>wildfly-ejb3</artifactId>
                 </dependency>
                 <dependency>
 		    <groupId>jakarta.json.bind</groupId>
