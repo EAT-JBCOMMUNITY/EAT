@@ -30,7 +30,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.Ignore;
 
-@EAT({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/security/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/security/src/main/java","modules/testcases/jdkAll/Wildfly/security/src/main/java","modules/testcases/jdkAll/ServerBeta/security/src/main/java","modules/testcases/jdkAll/WildflyRelease-17.0.0.Final/security/src/main/java","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/security/src/main/java","modules/testcases/jdkAll/Eap72x/security/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java","modules/testcases/jdkAll/Eap7Plus/security/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/security/src/main/java","modules/testcases/jdkAll/Eap71x/security/src/main/java","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/security/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/security/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/security/src/main/java","modules/testcases/jdkAll/Wildfly/security/src/main/java#10.0.0.Final*27.0.0.Beta2","modules/testcases/jdkAll/ServerBeta/security/src/main/java","modules/testcases/jdkAll/WildflyRelease-17.0.0.Final/security/src/main/java","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/security/src/main/java","modules/testcases/jdkAll/Eap72x/security/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java","modules/testcases/jdkAll/Eap7Plus/security/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/security/src/main/java","modules/testcases/jdkAll/Eap71x/security/src/main/java"})
 public class CliTestCase extends AbstractCliTestBase {
 
     @BeforeClass
