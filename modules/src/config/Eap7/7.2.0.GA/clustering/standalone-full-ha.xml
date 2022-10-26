@@ -208,7 +208,7 @@
             </timer-service>
             <remote connector-ref="http-remoting-connector" thread-pool-name="default">
                 <channel-creation-options>
-                    <option name="READ_TIMEOUT" value="${prop.remoting-connector.read.timeout:9}" type="xnio"/>
+                    <option name="READ_TIMEOUT" value="${prop.remoting-connector.read.timeout:20}" type="xnio"/>
                     <option name="MAX_OUTBOUND_MESSAGES" value="1234" type="remoting"/>
                 </channel-creation-options>
             </remote>
@@ -447,7 +447,7 @@
                 <security-setting name="#">
                     <role name="guest" send="true" consume="true" create-non-durable-queue="true" delete-non-durable-queue="true"/>
                 </security-setting>
-                <address-setting name="#" dead-letter-address="jms.queue.DLQ" expiry-address="jms.queue.ExpiryQueue" max-size-bytes="10485760" page-size-bytes="997152" message-counter-history-day-limit="10" redistribution-delay="1000"/>
+                <address-setting name="#" dead-letter-address="jms.queue.DLQ" expiry-address="jms.queue.ExpiryQueue" max-size-bytes="10485760" page-size-bytes="2097152" message-counter-history-day-limit="10" redistribution-delay="1000"/>
                 <http-connector name="http-connector" socket-binding="http" endpoint="http-acceptor"/>
                 <http-connector name="http-connector-throughput" socket-binding="http" endpoint="http-acceptor-throughput">
                     <param name="batch-delay" value="50"/>
@@ -607,7 +607,7 @@
         <socket-binding name="iiop-ssl" interface="unsecure" port="3529"/>
         <socket-binding name="jgroups-mping" interface="private" port="0" multicast-address="${jboss.default.multicast.address:230.0.0.4}" multicast-port="45700"/>
         <socket-binding name="jgroups-tcp" interface="private" port="7600"/>
-        <socket-binding name="jgroups-udp" interface="private" port="559" multicast-address="${jboss.default.multicast.address:230.0.0.4}" multicast-port="45688"/>
+        <socket-binding name="jgroups-udp" interface="private" port="55200" multicast-address="${jboss.default.multicast.address:230.0.0.4}" multicast-port="45688"/>
         <socket-binding name="modcluster" port="0" multicast-address="${jboss.modcluster.multicast.address:224.0.1.105}" multicast-port="23364"/>
         <socket-binding name="txn-recovery-environment" port="4712"/>
         <socket-binding name="txn-status-manager" port="4713"/>
