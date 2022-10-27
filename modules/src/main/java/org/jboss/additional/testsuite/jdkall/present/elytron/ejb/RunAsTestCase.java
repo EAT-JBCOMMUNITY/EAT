@@ -9,6 +9,7 @@ import org.jboss.additional.testsuite.jdkall.present.elytron.ejb.authentication.
 import org.jboss.additional.testsuite.jdkall.present.elytron.ejb.authentication.RunAsEJB;
 import org.jboss.additional.testsuite.jdkall.present.elytron.ejb.authentication.RunAsPrincipalEJBRemote;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
+import org.jboss.eap.additional.testsuite.annotations.ATTest;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.junit.runner.RunWith;
 import org.junit.Test;
@@ -61,9 +62,13 @@ public class RunAsTestCase {
         return ejb;
     }
 
+    @ATTest({"modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java#7.4.9"})
+    public void testRunAsPrincipal() throws Exception {
+        assertTrue(runAsPrincipal.getInfo().compareTo("user2") == 0);
+    }
+
     @Test
     public void testRunAs() throws Exception {
-        assertTrue(runAsPrincipal.getInfo().compareTo("anonymous") == 0);
         try {
             runAs.getInfo();
             Assert.fail();
