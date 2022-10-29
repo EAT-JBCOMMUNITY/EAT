@@ -151,7 +151,7 @@
 
             <properties>
 		<serverDir2>Android</serverDir2>
-                <activemodules>androidproject1,bloodbankproject,elegantcalculator,mycamera,imagebox,truthdare,mycompanion,themesample,voxrec,jkslinks,loginpanel</activemodules>
+                <activemodules>androidproject1,bloodbankproject,elegantcalculator,mycamera,imagebox,truthdare,mycompanion,themesample,voxrec,jkslinks,loginpanel, eatproposals</activemodules>
 	    </properties>
         </profile>
         <profile>
