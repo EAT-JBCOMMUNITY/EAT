@@ -59,7 +59,7 @@ else if(project.hasProperty('wildfly-jakarta')){
 else if(project.hasProperty('android')){
 
     serverDir2 = "Android"
-    activemodules = "androidproject1,bloodbankproject,elegantcalculator,voxrec,themesample,mycompanion,truthdare,imagebox,mycamera,jkslinks,loginpanel"
+    activemodules = "androidproject1,bloodbankproject,elegantcalculator,voxrec,themesample,mycompanion,truthdare,imagebox,mycamera,jkslinks,loginpanel, eatproposals"
 
 }
 else if(project.hasProperty('serverbeta')){

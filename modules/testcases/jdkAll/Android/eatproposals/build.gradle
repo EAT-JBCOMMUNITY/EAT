@@ -1,0 +1,27 @@
+apply plugin: 'java'
+
+group = 'org.jboss'
+version = '1.0.3.Final'
+
+description = "android additional testsuite: eatproposals"
+
+if (project.hasProperty('android')  && project.hasProperty('clone')){
+
+	task cloneEatProposals(type: Exec) {
+	        commandLine "git", "clone", "https://github.com/stefanos-vlachos/EAT-PROPOSALS"
+	}
+
+        compileJava.dependsOn(cloneEatProposals)
+
+}
+
+if (project.hasProperty('android') && project.hasProperty('create')){
+
+	task runEatProposals(type: Exec) {
+		workingDir project.buildDir.toString() + "/../EAT-PROPOSALS"
+		commandLine "./gradlew", "build"
+	}
+
+        compileJava.dependsOn(runEatProposals)
+
+}
