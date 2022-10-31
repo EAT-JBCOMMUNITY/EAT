@@ -1695,7 +1695,6 @@
                         <configuration>
                             <sources>
                                 <source>${basedir}/../../../src/main/java</source>
-                                <source>${basedir}/../../../src2/main/java</source>
                             </sources>
                         </configuration>
                     </execution>
