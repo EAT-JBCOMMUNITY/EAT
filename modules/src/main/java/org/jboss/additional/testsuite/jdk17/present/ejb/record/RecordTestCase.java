@@ -9,7 +9,7 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdk17/Eap7Plus/ejb/src/main/java#7.4.8","modules/testcases/jdk17/WildflyJakarta/ejb/src/main/java#28.0.0.Final"})
+@EAT({"modules/testcases/jdk17/WildflyJakarta/ejb/src/main/java#28.0.0.Final"}) //"modules/testcases/jdk17/Eap7Plus/ejb/src/main/java#7.4.8" in maintenance
 @RunWith(Arquillian.class)
 public class RecordTestCase {
     private static final String ARCHIVE_NAME = "RecordTestCase";
