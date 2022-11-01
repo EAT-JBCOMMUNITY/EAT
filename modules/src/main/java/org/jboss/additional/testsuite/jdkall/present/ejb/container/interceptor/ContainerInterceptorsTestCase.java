@@ -53,7 +53,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 /**
  * HOW TO TEST : TEST WITH WIRESHARK. "AnyKey=AnyValue" should not exist in the DATA.
  */
-@EAT({"modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.8"})
+//@AT({"modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.8"}) //In maintenance
 @RunWith(Arquillian.class)
 public class ContainerInterceptorsTestCase {
 
