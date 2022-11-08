@@ -409,6 +409,21 @@
         </profile>
 
         <profile>
+            <id>eap.jakarta.testsuite</id>
+            <activation>
+                <property>
+                    <name>eap-jakarta</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <properties>
+		<serverDir2>EapJakarta</serverDir2>
+                <activemodules>basic,batch,core,elytron,jaxrs,jpa,clustering,domain,domain_management,logging,management,manualmode,remoting,messaging,security,server,web,weld,ejb</activemodules>
+	    </properties>
+        </profile>
+
+        <profile>
             <id>openkube1.testsuite</id>
             <activation>
                 <property>

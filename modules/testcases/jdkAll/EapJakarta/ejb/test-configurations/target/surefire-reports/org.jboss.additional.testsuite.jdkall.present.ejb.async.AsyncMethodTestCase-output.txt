@@ -1,0 +1,88 @@
+[0m06:32:36,346 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/62/e36a64bdf24e3353d93bbbe50ee738d51e97f6/content
+[0m[0m06:32:36,351 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0027: Starting deployment of "test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3.war" (runtime-name: "test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3.war")
+[0m[0m06:32:36,746 INFO  [org.jboss.weld.deployer] (MSC service thread 1-5) WFLYWELD0003: Processing weld deployment test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3.war
+[0m[0m06:32:36,776 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-5) WFLYEJB0473: JNDI bindings for session bean named 'AsyncSingleton' in deployment unit 'deployment "test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3.war"' are as follows:
+
+	java:global/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncSingleton!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncSingleton
+	java:app/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncSingleton!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncSingleton
+	java:module/AsyncSingleton!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncSingleton
+	java:global/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncSingleton
+	java:app/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncSingleton
+	java:module/AsyncSingleton
+
+[0m[0m06:32:36,777 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-5) WFLYEJB0473: JNDI bindings for session bean named 'RequestScopedBean' in deployment unit 'deployment "test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3.war"' are as follows:
+
+	java:global/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/RequestScopedBean!org.jboss.additional.testsuite.jdkall.present.ejb.async.RequestScopedBean
+	java:app/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/RequestScopedBean!org.jboss.additional.testsuite.jdkall.present.ejb.async.RequestScopedBean
+	java:module/RequestScopedBean!org.jboss.additional.testsuite.jdkall.present.ejb.async.RequestScopedBean
+	java:global/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/RequestScopedBean
+	java:app/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/RequestScopedBean
+	java:module/RequestScopedBean
+
+[0m[0m06:32:36,779 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-5) WFLYEJB0473: JNDI bindings for session bean named 'AsyncBeanSynchronizeSingleton' in deployment unit 'deployment "test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3.war"' are as follows:
+
+	java:global/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBeanSynchronizeSingleton!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBeanSynchronizeSingletonRemote
+	java:app/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBeanSynchronizeSingleton!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBeanSynchronizeSingletonRemote
+	java:module/AsyncBeanSynchronizeSingleton!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBeanSynchronizeSingletonRemote
+	java:jboss/exported/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBeanSynchronizeSingleton!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBeanSynchronizeSingletonRemote
+	ejb:/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBeanSynchronizeSingleton!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBeanSynchronizeSingletonRemote
+	java:global/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBeanSynchronizeSingleton
+	java:app/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBeanSynchronizeSingleton
+	java:module/AsyncBeanSynchronizeSingleton
+
+[0m[0m06:32:36,779 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-5) WFLYEJB0473: JNDI bindings for session bean named 'AsyncBean' in deployment unit 'deployment "test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3.war"' are as follows:
+
+	java:global/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBean!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBeanCancelRemoteInterface
+	java:app/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBean!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBeanCancelRemoteInterface
+	java:module/AsyncBean!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBeanCancelRemoteInterface
+	java:jboss/exported/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBean!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBeanCancelRemoteInterface
+	ejb:/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBean!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBeanCancelRemoteInterface
+	java:global/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBean!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBean
+	java:app/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBean!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBean
+	java:module/AsyncBean!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBean
+
+[0m[0m06:32:36,780 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-5) WFLYEJB0473: JNDI bindings for session bean named 'AsyncStateful' in deployment unit 'deployment "test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3.war"' are as follows:
+
+	java:global/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncStateful!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncStateful
+	java:app/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncStateful!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncStateful
+	java:module/AsyncStateful!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncStateful
+	java:global/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncStateful
+	java:app/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncStateful
+	java:module/AsyncStateful
+
+[0m[0m06:32:36,780 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-5) WFLYEJB0473: JNDI bindings for session bean named 'AsyncBeanRemote' in deployment unit 'deployment "test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3.war"' are as follows:
+
+	java:global/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBeanRemote!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBeanRemoteInterface
+	java:app/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBeanRemote!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBeanRemoteInterface
+	java:module/AsyncBeanRemote!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBeanRemoteInterface
+	java:jboss/exported/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBeanRemote!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBeanRemoteInterface
+	ejb:/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBeanRemote!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBeanRemoteInterface
+	java:global/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBeanRemote
+	java:app/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBeanRemote
+	java:module/AsyncBeanRemote
+
+[0m[0m06:32:36,781 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-5) WFLYEJB0473: JNDI bindings for session bean named 'AsyncChildBean' in deployment unit 'deployment "test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3.war"' are as follows:
+
+	java:global/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncChildBean!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncChildBean
+	java:app/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncChildBean!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncChildBean
+	java:module/AsyncChildBean!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncChildBean
+	java:global/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncChildBean
+	java:app/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncChildBean
+	java:module/AsyncChildBean
+
+[0m[0m06:32:36,781 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-5) WFLYEJB0473: JNDI bindings for session bean named 'AsyncBeanDescriptor' in deployment unit 'deployment "test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3.war"' are as follows:
+
+	java:global/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBeanDescriptor!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBeanDescriptor
+	java:app/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBeanDescriptor!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBeanDescriptor
+	java:module/AsyncBeanDescriptor!org.jboss.additional.testsuite.jdkall.present.ejb.async.AsyncBeanDescriptor
+	java:global/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBeanDescriptor
+	java:app/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3/AsyncBeanDescriptor
+	java:module/AsyncBeanDescriptor
+
+[0m[0m06:32:37,148 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 17) WFLYUT0021: Registered web context: '/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3' for server 'default-server'
+[0m[0m06:32:37,171 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3.war" (runtime-name : "test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3.war")
+[0m[0m06:32:37,250 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 12) WFLYUT0022: Unregistered web context: '/test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3' from server 'default-server'
+[0m[0m06:32:37,288 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0028: Stopped deployment test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3.war (runtime-name: test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3.war) in 42ms
+[0m[0m06:32:37,304 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/62/e36a64bdf24e3353d93bbbe50ee738d51e97f6/content
+[0m[0m06:32:37,305 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3.war" (runtime-name: "test-5a16f13f-653e-4bc6-ab0f-dd29e5304dd3.war")
+[0m
