@@ -1,0 +1,21 @@
+[0m06:32:41,262 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/20/93c7971ebff78fe0570ac77b22f3f3f0f202e2/content
+[0m[0m06:32:41,265 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0027: Starting deployment of "test-9148ae57-ab10-4c02-b0e9-ce594c807091.war" (runtime-name: "test-9148ae57-ab10-4c02-b0e9-ce594c807091.war")
+[0m[0m06:32:41,528 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) WFLYWELD0003: Processing weld deployment test-9148ae57-ab10-4c02-b0e9-ce594c807091.war
+[0m[0m06:32:41,548 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-1) WFLYEJB0473: JNDI bindings for session bean named 'Hello' in deployment unit 'deployment "test-9148ae57-ab10-4c02-b0e9-ce594c807091.war"' are as follows:
+
+	java:global/test-9148ae57-ab10-4c02-b0e9-ce594c807091/Hello!org.jboss.additional.testsuite.jdkall.present.ejb.jndi.logging.Hello
+	java:app/test-9148ae57-ab10-4c02-b0e9-ce594c807091/Hello!org.jboss.additional.testsuite.jdkall.present.ejb.jndi.logging.Hello
+	java:module/Hello!org.jboss.additional.testsuite.jdkall.present.ejb.jndi.logging.Hello
+	java:jboss/exported/test-9148ae57-ab10-4c02-b0e9-ce594c807091/Hello!org.jboss.additional.testsuite.jdkall.present.ejb.jndi.logging.Hello
+	ejb:/test-9148ae57-ab10-4c02-b0e9-ce594c807091/Hello!org.jboss.additional.testsuite.jdkall.present.ejb.jndi.logging.Hello
+	java:global/test-9148ae57-ab10-4c02-b0e9-ce594c807091/Hello
+	java:app/test-9148ae57-ab10-4c02-b0e9-ce594c807091/Hello
+	java:module/Hello
+
+[0m[0m06:32:41,746 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 10) WFLYUT0021: Registered web context: '/test-9148ae57-ab10-4c02-b0e9-ce594c807091' for server 'default-server'
+[0m[0m06:32:41,768 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "test-9148ae57-ab10-4c02-b0e9-ce594c807091.war" (runtime-name : "test-9148ae57-ab10-4c02-b0e9-ce594c807091.war")
+[0m[0m06:32:42,159 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 10) WFLYUT0022: Unregistered web context: '/test-9148ae57-ab10-4c02-b0e9-ce594c807091' from server 'default-server'
+[0m[0m06:32:42,179 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0028: Stopped deployment test-9148ae57-ab10-4c02-b0e9-ce594c807091.war (runtime-name: test-9148ae57-ab10-4c02-b0e9-ce594c807091.war) in 21ms
+[0m[0m06:32:42,199 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location /home/psotirop/EAT/CI/program/wildfly/at/EAT/modules/servers/wildfly/build/target/jbossas/standalone/data/content/20/93c7971ebff78fe0570ac77b22f3f3f0f202e2/content
+[0m[0m06:32:42,199 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "test-9148ae57-ab10-4c02-b0e9-ce594c807091.war" (runtime-name: "test-9148ae57-ab10-4c02-b0e9-ce594c807091.war")
+[0m
