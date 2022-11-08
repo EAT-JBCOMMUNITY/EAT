@@ -29,7 +29,7 @@ import static org.junit.Assert.fail;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.8","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Beta1"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.9","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Beta1"})
 public class JsfFormOOBIndexTestCase {
 
     @Deployment(name = "jsf-war", testable = false, order=1)
