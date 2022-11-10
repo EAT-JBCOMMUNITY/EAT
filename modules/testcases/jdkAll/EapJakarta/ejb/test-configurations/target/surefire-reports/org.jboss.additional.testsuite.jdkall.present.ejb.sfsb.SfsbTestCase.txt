@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: org.jboss.additional.testsuite.jdkall.present.ejb.sfsb.SfsbTestCase
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.912 s - in org.jboss.additional.testsuite.jdkall.present.ejb.sfsb.SfsbTestCase

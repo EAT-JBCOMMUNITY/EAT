@@ -10,16 +10,16 @@
 
     <parent>
         <groupId>org.jboss</groupId>
-        <artifactId>wildfly-jakarta-additional-testsuite-manualserver</artifactId>
+        <artifactId>eap-jakarta-additional-testsuite-manualserver</artifactId>
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>wildfly-jakarta-additional-testsuite-manualserver-configuration</artifactId>
-    <name>wildfly additional testsuite: manualserver : configuration</name>
+    <artifactId>eap-jakarta-additional-testsuite-manualserver-configuration</artifactId>
+    <name>eap additional testsuite: manualserver : configuration</name>
             
     <properties>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
-        <server>wildfly</server>
+        <server>eap7</server>
     </properties>
         
     <build>

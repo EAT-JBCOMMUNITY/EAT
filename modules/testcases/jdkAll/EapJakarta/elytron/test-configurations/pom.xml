@@ -10,19 +10,19 @@
 
     <parent>
         <groupId>org.jboss</groupId>
-        <artifactId>wildfly-jakarta-additional-testsuite-elytron</artifactId>
+        <artifactId>eap-jakarta-additional-testsuite-elytron</artifactId>
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>wildfly-jakarta-additional-testsuite-elytron-configuration</artifactId>
-    <name>wildfly additional testsuite: elytron : configuration</name>
+    <artifactId>eap-jakarta-additional-testsuite-elytron-configuration</artifactId>
+    <name>eap additional testsuite: elytron : configuration</name>
             
     <properties>
-        <standalone.conf>../src/test/config/standaloneWildfly/standalone-full.xml</standalone.conf>
+        <standalone.conf>../src/test/config/standaloneEap7/standalone-full.xml</standalone.conf>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <server>wildfly</server>
+        <server>eap7</server>
     </properties>
         
     <build>
@@ -48,7 +48,7 @@
 
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
-                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqWildflyJakarta</additionalClasspathElement>
+                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEapJakarta</additionalClasspathElement>
                     </additionalClasspathElements>
 
                 </configuration>
@@ -143,8 +143,8 @@
             </plugin>
 
             <plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
+                <groupId>org.eap.plugins</groupId>
+                <artifactId>eap-maven-plugin</artifactId>
                 <version>2.0.1.Final</version>
                 <executions>
                     <execution>
@@ -160,7 +160,7 @@
                         <script>modify-elytron-config.cli</script>
                     </scripts>
                     <jboss-home>${jboss.modules.dir}/servers/${server}/build/target/jbossas</jboss-home>
-                    <stdout>${project.build.directory}/wildfly-plugin.log</stdout>
+                    <stdout>${project.build.directory}/eap-plugin.log</stdout>
                     <system-properties>
                         <public.ip>127.0.0.1</public.ip>
                         <management.ip>127.0.0.1</management.ip>

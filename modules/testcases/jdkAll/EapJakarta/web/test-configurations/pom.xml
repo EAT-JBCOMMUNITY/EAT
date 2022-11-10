@@ -10,17 +10,17 @@
 
     <parent>
         <groupId>org.jboss</groupId>
-        <artifactId>wildfly-jakarta-additional-testsuite-web</artifactId>
+        <artifactId>eap-jakarta-additional-testsuite-web</artifactId>
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>wildfly-jakarta-additional-testsuite-web-configuration</artifactId>
-    <name>wildfly additional testsuite: web : configuration</name>
+    <artifactId>eap-jakarta-additional-testsuite-web-configuration</artifactId>
+    <name>eap additional testsuite: web : configuration</name>
             
     <properties>
-	<standalone.conf>${basedir}/../src/test/config/standaloneWildfly/standalone.xml</standalone.conf>
+	<standalone.conf>${basedir}/../src/test/config/standaloneEap7/standalone.xml</standalone.conf>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
-        <server>wildfly</server>
+        <server>eap7</server>
     </properties>
         
     <build>
@@ -41,7 +41,7 @@
 
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
-                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqWildflyJakarta</additionalClasspathElement>
+                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEapJakarta</additionalClasspathElement>
                     </additionalClasspathElements>
 
                 </configuration>
@@ -92,13 +92,13 @@
 	                        </ant>
                                 <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
 	                            <property name="fileName" value="bug.war" />
-                                    <property name="filePath" value="${jboss.modules.dir}/servers/wildfly/build/target/jbossas/standalone/deployments" />
+                                    <property name="filePath" value="${jboss.modules.dir}/servers/eap/build/target/jbossas/standalone/deployments" />
                                     <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/jakarta/bug.war" />
 	                            <target name="copy-file"/>
 	                        </ant>
 	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
 	                            <property name="fileName" value="bug.war" />
-                                    <property name="filePath" value="${jboss.modules.dir}/testcases/jdkAll/WildflyJakarta/web/test-configurations/src/test/resources/bug" />
+                                    <property name="filePath" value="${jboss.modules.dir}/testcases/jdkAll/eapJakarta/web/test-configurations/src/test/resources/bug" />
                                     <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/jakarta/bug/bug.war" />
 	                            <target name="copy-file"/>
 	                        </ant>

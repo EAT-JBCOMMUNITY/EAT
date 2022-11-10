@@ -10,17 +10,17 @@
 
     <parent>
         <groupId>org.jboss</groupId>
-        <artifactId>wildfly-jakarta-additional-testsuite-security</artifactId>
+        <artifactId>eap-jakarta-additional-testsuite-security</artifactId>
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>wildfly-jakarta-additional-testsuite-security-configuration</artifactId>
-    <name>wildfly additional testsuite: security : configuration</name>
+    <artifactId>eap-jakarta-additional-testsuite-security-configuration</artifactId>
+    <name>eap additional testsuite: security : configuration</name>
             
     <properties>
-	<standalone.conf>../src/test/config/standaloneWildfly/standalone-full.xml</standalone.conf>
+	<standalone.conf>../src/test/config/standaloneEap7/standalone-full.xml</standalone.conf>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
-        <server>wildfly</server>
+        <server>eap7</server>
     </properties>
         
     <build>
@@ -40,13 +40,13 @@
                     <failIfNoTests>false</failIfNoTests>
 
                     <systemPropertyVariables>
-                        <jboss.dist>jboss.dist>${jboss.modules.dir}/servers/wildfly/build/target/jbossas</jboss.dist>
+                        <jboss.dist>jboss.dist>${jboss.modules.dir}/servers/eap7/build/target/jbossas</jboss.dist>
                         <jboss.server.config.file.name>standalone-full.xml</jboss.server.config.file.name>
                     </systemPropertyVariables>
 
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
-                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqWildflyJakarta</additionalClasspathElement>
+                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEapJakarta</additionalClasspathElement>
                     </additionalClasspathElements>
 
                 </configuration>
@@ -105,8 +105,8 @@
 	    </plugin>
 
             <plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
+                <groupId>org.eap.plugins</groupId>
+                <artifactId>eap-maven-plugin</artifactId>
                 <version>2.0.1.Final</version>
                 <executions>
                     <execution>
@@ -122,7 +122,7 @@
                         <script>modify-security-config.cli</script>
                     </scripts>
                     <jboss-home>${jboss.modules.dir}/servers/${server}/build/target/jbossas</jboss-home>
-                    <stdout>${project.build.directory}/wildfly-plugin.log</stdout>
+                    <stdout>${project.build.directory}/eap-plugin.log</stdout>
                     <system-properties>
                         <public.ip>127.0.0.1</public.ip>
                         <management.ip>127.0.0.1</management.ip>

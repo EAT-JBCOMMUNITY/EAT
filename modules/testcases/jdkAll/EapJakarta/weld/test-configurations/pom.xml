@@ -10,12 +10,12 @@
 
     <parent>
         <groupId>org.jboss</groupId>
-        <artifactId>wildfly-jakarta-additional-testsuite-weld</artifactId>
+        <artifactId>eap-jakarta-additional-testsuite-weld</artifactId>
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>wildfly-jakarta-additional-testsuite-weld-configuration</artifactId>
-    <name>wildfly additional testsuite: weld : configuration</name>
+    <artifactId>eap-jakarta-additional-testsuite-weld-configuration</artifactId>
+    <name>eap additional testsuite: weld : configuration</name>
             
     <properties>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
@@ -39,7 +39,7 @@
 
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
-                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqWildflyJakarta</additionalClasspathElement>
+                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEapJakarta</additionalClasspathElement>
                     </additionalClasspathElements>
 
                 </configuration>
