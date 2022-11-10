@@ -10,17 +10,17 @@
 
     <parent>
         <groupId>org.jboss</groupId>
-        <artifactId>wildfly-jakarta-additional-testsuite-web</artifactId>
+        <artifactId>eap-jakarta-additional-testsuite-web</artifactId>
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>wildfly-jakarta-additional-testsuite-web-configuration2</artifactId>
-    <name>wildfly additional testsuite: web : configuration2</name>
+    <artifactId>eap-jakarta-additional-testsuite-web-configuration2</artifactId>
+    <name>eap additional testsuite: web : configuration2</name>
             
     <properties>
-	<standalone.conf>${basedir}/../src/test/config2/standaloneWildfly/standalone.xml</standalone.conf>
+	<standalone.conf>${basedir}/../src/test/config2/standaloneEap7/standalone.xml</standalone.conf>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
-        <server>wildfly</server>
+        <server>eap7</server>
     </properties>
         
     <build>
@@ -41,7 +41,7 @@
 
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
-                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqWildflyJakarta</additionalClasspathElement>
+                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEapJakarta</additionalClasspathElement>
                     </additionalClasspathElements>
 
                 </configuration>

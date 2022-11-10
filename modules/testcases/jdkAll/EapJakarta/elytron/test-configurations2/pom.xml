@@ -18,11 +18,11 @@
     <name>eap additional testsuite: elytron : configuration2</name>
             
     <properties>
-        <standalone.conf>../src/test/config2/standaloneeap/standalone-full.xml</standalone.conf>
+        <standalone.conf>../src/test/config2/standaloneEap7/standalone-full.xml</standalone.conf>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <server>eap</server>
+        <server>eap7</server>
     </properties>
         
     <build>
@@ -48,7 +48,7 @@
 
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
-                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqeapJakarta</additionalClasspathElement>
+                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEapJakarta</additionalClasspathElement>
                     </additionalClasspathElements>
 
                 </configuration>

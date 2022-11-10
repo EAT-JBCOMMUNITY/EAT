@@ -10,12 +10,12 @@
 
     <parent>
         <groupId>org.jboss</groupId>
-        <artifactId>wildfly-jakarta-additional-testsuite-weld</artifactId>
+        <artifactId>eap-jakarta-additional-testsuite-weld</artifactId>
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>wildfly-jakarta-additional-testsuite-weld-configuration2</artifactId>
-    <name>wildfly additional testsuite: weld : configuration2</name>
+    <artifactId>eap-jakarta-additional-testsuite-weld-configuration2</artifactId>
+    <name>eap additional testsuite: weld : configuration2</name>
             
     <properties>
         <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
@@ -39,7 +39,7 @@
 
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
-                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqWildflyJakarta</additionalClasspathElement>
+                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEapJakarta</additionalClasspathElement>
                     </additionalClasspathElements>
 
                 </configuration>
@@ -83,7 +83,7 @@
 	                            <target name="copy-file"/>
 	                        </ant>
                                 <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-dir.xml">
-                                    <property name="todir" value="${jboss.modules.dir}/servers/wildfly/build/target/jbossas/modules/system/layers/base" />
+                                    <property name="todir" value="${jboss.modules.dir}/servers/eap/build/target/jbossas/modules/system/layers/base" />
                                     <property name="folderToCopy" value="${jboss.modules.dir}/src/resources/modules" />
 	                            <target name="copy-dir"/>
 	                        </ant>
