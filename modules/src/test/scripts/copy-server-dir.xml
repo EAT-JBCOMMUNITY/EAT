@@ -24,6 +24,7 @@
 
 <project>
     <target name="copy-server-dir" description="Copies the server directory">
+        <delete dir="${todir}" failonerror="false" />
         <echo message="Copying the server directory : ${jboss.folder}"/>
         <copy todir="${todir}" preservelastmodified="false" overwrite="true" >
             <fileset dir="${jboss.folder}">
