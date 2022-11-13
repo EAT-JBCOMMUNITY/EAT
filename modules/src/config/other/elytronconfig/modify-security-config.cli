@@ -1,4 +1,4 @@
-#@EAT({"modules/testcases/jdkAll/Wildfly/security/test-configurations#27.0.0","modules/testcases/jdkAll/WildflyJakarta/security/test-configurations#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/security/test-configurations","modules/testcases/jdkAll/Eap7Plus/security/test-configurations#7.4.4","modules/testcases/jdk11/Eap7Plus/security/test-configurations#7.4.4"})
+#@EAT({"modules/testcases/jdkAll/Wildfly/security/test-configurations#27.0.0","modules/testcases/jdkAll/WildflyJakarta/security/test-configurations#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/security/test-configurations","modules/testcases/jdkAll/Eap7Plus/security/test-configurations#7.4.4","modules/testcases/jdk11/Eap7Plus/security/test-configurations#7.4.4","modules/testcases/jdkAll/EapJakarta/security/test-configurations"})
 embed-server --admin-only=true --server-config=standalone-full.xml
 
 /subsystem=elytron/simple-role-decoder=from-roles-attribute:add(attribute=Roles)
