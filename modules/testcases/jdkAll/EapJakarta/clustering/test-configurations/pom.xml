@@ -111,7 +111,7 @@
 	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/basic-build.xml">
 	                            <property name="workspace" value="/${jboss.modules.dir}" />
                                     <property name="server" value="${server}" />
-                                    <property name="dist" value="eap-SYNC-tcp-1" />
+                                    <property name="dist" value="eap7-SYNC-tcp-1" />
 	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
 	                            <target name="build-basic-check"/>
 	                        </ant>
