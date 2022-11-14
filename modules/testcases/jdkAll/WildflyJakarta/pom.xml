@@ -1307,7 +1307,6 @@
 		<dependency>
 		    <groupId>jakarta.faces</groupId>
 		    <artifactId>jakarta.faces-api</artifactId>
-		    <version>4.0.1</version>
 		</dependency>
 
 </dependencies>
