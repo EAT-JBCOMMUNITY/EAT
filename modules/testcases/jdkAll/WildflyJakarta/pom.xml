@@ -659,6 +659,11 @@
 		    <groupId>org.wildfly.discovery</groupId>
 		    <artifactId>wildfly-discovery-client</artifactId>
 		</dependency>
+		<dependency>
+		    <groupId>jakarta.faces</groupId>
+		    <artifactId>jakarta.faces-api</artifactId>
+		</dependency>
+
             </dependencies>
 
         </profile>
@@ -1299,6 +1304,12 @@
 		    <groupId>org.wildfly.discovery</groupId>
 		    <artifactId>wildfly-discovery-client</artifactId>
 		</dependency>
+		<dependency>
+		    <groupId>jakarta.faces</groupId>
+		    <artifactId>jakarta.faces-api</artifactId>
+		    <version>4.0.1</version>
+		</dependency>
+
 </dependencies>
 
         </profile>
