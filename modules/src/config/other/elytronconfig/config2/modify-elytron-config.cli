@@ -38,4 +38,15 @@ embed-server --admin-only=true --server-config=standalone-full.xml
 /subsystem=elytron/credential-store=cred-store-default:add-alias(alias=alias-secret, secret-value=secret)
 /subsystem=elytron/credential-store=cred-store-default:remove()
 
+/subsystem=elytron/filesystem-realm=MyFsRealm:add(path="my-realm-users", relative-to="jboss.server.config.dir")
+/subsystem=elytron/filesystem-realm=MyFsRealm:add-identity(identity="testuser")
+/subsystem=elytron/filesystem-realm=MyFsRealm:set-password(identity="testuser", clear={password="testpassword"})
+/subsystem=elytron/filesystem-realm=MyFsRealm:add-identity-attribute(identity="testuser", name="Roles", value=["regular_user"])
+/subsystem=elytron/caching-realm=MyCachingRealm:add(realm=MyFsRealm, maximum-age="300000")
+/subsystem=elytron/simple-role-decoder=FromRolesAttributeDecoder:add(attribute="Roles")
+/subsystem=elytron/security-domain=MySecurityDomain:add(realms=[{realm=MyCachingRealm, role-decoder=FromRolesAttributeDecoder}], default-realm=MyCachingRealm, permission-mapper=default-permission-mapper)
+/subsystem=elytron/constant-realm-mapper=MyRealmMapper:add(realm-name=MyCachingRealm)
+/subsystem=elytron/http-authentication-factory=MyHttpAuthFactory:add(http-server-mechanism-factory=global, security-domain=MySecurityDomain, mechanism-configurations=[{mechanism-name=FORM, realm-mapper=MyRealmMapper, mechanism-realm-configurations=[{realm-name="MyRealm"}]}])
+/subsystem=undertow/application-security-domain="my_app_security_domain":add(http-authentication-factory=MyHttpAuthFactory)
+
 stop-embedded-server
