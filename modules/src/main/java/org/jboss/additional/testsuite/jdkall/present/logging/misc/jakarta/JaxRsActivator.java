@@ -27,7 +27,7 @@ import jakarta.ws.rs.core.Application;
 /**
  * @author <a href="mailto:jperkins@redhat.com">James R. Perkins</a>
  */
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/logging/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/logging/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/logging/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/logging/src/main/java","modules/testcases/jdkAll/EapJakarta/logging/src/main/java"})
 @ApplicationPath("/rest")
 public class JaxRsActivator extends Application {
 }
