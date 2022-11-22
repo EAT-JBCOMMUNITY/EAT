@@ -1,10 +1,9 @@
 package org.jboss.additional.testsuite.jdk17.present.ejb.record;
 
 import java.util.logging.Logger;
-import javax.ejb.Stateless;
-import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@ΕΑΤ({"modules/testcases/jdk17/Eap7Plus/ejb/src/main/java#7.4.8"})
+import javax.ejb.Stateless;
+
 @Stateless
 public class RecordStateless implements RecordRemote {
 
