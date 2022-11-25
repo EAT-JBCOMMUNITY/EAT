@@ -2,7 +2,7 @@ package org.jboss.additional.testsuite.jdkall.present.web.jsf;
 
 import java.io.Serializable;
 import jakarta.annotation.PostConstruct;
-import javax.faces.view.ViewScoped;
+import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 

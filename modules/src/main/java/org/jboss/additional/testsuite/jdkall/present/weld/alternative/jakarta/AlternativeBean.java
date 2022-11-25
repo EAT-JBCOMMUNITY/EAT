@@ -30,7 +30,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  */
 @Model
 @Alternative
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/weld/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/weld/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/weld/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/weld/src/main/java","modules/testcases/jdkAll/EapJakarta/weld/src/main/java"})
 public class AlternativeBean extends SimpleBean {
 
     @Override

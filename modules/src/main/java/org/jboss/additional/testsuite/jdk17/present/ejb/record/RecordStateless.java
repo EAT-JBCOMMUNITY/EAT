@@ -1,7 +1,6 @@
 package org.jboss.additional.testsuite.jdk17.present.ejb.record;
 
 import java.util.logging.Logger;
-
 import javax.ejb.Stateless;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 

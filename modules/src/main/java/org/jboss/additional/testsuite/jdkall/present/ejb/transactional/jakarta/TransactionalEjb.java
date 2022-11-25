@@ -9,7 +9,7 @@ import javax.naming.InitialContext;
 import javax.transaction.UserTransaction;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/Wildfly/ejb/src/main/java#28.0.0"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#29.0.0"})
 @Stateless
 public class TransactionalEjb {
 
