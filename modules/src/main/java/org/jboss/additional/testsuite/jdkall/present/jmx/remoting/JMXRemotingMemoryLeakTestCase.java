@@ -28,7 +28,7 @@ import static org.junit.Assert.fail;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/remoting/src/main/java","modules/testcases/jdkAll/Wildfly/remoting/src/main/java#16.0.0.Beta1","modules/testcases/jdkAll/WildflyJakarta/jmx/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/jmx/src/main/java", "modules/testcases/jdkAll/Eap72x/remoting/src/main/java#7.2.3", "modules/testcases/jdkAll/Eap72x-Proposed/remoting/src/main/java#7.2.3"})
+@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/remoting/src/main/java","modules/testcases/jdkAll/Wildfly/remoting/src/main/java#16.0.0.Beta1","modules/testcases/jdkAll/WildflyJakarta/jmx/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/jmx/src/main/java", "modules/testcases/jdkAll/Eap72x/remoting/src/main/java#7.2.3", "modules/testcases/jdkAll/Eap72x-Proposed/remoting/src/main/java#7.2.3","modules/testcases/jdkAll/EapJakarta/remoting/src/main/java"})
 public class JMXRemotingMemoryLeakTestCase {
 
     private final Logger log = Logger.getLogger(JMXRemotingMemoryLeakTestCase.class);

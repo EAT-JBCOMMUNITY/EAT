@@ -53,7 +53,9 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 /**
  * HOW TO TEST : TEST WITH WIRESHARK. "AnyKey=AnyValue" should not exist in the DATA.
  */
-//@AT({"modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.8"}) //In maintenance
+// Should not be distributed. It is a manual testcase that needs to start the server manually
+// 1. Start the configured server and wireshark, 2. Run the manual test, 3. Check data at HTTP2 HEADERS[3]: 200 OK, DATA[3] 
+//@EAT({"modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.9"})
 @RunWith(Arquillian.class)
 public class ContainerInterceptorsTestCase {
 
