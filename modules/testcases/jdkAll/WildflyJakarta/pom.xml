@@ -1314,7 +1314,7 @@
 		    <artifactId>jakarta.jms-api</artifactId>
 		    <version>3.1.0</version>
 		</dependency>
-    </dependency>
+                <dependency>
 		    <groupId>jakarta.faces</groupId>
 		    <artifactId>jakarta.faces-api</artifactId>
 		</dependency>
