@@ -14,7 +14,7 @@ import jakarta.ejb.EJB;
 import static org.junit.Assert.fail;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#29.0.0"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#29.0.0","modules/testcases/jdkAll/EapJakarta/ejb/src/main/java"})
 @WebServlet(urlPatterns = {TransactionalServlet.URL_PATTERN})
 public class TransactionalServlet extends HttpServlet {
 

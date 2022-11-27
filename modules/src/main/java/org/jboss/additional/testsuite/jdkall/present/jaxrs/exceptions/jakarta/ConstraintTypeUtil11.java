@@ -17,7 +17,7 @@ import java.security.PrivilegedExceptionAction;
 
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Beta1"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Beta1","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class ConstraintTypeUtil11 implements ConstraintTypeUtil
 {
    public ConstraintType.Type getConstraintType(Object o)
