@@ -26,7 +26,7 @@ import jakarta.ws.rs.core.Application;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
  
 @ApplicationPath("/myjaxrs")
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class ExampleApplication2 extends Application {
  
 }
