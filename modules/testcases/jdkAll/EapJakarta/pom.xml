@@ -16,14 +16,15 @@
     </parent>
 
     <groupId>org.jboss</groupId>
-    <artifactId>wildfly-jakarta-additional-testsuite</artifactId>
+    <artifactId>eap-jakarta-additional-testsuite</artifactId>
     <packaging>pom</packaging>
     <version>1.0.3.Final</version>
 
     <name>wildfly additional testsuite: additional testsuite for wildfly</name>
 
     <profiles>
-        <profile>
+	
+	<profile>
             <id>standalone</id>
             <activation>
                 <property>
@@ -35,7 +36,7 @@
             <dependencyManagement>
                 <dependencies>
                     <dependency>
-                        <groupId>org.wildfly</groupId>
+                        <groupId>org.jboss.eap</groupId>
                         <artifactId>wildfly-standard-ee-bom</artifactId>
                         <type>pom</type>
                         <version>${JBOSS_VERSION}</version>
@@ -59,7 +60,7 @@
                     <scope>compile</scope>
                 </dependency>
                 <dependency>
-                    <groupId>org.wildfly</groupId>
+                    <groupId>org.jboss.eap</groupId>
                     <artifactId>wildfly-testsuite-shared</artifactId>
                     <scope>compile</scope>
                 </dependency>
@@ -348,16 +349,16 @@
 		    <artifactId>syslog4j</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>org.wildfly</groupId>
+		    <groupId>org.jboss.eap</groupId>
 		    <artifactId>jipijapa-spi</artifactId>
 		</dependency>
 		<!-- This is not desired, however the UncheckedStatelessBean requires this -->
 		<dependency>
-		    <groupId>org.wildfly</groupId>
+		    <groupId>org.jboss.eap</groupId>
 		    <artifactId>wildfly-pojo</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>org.wildfly</groupId>
+		    <groupId>org.jboss.eap</groupId>
 		    <artifactId>wildfly-system-jmx</artifactId>
 		</dependency>
                 <dependency>
@@ -564,8 +565,8 @@
                     <artifactId>jakarta.batch-api</artifactId>
                 </dependency>
                 <dependency>
-                    <groupId>org.wildfly</groupId>
-                    <artifactId>wildfly-batch-jberet</artifactId>
+                    <groupId>org.jboss.eap</groupId>
+                    <artifactId>wildfly-batch-jberet-jakarta</artifactId>
                 </dependency>
                 <dependency>
                     <groupId>org.jberet</groupId>
@@ -607,8 +608,8 @@
                     <artifactId>jakarta.ejb-api</artifactId>
                 </dependency>
                 <dependency>
-                    <groupId>org.wildfly</groupId>
-                    <artifactId>wildfly-ejb3</artifactId>
+                    <groupId>org.jboss.eap</groupId>
+                    <artifactId>wildfly-ejb3-jakarta</artifactId>
                 </dependency>
                 <dependency>
 		    <groupId>jakarta.json.bind</groupId>
@@ -633,26 +634,26 @@
 		    <artifactId>cxf-rt-bindings-soap</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>org.wildfly</groupId>
+		    <groupId>org.jboss.eap</groupId>
 		    <artifactId>wildfly-clustering-common</artifactId>
 		    <scope>test</scope>
 		</dependency>
 		<dependency>
-		    <groupId>org.wildfly</groupId>
+		    <groupId>org.jboss.eap</groupId>
 		    <artifactId>wildfly-clustering-marshalling-api</artifactId>
 		    <scope>test</scope>
 		</dependency>
 		<dependency>
-		    <groupId>org.wildfly</groupId>
+		    <groupId>org.jboss.eap</groupId>
 		    <artifactId>wildfly-clustering-singleton-api</artifactId>
 		    <scope>test</scope>
 		</dependency>
 		<dependency>
-		    <groupId>org.wildfly</groupId>
+		    <groupId>org.jboss.eap</groupId>
 		    <artifactId>wildfly-clustering-server-api</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>org.wildfly</groupId>
+		    <groupId>org.jboss.eap</groupId>
 		    <artifactId>wildfly-clustering-service</artifactId>
 		</dependency>
 		<dependency>
@@ -660,646 +661,6 @@
 		    <artifactId>wildfly-discovery-client</artifactId>
 		</dependency>
             </dependencies>
-
-        </profile>
-	    
-	<profile>
-            <id>server-integration</id>
-            <activation>
-                <property>
-                    <name>server-integration</name>
-                    <value>true</value>
-                </property>
-            </activation>
-
-            <dependencyManagement>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.wildfly</groupId>
-                        <artifactId>wildfly-standard-ee-bom</artifactId>
-                        <type>pom</type>
-                        <version>${JBOSS_VERSION}</version>
-                        <scope>import</scope>
-                    </dependency>
-                </dependencies>
-            </dependencyManagement>
-
-            <dependencies>
-                <dependency>
-                    <groupId>org.wildfly.arquillian</groupId>
-                    <artifactId>wildfly-arquillian-container-managed</artifactId>
-                </dependency>
-                <dependency>
-		    <groupId>org.wildfly.arquillian</groupId>
-		    <artifactId>wildfly-arquillian-protocol-jmx</artifactId>
-		</dependency>
-                <dependency>
-                    <groupId>org.jboss.shrinkwrap</groupId>
-                    <artifactId>shrinkwrap-api</artifactId>
-                    <scope>compile</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.wildfly</groupId>
-                    <artifactId>wildfly-testsuite-shared</artifactId>
-                    <scope>compile</scope>
-                </dependency>
-                <dependency>
-		    <groupId>org.wildfly</groupId>
-		    <artifactId>wildfly-testsuite-shared-jakarta</artifactId>
-		    <version>27.0.0.Beta1</version>
-		</dependency>
-                <dependency>
-                    <groupId>org.wildfly.core</groupId>
-                    <artifactId>wildfly-core-testsuite-shared</artifactId>
-                    <scope>compile</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.jboss.arquillian.junit</groupId>
-                    <artifactId>arquillian-junit-container</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>org.apache.httpcomponents</groupId>
-                    <artifactId>httpclient</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>org.jboss.spec.javax.servlet</groupId>
-                    <artifactId>jboss-servlet-api_3.1_spec</artifactId>
-	            <version>1.0.2.Final</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.wildfly</groupId>
-                    <artifactId>wildfly-weld</artifactId>
-                    <version>27.0.0.Alpha3</version>
-                </dependency>
-                <dependency>
-		    <groupId>org.infinispan</groupId>
-		    <artifactId>infinispan-core</artifactId>
-		    <version>13.0.10.Final</version>
-		</dependency>
-                <dependency>
-                    <groupId>org.apache.activemq</groupId>
-                    <artifactId>artemis-server</artifactId>
-                   
-                </dependency>
-                <dependency>
-                    <groupId>org.apache.activemq</groupId>
-                    <artifactId>artemis-service-extensions</artifactId>
-                    <version>2.22.0</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.apache.activemq</groupId>
-                    <artifactId>artemis-commons</artifactId>
-                </dependency>
-                <dependency>
-                   <groupId>org.apache.activemq</groupId>
-                   <artifactId>artemis-journal</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>org.apache.activemq</groupId>
-                    <artifactId>artemis-jms-server</artifactId>
-                    <version>2.22.0</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.apache.activemq</groupId>
-                    <artifactId>artemis-cli</artifactId>
-                </dependency>
-                <dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-databind</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>com.fasterxml.jackson.datatype</groupId>
-		    <artifactId>jackson-datatype-jsr310</artifactId>
-		</dependency>
-                <dependency>
-		    <groupId>joda-time</groupId>
-		    <artifactId>joda-time</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.spec.javax.jms</groupId>
-		    <artifactId>jboss-jms-api_2.0_spec</artifactId>
-		    <version>2.0.0.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.spec.javax.xml.bind</groupId>
-		    <artifactId>jboss-jaxb-api_2.3_spec</artifactId>
-		    <version>2.0.1.Final</version>
-		</dependency>
-                <dependency>
-                    <groupId>org.jboss.osgi.metadata</groupId>
-                    <artifactId>jbosgi-metadata</artifactId>
-                    <version>2.2.0.Final</version>
-                </dependency>
-                <dependency>
-		    <groupId>javax.ws.rs</groupId>
-		    <artifactId>javax.ws.rs-api</artifactId>
-		    <version>2.0.1</version>
-		</dependency>
-                <dependency>
-		    <groupId>javax.json</groupId>
-		    <artifactId>javax.json-api</artifactId>
-		    <version>1.0</version>
-		</dependency>
-                <dependency>
-                    <groupId>junit</groupId>
-                    <artifactId>junit</artifactId>
-                    <scope>compile</scope>
-                </dependency>
-                <dependency>
-                    <groupId>jakarta.enterprise.concurrent</groupId>
-                    <artifactId>jakarta.enterprise.concurrent-api</artifactId>
-                </dependency>
-                <dependency>
-		    <groupId>org.jboss.ws.cxf</groupId>
-		    <artifactId>jbossws-cxf-client</artifactId>
-		    <version>5.5.0.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>javax.jws</groupId>
-		    <artifactId>jsr181-api</artifactId>
-		    <version>1.0-MR1</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.activemq</groupId>
-		    <artifactId>artemis-core-client</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.activemq</groupId>
-		    <artifactId>artemis-jms-client</artifactId>
-		    <version>2.22.0</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.lucene</groupId>
-		    <artifactId>lucene-core</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.cxf</groupId>
-		    <artifactId>cxf-rt-databinding-jaxb</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.cxf</groupId>
-		    <artifactId>cxf-rt-frontend-jaxws</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.cxf</groupId>
-		    <artifactId>cxf-rt-frontend-simple</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.cxf</groupId>
-		    <artifactId>cxf-rt-transports-http</artifactId>
-		    <version>3.5.2</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.ws.xmlschema</groupId>
-		    <artifactId>xmlschema-core</artifactId>
-		    <scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.codehaus.jackson</groupId>
-		    <artifactId>jackson-core-asl</artifactId>
-		    <version>1.9.13</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-core</artifactId>
-		    <version>6.0.2.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-envers</artifactId>
-		    <version>6.0.2.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-search-engine</artifactId>
-		    <version>5.11.10.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-search-orm</artifactId>
-		    <version>5.10.11.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.hibernate.validator</groupId>
-		    <artifactId>hibernate-validator</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss</groupId>
-		    <artifactId>jboss-ejb-client</artifactId>
-		    <version>4.0.44.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.classfilewriter</groupId>
-		    <artifactId>jboss-classfilewriter</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.ejb3</groupId>
-		    <artifactId>jboss-ejb3-ext-api</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.ironjacamar</groupId>
-		    <artifactId>ironjacamar-jdbc</artifactId>
-		    <version>1.5.7.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.resteasy</groupId>
-		    <artifactId>resteasy-jackson-provider</artifactId>
-		    <version>3.15.1.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.resteasy</groupId>
-		    <artifactId>resteasy-core-spi</artifactId>
-		</dependency>
-                <dependency>
-		    <groupId>org.jboss.resteasy</groupId>
-		    <artifactId>resteasy-client</artifactId>
-		</dependency>
-                <dependency>
-                    <groupId>org.jboss.resteasy</groupId>
-                    <artifactId>resteasy-client-api</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>org.jboss.resteasy</groupId>
-                    <artifactId>resteasy-core</artifactId>
-                    <scope>test</scope>
-                </dependency>
-		<dependency>
-		    <groupId>org.jboss.resteasy</groupId>
-		    <artifactId>resteasy-multipart-provider</artifactId>
-		</dependency>
-                <dependency>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-ext</artifactId>
-                </dependency>
-                <dependency>
-		    <groupId>org.jboss.spec.javax.annotation</groupId>
-		    <artifactId>jboss-annotations-api_1.3_spec</artifactId>
-		    <version>2.0.1.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.spec.javax.faces</groupId>
-		    <artifactId>jboss-jsf-api_2.3_spec</artifactId>
-		    <version>3.0.0.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.spec.javax.management.j2ee</groupId>
-		    <artifactId>jboss-j2eemgmt-api_1.1_spec</artifactId>
-		    <version>2.0.0.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.spec.javax.security.auth.message</groupId>
-		    <artifactId>jboss-jaspi-api_1.1_spec</artifactId>
-	            <version>2.0.1.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.spec.javax.websocket</groupId>
-		    <artifactId>jboss-websocket-api_1.1_spec</artifactId>
-		    <version>2.0.0.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.spec.javax.ws.rs</groupId>
-		    <artifactId>jboss-jaxrs-api_2.1_spec</artifactId>
-		    <version>2.0.2.Final</version>
-		</dependency>
-		<!-- Required for Java 11 -->
-		<dependency>
-		    <groupId>org.jboss.spec.javax.xml.ws</groupId>
-		    <artifactId>jboss-jaxws-api_2.3_spec</artifactId>
-		    <version>2.0.0.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.weld</groupId>
-		    <artifactId>weld-api</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.weld</groupId>
-		    <artifactId>weld-core-impl</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.weld</groupId>
-		    <artifactId>weld-spi</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.jsoup</groupId>
-		    <artifactId>jsoup</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.syslog4j</groupId>
-		    <artifactId>syslog4j</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly</groupId>
-		    <artifactId>jipijapa-spi</artifactId>
-		</dependency>
-		<!-- This is not desired, however the UncheckedStatelessBean requires this -->
-		<dependency>
-		    <groupId>org.wildfly</groupId>
-		    <artifactId>wildfly-pojo</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly</groupId>
-		    <artifactId>wildfly-system-jmx</artifactId>
-		</dependency>
-                <dependency>
-		    <groupId>org.wildfly.core</groupId>
-		    <artifactId>wildfly-logging</artifactId>
-		</dependency>
-                <dependency>
-		    <groupId>xalan</groupId>
-		    <artifactId>xalan</artifactId>
-		    <version>2.7.1.jbossorg-5</version>
-		</dependency>
-                <dependency>
-		    <groupId>org.apache.openjpa</groupId>
-		    <artifactId>openjpa</artifactId>
-		    <version>3.0.0</version>
-		</dependency>
-                <dependency>
-		    <groupId>org.apache.axis2</groupId>
-		    <artifactId>axis2-jaxws</artifactId>
-		    <version>1.8.2</version>
-		</dependency>
-                <dependency>
-		    <groupId>org.jboss</groupId>
-		    <artifactId>jboss-common-core</artifactId>
-		    <version>2.5.0.Final</version>
-		</dependency>
-                <dependency>
-		    <groupId>org.apache.axis2</groupId>
-		    <artifactId>axis2-transport-jms</artifactId>
-		    <version>1.8.2</version>
-		</dependency>
-                <dependency>
-                    <groupId>org.jboss.remotingjmx</groupId>
-                    <artifactId>remoting-jmx</artifactId>
-                    <exclusions>
-                        <exclusion>
-                            <groupId>org.jboss.logging</groupId>
-                            <artifactId>jboss-logging-processor</artifactId>
-                        </exclusion>
-                        <exclusion>
-                            <groupId>org.jboss.logmanager</groupId>
-                            <artifactId>jboss-logmanager</artifactId>
-                        </exclusion>
-                    </exclusions>
-                </dependency>
-                <dependency>
-		    <groupId>log4j</groupId>
-		    <artifactId>apache-log4j-extras</artifactId>
-		    <version>1.2.17</version>
-		</dependency>
-                <dependency>
-		    <groupId>io.undertow</groupId>
-		    <artifactId>undertow-core</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>io.undertow</groupId>
-		    <artifactId>undertow-websockets-jsr</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>io.netty</groupId>
-		    <artifactId>netty-all</artifactId>
-		    <version>4.1.73.Final</version>
-		</dependency>
-		<dependency>
-		    <groupId>commons-configuration</groupId>
-		    <artifactId>commons-configuration</artifactId>
-		    <version>1.10</version>
-		</dependency>
-                <dependency>
-		    <groupId>org.easytesting</groupId>
-		    <artifactId>fest-assert</artifactId>
-		    <version>1.4</version>
-		    <scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.httpcomponents</groupId>
-		    <artifactId>fluent-hc</artifactId>
-		    <version>4.5.4</version>
-		    <scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>commons-dbcp</groupId>
-		    <artifactId>commons-dbcp</artifactId>
-		    <version>1.4</version>
-		</dependency>
-                <dependency>
-                    <groupId>org.mock-server</groupId>
-                    <artifactId>mockserver-netty</artifactId>
-                    <exclusions>
-                        <exclusion>
-                            <groupId>io.netty</groupId>
-                            <artifactId>netty-codec-http</artifactId>
-                        </exclusion>
-                    </exclusions>
-                </dependency>
-		<dependency>
-		    <groupId>org.slf4j</groupId>
-		    <artifactId>slf4j-ext</artifactId>
-		    <version>1.7.25</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.mock-server</groupId>
-		    <artifactId>mockserver-netty</artifactId>
-		    <version>5.8.1</version>
-		</dependency>
-                <dependency>
-		    <groupId>org.jboss.logging</groupId>
-		    <artifactId>jboss-logging-annotations</artifactId>
-		    <scope>provided</scope>
-		    <optional>true</optional>
-		</dependency>
-		<dependency>
-		    <groupId>org.codehaus.plexus</groupId>
-		    <artifactId>plexus-utils</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly.core</groupId>
-		    <artifactId>wildfly-elytron-integration</artifactId>
-		    <exclusions>
-                        <exclusion>
-                            <groupId>org.wildfly.security</groupId>
-                            <artifactId>wildfly-elytron-jacc</artifactId>
-                        </exclusion>
-                        <exclusion>
-                            <groupId>org.wildfly.security</groupId>
-                            <artifactId>wildfly-elytron-jaspi</artifactId>
-                        </exclusion>
-                    </exclusions>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly.core</groupId>
-		    <artifactId>wildfly-cli</artifactId>
-		</dependency>
-                <dependency>
-		    <groupId>org.eclipse</groupId>
-		    <artifactId>yasson</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>javax.json.bind</groupId>
-		    <artifactId>javax.json.bind-api</artifactId>
-		    <version>1.0</version>
-		</dependency>
-		<dependency>
-		    <groupId>net.sourceforge.htmlunit</groupId>
-		    <artifactId>htmlunit</artifactId>
-		    <version>2.60.0</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.seleniumhq.selenium</groupId>
-		    <artifactId>selenium-api</artifactId>
-		    <version>4.4.0</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.seleniumhq.selenium</groupId>
-		    <artifactId>selenium-support</artifactId>
-		    <version>4.4.0</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.seleniumhq.selenium</groupId>
-		    <artifactId>selenium-firefox-driver</artifactId>
-		    <version>4.4.0</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.resteasy</groupId>
-		    <artifactId>resteasy-jaxb-provider</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.jboss.resteasy</groupId>
-		    <artifactId>resteasy-jackson2-provider</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>com.h2database</groupId>
-		    <artifactId>h2</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.dom4j</groupId>
-		    <artifactId>dom4j</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>jakarta.annotation</groupId>
-		    <artifactId>jakarta.annotation-api</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>jakarta.xml.ws</groupId>
-		    <artifactId>jakarta.xml.ws-api</artifactId>
-		    <version>4.0.0</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.axis2</groupId>
-		    <artifactId>axis2-adb</artifactId>
-		    <version>1.8.2</version>
-	        </dependency>
-                <dependency>
-		  <groupId>org.apache.axis2</groupId>
-		  <artifactId>axis2-transport-local</artifactId>
-		  <version>1.8.2</version>
-		</dependency>
-		<dependency>
-		  <groupId>jakarta.xml.bind</groupId>
-		  <artifactId>jakarta.xml.bind-api</artifactId>
-		</dependency>
-		    <dependency>
-                    <groupId>jakarta.batch</groupId>
-                    <artifactId>jakarta.batch-api</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>org.wildfly</groupId>
-                    <artifactId>wildfly-batch-jberet</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>org.jberet</groupId>
-                    <artifactId>jberet-core</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>jakarta.servlet</groupId>
-                    <artifactId>jakarta.servlet-api</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>jakarta.servlet.jsp</groupId>
-                    <artifactId>jakarta.servlet.jsp-api</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>jakarta.servlet.jsp.jstl</groupId>
-                    <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
-                </dependency>
-                <dependency>
-		    <groupId>javax.enterprise</groupId>
-		    <artifactId>cdi-api</artifactId>
-		    <version>2.0</version>
-		    <scope>provided</scope>
-		</dependency>
-		<dependency>
-                    <groupId>jakarta.enterprise</groupId>
-                    <artifactId>jakarta.enterprise.cdi-api</artifactId>
-                </dependency>
-                <dependency>
-		    <groupId>jakarta.persistence</groupId>
-		    <artifactId>jakarta.persistence-api</artifactId>
-		    <version>3.1.0</version>
-		</dependency>
-		<dependency>
-                    <groupId>org.jboss</groupId>
-                    <artifactId>jboss-ejb-client</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>jakarta.ejb</groupId>
-                    <artifactId>jakarta.ejb-api</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>org.wildfly</groupId>
-                    <artifactId>wildfly-ejb3</artifactId>
-                </dependency>
-                <dependency>
-		    <groupId>jakarta.json.bind</groupId>
-		    <artifactId>jakarta.json.bind-api</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.cxf</groupId>
-		    <artifactId>cxf-api</artifactId>
-		    <version>2.7.18</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.cxf</groupId>
-		    <artifactId>cxf-rt-core</artifactId>
-		    <version>2.7.18</version>
-		</dependency>
-                <dependency>
-		    <groupId>org.apache.cxf</groupId>
-		    <artifactId>cxf-rt-wsdl</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.cxf</groupId>
-		    <artifactId>cxf-rt-bindings-soap</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly</groupId>
-		    <artifactId>wildfly-clustering-common</artifactId>
-		    <scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly</groupId>
-		    <artifactId>wildfly-clustering-marshalling-api</artifactId>
-		    <scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly</groupId>
-		    <artifactId>wildfly-clustering-singleton-api</artifactId>
-		    <scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly</groupId>
-		    <artifactId>wildfly-clustering-server-api</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly</groupId>
-		    <artifactId>wildfly-clustering-service</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.wildfly.discovery</groupId>
-		    <artifactId>wildfly-discovery-client</artifactId>
-		</dependency>
-</dependencies>
 
         </profile>
 

@@ -34,7 +34,7 @@ import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/domain/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/domain/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/domain/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/domain/src/main/java","modules/testcases/jdkAll/EapJakarta/domain/src/main/java"})
 @WebListener
 public class TaskSchedulerServletContextListener implements ServletContextListener {
 

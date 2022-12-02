@@ -53,7 +53,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/core/src/main/java","modules/testcases/jdkAll/Wildfly/core/src/main/java#16.0.0","modules/testcases/jdkAll/WildflyJakarta/core/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/core/src/main/java","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/core/src/main/java","modules/testcases/jdkAll/Eap72x/core/src/main/java#7.2.0.CD14","modules/testcases/jdkAll/Eap72x-Proposed/core/src/main/java#7.2.0.CD14","modules/testcases/jdkAll/Eap71x-Proposed/core/src/main/java#7.1.4","modules/testcases/jdkAll/Eap71x/core/src/main/java#7.1.4","modules/testcases/jdkAll/Eap7Plus/core/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/core/src/main/java","modules/testcases/jdkAll/Wildfly/core/src/main/java#16.0.0","modules/testcases/jdkAll/WildflyJakarta/core/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/core/src/main/java","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/core/src/main/java","modules/testcases/jdkAll/Eap72x/core/src/main/java#7.2.0.CD14","modules/testcases/jdkAll/Eap72x-Proposed/core/src/main/java#7.2.0.CD14","modules/testcases/jdkAll/Eap71x-Proposed/core/src/main/java#7.1.4","modules/testcases/jdkAll/Eap71x/core/src/main/java#7.1.4","modules/testcases/jdkAll/Eap7Plus/core/src/main/java","modules/testcases/jdkAll/EapJakarta/core/src/main/java"})
 public class DatasourcesActiveCountTestCase extends AbstractCliTestBase {
 
    private static final String OP_PATTERN = "/subsystem=datasources/data-source=ExampleDS:write-attribute(name=%s,value=%s)";

@@ -156,6 +156,23 @@
                         <password>${DB_PASSWORD}</password>
                     </security>
                 </datasource>
+                <xa-datasource jndi-name="java:jboss/datasources/TestXADS" pool-name="TestXADS" statistics-enabled="true">
+                    <xa-datasource-property name="URL">
+                        jdbc:h2:mem:test
+                    </xa-datasource-property>
+                    <driver>h2</driver>
+                    <xa-pool>
+                        <min-pool-size>4</min-pool-size>
+                        <initial-pool-size>3</initial-pool-size>
+                        <max-pool-size>5</max-pool-size>
+                        <prefill>true</prefill>
+                        <allow-multiple-users>true</allow-multiple-users>
+                    </xa-pool>
+                    <security>
+                        <user-name>sa</user-name>
+                        <password>sa</password>
+                    </security>
+                </xa-datasource>
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>

@@ -37,7 +37,7 @@ import java.net.URL;
 
 @RunAsClient
 @RunWith(Arquillian.class)
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#28.0.0.Final","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.9"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#28.0.0.Final","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.9","modules/testcases/jdkAll/EapJakarta/web/src/main/java#9.0.0"})
 public class WebMetaDirTestCase {
 
     private static final String SERVLET_DEPLOYMENT = "webmetadir";

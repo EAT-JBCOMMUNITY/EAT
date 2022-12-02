@@ -29,7 +29,7 @@ import jakarta.xml.ws.Service;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/web/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/web/src/main/java","modules/testcases/jdkAll/EapJakarta/web/src/main/java"})
 public class GreeterServiceClient extends Service {
 
     private final static URL WSDL_LOCATION = GreeterServiceClient.class.getResource("/META-INF/GreeterService.wsdl");

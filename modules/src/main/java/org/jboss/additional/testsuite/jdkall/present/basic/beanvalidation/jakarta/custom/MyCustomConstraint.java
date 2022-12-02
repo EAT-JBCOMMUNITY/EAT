@@ -11,7 +11,7 @@ import jakarta.validation.ConstraintValidatorContext;
 import jakarta.validation.Payload;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/basic/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/basic/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/basic/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/EapJakarta/basic/src/main/java","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/basic/src/main/java"})
 @Target({ ElementType.TYPE_USE })
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = MyCustomConstraint.Validator.class)

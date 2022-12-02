@@ -36,7 +36,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  */
 @Stateful
 @Asynchronous
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/ejb/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/ejb/src/main/java","modules/testcases/jdkAll/EapJakarta/ejb/src/main/java"})
 public class AsyncStateful {
 
     public static volatile boolean voidMethodCalled = false;

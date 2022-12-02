@@ -32,7 +32,7 @@ import static org.junit.Assert.fail;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.9","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Beta1"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.9","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Beta1","modules/testcases/jdkAll/EapJakarta/web/src/main/java"})
 public class JsfFormOOBIndexTestCase {
 
     private final String serverLogPath = "target/surefire-reports/org.jboss.additional.testsuite.jdkall.present.web.jsf.JsfFormOOBIndexTestCase-output.txt";
