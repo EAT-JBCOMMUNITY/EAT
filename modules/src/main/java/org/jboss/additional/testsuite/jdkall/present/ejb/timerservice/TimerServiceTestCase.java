@@ -19,7 +19,7 @@ import static org.junit.Assert.fail;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0", "modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.6"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0", "modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.6","modules/testcases/jdkAll/EapJakarta/ejb/src/main/java"})
 public class TimerServiceTestCase {
 
     private final String serverLogPath = "target/surefire-reports/org.jboss.additional.testsuite.jdkall.present.ejb.timerservice.TimerServiceTestCase-output.txt";

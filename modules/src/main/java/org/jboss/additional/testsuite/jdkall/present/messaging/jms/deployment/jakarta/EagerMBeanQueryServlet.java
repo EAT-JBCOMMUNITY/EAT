@@ -39,7 +39,7 @@ import java.lang.management.ManagementFactory;
  *
  * @author Peter Mackay
  */
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/messaging/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/messaging/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/messaging/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/messaging/src/main/java","modules/testcases/jdkAll/EapJakarta/messaging/src/main/java"})
 @WebServlet(name = "EagerMBeanQueryServlet", urlPatterns = { "/EagerMBeanQueryServlet" }, loadOnStartup = 1)
 public class EagerMBeanQueryServlet extends HttpServlet {
 

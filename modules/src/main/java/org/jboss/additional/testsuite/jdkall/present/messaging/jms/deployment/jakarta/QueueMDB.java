@@ -42,7 +42,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
                 @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = QUEUE_LOOKUP)
         }
 )
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/messaging/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/messaging/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/messaging/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/messaging/src/main/java","modules/testcases/jdkAll/EapJakarta/messaging/src/main/java"})
 public class QueueMDB implements MessageListener {
 
     @Inject

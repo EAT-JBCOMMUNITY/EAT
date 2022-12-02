@@ -17,7 +17,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 @SuppressWarnings("serial")
 @WebServlet("/secure")
 @ServletSecurity(@HttpConstraint(rolesAllowed = { "Admin" }))
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/security/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/security/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/security/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/security/src/main/java","modules/testcases/jdkAll/EapJakarta/security/src/main/java"})
 public class SecuredServlet extends HttpServlet {
 
  

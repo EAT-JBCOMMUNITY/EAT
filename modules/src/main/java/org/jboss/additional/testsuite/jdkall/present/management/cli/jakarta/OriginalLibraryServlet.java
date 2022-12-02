@@ -12,7 +12,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  * @author Stuart Douglas
  */
 @WebServlet(urlPatterns = "/LibraryServlet")
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/management/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/management/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/management/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/management/src/main/java","modules/testcases/jdkAll/EapJakarta/management/src/main/java"})
 public class OriginalLibraryServlet extends HttpServlet {
 
     @Override
