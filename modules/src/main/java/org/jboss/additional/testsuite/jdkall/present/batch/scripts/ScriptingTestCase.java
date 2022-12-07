@@ -26,7 +26,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/batch/src/main/java#7.4.8"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/batch/src/main/java#7.4.8","modules/testcases/jdkAll/WildflyJakarta/batch/src/main/java#28.0.0"})
 public class ScriptingTestCase {
 
     public static final String ARCHIVE_NAME = "scripts-test";
