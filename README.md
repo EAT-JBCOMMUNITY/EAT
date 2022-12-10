@@ -344,6 +344,11 @@ HOW TO TEST APPLICATIONS ON VARIOUS KUBERNETES/OPENSHIFT CLUSTERS
 - clean distributed resources for the cluster in case another cluster is to be tested : mvn clean install -Dopenkube -Dclean-all
 
 
+EAT-PROPOSALS
+-------------
+The android EAT app : https://play.google.com/store/apps/details?id=edu.eatproposals.eatapp
+
+
 EAT WORKSHOP
 ---------------------------------
 [EAT Workshop](https://www.dropbox.com/s/bebhyd1iz7cg1i2/EAT_WORKSHOP.odt?dl=0)
