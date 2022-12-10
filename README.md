@@ -347,6 +347,7 @@ HOW TO TEST APPLICATIONS ON VARIOUS KUBERNETES/OPENSHIFT CLUSTERS
 EAT-PROPOSALS
 -------------
 The android EAT app : https://play.google.com/store/apps/details?id=edu.eatproposals.eatapp
+
 Many thanks to Stefanos Vlachos (GSoC 2022)
 
 
