@@ -1,0 +1,3 @@
+# @EAT({"modules/testcases/jdkAll/Wildfly-20.0.0.Final/ejb/test2-configurations/src/test/resources","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/ejb/test-configurations2/src/test/resources","modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/ejb/test2-configurations#13.0.0","modules/testcases/jdkAll/Wildfly/ejb/test2-configurations#13.0.0","modules/testcases/jdkAll/WildflyJakarta/ejb/test2-configurations","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/ejb/test2-configurations","modules/testcases/jdkAll/ServerBeta/ejb/test2-configurations#13.0.0"}) 
+
+./../../../../../servers/wildfly/build/target/jbossas/bin/standalone.sh>output.txt
