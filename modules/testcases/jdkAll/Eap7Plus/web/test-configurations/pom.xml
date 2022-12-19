@@ -39,6 +39,10 @@
                     <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
                     <failIfNoTests>false</failIfNoTests>
 
+                    <systemPropertyVariables>
+                        <jboss.dist>${jboss.modules.dir}/eap7/wildfly/build/target/jbossas</jboss.dist>
+                    </systemPropertyVariables>
+                    
                     <!-- Arquillian's config files. -->
                     <additionalClasspathElements combine.children="append">
                         <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEap7</additionalClasspathElement>
