@@ -40,7 +40,7 @@
                     <failIfNoTests>false</failIfNoTests>
 
                     <systemPropertyVariables>
-                        <jboss.dist>jboss.dist>${jboss.modules.dir}/servers/wildfly/build/target/jbossas</jboss.dist>
+                        <jboss.dist>${jboss.modules.dir}/servers/wildfly/build/target/jbossas</jboss.dist>
                         <jboss.server.config.file.name>standalone-full.xml</jboss.server.config.file.name>
                     </systemPropertyVariables>
 
