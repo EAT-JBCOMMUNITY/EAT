@@ -60,7 +60,32 @@
                 <property name="waitForPortsTimeoutInSeconds">8</property>
             </configuration>
         </container>
-
+        <container qualifier="container-2">
+            <configuration>
+                <property name="jbossHome">${basedir}/../../../../../servers/wildfly/build/target/wildfly-SYNC-tcp-0</property>
+                <!-- AS7-2493 different jboss.node.name must be specified -->
+                <property name="javaVmArguments">-Djboss.inst=${basedir}/../../../../../servers/wildfly/build/target/wildfly-SYNC-tcp-0 -Djboss.node.name=node-1</property>
+                <property name="serverConfig">${jboss.server.config.file.name:standalone-full-ha.xml}</property>
+                <property name="managementAddress">${node0:127.0.0.1}</property>
+                <property name="managementPort">${as.managementPort:9990}</property>
+                <property name="allowConnectingToRunningServer">true</property>
+                <!-- AS7-4070 Arquillian should wait until a port is free after AS JVM process ends to prevent "port in use" -->
+                <property name="waitForPorts">${as.debug.port:8787} ${as.managementPort:9990}</property>
+                <property name="waitForPortsTimeoutInSeconds">8</property>
+            </configuration>
+        </container>
+        <container qualifier="container-3">
+            <configuration>
+                <property name="jbossHome">${basedir}/../../../../../servers/wildfly/build/target/wildfly-SYNC-tcp-1</property>
+                <property name="javaVmArguments">-Djboss.inst=${basedir}/../../../../../servers/wildfly/build/target/wildfly-SYNC-tcp-1 -Djboss.node.name=node-2 -Djboss.socket.binding.port-offset=100</property>
+                <property name="serverConfig">${jboss.server.config.file.name:standalone-full-ha.xml}</property>
+                <property name="managementAddress">${node1:127.0.0.1}</property>
+                <property name="managementPort">10090</property>
+                <property name="allowConnectingToRunningServer">true</property>
+                <property name="waitForPorts">${as.debug.port.node1} 10090</property>
+                <property name="waitForPortsTimeoutInSeconds">8</property>
+            </configuration>
+        </container>
 
     </group>
 </arquillian>
