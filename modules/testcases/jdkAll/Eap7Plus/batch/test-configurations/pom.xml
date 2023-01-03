@@ -114,6 +114,7 @@
 	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-dir.xml">
                                     <property name="todir" value="${jboss.modules.dir}/servers/eap7/build/target/jbossas/modules/system/layers/base/org" />
                                     <property name="folderToCopy" value="${jboss.modules.dir}/src/resources/modules/org" />
+			            <target name="copy-dir"/>
                                 </ant>
 	                    </target>
 	                </configuration>
