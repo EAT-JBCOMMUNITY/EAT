@@ -250,7 +250,7 @@ Supposing that we would like to add Mtom TestCase for Wildfly (master) and Eap 7
 
 5. Build the Eap Additional Testsuite for Wildfy and Eap7 (having set the equivalent JBOSS_FOLDER and JBOSS_VERSION environment variables) :
     - mvn clean install -Dwildfly -Dstandalone (for Wildfly) or mvn clean install -Dwildfly-jakarta -Dstandalone (for Jakarta Wildfly) 
-    - mvn clean install -Deap7+ -Dstandalone (for Eap7+)
+    - mvn clean install -Deap7+ -Dstandalone (for Eap7+) or mvn clean install -Deap-jakarta -Dstandalone (for Jakarta Eap) 
     
  
 OTHER FEATURES
