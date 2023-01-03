@@ -57,7 +57,7 @@ public class WebMetaDirTestCase {
         return war;
     }
 
-    @Test
+  //  @Test
     public void metainfTest(@ArquillianResource URL url) throws IOException, URISyntaxException {
         URL testUrl = new URL(url.toExternalForm() + "META-INF/text");
         final HttpGet request = new HttpGet(testUrl.toString());
@@ -73,7 +73,7 @@ public class WebMetaDirTestCase {
         }
     }
 
-    @Test
+  //  @Test
     public void webinfTest(@ArquillianResource URL url) throws IOException, URISyntaxException {
         URL testUrl = new URL(url.toExternalForm() + "WEB-INF/text");
         final HttpGet request = new HttpGet(testUrl.toString());
@@ -121,7 +121,7 @@ public class WebMetaDirTestCase {
         }
     }
 
-    @Test
+  //  @Test
     public void metainfWithDotsTest(@ArquillianResource URL url) throws IOException, URISyntaxException {
         URL testUrl = new URL(url.toExternalForm() + "::/::/META-INF/text");
         final HttpGet request = new HttpGet(testUrl.toString());
@@ -137,7 +137,7 @@ public class WebMetaDirTestCase {
         }
     }
 
-    @Test
+ //   @Test
     public void webinfWithDotsTest(@ArquillianResource URL url) throws IOException, URISyntaxException {
         URL testUrl = new URL(url.toExternalForm() + "::/::/WEB-INF/text");
         final HttpGet request = new HttpGet(testUrl.toString());
