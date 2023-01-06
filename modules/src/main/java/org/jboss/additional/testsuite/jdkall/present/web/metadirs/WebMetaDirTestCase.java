@@ -28,6 +28,7 @@ import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
+import org.jboss.eap.additional.testsuite.annotations.ATTest;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,7 +38,7 @@ import java.net.URL;
 
 @RunAsClient
 @RunWith(Arquillian.class)
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#28.0.0.Final","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.9","modules/testcases/jdkAll/EapJakarta/web/src/main/java#9.0.0"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#28.0.0","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.9","modules/testcases/jdkAll/EapJakarta/web/src/main/java#9.0.0"})
 public class WebMetaDirTestCase {
 
     private static final String SERVLET_DEPLOYMENT = "webmetadir";
@@ -57,7 +58,7 @@ public class WebMetaDirTestCase {
         return war;
     }
 
-  //  @Test
+    @Test
     public void metainfTest(@ArquillianResource URL url) throws IOException, URISyntaxException {
         URL testUrl = new URL(url.toExternalForm() + "META-INF/text");
         final HttpGet request = new HttpGet(testUrl.toString());
@@ -66,14 +67,14 @@ public class WebMetaDirTestCase {
 
         try {
             response = httpClient.execute(request);
-            Assert.assertEquals("Failed to access " + testUrl, HttpURLConnection.HTTP_OK, response.getStatusLine().getStatusCode());
+            Assert.assertEquals("Failed to access " + testUrl, HttpURLConnection.HTTP_NOT_FOUND, response.getStatusLine().getStatusCode());
         } finally {
             IOUtils.closeQuietly(response);
             httpClient.close();
         }
     }
 
-  //  @Test
+    @Test
     public void webinfTest(@ArquillianResource URL url) throws IOException, URISyntaxException {
         URL testUrl = new URL(url.toExternalForm() + "WEB-INF/text");
         final HttpGet request = new HttpGet(testUrl.toString());
@@ -82,7 +83,7 @@ public class WebMetaDirTestCase {
 
         try {
             response = httpClient.execute(request);
-            Assert.assertEquals("Failed to access " + testUrl, HttpURLConnection.HTTP_OK, response.getStatusLine().getStatusCode());
+            Assert.assertEquals("Failed to access " + testUrl, HttpURLConnection.HTTP_NOT_FOUND, response.getStatusLine().getStatusCode());
         } finally {
             IOUtils.closeQuietly(response);
             httpClient.close();
@@ -121,7 +122,7 @@ public class WebMetaDirTestCase {
         }
     }
 
-  //  @Test
+    @ATTest({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#29.0.0","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.10","modules/testcases/jdkAll/EapJakarta/web/src/main/java#9.0.0"})
     public void metainfWithDotsTest(@ArquillianResource URL url) throws IOException, URISyntaxException {
         URL testUrl = new URL(url.toExternalForm() + "::/::/META-INF/text");
         final HttpGet request = new HttpGet(testUrl.toString());
@@ -137,7 +138,7 @@ public class WebMetaDirTestCase {
         }
     }
 
- //   @Test
+    @ATTest({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#29.0.0","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.10","modules/testcases/jdkAll/EapJakarta/web/src/main/java#9.0.0"})
     public void webinfWithDotsTest(@ArquillianResource URL url) throws IOException, URISyntaxException {
         URL testUrl = new URL(url.toExternalForm() + "::/::/WEB-INF/text");
         final HttpGet request = new HttpGet(testUrl.toString());
