@@ -24,6 +24,9 @@ import org.junit.runner.RunWith;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
+/**
+ *  Documentation added : https://play.google.com/store/apps/details?id=edu.eatproposals.eatapp ( JBEAP-23792.pdf )
+ **/
 @RunWith(Arquillian.class)
 @RunAsClient
 @EAT({"modules/testcases/jdkAll/Eap7Plus/batch/src/main/java#7.4.8","modules/testcases/jdkAll/WildflyJakarta/batch/src/main/java#28.0.0"})
