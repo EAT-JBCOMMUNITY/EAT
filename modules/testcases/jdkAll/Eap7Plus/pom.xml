@@ -529,7 +529,11 @@
 		    <groupId>org.wildfly.core</groupId>
 		    <artifactId>wildfly-controller</artifactId>
 		    <version>20.0.0.Beta2</version>
-		</dependency>	
+		</dependency>
+		<dependency>
+                    <groupId>org.picketlink</groupId>
+                    <artifactId>picketlink-impl</artifactId>
+                </dependency>	
             </dependencies>
         </profile>
 
@@ -995,6 +999,10 @@
 		    <artifactId>wildfly-controller</artifactId>
 		    <version>20.0.0.Beta2</version>
 		</dependency>
+		<dependency>
+                    <groupId>org.picketlink</groupId>
+                    <artifactId>picketlink-impl</artifactId>
+                </dependency>
 	    </dependencies>
         </profile>
 
