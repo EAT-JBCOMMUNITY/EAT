@@ -47,7 +47,7 @@
                     </additionalClasspathElements>
 
                     <systemPropertyVariables>
-                        <jboss.dist>${jboss.modules.dir}/servers/jbossas/build/target/jbossas</jboss.dist>
+                        <jboss.dist>${jboss.modules.dir}/servers/eap7/build/target/jbossas</jboss.dist>
                     </systemPropertyVariables>
                 </configuration>
 
