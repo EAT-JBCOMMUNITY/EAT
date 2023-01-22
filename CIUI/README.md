@@ -10,8 +10,8 @@ AT CI UI (Unix Based)
 Examples of the CIUI :
 
 
-![All Pull Requests...](./CImenu3.png?raw=true "Testing wildfly...")
+![All Pull Requests...](./CImenu1.png?raw=true "Testing wildfly...")
 
-![Testing wildfly...](./CImenu4.png?raw=true "Testing wildfly...")
+![Testing wildfly...](./CImenu2.png?raw=true "Testing wildfly...")
 
 
