@@ -49,7 +49,7 @@ public class InfoFilterTestCase {
 
     @Test
     public void testFilters() throws Exception {
-        String uri = url.getPath() + "myjaxrs/filter/getUriInfo";
+        String uri = url.getPath() + "myjrs/filter/getUriInfo";
         log.info("uri: " + uri);
 
         try (Socket client = new Socket("127.0.0.1", 8080)) {

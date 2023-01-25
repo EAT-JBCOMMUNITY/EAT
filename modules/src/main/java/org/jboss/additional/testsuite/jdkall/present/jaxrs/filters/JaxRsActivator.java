@@ -8,7 +8,7 @@ import javax.ws.rs.core.Application;
 /**
  * @author Ivo Studensky
  */
-@ApplicationPath("/myjaxrs")
+@ApplicationPath("/myjrs")
 @EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
 public class JaxRsActivator extends Application {
 }
