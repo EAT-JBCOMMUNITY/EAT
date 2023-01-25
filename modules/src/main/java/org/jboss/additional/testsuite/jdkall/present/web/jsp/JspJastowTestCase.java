@@ -23,6 +23,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
 import org.junit.Assert;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
+import org.jboss.eap.additional.testsuite.annotations.ATTest;
 
 @RunWith(Arquillian.class)
 @RunAsClient
@@ -82,7 +83,7 @@ public class JspJastowTestCase {
         return war;
     }
 
-    @Test
+    @ATTest({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.10"})
     public void jspJastowTest(@ArquillianResource URL url) throws InterruptedException, TimeoutException {
         HttpClientBuilder httpClientBuilder = HttpClientBuilder.create()
                 .setMaxConnPerRoute(1)
