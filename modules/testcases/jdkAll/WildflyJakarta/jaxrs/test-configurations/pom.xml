@@ -44,6 +44,9 @@
                         <additionalClasspathElement>${jboss.modules.dir}/src/config/arqWildflyJakarta</additionalClasspathElement>
                     </additionalClasspathElements>
 
+                    <systemPropertyVariables>
+                        <jboss.dist>${jboss.modules.dir}/servers/wildfly/build/target/jbossas</jboss.dist>
+                    </systemPropertyVariables>
                 </configuration>
 
 		<executions>

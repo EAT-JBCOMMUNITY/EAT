@@ -46,6 +46,9 @@
                         <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEap7</additionalClasspathElement>
                     </additionalClasspathElements>
 
+                    <systemPropertyVariables>
+                        <jboss.dist>${jboss.modules.dir}/servers/eap7/build/target/jbossas</jboss.dist>
+                    </systemPropertyVariables>
                 </configuration>
 
 		<executions>
