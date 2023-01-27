@@ -16,7 +16,7 @@ public class ResponseFilter implements  ContainerResponseFilter {
     public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext) throws IOException {
     	 System.out.println("ResponseFilter ... ");
     	if (requestContext.getMethod().equals("GET")) {    		 
-    		responseContext.getHeaders().add("Content-Length", "348");
+    		responseContext.getHeaders().add("Content-Length", "66");
     	}
     }
 	 
