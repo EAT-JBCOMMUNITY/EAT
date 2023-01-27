@@ -54,7 +54,7 @@ public class InfoFilterTestCase {
 
         try (Socket client = new Socket("127.0.0.1", 8080)) {
             try (PrintWriter out = new PrintWriter(client.getOutputStream(), true)) {
-                out.printf(Locale.US, "GET %s HTTP/1.1\nHost: \n\n", uri);
+                out.printf(Locale.US, "POST %s HTTP/1.1\nHost: \n\n", uri);
                 String response = new BufferedReader(new InputStreamReader(client.getInputStream())).lines().collect(Collectors.joining("\n"));
                 log.info("response: " + response);
                 Assert.assertNotNull(response);
@@ -70,7 +70,8 @@ public class InfoFilterTestCase {
         FileInputStream inputStream = new FileInputStream(serverLog.getAbsolutePath());
         try {
             String everything = IOUtils.toString(inputStream);
-            assertTrue("Reqest Filter was not invoked ...", everything.contains("Method : GET"));
+            assertTrue("Prematching Request Filter was not invoked ...", everything.contains("Prematching RequestFilter ..."));
+            assertTrue("Request Filter was not invoked ...", everything.contains("RequestFilter ..."));
             assertTrue("Response Filter was not invoked ...", everything.contains("ResponseFilter ..."));
         } finally {
             inputStream.close();
