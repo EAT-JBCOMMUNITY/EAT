@@ -13,6 +13,7 @@ import jakarta.ws.rs.ext.Provider;
 public class InfoFilter implements ContainerRequestFilter  {
 
     public void filter(ContainerRequestContext requestContext) throws IOException {
+        System.out.println("RequestFilter ... ");
         System.out.println("Method : " + requestContext.getMethod());
         System.out.println("Headers : " + requestContext.getHeaders().toString());  
     }	 
