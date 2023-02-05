@@ -76,7 +76,7 @@ or gradle test -Pandroid -PnoDistribution -Pclone (-Pmodule='android-project-nam
 or gradle test -PnoDistribution -Pandroidversion -Pandroid -Pcreate (-Pmodule='android-project-name') -c androidsettings.gradle
 
 
-The open source projects that were selected and finally integrated into EAT can be found in https://github.com/topics/android-project and are the following:
+The open source projects that were selected to integrate into EAT can be found in https://github.com/topics/android-project and are the following:
 - BloodBank
 - Elegant_Calculator
 - My_Companion
