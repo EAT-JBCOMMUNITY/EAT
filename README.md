@@ -75,6 +75,19 @@ or gradle test -Pandroid -PnoDistribution -Pclone (-Pmodule='android-project-nam
 6.  mvn clean install -DnoDistribution -Dandroidversion -Dandroid -Dcreate (-Dmodule='android-project-name') 
 or gradle test -PnoDistribution -Pandroidversion -Pandroid -Pcreate (-Pmodule='android-project-name') -c androidsettings.gradle
 
+
+The open source projects that were selected and finally integrated into EAT can be found in https://github.com/topics/android-project and are the following:
+- BloodBank
+- Elegant_Calculator
+- My_Companion
+- TruthDare
+- ThemeSample
+- voxRec
+- ImageBox
+- MyCamera
+- JKSLinks
+
+
 **Building multi-versioned Android projects with Maven on Windows**
 
 Replace the following lines within the "clone" profile of the project pom.xml :
