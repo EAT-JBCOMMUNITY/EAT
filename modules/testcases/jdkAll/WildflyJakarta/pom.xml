@@ -666,12 +666,20 @@
 		    <groupId>jakarta.jms</groupId>
 		    <artifactId>jakarta.jms-api</artifactId>
 		    <version>3.1.0</version>
-    </dependency>
+                 </dependency>
 		<dependency>
 		    <groupId>jakarta.faces</groupId>
 		    <artifactId>jakarta.faces-api</artifactId>
 		</dependency>
-
+                <dependency>
+		  <groupId>jakarta.validation</groupId>
+		  <artifactId>jakarta.validation-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.picketbox</groupId>
+		    <artifactId>picketbox</artifactId>
+		    <version>5.1.0.Final</version>
+		</dependency>
             </dependencies>
 
         </profile>
@@ -1324,15 +1332,7 @@
 		    <groupId>jakarta.faces</groupId>
 		    <artifactId>jakarta.faces-api</artifactId>
 		</dependency>
-                <dependency>
-		  <groupId>jakarta.validation</groupId>
-		  <artifactId>jakarta.validation-api</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.picketbox</groupId>
-		    <artifactId>picketbox</artifactId>
-		    <version>5.1.0.Final</version>
-		</dependency>
+
 </dependencies>
 
         </profile>
