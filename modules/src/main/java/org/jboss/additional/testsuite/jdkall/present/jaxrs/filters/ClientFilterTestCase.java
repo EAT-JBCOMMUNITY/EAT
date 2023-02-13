@@ -47,6 +47,8 @@ public class ClientFilterTestCase {
     public void testFilters() throws Exception {
         Client client = ClientBuilder.newClient();
 	client.register(new ClientFilter());
+	client.register(new WriterInterceptorImplementation());
+	client.register(new ReaderInterceptorImplementation());
 	String response = client.target("http://127.0.0.1:8080/jaxrsclientfilter/myjrs/filter/getUriInfo").request().get(String.class);
 	Assert.assertTrue(response.contains("uriInfo: http://127.0.0.1:8080/jaxrsclientfilter/myjrs/filter/getU"));
 	
@@ -58,6 +60,7 @@ public class ClientFilterTestCase {
 
         assertTrue("Request Client Filter was not invoked ...", System.getProperty("ClientRequestFilter").compareTo("true")==0);
         assertTrue("Response Client Filter was not invoked ...", System.getProperty("ClientResponseFilter").compareTo("true")==0);
+        assertTrue("ReaderInterceptorImplementation was not invoked ...", System.getProperty("ReaderInterceptorImplementation").compareTo("true")==0);
     }
 
 }
