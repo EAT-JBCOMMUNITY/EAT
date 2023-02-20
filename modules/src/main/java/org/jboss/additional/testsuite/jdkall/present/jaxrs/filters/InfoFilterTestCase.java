@@ -73,6 +73,8 @@ public class InfoFilterTestCase {
             assertTrue("Prematching Request Filter was not invoked ...", everything.contains("Prematching RequestFilter ..."));
             assertTrue("Request Filter was not invoked ...", everything.contains("RequestFilter ..."));
             assertTrue("Response Filter was not invoked ...", everything.contains("ResponseFilter ..."));
+          //  assertTrue("ReaderInterceptorImplementation was not invoked ...", everything.contains("Called ReaderInterceptorImplementation"));
+            assertTrue("WriterInterceptorImplementation was not invoked ...", everything.contains("Called WriterInterceptorImplementation"));
         } finally {
             inputStream.close();
         }
