@@ -21,7 +21,7 @@ import java.net.URL;
 import org.junit.Assert;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#29.0.0","modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.10","modules/testcases/jdkAll/EapJakarta/ejb/src/main/java#9.0.0"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#29.0.0","modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.11","modules/testcases/jdkAll/EapJakarta/ejb/src/main/java#9.0.0"})
 @RunWith(Arquillian.class)
 @RunAsClient
 public class TransactionalTestCase {
