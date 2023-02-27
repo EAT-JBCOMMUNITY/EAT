@@ -71,7 +71,7 @@ public class NettyHeaderServletTestCase {
             headers.set("Transfer-Encoding ", "chunked");
             fail("Should not go here...");
         }catch(Exception e){
-            assertTrue("Header should be prohibited", e.getMessage().contains("a header name cannot contain the following prohibited characters"));
+            assertTrue("Header should be prohibited", (e.getMessage().contains("a header name cannot contain the following prohibited characters") || e.getMessage().contains("a header name can only contain")));
         }
 
     }
