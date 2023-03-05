@@ -61,7 +61,7 @@ public class MatrixParamsTestCase {
     @ArquillianResource
     private URL url;
 
-    @ATTest({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.11","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#29.0.0"})
+    @ATTest({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.10","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#29.0.0"})
     public void testMatrixParams() throws Exception {
         String uri = url.getPath() + "myjaxrs/host";
         log.info("uri: " + uri);
