@@ -21,6 +21,7 @@
  */
 package org.jboss.additional.testsuite.jdkall.present.jaxrs.jaxb;
 
+import jakarta.ws.rs.OPTIONS;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -31,6 +32,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 @EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#28.0.0"})
 public class JaxbOptionResource {
 
+    @OPTIONS
     public JaxbModel get() {
         return new JaxbModel("John","Citizen");
     }
