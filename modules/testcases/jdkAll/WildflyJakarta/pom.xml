@@ -680,6 +680,11 @@
 		    <artifactId>picketbox</artifactId>
 		    <version>5.1.0.Final</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.jboss</groupId>
+		    <artifactId>jboss-vfs</artifactId>
+		    <version>3.2.16.Final</version>
+		</dependency>
             </dependencies>
 
         </profile>
@@ -1341,7 +1346,11 @@
 		    <artifactId>picketbox</artifactId>
 		    <version>5.1.0.Final</version>
 		</dependency>
-
+                <dependency>
+		    <groupId>org.jboss</groupId>
+		    <artifactId>jboss-vfs</artifactId>
+		    <version>3.2.16.Final</version>
+		</dependency>
 </dependencies>
 
         </profile>
