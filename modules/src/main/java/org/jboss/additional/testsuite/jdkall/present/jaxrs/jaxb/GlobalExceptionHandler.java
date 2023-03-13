@@ -21,25 +21,46 @@
  */
 package org.jboss.additional.testsuite.jdkall.present.jaxrs.jaxb;
 
-import jakarta.ws.rs.OPTIONS;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.ext.ExceptionMapper;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.ext.Provider;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@Path("options")
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java"})
-public class JaxbOptionResource {
+@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
+@Provider
+public class GlobalExceptionHandler
+  extends Object
+  implements ExceptionMapper<Exception>
+{
+  public Response toResponse(Exception ex) {
+    int status = getHttpStatus(ex);
+    ErrorMessage message = new ErrorMessage();
+    message.setStatus(status);
+    message.setMessage(ex.getMessage());
+    return Response.status(status)
+      .entity(message)
+      .type("application/json")
+      .build();
+  }
+  
+  private int getHttpStatus(Exception ex) {
+    if (ex instanceof WebApplicationException)
+      return ((WebApplicationException)ex).getResponse().getStatus();     
+    return Response.Status.INTERNAL_SERVER_ERROR.getStatusCode();
+  }
+}
 
-    @GET
-    @Produces({"application/xml"})
-    public JaxbModel get() {
-        return new JaxbModel("John","Citizen");
+class ErrorMessage {
+    int status = 200;
+    String message = "";
+    
+    public void setStatus(int status) {
+        this.status = status;
     }
     
-    @OPTIONS
-    @Path("optionsAnnotation")
-    public JaxbModel getoption() {
-        return new JaxbModel("John","Citizen");
+    public void setMessage(String message) {
+        this.message = message;
     }
+ 
 }
