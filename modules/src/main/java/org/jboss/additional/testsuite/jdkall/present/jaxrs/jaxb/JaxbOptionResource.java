@@ -28,12 +28,18 @@ import javax.ws.rs.Produces;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @Path("options")
-@Produces({"application/xml"})
 @EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
 public class JaxbOptionResource {
 
-    @OPTIONS
+    @GET
+    @Produces({"application/xml"})
     public JaxbModel get() {
+        return new JaxbModel("John","Citizen");
+    }
+    
+    @OPTIONS
+    @Path("optionsAnnotation")
+    public JaxbModel getoption() {
         return new JaxbModel("John","Citizen");
     }
 }
