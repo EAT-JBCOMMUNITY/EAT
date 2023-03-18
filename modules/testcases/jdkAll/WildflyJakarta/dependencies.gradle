@@ -156,5 +156,6 @@ if (project.hasProperty('standalone')){
 	implementation 'jakarta.faces:jakarta.faces-api'
 	implementation 'jakarta.validation:jakarta.validation-api'
 	implementation 'org.picketbox:picketbox:5.1.0.Final'
+	implementation 'org.jboss:jboss-vfs:3.2.16.Final'
     }
 }
