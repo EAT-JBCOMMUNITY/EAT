@@ -143,6 +143,27 @@ commandLine "cmd", "/c", "gradlew", "build"
 2. jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore my_application.apk alias_name
 
 
+**How to deploy your android app to the emulator using cmd**
+
+To use the Android Emulator, you must create an Android Virtual Device (AVD) using Android Studio.
+
+Once you have an AVD, start the Android Emulator and install your app as follows:
+
+In a command line, navigate to android_sdk/tools/ and start the emulator by specifying your AVD:
+
+```
+emulator -avd avd_name
+```
+
+If you're unsure of the AVD name, execute emulator -list-avds.
+
+Now you can install your app using either one of the Gradle install tasks mentioned in the section about how to build a debug APK or the adb tool.
+If the APK is built using a developer preview SDK (if the targetSdkVersion is a letter instead of a number), you must include the -t option with the install command to install a test APK.
+
+```
+adb install path/to/your_app.apk
+```
+
 Using HTTPS
 -----------
 After changing from HTTP to HTTPS, the maven repositories for Eap may not host a valid public SSL certificate, which will lead to maven failed to build the project. There are 3 options to fix that if it happens:
