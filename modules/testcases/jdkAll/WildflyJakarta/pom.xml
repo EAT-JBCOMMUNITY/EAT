@@ -685,6 +685,11 @@
 		    <artifactId>jboss-vfs</artifactId>
 		    <version>3.2.16.Final</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-links</artifactId>
+		    <version>6.2.3.Final</version>
+		</dependency>
             </dependencies>
 
         </profile>
@@ -1350,6 +1355,11 @@
 		    <groupId>org.jboss</groupId>
 		    <artifactId>jboss-vfs</artifactId>
 		    <version>3.2.16.Final</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-links</artifactId>
+		    <version>6.2.3.Final</version>
 		</dependency>
 </dependencies>
 
