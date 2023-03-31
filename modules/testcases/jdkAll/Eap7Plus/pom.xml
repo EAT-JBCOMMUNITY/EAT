@@ -534,6 +534,11 @@
                     <groupId>org.picketlink</groupId>
                     <artifactId>picketlink-impl</artifactId>
                 </dependency>	
+                <dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-links</artifactId>
+		    <version>3.15.5.Final</version>
+		</dependency>
             </dependencies>
         </profile>
 
@@ -1003,6 +1008,11 @@
                     <groupId>org.picketlink</groupId>
                     <artifactId>picketlink-impl</artifactId>
                 </dependency>
+                <dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-links</artifactId>
+		    <version>3.15.5.Final</version>
+		</dependency>
 	    </dependencies>
         </profile>
 
