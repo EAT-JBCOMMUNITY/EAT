@@ -24,7 +24,7 @@ if (project.hasProperty('standalone')){
         	exclude group: 'org.wildfly.security', module: 'wildfly-elytron-jacc'
         	exclude group: 'org.wildfly.security', module: 'wildfly-elytron-jaspi'
     	}
-    	implementation 'org.jboss.arquillian.junit:arquillian-junit-container'
+    	implementation 'org.jboss.arquillian.junit:arquillian-junit-container:1.7.0.Alpha13'
     	implementation 'org.apache.httpcomponents:httpclient'
     	implementation 'org.jboss.spec.javax.servlet:jboss-servlet-api_3.1_spec:1.0.2.Final'
     	implementation 'org.wildfly:wildfly-weld:27.0.0.Alpha3'
