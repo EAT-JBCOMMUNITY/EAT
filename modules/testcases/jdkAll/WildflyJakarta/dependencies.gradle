@@ -157,5 +157,6 @@ if (project.hasProperty('standalone')){
 	implementation 'jakarta.validation:jakarta.validation-api'
 	implementation 'org.picketbox:picketbox:5.1.0.Final'
 	implementation 'org.jboss:jboss-vfs:3.2.16.Final'
+	implementation 'org.jboss.resteasy:resteasy-links:3.15.5.Final'
     }
 }
