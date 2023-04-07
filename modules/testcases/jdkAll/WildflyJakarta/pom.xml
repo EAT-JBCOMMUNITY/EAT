@@ -165,6 +165,7 @@
                     <groupId>junit</groupId>
                     <artifactId>junit</artifactId>
                     <scope>compile</scope>
+	            <version>4.13.2</version>
                 </dependency>
                 <dependency>
                     <groupId>jakarta.enterprise.concurrent</groupId>
@@ -837,6 +838,7 @@
                     <groupId>junit</groupId>
                     <artifactId>junit</artifactId>
                     <scope>compile</scope>
+		    <version>4.13.2</version>
                 </dependency>
                 <dependency>
                     <groupId>jakarta.enterprise.concurrent</groupId>
