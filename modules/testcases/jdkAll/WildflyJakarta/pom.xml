@@ -349,6 +349,7 @@
 		<dependency>
 		    <groupId>org.syslog4j</groupId>
 		    <artifactId>syslog4j</artifactId>
+		    <version>0.9.30</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly</groupId>
@@ -1022,6 +1023,7 @@
 		<dependency>
 		    <groupId>org.syslog4j</groupId>
 		    <artifactId>syslog4j</artifactId>
+		    <version>0.9.30</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.wildfly</groupId>
