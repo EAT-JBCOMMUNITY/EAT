@@ -385,6 +385,11 @@ The android EAT app : https://play.google.com/store/apps/details?id=edu.eatpropo
 Many thanks to Stefanos Vlachos (GSoC 2022)
 
 
+EAT app Docs
+------------
+- JBEAP-23792.pdf
+- RESTEASY DOCS (ClientSideFilters.pdf , ResteasyAtomLinks.pdf, ResteasyServerSideFilters.pdf, ResteasyInterceptors.pdf)
+
 EAT WORKSHOP
 ---------------------------------
 [EAT Workshop](https://www.dropbox.com/s/bebhyd1iz7cg1i2/EAT_WORKSHOP.odt?dl=0)
