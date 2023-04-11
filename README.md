@@ -389,6 +389,7 @@ EAT app Docs
 ------------
 - JBEAP-23792.pdf
 - RESTEASY DOCS (ClientSideFilters.pdf , ResteasyAtomLinks.pdf, ResteasyServerSideFilters.pdf, ResteasyInterceptors.pdf)
+- REST ARCHITECTURE (REST.pdf)
 
 EAT WORKSHOP
 ---------------------------------
