@@ -83,7 +83,7 @@ if (project.hasProperty('standalone')){
         implementation 'org.jboss.weld:weld-core-impl'
         implementation 'org.jboss.weld:weld-spi'
         implementation 'org.jsoup:jsoup:1.15.3'
-        implementation 'org.syslog4j:syslog4j'
+        implementation 'org.syslog4j:syslog4j:0.9.30'
         implementation 'org.wildfly:jipijapa-spi'
         implementation 'org.wildfly:wildfly-pojo'
         implementation 'org.wildfly:wildfly-system-jmx'
