@@ -44,7 +44,7 @@ if (project.hasProperty('standalone')){
         implementation 'org.jboss.osgi.metadata:jbosgi-metadata:2.2.0.Final'
         implementation 'javax.ws.rs:javax.ws.rs-api:2.0.1'
         implementation 'javax.json:javax.json-api:1.0'
-        implementation 'junit:junit'
+        implementation 'junit:junit:4.13.2'
         implementation 'jakarta.enterprise.concurrent:jakarta.enterprise.concurrent-api'
         implementation 'org.jboss.ws.cxf:jbossws-cxf-client:5.5.0.Final'
         implementation 'javax.jws:jsr181-api:1.0-MR1'
