@@ -1,4 +1,4 @@
-#@EAT({"modules/testcases/jdkAll/Wildfly/elytron/test-configurations#10.0.0*24.0.0","modules/testcases/jdkAll/Eap7Plus/elytron/test-configurations#7.0.0*7.4.10"}
+#@EAT({"modules/testcases/jdkAll/Wildfly/elytron/test-configurations#10.0.0*24.0.0","modules/testcases/jdkAll/Eap7Plus/elytron/test-configurations#7.0.0*7.4.15"}
 embed-server --admin-only=true --server-config=standalone-full.xml
 
 /subsystem=undertow/application-security-domain=other:add(http-authentication-factory=application-http-authentication)
