@@ -66,5 +66,27 @@ public class CacheTestCase {
         }
         
     }
+    
+    @Test
+    public void testNoCachelinks() throws Exception {
+        String uri = url.getPath() + "cachejrs/cacheservice/article/0";
+        System.out.println("uri: " + uri);
+
+        try (Socket client = new Socket("127.0.0.1", 8080)) {
+            try (PrintWriter out = new PrintWriter(client.getOutputStream(), true)) {
+                out.printf(Locale.US, "GET %s HTTP/1.1\nHost: \n\n", uri);
+                String response = new BufferedReader(new InputStreamReader(client.getInputStream())).lines().collect(Collectors.joining("\n"));
+                System.out.println("response: " + response);
+                Assert.assertNotNull(response);
+                Assert.assertTrue(response.contains("HTTP/1.1 200 OK"));
+                Assert.assertTrue(response.contains("Cache-Control: no-cache"));
+            }catch(Exception e) {
+                Assert.fail("Printwriter could not be created");
+            }
+        }catch(Exception ex) {
+            Assert.fail("Socket could not be created");
+        }
+        
+    }
 
 }
