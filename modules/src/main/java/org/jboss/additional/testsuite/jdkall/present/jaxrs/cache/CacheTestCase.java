@@ -46,7 +46,7 @@ public class CacheTestCase {
     private URL url;
 
     @Test
-    public void testCachelinks() throws Exception {
+    public void testCache() throws Exception {
         String uri = url.getPath() + "cachejrs/cacheservice/articles";
         System.out.println("uri: " + uri);
 
@@ -68,7 +68,7 @@ public class CacheTestCase {
     }
     
     @Test
-    public void testNoCachelinks() throws Exception {
+    public void testNoCache() throws Exception {
         String uri = url.getPath() + "cachejrs/cacheservice/article/0";
         System.out.println("uri: " + uri);
 
