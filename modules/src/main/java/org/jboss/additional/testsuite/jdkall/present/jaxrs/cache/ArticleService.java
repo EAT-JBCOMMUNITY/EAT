@@ -40,6 +40,7 @@ public class ArticleService {
 
     @GET
     @Path("/article/{id}")
+    @NoCache
     public Article getArticle(@PathParam("id") Integer id) {
     	return list.get(id);
     }
