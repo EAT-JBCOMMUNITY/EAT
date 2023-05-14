@@ -1342,6 +1342,19 @@
         </profile>
 
         <profile>
+            <id>manualMysqlDbs</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>manualMysqlDbs</value>
+                </property>
+            </activation>
+            <modules>
+                <module>manualMysqlDbs</module>
+            </modules>
+        </profile>
+
+        <profile>
 	    <id>all</id>
 	    <activation>
 	        <property>
