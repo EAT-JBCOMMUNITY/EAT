@@ -87,6 +87,11 @@
 	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
 	                            <target name="build-basic-check"/>
 	                        </ant>
+	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-dir.xml">
+                                    <property name="todir" value="${jboss.modules.dir}/servers/wildfly/build/target/jbossas/modules/system/layers/base/com" />
+                                    <property name="folderToCopy" value="${jboss.modules.dir}/src/resources/modules/com" />
+			            <target name="copy-dir"/>
+                                </ant>
 	                    </target>
 	                </configuration>
 	            </execution>

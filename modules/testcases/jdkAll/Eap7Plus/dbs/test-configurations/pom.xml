@@ -10,7 +10,7 @@
 
     <parent>
         <groupId>org.jboss</groupId>
-        <artifactId>eap7-additional-testsuite-basic</artifactId>
+        <artifactId>eap7-additional-testsuite-dbs</artifactId>
         <version>1.0.3.Final</version>
     </parent>
 
