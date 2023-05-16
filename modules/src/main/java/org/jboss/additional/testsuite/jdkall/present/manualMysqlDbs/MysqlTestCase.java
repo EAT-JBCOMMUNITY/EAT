@@ -53,7 +53,8 @@ import java.net.URL;
 @EAT({"modules/testcases/jdkAll/Eap7Plus/manualMysqlDbs/src/main/java#7.4.11","modules/testcases/jdkAll/WildflyJakarta/manualMysqlDbs/src/main/java#30.0.0"})
 public class MysqlTestCase {
 
-    private final String serverLogPath = "target/surefire-reports/org.jboss.additional.testsuite.jdkall.present.manualMysqlDbs.MysqlTestCase-output.txt";
+    private static final File serverLog = new File(System.getProperty("jboss.dist"), "standalone" + File.separator + "log"
+            + File.separator + "server.log");
     
     public static final String DEPLOYMENT = "mysqlServlet.war";
 
@@ -81,15 +82,10 @@ public class MysqlTestCase {
             response = httpClient.execute(request);
             Assert.assertEquals("Failed to access " + testURL, HttpURLConnection.HTTP_OK, response.getStatusLine().getStatusCode()); 
 
-            String path = new File("").getAbsolutePath() + "/" + serverLogPath;
-            File serverlogfile = new File(path);
-            if(!serverlogfile.exists()) {
-                Assert.fail();
-            }
-            FileInputStream inputStream = new FileInputStream(serverlogfile.getAbsolutePath());
+            FileInputStream inputStream = new FileInputStream(serverLog.getAbsolutePath());
             try {
                 String everything = IOUtils.toString(inputStream);
-                Assert.assertTrue("Timeout is not set ...", !everything.contains("###"));
+                Assert.assertTrue("Timeout is not set ...", everything.contains("###"));
             } finally {
                 inputStream.close();
             }
