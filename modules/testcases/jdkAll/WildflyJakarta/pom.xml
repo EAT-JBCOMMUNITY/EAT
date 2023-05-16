@@ -261,7 +261,7 @@
 		<dependency>
 		    <groupId>org.jboss.ironjacamar</groupId>
 		    <artifactId>ironjacamar-jdbc</artifactId>
-		    <version>1.5.7.Final</version>
+		    <version>3.0.2.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
@@ -940,7 +940,7 @@
 		<dependency>
 		    <groupId>org.jboss.ironjacamar</groupId>
 		    <artifactId>ironjacamar-jdbc</artifactId>
-		    <version>1.5.7.Final</version>
+		    <version>3.0.2.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
