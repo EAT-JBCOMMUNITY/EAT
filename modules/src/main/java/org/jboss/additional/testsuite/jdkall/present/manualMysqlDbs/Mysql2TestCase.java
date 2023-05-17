@@ -35,9 +35,6 @@ import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker;
-import org.jboss.jca.adapters.jdbc.CheckValidConnectionSQL;
-import org.jboss.jca.adapters.jdbc.spi.ValidConnectionChecker;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 import java.io.File;
 import java.io.FileInputStream;
@@ -50,29 +47,26 @@ import java.net.URL;
 
 @RunAsClient
 @RunWith(Arquillian.class)
-@EAT({"modules/testcases/jdkAll/Eap7Plus/manualMysqlDbs/src/main/java#7.4.11","modules/testcases/jdkAll/WildflyJakarta/manualMysqlDbs/src/main/java#30.0.0"})
-public class MysqlTestCase {
+@EAT({"modules/testcases/jdkAll/Eap7Plus/manualMysqlDbs/src/main/java#7.4.12","modules/testcases/jdkAll/WildflyJakarta/manualMysqlDbs/src/main/java#30.0.0"})
+public class Mysql2TestCase {
 
     private static final File serverLog = new File(System.getProperty("jboss.dist"), "standalone" + File.separator + "log"
             + File.separator + "server.log");
     
-    public static final String DEPLOYMENT = "mysqlServlet.war";
+    public static final String DEPLOYMENT = "mysqlServlet2.war";
 
     @Deployment(name = DEPLOYMENT)
     public static Archive<?> getDeployment() {
         WebArchive war = ShrinkWrap.create(WebArchive.class, DEPLOYMENT);
-        war.addClass(MySQLValidConnectionChecker.class);
-        war.addPackage(CheckValidConnectionSQL.class.getPackage());
-        war.addClass(ValidConnectionChecker.class);
-        war.addClass(MysqlServlet.class);
-        war.addClass(MysqlTestCase.class);
+        war.addClass(MysqlServlet2.class);
+        war.addClass(Mysql2TestCase.class);
         return war;
     }
 
     @Test
     @OperateOnDeployment(DEPLOYMENT)
-    public void mysqlTest(@ArquillianResource URL url) throws Exception {
-        URL testURL = new URL(url.toString() + "mysql");
+    public void mysqlCallOfSetTimeoutInMillisTest(@ArquillianResource URL url) throws Exception {
+        URL testURL = new URL(url.toString() + "mysql2");
 
         final HttpGet request = new HttpGet(testURL.toString());
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
@@ -85,7 +79,7 @@ public class MysqlTestCase {
             FileInputStream inputStream = new FileInputStream(serverLog.getAbsolutePath());
             try {
                 String everything = IOUtils.toString(inputStream);
-                Assert.assertTrue("Timeout is not set ...", everything.contains("### 1000"));
+                Assert.assertTrue("Timeout is not set ...", everything.contains("### 5000"));
             } finally {
                 inputStream.close();
             }
