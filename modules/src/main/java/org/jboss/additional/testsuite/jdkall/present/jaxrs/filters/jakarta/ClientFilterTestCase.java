@@ -21,6 +21,8 @@ import java.io.PrintWriter;
 import java.net.URL;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
+import org.jboss.resteasy.client.jaxrs.cache.LightweightBrowserCache;
+import org.jboss.resteasy.client.jaxrs.cache.BrowserCacheFeature;
 import static org.junit.Assert.fail;
 
 /**
@@ -49,6 +51,11 @@ public class ClientFilterTestCase {
 	client.register(new ClientFilter());
 	client.register(new WriterInterceptorImplementation());
 	client.register(new ReaderInterceptorImplementation());
+	LightweightBrowserCache cache = new LightweightBrowserCache();
+	cache.setMaxBytes(20);
+	BrowserCacheFeature cacheFeature = new BrowserCacheFeature();
+	cacheFeature.setCache(cache);
+	client.register(cacheFeature);
 	String response = client.target("http://127.0.0.1:8080/jaxrsclientfilter/myjrs/filter/getUriInfo").request().get(String.class);
 	Assert.assertTrue(response.contains("uriInfo: http://127.0.0.1:8080/jaxrsclientfilter/myjrs/filter/getU"));
 	
