@@ -48,10 +48,12 @@
                 <dependency>
                     <groupId>org.wildfly.arquillian</groupId>
                     <artifactId>wildfly-arquillian-container-managed</artifactId>
+		    <version>5.0.0.Alpha6</version>
                 </dependency>
                 <dependency>
 		    <groupId>org.wildfly.arquillian</groupId>
 		    <artifactId>wildfly-arquillian-protocol-jmx</artifactId>
+		    <version>5.0.0.Alpha6</version>
 		</dependency>
                 <dependency>
                     <groupId>org.jboss.shrinkwrap</groupId>
@@ -61,6 +63,7 @@
                 <dependency>
                     <groupId>org.wildfly</groupId>
                     <artifactId>wildfly-testsuite-shared</artifactId>
+		    <version>28.0.1.Final</version>
                     <scope>compile</scope>
                 </dependency>
                 <dependency>
