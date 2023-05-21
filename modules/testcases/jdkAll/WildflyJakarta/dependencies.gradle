@@ -18,7 +18,7 @@ if (project.hasProperty('standalone')){
     	implementation 'org.wildfly.arquillian:wildfly-arquillian-protocol-jmx'
     	implementation 'org.jboss.shrinkwrap:shrinkwrap-api'
     	implementation 'org.wildfly:wildfly-testsuite-shared-jakarta:27.0.0.Beta1'
-    	implementation 'org.wildfly:wildfly-testsuite-shared'
+    	implementation 'org.wildfly:wildfly-testsuite-shared:28.0.1.Final'
     	implementation 'org.wildfly.core:wildfly-core-testsuite-shared'
     	implementation('org.wildfly.core:wildfly-elytron-integration') {
         	exclude group: 'org.wildfly.security', module: 'wildfly-elytron-jacc'
