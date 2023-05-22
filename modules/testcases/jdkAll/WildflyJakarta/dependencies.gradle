@@ -14,8 +14,8 @@ if (project.hasProperty('standalone')){
     	implementation platform('org.springframework.boot:spring-boot-starter-parent:2.4.4')
     	implementation 'org.jboss.eap.additional.testsuite:eap-additional-testsuite-source-distribution:3.0.0.Final'
     	implementation 'org.jboss.eap.additional.testsuite:eap-additional-testsuite-annotations:3.0.0.Final'
-    	implementation 'org.wildfly.arquillian:wildfly-arquillian-container-managed'
-    	implementation 'org.wildfly.arquillian:wildfly-arquillian-protocol-jmx'
+    	implementation 'org.wildfly.arquillian:wildfly-arquillian-container-managed:5.0.0.Alpha6'
+    	implementation 'org.wildfly.arquillian:wildfly-arquillian-protocol-jmx:5.0.0.Alpha6'
     	implementation 'org.jboss.shrinkwrap:shrinkwrap-api'
     	implementation 'org.wildfly:wildfly-testsuite-shared-jakarta:27.0.0.Beta1'
     	implementation 'org.wildfly:wildfly-testsuite-shared:28.0.1.Final'
