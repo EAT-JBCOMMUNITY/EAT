@@ -456,7 +456,7 @@
         <subsystem xmlns="urn:jboss:domain:undertow:4.0">
             <buffer-cache name="default"/>
             <server name="default-server">
-                <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true"/>
+                <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true" record-request-start-time="true" write-timeout="5000"/>
                 <https-listener name="https" socket-binding="https" security-realm="ApplicationRealm" enable-http2="true"/>
                 <ajp-listener name="ajp" socket-binding="ajp" read-timeout="100000" write-timeout="100000" />
                 <host name="default-host" alias="localhost">
