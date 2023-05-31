@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.PreparedStatement;
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -34,12 +35,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import org.junit.Assert;
-import org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @EAT({"modules/testcases/jdkAll/WildflyJakarta/manualMysqlDbs/src/main/java#30.0.0"})
-@WebServlet(name = "MysqlServlet", urlPatterns = {"/mysql"})
-public class MysqlServlet extends HttpServlet {
+@WebServlet(name = "MysqlServlet2", urlPatterns = {"/mysql2"})
+public class MysqlServlet2 extends HttpServlet {
 
     @Resource(lookup="java:/mysql")
     private DataSource ds;
@@ -57,21 +57,22 @@ public class MysqlServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             out.write("<h1>Datasource example</h1>");
-            Connection con = null;
+            Connection con=null;
             try {
                 con = ds.getConnection();
-		} catch (SQLException ex) {
-		    Assert.fail(ex.getMessage());
-		}
+                PreparedStatement ps = createPreparedStatement(con);
+                ps.execute();
+	    } catch (SQLException ex) {
+		Assert.fail(ex.getMessage());
+	    }
             try {
-                MySQLValidConnectionChecker my = new MySQLValidConnectionChecker();
-
-                SQLException ex = my.isValidConnection(con);
-                if(ex==null)
-                    System.out.println("Valid connection ..."); 
-                else
-                    System.out.println("InValid connection ..."+ex.toString()); 
-            }finally {}
+                PreparedStatement ps = createPreparedStatement2(con);
+                ps.execute();
+                Thread.sleep(10000);
+                ps.execute();
+            } catch (Exception ex) {
+		Assert.fail(ex.getMessage());
+	    } finally {}
             out.println("</body>");
             out.println("</html>");
         }finally {}
@@ -116,5 +117,16 @@ public class MysqlServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    private PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+        String sql = "create table JBT(name varchar(10), course varchar(10))";
+        PreparedStatement ps = con.prepareStatement(sql);
+        return ps;
+    }
+    
+    private PreparedStatement createPreparedStatement2(Connection con) throws SQLException {
+        String sql = "SELECT * FROM JBT";
+        PreparedStatement ps = con.prepareStatement(sql);
+        return ps;
+    }
 }
 
