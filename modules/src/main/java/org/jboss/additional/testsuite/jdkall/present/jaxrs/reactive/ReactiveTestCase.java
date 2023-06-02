@@ -10,9 +10,11 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.client.Entity;
+import io.reactivex.Flowable;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.jboss.resteasy.spi.ResteasyProviderFactory;
+import org.jboss.resteasy.rxjava2.FlowableRxInvoker;
 import javax.ws.rs.client.CompletionStageRxInvoker;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -61,5 +63,27 @@ public class ReactiveTestCase {
        
     }
 
-
+   @SuppressWarnings("unchecked")
+   @Test
+   public void testPostThingList() throws Exception {
+      CountDownLatch latch = new CountDownLatch(1);
+      AtomicInteger errors = new AtomicInteger(0);
+      List<Thing>  aThingList =  new ArrayList<Thing>();
+      List<List<Thing>> aThingListList = new ArrayList<List<Thing>>();
+      ArrayList<List<?>> thingListList = new ArrayList<List<?>>();
+      for (int i = 0; i < 3; i++) {aThingList.add(new Thing("a"));}
+      for (int i = 0; i < 2; i++) {aThingListList.add(aThingList);}
+      GenericType<List<Thing>> LIST_OF_THING = new GenericType<List<Thing>>() {};
+      ResteasyClient client = new ResteasyClientBuilder().build();
+      FlowableRxInvoker invoker = client.target(url+"/reactive/post/thing/list").request().rx(FlowableRxInvoker.class);
+      Flowable<List<Thing>> flowable = (Flowable<List<Thing>>) invoker.post(aEntity, LIST_OF_THING);
+      flowable.subscribe(
+         (List<?> l) -> thingListList.add(l),
+         (Throwable t) -> errors.incrementAndGet(),
+         () -> latch.countDown());
+      boolean waitResult = latch.await(30, TimeUnit.SECONDS);
+      Assert.assertTrue("Waiting for event to be delivered has timed out.", waitResult);
+      Assert.assertEquals(0, errors.get());
+      Assert.assertEquals(aThingListList, thingListList);
+   }
 }
