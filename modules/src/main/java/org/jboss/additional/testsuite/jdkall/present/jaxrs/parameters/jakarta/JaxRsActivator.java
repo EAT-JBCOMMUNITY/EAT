@@ -1,4 +1,4 @@
-package org.jboss.additional.testsuite.jdkall.present.jaxrs.matrixparams;
+package org.jboss.additional.testsuite.jdkall.present.jaxrs.parameters;
 
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
