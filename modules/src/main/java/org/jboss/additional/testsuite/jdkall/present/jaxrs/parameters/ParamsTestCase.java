@@ -27,13 +27,19 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.jboss.eap.additional.testsuite.annotations.ATTest;
-import org.jboss.logging.Logger;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpRequest.BodyPublishers;
+
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -48,7 +54,6 @@ import java.util.stream.Collectors;
 @EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.11","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#29.0.0"})
 public class ParamsTestCase {
 
-    private static Logger log = Logger.getLogger(ParamsTestCase.class.getName());
     private static final String CRLF = "\r\n";
 
     @Deployment
@@ -58,35 +63,20 @@ public class ParamsTestCase {
         return war;
     }
 
+    @Test
     public void testFormParams() throws Exception {
+        HttpClient client = HttpClient.newHttpClient();
 
-        try (Socket client = new Socket("127.0.0.1", 8080)) {
-            try (PrintWriter out = new PrintWriter(client.getOutputStream(), true)) {
-                // reproduce the issue by flushing request in the middle of http request path parameter
-		out.write("POST");
-		out.write(" ");
-		out.write("/params/restparams/form");
-		out.write(" HTTP/1.1");
-		out.write(CRLF); // end of http request line
+	HttpRequest request = HttpRequest.newBuilder()
+	    .uri(URI.create("http://localhost:8080/params/restparams/form"))
+	    .POST(BodyPublishers.ofString("email=user@email.com&password=mypassword"))
+	    .setHeader("Content-Type", "application/x-www-form-urlencoded")
+	    .build();
 
-		out.write("Content-Type: application/x-www-form-urlencoded" + CRLF);
-		out.write("email=user@email.com&password=mypassword" + CRLF);
-		out.write(CRLF);
-		out.write("User-Agent: TestClient" + CRLF);
-		out.write("Host: 127.0.0.1:8080" + CRLF);
-		out.write(CRLF);
-		out.flush();
-                String response = new BufferedReader(new InputStreamReader(client.getInputStream())).lines().collect(Collectors.joining("\n"));
-                log.info("response: " + response);
-                Assert.assertNotNull(response);
-                Assert.assertTrue(response.contains("HTTP/1.1 200 OK"));
-                Assert.assertTrue(response.contains("Logged with user@email password=mypassword"));
-            }catch(Exception e) {
-                Assert.fail("Printwriter could not be created");
-            }
-        }catch(Exception ex) {
-            Assert.fail("Socket could not be created");
-        }
+	HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        Assert.assertNotNull(response.body());
+        Assert.assertTrue(response.body().contains("user@email.com"));
+        Assert.assertTrue(response.body().contains("mypassword"));
     }
     
     @Test
@@ -105,7 +95,6 @@ public class ParamsTestCase {
 		out.write(CRLF);
 		out.flush();
                 String response = new BufferedReader(new InputStreamReader(client.getInputStream())).lines().collect(Collectors.joining("\n"));
-                log.info("response: " + response);
                 Assert.assertNotNull(response);
                 Assert.assertTrue(response.contains("HTTP/1.1 200 OK"));
                 Assert.assertTrue(response.contains("Id is 11"));
@@ -115,5 +104,136 @@ public class ParamsTestCase {
         }catch(Exception ex) {
             Assert.fail("Socket could not be created");
         }
+    }
+    
+    @Test
+    public void testQueryParams() throws Exception {
+
+        try (Socket client = new Socket("127.0.0.1", 8080)) {
+            try (PrintWriter out = new PrintWriter(client.getOutputStream(), true)) {
+                // reproduce the issue by flushing request in the middle of http request path parameter
+		out.write("GET");
+		out.write(" ");
+		out.write("/params/restparams/query?id=11");
+		out.write(" HTTP/1.1");
+		out.write(CRLF); // end of http request line
+		out.write("User-Agent: TestClient" + CRLF);
+		out.write("Host: 127.0.0.1:8080" + CRLF);
+		out.write(CRLF);
+		out.flush();
+                String response = new BufferedReader(new InputStreamReader(client.getInputStream())).lines().collect(Collectors.joining("\n"));
+                Assert.assertNotNull(response);
+                Assert.assertTrue(response.contains("HTTP/1.1 200 OK"));
+                Assert.assertTrue(response.contains("Id is 11"));
+            }catch(Exception e) {
+                Assert.fail("Printwriter could not be created");
+            }
+        }catch(Exception ex) {
+            Assert.fail("Socket could not be created");
+        }
+    }
+    
+    @Test
+    public void testHeaderParams() throws Exception {
+
+        try (Socket client = new Socket("127.0.0.1", 8080)) {
+            try (PrintWriter out = new PrintWriter(client.getOutputStream(), true)) {
+                // reproduce the issue by flushing request in the middle of http request path parameter
+		out.write("GET");
+		out.write(" ");
+		out.write("/params/restparams/header");
+		out.write(" HTTP/1.1");
+		out.write(CRLF); // end of http request line
+		out.write("User-Agent: TestClient" + CRLF);
+		out.write("Host: 127.0.0.1:8080" + CRLF);
+		out.write(CRLF);
+		out.flush();
+                String response = new BufferedReader(new InputStreamReader(client.getInputStream())).lines().collect(Collectors.joining("\n"));
+                Assert.assertNotNull(response);
+                Assert.assertTrue(response.contains("HTTP/1.1 200 OK"));
+                Assert.assertTrue(response.contains("Browser is"));
+            }catch(Exception e) {
+                Assert.fail("Printwriter could not be created");
+            }
+        }catch(Exception ex) {
+            Assert.fail("Socket could not be created");
+        }
+    }
+    
+    @Test
+    public void testCookieParams() throws Exception {
+        HttpClient client = HttpClient.newHttpClient();
+
+	HttpRequest request = HttpRequest.newBuilder()
+	    .uri(URI.create("http://localhost:8080/params/restparams/session"))
+	    .GET()
+	    .setHeader("Cookie", "JSESSIONID=12345")
+	    .build();
+
+	HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+	Assert.assertNotNull(response.body());
+        Assert.assertTrue(response.body().contains("Browser is 12345"));
+
+    }
+    
+    @Test
+    public void testHttpHeadersParams() throws Exception {
+        HttpClient client = HttpClient.newHttpClient();
+
+	HttpRequest request = HttpRequest.newBuilder()
+	    .uri(URI.create("http://localhost:8080/params/restparams/httpheaders"))
+	    .GET()
+	    .setHeader("Cookie", "Pragma=no-cache;Keep-Alive=300")
+	    .build();
+
+	HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+	Assert.assertNotNull(response.body());
+        Assert.assertTrue(response.body().contains("Pragma=no-cache"));
+        Assert.assertTrue(response.body().contains("Keep-Alive=300"));
+    }
+    
+    @Test
+    public void testMatrixParams() throws Exception {
+
+        try (Socket client = new Socket("127.0.0.1", 8080)) {
+            try (PrintWriter out = new PrintWriter(client.getOutputStream(), true)) {
+                // reproduce the issue by flushing request in the middle of http request path parameter
+		out.write("GET");
+		out.write(" ");
+		out.write("/params/restparams/matrix;name=john;surname=smith");
+		out.write(" HTTP/1.1");
+		out.write(CRLF); // end of http request line
+		out.write("User-Agent: TestClient" + CRLF);
+		out.write("Host: 127.0.0.1:8080" + CRLF);
+		out.write(CRLF);
+		out.flush();
+                String response = new BufferedReader(new InputStreamReader(client.getInputStream())).lines().collect(Collectors.joining("\n"));
+                Assert.assertNotNull(response);
+                Assert.assertTrue(response.contains("HTTP/1.1 200 OK"));
+                Assert.assertTrue(response.contains("name is john"));
+            }catch(Exception e) {
+                Assert.fail("Printwriter could not be created");
+            }
+        }catch(Exception ex) {
+            Assert.fail("Socket could not be created");
+        }
+    }
+    
+    @Test
+    public void testBeanParams() throws Exception {
+
+        HttpClient client = HttpClient.newHttpClient();
+
+	HttpRequest request = HttpRequest.newBuilder()
+	    .uri(URI.create("http://localhost:8080/params/restparams/bean"))
+	    .POST(BodyPublishers.ofString("email=user@email.com&username=myuser"))
+	    .setHeader("Content-Type", "application/x-www-form-urlencoded")
+	    .build();
+
+	HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+	Assert.assertNotNull(response.body());
+        Assert.assertTrue(response.body().contains("ParamBean"));
+        Assert.assertTrue(response.body().contains("user@email.com"));
+        Assert.assertTrue(response.body().contains("myuser"));
     }
 }
