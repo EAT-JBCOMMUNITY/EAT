@@ -251,7 +251,6 @@
 		<dependency>
 		    <groupId>org.jboss</groupId>
 		    <artifactId>jboss-ejb-client</artifactId>
-		    <version>4.0.44.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.jboss.classfilewriter</groupId>
