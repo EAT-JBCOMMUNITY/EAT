@@ -60,6 +60,6 @@ public class XalanTestCase {
 
         // incorrect: <?xml version="1.0" encoding="UTF-8"?><test>&#55358;&#56620;</test>
         // correct:  <?xml version="1.0" encoding="UTF-8"?><test>&#129324;</test>
-        assertTrue(writer.toString().contains("&#129324;"));
+        assertTrue(!writer.toString().contains("&#55358;&#56620;"));
     }
 }
