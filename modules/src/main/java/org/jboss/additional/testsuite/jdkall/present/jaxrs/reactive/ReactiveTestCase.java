@@ -34,6 +34,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
+/**
+ *  Documentation added : https://play.google.com/store/apps/details?id=edu.eatproposals.eatapp ( RESTEASY DOC / ResteasyReactive.pdf )
+ **/
 @RunWith(Arquillian.class)
 @RunAsClient
 @EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
