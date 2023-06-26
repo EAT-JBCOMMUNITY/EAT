@@ -49,6 +49,9 @@ import java.net.URL;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
+/**
+ *  Documentation added : https://play.google.com/store/apps/details?id=edu.eatproposals.eatapp ( RESTEASY DOC / ResteasyParams.pdf )
+ **/
 @RunWith(Arquillian.class)
 @RunAsClient
 @EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.11","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#29.0.0"})
