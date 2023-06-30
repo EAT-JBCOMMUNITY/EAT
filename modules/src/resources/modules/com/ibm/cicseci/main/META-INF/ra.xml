@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--                                                                         -->
+<!-- <copyright                                                              -->
+<!-- notice="rm-source-program"                                              -->
+<!-- pids="5724-I81,5655-Y20"                                                -->
+<!-- years="2000,2012"                                                       -->
+<!-- crc="1352144456" >                                                      -->
+<!-- Licensed Materials - Property of IBM                                    -->
+<!--                                                                         -->
+<!-- "Restricted Materials of IBM"                                           -->
+<!--                                                                         -->
+<!-- 5724-I81,5655-Y20                                                       -->
+<!--                                                                         -->
+<!-- (C) Copyright IBM Corp. 2000, 2012                                      -->
+<!--                                                                         -->
+<!-- US Government Users Restricted Rights - Use, duplication or             -->
+<!-- disclosure restricted by GSA ADP Schedule Contract with                 -->
+<!-- IBM Corp.                                                               -->
+<!-- </copyright>                                                            -->
+<!--                                                                         -->
+<!-- Status: Version 9 Release 0                         -->
+<!--                                                                         -->
+<connector xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/connector_1_6.xsd"
+	version="1.6" metadata-complete="false">
+  <description>CICS JEE ECI Resource Adapter</description>
+  <display-name>ECIResourceAdapter</display-name>
+  <vendor-name>IBM</vendor-name>
+  <eis-type>CICS</eis-type>
+  <resourceadapter-version>9.0.0.0</resourceadapter-version>
+  <resourceadapter/>
+</connector>
