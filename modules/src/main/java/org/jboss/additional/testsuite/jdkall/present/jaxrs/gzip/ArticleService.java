@@ -58,4 +58,11 @@ public class ArticleService {
     public void deleteArticle(@PathParam("id") Integer id){
     	list.remove(id);
     }
+
+    @GET
+    @Path("/a")
+    @Compress
+    public String article() {
+       return "EAT";
+    }
 }
