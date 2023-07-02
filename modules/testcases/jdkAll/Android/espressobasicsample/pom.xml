@@ -86,5 +86,39 @@
 				</plugins>
             </build>
         </profile>
+        <profile>
+            <id>test</id>
+            <activation>
+                <property>
+                    <name>test</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+					   <executions>
+						 <execution>
+						   <phase>install</phase>
+						   <configuration>
+							 <tasks name="Build Android Project">
+							   <exec
+								 dir="${basedir}/testing-samples/ui/espresso/BasicSample"
+								 executable="./gradlew"
+								 failonerror="true">
+								 <arg line="connectedAndroidTest"/>
+							   </exec>
+							</tasks>
+						   </configuration>
+						   <goals>
+						 <goal>run</goal>
+						   </goals>
+						 </execution>
+					   </executions>
+					</plugin>
+				</plugins>
+            </build>
+        </profile>
     </profiles>
 </project>
