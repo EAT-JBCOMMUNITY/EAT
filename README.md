@@ -164,6 +164,24 @@ If the APK is built using a developer preview SDK (if the targetSdkVersion is a 
 adb install path/to/your_app.apk
 ```
 
+Testing multi-versioned Android projects
+-----------------------------------------
+1. mvn clean install -Dandroid -DnoDistribution -Dclone (-Dmodule='android-project-name')
+or gradle test -Pandroid -PnoDistribution -Pclone (-Pmodule='android-project-name') -c androidsettings.gradle
+2. export ANDROID_SDK_VERSION=...e.g. 1.0.0
+3. export ANDROID_SDK_ROOT='path to the Sdk'
+4. export ANDROID_HOME='path to the Sdk'
+5. Add local.properties files at the android projects (modules/testcases/jdkAll/Android/'project'/'project-name') you want to build with entry sdk.dir='path to the Sdk'
+6.  mvn clean install -DnoDistribution -Dandroidversion -Dandroid -Dcreate (-Dmodule='android-project-name')
+7.  Start the emulator (in case of orchestrated tests) : $ANDROID_SDK_ROOT/emulator/emulator -avd $EMULATOR
+8.  mvn clean install -DnoDistribution -Dandroidversion -Dandroid -Dtest (-Dmodule='android-project-name')
+   
+The open source projects that were selected to integrate into EAT can be found in https://github.com/android/testing-samples and are the following:
+- testing-samples/unit/BasicSample
+- testing-samples/runner/AndroidTestOrchestratorWithTestCoverageSample
+- testing-samples/ui/espresso/BasicSample
+  
+
 Using HTTPS
 -----------
 After changing from HTTP to HTTPS, the maven repositories for Eap may not host a valid public SSL certificate, which will lead to maven failed to build the project. There are 3 options to fix that if it happens:
