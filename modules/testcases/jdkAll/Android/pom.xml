@@ -44,6 +44,7 @@
                 <module>eatproposals</module>
                 <module>espressobasicsample</module>
                 <module>testorchestratorwithtestcoveragesample</module>
+                <module>junitbasicsample</module>
             </modules>
         </profile>
         <profile>
@@ -212,6 +213,18 @@
             </activation>
             <modules>
                 <module>testorchestratorwithtestcoveragesample</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>junitbasicsample</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>junitbasicsample</value>
+                </property>
+            </activation>
+            <modules>
+                <module>junitbasicsample</module>
             </modules>
         </profile>
     </profiles>
