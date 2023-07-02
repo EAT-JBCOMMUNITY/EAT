@@ -43,6 +43,7 @@
                 <module>loginpanel</module>
                 <module>eatproposals</module>
                 <module>espressobasicsample</module>
+                <module>testorchestratorwithtestcoveragesample</module>
             </modules>
         </profile>
         <profile>
@@ -199,6 +200,18 @@
             </activation>
             <modules>
                 <module>espressobasicsample</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>testorchestratorwithtestcoveragesample</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>testorchestratorwithtestcoveragesample</value>
+                </property>
+            </activation>
+            <modules>
+                <module>testorchestratorwithtestcoveragesample</module>
             </modules>
         </profile>
     </profiles>
