@@ -1,0 +1,27 @@
+apply plugin: 'java'
+
+group = 'org.jboss'
+version = '1.0.3.Final'
+
+description = "android additional testsuite: espressobasicsample"
+
+if (project.hasProperty('android')  && project.hasProperty('clone')){
+
+	task cloneAndroidProject1(type: Exec) {
+	        commandLine "git", "clone", "https://github.com/EAT-JBCOMMUNITY/testing-samples.git"
+	}
+
+        compileJava.dependsOn(cloneAndroidProject1)
+
+}
+
+if (project.hasProperty('android') && project.hasProperty('create')){
+
+	task runAndroidProject1(type: Exec) {
+		workingDir project.buildDir.toString() + "/../testing-samples/ui/espresso/BasicSample"
+		commandLine "./gradlew", "build"
+	}
+
+        compileJava.dependsOn(runAndroidProject1)
+
+}

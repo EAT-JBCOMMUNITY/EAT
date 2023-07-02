@@ -42,6 +42,7 @@
                 <module>jkslinks</module>
                 <module>loginpanel</module>
                 <module>eatproposals</module>
+                <module>espressobasicsample</module>
             </modules>
         </profile>
         <profile>
@@ -186,6 +187,18 @@
             </activation>
             <modules>
                 <module>eatproposals</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>espressobasicsample</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>espressobasicsample</value>
+                </property>
+            </activation>
+            <modules>
+                <module>espressobasicsample</module>
             </modules>
         </profile>
     </profiles>
