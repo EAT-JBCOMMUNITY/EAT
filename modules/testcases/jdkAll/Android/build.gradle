@@ -111,3 +111,24 @@ if (project.hasProperty('android') && (project.getProperty('module')=="eatpropos
         implementation project(':modules:testcases:jdkAll:Android:eatproposals')
     }
 }
+
+if (project.hasProperty('android') && (project.getProperty('module')=="junitbasicsample")){
+
+    dependencies{
+        implementation project(':modules:testcases:jdkAll:Android:junitbasicsample')
+    }
+}
+
+if (project.hasProperty('android') && (project.getProperty('module')=="espressobasicsample")){
+
+    dependencies{
+        implementation project(':modules:testcases:jdkAll:Android:espressobasicsample')
+    }
+}
+
+if (project.hasProperty('android') && (project.getProperty('module')=="testorchestratorwithtestcoveragesample")){
+
+    dependencies{
+        implementation project(':modules:testcases:jdkAll:Android:testorchestratorwithtestcoveragesample')
+    }
+}
