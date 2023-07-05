@@ -172,9 +172,9 @@ or gradle test -Pandroid -PnoDistribution -Pclone (-Pmodule='android-project-nam
 3. export ANDROID_SDK_ROOT='path to the Sdk'
 4. export ANDROID_HOME='path to the Sdk'
 5. Add local.properties files at the android projects (modules/testcases/jdkAll/Android/'project'/'project-name') you want to build with entry sdk.dir='path to the Sdk'
-6.  mvn clean install -DnoDistribution -Dandroidversion -Dandroid -Dcreate (-Dmodule='android-project-name')
+6.  mvn clean install -DnoDistribution -Dandroidversion -Dandroid -Dcreate (-Dmodule='android-project-name') or gradle test -PnoDistribution -Pandroidversion -Pandroid -Pcreate (-Pmodule='android-project-name') -c androidsettings.gradle
 7.  Start the emulator (in case of orchestrated tests) : $ANDROID_SDK_ROOT/emulator/emulator -avd $EMULATOR
-8.  mvn clean install -DnoDistribution -Dandroidversion -Dandroid -Dtest (-Dmodule='android-project-name')
+8.  mvn clean install -DnoDistribution -Dandroidversion -Dandroid -Dtest (-Dmodule='android-project-name') or gradle test -PnoDistribution -Pandroidversion -Pandroid -Ptest (-Pmodule='android-project-name') -c androidsettings.gradle
    
 The open source projects that were selected to integrate into EAT can be found in https://github.com/android/testing-samples and are the following:
 - testing-samples/unit/BasicSample
