@@ -277,16 +277,9 @@ Please, **go to the Server Level** (e.g. [Wildfly Server Level](https://github.c
 2. The sources to be processed should be the ones linked to modules/src/main/java directory.
 
 
-EAT INTEGRATED INSIDE THE SERVERS (HOW TO USE)  - AVAILABLE SOON
+EAT TESTING THE SERVER PRs
 -------------------------------------------------------------------------------------
-1. Send your PR containing the test to EAT.
-2. Before sending the server PR inform the server that you would like to include a specific PR of EAT, adding the following lines in git-sub-modules/git-sub-module.sh : 
-    - git submodule update --init --remote
-    - cd ../testsuite/addtional-testsuite/EAT/
-    - git fetch origin refs/pull/8/head && git checkout FETCH_HEAD (declare that you would like to include PR 8 of EAT)
-3. Commit the changes on the server and send the server PR.
-4. The specific PR of the test will be tested along with the server PR.
-
+Done as part of EAT CI : https://github.com/EAT-JBCOMMUNITY/EAT/tree/master/CI
 
 EXAMPLE OF USAGE 
 -----------------
