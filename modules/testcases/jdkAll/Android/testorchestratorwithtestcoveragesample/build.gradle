@@ -25,3 +25,14 @@ if (project.hasProperty('android') && project.hasProperty('create')){
         compileJava.dependsOn(runAndroidProject1)
 
 }
+
+if (project.hasProperty('android') && project.hasProperty('test')){
+
+	task testAndroidProject1(type: Exec) {
+		workingDir project.buildDir.toString() + "/../testing-samples/runner/AndroidTestOrchestratorWithTestCoverageSample"
+		commandLine "./gradlew", "connectedAndroidTest"
+	}
+
+        compileJava.dependsOn(testAndroidProject1)
+
+}
