@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant(TM) version 1.9.11 compiled on March 23 2018
+Created-By: Build process
+Specification-Title: CICS Transaction Gateway
+Specification-Version: 9.0.0.0
+Specification-Vendor: IBM Corporation
+Implementation-Title: CICS Transaction Gateway
+Implementation-Version: c900-20190506-0705
+Implementation-Vendor: IBM Corporation
+Permissions: all-permissions
+
