@@ -484,6 +484,14 @@
                     <http-invoker security-realm="ApplicationRealm"/>
                 </host>
             </server>
+            <server name="abc">
+                <http-listener name="default-blah" socket-binding="abc-http" redirect-socket="abc-https" enable-http2="true"/>
+	        <https-listener name="https-blah" socket-binding="abc-https" security-realm="ApplicationRealm" enable-http2="true"/>
+                <host name="abc-host" alias="localhost">
+                    <location name="/abc" handler="welcome-content"/>
+                    <http-invoker security-realm="ApplicationRealm"/>
+                </host>
+            </server>
             <servlet-container name="default">
                 <jsp-config/>
                 <websockets/>
@@ -522,6 +530,8 @@
         <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
         <socket-binding name="http" port="${jboss.http.port:8080}"/>
         <socket-binding name="https" port="${jboss.https.port:8443}"/>
+        <socket-binding name="abc-http" port="8081"/>
+        <socket-binding name="abc-https" port="8444"/>
         <socket-binding name="txn-recovery-environment" port="4712"/>
         <socket-binding name="txn-status-manager" port="4713"/>
         <outbound-socket-binding name="mail-smtp">
