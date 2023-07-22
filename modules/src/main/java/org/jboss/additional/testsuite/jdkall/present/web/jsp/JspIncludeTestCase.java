@@ -30,7 +30,7 @@ import org.jboss.eap.additional.testsuite.annotations.ATTest;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.13","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#30.0.0"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.13","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#31.0.0"})
 public class JspIncludeTestCase {
 
     private final String serverLogPath = "../../../../../servers/wildfly/build/target/jbossas/standalone/log/server.log";
