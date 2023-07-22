@@ -41,13 +41,13 @@
                         <version>${JBOSS_VERSION}</version>
                         <scope>import</scope>
                     </dependency>
-		    <dependency>
+		    <!--dependency>
                         <groupId>org.wildfly</groupId>
                         <artifactId>wildfly-standard-test-bom</artifactId>
                         <type>pom</type>
                         <version>${JBOSS_VERSION}</version>
                         <scope>import</scope>
-                    </dependency>
+                    </dependency-->
                 </dependencies>
             </dependencyManagement>
 
