@@ -149,7 +149,7 @@ if (project.hasProperty('standalone')){
 	implementation 'jakarta.enterprise:jakarta.enterprise.cdi-api'
 	implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
 	implementation 'jakarta.jms:jakarta.jms-api:3.1.0'
-	implementation 'jakarta.faces:jakarta.faces-api:4.0.1'
+	implementation 'jakarta.faces:jakarta.faces-api'
 	implementation 'jakarta.validation:jakarta.validation-api'
 	implementation 'org.picketbox:picketbox:5.1.0.Final'
 	implementation 'org.jboss:jboss-vfs:3.2.16.Final'
