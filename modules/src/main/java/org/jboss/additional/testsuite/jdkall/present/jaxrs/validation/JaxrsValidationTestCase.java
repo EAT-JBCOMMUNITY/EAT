@@ -24,7 +24,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#27.0.0.Alpha1*27.0.0.Alpha1","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.4"})
+@EAT({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#27.0.0.Alpha1*27.0.0.Alpha1","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.4","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#29.0.0"})
 public class JaxrsValidationTestCase {
 
     @Deployment
@@ -55,8 +55,7 @@ public class JaxrsValidationTestCase {
     @ArquillianResource
     private URI serviceUri;
 
-    //Test in maintenance
-    @ATTest({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#27.0.0"}) 
+    @ATTest({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#27.0.0","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#29.0.0","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.11"}) 
     public void jaxrsValidation() {
         final String targetUrl = serviceUri.toString() + "greeter";
         ResteasyClient client = (ResteasyClient) ResteasyClientBuilder.newClient();
@@ -72,8 +71,7 @@ public class JaxrsValidationTestCase {
 
     }
 
-    //Test in maintenance
-    @ATTest({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.4"})  
+    @ATTest({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.4","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#29.0.0"})  
     public void jaxrsSValidation() {
         final String targetUrl = serviceUri.toString() + "greeter";
         ResteasyClient client = (ResteasyClient) ResteasyClientBuilder.newClient();
