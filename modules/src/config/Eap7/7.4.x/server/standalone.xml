@@ -31,6 +31,9 @@
         <extension module="org.wildfly.extension.security.manager"/>
         <extension module="org.wildfly.extension.undertow"/>
     </extensions>
+    <system-properties>
+        <property name="env.db_java_context" value="true"/>
+    </system-properties>
     <management>
         <security-realms>
             <security-realm name="ManagementRealm">
@@ -140,7 +143,7 @@
         <subsystem xmlns="urn:jboss:domain:core-management:1.0"/>
         <subsystem xmlns="urn:jboss:domain:datasources:5.0">
             <datasources>
-                <datasource jndi-name="java:jboss/datasources/ExampleDS" pool-name="ExampleDS" enabled="true" use-java-context="true">
+                <datasource jndi-name="java:jboss/datasources/ExampleDS" pool-name="ExampleDS" enabled="true" use-java-context="${env.db_java_context}">
                     <connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url>
                     <driver>h2</driver>
                     <security>
