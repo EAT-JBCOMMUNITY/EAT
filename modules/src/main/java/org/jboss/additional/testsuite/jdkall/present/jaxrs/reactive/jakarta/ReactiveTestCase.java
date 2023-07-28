@@ -10,6 +10,8 @@ import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.client.Invocation.Builder;
+import jakarta.ws.rs.core.Response;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.jboss.resteasy.spi.ResteasyProviderFactory;
@@ -39,6 +41,8 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 @EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java"})
 public class ReactiveTestCase {
 
+    private static final Entity<String> aEntity = Entity.entity("a", MediaType.TEXT_PLAIN_TYPE);
+
     @Deployment(testable = false)
     public static Archive<?> deploy() {
         WebArchive war = ShrinkWrap.create(WebArchive.class,"reactive.war");
@@ -50,8 +54,6 @@ public class ReactiveTestCase {
 
     @ArquillianResource
     private URL url;
-
-    private static final Entity<String> aEntity = Entity.entity("a", MediaType.TEXT_PLAIN_TYPE);
 
     @SuppressWarnings("unchecked")
     @Test
@@ -85,5 +87,15 @@ public class ReactiveTestCase {
       Assert.assertTrue("Waiting for event to be delivered has timed out.", waitResult);
       Assert.assertEquals(0, errors.get());
       Assert.assertEquals(aThingListList, thingListList);
+    }
+    
+    @Test
+    public void testPost() throws Exception {
+        String aString = "data: a";
+        
+        ResteasyClient client = (ResteasyClient)ClientBuilder.newClient();
+        Builder request = client.target(url + "/reactive/post/string").request();
+        Response response = request.post(aEntity);
+        Assert.assertTrue(response.readEntity(String.class).contains(aString));
     }
 }
