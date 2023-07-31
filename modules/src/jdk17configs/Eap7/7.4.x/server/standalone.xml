@@ -427,7 +427,26 @@
             <http-connector name="http-remoting-connector" connector-ref="default" sasl-authentication-factory="application-sasl-authentication"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:request-controller:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:resource-adapters:6.0"/>
+        <subsystem xmlns="urn:jboss:domain:resource-adapters:6.0">
+            <resource-adapters> 
+             <resource-adapter id="com.ibm.cicseci.rar">
+                    <module slot="main" id="com.ibm.cicseci"/>
+
+                    <transaction-support>NoTransaction</transaction-support>
+                    <connection-definitions>
+                        <connection-definition class-name="com.ibm.connector2.cics.ECIManagedConnectionFactory" jndi-name="java:/jboss/MyCICS" use-java-context="true" pool-name="MFECIConnectionFactory">
+                            <pool>
+                                <min-pool-size>2</min-pool-size>
+                                <max-pool-size>10</max-pool-size>
+                            </pool>
+                            <security>
+                                <application/>
+                            </security>
+                        </connection-definition>
+                    </connection-definitions>
+            </resource-adapter>        
+         </resource-adapters>  
+        </subsystem>
         <subsystem xmlns="urn:jboss:domain:sar:1.0"/>
         <subsystem xmlns="urn:jboss:domain:security-manager:1.0">
             <deployment-permissions>
