@@ -3,6 +3,7 @@ package org.jboss.additional.testsuite.jdkall.present.jaxrs.reactive;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.Consumes;
 import java.util.List;
 import java.util.ArrayList;
 import javax.ws.rs.core.MediaType;
@@ -14,6 +15,9 @@ import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableEmitter;
 import io.reactivex.FlowableOnSubscribe;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @Path("/")
@@ -36,6 +40,15 @@ public class Resource {
    public Flowable<List<Thing>> postThingList(String s) {
        return buildFlowableThingList(s, 2, 3);
    }
+   
+   @POST
+   @Path("post/string")
+   @Consumes(MediaType.TEXT_PLAIN)
+   @Produces(MediaType.TEXT_PLAIN)
+   @Stream
+   public Observable<String> post(String s) {
+       return buildObservableString(s, 1);
+   }
 
    static Flowable<List<Thing>> buildFlowableThingList(String s, int listSize, int elementSize) {
         return Flowable.create(
@@ -54,5 +67,19 @@ public class Resource {
                     }
                 },
                 BackpressureStrategy.BUFFER);
+    }
+
+    static Observable<String> buildObservableString(String s, int n) {
+        return Observable.create(
+                new ObservableOnSubscribe<String>() {
+
+                    @Override
+                    public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+                        for (int i = 0; i < n; i++) {
+                            emitter.onNext(s);
+                        }
+                        emitter.onComplete();
+                    }
+                });
     }
 }
