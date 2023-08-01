@@ -8,7 +8,7 @@ import jakarta.ws.rs.container.ContainerResponseContext;
 import jakarta.ws.rs.container.ContainerResponseFilter;
 import jakarta.ws.rs.ext.Provider;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 @Provider
 public class ResponseFilter implements  ContainerResponseFilter {
     

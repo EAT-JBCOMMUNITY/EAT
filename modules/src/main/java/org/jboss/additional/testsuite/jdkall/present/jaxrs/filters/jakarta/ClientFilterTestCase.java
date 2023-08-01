@@ -30,7 +30,7 @@ import static org.junit.Assert.fail;
  **/
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class ClientFilterTestCase {
 
     private final String serverLogPath = "target/surefire-reports/org.jboss.additional.testsuite.jdkall.present.jaxrs.filters.ClientFilterTestCase-output.txt";

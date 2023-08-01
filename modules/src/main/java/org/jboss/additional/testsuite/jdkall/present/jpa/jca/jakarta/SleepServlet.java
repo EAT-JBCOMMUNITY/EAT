@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jpa/src/main/java#28.0.0"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jpa/src/main/java#28.0.0","modules/testcases/jdkAll/EapJakarta/jpa/src/main/java"})
 @SuppressWarnings("serial")
 @WebServlet(name = "sleep", urlPatterns = {"/sleep/"}, loadOnStartup = 1)
 public class SleepServlet extends HttpServlet {

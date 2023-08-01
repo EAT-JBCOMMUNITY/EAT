@@ -50,17 +50,3 @@ public class GlobalExceptionHandler
     return Response.Status.INTERNAL_SERVER_ERROR.getStatusCode();
   }
 }
-
-class ErrorMessage {
-    int status = 200;
-    String message = "";
-    
-    public void setStatus(int status) {
-        this.status = status;
-    }
-    
-    public void setMessage(String message) {
-        this.message = message;
-    }
- 
-}

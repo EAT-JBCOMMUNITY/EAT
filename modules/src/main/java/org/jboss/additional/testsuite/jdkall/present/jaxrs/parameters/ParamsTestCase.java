@@ -54,7 +54,7 @@ import java.util.stream.Collectors;
  **/
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.11","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#29.0.0"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.11","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#29.0.0","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class ParamsTestCase {
 
     private static final String CRLF = "\r\n";

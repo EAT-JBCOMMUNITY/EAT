@@ -44,7 +44,7 @@ public class JsfFormOOBIndexTestCase {
         return war;
     }
 
-    @ATTest({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.10","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Beta1"})
+    @ATTest({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.10","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Beta1","modules/testcases/jdkAll/EapJakarta/web/src/main/java"})
     public void jsfWarTest(@ArquillianResource URL url) throws Exception {
         if(System.getProperty("webdriver.gecko.driver")!=null) {
 		String warpath = new File("").getAbsolutePath() + "/src/test/resources/bug/bug.war";
@@ -83,7 +83,7 @@ public class JsfFormOOBIndexTestCase {
         }
     }
 
-    @ATTest({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.8","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#29.0.0"})
+    @ATTest({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.8","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#29.0.0","modules/testcases/jdkAll/EapJakarta/web/src/main/java"})
     public void jsfExpirationViewWarTest(@ArquillianResource URL url) throws Exception {
         if(System.getProperty("webdriver.gecko.driver")!=null) {
 		String warpath = new File("").getAbsolutePath() + "/src/test/resources/bug2/bug2.war";
