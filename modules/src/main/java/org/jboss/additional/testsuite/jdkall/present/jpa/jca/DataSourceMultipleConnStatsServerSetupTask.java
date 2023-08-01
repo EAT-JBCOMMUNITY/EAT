@@ -46,7 +46,7 @@ import static org.jboss.as.test.integration.management.util.ModelUtil.createOpNo
  */
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jpa/src/main/java#7.4.8","modules/testcases/jdkAll/WildflyJakarta/jpa/src/main/java#28.0.0"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/jpa/src/main/java#7.4.8","modules/testcases/jdkAll/WildflyJakarta/jpa/src/main/java#28.0.0","modules/testcases/jdkAll/EapJakarta/jpa/src/main/java"})
 public class DataSourceMultipleConnStatsServerSetupTask extends SnapshotRestoreSetupTask {
 
     @Override

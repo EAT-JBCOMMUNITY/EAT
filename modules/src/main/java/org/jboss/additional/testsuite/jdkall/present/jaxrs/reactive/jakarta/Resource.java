@@ -21,7 +21,7 @@ import io.reactivex.ObservableOnSubscribe;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @Path("/")
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class Resource {
    private static SingleProvider singleProvider = new SingleProvider();
    
