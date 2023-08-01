@@ -27,7 +27,7 @@ import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.ext.Provider;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#28.0.0.Beta1"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#28.0.0.Beta1","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 @Provider
 public class GlobalExceptionHandler
   extends Object
@@ -51,16 +51,3 @@ public class GlobalExceptionHandler
   }
 }
 
-class ErrorMessage {
-    int status = 200;
-    String message = "";
-    
-    public void setStatus(int status) {
-        this.status = status;
-    }
-    
-    public void setMessage(String message) {
-        this.message = message;
-    }
- 
-}

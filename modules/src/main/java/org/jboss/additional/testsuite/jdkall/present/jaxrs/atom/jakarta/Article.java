@@ -12,7 +12,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import org.jboss.resteasy.links.RESTServiceDiscovery;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.NONE)
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class Article {
     @XmlAttribute
     private String author;

@@ -32,7 +32,7 @@ import java.util.stream.Collectors;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class ClientGzipTestCase {
 
     private static Logger log = Logger.getLogger(ClientGzipTestCase.class.getName());

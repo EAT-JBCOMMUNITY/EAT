@@ -40,7 +40,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/server/src/main/java#7.4.11","modules/testcases/jdkAll/WildflyJakarta/server/src/main/java#29.0.0"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/server/src/main/java#7.4.11","modules/testcases/jdkAll/WildflyJakarta/server/src/main/java#29.0.0","modules/testcases/jdkAll/EapJakarta/server/src/main/java"})
 public class DataSourceTestCase extends AbstractCliTestBase {
 
     @Deployment
