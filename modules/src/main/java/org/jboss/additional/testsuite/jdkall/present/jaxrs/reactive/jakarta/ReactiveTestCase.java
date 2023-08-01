@@ -35,10 +35,11 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
+import org.jboss.eap.additional.testsuite.annotations.ATTest;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class ReactiveTestCase {
 
     private static final Entity<String> aEntity = Entity.entity("a", MediaType.TEXT_PLAIN_TYPE);
@@ -56,7 +57,7 @@ public class ReactiveTestCase {
     private URL url;
 
     @SuppressWarnings("unchecked")
-    @Test
+    @ATTest({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java"})
     public void testPostThing() throws Exception {
       ResteasyClient client = (ResteasyClient)ClientBuilder.newClient();
       CompletionStageRxInvoker invoker = client.target(url+"/reactive/post/thing").request().rx(CompletionStageRxInvoker.class);
@@ -66,7 +67,7 @@ public class ReactiveTestCase {
     }
 
     @SuppressWarnings("unchecked")
-    @Test
+    @ATTest({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java"})
     public void testPostThingList() throws Exception {
       CountDownLatch latch = new CountDownLatch(1);
       AtomicInteger errors = new AtomicInteger(0);

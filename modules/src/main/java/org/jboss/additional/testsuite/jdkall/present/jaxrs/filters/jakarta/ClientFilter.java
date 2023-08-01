@@ -9,7 +9,7 @@ import jakarta.ws.rs.client.ClientRequestFilter;
 import jakarta.ws.rs.client.ClientResponseContext;
 import jakarta.ws.rs.client.ClientResponseFilter;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class ClientFilter implements ClientRequestFilter,ClientResponseFilter {
 
 	public void filter(ClientRequestContext req) {

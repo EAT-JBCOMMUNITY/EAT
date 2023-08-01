@@ -23,7 +23,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  * @author Pete Muir
  *
  */
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.9","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#28.0.0"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.9","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#28.0.0","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class HelloService {
 
     String createHelloMessage(String name) {

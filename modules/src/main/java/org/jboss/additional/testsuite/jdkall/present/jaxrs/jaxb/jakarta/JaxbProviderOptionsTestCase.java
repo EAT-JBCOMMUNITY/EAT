@@ -42,10 +42,11 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
+import org.jboss.eap.additional.testsuite.annotations.ATTest;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#28.0.0.Beta1"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#28.0.0.Beta1","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class JaxbProviderOptionsTestCase {
 
     @Deployment(testable = false)
@@ -58,7 +59,7 @@ public class JaxbProviderOptionsTestCase {
     @ArquillianResource
     private URL url;
 
-    @Test
+    @ATTest({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#28.0.0.Beta1"})
     public void testOptions() throws Exception {
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target(url + "myjaxrs/options");

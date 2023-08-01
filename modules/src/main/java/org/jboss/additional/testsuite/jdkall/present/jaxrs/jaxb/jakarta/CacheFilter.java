@@ -36,7 +36,7 @@ import jakarta.servlet.annotation.WebFilter;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @WebFilter("*")
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#28.0.0.Beta1"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#28.0.0.Beta1","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class CacheFilter implements Filter {
 
     @Override

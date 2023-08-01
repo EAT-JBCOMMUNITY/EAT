@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.11","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.11","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class SimulationTestCase {
 
     private final static String WARNAME = "SimulationTestCase.war";

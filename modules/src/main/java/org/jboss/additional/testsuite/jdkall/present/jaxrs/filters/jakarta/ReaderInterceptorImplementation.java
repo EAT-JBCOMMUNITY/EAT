@@ -10,7 +10,7 @@ import jakarta.ws.rs.ext.ReaderInterceptor;
 import jakarta.ws.rs.ext.ReaderInterceptorContext;
 
 @Provider
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class ReaderInterceptorImplementation implements ReaderInterceptor {
 
 	@Override

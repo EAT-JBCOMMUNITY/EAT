@@ -18,7 +18,7 @@ import jakarta.ws.rs.Produces;
 @Path("/cacheservice")
 @Consumes({"application/xml", "application/json"})
 @Produces({"application/xml", "application/json"})
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Alpha4"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class ArticleService {
     List<Article> list = new ArrayList<Article>();
     {

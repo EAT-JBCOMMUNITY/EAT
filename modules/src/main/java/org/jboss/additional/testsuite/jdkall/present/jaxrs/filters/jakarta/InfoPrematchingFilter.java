@@ -10,7 +10,7 @@ import jakarta.ws.rs.ext.Provider;
 import jakarta.ws.rs.container.PreMatching;
 
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 @Provider 
 @PreMatching
 public class InfoPrematchingFilter implements ContainerRequestFilter  {
