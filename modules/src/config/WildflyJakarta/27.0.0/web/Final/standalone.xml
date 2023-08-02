@@ -469,12 +469,13 @@
         <subsystem xmlns="urn:jboss:domain:undertow:13.0" default-server="default-server" default-virtual-host="default-host" default-servlet-container="default" default-security-domain="other" statistics-enabled="${wildfly.undertow.statistics-enabled:${wildfly.statistics-enabled:false}}">
             <buffer-cache name="default"/>
             <server name="default-server">
-                <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true" record-request-start-time="true" write-timeout="5000"/>
+                <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true" record-request-start-time="true" write-timeout="5000" proxy-address-forwarding="true" />
                 <https-listener name="https" socket-binding="https" ssl-context="applicationSSC" enable-http2="true"/>
                 <ajp-listener name="ajp" socket-binding="ajp" read-timeout="100000" write-timeout="100000" />
                 <host name="default-host" alias="localhost">
                     <location name="/" handler="welcome-content"/>
                     <http-invoker http-authentication-factory="application-http-authentication"/>
+                    <filter-ref name="ip-access-filter" />
                 </host>
             </server>
             <servlet-container name="default">
@@ -484,6 +485,9 @@
             <handlers>
                 <file name="welcome-content" path="${jboss.home.dir}/welcome-content"/>
             </handlers>
+            <filters>
+                <expression-filter name="ip-access-filter" expression="path-prefix('/') -> ip-access-control(default-allow=false, acl={'127.0.0.0/8 allow'})"/>
+            </filters>
             <application-security-domains>
                 <application-security-domain name="other" security-domain="ApplicationDomain"/>
             </application-security-domains>

@@ -456,13 +456,14 @@
         <subsystem xmlns="urn:jboss:domain:undertow:4.0">
             <buffer-cache name="default"/>
             <server name="default-server">
-                <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true" record-request-start-time="true" write-timeout="5000"/>
+                <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true" record-request-start-time="true" write-timeout="5000" proxy-address-forwarding="true" />
                 <https-listener name="https" socket-binding="https" security-realm="ApplicationRealm" enable-http2="true"/>
                 <ajp-listener name="ajp" socket-binding="ajp" read-timeout="100000" write-timeout="100000" />
                 <host name="default-host" alias="localhost">
                     <location name="/" handler="welcome-content"/>
                     <filter-ref name="server-header"/>
                     <filter-ref name="x-powered-by-header"/>
+                    <filter-ref name="ip-access-filter" />
                     <http-invoker security-realm="ApplicationRealm"/>
                 </host>
             </server>
@@ -476,6 +477,7 @@
             <filters>
                 <response-header name="server-header" header-name="Server" header-value="JBoss-EAP/7"/>
                 <response-header name="x-powered-by-header" header-name="X-Powered-By" header-value="Undertow/1"/>
+                <expression-filter name="ip-access-filter" expression="path-prefix('/') -> ip-access-control(default-allow=false, acl={'127.0.0.0/8 allow'})"/>
             </filters>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:webservices:2.0">
