@@ -25,6 +25,7 @@ import jakarta.ws.rs.OPTIONS;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.PathParam;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @Path("options")
@@ -41,5 +42,10 @@ public class JaxbOptionResource {
     @Path("optionsAnnotation")
     public JaxbModel getoption() {
         return new JaxbModel("John","Citizen");
+    }
+    
+    @Path("orders/{id}")
+    public OrderDetails getOrderById(@PathParam("id") int orderId) {
+        return new OrderDetails(orderId);
     }
 }

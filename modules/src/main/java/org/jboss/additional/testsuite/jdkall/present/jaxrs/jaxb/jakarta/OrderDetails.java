@@ -21,31 +21,23 @@
  */
 package org.jboss.additional.testsuite.jdkall.present.jaxrs.jaxb;
 
-import javax.ws.rs.OPTIONS;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.PathParam;
+import jakarta.ws.rs.OPTIONS;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@Path("options")
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
-public class JaxbOptionResource {
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
+public class OrderDetails {
 
-    @GET
-    @Produces({"application/xml"})
-    public JaxbModel get() {
-        return new JaxbModel("John","Citizen");
-    }
-    
-    @OPTIONS
-    @Path("optionsAnnotation")
-    public JaxbModel getoption() {
-        return new JaxbModel("John","Citizen");
-    }
+  private final int id;
 
-    @Path("orders/{id}")
-    public OrderDetails getOrderById(@PathParam("id") int orderId) {
-        return new OrderDetails(orderId);
-    }
+  public OrderDetails(int id) {
+      this.id = id;
+  }
+
+  @OPTIONS
+  @Path("getOrderDetails")
+  public String getOrderDetails() {
+      return "test order details for order id: " + id;
+  }
 }

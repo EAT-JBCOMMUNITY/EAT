@@ -51,7 +51,7 @@ public class JaxbProviderOptionsTestCase {
     @Deployment(testable = false)
     public static Archive<?> deploy() {
         WebArchive war = ShrinkWrap.create(WebArchive.class,"optionswar.war");
-        war.addClasses(JaxbProviderOptionsTestCase.class, JaxbModel.class, JaxbOptionResource.class,ExampleApplication2.class,CacheFilter.class,GlobalExceptionHandler.class, ErrorMessage.class);
+        war.addClasses(JaxbProviderOptionsTestCase.class, JaxbModel.class, JaxbOptionResource.class,ExampleApplication2.class,CacheFilter.class,GlobalExceptionHandler.class, ErrorMessage.class, OrderDetails.class);
         return war;
     }
 
@@ -79,6 +79,18 @@ public class JaxbProviderOptionsTestCase {
         System.out.printf("Allow Header: %s%n", headers.get("Allow"));
         System.out.printf("status: %s%n", response.getStatus());
         System.out.printf("body: '%s'%n", response.readEntity(String.class));
+        Assert.assertTrue(response.getStatus()==200);
+    }
+    
+    @Test
+    public void testSubOptionsAnnotation() throws Exception {
+        Client client = ClientBuilder.newClient();
+        WebTarget target = client.target(url + "myjaxrs/options/orders/1/getOrderDetails");
+        Response response = target.request().options();
+        MultivaluedMap<String, Object> headers = response.getHeaders();
+        System.out.printf("Allow Header: %s%n", headers.get("Allow"));
+        System.out.printf("status: %s%n", response.getStatus());
+        System.out.printf("body2: '%s'%n", response.readEntity(String.class));
         Assert.assertTrue(response.getStatus()==200);
     }
 }
