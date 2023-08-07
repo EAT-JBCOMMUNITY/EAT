@@ -30,6 +30,7 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.as.test.integration.management.util.CLIOpResult;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
+import org.jboss.eap.additional.testsuite.annotations.ATTest;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
@@ -66,6 +67,11 @@ public class DataSourceTestCase extends AbstractCliTestBase {
         testExpressionInJavaContext();
     }
 
+    @ATTest({"modules/testcases/jdkAll/Eap7Plus/server/src/main/java#7.4.13","modules/testcases/jdkAll/WildflyJakarta/server/src/main/java#29.0.0"})
+    public void testReoveServerViaCli() throws Exception {
+        testRemoveServer();
+    }
+
     private void testExpressionInJavaContext() throws Exception {
 
         // remove data source
@@ -74,6 +80,13 @@ public class DataSourceTestCase extends AbstractCliTestBase {
         //check the data source is not listed
         cli.sendLine("/subsystem=datasources/data-source=ExampleDS:read-attribute(name=use-java-context,resolve-expressions=true)");
         cli.sendLine("/subsystem=datasources/data-source=ExampleDS:test-connection-in-pool");
+        CLIOpResult result = cli.readAllAsOpResult();
+        assertTrue(result.isIsOutcomeSuccess());
+    }
+
+    private void testRemoveServer() throws Exception {
+
+        cli.sendLine("/subsystem=undertow/server=abc:remove()");
         CLIOpResult result = cli.readAllAsOpResult();
         assertTrue(result.isIsOutcomeSuccess());
     }
