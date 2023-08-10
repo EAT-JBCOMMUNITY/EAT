@@ -118,6 +118,11 @@
                                     <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/bug2.war" />
 	                            <target name="copy-file"/>
 	                        </ant>
+	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-dir.xml">
+                                    <property name="todir" value="${jboss.modules.dir}/testcases/jdkAll/Eap7Plus/web/test-configurations/src/test/resources/example.war" />
+                                    <property name="folderToCopy" value="${jboss.modules.dir}/src/config/resources/web/example.war" />
+	                            <target name="copy-dir"/>
+	                        </ant>
 	                    </target>
 	                </configuration>
 	            </execution>
