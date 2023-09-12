@@ -42,10 +42,11 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/dbs/src/main/java#7.4.8"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/dbs/src/main/java#7.4.8", "modules/testcases/jdkAll/WildflyJakarta/dbs/src/main/java#30.0.0"})
 public class DatasourceTestCase {
 
     private final String serverLogPath = "../../../../../servers/eap7/build/target/jbossas/standalone/log/server.log";
+    private final String serverLogPath2 = "../../../../../servers/wildfly/build/target/jbossas/standalone/log/server.log";
 
     @Deployment
     public static WebArchive getDeployment() {
@@ -56,6 +57,10 @@ public class DatasourceTestCase {
     @Test
     public void datasourceXaLogWarningTest() throws IOException {
         String path = new File("").getAbsolutePath() + "/" + serverLogPath;
+	File serverlogfile = new File(path);
+	if(!serverlogfile.exists()) {
+	    path = new File("").getAbsolutePath() + "/" + serverLogPath2;
+	}
 
         String content = FileUtils.readFileToString(new File(path), StandardCharsets.UTF_8);
         Assert.assertTrue(content.contains("Datasource pools with allow-multiple-users cannot be prefilled. Prefill setting will be ignored."));
