@@ -17,13 +17,13 @@ import org.junit.Test;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#31.0.0","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.13"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#31.0.0","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.14"})
 public class JspKeepAliveTestCase {
 
-    private static final String JSP_DEPLOYMENT = "example";
+    private static final String JSP_DEPLOYMENT = "examplejsp";
 
     private static final String PAGE_CONTENT = "<% \n" +
-	"System.out.println(\"example.jsp - start\"); \n" +
+	"System.out.println(\"examplejsp.jsp - start\"); \n" +
 	"int size = 16 * 1024; \n" +
 	"char[] buffer = new char[size]; \n" +
 	"for (int i = 0; i < size; i++) { \n" +
@@ -36,13 +36,13 @@ public class JspKeepAliveTestCase {
 	"out.print(\"start\"); \n" +
 	"out.write(buffer); \n" +
 	"out.print(\"end\"); \n" +
-	"System.out.println(\"example.jsp - end\"); \n" +
+	"System.out.println(\"examplejsp.jsp - end\"); \n" +
 	"%>";
 
     @Deployment
     public static WebArchive getDeployment() {
         WebArchive war = ShrinkWrap.create(WebArchive.class, JSP_DEPLOYMENT + ".war");
-        war.add(new StringAsset(PAGE_CONTENT), "example.jsp");
+        war.add(new StringAsset(PAGE_CONTENT), "examplejsp.jsp");
         return war;
     }
 
