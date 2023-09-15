@@ -1000,6 +1000,19 @@
                 <module>ejb</module>
             </modules>
         </profile>
+        
+        <profile>
+            <id>jaxrsActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>jaxrs</value>
+                </property>
+            </activation>
+            <modules>
+                <module>jaxrs</module>
+            </modules>
+        </profile>
 
         <profile>
 	    <id>all</id>
@@ -1010,6 +1023,7 @@
 	    </activation>
             <modules>
 		<module>ejb</module>
+		<module>jaxrs</module>
             </modules>
         </profile>
     
