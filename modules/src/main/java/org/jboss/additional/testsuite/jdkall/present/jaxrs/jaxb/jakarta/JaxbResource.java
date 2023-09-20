@@ -22,8 +22,12 @@
 package org.jboss.additional.testsuite.jdkall.present.jaxrs.jaxb;
 
 import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.Consumes;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @Path("jaxb")
@@ -33,5 +37,25 @@ public class JaxbResource {
     @GET
     public JaxbModel get() {
         return new JaxbModel("John","Citizen");
+    }
+    
+    @POST
+    @Path("/model")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response createModel(JaxbModel model) {
+
+        Response.ResponseBuilder builder = null;
+
+        try {
+            model.setFirst("John");
+            model.setLast("Citizen");
+
+            builder = Response.ok(model);
+        } catch (Exception e) {
+            builder = Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage());
+        }
+
+        return builder.build();
     }
 }
