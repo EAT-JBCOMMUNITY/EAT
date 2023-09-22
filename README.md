@@ -27,12 +27,13 @@ Testing EAP
 -----------
 1. Make sure that JBOSS_FOLDER environment variable is set with the path to your JBOSS EAP directory.
 2. Make sure that JBOSS_VERSION environment variable is set with the version of JBOSS EAP Server.
-3. Build and run the additional testsuite activating the EAP profile (-Deap -Dstandalone).
-4. If you want to use http add -Dmaven.repository.protocol=http (Section : Using HTTPS below)
-5. If you would like/need to disable snapshot versions add -DDISABLE_SNAPSHOT_VERSIONS=true
-6. Sometimes enforcer rules need to be skipped adding -Denforcer.skip
-7. Optional parameter : -Dmaven.wagon.http.ssl.ignore.validity.dates=true
-8. If selenium tests should be included : -Dwebdriver.gecko.driver='path to gecko driver'
+3. Set the equivalent repo according to the profile used for the test, using the repo environment variable.
+4. Build and run the additional testsuite activating the EAP profile (-Deap -Dstandalone).
+5. If you want to use http add -Dmaven.repository.protocol=http (Section : Using HTTPS below)
+6. If you would like/need to disable snapshot versions add -DDISABLE_SNAPSHOT_VERSIONS=true
+7. Sometimes enforcer rules need to be skipped adding -Denforcer.skip
+8. Optional parameter : -Dmaven.wagon.http.ssl.ignore.validity.dates=true
+9. If selenium tests should be included : -Dwebdriver.gecko.driver='path to gecko driver'
 
 
 Testing Wildfly
@@ -52,10 +53,11 @@ Testing EAP or Wildfly with specific JDK version
 ------------------------------------------------
 1. Make sure that JBOSS_FOLDER is set with the path to your EAP OR WILDFLY directory.
 2. Make sure that JBOSS_VERSION environment variable is set with the version of JBOSS EAP OR WILDFLY Server.
-3. Make sure that JAVA_HOME is pointing to the jdk of desired version.
-4. Build and run the additional testsuite activating the EAP or WILDFLY specific jdk version profile (-Deap-jdk8, -Dwildfly-jdk8).
-5. If you want to use http add -Dmaven.repository.protocol=http (Section : Using HTTPS below)
-6. If you would like/need to disable snapshot versions add -DDISABLE_SNAPSHOT_VERSIONS=true
+3. If needed, set the equivalent repo according to the profile used for the test, using the repo environment variable.
+4. Make sure that JAVA_HOME is pointing to the jdk of desired version.
+5. Build and run the additional testsuite activating the EAP or WILDFLY specific jdk version profile (-Deap-jdk8, -Dwildfly-jdk8).
+6. If you want to use http add -Dmaven.repository.protocol=http (Section : Using HTTPS below)
+7. If you would like/need to disable snapshot versions add -DDISABLE_SNAPSHOT_VERSIONS=true
 
 
 Testing with Open Liberty
