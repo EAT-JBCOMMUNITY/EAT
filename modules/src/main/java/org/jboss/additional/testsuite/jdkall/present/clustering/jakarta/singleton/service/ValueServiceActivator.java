@@ -41,7 +41,7 @@ import org.wildfly.clustering.singleton.SingletonPolicy;
  */
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/clustering/src/main/java#27.0.0.Alpha4*28.0.0.Alpha1","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/EapJakarta/clustering/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/clustering/src/main/java#27.0.0.Alpha4*28.0.0.Alpha1","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/clustering/src/main/java"})
 @SuppressWarnings("deprecation")
 public class ValueServiceActivator implements ServiceActivator {
 
