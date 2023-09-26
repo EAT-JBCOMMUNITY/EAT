@@ -522,7 +522,7 @@
 		<repository>
 		    <id>jboss-product-repository-eap6</id>
 		    <name>JBoss Internal Product Repository</name>
-		    <url>$EAP64REPO</url>
+		    <url>${EAP64REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -539,7 +539,7 @@
 		<pluginRepository>
 		    <id>jboss-product-repository-eap6</id>
 		    <name>JBoss Internal Product Repository</name>
-		    <url>$EAP64REPO</url>
+		    <url>${EAP64REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -570,7 +570,7 @@
 		<repository>
 		    <id>jboss-product-repository-eap6</id>
 		    <name>JBoss Internal Product Repository</name>
-		    <url>$EAP64REPO</url>
+		    <url>${EAP64REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -587,7 +587,7 @@
 		<pluginRepository>
 		    <id>jboss-product-repository-eap6</id>
 		    <name>JBoss Internal Product Repository</name>
-		    <url>$EAP64REPO</url>
+		    <url>${EAP64REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -618,7 +618,7 @@
 		<repository>
 		    <id>jboss-product-repository-eap6</id>
 		    <name>JBoss Internal Product Repository</name>
-		    <url>$EAP64REPO</url>
+		    <url>${EAP64REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -635,7 +635,7 @@
 		<pluginRepository>
 		    <id>jboss-product-repository-eap6</id>
 		    <name>JBoss Internal Product Repository</name>
-		    <url>$EAP64REPO</url>
+		    <url>${EAP64REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -666,7 +666,7 @@
 		<repository>
 		    <id>jboss-product-repository-eap6</id>
 		    <name>JBoss Internal Product Repository</name>
-		    <url>$EAP64REPO</url>
+		    <url>${EAP64REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -683,7 +683,7 @@
 		<pluginRepository>
 		    <id>jboss-product-repository-eap6</id>
 		    <name>JBoss Internal Product Repository</name>
-		    <url>$EAP64REPO</url>
+		    <url>${EAP64REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -714,7 +714,7 @@
 		<repository>
 		    <id>jboss-product-repository-eap6</id>
 		    <name>JBoss Internal Product Repository</name>
-		    <url>$EAP63REPO</url>
+		    <url>${EAP63REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -731,7 +731,7 @@
 		<pluginRepository>
 		    <id>jboss-product-repository-eap6</id>
 		    <name>JBoss Internal Product Repository</name>
-		    <url>$EAP63REPO</url>
+		    <url>${EAP63REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -762,7 +762,7 @@
 		<repository>
 		    <id>jboss-product-repository-eap6</id>
 		    <name>JBoss Internal Product Repository</name>
-		    <url>$EAP63REPO</url>
+		    <url>${EAP63REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -779,7 +779,7 @@
 		<pluginRepository>
 		    <id>jboss-product-repository-eap6</id>
 		    <name>JBoss Internal Product Repository</name>
-		    <url>$EAP63REPO</url>
+		    <url>${EAP63REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -810,7 +810,7 @@
 		<repository>
 		    <id>jboss-product-repository-eap6</id>
 		    <name>JBoss Internal Product Repository</name>
-		    <url>$EAP62REPO</url>
+		    <url>${EAP62REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -827,7 +827,7 @@
 		<pluginRepository>
 		    <id>jboss-product-repository-eap6</id>
 		    <name>JBoss Internal Product Repository</name>
-		    <url>$EAP62REPO</url>
+		    <url>${EAP62REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -858,7 +858,7 @@
 		<repository>
 		    <id>jboss-product-repository-eap6</id>
 		    <name>JBoss Internal Product Repository</name>
-		    <url>$EAP62REPO</url>
+		    <url>${EAP62REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -875,7 +875,7 @@
 		<pluginRepository>
 		    <id>jboss-product-repository-eap6</id>
 		    <name>JBoss Internal Product Repository</name>
-		    <url>$EAP62REPO</url>
+		    <url>${EAP62REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -906,7 +906,7 @@
 		<repository>
 		    <id>jboss-product-repository-eap6</id>
 		    <name>JBoss Internal Product Repository</name>
-		    <url>$EAP61REPO</url>
+		    <url>${EAP61REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -923,7 +923,7 @@
 		<pluginRepository>
 		    <id>jboss-product-repository-eap6</id>
 		    <name>JBoss Internal Product Repository</name>
-		    <url>$EAP61REPO</url>
+		    <url>${EAP61REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -954,7 +954,7 @@
 		<repository>
 		    <id>jboss-eap-7.3-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP73REPO</url>
+		    <url>${EAP73REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -968,7 +968,7 @@
 		<repository>
 		    <id>jboss-eap-7.4-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP74REPO</url>
+		    <url>${EAP74REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -985,7 +985,7 @@
 		<pluginRepository>
 		    <id>jboss-eap-7.3-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP73REPO</url>
+		    <url>${EAP73REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -999,7 +999,7 @@
 		<pluginRepository>
 		    <id>jboss-eap-7.4-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP74REPO</url>
+		    <url>${EAP74REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1030,7 +1030,7 @@
 		<repository>
 		    <id>jboss-eap-7.3-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP73REPO</url>
+		    <url>${EAP73REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1044,7 +1044,7 @@
 		<repository>
 		    <id>jboss-eap-7.4-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP74REPO</url>
+		    <url>${EAP74REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1061,7 +1061,7 @@
 		<pluginRepository>
 		    <id>jboss-eap-7.3-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP73REPO</url>
+		    <url>${EAP73REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1075,7 +1075,7 @@
 		<pluginRepository>
 		    <id>jboss-eap-7.4-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP74REPO</url>
+		    <url>${EAP74REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1106,7 +1106,7 @@
 		<repository>
 		    <id>jboss-eap-7.3-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP73REPO</url>
+		    <url>${EAP73REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1120,7 +1120,7 @@
 		<repository>
 		    <id>jboss-eap-7.4-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP74REPO</url>
+		    <url>${EAP74REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1137,7 +1137,7 @@
 		<pluginRepository>
 		    <id>jboss-eap-7.3-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP73REPO</url>
+		    <url>${EAP73REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1151,7 +1151,7 @@
 		<pluginRepository>
 		    <id>jboss-eap-7.4-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP74REPO</url>
+		    <url>${EAP74REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1182,7 +1182,7 @@
 		<repository>
             <id>jboss-eap-7.3-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP73REPO</url>
+		    <url>${EAP73REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1196,7 +1196,7 @@
 		<repository>
             <id>jboss-eap-7.4-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP74REPO</url>
+		    <url>${EAP74REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1213,7 +1213,7 @@
 		<pluginRepository>
             <id>jboss-eap-7.3-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP73REPO</url>
+		    <url>${EAP73REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1227,7 +1227,7 @@
 		<pluginRepository>
             <id>jboss-eap-7.4-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP74REPO</url>
+		    <url>${EAP74REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1258,7 +1258,7 @@
 		<repository>
 		    <id>jboss-eap-7.1-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP71REPO</url>
+		    <url>${EAP71REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1275,7 +1275,7 @@
 		<pluginRepository>
 		    <id>jboss-eap-7.1-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP71REPO</url>
+		    <url>${EAP71REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1306,7 +1306,7 @@
 		<repository>
             <id>jboss-eap-7.1-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP71REPO</url>
+		    <url>${EAP71REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1320,7 +1320,7 @@
                 <repository>
             <id>jboss-eap-7.2-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP72REPO</url>
+		    <url>${EAP72REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1337,7 +1337,7 @@
 		<pluginRepository>
             <id>jboss-eap-7.1-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP71REPO</url>
+		    <url>${EAP71REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1351,7 +1351,7 @@
                 <pluginRepository>
 		    <id>jboss-eap-7.2-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP72REPO</url>
+		    <url>${EAP72REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1382,7 +1382,7 @@
 		<repository>
             <id>jboss-eap-7.2-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP72REPO</url>
+		    <url>${EAP72REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1399,7 +1399,7 @@
 		<pluginRepository>
             <id>jboss-eap-7.2-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP72REPO</url>
+		    <url>${EAP72REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1430,7 +1430,7 @@
 		<repository>
 		    <id>jboss-eap-7.2-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP72REPO</url>
+		    <url>${EAP72REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1447,7 +1447,7 @@
 		<pluginRepository>
 		    <id>jboss-eap-7.2-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP72REPO</url>
+		    <url>${EAP72REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1478,7 +1478,7 @@
 		<repository>
 		    <id>jboss-eap-7.1-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP71REPO</url>
+		    <url>${EAP71REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1495,7 +1495,7 @@
 		<pluginRepository>
 		    <id>jboss-eap-7.1-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP71REPO</url>
+		    <url>${EAP71REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1526,7 +1526,7 @@
 		<repository>
             <id>jboss-eap-7.1-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP71REPO</url>
+		    <url>${EAP71REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1540,7 +1540,7 @@
                 <repository>
 		    <id>jboss-eap-7.2-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP72REPO</url>
+		    <url>${EAP72REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1557,7 +1557,7 @@
 		<pluginRepository>
             <id>jboss-eap-7.1-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP71REPO</url>
+		    <url>${EAP71REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1571,7 +1571,7 @@
                 <pluginRepository>
 		    <id>jboss-eap-7.2-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP72REPO</url>
+		    <url>${EAP72REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1602,7 +1602,7 @@
 		<repository>
 		    <id>jboss-eap-7.2-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP72REPO</url>
+		    <url>${EAP72REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1619,7 +1619,7 @@
 		<pluginRepository>
 		    <id>jboss-eap-7.2-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP72REPO</url>
+		    <url>${EAP72REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1650,7 +1650,7 @@
 		<repository>
             <id>jboss-eap-7.2-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP72REPO</url>
+		    <url>${EAP72REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1667,7 +1667,7 @@
 		<pluginRepository>
             <id>jboss-eap-7.2-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP72REPO</url>
+		    <url>${EAP72REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1698,7 +1698,7 @@
 		<repository>
                     <id>jboss-eap-7.1-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP71REPO</url>
+		    <url>${EAP71REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1715,7 +1715,7 @@
 		<pluginRepository>
                     <id>jboss-eap-7.1-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP71REPO</url>
+		    <url>${EAP71REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
