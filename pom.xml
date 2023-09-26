@@ -1746,7 +1746,7 @@
 		<repository>
 		    <id>jboss-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP70REPO</url>
+		    <url>${EAP70REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1763,7 +1763,7 @@
 		<pluginRepository>
 		    <id>jboss-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP70REPO</url>
+		    <url>${EAP70REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1794,7 +1794,7 @@
 		<repository>
 		    <id>jboss-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP70REPO</url>
+		    <url>${EAP70REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1811,7 +1811,7 @@
 		<pluginRepository>
             <id>jboss-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP70REPO</url>
+		    <url>${EAP70REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1842,7 +1842,7 @@
 		<repository>
 		    <id>jboss-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP70REPO</url>
+		    <url>${EAP70REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1859,7 +1859,7 @@
 		<pluginRepository>
 		    <id>jboss-product-repository</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP70REPO</url>
+		    <url>${EAP70REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1890,7 +1890,7 @@
 		<repository>
 		    <id>jboss-product-repository-eap7</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP70REPO</url>
+		    <url>${EAP70REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
@@ -1907,7 +1907,7 @@
 		<pluginRepository>
 		    <id>jboss-product-repository-eap7</id>
 		    <name>JBoss Product Repository</name>
-		    <url>$EAP70REPO</url>
+		    <url>${EAP70REPO}</url>
 		    <layout>default</layout>
 		    <releases>
 		        <enabled>true</enabled>
