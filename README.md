@@ -396,6 +396,8 @@ EAT-PROPOSALS
 -------------
 The android EAT app : https://play.google.com/store/apps/details?id=edu.eatproposals.eatapp
 
+The testcases that have relevant documentation in EAT-PROPOSALS app include a similar comment as in https://github.com/EAT-JBCOMMUNITY/EAT/blob/master/modules/src/main/java/org/jboss/additional/testsuite/jdkall/present/jaxrs/reactive/ReactiveTestCase.java#L40
+
 Many thanks to Stefanos Vlachos (GSoC 2022)
 
 
