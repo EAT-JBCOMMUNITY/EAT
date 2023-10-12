@@ -26,7 +26,7 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 
 /**
- *  Documentation added : https://play.google.com/store/apps/details?id=edu.eatproposals.eatapp ( RESTEASY DOC / Cache.pdf )
+ *  Documentation added : https://play.google.com/store/apps/details?id=edu.eatproposals.eatapp ( RESTEASY DOC / ResteasyCache.pdf )
  **/
 @RunWith(Arquillian.class)
 @RunAsClient
