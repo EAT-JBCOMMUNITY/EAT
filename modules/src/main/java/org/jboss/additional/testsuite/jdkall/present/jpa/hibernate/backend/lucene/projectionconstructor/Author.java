@@ -2,7 +2,7 @@
  * Copyright The WildFly Authors
  * SPDX-License-Identifier: Apache-2.0
  */
-package org.jboss.as.test.integration.hibernate.search.backend.lucene.projectionconstructor;
+package org.jboss.additional.testsuite.jdkall.present.jpa.hibernate.backend.lucene.projectionconstructor;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +13,9 @@ import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextFi
 
 import java.util.ArrayList;
 import java.util.List;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jpa/src/main/java#30.0.0"})
 @Entity
 public class Author {
 

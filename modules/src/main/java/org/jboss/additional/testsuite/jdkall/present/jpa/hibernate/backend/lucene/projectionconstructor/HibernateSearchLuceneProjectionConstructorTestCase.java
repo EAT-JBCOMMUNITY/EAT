@@ -2,7 +2,7 @@
  * Copyright The WildFly Authors
  * SPDX-License-Identifier: Apache-2.0
  */
-package org.jboss.as.test.integration.hibernate.search.backend.lucene.projectionconstructor;
+package org.jboss.additional.testsuite.jdkall.present.jpa.hibernate.backend.lucene.projectionconstructor;
 
 import jakarta.inject.Inject;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -25,6 +25,9 @@ import static org.junit.Assert.assertEquals;
 /**
  * Verify deployed applications can use Hibernate Search's @ProjectionConstructor with Lucene.
  */
+import org.jboss.eap.additional.testsuite.annotations.EAT;
+
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jpa/src/main/java#30.0.0"})
 @RunWith(Arquillian.class)
 public class HibernateSearchLuceneProjectionConstructorTestCase {
 
@@ -89,8 +92,7 @@ public class HibernateSearchLuceneProjectionConstructorTestCase {
 
         JavaArchive jar = ShrinkWrap.create(JavaArchive.class, JAR_ARCHIVE_NAME);
         // add Jakarta Persistence configuration
-        jar.addAsManifestResource(HibernateSearchLuceneProjectionConstructorTestCase.class.getPackage(),
-                "persistence.xml", "persistence.xml");
+        jar.addAsManifestResource("persistence.xml", "persistence.xml");
         // add testing Bean and entities
         jar.addClasses(SearchBean.class, Book.class, Author.class, BookDTO.class, AuthorDTO.class,
                 HibernateSearchLuceneProjectionConstructorTestCase.class);

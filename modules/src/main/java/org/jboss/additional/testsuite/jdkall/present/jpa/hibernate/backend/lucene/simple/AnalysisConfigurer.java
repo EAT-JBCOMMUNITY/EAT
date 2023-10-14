@@ -3,11 +3,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package org.jboss.as.test.integration.hibernate.search.backend.lucene.simple;
+package org.jboss.additional.testsuite.jdkall.present.jpa.hibernate.backend.lucene.simple;
 
 import org.hibernate.search.backend.lucene.analysis.LuceneAnalysisConfigurationContext;
 import org.hibernate.search.backend.lucene.analysis.LuceneAnalysisConfigurer;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jpa/src/main/java#30.0.0"})
 public class AnalysisConfigurer
         implements LuceneAnalysisConfigurer {
     public static final String AUTOCOMPLETE = "autocomplete";

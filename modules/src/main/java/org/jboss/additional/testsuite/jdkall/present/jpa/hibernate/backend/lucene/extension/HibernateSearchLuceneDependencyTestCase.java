@@ -2,7 +2,7 @@
  * Copyright The WildFly Authors
  * SPDX-License-Identifier: Apache-2.0
  */
-package org.jboss.as.test.integration.hibernate.search.backend.lucene.extension;
+package org.jboss.additional.testsuite.jdkall.present.jpa.hibernate.backend.lucene.extension;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import org.apache.lucene.index.Term;
@@ -45,6 +45,9 @@ import static org.junit.Assert.assertEquals;
  * That's necessary because that module, while public, may be unsupported by product vendors
  * (because its APIs could change without prior notice).
  */
+import org.jboss.eap.additional.testsuite.annotations.EAT;
+
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jpa/src/main/java#30.0.0"})
 @RunWith(Arquillian.class)
 public class HibernateSearchLuceneDependencyTestCase {
 

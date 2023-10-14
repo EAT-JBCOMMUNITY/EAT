@@ -2,7 +2,7 @@
  * Copyright The WildFly Authors
  * SPDX-License-Identifier: Apache-2.0
  */
-package org.jboss.as.test.integration.hibernate.search.backend.lucene.projectionconstructor;
+package org.jboss.additional.testsuite.jdkall.present.jpa.hibernate.backend.lucene.projectionconstructor;
 
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FieldProjection;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.IdProjection;
@@ -10,7 +10,9 @@ import org.hibernate.search.mapper.pojo.mapping.definition.annotation.ObjectProj
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.ProjectionConstructor;
 
 import java.util.List;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jpa/src/main/java#30.0.0"})
 public class BookDTO {
     public final long id;
     public final String title;

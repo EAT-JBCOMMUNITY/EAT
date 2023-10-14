@@ -2,7 +2,7 @@
  * Copyright The WildFly Authors
  * SPDX-License-Identifier: Apache-2.0
  */
-package org.jboss.as.test.integration.hibernate.search.backend.lucene.simple;
+package org.jboss.additional.testsuite.jdkall.present.jpa.hibernate.backend.lucene.simple;
 
 import static org.junit.Assert.assertEquals;
 
@@ -25,6 +25,9 @@ import org.junit.runner.RunWith;
  *
  * @author Sanne Grinovero <sanne@hibernate.org> (C) 2014 Red Hat Inc.
  */
+import org.jboss.eap.additional.testsuite.annotations.EAT;
+
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jpa/src/main/java#30.0.0"})
 @RunWith(Arquillian.class)
 public class HibernateSearchLuceneSimpleTestCase {
 
@@ -56,7 +59,6 @@ public class HibernateSearchLuceneSimpleTestCase {
         assertEquals(3, searchBean.findByKeyword("HELLO").size());
     }
 
-    @Test
     public void testAnalysisConfiguration() {
         searchBean.storeNewBook("Hello");
         searchBean.storeNewBook("Hello world");
@@ -78,7 +80,7 @@ public class HibernateSearchLuceneSimpleTestCase {
 
         JavaArchive jar = ShrinkWrap.create(JavaArchive.class, JAR_ARCHIVE_NAME);
         // add Jakarta Persistence configuration
-        jar.addAsManifestResource(HibernateSearchLuceneSimpleTestCase.class.getPackage(), "persistence.xml", "persistence.xml");
+        jar.addAsManifestResource("persistence.xml", "persistence.xml");
         // add testing Bean and entities
         jar.addClasses(SearchBean.class, Book.class, HibernateSearchLuceneSimpleTestCase.class, AnalysisConfigurer.class);
 

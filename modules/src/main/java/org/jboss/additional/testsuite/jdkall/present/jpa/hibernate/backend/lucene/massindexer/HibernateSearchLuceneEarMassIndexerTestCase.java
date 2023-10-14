@@ -2,7 +2,7 @@
  * Copyright The WildFly Authors
  * SPDX-License-Identifier: Apache-2.0
  */
-package org.jboss.as.test.integration.hibernate.search.backend.lucene.massindexer;
+package org.jboss.additional.testsuite.jdkall.present.jpa.hibernate.backend.lucene.massindexer;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -31,6 +31,9 @@ import static org.junit.Assert.assertTrue;
 /**
  * @author Hardy Ferentschik
  */
+import org.jboss.eap.additional.testsuite.annotations.EAT;
+
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jpa/src/main/java#30.0.0"})
 @RunWith(Arquillian.class)
 public class HibernateSearchLuceneEarMassIndexerTestCase {
     private static final String NAME = HibernateSearchLuceneEarMassIndexerTestCase.class.getSimpleName();

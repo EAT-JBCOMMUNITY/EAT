@@ -2,7 +2,7 @@
  * Copyright The WildFly Authors
  * SPDX-License-Identifier: Apache-2.0
  */
-package org.jboss.as.test.integration.hibernate.search.backend.lucene.simple;
+package org.jboss.additional.testsuite.jdkall.present.jpa.hibernate.backend.lucene.simple;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import org.hibernate.search.engine.search.common.BooleanOperator;
@@ -13,7 +13,9 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.CriteriaDelete;
 import jakarta.transaction.Transactional;
 import java.util.List;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jpa/src/main/java#30.0.0"})
 @ApplicationScoped
 @Transactional
 public class SearchBean {
