@@ -72,7 +72,9 @@ public class AjpTestCase {
 
             Assert.assertTrue("Server log contains error messages caused by resource definitions!", listener.getMatchedLines().isEmpty());
         } finally {
-            tailerThread.stop();
+	    try {
+                tailerThread.stop();
+	    } catch (Exception e) {}
         }
 
     }
