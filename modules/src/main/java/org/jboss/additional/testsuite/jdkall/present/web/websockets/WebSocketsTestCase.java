@@ -114,7 +114,7 @@ public class WebSocketsTestCase {
         war.add(new StringAsset(PAGE_CONTENT), "index.html");
         war.addAsWebInfResource(new StringAsset(WEBXML), "web.xml");
         log.info(war.toString(true));
-        war.as(ZipExporter.class).exportTo(new File("/home/psotirop/websockets.war"), true);
+   //     war.as(ZipExporter.class).exportTo(new File("/home/psotirop/websockets.war"), true);
         return war;
     }
 
