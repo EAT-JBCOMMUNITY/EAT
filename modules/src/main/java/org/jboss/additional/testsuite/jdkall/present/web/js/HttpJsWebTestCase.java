@@ -51,7 +51,7 @@ public class HttpJsWebTestCase {
         WebArchive war = ShrinkWrap.create(WebArchive.class, DEPLOYMENT)
                 .add(new UrlAsset(HttpJsWebTestCase.class.getResource("moment.js")), "moment.js")
                 .add(new StringAsset(JAR_STATIC_INDEX_CONTENT), "index.html");
-        war.as(ZipExporter.class).exportTo(new File("/home/psotirop/httpjs.war"), true);
+    //    war.as(ZipExporter.class).exportTo(new File("/home/psotirop/httpjs.war"), true);
 
         return war;
     }
