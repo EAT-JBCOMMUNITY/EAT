@@ -69,14 +69,14 @@ public class ExplodedDeploymentWithJspTestCase {
                 fail(e.getMessage());
             }
 
-            Thread.sleep(5000);
-
             Path path2 = Paths.get(path + "/test/example.jsp");
             Charset charset = StandardCharsets.UTF_8;
 
             String content = new String(Files.readAllBytes(path2), charset);
             content = content.replaceAll("<p>example.jsp<p>", "<p>example2.jsp<p>");
             Files.write(path2, content.getBytes(charset));
+
+            Thread.sleep(5000);
 
             try (CloseableHttpClient httpClient = httpClientBuilder.build()) {
                 HttpGet httpGet = new HttpGet("http://localhost:8080/example/index.jsp");
