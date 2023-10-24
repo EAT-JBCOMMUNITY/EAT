@@ -315,6 +315,11 @@
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-ext</artifactId>
                 </dependency>
+		<dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-simple</artifactId>
+		    <version>1.7.21</version>
+                </dependency>
                 <dependency>
 		    <groupId>org.jboss.spec.javax.annotation</groupId>
 		    <artifactId>jboss-annotations-api_1.3_spec</artifactId>
@@ -1049,6 +1054,11 @@
                 <dependency>
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-ext</artifactId>
+                </dependency>
+		<dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-simple</artifactId>
+		    <version>1.7.21</version>
                 </dependency>
                 <dependency>
 		    <groupId>org.jboss.spec.javax.annotation</groupId>
