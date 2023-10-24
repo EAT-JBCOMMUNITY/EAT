@@ -29,7 +29,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/others/src/main/java#7.4.13","modules/testcases/jdkAll/WildflyJakarta/others/src/main/java#30.0.0"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/others/src/main/java#7.4.14","modules/testcases/jdkAll/WildflyJakarta/others/src/main/java#30.0.0"})
 public class WarnLogTestCase {
 
     private static final String serverLogPath = "target/surefire-reports/org.jboss.additional.testsuite.jdkall.present.others.WarnLogTestCase-output.txt";
