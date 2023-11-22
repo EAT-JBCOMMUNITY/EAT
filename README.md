@@ -404,7 +404,7 @@ Many thanks to Stefanos Vlachos (GSoC 2022)
 EAT app Docs
 ------------
 - JBEAP-23792.pdf
-- RESTEASY DOCS (ClientSideFilters.pdf , ResteasyAtomLinks.pdf, ResteasyServerSideFilters.pdf, ResteasyInterceptors.pdf, ResteasyCache.pdf)
+- RESTEASY DOCS (ClientSideFilters.pdf , ResteasyAtomLinks.pdf, ResteasyServerSideFilters.pdf, ResteasyInterceptors.pdf, ResteasyCache.pdf, ResteasyGzip.pdf)
 - REST ARCHITECTURE (REST.pdf)
 - GSoC-2022 (3 phases)
 
