@@ -10,7 +10,8 @@ public class InstanceSizeTestCase {
 
     /**
      * ./standalone.sh
-     * watch -n 1 "./jboss-cli.sh -c :reload"
+     * if using continuous restart of the server : watch -n 1 "./jboss-cli.sh -c :reload"
+     * if using app redeployment : watch -n 1 touch app.war.dodeploy
      * wget   https://github.com/check-leak/check-leak/releases/download/0.12/check-leak-0.12.jar
      * java -jar check-leak-0.11.jar remote --pid <PID_OF_SERVER> --report /tmp/report --sleep 5000 > out.txt
      * IFILE is the Property that contains the path to the check-leak-012 output : https://github.com/check-leak/check-leak.git
