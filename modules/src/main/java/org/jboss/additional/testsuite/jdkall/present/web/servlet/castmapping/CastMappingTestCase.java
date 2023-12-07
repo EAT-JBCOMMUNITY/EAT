@@ -26,7 +26,7 @@ import java.util.Arrays;
 
 @RunAsClient
 @RunWith(Arquillian.class)
-@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.14","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#31.0.0"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.14","modules/testcases/jdkAll/EapJakarta/web/src/main/java","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#31.0.0"})
 public class CastMappingTestCase {
 
     public static final String DEPLOYMENT = "castmapping.war";
