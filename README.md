@@ -408,6 +408,12 @@ EAT app Docs
 - REST ARCHITECTURE (REST.pdf)
 - GSoC-2022 (3 phases)
 
+
+LATEST JDK
+-----------
+JDK 21
+
+
 EAT WORKSHOP
 ---------------------------------
 [EAT Workshop](https://www.dropbox.com/s/bebhyd1iz7cg1i2/EAT_WORKSHOP.odt?dl=0)
