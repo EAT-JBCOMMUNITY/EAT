@@ -68,8 +68,9 @@ public class CalculatorInstrumentationTest {
     }
 
     @Test
+    //@ATFeature(feature={"addFirstParamTwice"},minVersion={"1"},maxVersion={"null"})
     public void typeOperandsAndPerformAddOperation() {
-        performOperation(R.id.operation_add_btn, "16.0", "16.0", "32.0");
+        performOperation(R.id.operation_add_btn, "16.0", "16.0", "48.0");
     }
 
     @Test
