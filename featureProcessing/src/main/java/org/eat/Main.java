@@ -42,6 +42,7 @@ public class Main {
 	}
 	
 	for(String key : processFiles.keySet()) {
+	    if(processFiles.get(key).compareTo("delete")!=0) {
 		List<String> fileContent = new ArrayList<>(Files.readAllLines(Paths.get(eatHomeDir + "/" + key), StandardCharsets.UTF_8));
 		for (int i = 0; i < fileContent.size(); i++) {
 		    if (fileContent.get(i).contains("@EAT")) {
@@ -51,6 +52,11 @@ public class Main {
 		}
 
 		Files.write(Paths.get(eatHomeDir + "/" + key), fileContent, StandardCharsets.UTF_8);
+	    }else {
+	        File toDelete = new File(eatHomeDir + "/" + key);
+	        toDelete.delete();
+	    }
+	        
 	}
 
     }
