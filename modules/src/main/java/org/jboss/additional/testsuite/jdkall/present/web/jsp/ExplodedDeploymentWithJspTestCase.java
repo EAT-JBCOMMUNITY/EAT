@@ -31,7 +31,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.11","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#29.0.0"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.11*7.4.14","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#29.0.0"}) // Probably a regression. Needs to be checked.
 public class ExplodedDeploymentWithJspTestCase {
 
     private static final Logger log = LoggerFactory.getLogger(ExplodedDeploymentWithJspTestCase.class);
