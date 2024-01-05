@@ -545,7 +545,7 @@
                 <dependency>
 		    <groupId>org.jboss.resteasy</groupId>
 		    <artifactId>resteasy-links</artifactId>
-		    <version>3.15.5.Final</version>
+		    <version>3.15.6.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>io.reactivex.rxjava2</groupId>
@@ -1041,7 +1041,7 @@
                 <dependency>
 		    <groupId>org.jboss.resteasy</groupId>
 		    <artifactId>resteasy-links</artifactId>
-		    <version>3.15.5.Final</version>
+		    <version>3.15.6.Final</version>
 		</dependency>
 		<dependency>
 		    <groupId>io.reactivex.rxjava2</groupId>
