@@ -1,5 +1,5 @@
 modules/src/main/java/org/example/runner/version2/Calculator.java >> //@EAT({"modules/testcases/jdkAll/Android/testorchestratorwithtestcoveragesample/testing-samples/runner/AndroidTestOrchestratorWithTestCoverageSample/app/src/main/java#3.0.0*3.0.1"})
 modules/src/main/java/org/example/runner/version2/CalculatorAddParameterizedTest.java >> //@EAT({"modules/testcases/jdkAll/Android/testorchestratorwithtestcoveragesample/testing-samples/runner/AndroidTestOrchestratorWithTestCoverageSample/app/src/androidTest/java#3.0.0*3.0.1"})
 modules/src/main/java/org/example/runner/version2/CalculatorInstrumentationTest.java >> delete
-modules/src/main/java/org/example/runner/version2/activity_calculator.xml >> <!-- @EAT({"modules/testcases/jdkAll/Android/testorchestratorwithtestcoveragesample/testing-samples/runner/AndroidTestOrchestratorWithTestCoverageSample/app/src/main/res/layout#3.0.0*3.0.1"}) -->
+modules/src/main/java/org/example/runner/version1/activity_calculator.xml >> <!-- @EAT({"modules/testcases/jdkAll/Android/testorchestratorwithtestcoveragesample/testing-samples/runner/AndroidTestOrchestratorWithTestCoverageSample/app/src/main/res/layout#3.0.0*3.0.1"}) -->
 
