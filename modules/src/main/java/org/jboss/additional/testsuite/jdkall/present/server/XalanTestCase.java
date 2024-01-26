@@ -41,7 +41,7 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/server/src/main/java#32.0.0","modules/testcases/jdkAll/Eap7Plus/server/src/main/java#7.4.12"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/server/src/main/java#33.0.0","modules/testcases/jdkAll/Eap7Plus/server/src/main/java#7.4.12"})
 public class XalanTestCase {
 
     @Deployment

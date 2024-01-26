@@ -41,7 +41,7 @@ import static org.junit.runners.Parameterized.Parameters;
  */
 @RunWith(Parameterized.class)
 @SmallTest
-//@EAT({"modules/testcases/jdkAll/Android/testorchestratorwithtestcoveragesample/testing-samples/runner/AndroidTestOrchestratorWithTestCoverageSample/app/src/androidTest/java#2.0.0*2.0.1"})
+//@EAT({"modules/testcases/jdkAll/Android/testorchestratorwithtestcoveragesample/testing-samples/runner/AndroidTestOrchestratorWithTestCoverageSample/app/src/androidTest/java#3.0.0*3.0.1"})
 public class CalculatorAddParameterizedTest {
 
     /**

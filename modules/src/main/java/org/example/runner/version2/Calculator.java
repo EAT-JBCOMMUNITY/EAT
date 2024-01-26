@@ -21,7 +21,7 @@ import static com.google.common.base.Preconditions.checkArgument;
 /**
  * A simple calculator with a basic set of operations.
  */
-//@EAT({"modules/testcases/jdkAll/Android/testorchestratorwithtestcoveragesample/testing-samples/runner/AndroidTestOrchestratorWithTestCoverageSample/app/src/main/java#2.0.0*2.0.1"})
+//@EAT({"modules/testcases/jdkAll/Android/testorchestratorwithtestcoveragesample/testing-samples/runner/AndroidTestOrchestratorWithTestCoverageSample/app/src/main/java#3.0.0*3.0.1"})
 public class Calculator {
 
     public enum Operator {ADD, SUB, DIV, MUL}
