@@ -23,6 +23,7 @@ import jakarta.ws.rs.client.Invocation.Builder;
 
 @RunWith(Arquillian.class)
 @RunAsClient
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#31.0.0"})
 public class InvalidActionTestCase {
 
     @Deployment
@@ -36,7 +37,7 @@ public class InvalidActionTestCase {
     public void throwsNotFoundExceptionNotAppropriateInfo(@ArquillianResource URL url) throws InterruptedException {
             try {
             	Client client = (ResteasyClient) ResteasyClientBuilder.newClient();
-            	Builder request = client.target(url.toExternalForm() + "restexception/test/1").request();
+            	Builder request = client.target(url.toExternalForm() + "restexception/path/1").request();
             	String result = request.get(String.class);
             	Assert.fail("Exception should have been thrown for result... " + result);
             } catch (Exception e) {

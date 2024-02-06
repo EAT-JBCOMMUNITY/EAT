@@ -1,7 +1,9 @@
 package org.jboss.additional.testsuite.jdkall.present.jaxrs.exceptions;
 
 import org.jboss.eap.additional.testsuite.annotations.EAT;
-import jakarta.ws.rs.*;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Path;
 
 @Path("/")
 @EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java"})
