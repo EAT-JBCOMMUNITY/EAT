@@ -40,7 +40,7 @@ public class Resource {
 	@GET
 	@Path("session")
 	public String checkSession(@CookieParam("JSESSIONID") String sessionid) {
-		return "Browser is "+sessionid;
+		return "Cookie session id is "+sessionid;
 	}
 	@GET
 	@Path("httpheaders")
