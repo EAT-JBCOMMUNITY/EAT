@@ -175,7 +175,7 @@ public class ParamsTestCase {
 
 	HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 	Assert.assertNotNull(response.body());
-        Assert.assertTrue(response.body().contains("Browser is 12345"));
+        Assert.assertTrue(response.body().contains("Cookie session id is 12345"));
 
     }
     
