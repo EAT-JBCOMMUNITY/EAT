@@ -54,7 +54,7 @@ import org.junit.runner.RunWith;
  */
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/clustering/src/main/java#32.0.0"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/clustering/src/main/java#27.0.0.Alpha4*31.0.0.Final","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/EapJakarta/clustering/src/main/java"})
 @RunWith(Arquillian.class)
 public class SingletonServiceTestCase {
     private static final String MODULE_NAME = SingletonServiceTestCase.class.getSimpleName();
@@ -63,7 +63,7 @@ public class SingletonServiceTestCase {
     public static Archive<?> deployment() {
         WebArchive war = ShrinkWrap.create(WebArchive.class, MODULE_NAME + ".war");
         war.addPackage(NodeServiceServlet.class.getPackage());
-        war.setManifest(new StringAsset("Manifest-Version: 1.0\nDependencies: org.wildfly.service\n"));
+        war.setManifest(new StringAsset("Manifest-Version: 1.0\nDependencies: org.jboss.as.clustering.common\n"));
         war.addAsServiceProvider(org.jboss.msc.service.ServiceActivator.class, NodeServiceActivator.class);
         return war;
     }

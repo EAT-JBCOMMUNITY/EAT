@@ -27,6 +27,7 @@ import static org.jboss.additional.testsuite.jdkall.present.clustering.cluster.A
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+import org.jboss.as.clustering.controller.ServiceValueCaptorServiceConfigurator;
 import org.jboss.msc.service.ServiceActivator;
 import org.jboss.msc.service.ServiceActivatorContext;
 import org.jboss.msc.service.ServiceBuilder;
@@ -44,7 +45,7 @@ import org.wildfly.clustering.singleton.service.SingletonServiceConfiguratorFact
  */
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/clustering/src/main/java#32.0.0"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/clustering/src/main/java#27.0.0.Alpha4*31.0.0.Final","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/EapJakarta/clustering/src/main/java"})
 public class NodeServiceActivator implements ServiceActivator {
 
     public static final ServiceName DEFAULT_SERVICE_NAME = ServiceName.JBOSS.append("test", "service", "default");
@@ -64,8 +65,8 @@ public class NodeServiceActivator implements ServiceActivator {
         };
         builder.setInstance(new ChildTargetService(installer)).install();
 
-        NodeServiceExecutorRegistry.INSTANCE.capture(DEFAULT_SERVICE_NAME).install(context.getServiceTarget());
-        NodeServiceExecutorRegistry.INSTANCE.capture(QUORUM_SERVICE_NAME).install(context.getServiceTarget());
+        new ServiceValueCaptorServiceConfigurator<>(NodeServiceExecutorRegistry.INSTANCE.add(DEFAULT_SERVICE_NAME)).build(context.getServiceTarget()).install();
+        new ServiceValueCaptorServiceConfigurator<>(NodeServiceExecutorRegistry.INSTANCE.add(QUORUM_SERVICE_NAME)).build(context.getServiceTarget()).install();
     }
 
     private static void install(ServiceTarget target, SingletonServiceConfiguratorFactory factory, ServiceName name, int quorum) {

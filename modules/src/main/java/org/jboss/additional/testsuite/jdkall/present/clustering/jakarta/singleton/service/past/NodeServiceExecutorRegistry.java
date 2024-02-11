@@ -22,39 +22,39 @@
 
 package org.jboss.additional.testsuite.jdkall.present.clustering.cluster.singleton.service;
 
-import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+import org.jboss.as.clustering.controller.FunctionExecutor;
+import org.jboss.as.clustering.controller.FunctionExecutorRegistry;
+import org.jboss.as.clustering.controller.ServiceValueCaptor;
+import org.jboss.as.clustering.controller.ServiceValueExecutorRegistry;
+import org.jboss.as.clustering.controller.ServiceValueRegistry;
 import org.jboss.msc.service.ServiceName;
 import org.wildfly.clustering.group.Node;
-import org.wildfly.service.capture.FunctionExecutor;
-import org.wildfly.service.capture.FunctionExecutorRegistry;
-import org.wildfly.service.capture.ServiceValueExecutorRegistry;
-import org.wildfly.service.capture.ServiceValueRegistry;
 
 /**
  * @author Paul Ferraro
  */
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/clustering/src/main/java#32.0.0"})
-public enum NodeServiceExecutorRegistry implements FunctionExecutorRegistry<ServiceName, Supplier<Node>>, ServiceValueRegistry<Supplier<Node>> {
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/clustering/src/main/java#27.0.0.Alpha4*31.0.0.Final","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/EapJakarta/clustering/src/main/java"})
+public enum NodeServiceExecutorRegistry implements FunctionExecutorRegistry<Supplier<Node>>, ServiceValueRegistry<Supplier<Node>> {
     INSTANCE;
 
-    private final ServiceValueExecutorRegistry<Supplier<Node>> registry = ServiceValueExecutorRegistry.newInstance();
+    private final ServiceValueExecutorRegistry<Supplier<Node>> registry = new ServiceValueExecutorRegistry<>();
 
     @Override
-    public Consumer<Supplier<Node>> add(ServiceName name) {
+    public ServiceValueCaptor<Supplier<Node>> add(ServiceName name) {
         return this.registry.add(name);
     }
 
     @Override
-    public void remove(ServiceName name) {
-        this.registry.remove(name);
+    public ServiceValueCaptor<Supplier<Node>> remove(ServiceName name) {
+        return this.registry.remove(name);
     }
 
     @Override
-    public FunctionExecutor<Supplier<Node>> getExecutor(ServiceName name) {
-        return this.registry.getExecutor(name);
+    public FunctionExecutor<Supplier<Node>> get(ServiceName name) {
+        return this.registry.get(name);
     }
 }
