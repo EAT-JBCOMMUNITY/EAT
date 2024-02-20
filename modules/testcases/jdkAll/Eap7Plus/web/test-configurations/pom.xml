@@ -58,6 +58,9 @@
 		            <goal>test</goal>
 		        </goals>
 		        <configuration>         
+			    <systemPropertyVariables>
+                                <jboss.dist>${jboss.modules.dir}/servers/eap7/build/target/jbossas</jboss.dist>
+                            </systemPropertyVariables>
 		            <!-- Tests to execute. -->
 		            <includes>
 		                <include>org/jboss/additional/testsuite/jdkall/present/web/**/*TestCase.java</include>
