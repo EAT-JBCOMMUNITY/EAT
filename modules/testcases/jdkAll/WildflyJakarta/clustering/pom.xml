@@ -37,6 +37,7 @@
             </dependencies>
             <modules>
                 <module>test-configurations</module>
+                <module>test2-configurations</module>
             </modules>
         </profile>
     </profiles>
