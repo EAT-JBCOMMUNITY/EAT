@@ -17,6 +17,11 @@
         <copy todir="${workspace}/servers/${server}/build/target/${server}-${cacheMode}-${stack}-1" overwrite="true">
             <fileset dir="${workspace}/servers/${server}/build/target/jbossas"/>
         </copy>
+        
+        <echo message="  =========  Building config clustering-${cacheMode}-${stack}-2  =========  "/>
+        <copy todir="${workspace}/servers/${server}/build/target/${server}-${cacheMode}-${stack}-2" overwrite="true">
+            <fileset dir="${workspace}/servers/${server}/build/target/jbossas"/>
+        </copy>
 
     </target>
 

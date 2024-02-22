@@ -62,15 +62,15 @@
         </container>
         <container qualifier="container-2" mode="custom" managed="false">
             <configuration>
-                <property name="jbossHome">${basedir}/../../../../../servers/wildfly/build/target/wildfly-SYNC-tcp-0</property>
+                <property name="jbossHome">${basedir}/../../../../../servers/wildfly/build/target/wildfly-SYNC-tcp-2</property>
                 <!-- AS7-2493 different jboss.node.name must be specified -->
-                <property name="javaVmArguments">-Djboss.inst=${basedir}/../../../../../servers/wildfly/build/target/wildfly-SYNC-tcp-0 -Djboss.node.name=node-3 -Djboss.socket.binding.port-offset=100</property>
+                <property name="javaVmArguments">-Djboss.inst=${basedir}/../../../../../servers/wildfly/build/target/wildfly-SYNC-tcp-2 -Djboss.node.name=node-3 -Djboss.socket.binding.port-offset=100</property>
                 <property name="serverConfig">${jboss.server.config.file.name:standalone-ha.xml}</property>
                 <property name="managementAddress">${node0:127.0.0.1}</property>
                 <property name="managementPort">${as.managementPort:10090}</property>
                 <property name="allowConnectingToRunningServer">true</property>
                 <!-- AS7-4070 Arquillian should wait until a port is free after AS JVM process ends to prevent "port in use" -->
-                <property name="waitForPorts">${as.debug.port:8787} ${as.managementPort:9990}</property>
+                <property name="waitForPorts">${as.debug.port:8787} ${as.managementPort:10090}</property>
                 <property name="waitForPortsTimeoutInSeconds">8</property>
             </configuration>
         </container>

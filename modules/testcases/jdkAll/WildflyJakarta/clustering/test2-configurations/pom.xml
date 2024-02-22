@@ -105,7 +105,7 @@
 	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/basic-build.xml">
 	                            <property name="workspace" value="/${jboss.modules.dir}" />
                                     <property name="server" value="${server}" />
-                                    <property name="dist" value="wildfly-SYNC-tcp-0" />
+                                    <property name="dist" value="wildfly-SYNC-tcp-2" />
 	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
 	                            <target name="build-basic-check"/>
 	                        </ant>
