@@ -712,6 +712,7 @@
 		    <artifactId>jackson-jaxrs</artifactId>
 		    <version>1.9.13</version>
 		</dependency>
+		<!-- Additional dynamic dependencies should be added here.-->
             </dependencies>
 
         </profile>
