@@ -60,7 +60,28 @@
                 <property name="waitForPortsTimeoutInSeconds">8</property>
             </configuration>
         </container>
-
+        <container qualifier="container-2" mode="custom">
+            <configuration>
+                <property name="jbossHome">${basedir}/../../../../../servers/eap7/build/target/eap7-SYNC-tcp-2</property>
+                <property name="javaVmArguments">-Djboss.inst=${basedir}/../../../../../servers/eap7/build/target/eap7-SYNC-tcp-2 -Djboss.bind.address=${node1:127.0.0.1} -Djboss.bind.address.management=${node1:127.0.0.1} -Djboss.bind.address.private=${node1:127.0.0.1} -Djboss.default.multicast.address=${mcast:230.0.0.4} -Djboss.node.name=node-3 -Djboss.socket.binding.port-offset=100</property>
+                <property name="serverConfig">${jboss.server.config.file.name:standalone-ha.xml}</property>
+                <property name="managementAddress">${node1:127.0.0.1}</property>
+                <property name="managementPort">10090</property>
+                <property name="waitForPorts">${as.debug.port.node1} 10090</property>
+                <property name="waitForPortsTimeoutInSeconds">8</property>
+            </configuration>
+        </container>
+        <container qualifier="container-3" mode="custom">
+            <configuration>
+                <property name="jbossHome">${basedir}/../../../../../servers/eap7/build/target/eap7-SYNC-tcp-1</property>
+                <property name="javaVmArguments">-Djboss.inst=${basedir}/../../../../../servers/eap7/build/target/eap7-SYNC-tcp-1 -Djboss.bind.address=${node1:127.0.0.1} -Djboss.bind.address.management=${node1:127.0.0.1} -Djboss.bind.address.private=${node1:127.0.0.1} -Djboss.default.multicast.address=${mcast:230.0.0.4} -Djboss.node.name=node-4 -Djboss.socket.binding.port-offset=200</property>
+                <property name="serverConfig">${jboss.server.config.file.name:standalone-ha.xml}</property>
+                <property name="managementAddress">${node1:127.0.0.1}</property>
+                <property name="managementPort">10190</property>
+                <property name="waitForPorts">${as.debug.port.node1} 10190</property>
+                <property name="waitForPortsTimeoutInSeconds">8</property>
+            </configuration>
+        </container>
 
     </group>
 </arquillian>
