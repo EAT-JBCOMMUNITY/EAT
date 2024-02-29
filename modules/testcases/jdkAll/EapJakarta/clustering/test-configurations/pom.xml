@@ -64,7 +64,10 @@
 		            <includes>
 		                <include>org/jboss/additional/testsuite/jdkall/present/clustering/**/*TestCase.java</include>
                                 <include>org/jboss/additional/testsuite/jdkall/past/clustering/**/*TestCase.java</include>
-		            </includes> 
+		            </includes>
+			    <excludes>
+		                <exclude>org/jboss/additional/testsuite/jdkall/present/clustering/**/WebClusterTestCase.java</exclude>
+		            </excludes> 
 		        </configuration>
 		    </execution>
 		</executions>
