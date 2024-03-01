@@ -63,7 +63,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdk11/Eap7Plus/ejb/src/main/java#7.4.14*7.4.15"})
+@EAT({"modules/testcases/jdk11/Eap7Plus/ejb/src/main/java#7.4.14*7.4.19"})
 public class RemoteOutboundConnectionReconnectTest {
 
     private static final Logger logger = Logger.getLogger(RemoteOutboundConnectionReconnectTestCase.class);
