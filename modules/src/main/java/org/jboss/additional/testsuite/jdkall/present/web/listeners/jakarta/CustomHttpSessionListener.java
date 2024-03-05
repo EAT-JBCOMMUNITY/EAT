@@ -7,7 +7,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#31.0.0"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#32.0.0"})
 public class CustomHttpSessionListener implements HttpSessionListener{
 
 
