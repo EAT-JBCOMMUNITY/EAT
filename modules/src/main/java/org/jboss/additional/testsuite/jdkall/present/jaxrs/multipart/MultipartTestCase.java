@@ -76,7 +76,7 @@ public class MultipartTestCase {
 
 	HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 	
-	System.out.println("====" + response.body());
+	Assert.assertTrue(response.body().toString().contains("OK"));
 
     }
     
