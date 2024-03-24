@@ -22,7 +22,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.15"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.15","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#32.0.0"})
 @RunWith(Arquillian.class)
 @RunAsClient
 public class MultipartCurlTestCase {
