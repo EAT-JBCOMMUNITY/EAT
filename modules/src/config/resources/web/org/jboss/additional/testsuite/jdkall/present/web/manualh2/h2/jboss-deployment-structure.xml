@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/test-configurations/src/test/resources/org/jboss/additional/testsuite/jdkall/present/web/security/manualh2/h2#29.0.0","modules/testcases/jdkAll/Eap7Plus/web/test-configurations/src/test/resources/org/jboss/additional/testsuite/jdkall/present/web/security/manualh2/h2#7.4.11"}})-->
+<jboss-deployment-structure>
+    <deployment>
+        <dependencies>
+            <module name="com.h2database.h2" slot="main" services="import"/>
+        </dependencies>
+    </deployment>
+</jboss-deployment-structure>
