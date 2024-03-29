@@ -42,7 +42,7 @@ public class H2Servlet extends HttpServlet {
             Thread.sleep(500000);
         */
             try {
-                conn = JdbcUtils.getConnection("jakarta.naming.InitialContext", "ldap:jboss/datasources/ExampleDS", "", "");
+                conn = JdbcUtils.getConnection("javax.naming.InitialContext", "ldap:jboss/datasources/ExampleDS", "", "");
                 throw new ServletException();
             } catch (SQLException e) {
                 throw new ServletException(e);
