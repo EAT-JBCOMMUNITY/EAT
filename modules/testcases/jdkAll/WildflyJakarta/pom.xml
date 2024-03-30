@@ -1884,6 +1884,19 @@
         </profile>
 
         <profile>
+            <id>junit</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>junit</value>
+                </property>
+            </activation>
+            <modules>
+                <module>junit</module>
+            </modules>
+        </profile>
+
+        <profile>
 	    <id>all</id>
 	    <activation>
 	        <property>
