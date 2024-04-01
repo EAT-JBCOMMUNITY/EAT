@@ -1407,6 +1407,7 @@
 	    </activation>
             <modules>
                 <module>basic</module>
+                <module>junit</module>
 		<module>core</module>
 		<module>ejb</module>
 		<module>elytron</module>
