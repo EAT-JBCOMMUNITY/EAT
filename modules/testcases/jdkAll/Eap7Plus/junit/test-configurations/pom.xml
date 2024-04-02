@@ -10,11 +10,11 @@
 
     <parent>
         <groupId>org.jboss</groupId>
-        <artifactId>eap7-jakarta-additional-testsuite-junit</artifactId>
+        <artifactId>eap7-additional-testsuite-junit</artifactId>
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>eap7-jakarta-additional-testsuite-basic-configuration</artifactId>
+    <artifactId>eap7-additional-testsuite-junit-configuration</artifactId>
     <name>eap7 additional testsuite: junit : configuration</name>
             
     <properties>
