@@ -1905,6 +1905,7 @@
 	    </activation>
             <modules>
                 <module>basic</module>
+		<module>junit</module>
 		<module>core</module>
 		<module>elytron</module>
 		<module>jaxrs</module>
