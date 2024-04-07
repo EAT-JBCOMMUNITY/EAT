@@ -14,7 +14,7 @@ public class IndexOutOfBoundsExceptionSimulationTestCase<T> {
     public void simulation(){
         Object[] attachedObjects = new Object[2];
 
-        if (this.attachedObjects != null) {
+        if (this.attachedObjects != null  && this.attachedObjects.size() == attachedObjects.length) {
             // Assume 1:1 relation between existing attachedObjects and state
             for (int i = 0, len = attachedObjects.length; i < len; i++) {
                 T attachedObject = this.attachedObjects.get(i);
