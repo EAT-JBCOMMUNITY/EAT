@@ -14,7 +14,7 @@
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>wildfly-jakarta-additional-testsuite-basic-configuration</artifactId>
+    <artifactId>wildfly-jakarta-additional-testsuite-junit-configuration</artifactId>
     <name>wildfly additional testsuite: junit : configuration</name>
             
     <properties>
