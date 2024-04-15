@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/junit/src/main/java#7.4.17","modules/testcases/jdkAll/WildflyJakarta/junit/src/main/java#32.0.0"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/junit/src/main/java#7.4.17","modules/testcases/jdkAll/WildflyJakarta/junit/src/main/java#32.0.0","modules/testcases/jdkAll/EapJakarta/junit/src/main/java#8.0.2"}})
 public class IndexOutOfBoundsExceptionSimulationTestCase<T> {
 
     private List<T> attachedObjects = new ArrayList<>(2);
@@ -14,7 +14,7 @@ public class IndexOutOfBoundsExceptionSimulationTestCase<T> {
     public void simulation(){
         Object[] attachedObjects = new Object[2];
 
-        if (this.attachedObjects != null  && this.attachedObjects.size() == attachedObjects.length) {
+        if (this.attachedObjects != null && this.attachedObjects.size() == attachedObjects.length) {
             // Assume 1:1 relation between existing attachedObjects and state
             for (int i = 0, len = attachedObjects.length; i < len; i++) {
                 T attachedObject = this.attachedObjects.get(i);
