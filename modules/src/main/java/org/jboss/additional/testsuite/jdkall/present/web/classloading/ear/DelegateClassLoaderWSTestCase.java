@@ -53,7 +53,7 @@ import java.net.URL;
 @EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/web/src/main/java","modules/testcases/jdkAll/Wildfly/web/src/main/java#15.0.0.Final*27.0.0.Alpha3","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/web/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/web/src/main/java#7.2.0.CR1","modules/testcases/jdkAll/Eap72x/web/src/main/java#7.2.0.CR1","modules/testcases/jdkAll/Eap71x-Proposed/web/src/main/java#7.1.5","modules/testcases/jdkAll/Eap71x/web/src/main/java#7.1.5","modules/testcases/jdkAll/Eap7Plus/web/src/main/java"})
 public class DelegateClassLoaderWSTestCase {
 
-    private static final String EAR_NAME = "test";
+    private static final String EAR_NAME = "testws";
     private static final String EJB_MODULE_NAME = "ejb";
     private static final String SERVICE_MODULE_NAME = "service";
 
@@ -105,7 +105,7 @@ public class DelegateClassLoaderWSTestCase {
     }
 
     private static GreeterEJB getClient(URL deploymentUrl) throws MalformedURLException {
-        String wsdlUrlString = deploymentUrl.toExternalForm().replace(EAR_NAME, EJB_MODULE_NAME) + GreeterEJBImpl.CLASS_NAME + "?wsdl";
+        String wsdlUrlString = deploymentUrl.toExternalForm().replace("test", EJB_MODULE_NAME) + GreeterEJBImpl.CLASS_NAME + "?wsdl";
         URL wsdlUrl = new URL(wsdlUrlString);
         QName serviceName = new QName(GreeterEJBImpl.NAMESPACE, GreeterEJBImpl.SERVICE_NAME);
         return Service.create(wsdlUrl, serviceName).getPort(GreeterEJB.class);

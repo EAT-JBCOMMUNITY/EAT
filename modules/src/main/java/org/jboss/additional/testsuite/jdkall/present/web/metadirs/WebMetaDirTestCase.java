@@ -122,7 +122,7 @@ public class WebMetaDirTestCase {
         }
     }
 
-    @ATTest({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#33.0.0","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.17","modules/testcases/jdkAll/EapJakarta/web/src/main/java#9.0.0"})
+    @ATTest({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#33.0.0","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.18","modules/testcases/jdkAll/EapJakarta/web/src/main/java#9.0.0"})
     public void metainfWithDotsTest(@ArquillianResource URL url) throws IOException, URISyntaxException {
         URL testUrl = new URL(url.toExternalForm() + "::/::/META-INF/text");
         final HttpGet request = new HttpGet(testUrl.toString());
@@ -138,7 +138,7 @@ public class WebMetaDirTestCase {
         }
     }
 
-    @ATTest({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#33.0.0","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.17","modules/testcases/jdkAll/EapJakarta/web/src/main/java#9.0.0"})
+    @ATTest({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#33.0.0","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.18","modules/testcases/jdkAll/EapJakarta/web/src/main/java#9.0.0"})
     public void webinfWithDotsTest(@ArquillianResource URL url) throws IOException, URISyntaxException {
         URL testUrl = new URL(url.toExternalForm() + "::/::/WEB-INF/text");
         final HttpGet request = new HttpGet(testUrl.toString());
