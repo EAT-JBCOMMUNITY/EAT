@@ -27,7 +27,7 @@ import static org.junit.Assert.assertEquals;
  */
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jpa/src/main/java#30.0.0"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jpa/src/main/java#30.0.0*32.0.0"})
 @RunWith(Arquillian.class)
 public class HibernateSearchLuceneProjectionConstructorTestCase {
 
