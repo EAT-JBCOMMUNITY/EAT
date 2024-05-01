@@ -19,7 +19,7 @@ ENV JAVA_HOME /usr/local/jdk-11.0.1
 # Add JDK bin dir to PATH
 ENV PATH=$PATH:$JAVA_HOME/bin/
 
-ENV MAVEN_VERSION 3.6.3
+ENV MAVEN_VERSION 3.9.6
 
 RUN curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share \
   && mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven \
