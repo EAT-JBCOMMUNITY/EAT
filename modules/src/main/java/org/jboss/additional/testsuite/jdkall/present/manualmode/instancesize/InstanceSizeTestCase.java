@@ -29,15 +29,17 @@ public class InstanceSizeTestCase {
 		String st;
 
 		while (((st = br.readLine()) != null)) {
-		    if (st.contains(":")) {	
+		    if (st.contains("bytes")) {	
 		        String[] s = st.split("[(),\\s]+");  
 		        if(s.length>=4) 
-				if(log.get(s[4])!=null)
-				    log.get(s[4]).add(Integer.valueOf(s[2]));
-				else
-				    log.put(s[4], new ArrayList(Integer.valueOf(s[2])));
-		            
 		  //      System.out.println(st + " " + Arrays.toString(s) + " " + s.length);
+
+				if(log.get(s[4])!=null)
+				    log.get(s[4]).add(Integer.valueOf(s[3]));
+				else
+				    log.put(s[4], new ArrayList(Integer.valueOf(s[3])));
+		            
+		        System.out.println(st + " " + Arrays.toString(s) + " " + s.length + " " + s[4]);
 		    }
 		}
 		
