@@ -28,7 +28,7 @@ ENV JAVA_HOME /usr/java/latest
 ENV PATH=$PATH:/usr/java/latest/bin/
 
 
-ENV MAVEN_VERSION 3.6.1
+ENV MAVEN_VERSION 3.9.6
 
 RUN curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share \
   && mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven \
@@ -52,7 +52,7 @@ ENV JBOSS_VERSION=$JBOSS_VERSION
 ENV JBOSS_FOLDER=$JBOSS_FOLDER
 ENV EAT_MODULES=$EAT_MODULES
 
-CMD mvn clean install -Dwildfly-jakarta -Dstandalone -Dmodule=${EAT_MODULES} -s /usr/share/settings-eatwildfly.xml
+CMD mvn clean install -Dwildfly -Dstandalone -Dmodule=${EAT_MODULES} -s /usr/share/settings-eatwildfly.xml
 
 
 
