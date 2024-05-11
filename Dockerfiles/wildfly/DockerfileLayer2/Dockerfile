@@ -14,7 +14,7 @@ WORKDIR "/eat/master"
 ENV JBOSS_VERSION=$JBOSS_VERSION
 ENV JBOSS_FOLDER=$JBOSS_FOLDER
 
-CMD mvn clean install -Dwildfly -Dstandalone -s /home/user/.m2/settings.xml
+CMD mvn clean install -Dwildfly-jakarta -Dstandalone -s /home/user/.m2/settings.xml
 
 
 
