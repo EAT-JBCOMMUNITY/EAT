@@ -16,7 +16,7 @@ Using the Dockerfile in the JBossServers directory you need to mount the server 
 6. chcon -Rt svirt_sandbox_file_t $MAVEN_REPO
 7. Go to dir Dockerfiles/JBossServers
 8. Run : docker build -t docker.io/eat . (in order too create the eat image)
-9. Run : docker run -t --name=eat -e JBOSS_FOLDER=$JBOSS_FOLDER -e JBOSS_VERSION=$JBOSS_VERSION -e MAVEN_REPO=$MAVEN_REPO -e SERVER_CODE=$SERVER_CODE -v $JBOSS_FOLDER:$JBOSS_FOLDER -v $MAVEN_REPO:$MAVEN_REPO  docker.io/eat (in order to execute eat)
+9. Run : docker run -t --name=eat -e JBOSS_FOLDER=$JBOSS_FOLDER -e JBOSS_VERSION=$JBOSS_VERSION -e MAVEN_REPO=$MAVEN_REPO -e SERVER_CODE=$SERVER_CODE -v $JBOSS_FOLDER:$JBOSS_FOLDER -v $MAVEN_REPO:$MAVEN_REPO   --ulimit nofile=5000:5000 docker.io/eat (in order to execute eat)
 
 
 ### WILDFLY
@@ -25,5 +25,5 @@ Using the Dockerfile in the wildfly directory you do not need to mount the serve
 
 1. Go to dir Dockerfiles/wildfly
 2. Run : docker build -t docker.io/eat . (in order too create the eat image)
-3. Run : docker run -t --name=eat -e JBOSS_FOLDER=/wildfly/master/dist/target/wildfly-20.0.0.Beta1-SNAPSHOT -e JBOSS_VERSION=20.0.0.Beta1-SNAPSHOT -e EAT_MODULES=(env not set for all modules, basic, jaxrs, ejb, domain, etc)  docker.io/eat (in order to execute eat, the version should be replaced with the current wildfly master version)
+3. Run : docker run -t --name=eat -e JBOSS_FOLDER=/wildfly/master/dist/target/wildfly-20.0.0.Beta1-SNAPSHOT -e JBOSS_VERSION=20.0.0.Beta1-SNAPSHOT -e EAT_MODULES=(env not set for all modules, basic, jaxrs, ejb, domain, etc)  --ulimit nofile=5000:5000 docker.io/eat (in order to execute eat, the version should be replaced with the current wildfly master version)
 
