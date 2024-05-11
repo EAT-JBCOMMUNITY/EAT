@@ -5,14 +5,14 @@ In order for run EAT using docker to test EAP Server Images, please, follow the 
 
 1. Create the image for the EAP Server : e.g. docker build --build-arg GITHUB_USERNAME='github username' --build-arg GITHUB_PASSWORD='github password' --build-arg EAP_BRANCH='branch of EAP' -t docker.io/eapimage -f DockerfileEapImage --ulimit nofile=5000:5000 .
 2. Create the image for EAT : e.g. docker build -t  docker.io/eateap  -f DockerfileEatImage --ulimit nofile=5000:5000 .
-3. Run the container, specifying the server version and the path to the server distribution as well as the EAT server code : e.g. docker run --name=eateap -e JBOSS_VERSION='EAP server version' -e JBOSS_FOLDER='EAP server distribution path' -e EATCODE='EAT server code' docker.io/eateap 
+3. Run the container, specifying the server version and the path to the server distribution as well as the EAT server code : e.g. docker run --name=eateap -e JBOSS_VERSION='EAP server version' -e JBOSS_FOLDER='EAP server distribution path' -e EATCODE='EAT server code' --ulimit nofile=5000:5000 docker.io/eateap 
 
 or
 
 1. Create the image for the EAP Server : e.g. docker build --build-arg GITHUB_USERNAME='github username' --build-arg GITHUB_PASSWORD='github password' --build-arg EAP_BRANCH='branch of EAP' -t docker.io/eapimage -f DockerfileEapImage --ulimit nofile=5000:5000 .
 2. Run the container attaching two volumes : e.g. docker run --name=eapserver -v DataVolume1:/eap/master -v DataVolume2:/home/user/.m2 docker.io/eapimage
 3. Create the image for EAT : e.g. docker build -t  docker.io/eateap  -f DockerfileEat --ulimit nofile=5000:5000 .
-4. Run the container with the same two volumes attached, specifying the server version and the path to the server distribution as well as the EAT server code : e.g. docker run --name=eateap -v DataVolume1:/eap/master -v DataVolume2:/home/user/.m2 -e JBOSS_VERSION='EAP server version' -e JBOSS_FOLDER='EAP server distribution path' -e EATCODE='EAT server code' docker.io/eateap 
+4. Run the container with the same two volumes attached, specifying the server version and the path to the server distribution as well as the EAT server code : e.g. docker run --name=eateap -v DataVolume1:/eap/master -v DataVolume2:/home/user/.m2 -e JBOSS_VERSION='EAP server version' -e JBOSS_FOLDER='EAP server distribution path' -e EATCODE='EAT server code' --ulimit nofile=5000:5000 docker.io/eateap 
 
 
 
