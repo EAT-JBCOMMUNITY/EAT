@@ -13,9 +13,9 @@ RUN yum install -y git
 RUN yum install -y sudo
 
 # Downloading Java
-RUN wget --no-check-certificate "https://www.dropbox.com/s/vm819mraxwidxqh/jdk-8u191-linux-x64.rpm?dl=0" -O /tmp/jdk-8-linux-x64.rpm && cd /tmp && yum -y --allowerasing install findutils && rpm -Uhv jdk-8-linux-x64.rpm
+RUN wget --no-check-certificate "https://www.dropbox.com/scl/fi/hb5h62c79no0gzl8hoi6e/jdk-11.0.22_linux-x64_bin.rpm?rlkey=wa4qtonq5siwinfoi95v8ucfk&st=x6nh0u2e&dl=0" -O /tmp/jdk-11.0.22_linux-x64_bin.rpm && cd /tmp && yum -y install findutils && rpm -Uhv jdk-11.0.22_linux-x64_bin.rpm
 
-RUN rm /tmp/jdk-8-linux-x64.rpm 
+RUN rm /tmp/jdk-11.0.22_linux-x64_bin.rpm
 
 RUN alternatives --install /usr/bin/java jar /usr/java/latest/bin/java 200000
 RUN alternatives --install /usr/bin/javaws javaws /usr/java/latest/bin/javaws 200000
