@@ -10,7 +10,7 @@ Using the Dockerfile in the JBossServers directory you need to mount the server 
 
 1. export JBOSS_FOLDER="the dist directory of the server you would like to test"
 2. export JBOSS_VERSION="the version of the server to test"
-3. export SERVER_CODE=eap71x, (wildfly, eap7, eap70x, eap64x, etc)
+3. export SERVER_CODE=eap71x, (wildfly-jakarta, eap7, eap70x, eap64x, etc)
 4. export MAVEN_REPO="the path to the .m2 maven directory" (the file settings.xml, inside this directory, should have the line ```<localRepository>/...path.../.m2/repository</localRepository>```)
 5. chcon -Rt svirt_sandbox_file_t $JBOSS_FOLDER (every time we set another SERVER_CODE we should give the SELinux permissions for the JBOSS_FOLDER)
 6. chcon -Rt svirt_sandbox_file_t $MAVEN_REPO
