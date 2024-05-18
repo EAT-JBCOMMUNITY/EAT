@@ -1,4 +1,4 @@
-FROM docker.io/centos
+FROM docker.io/centos7
 
 MAINTAINER Panagiotis Sotiropoulos <psotirop@redhat.com>
 
@@ -7,10 +7,10 @@ LABEL description="A container for testing EAT PR in isolation"
 ADD ./* /home/user/
 
 # Upgrading system
-RUN dnf -y upgrade
-RUN dnf -y install wget
-RUN dnf install -y git
-RUN dnf install -y sudo
+RUN yum -y upgrade
+RUN yum -y install wget
+RUN yum install -y git
+RUN yum install -y sudo
 
 # Downloading Java
 RUN wget --no-check-certificate "https://www.dropbox.com/scl/fi/hb5h62c79no0gzl8hoi6e/jdk-11.0.22_linux-x64_bin.rpm?rlkey=wa4qtonq5siwinfoi95v8ucfk&st=x6nh0u2e&dl=0" -O /tmp/jdk-11.0.22_linux-x64_bin.rpm && cd /tmp && yum -y install findutils && rpm -Uhv jdk-11.0.22_linux-x64_bin.rpm
@@ -27,7 +27,7 @@ ENV JAVA_HOME /usr/java/latest
 # Add JDK bin dir to PATH
 ENV PATH=$PATH:/usr/java/latest/bin/
 
-ENV MAVEN_VERSION 3.6.3
+ENV MAVEN_VERSION 3.9.6
 
 RUN curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share \
   && mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven \
