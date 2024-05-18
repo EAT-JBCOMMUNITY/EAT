@@ -1,7 +1,5 @@
 FROM docker.io/centos:centos7
 
-MAINTAINER Panagiotis Sotiropoulos <psotirop@redhat.com>
-
 LABEL description="A container for testing EAT PR in isolation"
 
 ADD ./* /home/user/
