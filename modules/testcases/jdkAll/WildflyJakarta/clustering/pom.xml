@@ -27,14 +27,6 @@
                 </property>
             </activation>
 
-            <dependencies>
-                <dependency>
-		    <groupId>org.infinispan</groupId>
-		    <artifactId>infinispan-server-testdriver-junit4</artifactId>
-		    <version>13.0.10.Final</version>
-		    <scope>test</scope>
-		</dependency>
-            </dependencies>
             <modules>
                 <module>test-configurations</module>
                 <module>test2-configurations</module>
