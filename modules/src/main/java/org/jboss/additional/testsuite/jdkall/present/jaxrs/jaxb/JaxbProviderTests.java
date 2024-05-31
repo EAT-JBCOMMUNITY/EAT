@@ -86,7 +86,7 @@ public class JaxbProviderTests {
         Assert.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><jaxbModel><first>John</first><last>Citizen</last></jaxbModel>", result);
     }
 
-    @ATTest({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.15","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#34.0.0","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java#8.0.1*8.0.1"})
+    @ATTest({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.15","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#34.0.0","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java#8.0.4"})
     public void testException() throws Exception {
         String uri = url.getPath() + "rest/jaxb/model";
 
