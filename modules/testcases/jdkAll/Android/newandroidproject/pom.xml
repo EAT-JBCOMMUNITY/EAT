@@ -70,7 +70,7 @@
 						   <configuration>
 							 <tasks name="Build Android Project">
 							   <exec
-								 dir="${basedir}/AndroidProject"
+								 dir="${basedir}/WeatherApp-Android"
 								 executable="./gradlew"
 								 failonerror="true">
 								 <arg line="build"/>
