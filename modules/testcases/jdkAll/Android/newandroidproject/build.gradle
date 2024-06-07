@@ -8,7 +8,7 @@ description = "android additional testsuite: newproject"
 if (project.hasProperty('android')  && project.hasProperty('clone')){
 
 	task cloneAndroidProject1(type: Exec) {
-	        commandLine "git", "clone", "https://github.com/Ajinkya-Kardile/PrettyMeal.git"
+	        commandLine "git", "clone", "https://github.com/dev-aniketj/WeatherApp-Android.git"
 	}
 
         compileJava.dependsOn(cloneAndroidProject1)
@@ -18,7 +18,7 @@ if (project.hasProperty('android')  && project.hasProperty('clone')){
 if (project.hasProperty('android') && project.hasProperty('create')){
 
 	task runAndroidProject1(type: Exec) {
-		workingDir project.buildDir.toString() + "/../AndroidProject"
+		workingDir project.buildDir.toString() + "/../WeatherApp-Android"
 		commandLine "./gradlew", "build"
 	}
 
