@@ -45,6 +45,7 @@
                 <module>espressobasicsample</module>
                 <module>testorchestratorwithtestcoveragesample</module>
                 <module>junitbasicsample</module>
+		<module>newandroidproject</module>
             </modules>
         </profile>
         <profile>
@@ -225,6 +226,18 @@
             </activation>
             <modules>
                 <module>junitbasicsample</module>
+            </modules>
+        </profile>
+	<profile>
+            <id>newandroidproject</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>newandroidproject</value>
+                </property>
+            </activation>
+            <modules>
+                <module>newandroidproject</module>
             </modules>
         </profile>
     </profiles>
