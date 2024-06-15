@@ -13,7 +13,7 @@ import javassist.CtClass;
 import javassist.NotFoundException;
 
 public class Javax2Jakarta {
-
+    // This set of map entries could/should be extended ...
     final static Map<String, String> transformations = Map.ofEntries(
             Map.entry("javax.servlet.RequestDispatcher", "jakarta.servlet.RequestDispatcher"),
             Map.entry("javax.servlet.ServletException", "jakarta.servlet.ServletException"),
@@ -58,8 +58,8 @@ public class Javax2Jakarta {
     }
 
     public static void main(String[] args) throws Exception {
-        String warFilePath = System.getProperty("jar");
-        // Replace with your WAR file path 
+        // Set with your WAR file path 
+        String warFilePath = System.getProperty("jar");      
         List<CtClass> classes = getClassesFromWar(warFilePath);
         System.out.println("Extracted classes:");
         for (CtClass ctClass : classes) {
