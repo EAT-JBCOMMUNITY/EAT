@@ -45,7 +45,7 @@
                 <module>espressobasicsample</module>
                 <module>testorchestratorwithtestcoveragesample</module>
                 <module>junitbasicsample</module>
-		<module>newandroidproject</module>
+		<module>weatherapp</module>
             </modules>
         </profile>
         <profile>
@@ -229,15 +229,15 @@
             </modules>
         </profile>
 	<profile>
-            <id>newandroidproject</id>
+            <id>weatherapp</id>
             <activation>
                 <property>
                     <name>module</name>
-                    <value>newandroidproject</value>
+                    <value>weatherapp</value>
                 </property>
             </activation>
             <modules>
-                <module>newandroidproject</module>
+                <module>weatherapp</module>
             </modules>
         </profile>
     </profiles>
