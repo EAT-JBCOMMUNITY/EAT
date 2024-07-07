@@ -14,9 +14,9 @@
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>android-additional-testsuite-newproject</artifactId>
+    <artifactId>android-additional-testsuite-weatherapp</artifactId>
     <packaging>pom</packaging>
-    <name>android additional testsuite: newproject</name>
+    <name>android additional testsuite: weatherapp</name>
 
     <profiles>
         <profile>
