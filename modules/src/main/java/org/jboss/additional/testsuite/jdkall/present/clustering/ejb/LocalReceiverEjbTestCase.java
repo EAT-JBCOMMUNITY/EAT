@@ -22,7 +22,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java#7.4.18","modules/testcases/jdkAll/WildflyJakarta/clustering/src/main/java#34.0.0"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java#7.4.19","modules/testcases/jdkAll/WildflyJakarta/clustering/src/main/java#34.0.0"})
 public class LocalReceiverEjbTestCase {
 
     private static final File serverLog = new File(System.getProperty("jboss.dist"), "standalone" + File.separator + "log"
