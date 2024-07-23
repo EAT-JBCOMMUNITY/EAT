@@ -46,6 +46,7 @@
                 <module>testorchestratorwithtestcoveragesample</module>
                 <module>junitbasicsample</module>
 		<module>weatherapp</module>
+		<module>mediaplayer</module>
             </modules>
         </profile>
         <profile>
@@ -238,6 +239,18 @@
             </activation>
             <modules>
                 <module>weatherapp</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>mediaplayer</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>mediaplayer</value>
+                </property>
+            </activation>
+            <modules>
+                <module>mediaplayer</module>
             </modules>
         </profile>
     </profiles>

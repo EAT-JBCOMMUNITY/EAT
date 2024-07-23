@@ -14,9 +14,9 @@
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>android-additional-testsuite-newproject</artifactId>
+    <artifactId>android-additional-testsuite-mediaplayer</artifactId>
     <packaging>pom</packaging>
-    <name>android additional testsuite: newproject</name>
+    <name>android additional testsuite: mediaplayer</name>
 
     <profiles>
         <profile>
@@ -70,7 +70,7 @@
 						   <configuration>
 							 <tasks name="Build Android Project">
 							   <exec
-								 dir="${basedir}/newproject"
+								 dir="${basedir}/Sense"
 								 executable="./gradlew"
 								 failonerror="true">
 								 <arg line="build"/>
