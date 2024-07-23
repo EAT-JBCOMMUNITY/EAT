@@ -1,4 +1,4 @@
-<!-- @EAT({"modules/testcases/jdkAll/Android/androidproject1/AndroidProject/app/src/main/res/values#2.0.0*2.0.1"}) -->
+<!-- @EAT({"modules/testcases/jdkAll/Android/mediaplayer/Sense/app/src/main/res/values#2.0.0*2.0.1"}) -->
 <resources>
     // NOTE:- app_name and app_version is now moved to app's build.gradle file
 
