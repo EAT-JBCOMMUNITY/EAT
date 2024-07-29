@@ -1,0 +1,4 @@
+#@EAT({"modules/testcases/jdkAll/WildflyJakarta/others/test-configurations/src/test/resources/WEB-INF/classes/META-INF/services","modules/testcases/jdkAll/EapJakarta/others/test-configurations/src/test/resources//WEB-INF/classes/META-INF/services","modules/testcases/jdkAll/Eap7Plus/others/test-configurations/src/test/resources//WEB-INF/classes/META-INF/services"}) -->
+# testing comment1
+# testing comment2
+com.class.Factory
