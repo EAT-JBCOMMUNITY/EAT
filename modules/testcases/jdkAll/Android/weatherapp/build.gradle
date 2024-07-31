@@ -8,7 +8,7 @@ description = "android additional testsuite: weatherapp"
 if (project.hasProperty('android')  && project.hasProperty('clone')){
 
 	task cloneAndroidProject1(type: Exec) {
-	        commandLine "git", "clone", "https://github.com/dev-aniketj/WeatherApp-Android.git"
+	        commandLine "git", "clone", "https://github.com/EAT-JBCOMMUNITY/WeatherApp-Android.git"
 	}
 
         compileJava.dependsOn(cloneAndroidProject1)
