@@ -41,8 +41,7 @@ public class ExpressionFactoryCommentTestCase {
     @Deployment
     public static WebArchive getDeployment() {
         WebArchive war = ShrinkWrap.create(WebArchive.class, DEPLOYMENT + ".war");
-	//war.addAsResource("WEB-INF/classes/META-INF/services/javax.el.ExpressionFactory");
-        log.info(war.toString(true));
+	war.addAsResource("WEB-INF/classes/META-INF/services/javax.el.ExpressionFactory");
         return war;
     }
 
