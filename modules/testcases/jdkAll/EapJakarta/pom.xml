@@ -1067,6 +1067,19 @@
                 <module>junit</module>
             </modules>
         </profile>
+        
+        <profile>
+            <id>visualinfoActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>visualinfo</value>
+                </property>
+            </activation>
+            <modules>
+                <module>visualinfo</module>
+            </modules>
+        </profile>
 
         <profile>
 	    <id>all</id>
@@ -1077,6 +1090,7 @@
 	    </activation>
             <modules>
                 <module>basic</module>
+                <module>visualinfo</module>
                 <module>junit</module>
 		<module>core</module>
 		<module>elytron</module>
