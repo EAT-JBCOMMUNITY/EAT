@@ -58,6 +58,9 @@
 		                <include>org/jboss/additional/testsuite/jdkall/present/visualinfo/**/*Test.java</include>
 		                <include>org/jboss/additional/testsuite/jdkall/present/visualinfo/**/*TestCase.java</include>
 		            </includes> 
+			    <systemPropertyVariables>
+			        <jboss.dist>${JBOSS_FOLDER}</jboss.dist>
+			    </systemPropertyVariables>
 		        </configuration>
 		    </execution>
 		</executions>
