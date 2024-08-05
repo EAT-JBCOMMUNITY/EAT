@@ -28,25 +28,24 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.junit.Test;
-Import java.io.*;
+import java.io.*;
 import org.junit.runner.RunWith;
 import static org.junit.Assert.fail;
 
 @RunWith(Arquillian.class)
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/visualinfo/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/EapJakarta/visualinfo/src/main/java","modules/testcases/jdkAll/Eap7Plus/visualinfo/src/main/java"})
-public class BasicTest {
-
+@EAT({"modules/testcases/jdkAll/EapJakarta/visualinfo/src/main/java","modules/testcases/jdkAll/Eap7Plus/visualinfo/src/main/java"})
+public class VersionTest {
+    
     @Deployment
     public static Archive<?> getDeployment() {
         JavaArchive archive = ShrinkWrap.create(JavaArchive.class);
-        archive.addClass(VisualInfoTest.class);
+        archive.addClass(VersionTest.class);
         return archive;
     }
 
     @Test
     public void versionExistsTest() {
-	String server_dist = System.getProperty("jboss.dist");
-
+	String server_dist = getJBossHome();
 	if (server_dist == null)
 	    fail("JBoss dist does not exist ...");
 
@@ -55,5 +54,13 @@ public class BasicTest {
 	if(!f.exists()) {
 	    fail("JBoss version.txt file does not exist ...");
 	}
+    }
+    
+    private static String getJBossHome() {
+        String jbossHome = System.getProperty("jboss.dist");
+	    if (jbossHome == null) {
+	        jbossHome = System.getProperty("jboss.home");
+	    }
+	    return jbossHome == null ? System.getenv("JBOSS_HOME") : jbossHome;
     }
 }
