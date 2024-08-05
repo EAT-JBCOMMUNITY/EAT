@@ -42,7 +42,9 @@
                     <additionalClasspathElements combine.children="append">
                         <additionalClasspathElement>${jboss.modules.dir}/src/config/arqWildflyJakarta</additionalClasspathElement>
                     </additionalClasspathElements>
-
+		    <systemPropertyVariables>
+			<jboss.dist>${JBOSS_FOLDER}</jboss.dist>
+		    </systemPropertyVariables>
                 </configuration>
 
 		<executions>
@@ -57,10 +59,7 @@
 		            <includes>
 		                <include>org/jboss/additional/testsuite/jdkall/present/visualinfo/**/*Test.java</include>
 		                <include>org/jboss/additional/testsuite/jdkall/present/visualinfo/**/*TestCase.java</include>
-		            </includes> 
-			    <systemPropertyVariables>
-			        <jboss.dist>${JBOSS_FOLDER}</jboss.dist>
-			    </systemPropertyVariables>
+		            </includes> 			    
 		        </configuration>
 		    </execution>
 		</executions>
