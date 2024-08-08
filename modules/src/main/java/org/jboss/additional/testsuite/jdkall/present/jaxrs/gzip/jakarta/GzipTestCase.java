@@ -16,10 +16,10 @@ import org.junit.runner.RunWith;
 import java.io.File;
 import java.io.FileInputStream;
 import org.apache.commons.io.IOUtils;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.client.Invocation;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.client.ClientBuilder;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.client.Invocation;
 import static org.junit.Assert.assertTrue;
 import org.apache.http.util.EntityUtils;
 
@@ -30,9 +30,9 @@ import java.net.Socket;
 import java.net.URL;
 import java.util.Locale;
 import java.util.stream.Collectors;
-import org.jboss.resteasy.plugins.interceptors.encoding.GZIPEncodingInterceptor;
-import org.jboss.resteasy.plugins.interceptors.encoding.GZIPDecodingInterceptor;
-import org.jboss.resteasy.plugins.interceptors.encoding.AcceptEncodingGZIPFilter;
+import org.jboss.resteasy.plugins.interceptors.GZIPEncodingInterceptor;
+import org.jboss.resteasy.plugins.interceptors.GZIPDecodingInterceptor;
+import org.jboss.resteasy.plugins.interceptors.AcceptEncodingGZIPFilter;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 
 
@@ -41,18 +41,18 @@ import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
  **/
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class GzipTestCase {
 
     private static Logger log = Logger.getLogger(GzipTestCase.class.getName());
-    private static final String gzipproviders = "org.jboss.resteasy.plugins.interceptors.encoding.GZIPDecodingInterceptor\norg.jboss.resteasy.plugins.interceptors.encoding.GZIPEncodingInterceptor\norg.jboss.resteasy.plugins.interceptors.encoding.AcceptEncodingGZIPFilter";
+    private static final String gzipproviders = "org.jboss.resteasy.plugins.interceptors.GZIPDecodingInterceptor\norg.jboss.resteasy.plugins.interceptors.GZIPEncodingInterceptor\norg.jboss.resteasy.plugins.interceptors.AcceptEncodingGZIPFilter";
 
     @Deployment
     public static Archive<?> deploy() {
         WebArchive war = ShrinkWrap.create(WebArchive.class, "gzip.war");
         war.addPackage(GzipTestCase.class.getPackage());
-        war.addPackage(org.jboss.resteasy.plugins.interceptors.encoding.AcceptEncodingGZIPFilter.class.getPackage());
-         war.addAsManifestResource(new StringAsset(gzipproviders), "services/javax.ws.rs.ext.Providers");
+        war.addPackage(org.jboss.resteasy.plugins.interceptors.AcceptEncodingGZIPFilter.class.getPackage());
+        war.addAsManifestResource(new StringAsset(gzipproviders), "services/jakarta.ws.rs.ext.Providers");
         return war;
     }
 
@@ -64,7 +64,7 @@ public class GzipTestCase {
         String uri = url.getPath() + "/gzip/gzipservice/articles";
         System.out.println("uri: " + uri);
 
-        Client client = new ResteasyClientBuilder() // Activate gzip compression on client:
+        Client client = ClientBuilder.newBuilder() // Activate gzip compression on client:
                     .register(AcceptEncodingGZIPFilter.class)
                     .register(GZIPDecodingInterceptor.class)
                     .register(GZIPEncodingInterceptor.class)
