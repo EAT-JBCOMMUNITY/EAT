@@ -168,6 +168,13 @@ else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=
     }
     
 }
+else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="visualinfo")){
+    
+    dependencies{
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:visualinfo')
+    }
+    
+}
 else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=="all")){
     
     dependencies{
@@ -194,6 +201,7 @@ else if(project.hasProperty('moduleName') && (project.getProperty('moduleName')=
         implementation project(':modules:testcases:jdkAll:WildflyJakarta:web')
         implementation project(':modules:testcases:jdkAll:WildflyJakarta:weld')
         implementation project(':modules:testcases:jdkAll:WildflyJakarta:ejb')
+        implementation project(':modules:testcases:jdkAll:WildflyJakarta:visualinfo')
     }
 
 }
