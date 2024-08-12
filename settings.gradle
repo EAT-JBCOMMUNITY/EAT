@@ -62,4 +62,5 @@ include ':modules:testcases:jdkAll:WildflyJakarta:web:test-configurations2'
 include ':modules:testcases:jdkAll:WildflyJakarta:weld:test-configurations'
 include ':modules:testcases:jdkAll:WildflyJakarta:weld:test-configurations2'
 include ':modules:testcases:jdkAll:WildflyJakarta:junit:test-configurations'
+include ':modules:testcases:jdkAll:WildflyJakarta:visualinfo:test-configurations'
 
