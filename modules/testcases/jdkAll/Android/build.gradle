@@ -132,3 +132,10 @@ if (project.hasProperty('android') && (project.getProperty('module')=="testorche
         implementation project(':modules:testcases:jdkAll:Android:testorchestratorwithtestcoveragesample')
     }
 }
+
+if (project.hasProperty('android') && (project.getProperty('module')=="mediaplayer")){
+
+    dependencies{
+        implementation project(':modules:testcases:jdkAll:Android:mediaplayer')
+    }
+}
