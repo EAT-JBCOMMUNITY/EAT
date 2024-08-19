@@ -6,7 +6,7 @@ version = '1.0.3.Final'
 
 description = "wildfly jakarta additional testsuite test configurations: additional testsuite test configurations for wildfly jakarta"
 
-if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="basic") || (project.getProperty('moduleName')=="all"))){
+if(project.hasProperty('moduleName') && ((project.getProperty('moduleName')=="visualinfo") || (project.getProperty('moduleName')=="all"))){
 
 task deleteFiles(type: Delete) {
     delete fileTree(project.buildDir.toString() + '/../../../../../../server/wildfly/build/target/jbossas/standalone/deployments') {
