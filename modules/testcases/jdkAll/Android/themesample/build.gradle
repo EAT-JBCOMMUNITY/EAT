@@ -8,7 +8,7 @@ description = "android additional testsuite: themesample"
 if (project.hasProperty('android')  && project.hasProperty('clone')){
 
 	task cloneThemeSampleProject(type: Exec) {
-		commandLine "git", "clone", "https://github.com/stefanos-vlachos/ThemeSample.git"
+		commandLine "git", "clone", "https://github.com/EAT-JBCOMMUNITY/ThemeSample.git"
 	}
 
 	compileJava.dependsOn(cloneThemeSampleProject)
