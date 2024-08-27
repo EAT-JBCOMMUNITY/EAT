@@ -1,1 +1,1 @@
-git clone https://github.com/stefanos-vlachos/MyCamera.git
+git clone https://github.com/EAT-JBCOMMUNITY/MyCamera.git
