@@ -1,1 +1,1 @@
-git clone https://github.com/stefanos-vlachos/ThemeSample.git
+git clone https://github.com/EAT-JBCOMMUNITY/ThemeSample.git
