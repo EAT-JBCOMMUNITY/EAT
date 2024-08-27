@@ -8,7 +8,7 @@ description = "android additional testsuite: imagebox"
 if (project.hasProperty('android')  && project.hasProperty('clone')){
 
 	task cloneImageBoxProject(type: Exec) {
-	        commandLine "git", "clone", "https://github.com/stefanos-vlachos/ImageBox.git"
+	        commandLine "git", "clone", "https://github.com/EAT-JBCOMMUNITY/ImageBox.git"
 	}
 
         compileJava.dependsOn(cloneImageBoxProject)
