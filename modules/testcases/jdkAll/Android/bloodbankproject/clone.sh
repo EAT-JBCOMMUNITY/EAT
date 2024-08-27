@@ -1,1 +1,1 @@
-git clone https://github.com/stefanos-vlachos/BloodBank.git
+git clone https://github.com/EAT-JBCOMMUNITY/BloodBank.git
