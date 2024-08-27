@@ -8,7 +8,7 @@ description = "android additional testsuite: jkslinks"
 if (project.hasProperty('android')  && project.hasProperty('clone')){
 
 	task cloneJKSLinksProject(type: Exec) {
-		commandLine "git", "clone", "https://github.com/stefanos-vlachos/JKSLinks.git"
+		commandLine "git", "clone", "https://github.com/EAT-JBCOMMUNITY/JKSLinks.git"
 	}
 
 	compileJava.dependsOn(cloneJKSLinksProject)
