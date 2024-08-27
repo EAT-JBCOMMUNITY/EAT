@@ -8,7 +8,7 @@ description = "android additional testsuite: voxRec"
 if (project.hasProperty('android')  && project.hasProperty('clone')){
 
 	task cloneVoxRecProject(type: Exec) {
-	        commandLine "git", "clone", "https://github.com/stefanos-vlachos/voxRec.git"
+	        commandLine "git", "clone", "https://github.com/EAT-JBCOMMUNITY/voxRec.git"
 	}
 
         compileJava.dependsOn(cloneVoxRecProject)
