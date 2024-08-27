@@ -1,1 +1,1 @@
-git clone https://github.com/stefanos-vlachos/ImageBox.git
+git clone https://github.com/EAT-JBCOMMUNITY/ImageBox.git
