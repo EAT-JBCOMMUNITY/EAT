@@ -1,1 +1,1 @@
-git clone https://github.com/EAT-JBCOMMUNITY/Elegant_Calculator.git
+git clone https://github.com/ServerBeta/Elegant_Calculator.git
