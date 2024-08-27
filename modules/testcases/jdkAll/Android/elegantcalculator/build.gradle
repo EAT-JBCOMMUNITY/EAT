@@ -8,7 +8,7 @@ description = "android additional testsuite: elegantcalculator"
 if (project.hasProperty('android')  && project.hasProperty('clone')){
 
 	task cloneBloodBankProject(type: Exec) {
-		commandLine "git", "clone", "https://github.com/stefanos-vlachos/Elegant_Calculator.git"
+		commandLine "git", "clone", "https://github.com/EAT-JBCOMMUNITY/Elegant_Calculator.git"
 	}
 
 	compileJava.dependsOn(cloneElegantCalculatorProject)
