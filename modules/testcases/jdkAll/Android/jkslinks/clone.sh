@@ -1,1 +1,1 @@
-git clone https://github.com/stefanos-vlachos/JKSLinks.git
+git clone https://github.com/EAT-JBCOMMUNITY/JKSLinks.git
