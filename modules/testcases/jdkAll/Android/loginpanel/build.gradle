@@ -8,7 +8,7 @@ description = "android additional testsuite: loginpanel"
 if (project.hasProperty('android')  && project.hasProperty('clone')){
 
 	task cloneAndroidLoginPanel(type: Exec) {
-	        commandLine "git", "clone", "https://github.com/ServerBeta/LoginPanel.git"
+	        commandLine "git", "clone", "https://github.com/EAT-JBCOMMUNITY/LoginPanel.git"
 	}
 
         compileJava.dependsOn(cloneAndroidLoginPanel)
