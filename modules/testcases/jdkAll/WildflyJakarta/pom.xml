@@ -105,7 +105,7 @@
                 <dependency>
 		    <groupId>org.infinispan</groupId>
 		    <artifactId>infinispan-core</artifactId>
-		    <version>13.0.10.Final</version>
+		    <version>14.0.25.Final</version>
 		</dependency>
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
@@ -858,7 +858,7 @@
                 <dependency>
 		    <groupId>org.infinispan</groupId>
 		    <artifactId>infinispan-core</artifactId>
-		    <version>13.0.10.Final</version>
+		    <version>14.0.25.Final</version>
 		</dependency>
                 <dependency>
                     <groupId>org.apache.activemq</groupId>
