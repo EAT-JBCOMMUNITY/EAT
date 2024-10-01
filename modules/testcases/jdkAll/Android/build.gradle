@@ -139,3 +139,10 @@ if (project.hasProperty('android') && (project.getProperty('module')=="mediaplay
         implementation project(':modules:testcases:jdkAll:Android:mediaplayer')
     }
 }
+
+if (project.hasProperty('android') && (project.getProperty('module')=="samplewificonnector")){
+
+    dependencies{
+        implementation project(':modules:testcases:jdkAll:Android:samplewificonnector')
+    }
+}

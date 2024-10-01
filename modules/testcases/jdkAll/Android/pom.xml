@@ -47,6 +47,7 @@
                 <module>junitbasicsample</module>
 		<module>weatherapp</module>
 		<module>mediaplayer</module>
+		<module>samplewificonnector</module>
             </modules>
         </profile>
         <profile>
@@ -251,6 +252,18 @@
             </activation>
             <modules>
                 <module>mediaplayer</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>samplewificonnector</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>samplewificonnector</value>
+                </property>
+            </activation>
+            <modules>
+                <module>samplewificonnector</module>
             </modules>
         </profile>
     </profiles>

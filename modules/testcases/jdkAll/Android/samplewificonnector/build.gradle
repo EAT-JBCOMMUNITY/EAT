@@ -1,0 +1,27 @@
+apply plugin: 'java'
+
+group = 'org.jboss'
+version = '1.0.3.Final'
+
+description = "android additional testsuite: samplewificonnector"
+
+if (project.hasProperty('android')  && project.hasProperty('clone')){
+
+	task cloneBloodBankProject(type: Exec) {
+		commandLine "git", "clone", "https://github.com/EAT-JBCOMMUNITY/SampleWifiConnector.git"
+	}
+
+	compileJava.dependsOn(cloneBloodBankProject)
+
+}
+
+if (project.hasProperty('android') && project.hasProperty('create')){
+
+	task runBloodBankProject(type: Exec) {
+		workingDir project.buildDir.toString() + "/../SampleWifiConnector"
+		commandLine "./gradlew", "build"
+	}
+
+	compileJava.dependsOn(runBloodBankProject)
+
+}
