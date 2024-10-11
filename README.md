@@ -91,6 +91,7 @@ The open source projects that were selected to integrate into EAT can be found i
 - JKSLinks
 - WheatherApp
 - mediaplayer
+- SampleWifiConnector
 
 
 **Building multi-versioned Android projects with Maven on Windows**
