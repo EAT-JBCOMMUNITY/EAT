@@ -93,6 +93,7 @@ The open source projects that were selected to integrate into EAT can be found i
 - mediaplayer
 - SampleWifiConnector
 - LoginPanel
+- junitbasicsample
 
 
 **Building multi-versioned Android projects with Maven on Windows**
