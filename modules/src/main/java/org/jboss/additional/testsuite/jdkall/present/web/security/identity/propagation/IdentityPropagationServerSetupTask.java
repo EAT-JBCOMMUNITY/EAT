@@ -51,7 +51,7 @@ import static org.jboss.as.test.integration.management.util.ModelUtil.createOpNo
  * Server setup task for test IdentityPropagationAuthenticationTestCase.
  * Configures Elytron Identity Propagation.
  */
-@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/web/src/main/java","modules/testcases/jdkAll/Wildfly/web/src/main/java#15.0.0.Beta1*24.0.0.Final","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/web/src/main/java", "modules/testcases/jdkAll/Eap72x/web/src/main/java#7.2.1", "modules/testcases/jdkAll/Eap72x-Proposed/web/src/main/java#7.2.1","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.0.0*7.4.19"})
+@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/web/src/main/java","modules/testcases/jdkAll/Wildfly/web/src/main/java#15.0.0.Beta1*24.0.0.Final","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/web/src/main/java", "modules/testcases/jdkAll/Eap72x/web/src/main/java#7.2.1", "modules/testcases/jdkAll/Eap72x-Proposed/web/src/main/java#7.2.1","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.0.0*7.4.29"})
 public class IdentityPropagationServerSetupTask extends SnapshotRestoreSetupTask {
 
     protected String getSecurityDomainName() {
