@@ -96,6 +96,7 @@ The open source projects that were selected to integrate into EAT can be found i
 - junitbasicsample
 - espressobasicsample
 - testorchestratorwithtestcoveragesample
+- eatproposals
 
 
 **Building multi-versioned Android projects with Maven on Windows**
