@@ -27,7 +27,8 @@ public class Jakarta2Javax {
             Map.entry("javax.servlet.WriteListener", "jakarta.servlet.WriteListener"),
             Map.entry("javax.servlet.ReadListener", "jakarta.servlet.ReadListener"),
             Map.entry("javax.servlet.ServletConfig", "jakarta.servlet.ServletConfig"),
-            Map.entry("javax.servlet.Servlet", "jakarta.servlet.Servlet")
+            Map.entry("javax.servlet.Servlet", "jakarta.servlet.Servlet"),
+            Map.entry("javax.servlet.annotation.WebServlet", "jakarta.servlet.annotation.WebServlet")
     );
 
     public static List<CtClass> getClassesFromWar(String warFilePath) throws IOException, NotFoundException {
