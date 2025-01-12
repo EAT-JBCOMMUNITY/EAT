@@ -26,7 +26,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunAsClient
 @RunWith(Arquillian.class)
-@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.18","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#36.0.0"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.18","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#37.0.0"})
 public class TimeoutServletTestCase {
     
     public static final int RESPONSE_CODE = 200;
