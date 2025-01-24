@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--
+     *  ΙΔΕΑ : THE JBOSS TESTSUITE TO DEVELOP TESTS AGAINST INFINITE NUMBER OF JBOSS SERVERS
+    -->
+
+    <parent>
+        <groupId>org.jboss</groupId>
+        <artifactId>eap-jakarta-additional-testsuite-ejb</artifactId>
+        <version>1.0.3.Final</version>
+    </parent>
+
+    <artifactId>eap-jakarta-additional-testsuite-ejb-configuration-3</artifactId>
+    <name>map additional testsuite: ejb : configuration-3</name>
+            
+    <properties>
+	<standalone.conf>../src/test/config/standaloneEap7/ejb2/standalone.xml</standalone.conf>
+        <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <server>eap7</server>
+    </properties>
+        
+    <build>
+
+        <!--
+	    Surefire test executions
+	 -->
+	 <plugins>  
+		            
+	    <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-surefire-plugin</artifactId>
+
+                <configuration>
+                    <!-- Prevent test and server output appearing in console. -->
+                    <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
+                    <failIfNoTests>false</failIfNoTests>
+
+                    <!-- Arquillian's config files. -->
+                    <additionalClasspathElements combine.children="append">
+                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEapJakarta </additionalClasspathElement>
+                    </additionalClasspathElements>
+
+                </configuration>
+
+		<executions>
+	            <execution>
+		        <id>default-test</id>
+		        <phase>test</phase>
+		        <goals>
+		            <goal>test</goal>
+		        </goals>
+		        <configuration>         
+		            <!-- Tests to execute. -->
+		            <includes>
+		                <include>org/jboss/additional/testsuite/jdkall/present/ejb/**/TooManyChannelsTestCase.java</include>
+		            </includes> 
+
+		            <systemPropertyVariables>
+                                <server.dir>${jboss.modules.dir}/servers/eap7/build/target/jbossas</server.dir>
+                            </systemPropertyVariables>
+		        </configuration>
+		    </execution>
+		</executions>
+	    </plugin>
+
+            <!-- Build the server configuration -->
+	    <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-antrun-plugin</artifactId>
+	        <executions>
+	            <execution>
+	                <id>build-ejb-config</id>
+	                <phase>process-test-resources</phase>
+	                <goals>
+	                    <goal>run</goal>
+	                </goals>
+	                <configuration>
+	                    <target>
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/clean-deployments.xml">
+	                            <property name="serverDir" value="/${jboss.modules.dir}/servers" />
+	                            <target name="clean-deployments"/>
+	                        </ant>
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
+                                    <property name="filePath" value="${jboss.modules.dir}/servers/${server}/build/target/jbossas/standalone/deployments" />
+                                    <property name="fileName" value="web.war" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/JBEAP27435/web.war" />
+                                    <target name="copy-file"/>
+                                </ant>
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
+	                            <property name="fileName" value="ejb.jar" />
+                                    <property name="filePath" value="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/JBEAP27435/ejb.jar" />
+	                            <target name="copy-file"/>
+	                        </ant>
+	                        <copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-1.war" />
+                   		<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-2.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-3.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-4.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-5.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-6.war" />
+                   		<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-7.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-8.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-9.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-10.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-11.war" />
+                   		<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-12.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-13.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-14.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-15.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-16.war" />
+                   		<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-17.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-18.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-19.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-20.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-21.war" />
+                   		<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-22.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-23.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-24.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-25.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-26.war" />
+                   		<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-27.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-28.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-29.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-30.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-31.war" />
+                   		<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-32.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-33.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-34.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-35.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-36.war" />
+                   		<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-37.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-38.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-39.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-40.war" />
+				<copy file="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web.war" tofile="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments/web-41.war" />
+	                    </target>
+	                </configuration>
+	            </execution>
+	        </executions>
+	    </plugin>
+
+        </plugins>
+	
+    </build>
+
+</project>

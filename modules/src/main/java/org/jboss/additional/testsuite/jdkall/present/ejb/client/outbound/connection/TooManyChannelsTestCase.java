@@ -17,10 +17,11 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-//@AT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java})
+//@AT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java","modules/testcases/jdkAll/EapJakarta/ejb/src/main/java"})
 public class TooManyChannelsTestCase {
 
-    private final String serverLogPath = "../../../../../servers/wildfly/build/target/jbossas2/standalone/log/server.log";
+    private final String serverLogPath = "../../../../../servers/wildfly/build/target/jbossas/standalone/log/server.log";
+    private final String serverLogPath2 = "../../../../../servers/eap7/build/target/jbossas/standalone/log/server.log";
 
     @Test
     public void tooManyChannelsTest() throws Exception {
@@ -31,6 +32,10 @@ public class TooManyChannelsTestCase {
   	}
 
 	String path = new File("").getAbsolutePath() + "/" + serverLogPath;
+	File serverlogfile = new File(path);
+        if(!serverlogfile.exists()) {
+            path = new File("").getAbsolutePath() + "/" + serverLogPath2;
+        }
         FileInputStream inputStream = new FileInputStream(path);
         try {
             String everything = IOUtils.toString(inputStream);
