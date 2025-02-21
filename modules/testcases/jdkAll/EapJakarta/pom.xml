@@ -3402,7 +3402,7 @@
 <dependency>
   <groupId>org.wildfly.core</groupId>
   <artifactId>wildfly-server</artifactId>
-  <version>21.0.14.Final-redhat-00001</version>
+  <version>27.0.1.Final</version>
 </dependency>
 <dependency>
   <groupId>org.wildfly.core</groupId>
