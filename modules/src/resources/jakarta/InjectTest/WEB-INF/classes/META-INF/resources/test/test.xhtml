@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:cc="http://java.sun.com/jsf/composite"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<cc:interface componentType="com.infina.ops.tags.TestTag">
+	<cc:attribute name="customRole" required="false" default="user" type="java.lang.String" />
+	</cc:interface>
+
+	<cc:implementation>
+		<h:outputText value="#{cc.hello}" />
+		<h:outputText value="#{cc.action}" />
+		<h:commandButton action="#{cc.action}" value="Action"/>
+	</cc:implementation>
+
+</ui:composition>

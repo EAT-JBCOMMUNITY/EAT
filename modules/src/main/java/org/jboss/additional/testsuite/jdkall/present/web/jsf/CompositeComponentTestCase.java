@@ -21,7 +21,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.21"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.21","modules/testcases/jdkAll/EapJakarta/web/src/main/java#8.0.9", "modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#36.0.0"})
 public class CompositeComponentTestCase {
 
     @Deployment(name = "jsf-compositecomponent", testable = false)
