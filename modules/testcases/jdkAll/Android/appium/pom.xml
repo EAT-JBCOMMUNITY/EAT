@@ -70,10 +70,10 @@
 						   <configuration>
 							 <tasks name="Build Android Project">
 							   <exec
-								 dir="${basedir}/appium"
-								 executable="./gradlew"
+								 dir="${basedir}/appium-java-examples"
+								 executable="mvn"
 								 failonerror="true">
-								 <arg line="build"/>
+								 <arg line="clean install"/>
 							   </exec>
 							</tasks>
 						   </configuration>
