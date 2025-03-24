@@ -48,6 +48,7 @@
 		<module>weatherapp</module>
 		<module>mediaplayer</module>
 		<module>samplewificonnector</module>
+		<module>appium</module>
             </modules>
         </profile>
         <profile>
@@ -264,6 +265,18 @@
             </activation>
             <modules>
                 <module>samplewificonnector</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>appium</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>appium</value>
+                </property>
+            </activation>
+            <modules>
+                <module>appium</module>
             </modules>
         </profile>
     </profiles>
