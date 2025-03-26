@@ -18,8 +18,8 @@ if (project.hasProperty('android')  && project.hasProperty('clone')){
 if (project.hasProperty('android') && project.hasProperty('create')){
 
 	task runAndroidProject1(type: Exec) {
-		workingDir project.buildDir.toString() + "/../appium"
-		commandLine "./gradlew", "build"
+		workingDir project.buildDir.toString() + "/../appium-java-examples"
+		commandLine "mvn", "clean", "install"
 	}
 
         compileJava.dependsOn(runAndroidProject1)
