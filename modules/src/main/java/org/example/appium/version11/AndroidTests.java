@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
  * @author Faisal Khatri
  * @since 10/13/2022
  **/
-//@EAT({"modules/testcases/jdkAll/Android/appium/appium-java-examples/src/test/java#11.0.0"})
+//@EAT({"modules/testcases/jdkAll/Android/appium/appium-java-examples/src/test/java#10.9.9"})
 public class AndroidTests extends BaseTest {
 
     @Test

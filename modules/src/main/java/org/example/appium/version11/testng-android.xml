@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- @EAT({"modules/testcases/jdkAll/Android/appium/appium-java-examples/test-suite#11.0.0"}) -->
+<!-- @EAT({"modules/testcases/jdkAll/Android/appium/appium-java-examples/test-suite#10.9.9"}) -->
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Appium Sample tests for Android">
     <test name="WebDriverIO Android App Tests" enabled="true">

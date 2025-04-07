@@ -9,7 +9,7 @@ import static io.github.mfaisalkhatri.drivers.AndroidDriverManager.getDriver;
  * @author Faisal Khatri
  * @since 2/25/2023
  **/
-//@EAT({"modules/testcases/jdkAll/Android/appium/appium-java-examples/src/test/java#11.0.0"})
+//@EAT({"modules/testcases/jdkAll/Android/appium/appium-java-examples/src/test/java#10.9.9"})
 public class SignUpPage {
 
 
