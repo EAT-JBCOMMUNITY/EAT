@@ -1,6 +1,7 @@
 package io.github.mfaisalkhatri.android.tests;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotEquals;
 import static org.testng.Assert.assertTrue;
 
 import io.github.mfaisalkhatri.android.pages.browser.TheInternetPage;
@@ -17,7 +18,7 @@ import org.testng.annotations.Test;
  * @author Faisal Khatri
  * @since 10/13/2022
  **/
-//@EAT({"modules/testcases/jdkAll/Android/appium/appium-java-examples/src/test/java#1.0.0*1.9.9"})
+//@EAT({"modules/testcases/jdkAll/Android/appium/appium-java-examples/src/test/java#11.0.0"})
 public class AndroidTests extends BaseTest {
 
     @Test
@@ -84,6 +85,13 @@ public class AndroidTests extends BaseTest {
         assertEquals (signUpPage.getSuccessMessageTitle (), "Signed Up!");
         assertEquals (signUpPage.getSuccessMessage (), "You successfully signed up!");
         signUpPage.closeSuccessMessage ();
+    }
+
+    @Test
+    public void testSignUpError () {
+        final SignUpPage signUpPage = new SignUpPage ();
+        signUpPage.signUpError ("test@email.com", "Pass@12345", "Pass@123456");
+        assertNotEquals (signUpPage.getSuccessMessageTitle (), "Signed Up!");
     }
 
     @Test

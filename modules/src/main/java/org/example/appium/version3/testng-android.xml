@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- @EAT({"modules/testcases/jdkAll/Android/appium/appium-java-examples/test-suite#2.0.0*2.9.9"}) -->
+<!-- @EAT({"modules/testcases/jdkAll/Android/appium/appium-java-examples/test-suite#3.0.0*3.9.9"}) -->
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Appium Sample tests for Android">
     <test name="WebDriverIO Android App Tests" enabled="true">
         <classes>
             <class name="io.github.mfaisalkhatri.android.tests.AndroidTests">
                 <methods>
-                    <include name="testHomePageTitle"/>       
+                    <include name="testHomePageTitle"/>
                 </methods>
             </class>
         </classes>
@@ -16,6 +16,16 @@
             <class name="io.github.mfaisalkhatri.android.tests.AndroidTests">
                 <methods>
                     <include name="testNotification"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Android Tests on Mobile Browsers" enabled="false">
+        <classes>
+            <class name="io.github.mfaisalkhatri.android.tests.AndroidTests">
+                <methods>
+                    <exclude name="testChrome"/>
+                    <include name="testFirefoxBrowser"/>
                 </methods>
             </class>
         </classes>

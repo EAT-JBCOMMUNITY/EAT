@@ -4,12 +4,13 @@ import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.WebElement;
 
 import static io.github.mfaisalkhatri.drivers.AndroidDriverManager.getDriver;
+import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 /**
  * @author Faisal Khatri
  * @since 2/25/2023
  **/
-//@EAT({"modules/testcases/jdkAll/Android/appium/appium-java-examples/src/test/java#2.0.0"})
+@EAT({"modules/testcases/jdkAll/Android/appium/appium-java-examples/src/test/java#1.0.0*10.9.9"})
 public class SignUpPage {
 
 
@@ -34,12 +35,7 @@ public class SignUpPage {
     }
 
     public String getSuccessMessageTitle() {
-        try {
-            String s = getDriver().findElement(AppiumBy.id("android:id/alertTitle")).getText();
-            return s;
-        } catch(Exception e) {
-            return null;
-        }
+        return getDriver().findElement(AppiumBy.id("android:id/alertTitle")).getText();
     }
 
     public String getSuccessMessage() {
@@ -63,19 +59,8 @@ public class SignUpPage {
         confirmPasswordField().sendKeys(password);
         signUpBtn().click();
     }
-    
-    public void signUpError(String email, String password, String password2) {
-        HomePage homePage = new HomePage();
-        homePage.openMenu("Login");
-        openSignUpForm();
-        emailField().sendKeys(email);
-        passwordField().sendKeys(password);
-        confirmPasswordField().sendKeys(password2);
-        signUpBtn().click();
-    }
 
     public void closeSuccessMessage() {
         okBtn().click();
     }
-    
 }

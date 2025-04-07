@@ -9,7 +9,7 @@ import static io.github.mfaisalkhatri.drivers.AndroidDriverManager.getDriver;
  * @author Faisal Khatri
  * @since 2/25/2023
  **/
-//@EAT({"modules/testcases/jdkAll/Android/appium/appium-java-examples/src/test/java#1.0.0*1.9.9"})
+//@EAT({"modules/testcases/jdkAll/Android/appium/appium-java-examples/src/test/java#11.0.0"})
 public class SignUpPage {
 
 
@@ -34,7 +34,12 @@ public class SignUpPage {
     }
 
     public String getSuccessMessageTitle() {
-        return getDriver().findElement(AppiumBy.id("android:id/alertTitle")).getText();
+        try {
+            String s = getDriver().findElement(AppiumBy.id("android:id/alertTitle")).getText();
+            return s;
+        } catch(Exception e) {
+            return null;
+        }
     }
 
     public String getSuccessMessage() {
@@ -58,8 +63,19 @@ public class SignUpPage {
         confirmPasswordField().sendKeys(password);
         signUpBtn().click();
     }
+    
+    public void signUpError(String email, String password, String password2) {
+        HomePage homePage = new HomePage();
+        homePage.openMenu("Login");
+        openSignUpForm();
+        emailField().sendKeys(email);
+        passwordField().sendKeys(password);
+        confirmPasswordField().sendKeys(password2);
+        signUpBtn().click();
+    }
 
     public void closeSuccessMessage() {
         okBtn().click();
     }
+    
 }
