@@ -36,7 +36,6 @@
         <extension module="org.wildfly.extension.request-controller"/>
         <extension module="org.wildfly.extension.security.manager"/>
         <extension module="org.wildfly.extension.undertow"/>
-        <extension module="org.wildfly.iiop-openjdk"/>
     </extensions>
     <system-properties>
         <property name="dev.resteasy.throw.options.exception" value="false"/>
@@ -351,11 +350,6 @@
             </tls>
         </subsystem>
         <subsystem xmlns="urn:wildfly:health:1.0" security-enabled="false"/>
-        <subsystem xmlns="urn:jboss:domain:iiop-openjdk:2.1">
-            <orb socket-binding="iiop"/>
-            <initializers security="elytron" transactions="spec"/>
-            <security server-requires-ssl="false" client-requires-ssl="false"/>
-        </subsystem>
         <subsystem xmlns="urn:jboss:domain:infinispan:14.0">
             <cache-container name="ejb" default-cache="passivation" marshaller="PROTOSTREAM" aliases="sfsb" modules="org.wildfly.clustering.ejb.infinispan">
                 <local-cache name="passivation">
@@ -539,8 +533,6 @@
         <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
         <socket-binding name="http" port="${jboss.http.port:8080}"/>
         <socket-binding name="https" port="${jboss.https.port:8443}"/>
-        <socket-binding name="iiop" interface="unsecure" port="3528"/>
-        <socket-binding name="iiop-ssl" interface="unsecure" port="3529"/>
         <socket-binding name="management-http" interface="management" port="${jboss.management.http.port:9990}"/>
         <socket-binding name="management-https" interface="management" port="${jboss.management.https.port:9993}"/>
         <socket-binding name="txn-recovery-environment" port="4712"/>
