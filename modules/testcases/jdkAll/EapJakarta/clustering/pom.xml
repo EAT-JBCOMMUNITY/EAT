@@ -29,7 +29,7 @@
 
             <modules>
                 <module>test-configurations</module>
-                <module>test2-configurations</module>
+                <!--module>test2-configurations</module iiop not supported in standalone-ha.xml--> 
             </modules>
         </profile>
     </profiles>
