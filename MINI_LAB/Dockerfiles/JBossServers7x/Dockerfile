@@ -1,7 +1,5 @@
 FROM docker.io/fedora
 
-MAINTAINER Panagiotis Sotiropoulos <psotirop@redhat.com>
-
 LABEL description="A container for running EAT in isolation"
 
 # Upgrading system
