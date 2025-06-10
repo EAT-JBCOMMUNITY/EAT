@@ -60,7 +60,7 @@ import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.LEV
  */
 @RunAsClient
 @RunWith(Arquillian.class)
-@EAT({"modules/testcases/jdkAll/Eap7Plus/manualmode/src/main/java","modules/testcases/jdkAll/Eap72x/manualmode/src/main/java", "modules/testcases/jdkAll/Eap72x-Proposed/manualmode/src/main/java", "modules/testcases/jdkAll/Eap71x/manualmode/src/main/java#7.1.5", "modules/testcases/jdkAll/Eap71x-Proposed/manualmode/src/main/java#7.1.5", "modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/manualmode/src/main/java","modules/testcases/jdkAll/Wildfly/manualmode/src/main/java#14.0.0*27.0.0.Alpha1","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/manualmode/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap73x/manualmode/src/main/java","modules/testcases/jdkAll/Eap7Plus/manualmode/src/main/java","modules/testcases/jdkAll/Eap72x/manualmode/src/main/java", "modules/testcases/jdkAll/Eap72x-Proposed/manualmode/src/main/java", "modules/testcases/jdkAll/Eap71x/manualmode/src/main/java#7.1.5", "modules/testcases/jdkAll/Eap71x-Proposed/manualmode/src/main/java#7.1.5", "modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/manualmode/src/main/java","modules/testcases/jdkAll/Wildfly/manualmode/src/main/java#14.0.0*27.0.0.Alpha1","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/manualmode/src/main/java"})
 public class Log4jEffectiveLevelTestCase {
 
     private static final String LOG_LEVEL = "TRACE";

@@ -41,7 +41,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  **/
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
 public class ReactiveTestCase {
 
     private static final Entity<String> aEntity = Entity.entity("a", MediaType.TEXT_PLAIN_TYPE);

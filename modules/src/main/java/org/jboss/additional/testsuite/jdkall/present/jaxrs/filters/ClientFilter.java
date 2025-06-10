@@ -9,7 +9,7 @@ import javax.ws.rs.client.ClientRequestFilter;
 import javax.ws.rs.client.ClientResponseContext;
 import javax.ws.rs.client.ClientResponseFilter;
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
 public class ClientFilter implements ClientRequestFilter,ClientResponseFilter {
 
 	public void filter(ClientRequestContext req) {

@@ -29,7 +29,7 @@ import javax.ws.rs.PathParam;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @Path("options")
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
 public class JaxbOptionResource {
 
     @GET

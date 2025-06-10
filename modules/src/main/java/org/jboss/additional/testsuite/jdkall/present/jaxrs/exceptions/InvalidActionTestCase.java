@@ -25,7 +25,7 @@ import javax.ws.rs.core.Response;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.15"})
+@EAT({"modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.15"})
 public class InvalidActionTestCase {
 
     @Deployment

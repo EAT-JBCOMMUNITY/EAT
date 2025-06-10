@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
  **/
 @RunWith(Arquillian.class)
 @RunAsClient
-//@AT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Alpha4"})
+//@AT({"modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Alpha4"})
 public class YamlProviderTestCase {
 
     private static Logger log = Logger.getLogger(InfoFilterTestCase.class.getName());

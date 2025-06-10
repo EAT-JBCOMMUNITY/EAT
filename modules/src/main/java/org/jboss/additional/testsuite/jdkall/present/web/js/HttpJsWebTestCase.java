@@ -27,7 +27,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.11", "modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#29.0.0"})
+@EAT({"modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.11", "modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#29.0.0"})
 public class HttpJsWebTestCase {
 
     private static final String DEPLOYMENT = "httpjs.war";

@@ -23,7 +23,7 @@ import org.jboss.eap.additional.testsuite.annotations.ATTest;
  *
  * @author rmartinc
  */
-@EAT({"modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.4.10"})
+@EAT({"modules/testcases/jdkAll/Eap73x/security/src/main/java","modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.4.10"})
 public class DocumentUtilTestCase {
 
     @Test
@@ -42,7 +42,7 @@ public class DocumentUtilTestCase {
         }
     }
     
-   @ATTest({"modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.4.12"})
+   @ATTest({"modules/testcases/jdkAll/Eap73x/security/src/main/java","modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.4.12"})
    public void testMultiThread2() throws InterruptedException {
         Helper2[] threads = new Helper2[1000];
         for (int i = 0; i < threads.length; i++) {

@@ -11,7 +11,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 /**
  * @author <a href="mailto:tadamski@redhat.com">Tomasz Adamski</a>
  */
-@EAT({"modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.15"})
+@EAT({"modules/testcases/jdkAll/Eap73x/ejb/src/main/java","modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.15"})
 @Stateless
 public class CMTSLSB {
 

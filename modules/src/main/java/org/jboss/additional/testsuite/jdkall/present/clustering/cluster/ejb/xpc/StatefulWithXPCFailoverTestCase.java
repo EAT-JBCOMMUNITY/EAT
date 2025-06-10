@@ -191,7 +191,7 @@ public class StatefulWithXPCFailoverTestCase extends ClusterAbstractTestCase {
         }
     }
 
-    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Wildfly/clustering/src/main/java#10.0.0.Final*11.0.0.Final","modules/testcases/jdkAll/Eap72x/clustering/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
+    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Wildfly/clustering/src/main/java#10.0.0.Final*11.0.0.Final","modules/testcases/jdkAll/Eap72x/clustering/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap73x/clustering/src/main/java","modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
     public void testBasicXPC(
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_1) URL baseURL1,
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_2) URL baseURL2)

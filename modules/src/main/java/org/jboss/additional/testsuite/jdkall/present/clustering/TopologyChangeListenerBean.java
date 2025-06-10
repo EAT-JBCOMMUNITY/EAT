@@ -48,7 +48,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 @Stateless
 @Remote(TopologyChangeListener.class)
 @Listener(sync = false)
-@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/ServerBeta/clustering/src/main/java#14.0.0","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Eap72x/clustering/src/main/java#7.2.0.CD14","modules/testcases/jdkAll/Eap72x-Proposed/clustering/src/main/java#7.2.0.CD14","modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/ServerBeta/clustering/src/main/java#14.0.0","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Eap72x/clustering/src/main/java#7.2.0.CD14","modules/testcases/jdkAll/Eap72x-Proposed/clustering/src/main/java#7.2.0.CD14","modules/testcases/jdkAll/Eap73x/clustering/src/main/java","modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java"})
 public class TopologyChangeListenerBean implements TopologyChangeListener {
 
     private static final Logger logger = Logger.getLogger(TopologyChangeListenerBean.class);

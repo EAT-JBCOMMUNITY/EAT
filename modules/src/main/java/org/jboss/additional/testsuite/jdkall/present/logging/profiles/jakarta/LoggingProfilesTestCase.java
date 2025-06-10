@@ -515,7 +515,7 @@ public class LoggingProfilesTestCase extends AbstractLoggingTest {
         
     
         @RunAsClient
-	@ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/logging/src/main/java","modules/testcases/jdkAll/Wildfly/logging/src/main/java#12.0.0.Final","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/logging/src/main/java", "modules/testcases/jdkAll/Eap7Plus/logging/src/main/java#7.1.0.GA", "modules/testcases/jdkAll/Eap71x/logging/src/main/java#7.1.1.GA", "modules/testcases/jdkAll/Eap71x-Proposed/logging/src/main/java#7.1.1.GA"})
+	@ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/logging/src/main/java","modules/testcases/jdkAll/Wildfly/logging/src/main/java#12.0.0.Final","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/logging/src/main/java", "modules/testcases/jdkAll/Eap73x/logging/src/main/java","modules/testcases/jdkAll/Eap7Plus/logging/src/main/java#7.1.0.GA", "modules/testcases/jdkAll/Eap71x/logging/src/main/java#7.1.1.GA", "modules/testcases/jdkAll/Eap71x-Proposed/logging/src/main/java#7.1.1.GA"})
 	public void separateApplicationLoggingTest() throws Exception {
             URL testURL = new URL("http://" + managementClient.getMgmtAddress() + ":8080/Application1");
 

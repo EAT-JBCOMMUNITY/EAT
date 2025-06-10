@@ -34,7 +34,7 @@ import java.util.stream.Collectors;
  **/
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
 public class ClientGzipTestCase {
 
     private static Logger log = Logger.getLogger(ClientGzipTestCase.class.getName());

@@ -50,7 +50,7 @@ import java.net.URL;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/web/src/main/java","modules/testcases/jdkAll/Wildfly/web/src/main/java#15.0.0.Final*27.0.0.Alpha3","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/web/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/web/src/main/java#7.2.0.CR1","modules/testcases/jdkAll/Eap72x/web/src/main/java#7.2.0.CR1","modules/testcases/jdkAll/Eap71x-Proposed/web/src/main/java#7.1.5","modules/testcases/jdkAll/Eap71x/web/src/main/java#7.1.5","modules/testcases/jdkAll/Eap7Plus/web/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/web/src/main/java","modules/testcases/jdkAll/Wildfly/web/src/main/java#15.0.0.Final*27.0.0.Alpha3","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/web/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/web/src/main/java#7.2.0.CR1","modules/testcases/jdkAll/Eap72x/web/src/main/java#7.2.0.CR1","modules/testcases/jdkAll/Eap71x-Proposed/web/src/main/java#7.1.5","modules/testcases/jdkAll/Eap71x/web/src/main/java#7.1.5","modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java"})
 public class DelegateClassLoaderWSTestCase {
 
     private static final String EAR_NAME = "testws";

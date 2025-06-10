@@ -55,7 +55,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  */
 // Should not be distributed. It is a manual testcase that needs to start the server manually
 // 1. Start the configured server and wireshark, 2. Run the manual test, 3. Check data at HTTP2 HEADERS[3]: 200 OK, DATA[3] 
-//@AT({"modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.10"})
+//@AT({"modules/testcases/jdkAll/Eap73x/ejb/src/main/java","modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.10"})
 @RunWith(Arquillian.class)
 public class ContainerInterceptorsTestCase {
 

@@ -45,7 +45,7 @@ import java.util.stream.Collectors;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.9","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#28.0.0","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.9","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#28.0.0","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class MatrixParamsTestCase {
 
     private static Logger log = Logger.getLogger(MatrixParamsTestCase.class.getName());
@@ -61,7 +61,7 @@ public class MatrixParamsTestCase {
     @ArquillianResource
     private URL url;
 
-    @ATTest({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.10","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#29.0.0"})
+    @ATTest({"modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.10","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#29.0.0"})
     public void testMatrixParams() throws Exception {
         String uri = url.getPath() + "myjaxrs/host";
         log.info("uri: " + uri);
@@ -122,7 +122,7 @@ public class MatrixParamsTestCase {
         }
     }
     
-    @ATTest({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.23","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#38.0.0"})
+    @ATTest({"modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.23","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#38.0.0"})
     public void testServiceJson() throws Exception {
         String uri = url.getPath() + "rest/json";
         log.info("uri: " + uri);
@@ -143,7 +143,7 @@ public class MatrixParamsTestCase {
         }
     }
     
-    @ATTest({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.23","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#38.0.0"})
+    @ATTest({"modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.23","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#38.0.0"})
     public void testServiceXml() throws Exception {
         String uri = url.getPath() + "rest/xml";
         log.info("uri: " + uri);

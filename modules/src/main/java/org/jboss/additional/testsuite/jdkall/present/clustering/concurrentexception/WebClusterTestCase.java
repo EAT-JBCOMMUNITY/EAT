@@ -36,7 +36,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java#7.4.15","modules/testcases/jdkAll/EapJakarta/clustering/src/main/java","modules/testcases/jdkAll/WildflyJakarta/clustering/src/main/java#31.0.0"})
+@EAT({"modules/testcases/jdkAll/Eap73x/clustering/src/main/java","modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java#7.4.15","modules/testcases/jdkAll/EapJakarta/clustering/src/main/java","modules/testcases/jdkAll/WildflyJakarta/clustering/src/main/java#31.0.0"})
 @RunWith(Arquillian.class)
 @RunAsClient
 public class WebClusterTestCase {

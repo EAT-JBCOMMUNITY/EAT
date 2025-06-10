@@ -33,7 +33,7 @@ import org.jboss.eap.additional.testsuite.annotations.ATTest;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.16","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#32.0.0","modules/testcases/jdkAll/EapJakarta/web/src/main/java#8.0.2"})
+@EAT({"modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.16","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#32.0.0","modules/testcases/jdkAll/EapJakarta/web/src/main/java#8.0.2"})
 public class ListenersTestCase {
 
     private final String serverLogPath = "../../../../../servers/wildfly/build/target/jbossas/standalone/log/server.log";

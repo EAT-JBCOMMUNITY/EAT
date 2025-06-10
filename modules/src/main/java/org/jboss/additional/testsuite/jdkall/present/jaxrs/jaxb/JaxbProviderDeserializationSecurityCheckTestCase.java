@@ -66,7 +66,7 @@ import org.jboss.eap.additional.testsuite.annotations.ATTest;
  */
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/OpenLiberty/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#13.0.0.Final*27.0.0.Alpha3","modules/testcases/jdkAll/Eap72x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/jaxrs/src/main/java","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java#7.1.2", "modules/testcases/jdkAll/Eap71x-Proposed/jaxrs/src/main/java#7.1.2","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/OpenLiberty/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyRelease-13.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#13.0.0.Final*27.0.0.Alpha3","modules/testcases/jdkAll/Eap72x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/jaxrs/src/main/java","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java#7.1.2", "modules/testcases/jdkAll/Eap71x-Proposed/jaxrs/src/main/java#7.1.2","modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 //@ATDPM(config="standalone.xml", features={"org.wildfly:wildfly-feature-pack-new#jaxrs:subsystem=jaxrs"}, minVersions={"13.0.0"}, maxVersions={"null"}, isClassAnnotation="true")
 //@ATDPM(config="standalone.xml", features={"org.wildfly:wildfly-feature-pack-new#subsystem.jaxrs:subsystem=jaxrs"}, minVersions={"13.0.0"}, maxVersions={"null"}, isClassAnnotation="true")
 public class JaxbProviderDeserializationSecurityCheckTestCase {
@@ -124,7 +124,7 @@ public class JaxbProviderDeserializationSecurityCheckTestCase {
 
     }
     
-    @ATTest({"modules/testcases/jdkAll/OpenLiberty/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#13.0.0.Alpha1","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java#7.1.3","modules/testcases/jdkAll/Eap71x-Proposed/jaxrs/src/main/java#7.1.3", "modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.1.2","modules/testcases/jdkAll/Eap72x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/jaxrs/src/main/java"})
+    @ATTest({"modules/testcases/jdkAll/OpenLiberty/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#13.0.0.Alpha1","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java#7.1.3","modules/testcases/jdkAll/Eap71x-Proposed/jaxrs/src/main/java#7.1.3", "modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.1.2","modules/testcases/jdkAll/Eap72x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/jaxrs/src/main/java"})
     public void testMChangeV2C3p0() throws Exception {
         String result = performCall("rest/jaxb/mchange");
 
@@ -137,7 +137,7 @@ public class JaxbProviderDeserializationSecurityCheckTestCase {
 
     }
 
-    @ATTest({"modules/testcases/jdkAll/OpenLiberty/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#13.0.0","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java#7.1.2","modules/testcases/jdkAll/Eap71x-Proposed/jaxrs/src/main/java#7.1.2", "modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.1.2","modules/testcases/jdkAll/Eap72x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/jaxrs/src/main/java"})
+    @ATTest({"modules/testcases/jdkAll/OpenLiberty/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#13.0.0","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java#7.1.2","modules/testcases/jdkAll/Eap71x-Proposed/jaxrs/src/main/java#7.1.2", "modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.1.2","modules/testcases/jdkAll/Eap72x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/jaxrs/src/main/java"})
     public void testStatisticsService() throws Exception{
         String result = performCall("rest/jaxb/statistics");
 
@@ -150,7 +150,7 @@ public class JaxbProviderDeserializationSecurityCheckTestCase {
 
     }
 
-    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#16.0.0.Beta1","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java","modules/testcases/jdkAll/Eap72x/jaxrs/src/main/java#7.2.1","modules/testcases/jdkAll/Eap72x-Proposed/jaxrs/src/main/java#7.2.1","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java#7.1.6","modules/testcases/jdkAll/Eap71x-Proposed/jaxrs/src/main/java#7.1.6"})
+    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#16.0.0.Beta1","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java","modules/testcases/jdkAll/Eap72x/jaxrs/src/main/java#7.2.1","modules/testcases/jdkAll/Eap72x-Proposed/jaxrs/src/main/java#7.2.1","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java#7.1.6","modules/testcases/jdkAll/Eap71x-Proposed/jaxrs/src/main/java#7.1.6"})
     public void testOpenjpaService() throws Exception{
         String result = performCall("rest/jaxb/openjpa");
 
@@ -163,7 +163,7 @@ public class JaxbProviderDeserializationSecurityCheckTestCase {
 
     }
 
-    @ATTest({"modules/testcases/jdkAll/OpenLiberty/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#13.0.0","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java#7.1.2","modules/testcases/jdkAll/Eap71x-Proposed/jaxrs/src/main/java#7.1.2", "modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.1.2","modules/testcases/jdkAll/Eap72x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/jaxrs/src/main/java"})
+    @ATTest({"modules/testcases/jdkAll/OpenLiberty/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#13.0.0","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Eap71x/jaxrs/src/main/java#7.1.2","modules/testcases/jdkAll/Eap71x-Proposed/jaxrs/src/main/java#7.1.2", "modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.1.2","modules/testcases/jdkAll/Eap72x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap72x-Proposed/jaxrs/src/main/java"})
     public void testMyBatisJndiDataSourceFactory() throws Exception{
         String result = performCall("rest/jaxb/datasource");
 
@@ -175,7 +175,7 @@ public class JaxbProviderDeserializationSecurityCheckTestCase {
         }
     }
 
-    @ATTest({"modules/testcases/jdkAll/OpenLiberty/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#20.0.0.Final","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Eap72x/jaxrs/src/main/java#7.2.9","modules/testcases/jdkAll/Eap72x-Proposed/jaxrs/src/main/java#7.2.9","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.3.2"})
+    @ATTest({"modules/testcases/jdkAll/OpenLiberty/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#20.0.0.Final","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Eap72x/jaxrs/src/main/java#7.2.9","modules/testcases/jdkAll/Eap72x-Proposed/jaxrs/src/main/java#7.2.9","modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.3.2"})
     public void testXaPooledConnectionFactoryService() throws Exception{
         try {
             String result = performCall("rest/jaxb/xapooledconnectionfactory");

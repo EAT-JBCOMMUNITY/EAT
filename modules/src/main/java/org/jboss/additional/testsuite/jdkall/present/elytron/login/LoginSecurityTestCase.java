@@ -25,7 +25,7 @@ import org.junit.Assert;
 import static org.junit.Assert.fail;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java#7.4.8","modules/testcases/jdkAll/WildflyJakarta/elytron/src/main/java#28.0.0"})
+@EAT({"modules/testcases/jdkAll/Eap73x/elytron/src/main/java","modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java#7.4.8","modules/testcases/jdkAll/WildflyJakarta/elytron/src/main/java#28.0.0"})
 @RunWith(Arquillian.class)
 @RunAsClient
 public class LoginSecurityTestCase {

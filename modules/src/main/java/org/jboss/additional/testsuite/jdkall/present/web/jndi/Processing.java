@@ -9,7 +9,7 @@ import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletResponse;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.3"})
+@EAT({"modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.3"})
 public class Processing implements Runnable {
 
     private final HttpServletResponse response;

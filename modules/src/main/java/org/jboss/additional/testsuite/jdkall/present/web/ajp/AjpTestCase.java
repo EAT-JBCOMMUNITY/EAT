@@ -26,7 +26,7 @@ import static org.junit.Assert.fail;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Wildfly/web/src/main/java#27.0.0", "modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.4","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/web/src/main/java","modules/testcases/jdkAll/EapJakarta/web/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Wildfly/web/src/main/java#27.0.0", "modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.4","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/web/src/main/java","modules/testcases/jdkAll/EapJakarta/web/src/main/java"})
 public class AjpTestCase {
 
     private final static String WARNAME = "AjpTestCase.war";

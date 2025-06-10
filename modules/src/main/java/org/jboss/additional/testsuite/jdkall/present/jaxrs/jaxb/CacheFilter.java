@@ -36,7 +36,7 @@ import javax.servlet.annotation.WebFilter;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @WebFilter("*")
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
 public class CacheFilter implements Filter {
 
     @Override

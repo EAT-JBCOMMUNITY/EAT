@@ -10,7 +10,7 @@ import javax.ws.rs.ext.Provider;
 import javax.ws.rs.container.PreMatching;
 
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
 @Provider 
 @PreMatching
 public class InfoPrematchingFilter implements ContainerRequestFilter  {

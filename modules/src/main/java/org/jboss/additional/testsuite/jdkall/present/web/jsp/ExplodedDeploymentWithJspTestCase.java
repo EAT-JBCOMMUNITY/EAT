@@ -31,7 +31,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.11","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#29.0.0"}) // This could fail in case the right disk permissions are not applied. In that case, please, check manually and skip this test.
+@EAT({"modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.11","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#29.0.0"}) // This could fail in case the right disk permissions are not applied. In that case, please, check manually and skip this test.
 public class ExplodedDeploymentWithJspTestCase {
 
     private static final Logger log = LoggerFactory.getLogger(ExplodedDeploymentWithJspTestCase.class);

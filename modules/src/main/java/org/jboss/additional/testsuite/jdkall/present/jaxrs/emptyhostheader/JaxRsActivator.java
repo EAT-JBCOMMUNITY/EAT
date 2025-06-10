@@ -9,6 +9,6 @@ import javax.ws.rs.core.Application;
  * @author Ivo Studensky
  */
 @ApplicationPath("/myjaxrs")
-@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#20.0.0.Beta1", "modules/testcases/jdkAll/Eap72x/jaxrs/src/main/java#7.2.7", "modules/testcases/jdkAll/Eap72x-Proposed/jaxrs/src/main/java#7.2.7", "modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jaxrs/src/main/java","modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#20.0.0.Beta1", "modules/testcases/jdkAll/Eap72x/jaxrs/src/main/java#7.2.7", "modules/testcases/jdkAll/Eap72x-Proposed/jaxrs/src/main/java#7.2.7", "modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
 public class JaxRsActivator extends Application {
 }

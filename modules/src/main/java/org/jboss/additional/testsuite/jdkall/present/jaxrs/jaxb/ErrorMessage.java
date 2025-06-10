@@ -23,7 +23,7 @@ package org.jboss.additional.testsuite.jdkall.present.jaxrs.jaxb;
 
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#28.0.0.Beta1","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#28.0.0.Beta1","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class ErrorMessage {
     int status = 200;
     String message = "";

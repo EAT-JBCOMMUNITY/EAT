@@ -13,7 +13,7 @@ import javax.transaction.TransactionSynchronizationRegistry;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @Named
-@EAT({"modules/testcases/jdkAll/Wildfly/batch/src/main/java#27.0.0", "modules/testcases/jdkAll/Eap7Plus/batch/src/main/java#7.4.5"})
+@EAT({"modules/testcases/jdkAll/Wildfly/batch/src/main/java#27.0.0", "modules/testcases/jdkAll/Eap73x/batch/src/main/java","modules/testcases/jdkAll/Eap7Plus/batch/src/main/java#7.4.5"})
 public class ItemreaderReader implements ItemReader {
 
     @Inject

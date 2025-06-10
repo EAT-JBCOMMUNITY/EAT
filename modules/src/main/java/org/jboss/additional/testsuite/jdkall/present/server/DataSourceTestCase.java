@@ -41,7 +41,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/server/src/main/java#7.4.11","modules/testcases/jdkAll/WildflyJakarta/server/src/main/java#29.0.0","modules/testcases/jdkAll/EapJakarta/server/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap73x/server/src/main/java","modules/testcases/jdkAll/Eap7Plus/server/src/main/java#7.4.11","modules/testcases/jdkAll/WildflyJakarta/server/src/main/java#29.0.0","modules/testcases/jdkAll/EapJakarta/server/src/main/java"})
 public class DataSourceTestCase extends AbstractCliTestBase {
 
     @Deployment
@@ -67,7 +67,7 @@ public class DataSourceTestCase extends AbstractCliTestBase {
         testExpressionInJavaContext();
     }
 
-    @ATTest({"modules/testcases/jdkAll/Eap7Plus/server/src/main/java#7.4.13","modules/testcases/jdkAll/WildflyJakarta/server/src/main/java#29.0.0"})
+    @ATTest({"modules/testcases/jdkAll/Eap73x/server/src/main/java","modules/testcases/jdkAll/Eap7Plus/server/src/main/java#7.4.13","modules/testcases/jdkAll/WildflyJakarta/server/src/main/java#29.0.0"})
     public void testReoveServerViaCli() throws Exception {
         testRemoveServer();
     }

@@ -25,7 +25,7 @@ import org.junit.runner.RunWith;
 
 @RunAsClient
 @RunWith(Arquillian.class)
-@EAT({"modules/testcases/jdkAll/Eap7Plus/logging/src/main/java#7.4.5*7.4.12"}) //The test has regressed closing the set. Issue is reported.
+@EAT({"modules/testcases/jdkAll/Eap73x/logging/src/main/java","modules/testcases/jdkAll/Eap7Plus/logging/src/main/java#7.4.5*7.4.12"}) //The test has regressed closing the set. Issue is reported.
 //@AT({"modules/testcases/jdkAll/Wildfly/logging/src/main/java#?"})
 public class DebugLoggingTestCase {
 

@@ -25,7 +25,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Wildfly/security/src/main/java#27.0.0.Alpha1*27.0.0.Alpha3","modules/testcases/jdkAll/WildflyJakarta/security/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/security/src/main/java","modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.4.4","modules/testcases/jdkAll/EapJakarta/security/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Wildfly/security/src/main/java#27.0.0.Alpha1*27.0.0.Alpha3","modules/testcases/jdkAll/WildflyJakarta/security/src/main/java#27.0.0.Alpha4","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/security/src/main/java","modules/testcases/jdkAll/Eap73x/security/src/main/java","modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.4.4","modules/testcases/jdkAll/EapJakarta/security/src/main/java"})
 public class BasicAuthenticationTestCase {
 
     @Deployment
@@ -55,7 +55,7 @@ public class BasicAuthenticationTestCase {
         }
     }
 
-    @ATTest({"modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.4.4"})
+    @ATTest({"modules/testcases/jdkAll/Eap73x/security/src/main/java","modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.4.4"})
     public void basicAuthTest2(@ArquillianResource URL url) throws Exception {
         try {
             String requestUrlString = url.toExternalForm() + "/secure";

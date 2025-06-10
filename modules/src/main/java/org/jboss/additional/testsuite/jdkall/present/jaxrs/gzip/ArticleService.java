@@ -16,7 +16,7 @@ import javax.ws.rs.Produces;
 import org.jboss.resteasy.annotations.GZIP;
 
 @Path("/gzipservice")
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
 public class ArticleService {
     List<Article> list = new ArrayList<Article>();
     {

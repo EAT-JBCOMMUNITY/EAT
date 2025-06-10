@@ -38,7 +38,7 @@ import java.net.URL;
 
 @RunAsClient
 @RunWith(Arquillian.class)
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#28.0.0","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.9","modules/testcases/jdkAll/EapJakarta/web/src/main/java#9.0.0"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#28.0.0","modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.9","modules/testcases/jdkAll/EapJakarta/web/src/main/java#9.0.0"})
 public class WebMetaDirTestCase {
 
     private static final String SERVLET_DEPLOYMENT = "webmetadir";
@@ -122,7 +122,7 @@ public class WebMetaDirTestCase {
         }
     }
 
-    @ATTest({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#38.0.0","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.23","modules/testcases/jdkAll/EapJakarta/web/src/main/java#8.11.0"})
+    @ATTest({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#38.0.0","modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.23","modules/testcases/jdkAll/EapJakarta/web/src/main/java#8.11.0"})
     public void metainfWithDotsTest(@ArquillianResource URL url) throws IOException, URISyntaxException {
         URL testUrl = new URL(url.toExternalForm() + "::/::/META-INF/text");
         final HttpGet request = new HttpGet(testUrl.toString());
@@ -138,7 +138,7 @@ public class WebMetaDirTestCase {
         }
     }
 
-    @ATTest({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#38.0.0","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.23","modules/testcases/jdkAll/EapJakarta/web/src/main/java#8.11.0"})
+    @ATTest({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#38.0.0","modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.23","modules/testcases/jdkAll/EapJakarta/web/src/main/java#8.11.0"})
     public void webinfWithDotsTest(@ArquillianResource URL url) throws IOException, URISyntaxException {
         URL testUrl = new URL(url.toExternalForm() + "::/::/WEB-INF/text");
         final HttpGet request = new HttpGet(testUrl.toString());

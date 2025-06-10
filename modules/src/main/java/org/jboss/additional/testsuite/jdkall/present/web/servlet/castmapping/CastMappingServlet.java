@@ -16,7 +16,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 @WebServlet(name = "CastMappingServlet", urlPatterns = {"/CastMappingServlet",
             "/AForwardToB",
             "/AIncludesB"})
-@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.14"})
+@EAT({"modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.14"})
 public class CastMappingServlet extends HttpServlet {
 
     @Override

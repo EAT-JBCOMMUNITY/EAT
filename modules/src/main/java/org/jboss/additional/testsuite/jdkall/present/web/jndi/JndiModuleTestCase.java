@@ -19,7 +19,7 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.3", "modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#29.0.0"})
+@EAT({"modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.3", "modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#29.0.0"})
 @RunAsClient
 @RunWith(Arquillian.class)
 public class JndiModuleTestCase {

@@ -4,7 +4,7 @@ import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#27.0.0","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.4"})
+@EAT({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#27.0.0","modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.4"})
 @ApplicationPath("/greeter")
 public class JaxRsActivator extends Application {
 }

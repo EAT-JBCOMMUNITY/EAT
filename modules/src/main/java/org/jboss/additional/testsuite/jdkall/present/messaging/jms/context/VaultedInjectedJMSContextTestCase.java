@@ -71,7 +71,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Arquillian.class)
 @ServerSetup(VaultedInjectedJMSContextTestCase.StoreVaultedPropertyTask.class)
-@EAT({"modules/testcases/jdkAll/Eap7Plus/messaging/src/main/java#7.3.0*7.3.0.CD18","modules/testcases/jdkAll/Eap71x-Proposed/messaging/src/main/java","modules/testcases/jdkAll/Eap71x/messaging/src/main/java","modules/testcases/jdkAll/Eap7.1.0.Beta/messaging/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap73x/messaging/src/main/java","modules/testcases/jdkAll/Eap7Plus/messaging/src/main/java#7.3.0*7.3.0.CD18","modules/testcases/jdkAll/Eap71x-Proposed/messaging/src/main/java","modules/testcases/jdkAll/Eap71x/messaging/src/main/java","modules/testcases/jdkAll/Eap7.1.0.Beta/messaging/src/main/java"})
 public class VaultedInjectedJMSContextTestCase {
 
     static final String VAULT_LOCATION = VaultedInjectedJMSContextTestCase.class.getProtectionDomain().getCodeSource().getLocation().getFile() + "security/jms-vault/";
