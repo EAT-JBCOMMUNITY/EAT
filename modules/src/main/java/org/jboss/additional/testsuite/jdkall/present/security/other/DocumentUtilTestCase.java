@@ -23,7 +23,7 @@ import org.jboss.eap.additional.testsuite.annotations.ATTest;
  *
  * @author rmartinc
  */
-@EAT({"modules/testcases/jdkAll/Eap73x/security/src/main/java","modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.4.10"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.4.10"})
 public class DocumentUtilTestCase {
 
     @Test

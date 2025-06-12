@@ -19,7 +19,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Wildfly/security/src/main/java#20.0.0.Beta1*20.0.0.Final","modules/testcases/jdkAll/Eap72x/security/src/main/java#7.2.9","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java#7.2.9","modules/testcases/jdkAll/Eap73x/security/src/main/java","modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.3.2*7.3.2"})
+@EAT({"modules/testcases/jdkAll/Wildfly/security/src/main/java#20.0.0.Beta1*20.0.0.Final","modules/testcases/jdkAll/Eap72x/security/src/main/java#7.2.9","modules/testcases/jdkAll/Eap72x-Proposed/security/src/main/java#7.2.9","modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.3.2*7.3.2"})
 public class SaxParser2TestCase {
 
     private static final String ARCHIVE_NAME = "SaxParser2TestCase";

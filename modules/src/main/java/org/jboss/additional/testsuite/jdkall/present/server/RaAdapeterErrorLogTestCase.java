@@ -37,7 +37,7 @@ import static org.junit.Assert.assertFalse;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/server/src/main/java#29.0.0","modules/testcases/jdkAll/Eap73x/server/src/main/java","modules/testcases/jdkAll/Eap7Plus/server/src/main/java#7.4.12"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/server/src/main/java#29.0.0","modules/testcases/jdkAll/Eap7Plus/server/src/main/java#7.4.12"})
 public class RaAdapeterErrorLogTestCase {
     
     private final String serverLogPath = "../../../../../servers/wildfly/build/target/jbossas/standalone/log/server.log";

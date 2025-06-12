@@ -50,7 +50,7 @@ import java.util.stream.Collectors;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#32.0.0","modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.15","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#32.0.0","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.15","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class MultipartTestCase {
 
     private static Logger log = Logger.getLogger(MatrixParamsTestCase.class.getName());

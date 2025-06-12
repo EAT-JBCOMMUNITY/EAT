@@ -37,7 +37,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap73x/server/src/main/java","modules/testcases/jdkAll/Eap7Plus/server/src/main/java#7.4.21"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/server/src/main/java#7.4.21"})
 public class DependenciesTestCase {
 
     @Deployment
