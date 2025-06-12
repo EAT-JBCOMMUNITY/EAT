@@ -71,7 +71,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#30.0.0","modules/testcases/jdkAll/Eap73x/ejb/src/main/java","modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.12"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#30.0.0","modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.12"})
 @RunWith(Arquillian.class)
 @RunAsClient
 public class EjbClientTestCase {

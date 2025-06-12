@@ -10,11 +10,11 @@
 
     <parent>
         <groupId>org.jboss</groupId>
-        <artifactId>eap72x-additional-testsuite</artifactId>
+        <artifactId>eap73x-additional-testsuite</artifactId>
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>eap72x-additional-testsuite-elytron</artifactId>
+    <artifactId>eap73x-additional-testsuite-elytron</artifactId>
     <packaging>pom</packaging>
     <name>Eap7 additional testsuite: elytron</name>
 

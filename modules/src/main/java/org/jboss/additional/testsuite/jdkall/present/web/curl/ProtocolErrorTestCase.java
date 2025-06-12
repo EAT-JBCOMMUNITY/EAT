@@ -14,7 +14,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#30.0.0","modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.12"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#30.0.0","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.12"})
 public class ProtocolErrorTestCase {
 
     @Test

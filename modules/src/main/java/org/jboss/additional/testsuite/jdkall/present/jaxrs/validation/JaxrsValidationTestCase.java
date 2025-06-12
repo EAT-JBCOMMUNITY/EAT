@@ -24,7 +24,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#27.0.0.Alpha1*27.0.0.Alpha1","modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.4","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#29.0.0","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#27.0.0.Alpha1*27.0.0.Alpha1","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.4","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#29.0.0","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})
 public class JaxrsValidationTestCase {
 
     @Deployment

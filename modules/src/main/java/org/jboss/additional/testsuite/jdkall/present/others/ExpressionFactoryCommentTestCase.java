@@ -29,7 +29,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap73x/others/src/main/java","modules/testcases/jdkAll/Eap7Plus/others/src/main/java#7.4.10","modules/testcases/jdkAll/EapJakarta/others/src/main/java","modules/testcases/jdkAll/WildflyJakarta/others/src/main/java#32.0.0.Final"})
+@EAT({"modules/testcases/jdkAll/Eap7Plus/others/src/main/java#7.4.10","modules/testcases/jdkAll/EapJakarta/others/src/main/java","modules/testcases/jdkAll/WildflyJakarta/others/src/main/java#32.0.0.Final"})
 public class ExpressionFactoryCommentTestCase {
 
     private final String serverLogPath = "../../../../../servers/wildfly/build/target/jbossas/standalone/log/server.log";

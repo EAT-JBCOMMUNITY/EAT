@@ -17,7 +17,7 @@ import org.junit.Test;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#38.0.0","modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.23"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#38.0.0","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.23"})
 public class JspKeepAliveTestCase {
 
     private static final String JSP_DEPLOYMENT = "examplejsp";

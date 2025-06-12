@@ -20,7 +20,7 @@
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
 
-<!-- @EAT({"modules/testcases/jdkAll/Eap73x/domain/test-configurations/src/test/resources","modules/testcases/jdkAll/Eap7Plus/domain/test-configurations/src/test/resources/domain-configs#7.4.0"}) -->
+<!-- @EAT({"modules/testcases/jdkAll/Eap73x/domain/test-configurations/src/test/resources/domain-configs","modules/testcases/jdkAll/Eap7Plus/domain/test-configurations/src/test/resources/domain-configs#7.4.0"}) -->
 
 <domain xmlns="urn:jboss:domain:16.0">
 

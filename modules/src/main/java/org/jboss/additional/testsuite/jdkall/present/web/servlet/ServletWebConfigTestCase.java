@@ -37,7 +37,7 @@ import java.net.URL;
 
 @RunAsClient
 @RunWith(Arquillian.class)
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#29.0.0","modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.10","modules/testcases/jdkAll/EapJakarta/web/src/main/java#9.0.0"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#29.0.0","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.10","modules/testcases/jdkAll/EapJakarta/web/src/main/java#9.0.0"})
 public class ServletWebConfigTestCase {
 
     private static final String SERVLET_DEPLOYMENT = "servletwebconfig";
