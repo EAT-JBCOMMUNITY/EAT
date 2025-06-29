@@ -8,7 +8,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @Named(value = "testBean")
 @ViewScoped
-@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.4","modules/testcases/jdkAll/Wildfly/web/src/main/java#27.0.0"})
+@EAT({"modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.4","modules/testcases/jdkAll/Wildfly/web/src/main/java#27.0.0"})
 public class TestBean  implements Serializable {
     private String strValueA;
     private String strValueB;

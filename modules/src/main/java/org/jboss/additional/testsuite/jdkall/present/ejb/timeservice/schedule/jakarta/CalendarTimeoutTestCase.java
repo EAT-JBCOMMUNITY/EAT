@@ -44,7 +44,7 @@ public class CalendarTimeoutTestCase {
      * This is a test to ensure WFLY-9537 will not break this.
      */
 
-    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/ejb/src/main/java","modules/testcases/jdkAll/Wildfly/ejb/src/main/java#12.0.0.Alpha1","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/ejb/src/main/java", "modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java"})
+    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/ejb/src/main/java","modules/testcases/jdkAll/Wildfly/ejb/src/main/java#12.0.0.Alpha1","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/ejb/src/main/java", "modules/testcases/jdkAll/Eap73x/ejb/src/main/java","modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java"})
     public void testChangeCET2CEST() {
         Calendar start = new GregorianCalendar(TimeZone.getTimeZone("Europe/Berlin"));
         start.clear();
@@ -147,7 +147,7 @@ public class CalendarTimeoutTestCase {
      * This is a test to ensure WFLY-9537 will not break this.
      */
 
-    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/ejb/src/main/java","modules/testcases/jdkAll/Wildfly/ejb/src/main/java#12.0.0.Alpha1","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/ejb/src/main/java", "modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java"})
+    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/ejb/src/main/java","modules/testcases/jdkAll/Wildfly/ejb/src/main/java#12.0.0.Alpha1","modules/testcases/jdkAll/WildflyRelease-20.0.0.Final/ejb/src/main/java", "modules/testcases/jdkAll/Eap73x/ejb/src/main/java","modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java"})
     public void testChangeUS2Summer() {
         Calendar start = new GregorianCalendar(TimeZone.getTimeZone("America/Los_Angeles"));
         start.clear();

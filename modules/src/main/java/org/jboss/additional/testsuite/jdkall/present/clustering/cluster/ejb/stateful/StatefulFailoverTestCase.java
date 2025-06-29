@@ -103,7 +103,7 @@ public class StatefulFailoverTestCase extends ClusterAbstractTestCase {
     /**
      * Validates that a @Stateful(passivationCapable=false) bean does not replicate
      */
-    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Wildfly/clustering/src/main/java#10.0.0.Final*11.0.0.Final","modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
+    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Wildfly/clustering/src/main/java#10.0.0.Final*11.0.0.Final","modules/testcases/jdkAll/Eap73x/clustering/src/main/java","modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
     public void noFailover(
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_1) URL baseURL1,
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_2) URL baseURL2) throws Exception {
@@ -143,7 +143,7 @@ public class StatefulFailoverTestCase extends ClusterAbstractTestCase {
     /**
      * Validates failover on redeploy of a simple @Stateful bean
      */
-    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Wildfly/clustering/src/main/java#10.0.0.Final*11.0.0.Final","modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
+    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Wildfly/clustering/src/main/java#10.0.0.Final*11.0.0.Final","modules/testcases/jdkAll/Eap73x/clustering/src/main/java","modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
     public void simpleFailover(
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_1) URL baseURL1,
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_2) URL baseURL2) throws Exception {
@@ -154,7 +154,7 @@ public class StatefulFailoverTestCase extends ClusterAbstractTestCase {
      * Validates failover on redeploy of a @Stateful bean containing injected JDBC resource manager connection factories
      * test for WFLY-30 @Resource injection of Datasource on clustered SFSB fails with serialization error
      */
-    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Wildfly/clustering/src/main/java#10.0.0.Final*11.0.0.Final","modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
+    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Wildfly/clustering/src/main/java#10.0.0.Final*11.0.0.Final","modules/testcases/jdkAll/Eap73x/clustering/src/main/java","modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
     public void connectionFactoryFailover(
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_1) URL baseURL1,
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_2) URL baseURL2) throws Exception {
@@ -164,7 +164,7 @@ public class StatefulFailoverTestCase extends ClusterAbstractTestCase {
     /**
      * Validates failover on redeploy of a @Stateful bean containing injected JMS resource manager connection factories
      */
-    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Wildfly/clustering/src/main/java#10.0.0.Final*11.0.0.Final","modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
+    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Wildfly/clustering/src/main/java#10.0.0.Final*11.0.0.Final","modules/testcases/jdkAll/Eap73x/clustering/src/main/java","modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
     public void jmsConnectionFactoryFailover(
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_1) URL baseURL1,
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_2) URL baseURL2) throws Exception {
@@ -174,7 +174,7 @@ public class StatefulFailoverTestCase extends ClusterAbstractTestCase {
     /**
      * Validates failover on redeploy of a simple @Stateful bean
      */
-    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Wildfly/clustering/src/main/java#10.0.0.Final*11.0.0.Final","modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
+    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Wildfly/clustering/src/main/java#10.0.0.Final*11.0.0.Final","modules/testcases/jdkAll/Eap73x/clustering/src/main/java","modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
     public void persistenceFailover(
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_1) URL baseURL1,
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_2) URL baseURL2) throws Exception {
@@ -224,7 +224,7 @@ public class StatefulFailoverTestCase extends ClusterAbstractTestCase {
     /**
      * Validates failover on server restart of a simple @Stateful bean
      */
-    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Wildfly/clustering/src/main/java#10.0.0.Final*11.0.0.Final","modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
+    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Wildfly/clustering/src/main/java#10.0.0.Final*11.0.0.Final","modules/testcases/jdkAll/Eap73x/clustering/src/main/java","modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
     public void failoverOnStop(
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_1) URL baseURL1,
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_2) URL baseURL2) throws Exception {
@@ -271,7 +271,7 @@ public class StatefulFailoverTestCase extends ClusterAbstractTestCase {
      * Validates failover of a @Stateful bean containing a nested @Stateful bean
      * containing an injected CDI bean that uses an interceptor and decorator.
      */
-    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Wildfly/clustering/src/main/java#10.0.0.Final*11.0.0.Final","modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
+    @ATTest({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/clustering/src/main/java","modules/testcases/jdkAll/Wildfly/clustering/src/main/java#10.0.0.Final*11.0.0.Final","modules/testcases/jdkAll/Eap73x/clustering/src/main/java","modules/testcases/jdkAll/Eap7Plus/clustering/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/clustering/src/main/java","modules/testcases/jdkAll/Eap71x/clustering/src/main/java"})
     public void nestedBeanFailover(
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_1) URL baseURL1,
             @ArquillianResource() @OperateOnDeployment(DEPLOYMENT_2) URL baseURL2) throws Exception {

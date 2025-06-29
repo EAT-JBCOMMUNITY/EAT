@@ -22,7 +22,7 @@ import org.junit.Assert;
 import org.junit.AfterClass;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/others/src/main/java#7.4.14","modules/testcases/jdkAll/WildflyJakarta/others/src/main/java#30.0.0"})
+@EAT({"modules/testcases/jdkAll/Eap73x/others/src/main/java","modules/testcases/jdkAll/Eap7Plus/others/src/main/java#7.4.14","modules/testcases/jdkAll/WildflyJakarta/others/src/main/java#30.0.0"})
 public class CheckLogTestCase {
 
     private static final String serverLogPath = "target/surefire-reports/org.jboss.additional.testsuite.jdkall.present.others.WarnLogTestCase-output.txt";

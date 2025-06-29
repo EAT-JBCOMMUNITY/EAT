@@ -41,7 +41,7 @@ import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
  **/
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java"})
 public class GzipTestCase {
 
     private static Logger log = Logger.getLogger(GzipTestCase.class.getName());

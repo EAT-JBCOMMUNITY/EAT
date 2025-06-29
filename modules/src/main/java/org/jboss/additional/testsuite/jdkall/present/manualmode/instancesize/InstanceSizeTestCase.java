@@ -5,7 +5,7 @@ import java.util.*;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 import org.junit.Test;
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/manualmode/src/main/java","modules/testcases/jdkAll/WildflyJakarta/manualmode/src/main/java","modules/testcases/jdkAll/EapJakarta/manualmode/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap73x/manualmode/src/main/java","modules/testcases/jdkAll/Eap7Plus/manualmode/src/main/java","modules/testcases/jdkAll/WildflyJakarta/manualmode/src/main/java","modules/testcases/jdkAll/EapJakarta/manualmode/src/main/java"})
 public class InstanceSizeTestCase {
 
     /**

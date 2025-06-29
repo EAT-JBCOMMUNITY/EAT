@@ -55,7 +55,7 @@ public class BasicAuthenticationTestCase {
         }
     }
 
-    @ATTest({"modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.4.4"})
+    @ATTest({"modules/testcases/jdkAll/Eap73x/security/src/main/java","modules/testcases/jdkAll/Eap7Plus/security/src/main/java#7.4.4"})
     public void basicAuthTest2(@ArquillianResource URL url) throws Exception {
         try {
             String requestUrlString = url.toExternalForm() + "/secure";

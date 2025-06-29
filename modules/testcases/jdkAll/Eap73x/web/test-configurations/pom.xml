@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--
+     *  ΙΔΕΑ : THE JBOSS TESTSUITE TO DEVELOP TESTS AGAINST INFINITE NUMBER OF JBOSS SERVERS
+    -->
+
+    <parent>
+        <groupId>org.jboss</groupId>
+        <artifactId>eap73x-additional-testsuite-web</artifactId>
+        <version>1.0.3.Final</version>
+    </parent>
+
+    <artifactId>eap73x-additional-testsuite-web-configuration</artifactId>
+    <name>eap7 additional testsuite: web : configuration</name>
+            
+    <properties>
+	<standalone.conf>${basedir}/../src/test/config/standaloneEap7/standalone.xml</standalone.conf>
+        <jboss.modules.dir>${basedir}/../../../../..</jboss.modules.dir>
+        <server>eap7</server>
+    </properties>
+        
+    <build>
+
+        <!--
+	    Surefire test executions
+	 -->
+	 <plugins>  
+		            
+	    <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-surefire-plugin</artifactId>
+
+		<executions>
+	            <execution>
+		        <id>default-test</id>
+		        <phase>test</phase>
+		        <goals>
+		            <goal>test</goal>
+		        </goals>
+		        <configuration>         
+		            <!-- Tests to execute. -->
+		            <includes>
+		                <include>org/jboss/additional/testsuite/jdkall/present/web/**/*TestCase.java</include>
+                            </includes>
+		            <excludes>
+                                <exclude>org/jboss/additional/testsuite/jdkall/present/web/**/IdentityPropagationAuthenticationTestCase.java</exclude>
+                            </excludes>
+		        </configuration>
+		    </execution>
+		</executions>
+
+                <configuration>
+                    <!-- Prevent test and server output appearing in console. -->
+                    <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
+                    <failIfNoTests>false</failIfNoTests>
+
+                    <!-- Arquillian's config files. -->
+                    <additionalClasspathElements combine.children="append">
+                        <additionalClasspathElement>${jboss.modules.dir}/src/config/arqEap7</additionalClasspathElement>
+                    </additionalClasspathElements>
+
+                </configuration>
+	    </plugin>
+
+            <!-- Build the server configuration -->
+	    <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-antrun-plugin</artifactId>
+	        <executions>
+	            <execution>
+	                <id>build-basic-config</id>
+	                <phase>process-test-resources</phase>
+	                <goals>
+	                    <goal>run</goal>
+	                </goals>
+	                <configuration>
+	                    <target>
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/clean-deployments.xml">
+	                            <property name="serverDir" value="/${jboss.modules.dir}/servers" />
+	                            <target name="clean-deployments"/>
+	                        </ant>
+	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/basic-build.xml">
+	                            <property name="workspace" value="/${jboss.modules.dir}" />
+                                    <property name="server" value="${server}" />
+                                    <property name="dist" value="jbossas" />
+	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
+	                            <target name="build-basic-check"/>
+	                        </ant>
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
+	                            <property name="fileName" value="rss.png" />
+                                    <property name="filePath" value="${jboss.modules.dir}/testcases/jdkAll/eap73x/web/test-configurations/src/test/resources" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/rss.png" />
+	                            <target name="copy-file"/>
+	                        </ant>
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
+	                            <property name="fileName" value="testTag-1.0-SNAPSHOT.war" />
+                                    <property name="filePath" value="${jboss.modules.dir}/testcases/jdkAll/eap73x/web/test-configurations/src/test/resources" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/testTag-1.0-SNAPSHOT.war" />
+	                            <target name="copy-file"/>
+	                        </ant>
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
+	                            <property name="fileName" value="bug.war" />
+                                    <property name="filePath" value="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/bug.war" />
+	                            <target name="copy-file"/>
+	                        </ant>
+	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
+	                            <property name="fileName" value="bug.war" />
+                                    <property name="filePath" value="${jboss.modules.dir}/testcases/jdkAll/Eap73x/web/test-configurations/src/test/resources/bug" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/bug/bug.war" />
+	                            <target name="copy-file"/>
+	                        </ant>
+	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
+	                            <property name="fileName" value="bug2.war" />
+                                    <property name="filePath" value="${jboss.modules.dir}/servers/eap7/build/target/jbossas/standalone/deployments" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/bug2.war" />
+	                            <target name="copy-file"/>
+	                        </ant>
+	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
+	                            <property name="fileName" value="bug2.war" />
+                                    <property name="filePath" value="${jboss.modules.dir}/testcases/jdkAll/Eap73x/web/test-configurations/src/test/resources/bug2" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/bug2.war" />
+	                            <target name="copy-file"/>
+	                        </ant>
+	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-dir.xml">
+                                    <property name="todir" value="${jboss.modules.dir}/testcases/jdkAll/Eap7Plus/web/test-configurations/src/test/resources/example.war" />
+                                    <property name="folderToCopy" value="${jboss.modules.dir}/src/config/resources/web/example.war" />
+	                            <target name="copy-dir"/>
+	                        </ant>
+                                <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
+	                            <property name="fileName" value="test.ear" />
+                                    <property name="filePath" value="${basedir}/../../../../../servers/eap7/build/target/jbossas/standalone/deployments" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/test.ear" />
+	                            <target name="copy-file"/>
+	                        </ant>
+	                        <ant antfile="${jboss.modules.dir}/src/test/scripts/copy-file.xml">
+	                            <property name="fileName" value="InjectTest.war" />
+                                    <property name="filePath" value="${basedir}/../../../../../servers/eap7/build/target/jbossas/standalone/deployments" />
+                                    <property name="fileToCopy" value="${jboss.modules.dir}/src/resources/InjectTest/InjectTest.war" />
+	                            <target name="copy-file"/>
+	                        </ant>
+	                    </target>
+	                </configuration>
+	            </execution>
+	        </executions>
+	    </plugin>
+
+        </plugins>
+    </build>
+
+</project>

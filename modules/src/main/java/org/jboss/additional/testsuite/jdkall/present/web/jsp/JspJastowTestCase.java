@@ -83,7 +83,7 @@ public class JspJastowTestCase {
         return war;
     }
 
-    @ATTest({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.10"})
+    @ATTest({"modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.10"})
     public void jspJastowTest(@ArquillianResource URL url) throws InterruptedException, TimeoutException {
         HttpClientBuilder httpClientBuilder = HttpClientBuilder.create()
                 .setMaxConnPerRoute(1)

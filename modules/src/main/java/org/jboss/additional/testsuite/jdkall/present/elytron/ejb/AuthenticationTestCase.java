@@ -78,7 +78,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  * @author <a href="mailto:cdewolf@redhat.com">Carlo de Wolf</a>
  * @author <a href="mailto:darran.lofthouse@jboss.com">Darran Lofthouse</a>
  */
-@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/elytron/src/main/java","modules/testcases/jdkAll/Wildfly/elytron/src/main/java#12.0.0.Alpha1","modules/testcases/jdkAll/WildflyJakarta/elytron/src/main/java#27.0.0.Alpha4*27.0.0.Beta2","modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/elytron/src/main/java","modules/testcases/jdkAll/Wildfly/elytron/src/main/java#12.0.0.Alpha1","modules/testcases/jdkAll/WildflyJakarta/elytron/src/main/java#27.0.0.Alpha4*27.0.0.Beta2","modules/testcases/jdkAll/Eap73x/elytron/src/main/java","modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java"})
 @RunWith(Arquillian.class)
 @ServerSetup({ AuthenticationTestCase.EjbSecurityDomainSetup.class })
 @Category(CommonCriteria.class)

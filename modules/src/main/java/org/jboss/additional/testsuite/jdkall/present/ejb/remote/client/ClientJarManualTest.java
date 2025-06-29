@@ -14,7 +14,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
-@EAT({"modules/testcases/jdkAll/EapJakarta/ejb/src/main/java","modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0","modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.9"})
+@EAT({"modules/testcases/jdkAll/EapJakarta/ejb/src/main/java","modules/testcases/jdkAll/WildflyJakarta/ejb/src/main/java#27.0.0","modules/testcases/jdkAll/Eap73x/ejb/src/main/java","modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.9"})
 public class ClientJarManualTest {
 
     private static String result = null;

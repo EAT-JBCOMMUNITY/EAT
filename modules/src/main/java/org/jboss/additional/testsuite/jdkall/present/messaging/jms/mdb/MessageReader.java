@@ -16,7 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/messaging/src/main/java#7.4.8"})
+@EAT({"modules/testcases/jdkAll/Eap73x/messaging/src/main/java","modules/testcases/jdkAll/Eap7Plus/messaging/src/main/java#7.4.8"})
 @MessageDriven(activationConfig = {
     @ActivationConfigProperty(propertyName = "destination", propertyValue = "java:/jms/queue/UCEWL_SANCTION_REPLY")
     , @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue")

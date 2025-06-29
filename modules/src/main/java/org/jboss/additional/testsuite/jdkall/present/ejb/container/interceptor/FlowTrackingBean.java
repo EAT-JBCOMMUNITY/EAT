@@ -41,7 +41,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 @Interceptors(NonContainerInterceptor.class)
 @Remote(FlowTracker.class)
 @LocalBean
-@EAT({"modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.8"})
+@EAT({"modules/testcases/jdkAll/Eap73x/ejb/src/main/java","modules/testcases/jdkAll/Eap7Plus/ejb/src/main/java#7.4.8"})
 public class FlowTrackingBean implements FlowTracker {
 
     private static final Logger logger = Logger.getLogger(FlowTrackingBean.class);

@@ -7,7 +7,7 @@ import javax.ws.rs.ext.Provider;
 
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.11"})
+@EAT({"modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.11"})
 @Provider
 public class MyExceptionMapper  implements ExceptionMapper<MyException> {
 	    @Override

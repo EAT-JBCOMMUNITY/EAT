@@ -23,7 +23,7 @@ import org.jboss.additional.testsuite.jdkall.present.elytron.ejb.authentication.
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
 
-@EAT({"modules/testcases/jdkAll/Wildfly/elytron/src/main/java#27.0.0.Alpha2*27.0.0.Alpha3", "modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java#7.4.5"})
+@EAT({"modules/testcases/jdkAll/Wildfly/elytron/src/main/java#27.0.0.Alpha2*27.0.0.Alpha3","modules/testcases/jdkAll/Eap7Plus/elytron/src/main/java#7.4.5"})
 @RunWith(Arquillian.class)
 public class RunAsTestCase {
 

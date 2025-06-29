@@ -32,7 +32,7 @@ import static org.junit.Assert.fail;
 
 @RunWith(Arquillian.class)
 @RunAsClient
-@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.9","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Beta1","modules/testcases/jdkAll/EapJakarta/web/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.9","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Beta1","modules/testcases/jdkAll/EapJakarta/web/src/main/java"})
 public class JsfFormOOBIndexTestCase {
 
     private final String serverLogPath = "target/surefire-reports/org.jboss.additional.testsuite.jdkall.present.web.jsf.JsfFormOOBIndexTestCase-output.txt";
@@ -44,7 +44,7 @@ public class JsfFormOOBIndexTestCase {
         return war;
     }
 
-    @ATTest({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.10","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Beta1","modules/testcases/jdkAll/EapJakarta/web/src/main/java"})
+    @ATTest({"modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.10","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#27.0.0.Beta1","modules/testcases/jdkAll/EapJakarta/web/src/main/java"})
     public void jsfWarTest(@ArquillianResource URL url) throws Exception {
         if(System.getProperty("webdriver.gecko.driver")!=null) {
 		String warpath = new File("").getAbsolutePath() + "/src/test/resources/bug/bug.war";
@@ -83,7 +83,7 @@ public class JsfFormOOBIndexTestCase {
         }
     }
 
-    @ATTest({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.8","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#29.0.0","modules/testcases/jdkAll/EapJakarta/web/src/main/java"})
+    @ATTest({"modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.8","modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#29.0.0","modules/testcases/jdkAll/EapJakarta/web/src/main/java"})
     public void jsfExpirationViewWarTest(@ArquillianResource URL url) throws Exception {
         if(System.getProperty("webdriver.gecko.driver")!=null) {
 		String warpath = new File("").getAbsolutePath() + "/src/test/resources/bug2/bug2.war";

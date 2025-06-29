@@ -27,7 +27,7 @@ import static org.jboss.as.test.integration.management.util.ModelUtil.createOpNo
  *
  * @author Daniel Cihak
  */
-@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jpa/src/main/java","modules/testcases/jdkAll/Wildfly/jpa/src/main/java#20.0.0.Final","modules/testcases/jdkAll/Eap7Plus/jpa/src/main/java","modules/testcases/jdkAll/Eap71x/logging/src/main/java#7.1.6","modules/testcases/jdkAll/Eap71x-Proposed/logging/src/main/java#7.1.6","modules/testcases/jdkAll/Eap72x/logging/src/main/java#7.2.0.GA"})
+@EAT({"modules/testcases/jdkAll/WildflyRelease-24.0.0.Final/jpa/src/main/java","modules/testcases/jdkAll/Wildfly/jpa/src/main/java#20.0.0.Final","modules/testcases/jdkAll/Eap73x/jpa/src/main/java","modules/testcases/jdkAll/Eap7Plus/jpa/src/main/java","modules/testcases/jdkAll/Eap71x/logging/src/main/java#7.1.6","modules/testcases/jdkAll/Eap71x-Proposed/logging/src/main/java#7.1.6","modules/testcases/jdkAll/Eap72x/logging/src/main/java#7.2.0.GA"})
 public class LogManagerEncodingAttributeServerSetupTask implements ServerSetupTask {
 
     public static PrintStream oldOut;

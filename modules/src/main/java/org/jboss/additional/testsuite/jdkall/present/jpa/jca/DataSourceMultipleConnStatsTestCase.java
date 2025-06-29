@@ -72,7 +72,7 @@ import static org.junit.Assert.assertEquals;
  */
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jpa/src/main/java#7.4.8","modules/testcases/jdkAll/WildflyJakarta/jpa/src/main/java#28.0.0","modules/testcases/jdkAll/EapJakarta/jpa/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap73x/jpa/src/main/java","modules/testcases/jdkAll/Eap7Plus/jpa/src/main/java#7.4.8","modules/testcases/jdkAll/WildflyJakarta/jpa/src/main/java#28.0.0","modules/testcases/jdkAll/EapJakarta/jpa/src/main/java"})
 @RunWith(Arquillian.class)
 @ServerSetup(DataSourceMultipleConnStatsServerSetupTask.class)
 @RunAsClient

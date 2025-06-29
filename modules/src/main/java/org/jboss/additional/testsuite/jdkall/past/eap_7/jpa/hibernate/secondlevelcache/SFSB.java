@@ -45,7 +45,7 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
  */
 @Stateful
 @TransactionManagement(TransactionManagementType.CONTAINER)
-@EAT({"modules/testcases/jdkAll/Eap7Plus/jpa/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/jpa/src/main/java","modules/testcases/jdkAll/Eap71x/jpa/src/main/java"})
+@EAT({"modules/testcases/jdkAll/Eap73x/jpa/src/main/java","modules/testcases/jdkAll/Eap7Plus/jpa/src/main/java","modules/testcases/jdkAll/Eap71x-Proposed/jpa/src/main/java","modules/testcases/jdkAll/Eap71x/jpa/src/main/java"})
 public class SFSB {
 
     private static SessionFactory sessionFactory;

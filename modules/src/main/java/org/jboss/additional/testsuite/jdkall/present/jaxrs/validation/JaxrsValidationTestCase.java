@@ -55,7 +55,7 @@ public class JaxrsValidationTestCase {
     @ArquillianResource
     private URI serviceUri;
 
-    @ATTest({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#27.0.0","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#29.0.0","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.11"}) 
+    @ATTest({"modules/testcases/jdkAll/Wildfly/jaxrs/src/main/java#27.0.0","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#29.0.0","modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.11"}) 
     public void jaxrsValidation() {
         final String targetUrl = serviceUri.toString() + "greeter";
         ResteasyClient client = (ResteasyClient) ResteasyClientBuilder.newClient();
@@ -71,7 +71,7 @@ public class JaxrsValidationTestCase {
 
     }
 
-    @ATTest({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.4","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#29.0.0","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})  
+    @ATTest({"modules/testcases/jdkAll/Eap73x/jaxrs/src/main/java","modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.4","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#29.0.0","modules/testcases/jdkAll/EapJakarta/jaxrs/src/main/java"})  
     public void jaxrsSValidation() {
         final String targetUrl = serviceUri.toString() + "greeter";
         ResteasyClient client = (ResteasyClient) ResteasyClientBuilder.newClient();

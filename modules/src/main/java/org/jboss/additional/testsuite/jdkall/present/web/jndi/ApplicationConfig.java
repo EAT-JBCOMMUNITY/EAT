@@ -4,7 +4,7 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.3"})
+@EAT({"modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.3"})
 @Startup
 @Singleton
 public class ApplicationConfig implements ConfigInterface {

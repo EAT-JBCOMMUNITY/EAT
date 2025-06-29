@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--@EAT({"modules/testcases/jdkAll/Wildfly/batch/test-configurations/src/test/resources#27.0.0", "modules/testcases/jdkAll/WildflyJakarta/batch/test-configurations/src/test/resources#27.0.0","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/batch/test-configurations/src/test/resources", "modules/testcases/jdkAll/Eap7Plus/batch/test-configurations/src/test/resources#7.4.5","modules/testcases/jdkAll/EapJakarta/batch/test-configurations/src/test/resources"})-->
+<!--@EAT({"modules/testcases/jdkAll/Wildfly/batch/test-configurations/src/test/resources#27.0.0", "modules/testcases/jdkAll/WildflyJakarta/batch/test-configurations/src/test/resources#27.0.0","modules/testcases/jdkAll/WildflyRelease-27.0.0.Final/batch/test-configurations/src/test/resources", "modules/testcases/jdkAll/Eap73x/batch/test-configurations/src/test/resources","modules/testcases/jdkAll/Eap7Plus/batch/test-configurations/src/test/resources#7.4.5","modules/testcases/jdkAll/EapJakarta/batch/test-configurations/src/test/resources"})-->
 <job id="itemreadertransaction" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/jobXML_1_0.xsd"

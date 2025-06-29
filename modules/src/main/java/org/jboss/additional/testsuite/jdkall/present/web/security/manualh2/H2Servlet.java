@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import org.h2.util.JdbcUtils;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
-@EAT({"modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.11"})
+@EAT({"modules/testcases/jdkAll/Eap73x/web/src/main/java","modules/testcases/jdkAll/Eap7Plus/web/src/main/java#7.4.11"})
 @WebServlet(urlPatterns = {H2Servlet.URL_PATTERN})
 public class H2Servlet extends HttpServlet {
 
