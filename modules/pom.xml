@@ -43,6 +43,21 @@
             </modules>
 
         </profile>
+        
+        <profile>
+            <id>digitalworlds.testsuite</id>
+            <activation>
+                <property>
+                    <name>digitalworlds</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <modules>
+                <module>testcases/jdkAll/DigitalWorlds</module>
+            </modules>
+
+        </profile>
 
         <profile>
             <id>eap64x.jdk8.testsuite</id>

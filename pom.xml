@@ -167,6 +167,20 @@
 	    </properties>
         </profile>
         <profile>
+            <id>digitalworlds.testsuite</id>
+            <activation>
+                <property>
+                    <name>digitalworlds</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <properties>
+		<serverDir2>DigitalWorlds</serverDir2>
+                <activemodules></activemodules>
+	    </properties>
+        </profile>
+        <profile>
             <id>springtests</id>
             <activation>
                 <property>
