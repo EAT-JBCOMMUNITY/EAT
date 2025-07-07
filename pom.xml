@@ -177,7 +177,7 @@
 
             <properties>
 		<serverDir2>DigitalWorlds</serverDir2>
-                <activemodules></activemodules>
+                <activemodules>thalassa</activemodules>
 	    </properties>
         </profile>
         <profile>
