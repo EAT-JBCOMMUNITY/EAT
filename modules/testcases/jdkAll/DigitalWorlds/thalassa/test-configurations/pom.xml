@@ -54,8 +54,8 @@
 		        <configuration>         
 		            <!-- Tests to execute. -->
 		            <includes>
-		                <include>org/jboss/additional/testsuite/jdkall/present/thalassa/**/*Test.java</include>
-		                <include>org/jboss/additional/testsuite/jdkall/present/thalassa/**/*TestCase.java</include>
+		                <include>org/example/thalassa/**/*Test.java</include>
+		                <include>org/example/thalassa/**/*TestCase.java</include>
 		            </includes> 
 		        </configuration>
 		    </execution>
