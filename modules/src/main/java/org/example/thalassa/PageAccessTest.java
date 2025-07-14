@@ -19,8 +19,6 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 @EAT({"modules/testcases/jdkAll/DigitalWorlds/thalassa/src/main/java"})
 public class PageAccessTest {
 
-    private static final String PAGE_URL = "https://www.digitalworlds.top/thalassa"; 
-
     private String fetchHtmlContent(String urlString) throws IOException {
         URL url = new URL(urlString);
         StringBuilder content = new StringBuilder();
@@ -36,6 +34,7 @@ public class PageAccessTest {
     @Test
     void testHtmlBaseThalassaAttributeExists() {
         try {
+            String PAGE_URL = "https://www.digitalworlds.top/thalassa"; 
             String htmlContent = fetchHtmlContent(PAGE_URL);
             System.out.println(htmlContent);
             Pattern pattern = Pattern.compile("<base href=\"/thalassa/\">", Pattern.CASE_INSENSITIVE);
@@ -49,6 +48,7 @@ public class PageAccessTest {
     @Test
     void testPageHasTitleHeading() {
         try {
+            String PAGE_URL = "https://www.digitalworlds.top/thalassa"; 
             String htmlContent = fetchHtmlContent(PAGE_URL);
             System.out.println(htmlContent);
             // Very basic check for presence of an H1 tag. Doesn't check if it's the *first* heading.
