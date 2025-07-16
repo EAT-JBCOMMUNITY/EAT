@@ -1268,7 +1268,7 @@
     <dependency>
       <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-core</artifactId>
-      <version>4.0.5.redhat-00001</version>
+      <version>4.0.7</version>
     </dependency>
     
     <dependency>
