@@ -176,7 +176,7 @@ If the APK is built using a developer preview SDK (if the targetSdkVersion is a 
 adb install path/to/your_app.apk
 ```
 
-Testing Digital Wordls projects
+Testing Digital projects
 -----------------------------------------
 1. keytool -import -trustcacerts -file ./digitalworlds-top.pem -alias myRootCA -keystore "$JAVA_HOME/lib/security/cacerts"
 2. mvn clean install -Dstandalone -Ddigitalworlds
