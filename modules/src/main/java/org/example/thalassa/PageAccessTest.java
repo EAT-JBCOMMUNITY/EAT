@@ -73,4 +73,18 @@ public class PageAccessTest {
             fail("Failed to fetch or parse HTML content: " + e.getMessage());
         }
     }
+
+    @Test
+    void testHtmlBaseRegisterThalassaAttributeExists() {
+        try {
+            String PAGE_URL = "https://www.digitalworlds.top/thalassa#register"; 
+            String htmlContent = fetchHtmlContent(PAGE_URL);
+            System.out.println(htmlContent);
+            Pattern pattern = Pattern.compile("<base href=\"/thalassa/\">", Pattern.CASE_INSENSITIVE);
+            Matcher matcher = pattern.matcher(htmlContent);
+            assertTrue(matcher.find(), "HTML tag should have a valid 'thalassa' attribute for accessibility.");
+        } catch (IOException e) {
+            fail("Failed to fetch or parse HTML content: " + e.getMessage());
+        }
+    }
 }
