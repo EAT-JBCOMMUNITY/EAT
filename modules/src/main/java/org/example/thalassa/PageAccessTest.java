@@ -16,7 +16,6 @@ import org.jboss.eap.additional.testsuite.annotations.EAT;
 /**
 * Needed before executing the testcase : keytool -import -trustcacerts -file ./digitalworlds-top.pem -alias myRootCA -keystore "$JAVA_HOME/lib/security/cacerts"
 **/
-@EAT({"modules/testcases/jdkAll/DigitalWorlds/thalassa/src/main/java"})
 public class PageAccessTest {
 
     private String fetchHtmlContent(String urlString) throws IOException {
