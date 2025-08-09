@@ -122,7 +122,7 @@ public class MatrixParamsTestCase {
         }
     }
     
-    @ATTest({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.24","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#38.0.0"})
+    @ATTest({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.24","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java39.0.0"})
     public void testServiceJson() throws Exception {
         String uri = url.getPath() + "rest/json";
         log.info("uri: " + uri);
@@ -143,7 +143,7 @@ public class MatrixParamsTestCase {
         }
     }
     
-    @ATTest({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.24","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java#38.0.0"})
+    @ATTest({"modules/testcases/jdkAll/Eap7Plus/jaxrs/src/main/java#7.4.24","modules/testcases/jdkAll/WildflyJakarta/jaxrs/src/main/java39.0.0"})
     public void testServiceXml() throws Exception {
         String uri = url.getPath() + "rest/xml";
         log.info("uri: " + uri);

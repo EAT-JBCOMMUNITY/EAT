@@ -62,7 +62,7 @@ public class RunAsTestCase {
         return ejb;
     }
 
-    @ATTest({"modules/testcases/jdkAll/WildflyJakarta/elytron/src/main/java#38.0.0"})
+    @ATTest({"modules/testcases/jdkAll/WildflyJakarta/elytron/src/main/java39.0.0"})
     public void testRunAsPrincipal() throws Exception {
         assertTrue(runAsPrincipal.getInfo().compareTo("user2") == 0);
     }
