@@ -12,7 +12,7 @@ import jakarta.transaction.UserTransaction;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
 
 @WebServlet(name = "TimeoutServlet", urlPatterns = {"/TimeoutServlet"})
-@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java39.0.0"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/web/src/main/java#39.0.0"})
 public class TimeoutServlet extends HttpServlet {
 
     @Override
