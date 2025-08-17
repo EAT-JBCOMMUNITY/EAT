@@ -781,6 +781,16 @@
 		    <version>1.19.1</version>
 		    <scope>test</scope>
 		</dependency>
+	    <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.11.0</version> 
+	    </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.9.3</version>
+        </dependency>
 		<!-- Additional dynamic dependencies should be added here.-->
             </dependencies>
 
@@ -1527,6 +1537,16 @@
 		    <version>1.19.1</version>
 		    <scope>test</scope>
 		</dependency>
+		<dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.11.0</version> 
+	    </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.9.3</version>
+        </dependency>
 		<!-- Additional dynamic dependencies should be added here.-->
             </dependencies>
 
@@ -1542,6 +1562,19 @@
             </activation>
             <modules>
                 <module>basic</module>
+            </modules>
+        </profile>
+
+		<profile>
+            <id>seleniumActivate</id>
+            <activation>
+                <property>
+                    <name>module</name>
+                    <value>selenium</value>
+                </property>
+            </activation>
+            <modules>
+                <module>selenium</module>
             </modules>
         </profile>
         
@@ -1918,6 +1951,7 @@
 	    </activation>
             <modules>
                 <module>basic</module>
+				<module>selenium</module>
                 <module>visualinfo</module>
 		<module>junit</module>
 		<module>core</module>
