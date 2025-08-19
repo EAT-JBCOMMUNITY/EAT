@@ -1565,7 +1565,7 @@
             </modules>
         </profile>
 
-		<profile>
+	<profile>
             <id>seleniumActivate</id>
             <activation>
                 <property>
@@ -1951,7 +1951,7 @@
 	    </activation>
             <modules>
                 <module>basic</module>
-				<module>selenium</module>
+		<module>selenium</module>
                 <module>visualinfo</module>
 		<module>junit</module>
 		<module>core</module>
