@@ -58,7 +58,6 @@
 		            <includes>
 		                <include>org/jboss/additional/testsuite/jdkall/present/selenium/**/*Test.java</include>
 		                <include>org/jboss/additional/testsuite/jdkall/present/selenium/**/*TestCase.java</include>
-                                <include>org/remote/tests/**/*Test.java</include> 
 		            </includes> 
 		        </configuration>
 		    </execution>
@@ -87,7 +86,7 @@
                                     <property name="server" value="${server}" />
                                     <property name="dist" value="jbossas" />
 	                            <property name="standaloneConfiguration" value="${standalone.conf}" />
-	                            <target name="build-selenium-check"/>
+	                            <target name="build-basic-check"/>
 	                        </ant>
                            
 	                    </target>

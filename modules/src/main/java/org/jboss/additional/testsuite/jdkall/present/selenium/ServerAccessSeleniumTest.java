@@ -3,37 +3,50 @@ package org.jboss.additional.testsuite.jdkall.present.selenium;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.fail;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.fail;
+import static org.junit.Assert.assertTrue;
+import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.container.test.api.RunAsClient;
+import org.jboss.arquillian.drone.api.annotation.Drone;
+import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.shrinkwrap.api.Archive;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
-//@AT({"modules/testcases/jdkAll/WildflyJakarta/selenium/src/main/java"})
+@EAT({"modules/testcases/jdkAll/WildflyJakarta/selenium/src/main/java"})
+@RunWith(Arquillian.class)
+@RunAsClient
 public class ServerAccessSeleniumTest {
 
+    @Drone
+    private WebDriver driver;
+
+    static {
+        WebDriverManager.chromedriver().setup();
+    }
+    
     @Deployment
     public static Archive<?> getDeployment() {
         JavaArchive archive = ShrinkWrap.create(JavaArchive.class);
-        archive.addClass(BasicTest.class);
+        archive.addClass(ServerAccessSeleniumTest.class);
+        archive.addPackages(true, "org.openqa.selenium");
         return archive;
     }
 
     @Test
-    void testHtmlBaseThalassaAttributeExists() {
-        // Use WebDriverManager to automatically set up the ChromeDriver
-        WebDriverManager.chromedriver().setup();
-
-        // Create a new instance of the ChromeDriver
-        WebDriver driver = new ChromeDriver();
-
+    public void testHtmlServerTitleAttributeExists() {
+        
         try {
             // Navigate to the specified URL
-            driver.get("https://localhost:8080");
+            driver.get("http://localhost:8080");
 
             // Optional: Print the page title to verify a successful navigation
             String pageTitle = driver.getTitle();
             System.out.println("Page Title: " + pageTitle);
-        //    assertTrue(pageTitle.compareTo("app")==0, "Page should contain at least one <title> heading for proper structure.");
+            assertTrue("Page should contain at least one <title> heading for proper structure.", pageTitle.compareTo("Welcome to WildFly")==0);
             
            
         } catch (Exception e) {
