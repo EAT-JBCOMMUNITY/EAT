@@ -59,4 +59,28 @@ public class ServerAccessSeleniumTest {
             }
         }
     }
+
+    @Test
+    public void testHtmlManagementTitleAttributeExists() {
+        
+        try {
+            // Navigate to the specified URL
+            driver.get("http://localhost:9990");
+
+            // Optional: Print the page title to verify a successful navigation
+            String pageTitle = driver.getTitle();
+            System.out.println("Page Title: " + pageTitle);
+            assertTrue("Page should contain at least one <title> heading for proper structure.", pageTitle.compareTo("HAL Management Console")==0);
+            
+           
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail();
+        } finally {
+            // It is crucial to close the browser after the test is complete
+            if (driver != null) {
+                driver.quit();
+            }
+        }
+    }
 }
