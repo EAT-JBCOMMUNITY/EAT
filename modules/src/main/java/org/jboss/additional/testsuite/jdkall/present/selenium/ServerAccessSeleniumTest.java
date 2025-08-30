@@ -65,7 +65,7 @@ public class ServerAccessSeleniumTest {
         
         try {
             // Navigate to the specified URL
-            driver.get("http://localhost:9990");
+            driver.get("http://localhost:9990/console/index.html");
 
             // Optional: Print the page title to verify a successful navigation
             String pageTitle = driver.getTitle();
