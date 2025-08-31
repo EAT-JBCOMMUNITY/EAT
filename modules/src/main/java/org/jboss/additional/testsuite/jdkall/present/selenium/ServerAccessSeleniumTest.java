@@ -13,12 +13,16 @@ import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.jboss.eap.additional.testsuite.annotations.EAT;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import org.junit.runner.RunWith;
+
 
 @EAT({"modules/testcases/jdkAll/WildflyJakarta/selenium/src/main/java"})
 @RunWith(Arquillian.class)
 @RunAsClient
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ServerAccessSeleniumTest {
 
     @Drone
@@ -37,9 +41,10 @@ public class ServerAccessSeleniumTest {
     }
 
     @Test
-    public void testHtmlServerTitleAttributeExists() {
+    public void test1HtmlServerTitleAttributeExists() {
         
         try {
+            
             // Navigate to the specified URL
             driver.get("http://localhost:8080");
 
@@ -54,18 +59,16 @@ public class ServerAccessSeleniumTest {
             fail();
         } finally {
             // It is crucial to close the browser after the test is complete
-            if (driver != null) {
-                driver.quit();
-            }
+            // The last test will close the driver
         }
     }
 
-  //  @Test
-    public void testHtmlManagementTitleAttributeExists() {
+    @Test
+    public void test2HtmlManagementTitleAttributeExists() {
         
         try {
             // Navigate to the specified URL
-            driver.get("http://localhost:9990/console/index.html");
+            driver.get("http://localhost:9990/console");
 
             // Optional: Print the page title to verify a successful navigation
             String pageTitle = driver.getTitle();
