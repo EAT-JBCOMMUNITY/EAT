@@ -14,7 +14,7 @@
         <version>1.0.3.Final</version>
     </parent>
 
-    <artifactId>wildfly-jakarta-additional-testsuite-selenium-configuration<2/artifactId>
+    <artifactId>wildfly-jakarta-additional-testsuite-selenium-configuration2</artifactId>
     <name>wildfly additional testsuite: selenium : configuration2</name>
             
     <properties>
