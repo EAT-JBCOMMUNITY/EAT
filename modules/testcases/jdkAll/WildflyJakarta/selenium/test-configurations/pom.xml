@@ -59,6 +59,10 @@
 		                <include>org/jboss/additional/testsuite/jdkall/present/selenium/**/*Test.java</include>
 		                <include>org/jboss/additional/testsuite/jdkall/present/selenium/**/*TestCase.java</include>
 		            </includes> 
+		            <excludes>
+		                <exclude>org/jboss/additional/testsuite/jdkall/present/selenium/afterlogin/**/*Test.java</exclude>
+		                <exclude>org/jboss/additional/testsuite/jdkall/present/selenium/afterlogin/**/*TestCase.java</exclude>
+		            </excludes> 
 		        </configuration>
 		    </execution>
 		</executions>
