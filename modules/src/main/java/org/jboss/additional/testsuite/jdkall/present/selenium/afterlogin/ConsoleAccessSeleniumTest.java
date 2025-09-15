@@ -3,6 +3,8 @@ package org.jboss.additional.testsuite.jdkall.present.selenium.afterlogin;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.jboss.hal.testsuite.page.config.IOSubsystemPage;
+import org.jboss.arquillian.graphene.page.Page;
 import static org.junit.Assert.fail;
 import static org.junit.Assert.assertTrue;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -27,6 +29,9 @@ public class ConsoleAccessSeleniumTest {
 
     @Drone
     private WebDriver driver;
+    
+    @Page
+    private IOSubsystemPage page;
 
     static {
         WebDriverManager.chromedriver().setup();
@@ -41,16 +46,11 @@ public class ConsoleAccessSeleniumTest {
     }
 
     @Test
-    public void test1HtmlConsoleAccessDeploymentPage() {
+    public void test1HtmlConsoleAccessIOConfigPage() {
         
         try {
             
-            // Navigate to the specified URL
-            driver.get("http://test:test@localhost:9990/console/index.html#deployments");
-
-            String pageSource = driver.getPageSource();
-            System.out.println("PageSource: " + pageSource);
-            assertTrue("Page should contain the deployment page text.", pageSource.contains("A deployment represents anything that can be deployed (e.g. an application such as EJB-JAR, WAR, EAR, any kind of standard archive such as RAR or JBoss-specific deployment) into a server."));
+            page.navigateToBufferPools();
             
            
         } catch (Exception e) {

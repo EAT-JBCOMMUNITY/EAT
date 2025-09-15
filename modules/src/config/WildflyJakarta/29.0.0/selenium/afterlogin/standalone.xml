@@ -53,7 +53,7 @@
         </audit-log>
         <management-interfaces>
             <http-interface console-enabled="true">
-                <http-upgrade enabled="true" sasl-authentication-factory="management-sasl-authentication"/>
+                <http-upgrade enabled="true"/>
                 <socket-binding http="management-http"/>
             </http-interface>
         </management-interfaces>
